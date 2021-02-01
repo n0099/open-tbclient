@@ -19,7 +19,7 @@ import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class MenuPopupHelper implements MenuHelper {
     private static final int TOUCH_EPICENTER_SIZE_DP = 48;
     private View mAnchorView;

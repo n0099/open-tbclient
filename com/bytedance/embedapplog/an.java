@@ -7,7 +7,7 @@ import android.os.IBinder;
 import com.bytedance.embedapplog.bp;
 import com.bytedance.embedapplog.e;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class an extends ax<e> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public an() {
@@ -15,7 +15,7 @@ public final class an extends ax<e> {
     }
 
     @Override // com.bytedance.embedapplog.ax
-    protected bp.b<e, String> elz() {
+    protected bp.b<e, String> enS() {
         return new bp.b<e, String>() { // from class: com.bytedance.embedapplog.an.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess.backbaidubox;
 
 import com.baidu.tbadk.mutiprocess.b;
-import com.baidu.tbadk.util.d;
+import com.baidu.tbadk.util.e;
 /* loaded from: classes.dex */
 public class a implements b<BackBaiduBoxViewEvent> {
     /* JADX DEBUG: Method merged with bridge method */
@@ -10,7 +10,7 @@ public class a implements b<BackBaiduBoxViewEvent> {
         if (backBaiduBoxViewEvent == null) {
             return false;
         }
-        d.bEN().ls(backBaiduBoxViewEvent.isShow);
+        e.bFg().lv(backBaiduBoxViewEvent.isShow);
         return true;
     }
 }

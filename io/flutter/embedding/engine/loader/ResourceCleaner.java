@@ -5,13 +5,13 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import java.io.File;
 import java.io.FilenameFilter;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 class ResourceCleaner {
     private static final long DELAY_MS = 5000;
     private static final String TAG = "ResourceCleaner";
     private final Context mContext;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     private static class CleanTask extends AsyncTask<Void, Void, Void> {
         private final File[] mFilesToDelete;
 

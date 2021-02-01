@@ -9,71 +9,71 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class e extends d {
-    private int maO;
+    private int mjR;
     private int viewHeight;
 
     public e(Context context, View view) {
         super(context, view);
-        wZ(false);
-        this.maO = l.getEquipmentWidth(this.mContext) / 10;
+        xr(false);
+        this.mjR = l.getEquipmentWidth(this.mContext) / 10;
     }
 
     public void setData(String str, String str2) {
         this.mVideoUrl = str2;
-        dsZ();
-        dta();
-        Gf(this.mAm);
-        this.mAD.setPlayer(this.gxn);
-        this.amH.setVisibility(8);
-        this.amC.setPlaceHolder(3);
-        this.amC.startLoad(str, 10, false);
-        this.mAF.setShareData(null);
+        dvm();
+        dvn();
+        Gy(this.mJx);
+        this.mJN.setPlayer(this.gzX);
+        this.amx.setVisibility(8);
+        this.ams.setPlaceHolder(3);
+        this.ams.startLoad(str, 10, false);
+        this.mJP.setShareData(null);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
     public void onPrepared() {
         super.onPrepared();
-        if (this.gxn.getCyberPlayer() != null) {
-            CyberPlayer cyberPlayer = this.gxn.getCyberPlayer();
-            this.amL = cyberPlayer.getVideoHeight() > cyberPlayer.getVideoWidth();
+        if (this.gzX.getCyberPlayer() != null) {
+            CyberPlayer cyberPlayer = this.gzX.getCyberPlayer();
+            this.amB = cyberPlayer.getVideoHeight() > cyberPlayer.getVideoWidth();
             this.viewHeight = (int) ((cyberPlayer.getVideoHeight() / cyberPlayer.getVideoWidth()) * l.getEquipmentWidth(this.mContext));
             if (this.viewHeight > l.getEquipmentHeight(this.mContext)) {
                 this.viewHeight = l.getEquipmentHeight(this.mContext);
             }
-            this.mAL.getLayoutParams().height = this.viewHeight;
-            this.mAL.requestLayout();
+            this.mJV.getLayoutParams().height = this.viewHeight;
+            this.mJV.requestLayout();
         }
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
     protected void initVideoMute() {
-        this.gxn.setVolume(1.0f, 1.0f);
+        this.gzX.setVolume(1.0f, 1.0f);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void wg(boolean z) {
+    public void wx(boolean z) {
         if (this.mContext instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) this.mContext).setSwipeBackEnabled(this.lDY);
+            ((BaseFragmentActivity) this.mContext).setSwipeBackEnabled(this.lMN);
         } else if (this.mContext instanceof BaseActivity) {
-            ((BaseActivity) this.mContext).setSwipeBackEnabled(this.lDY);
+            ((BaseActivity) this.mContext).setSwipeBackEnabled(this.lMN);
         }
-        super.wg(z);
-        if (this.lDY) {
-            this.mAL.getLayoutParams().height = -1;
+        super.wx(z);
+        if (this.lMN) {
+            this.mJV.getLayoutParams().height = -1;
             return;
         }
-        this.mAL.getLayoutParams().height = this.viewHeight;
+        this.mJV.getLayoutParams().height = this.viewHeight;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
     protected boolean ac(MotionEvent motionEvent) {
-        return this.lDY || motionEvent.getX() > ((float) this.maO);
+        return this.lMN || motionEvent.getX() > ((float) this.mjR);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void Gf(int i) {
-        super.Gf(i);
-        this.mAH.setVisibility(8);
-        this.mAB.setVisibility(8);
+    public void Gy(int i) {
+        super.Gy(i);
+        this.mJR.setVisibility(8);
+        this.mJL.setVisibility(8);
     }
 }

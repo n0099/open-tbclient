@@ -1,11 +1,11 @@
 package com.qq.e.comm.plugin.s;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f12455a;
+    private int f12457a;
 
     public static i a(JSONObject jSONObject) {
         JSONObject optJSONObject;
@@ -26,10 +26,10 @@ public class i {
     }
 
     public int a() {
-        return this.f12455a;
+        return this.f12457a;
     }
 
     public void a(int i) {
-        this.f12455a = i;
+        this.f12457a = i;
     }
 }

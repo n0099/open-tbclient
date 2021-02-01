@@ -7,7 +7,7 @@ import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.JSONMessageCodec;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class SettingsChannel {
     private static final String ALWAYS_USE_24_HOUR_FORMAT = "alwaysUse24HourFormat";
     public static final String CHANNEL_NAME = "flutter/settings";
@@ -26,7 +26,7 @@ public class SettingsChannel {
         return new MessageBuilder(this.channel);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static class MessageBuilder {
         @NonNull
         private final BasicMessageChannel<Object> channel;
@@ -61,7 +61,7 @@ public class SettingsChannel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public enum PlatformBrightness {
         light("light"),
         dark("dark");

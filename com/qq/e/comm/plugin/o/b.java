@@ -13,27 +13,27 @@ import com.qq.e.comm.plugin.y.u;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b implements HADI {
 
     /* renamed from: a  reason: collision with root package name */
-    private static AtomicInteger f12333a = new AtomicInteger();
+    private static AtomicInteger f12335a = new AtomicInteger();
 
     /* renamed from: b  reason: collision with root package name */
-    private static HashMap<Integer, WeakReference<HybridADListener>> f12334b = new HashMap<>();
+    private static HashMap<Integer, WeakReference<HybridADListener>> f12336b = new HashMap<>();
     private final HybridADListener c;
     private final HybridADSetting d;
-    private final int e = f12333a.incrementAndGet();
+    private final int e = f12335a.incrementAndGet();
 
     public b(HybridADSetting hybridADSetting, HybridADListener hybridADListener) {
         this.d = hybridADSetting;
         this.c = hybridADListener;
-        f12334b.put(Integer.valueOf(this.e), new WeakReference<>(hybridADListener));
+        f12336b.put(Integer.valueOf(this.e), new WeakReference<>(hybridADListener));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static HybridADListener a(int i) {
-        WeakReference<HybridADListener> weakReference = f12334b.get(Integer.valueOf(i));
+        WeakReference<HybridADListener> weakReference = f12336b.get(Integer.valueOf(i));
         if (weakReference != null) {
             return weakReference.get();
         }

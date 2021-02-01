@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.special_forum.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends BaseCardInfo {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public long end_time;

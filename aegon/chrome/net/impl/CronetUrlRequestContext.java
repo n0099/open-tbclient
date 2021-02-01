@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CronetUrlRequestContext extends CronetEngineBase {
     public static final String LOG_TAG = "CronetUrlRequestContext";
     public static final HashSet<String> sInUseStoragePaths = new HashSet<>();
@@ -35,7 +35,7 @@ public class CronetUrlRequestContext extends CronetEngineBase {
     public final Map<RequestFinishedInfo.Listener, VersionSafeCallbacks$RequestFinishedInfoListener> mFinishedListenerMap = new HashMap();
 
     /* renamed from: aegon.chrome.net.impl.CronetUrlRequestContext$1 */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class AnonymousClass1 implements Runnable {
         public AnonymousClass1() {
             CronetUrlRequestContext.this = r1;

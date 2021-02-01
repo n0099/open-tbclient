@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GuardClubMemberListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public boolean bfU;
-    public boolean bfV;
-    public com.baidu.live.guardclub.f bfX;
-    public int gXH;
-    public List<com.baidu.live.guardclub.f> gXO;
+    public boolean bjd;
+    public boolean bje;
+    public com.baidu.live.guardclub.f bjg;
+    public int har;
     public boolean hasMore;
+    public List<com.baidu.live.guardclub.f> hay;
     public int memberCount;
 
     public GuardClubMemberListHttpResponseMessage() {
@@ -26,24 +26,24 @@ public class GuardClubMemberListHttpResponseMessage extends JsonHttpResponsedMes
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.bfU = optJSONObject.optInt(GuardClubInfoActivityConfig.IS_CLUB_MEMBER) == 1;
+            this.bjd = optJSONObject.optInt(GuardClubInfoActivityConfig.IS_CLUB_MEMBER) == 1;
             this.memberCount = optJSONObject.optInt("total_count");
-            this.bfV = optJSONObject.optInt("is_anchor") == 1;
+            this.bje = optJSONObject.optInt("is_anchor") == 1;
             this.hasMore = optJSONObject.optInt("has_more") == 1;
-            this.gXH = optJSONObject.optInt(Config.PACKAGE_NAME);
+            this.har = optJSONObject.optInt(Config.PACKAGE_NAME);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("login_member_info");
             if (optJSONObject2 != null) {
-                this.bfX = new com.baidu.live.guardclub.f();
-                this.bfX.parseJson(optJSONObject2);
+                this.bjg = new com.baidu.live.guardclub.f();
+                this.bjg.parseJson(optJSONObject2);
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("member_rank_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.gXO = new ArrayList();
+                this.hay = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                     com.baidu.live.guardclub.f fVar = new com.baidu.live.guardclub.f();
                     fVar.parseJson(optJSONObject3);
-                    this.gXO.add(fVar);
+                    this.hay.add(fVar);
                 }
             }
         }

@@ -11,59 +11,59 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 /* loaded from: classes2.dex */
 public class HomePageAlaLiveThreadAdapter extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.j, HomePageAlaLiveThreadViewHolder> implements com.baidu.tieba.a.f {
-    private String air;
-    public BdUniqueId fEN;
-    private NEGFeedBackView.a gbz;
-    com.baidu.tieba.card.aa<com.baidu.tieba.card.data.j> iGf;
-    private com.baidu.tieba.card.k kbr;
+    private String aif;
+    public BdUniqueId fGZ;
+    private NEGFeedBackView.a gdO;
+    com.baidu.tieba.card.ab<com.baidu.tieba.card.data.j> iLO;
+    private com.baidu.tieba.card.k kjB;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public HomePageAlaLiveThreadAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.gbz = null;
-        this.iGf = new com.baidu.tieba.card.aa<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.personalize.adapter.HomePageAlaLiveThreadAdapter.1
+        this.gdO = null;
+        this.iLO = new com.baidu.tieba.card.ab<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.personalize.adapter.HomePageAlaLiveThreadAdapter.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.j jVar) {
                 int i = 0;
-                if (HomePageAlaLiveThreadAdapter.this.kbr.gln != view) {
-                    if (view == HomePageAlaLiveThreadAdapter.this.kbr.hiT.getCommentContainer()) {
+                if (HomePageAlaLiveThreadAdapter.this.kjB.gnT != view) {
+                    if (view == HomePageAlaLiveThreadAdapter.this.kjB.hng.getCommentContainer()) {
                         HomePageAlaLiveThreadAdapter.this.a(jVar, view);
                         i = 5;
-                    } else if (view == HomePageAlaLiveThreadAdapter.this.kbr.ioL.getCommentContainer()) {
+                    } else if (view == HomePageAlaLiveThreadAdapter.this.kjB.iup.getCommentContainer()) {
                         HomePageAlaLiveThreadAdapter.this.a(jVar, view);
-                    } else if (HomePageAlaLiveThreadAdapter.this.kbr.cqO() != null && view.getId() == HomePageAlaLiveThreadAdapter.this.kbr.cqO().getId()) {
+                    } else if (HomePageAlaLiveThreadAdapter.this.kjB.crY() != null && view.getId() == HomePageAlaLiveThreadAdapter.this.kjB.crY().getId()) {
                         i = 2;
-                    } else if (HomePageAlaLiveThreadAdapter.this.kbr.cqP() != null && view.getId() == HomePageAlaLiveThreadAdapter.this.kbr.cqP().getId()) {
+                    } else if (HomePageAlaLiveThreadAdapter.this.kjB.crZ() != null && view.getId() == HomePageAlaLiveThreadAdapter.this.kjB.crZ().getId()) {
                         i = 2;
                     }
                 } else {
                     String str = "";
                     long j = 0;
-                    if (jVar != null && jVar.bkV() != null) {
-                        i = jVar.bkV().bnQ().live_type;
-                        str = jVar.bkV().getTid();
-                        j = jVar.bkV().bnQ().live_id;
+                    if (jVar != null && jVar.bln() != null) {
+                        i = jVar.bln().boj().live_type;
+                        str = jVar.bln().getTid();
+                        j = jVar.bln().boj().live_id;
                     }
-                    aq aqVar = new aq("c11824");
-                    aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-                    aqVar.dW("ab_tag", jVar.crw());
-                    aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
-                    aqVar.an("obj_type", i);
-                    aqVar.dW("tid", str);
-                    aqVar.dW("obj_param1", jVar.getExtra());
-                    aqVar.dW("obj_source", jVar.getSource());
-                    aqVar.an("obj_floor", jVar.crv());
-                    TiebaStatic.log(aqVar);
+                    ar arVar = new ar("c11824");
+                    arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+                    arVar.dR("ab_tag", jVar.csI());
+                    arVar.v(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
+                    arVar.ap("obj_type", i);
+                    arVar.dR("tid", str);
+                    arVar.dR("obj_param1", jVar.getExtra());
+                    arVar.dR("obj_source", jVar.getSource());
+                    arVar.ap("obj_floor", jVar.csH());
+                    TiebaStatic.log(arVar);
                     i = 1;
                 }
                 if (i != 0) {
-                    com.baidu.tieba.homepage.personalize.a.a.a(jVar.eHK, HomePageAlaLiveThreadAdapter.this.fEN, jVar.crv(), i);
+                    com.baidu.tieba.homepage.personalize.a.a.a(jVar.eJQ, HomePageAlaLiveThreadAdapter.this.fGZ, jVar.csH(), i);
                 }
             }
         };
@@ -75,48 +75,48 @@ public class HomePageAlaLiveThreadAdapter extends com.baidu.adp.widget.ListView.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bW */
     public HomePageAlaLiveThreadViewHolder e(ViewGroup viewGroup) {
-        this.kbr = new com.baidu.tieba.card.k(this.mPageContext, this.fEN);
-        this.kbr.wL(2);
-        if (this.fEN != null) {
-            this.kbr.o(this.fEN);
+        this.kjB = new com.baidu.tieba.card.k(this.mPageContext, this.fGZ);
+        this.kjB.wV(2);
+        if (this.fGZ != null) {
+            this.kjB.o(this.fGZ);
         }
-        return new HomePageAlaLiveThreadViewHolder(this.kbr);
+        return new HomePageAlaLiveThreadViewHolder(this.kjB);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, HomePageAlaLiveThreadViewHolder homePageAlaLiveThreadViewHolder) {
-        jVar.wT(jVar.position + 1);
-        if (homePageAlaLiveThreadViewHolder.kbt instanceof com.baidu.tieba.a.e) {
-            homePageAlaLiveThreadViewHolder.kbt.setPage(this.air);
+        jVar.xd(jVar.position + 1);
+        if (homePageAlaLiveThreadViewHolder.kjD instanceof com.baidu.tieba.a.e) {
+            homePageAlaLiveThreadViewHolder.kjD.setPage(this.aif);
         }
-        homePageAlaLiveThreadViewHolder.kbt.wQ(i + 1);
-        homePageAlaLiveThreadViewHolder.kbt.a(jVar);
-        homePageAlaLiveThreadViewHolder.kbt.c(this.iGf);
-        homePageAlaLiveThreadViewHolder.kbt.b(this.gbz);
+        homePageAlaLiveThreadViewHolder.kjD.xa(i + 1);
+        homePageAlaLiveThreadViewHolder.kjD.a(jVar);
+        homePageAlaLiveThreadViewHolder.kjD.c(this.iLO);
+        homePageAlaLiveThreadViewHolder.kjD.b(this.gdO);
         String str = "";
-        if (jVar != null && jVar.bkV() != null) {
-            int i2 = jVar.bkV().bnQ().live_type;
-            String tid = jVar.bkV().getTid();
-            if (!StringUtils.isNull(jVar.bkV().bnQ().appId)) {
-                str = jVar.bkV().bnQ().appId;
+        if (jVar != null && jVar.bln() != null) {
+            int i2 = jVar.bln().boj().live_type;
+            String tid = jVar.bln().getTid();
+            if (!StringUtils.isNull(jVar.bln().boj().appId)) {
+                str = jVar.bln().boj().appId;
             }
-            long j = jVar.bkV().bnQ().live_id;
-            aq aqVar = new aq("c11823");
-            aqVar.an("obj_type", i2);
-            aqVar.dW(TiebaInitialize.Params.OBJ_PARAM3, str);
-            aqVar.dW("tid", tid);
-            aqVar.dW("ab_tag", jVar.crw());
-            aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
-            aqVar.w("fid", jVar.bkV().getFid());
-            aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.dW("obj_param1", jVar.getExtra());
-            aqVar.dW("obj_source", jVar.getSource());
-            aqVar.an("obj_floor", jVar.crv());
-            TiebaStatic.log(aqVar);
+            long j = jVar.bln().boj().live_id;
+            ar arVar = new ar("c11823");
+            arVar.ap("obj_type", i2);
+            arVar.dR(TiebaInitialize.Params.OBJ_PARAM3, str);
+            arVar.dR("tid", tid);
+            arVar.dR("ab_tag", jVar.csI());
+            arVar.v(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
+            arVar.v("fid", jVar.bln().getFid());
+            arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            arVar.dR("obj_param1", jVar.getExtra());
+            arVar.dR("obj_source", jVar.getSource());
+            arVar.ap("obj_floor", jVar.csH());
+            TiebaStatic.log(arVar);
         }
-        com.baidu.tieba.homepage.personalize.a.a.a(jVar.eHK, this.fEN, jVar.crv());
+        com.baidu.tieba.homepage.personalize.a.a.a(jVar.eJQ, this.fGZ, jVar.csH());
         return homePageAlaLiveThreadViewHolder.getView();
     }
 
@@ -124,42 +124,42 @@ public class HomePageAlaLiveThreadAdapter extends com.baidu.adp.widget.ListView.
     public void a(com.baidu.tieba.card.data.j jVar, View view) {
         String str = "";
         String str2 = "";
-        if (jVar != null && jVar.bkV() != null) {
-            str = jVar.bkV().getTid();
-            str2 = jVar.bkV().blV();
+        if (jVar != null && jVar.bln() != null) {
+            str = jVar.bln().getTid();
+            str2 = jVar.bln().bmo();
         }
-        aq aqVar = new aq("c12942");
-        aqVar.an("obj_locate", 1);
-        aqVar.an("obj_type", 5);
-        aqVar.dW("tid", str);
-        aqVar.dW("obj_source", jVar.getSource());
-        aqVar.dW(IntentConfig.NID, str2);
-        com.baidu.tbadk.pageExtra.c bV = com.baidu.tbadk.pageExtra.d.bV(view);
-        if (bV != null) {
-            aqVar.dW("obj_cur_page", bV.getCurrentPageKey());
+        ar arVar = new ar("c12942");
+        arVar.ap("obj_locate", 1);
+        arVar.ap("obj_type", 5);
+        arVar.dR("tid", str);
+        arVar.dR("obj_source", jVar.getSource());
+        arVar.dR(IntentConfig.NID, str2);
+        com.baidu.tbadk.pageExtra.c bR = com.baidu.tbadk.pageExtra.d.bR(view);
+        if (bR != null) {
+            arVar.dR("obj_cur_page", bR.getCurrentPageKey());
         }
-        if (com.baidu.tbadk.pageExtra.d.bDu() != null) {
-            aqVar.dW("obj_pre_page", com.baidu.tbadk.pageExtra.d.bDu());
+        if (com.baidu.tbadk.pageExtra.d.bDM() != null) {
+            arVar.dR("obj_pre_page", com.baidu.tbadk.pageExtra.d.bDM());
         }
-        TiebaStatic.log(aqVar);
+        TiebaStatic.log(arVar);
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.gbz = aVar;
+        this.gdO = aVar;
     }
 
     /* loaded from: classes2.dex */
     public static class HomePageAlaLiveThreadViewHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tieba.card.k kbt;
+        public com.baidu.tieba.card.k kjD;
 
         public HomePageAlaLiveThreadViewHolder(com.baidu.tieba.card.k kVar) {
             super(kVar.getView());
-            this.kbt = kVar;
+            this.kjD = kVar;
         }
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ea(String str) {
-        this.air = str;
+    public void Ey(String str) {
+        this.aif = str;
     }
 }

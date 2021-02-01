@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.ab.d;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface a {
     void a();
 

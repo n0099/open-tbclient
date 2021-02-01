@@ -5,28 +5,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e {
-    private static volatile e dbK;
-    private Map<String, com.baidu.swan.apps.inlinewidget.rtcroom.c.b> dbL = new HashMap();
+    private static volatile e ddX;
+    private Map<String, com.baidu.swan.apps.inlinewidget.rtcroom.c.b> ddY = new HashMap();
 
     private e() {
     }
 
-    public static e avJ() {
-        if (dbK == null) {
+    public static e awh() {
+        if (ddX == null) {
             synchronized (e.class) {
-                if (dbK == null) {
-                    dbK = new e();
+                if (ddX == null) {
+                    ddX = new e();
                 }
             }
         }
-        return dbK;
+        return ddX;
     }
 
-    public synchronized void nL(String str) {
+    public synchronized void od(String str) {
         com.baidu.swan.apps.console.c.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
-        Iterator it = new ArrayList(this.dbL.values()).iterator();
+        Iterator it = new ArrayList(this.ddY.values()).iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar = (com.baidu.swan.apps.inlinewidget.rtcroom.c.b) it.next();
             if (TextUtils.equals(bVar.getSlaveId(), str)) {
@@ -36,18 +36,18 @@ public class e {
     }
 
     public static void release() {
-        if (dbK != null) {
-            dbK.onRelease();
+        if (ddX != null) {
+            ddX.onRelease();
         }
-        dbK = null;
+        ddX = null;
     }
 
     private synchronized void onRelease() {
         com.baidu.swan.apps.console.c.i("RtcRoomWidgetManager", "release");
-        Iterator it = new ArrayList(this.dbL.values()).iterator();
+        Iterator it = new ArrayList(this.ddY.values()).iterator();
         while (it.hasNext()) {
             ((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) it.next()).onRelease();
         }
-        this.dbL.clear();
+        this.ddY.clear();
     }
 }

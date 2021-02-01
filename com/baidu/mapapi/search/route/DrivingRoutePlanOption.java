@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.route;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DrivingRoutePlanOption {
     public String mCityName;
     public PlanNode mFrom = null;
@@ -10,7 +10,7 @@ public class DrivingRoutePlanOption {
     public List<PlanNode> mWayPoints = null;
     public DrivingTrafficPolicy mtrafficPolicy = DrivingTrafficPolicy.ROUTE_PATH;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public enum DrivingPolicy {
         ECAR_AVOID_JAM(3),
         ECAR_TIME_FIRST(0),
@@ -19,32 +19,32 @@ public class DrivingRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2896a;
+        private int f2894a;
 
         DrivingPolicy(int i) {
-            this.f2896a = i;
+            this.f2894a = i;
         }
 
         public int getInt() {
-            return this.f2896a;
+            return this.f2894a;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public enum DrivingTrafficPolicy {
         ROUTE_PATH(0),
         ROUTE_PATH_AND_TRAFFIC(1);
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2898a;
+        private int f2896a;
 
         DrivingTrafficPolicy(int i) {
-            this.f2898a = i;
+            this.f2896a = i;
         }
 
         public int getInt() {
-            return this.f2898a;
+            return this.f2896a;
         }
     }
 

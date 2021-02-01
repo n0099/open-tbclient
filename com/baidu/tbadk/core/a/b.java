@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean zr(String str) {
+    public static boolean zI(String str) {
         return TiebaDatabase.getInstance().getMainDBDatabaseManager().execSQLNoException("delete from account_data where id=?", new String[]{str});
     }
 
@@ -36,10 +36,10 @@ public class b {
             }
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, str, 0, "", new Object[0]);
             if (accountData.getIsActive() == 1) {
-                bkD();
+                bkV();
             }
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!zr(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
+            if (!zI(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
                 if (!mainDBDatabaseManager.execSQLNoException("DROP TABLE IF EXISTS account_data")) {
                     mainDBDatabaseManager.deleteDatabase();
                 }
@@ -49,11 +49,11 @@ public class b {
         }
     }
 
-    public static void bkD() {
+    public static void bkV() {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().execSQLNoException("update account_data set isactive=0 where isactive=1");
     }
 
-    public static int bkE() {
+    public static int bkW() {
         Cursor cursor = null;
         int i = 0;
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
@@ -72,7 +72,7 @@ public class b {
         return i;
     }
 
-    public static AccountData bkF() {
+    public static AccountData bkX() {
         Throwable th;
         Cursor cursor;
         Exception e;
@@ -143,7 +143,7 @@ public class b {
         return accountData;
     }
 
-    public static ArrayList<AccountData> bkG() {
+    public static ArrayList<AccountData> bkY() {
         Cursor cursor = null;
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         ArrayList<AccountData> arrayList = new ArrayList<>();

@@ -6,10 +6,10 @@ import com.kwad.sdk.core.network.i;
 import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.emotion.model.EmotionResponse;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i, String str);
 

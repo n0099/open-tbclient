@@ -2,20 +2,20 @@ package com.baidu.live.im.b;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.live.data.ck;
+import com.baidu.live.data.cr;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface c {
     void f(Map<String, Integer> map);
 
-    ck getSelectInfo();
+    cr getSelectInfo();
 
     @NonNull
     View getView();
 
     void setCallback(e eVar);
 
-    void setData(ck[] ckVarArr, Map<String, Integer> map, int i);
+    void setData(cr[] crVarArr, Map<String, Integer> map, int i);
 
     void setSelectEnabled(boolean z);
 

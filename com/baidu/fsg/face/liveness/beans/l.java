@@ -6,7 +6,7 @@ import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 public abstract class l extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f2280a;
+    protected String f2278a;
 
     public l(Context context) {
         super(context);
@@ -17,6 +17,6 @@ public abstract class l extends BaseBean {
     }
 
     public void d(String str) {
-        this.f2280a = str;
+        this.f2278a = str;
     }
 }

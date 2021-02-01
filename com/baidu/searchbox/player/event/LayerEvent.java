@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LayerEvent extends VideoEvent {
     public static final String ACTION_ADJUST_LIGHT = "layer_event_adjust_light";
     public static final String ACTION_ADJUST_VOLUME = "layer_event_adjust_volume";

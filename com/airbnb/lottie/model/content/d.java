@@ -2,7 +2,7 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.Path;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d implements b {
     private final GradientType FG;
     private final Path.FillType FH;
@@ -32,27 +32,27 @@ public class d implements b {
         return this.name;
     }
 
-    public GradientType jo() {
+    public GradientType jn() {
         return this.FG;
     }
 
-    public Path.FillType jp() {
+    public Path.FillType jo() {
         return this.FH;
     }
 
-    public com.airbnb.lottie.model.a.c jq() {
+    public com.airbnb.lottie.model.a.c jp() {
         return this.FI;
     }
 
-    public com.airbnb.lottie.model.a.d ji() {
+    public com.airbnb.lottie.model.a.d jh() {
         return this.Fz;
     }
 
-    public com.airbnb.lottie.model.a.f jr() {
+    public com.airbnb.lottie.model.a.f jq() {
         return this.FJ;
     }
 
-    public com.airbnb.lottie.model.a.f js() {
+    public com.airbnb.lottie.model.a.f jr() {
         return this.FK;
     }
 

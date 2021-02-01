@@ -4,7 +4,7 @@ import android.util.JsonReader;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.d a(JsonReader jsonReader, com.ksad.lottie.d dVar) {

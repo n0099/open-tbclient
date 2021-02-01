@@ -3,11 +3,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.a.a;
 import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class h extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String avy() {
+    public String avW() {
         return "onSurfaceChanged";
     }
 

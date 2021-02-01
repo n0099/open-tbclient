@@ -6,7 +6,7 @@ import com.baidu.ala.helper.AlaAudioBuffer;
 import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.ndk.AudioProcessModule;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AlaAudioPlayer {
     private static final int BUFFER_LENGTH = 4096;
     private static final boolean ENABLE_FRAGMENT = false;

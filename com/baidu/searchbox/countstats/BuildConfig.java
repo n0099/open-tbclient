@@ -1,5 +1,5 @@
 package com.baidu.searchbox.countstats;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.countstats";
     public static final String BUILD_TYPE = "release";

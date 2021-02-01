@@ -7,7 +7,7 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyService;
 import com.kwad.sdk.api.proxy.IServiceProxy;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DownloadService extends BaseProxyService {
     @Override // com.kwad.sdk.api.proxy.BaseProxyService
     @NonNull

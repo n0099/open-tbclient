@@ -1,10 +1,10 @@
 package com.qq.e.comm.plugin.t;
 
 import java.util.concurrent.Future;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface c {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public enum a {
         High(1),
         Mid(2),

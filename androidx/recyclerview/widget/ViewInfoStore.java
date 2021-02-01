@@ -8,7 +8,7 @@ import androidx.collection.LongSparseArray;
 import androidx.core.util.Pools;
 import androidx.recyclerview.widget.RecyclerView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class ViewInfoStore {
     private static final boolean DEBUG = false;
     @VisibleForTesting
@@ -17,7 +17,7 @@ public class ViewInfoStore {
     final LongSparseArray<RecyclerView.ViewHolder> mOldChangedHolders = new LongSparseArray<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public interface ProcessCallback {
         void processAppeared(RecyclerView.ViewHolder viewHolder, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
 
@@ -196,7 +196,7 @@ public class ViewInfoStore {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class InfoRecord {
         static final int FLAG_APPEAR = 2;
         static final int FLAG_APPEAR_AND_DISAPPEAR = 3;

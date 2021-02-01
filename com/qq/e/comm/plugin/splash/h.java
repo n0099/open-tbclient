@@ -21,14 +21,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f12514a;
+    private final String f12516a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f12515b;
+    private final String f12517b;
     private final m c;
     private final String d;
     private final a e;
@@ -41,7 +41,7 @@ public class h {
     private boolean l = false;
     private boolean m = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void a(int i);
 
@@ -49,8 +49,8 @@ public class h {
     }
 
     public h(String str, String str2, m mVar, String str3, com.qq.e.comm.plugin.ad.l lVar, a aVar, com.qq.e.comm.plugin.y.c cVar) {
-        this.f12514a = str;
-        this.f12515b = str2;
+        this.f12516a = str;
+        this.f12517b = str2;
         this.c = mVar;
         this.d = str3;
         this.g = lVar;
@@ -82,7 +82,7 @@ public class h {
             a(501, 5004);
             return;
         }
-        JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.f12515b);
+        JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.f12517b);
         if (optJSONObject2 == null) {
             a(501, 5004);
             return;
@@ -114,7 +114,7 @@ public class h {
         }
         this.h.b(this.f.m()).c(this.f.H());
         if (this.f.e()) {
-            l.a(this.f12515b);
+            l.a(this.f12517b);
         }
         if (this.f.d() && this.f.e()) {
             this.e.a(501);
@@ -157,7 +157,7 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     public com.qq.e.comm.plugin.ad.b f() {
         com.qq.e.comm.plugin.ad.b bVar = new com.qq.e.comm.plugin.ad.b();
-        bVar.a(this.f12515b);
+        bVar.a(this.f12517b);
         bVar.c(1);
         int integer = GDTADManager.getInstance().getSM().getInteger("splashReqAdCount", 1);
         GDTLogger.d("splashReqAdCount is " + integer);
@@ -169,7 +169,7 @@ public class h {
         bVar.f(a2.a());
         bVar.g(a2.b());
         bVar.b(true);
-        bVar.n(l.b(this.f12515b));
+        bVar.n(l.b(this.f12517b));
         if (this.j != null) {
             bVar.f(this.j.getUin());
             bVar.e(this.j.getLoginOpenid());
@@ -206,14 +206,14 @@ public class h {
 
     public void a() {
         this.l = false;
-        s.f12589a.submit(new Runnable() { // from class: com.qq.e.comm.plugin.splash.h.1
+        s.f12591a.submit(new Runnable() { // from class: com.qq.e.comm.plugin.splash.h.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    h.this.i = com.qq.e.comm.plugin.u.b.a().b(h.this.f12514a, h.this.f12515b, h.this.d, com.qq.e.comm.plugin.ad.e.SPLASH);
+                    h.this.i = com.qq.e.comm.plugin.u.b.a().b(h.this.f12516a, h.this.f12517b, h.this.d, com.qq.e.comm.plugin.ad.e.SPLASH);
                     if (com.qq.e.comm.plugin.splash.a.b.c() || !h.this.e()) {
                         h.this.k = false;
-                        com.qq.e.comm.plugin.w.b bVar = new com.qq.e.comm.plugin.w.b(h.this.d, com.qq.e.comm.plugin.ad.e.SPLASH, h.this.f12515b);
+                        com.qq.e.comm.plugin.w.b bVar = new com.qq.e.comm.plugin.w.b(h.this.d, com.qq.e.comm.plugin.ad.e.SPLASH, h.this.f12517b);
                         final long currentTimeMillis = System.currentTimeMillis();
                         com.qq.e.comm.plugin.w.e.a(h.this.f(), bVar, new e.a() { // from class: com.qq.e.comm.plugin.splash.h.1.1
                             @Override // com.qq.e.comm.plugin.w.e.a

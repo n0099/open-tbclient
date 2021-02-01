@@ -10,12 +10,12 @@ import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
+import com.yy.videoplayer.decoder.VideoConstant;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class LinearLayoutManager extends RecyclerView.LayoutManager implements ItemTouchHelper.ViewDropHandler, RecyclerView.SmoothScroller.ScrollVectorProvider {
     static final boolean DEBUG = false;
     public static final int HORIZONTAL = 0;
@@ -1146,13 +1146,16 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     }
 
     View findOneVisibleChild(int i, int i2, boolean z, boolean z2) {
+        int i3 = VideoConstant.THUMBNAIL_WIDTH;
         ensureLayoutState();
-        int i3 = z ? 24579 : 320;
-        int i4 = z2 ? 320 : 0;
-        if (this.mOrientation == 0) {
-            return this.mHorizontalBoundCheck.findOneViewWithinBoundFlags(i, i2, i3, i4);
+        int i4 = z ? 24579 : 320;
+        if (!z2) {
+            i3 = 0;
         }
-        return this.mVerticalBoundCheck.findOneViewWithinBoundFlags(i, i2, i3, i4);
+        if (this.mOrientation == 0) {
+            return this.mHorizontalBoundCheck.findOneViewWithinBoundFlags(i, i2, i4, i3);
+        }
+        return this.mVerticalBoundCheck.findOneViewWithinBoundFlags(i, i2, i4, i3);
     }
 
     View findOnePartiallyOrCompletelyInvisibleChild(int i, int i2) {
@@ -1287,7 +1290,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class LayoutState {
         static final int INVALID_LAYOUT = Integer.MIN_VALUE;
         static final int ITEM_DIRECTION_HEAD = -1;
@@ -1357,7 +1360,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
             int i;
             int size = this.mScrapList.size();
             View view2 = null;
-            int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i2 = Integer.MAX_VALUE;
             int i3 = 0;
             while (i3 < size) {
                 View view3 = this.mScrapList.get(i3).itemView;
@@ -1392,7 +1395,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: androidx.recyclerview.widget.LinearLayoutManager.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1450,7 +1453,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class AnchorInfo {
         int mCoordinate;
         boolean mLayoutFromEnd;
@@ -1532,7 +1535,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class LayoutChunkResult {
         public int mConsumed;
         public boolean mFinished;

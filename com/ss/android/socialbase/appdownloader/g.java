@@ -4,11 +4,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class g {
-    public static a ZP(String str) {
+    public static a aaQ(String str) {
         try {
-            PackageManager packageManager = com.ss.android.socialbase.downloader.downloader.b.eEd().getPackageManager();
+            PackageManager packageManager = com.ss.android.socialbase.downloader.downloader.b.eGu().getPackageManager();
             if (packageManager == null) {
                 return null;
             }
@@ -27,26 +27,26 @@ public final class g {
         return new a(packageInfo.packageName, applicationInfo.loadLabel(packageManager).toString(), applicationInfo.loadIcon(packageManager), applicationInfo.sourceDir, packageInfo.versionName, packageInfo.versionCode, (applicationInfo.flags & 1) != 0);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f13051a;
+        private String f13053a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f13052b;
+        private String f13054b;
         private String d;
         private String e;
         private int f;
         private boolean g;
-        private Drawable pTW;
+        private Drawable qea;
 
         public Drawable a() {
-            return this.pTW;
+            return this.qea;
         }
 
         public void a(Drawable drawable) {
-            this.pTW = drawable;
+            this.qea = drawable;
         }
 
         public boolean b() {
@@ -58,19 +58,19 @@ public final class g {
         }
 
         public String c() {
-            return this.f13051a;
+            return this.f13053a;
         }
 
         public void a(String str) {
-            this.f13051a = str;
+            this.f13053a = str;
         }
 
         public String d() {
-            return this.f13052b;
+            return this.f13054b;
         }
 
         public void b(String str) {
-            this.f13052b = str;
+            this.f13054b = str;
         }
 
         public String e() {

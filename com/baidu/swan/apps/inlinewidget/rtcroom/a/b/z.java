@@ -3,11 +3,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.a.b;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class z extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String avy() {
+    public String avW() {
         return "setSoundModel";
     }
 
@@ -18,9 +18,9 @@ public class z extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
         if (command.obj instanceof String) {
             String str = (String) command.obj;
             if (TextUtils.equals(str, "ear")) {
-                bVar.nN(str);
+                bVar.og(str);
             } else if (TextUtils.equals(str, "speaker")) {
-                bVar.nN(str);
+                bVar.og(str);
             }
         }
     }

@@ -10,18 +10,18 @@ import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.util.k;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.util.l;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c.g;
 /* loaded from: classes.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
-    private int amA;
-    private int amB;
-    public g amz;
+    public g amp;
+    private int amq;
+    private int amr;
 
     public UnfollowedDecorView(Context context) {
         this(context, null);
@@ -33,24 +33,24 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
 
     public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.amA = R.drawable.icon_pure_card_more22;
-        this.amB = R.color.CAM_X0111;
-        this.amz = new g(getCurrentActivityPageContext((Activity) context), this);
+        this.amq = R.drawable.icon_pure_card_more22;
+        this.amr = R.color.CAM_X0111;
+        this.amp = new g(getCurrentActivityPageContext((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_more22, ao.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_more22, ap.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!k.isFastDoubleClick()) {
-            this.amz.csv();
+        if (!l.isFastDoubleClick()) {
+            this.amp.ctH();
         }
     }
 
-    public void r(bz bzVar) {
-        this.amz.r(bzVar);
-        if (!ay.x(bzVar) && bzVar.bps()) {
+    public void r(cb cbVar) {
+        this.amp.r(cbVar);
+        if (!az.x(cbVar) && cbVar.bpK()) {
             setVisibility(0);
         } else {
             setVisibility(8);
@@ -58,7 +58,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void onChangeSkinType() {
-        setImageDrawable(WebPManager.a(this.amA, ao.getColor(this.amB), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.a(this.amq, ap.getColor(this.amr), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     private TbPageContext getCurrentActivityPageContext(Activity activity) {
@@ -72,8 +72,8 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void setWebPResId(int i, int i2) {
-        this.amA = i;
-        this.amB = i2;
-        setImageDrawable(WebPManager.a(this.amA, ao.getColor(this.amB), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.amq = i;
+        this.amr = i2;
+        setImageDrawable(WebPManager.a(this.amq, ap.getColor(this.amr), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 }

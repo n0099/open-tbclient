@@ -17,14 +17,14 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static byte[] a(byte[] bArr, String str, int i) {
-        PublicKey ux;
-        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (ux = ux(str)) == null) {
+        PublicKey uQ;
+        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (uQ = uQ(str)) == null) {
             return null;
         }
-        return a(bArr, ux, i);
+        return a(bArr, uQ, i);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -141,7 +141,7 @@ public class b {
         return bArr2;
     }
 
-    private static PublicKey ux(String str) {
+    private static PublicKey uQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

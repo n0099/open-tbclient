@@ -14,17 +14,15 @@ import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.VideoBeautyType;
 import com.baidu.ala.recorder.video.VideoRecorderType;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.bo;
-import com.baidu.live.recorder.helper.LiveRecorderConfigHelper;
+import com.baidu.live.data.bt;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private AlaLiveRecorder bAQ;
-    private VideoBeautyType bBa;
+    private VideoBeautyType bEG;
+    private AlaLiveRecorder bEw;
     private TbPageContext mPageContext;
     private RecorderCallback mRecorderCallback = new RecorderCallback() { // from class: com.baidu.live.talentshow.a.c.1
         @Override // com.baidu.ala.recorder.RecorderCallback
@@ -47,33 +45,33 @@ public class c {
         this.mPageContext = tbPageContext;
     }
 
-    public AlaLiveRecorder QS() {
-        if (this.bAQ == null) {
-            QT();
+    public AlaLiveRecorder SC() {
+        if (this.bEw == null) {
+            SD();
         }
-        return this.bAQ;
+        return this.bEw;
     }
 
-    private void QT() {
-        this.bBa = bo.b(com.baidu.live.af.a.OJ().bxp) ? VideoBeautyType.DUMIX_AR : VideoBeautyType.BEAUTY_NONE;
-        if (this.bAQ == null) {
-            AlaLiveVideoConfig d = LiveRecorderConfigHelper.Og().d(4, 1, false);
+    private void SD() {
+        this.bEG = bt.b(com.baidu.live.ae.a.Qj().bAS) ? VideoBeautyType.DUMIX_AR : VideoBeautyType.BEAUTY_NONE;
+        if (this.bEw == null) {
+            AlaLiveVideoConfig d = com.baidu.live.z.a.b.PF().d(4, 1, false);
             d.setOutputWidth(540);
-            d.setOutputHeight(TbConfig.HEAD_IMG_SIZE);
-            this.bAQ = new AlaLiveRecorder(this.mPageContext.getPageActivity(), d, VideoRecorderType.CAMERA, new com.baidu.live.recorder.helper.a(), this.bBa);
-            this.bAQ.addRecorderCallback(this.mRecorderCallback);
+            d.setOutputHeight(960);
+            this.bEw = new AlaLiveRecorder(this.mPageContext.getPageActivity(), d, VideoRecorderType.CAMERA, new com.baidu.live.z.a.a(), this.bEG);
+            this.bEw.addRecorderCallback(this.mRecorderCallback);
         }
     }
 
-    public void w(ViewGroup viewGroup) {
-        QS();
-        this.bAQ.getPreview().setEnabled(false);
-        QV();
-        ab(this.bAQ.getPreview());
-        viewGroup.addView(this.bAQ.getPreview(), 0, QU());
+    public void u(ViewGroup viewGroup) {
+        SC();
+        this.bEw.getPreview().setEnabled(false);
+        SF();
+        ab(this.bEw.getPreview());
+        viewGroup.addView(this.bEw.getPreview(), 0, SE());
     }
 
-    private FrameLayout.LayoutParams QU() {
+    private FrameLayout.LayoutParams SE() {
         return new FrameLayout.LayoutParams(-1, -1);
     }
 
@@ -97,9 +95,9 @@ public class c {
         view.setClipToOutline(true);
     }
 
-    public void QV() {
+    public void SF() {
         View preview;
-        if (this.bAQ != null && (preview = this.bAQ.getPreview()) != null) {
+        if (this.bEw != null && (preview = this.bEw.getPreview()) != null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 n(preview, 0.0f);
             }
@@ -110,22 +108,22 @@ public class c {
     }
 
     public void startPreview() {
-        if (this.bAQ != null) {
-            this.bAQ.startRecord();
+        if (this.bEw != null) {
+            this.bEw.startRecord();
         }
     }
 
-    public void QW() {
-        if (this.bAQ != null) {
-            this.bAQ.stopRecord();
+    public void stopPreview() {
+        if (this.bEw != null) {
+            this.bEw.stopRecord();
         }
     }
 
     public void onDestroy() {
-        if (this.bAQ != null) {
-            this.bAQ.stopRecord();
-            this.bAQ.release();
-            this.bAQ = null;
+        if (this.bEw != null) {
+            this.bEw.stopRecord();
+            this.bEw.release();
+            this.bEw = null;
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.yxcorp.kuaishou.addfp.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class d {
-    private static b qbw = new b((byte) 0);
+    private static b qlA = new b((byte) 0);
 }

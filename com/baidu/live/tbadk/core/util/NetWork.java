@@ -35,7 +35,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NetWork {
     public static final String BDUSS = "BDUSS";
     public static final String CLIENT_ID = "_client_id";
@@ -65,7 +65,7 @@ public class NetWork {
     private NetWorkState.StatisticsData mStatisticsData = null;
     private int mErrorNums = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface DownloadResultCallback {
         void onFail(int i, String str);
 
@@ -73,7 +73,7 @@ public class NetWork {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum SORT {
         ASCEND,
         DESCEND,
@@ -408,7 +408,7 @@ public class NetWork {
         return httpResponse;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class ParamsComparator implements Comparator<Map.Entry<String, Object>> {
         private SORT mSort;
 

@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.pay;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.util.PageDialogHelper;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PayConfig {
     public static final int PAYTYPE_MEMBER = 1;
     public static final int PAYTYPE_NOBLE = 14;

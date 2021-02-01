@@ -3,83 +3,83 @@ package com.baidu.rtc;
 import android.util.Log;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class m {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public boolean ctE = false;
-        public boolean ctK = true;
-        public int ctG = -1;
-        public int ctH = -1;
-        public int ctF = -1;
-        public boolean ctJ = false;
-        public boolean ctI = false;
+        public boolean cvH = false;
+        public boolean cvN = true;
+        public int cvJ = -1;
+        public int cvK = -1;
+        public int cvI = -1;
+        public boolean cvM = false;
+        public boolean cvL = false;
     }
 
     public static String a(String str, a aVar, boolean z) {
         boolean z2;
         boolean z3 = false;
-        if (aVar.ctG > 0) {
+        if (aVar.cvJ > 0) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             sb.append(z ? "" : "; ");
             sb.append("maxplaybackrate");
             sb.append("=");
-            sb.append(aVar.ctG);
+            sb.append(aVar.cvJ);
             str = sb.toString();
             z2 = false;
         } else {
             z2 = true;
         }
-        if (aVar.ctH > 0) {
+        if (aVar.cvK > 0) {
             StringBuilder sb2 = new StringBuilder();
             sb2.append(str);
             sb2.append((z2 && z) ? "" : "; ");
             sb2.append("sprop-maxcapturerate");
             sb2.append("=");
-            sb2.append(aVar.ctG);
+            sb2.append(aVar.cvJ);
             str = sb2.toString();
             z2 = false;
         }
-        if (aVar.ctE) {
+        if (aVar.cvH) {
             StringBuilder sb3 = new StringBuilder();
             sb3.append(str);
             sb3.append((z2 && z) ? "" : "; ");
             sb3.append("cbr");
             sb3.append("=");
-            sb3.append(aVar.ctE ? '1' : '0');
+            sb3.append(aVar.cvH ? '1' : '0');
             str = sb3.toString();
             z2 = false;
         }
-        if (aVar.ctF > 0) {
+        if (aVar.cvI > 0) {
             StringBuilder sb4 = new StringBuilder();
             sb4.append(str);
             sb4.append((z2 && z) ? "" : "; ");
             sb4.append("maxaveragebitrate");
             sb4.append("=");
-            sb4.append(aVar.ctF * 1000);
+            sb4.append(aVar.cvI * 1000);
             str = sb4.toString();
             z2 = false;
         }
-        if (aVar.ctJ) {
+        if (aVar.cvM) {
             StringBuilder sb5 = new StringBuilder();
             sb5.append(str);
             sb5.append((z2 && z) ? "" : "; ");
             sb5.append("usedtx");
             sb5.append("=");
-            sb5.append(aVar.ctJ ? '1' : '0');
+            sb5.append(aVar.cvM ? '1' : '0');
             str = sb5.toString();
         } else {
             z3 = z2;
         }
-        if (aVar.ctI) {
+        if (aVar.cvL) {
             StringBuilder sb6 = new StringBuilder();
             sb6.append(str);
             sb6.append((z3 && z) ? "" : "; ");
             sb6.append("stereo");
             sb6.append("=");
-            sb6.append(aVar.ctI ? '1' : '0');
+            sb6.append(aVar.cvL ? '1' : '0');
             return sb6.toString();
         }
         return str;

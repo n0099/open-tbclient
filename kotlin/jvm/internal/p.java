@@ -4,58 +4,65 @@ import java.util.Arrays;
 import java.util.List;
 import kotlin.KotlinNullPointerException;
 import kotlin.UninitializedPropertyAccessException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class p {
     private p() {
     }
 
-    public static void eIW() {
-        throw ((KotlinNullPointerException) T(new KotlinNullPointerException()));
+    public static void eLm() {
+        throw ((KotlinNullPointerException) S(new KotlinNullPointerException()));
     }
 
-    public static void abe(String str) {
-        throw ((UninitializedPropertyAccessException) T(new UninitializedPropertyAccessException(str)));
+    public static void acf(String str) {
+        throw ((UninitializedPropertyAccessException) S(new UninitializedPropertyAccessException(str)));
     }
 
-    public static void abf(String str) {
-        abe("lateinit property " + str + " has not been initialized");
+    public static void acg(String str) {
+        acf("lateinit property " + str + " has not been initialized");
     }
 
     public static void n(Object obj, String str) {
         if (obj == null) {
-            throw ((IllegalStateException) T(new IllegalStateException(str + " must not be null")));
+            throw ((IllegalStateException) S(new IllegalStateException(str + " must not be null")));
         }
     }
 
     public static void o(Object obj, String str) {
         if (obj == null) {
-            abg(str);
+            ach(str);
         }
     }
 
-    private static void abg(String str) {
+    private static void ach(String str) {
         StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
         String className = stackTraceElement.getClassName();
-        throw ((IllegalArgumentException) T(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + "." + stackTraceElement.getMethodName() + ", parameter " + str)));
+        throw ((IllegalArgumentException) S(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + "." + stackTraceElement.getMethodName() + ", parameter " + str)));
+    }
+
+    public static int compare(int i, int i2) {
+        if (i < i2) {
+            return -1;
+        }
+        return i == i2 ? 0 : 1;
     }
 
     public static boolean l(Object obj, Object obj2) {
         return obj == null ? obj2 == null : obj.equals(obj2);
     }
 
-    public static void eIX() {
-        abh("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
+    public static void eLn() {
+        aci("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
-    public static void abh(String str) {
+    public static void aci(String str) {
         throw new UnsupportedOperationException(str);
     }
 
-    public static void cf(int i, String str) {
-        eIX();
+    public static void cm(int i, String str) {
+        eLn();
     }
 
-    private static <T extends Throwable> T T(T t) {
+    private static <T extends Throwable> T S(T t) {
         return (T) d(t, p.class.getName());
     }
 

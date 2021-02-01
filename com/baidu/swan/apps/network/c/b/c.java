@@ -4,26 +4,26 @@ import android.util.Log;
 import kotlin.e;
 import org.json.JSONObject;
 @e
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends b {
     private final boolean DEBUG;
     private final String TAG = "SwanAppPayCheckNode";
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void r(JSONObject jSONObject, String str) {
-        com.baidu.swan.apps.runtime.e aIs;
-        com.baidu.swan.apps.setting.a aID;
+    public void q(JSONObject jSONObject, String str) {
+        com.baidu.swan.apps.runtime.e aIL;
+        com.baidu.swan.apps.setting.a aIW;
         if (this.DEBUG) {
             Log.d(this.TAG, "onUpdate: ");
         }
-        if (jSONObject == null || (aIs = com.baidu.swan.apps.runtime.e.aIs()) == null || (aID = aIs.aID()) == null) {
+        if (jSONObject == null || (aIL = com.baidu.swan.apps.runtime.e.aIL()) == null || (aIW = aIL.aIW()) == null) {
             return;
         }
-        aID.putString("note_data_pay_check_list", jSONObject.toString());
+        aIW.putString("note_data_pay_check_list", jSONObject.toString());
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void aCU() {
+    public void aDq() {
         if (this.DEBUG) {
             Log.d(this.TAG, "onFiltered: ");
         }

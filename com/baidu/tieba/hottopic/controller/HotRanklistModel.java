@@ -5,26 +5,26 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.hottopic.data.j;
 import com.baidu.tieba.hottopic.message.RequestHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HotRanklistModel extends BdBaseModel {
-    private j klj;
-    private a klk;
+    private j ktq;
+    private a ktr;
     private com.baidu.adp.framework.listener.a netMessageListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(boolean z, j jVar, int i, String str);
     }
 
     public HotRanklistModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.klj = null;
-        this.klk = null;
+        this.ktq = null;
+        this.ktr = null;
         this.netMessageListener = new com.baidu.adp.framework.listener.a(1003078, CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST) { // from class: com.baidu.tieba.hottopic.controller.HotRanklistModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -33,21 +33,21 @@ public class HotRanklistModel extends BdBaseModel {
                         if (!responsedMessage.hasError()) {
                             HotRanklistModel.this.i(responsedMessage);
                         } else {
-                            HotRanklistModel.this.klk.a(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
+                            HotRanklistModel.this.ktr.a(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
                         }
                     }
                 }
             }
         };
         registerListener(this.netMessageListener);
-        this.klj = new j();
+        this.ktq = new j();
     }
 
-    public void g(String str, String str2, String str3, long j) {
-        h(str, str2, str3, j);
+    public void f(String str, String str2, String str3, long j) {
+        g(str, str2, str3, j);
     }
 
-    private void h(String str, String str2, String str3, long j) {
+    private void g(String str, String str2, String str3, long j) {
         RequestHotRanklistMessage requestHotRanklistMessage = new RequestHotRanklistMessage();
         requestHotRanklistMessage.setCallFrom(str);
         requestHotRanklistMessage.setListType(str2);
@@ -76,12 +76,12 @@ public class HotRanklistModel extends BdBaseModel {
                     if ((responsedMessage instanceof ResponseSocketHotRanklistMessage) && ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData() != null) {
                         jVar = ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData();
                     }
-                    if (!StringUtils.isNull(str) && !x.isEmpty(jVar.kmN)) {
-                        jVar.type = jVar.kmN.get(0).hag;
+                    if (!StringUtils.isNull(str) && !y.isEmpty(jVar.kuU)) {
+                        jVar.type = jVar.kuU.get(0).hcQ;
                     } else {
                         jVar.type = str;
                     }
-                    this.klk.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+                    this.ktr.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
             str = null;
@@ -94,12 +94,12 @@ public class HotRanklistModel extends BdBaseModel {
             if (!StringUtils.isNull(str)) {
             }
             jVar.type = str;
-            this.klk.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+            this.ktr.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
         }
     }
 
     public void a(a aVar) {
-        this.klk = aVar;
+        this.ktr = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

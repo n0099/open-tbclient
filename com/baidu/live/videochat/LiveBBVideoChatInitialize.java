@@ -5,16 +5,16 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LiveBBVideoChatInitialize {
     static {
-        Uo();
+        VX();
     }
 
-    private static void Uo() {
+    private static void VX() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913249, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.videochat.LiveBBVideoChatInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.an.a> run(CustomMessage<TbPageContext> customMessage) {
+            public CustomResponsedMessage<com.baidu.live.al.a> run(CustomMessage<TbPageContext> customMessage) {
                 return new CustomResponsedMessage<>(2913249, new c(customMessage.getData()));
             }
         });

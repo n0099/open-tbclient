@@ -9,7 +9,7 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.TreeSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CollectionCodec implements ObjectDeserializer, ObjectSerializer {
     public static final CollectionCodec instance = new CollectionCodec();
 

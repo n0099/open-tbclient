@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.AlaLiveTabMyConcernActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
@@ -41,14 +41,14 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     private Context mContext;
     private List<com.baidu.tieba.homepage.personalize.data.j> mDatas;
     private int mSkinType = 3;
-    private HashSet<Long> kbe = new HashSet<>();
+    private HashSet<Long> kjo = new HashSet<>();
 
     public AlaRecommendListAdapter(Context context) {
         this.mContext = context;
     }
 
     public void setData(List<AlaLiveInfo> list) {
-        if (!com.baidu.tbadk.core.util.x.isEmpty(list)) {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list)) {
             if (this.mDatas == null) {
                 this.mDatas = new ArrayList();
             }
@@ -57,7 +57,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
             jVar.setType(1);
             this.mDatas.add(jVar);
             if (list != null && list.size() > 12) {
-                list = com.baidu.tbadk.core.util.x.subList(list, 0, 12);
+                list = com.baidu.tbadk.core.util.y.subList(list, 0, 12);
             }
             for (AlaLiveInfo alaLiveInfo : list) {
                 if (alaLiveInfo != null && alaLiveInfo.user_info != null && !StringUtils.isNull(alaLiveInfo.user_info.user_name) && alaLiveInfo.live_id.longValue() != 0) {
@@ -67,8 +67,8 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                     jVar2.setUsername(alaLiveInfo.user_info.user_name);
                     jVar2.setLiveId(alaLiveInfo.live_id.longValue());
                     jVar2.setThreadId(alaLiveInfo.thread_id.longValue());
-                    jVar2.gB(alaLiveInfo.user_info.ala_id.longValue());
-                    jVar2.BG(alaLiveInfo.live_type.intValue());
+                    jVar2.gG(alaLiveInfo.user_info.ala_id.longValue());
+                    jVar2.BY(alaLiveInfo.live_type.intValue());
                     this.mDatas.add(jVar2);
                 }
             }
@@ -83,7 +83,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: H */
+    /* renamed from: I */
     public AlaUserInfoViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         return new AlaUserInfoViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.ala_recommend_item, (ViewGroup) null));
     }
@@ -97,82 +97,82 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
             if (jVar.getType() != 1) {
                 if (jVar.getType() != 0) {
                     if (jVar.getType() == 2) {
-                        alaUserInfoViewHolder.kbl.setVisibility(8);
-                        alaUserInfoViewHolder.kbm.setVisibility(8);
-                        alaUserInfoViewHolder.kbj.setVisibility(8);
-                        alaUserInfoViewHolder.eGI.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
-                        alaUserInfoViewHolder.kbk.setVisibility(0);
-                        alaUserInfoViewHolder.kbk.setImageResource(R.drawable.icon_pure_live_moe22);
-                        alaUserInfoViewHolder.kbh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.adapter.AlaRecommendListAdapter.3
+                        alaUserInfoViewHolder.kjv.setVisibility(8);
+                        alaUserInfoViewHolder.kjw.setVisibility(8);
+                        alaUserInfoViewHolder.kjt.setVisibility(8);
+                        alaUserInfoViewHolder.eIO.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
+                        alaUserInfoViewHolder.kju.setVisibility(0);
+                        alaUserInfoViewHolder.kju.setImageResource(R.drawable.icon_pure_live_moe22);
+                        alaUserInfoViewHolder.kjr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.adapter.AlaRecommendListAdapter.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
-                                if (bg.checkUpIsLogin(AlaRecommendListAdapter.this.mContext)) {
+                                if (bh.checkUpIsLogin(AlaRecommendListAdapter.this.mContext)) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveTabMyConcernActivityConfig(AlaRecommendListAdapter.this.mContext)));
-                                    aq aqVar = new aq("c13624");
-                                    aqVar.w("uid", TbadkApplication.getCurrentAccountId());
-                                    aqVar.an("fid", 0);
-                                    TiebaStatic.log(aqVar);
+                                    ar arVar = new ar("c13624");
+                                    arVar.v("uid", TbadkApplication.getCurrentAccountId());
+                                    arVar.ap("fid", 0);
+                                    TiebaStatic.log(arVar);
                                 }
                             }
                         });
                     }
                 } else {
-                    alaUserInfoViewHolder.kbl.setText(TbadkCoreApplication.getInst().getString(R.string.live_in));
-                    alaUserInfoViewHolder.fdF.setPlaceHolder(1);
-                    alaUserInfoViewHolder.fdF.setDefaultResource(R.drawable.transparent_bg);
+                    alaUserInfoViewHolder.kjv.setText(TbadkCoreApplication.getInst().getString(R.string.live_in));
+                    alaUserInfoViewHolder.ffU.setPlaceHolder(1);
+                    alaUserInfoViewHolder.ffU.setDefaultResource(R.drawable.transparent_bg);
                     if (!StringUtils.isNull(jVar.getPortrait())) {
-                        alaUserInfoViewHolder.fdF.startLoad(jVar.getPortrait(), 10, false);
+                        alaUserInfoViewHolder.ffU.startLoad(jVar.getPortrait(), 10, false);
                     }
-                    if (at.getChineseAndEnglishLength(jVar.getUsername()) > 8) {
-                        alaUserInfoViewHolder.eGI.setText(at.cutChineseAndEnglishWithSuffix(jVar.getUsername(), 6, StringHelper.STRING_MORE));
+                    if (au.getChineseAndEnglishLength(jVar.getUsername()) > 8) {
+                        alaUserInfoViewHolder.eIO.setText(au.cutChineseAndEnglishWithSuffix(jVar.getUsername(), 6, StringHelper.STRING_MORE));
                     } else {
-                        alaUserInfoViewHolder.eGI.setText(jVar.getUsername());
+                        alaUserInfoViewHolder.eIO.setText(jVar.getUsername());
                     }
                     final long liveId = jVar.getLiveId();
-                    alaUserInfoViewHolder.kbh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.adapter.AlaRecommendListAdapter.2
+                    alaUserInfoViewHolder.kjr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.adapter.AlaRecommendListAdapter.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                             alaLiveInfoCoreData.liveID = liveId;
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(AlaRecommendListAdapter.this.mContext, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PB_USER_ICON_LIVE, null, false, "")));
-                            aq aqVar = new aq("c13623");
-                            aqVar.w("uid", TbadkApplication.getCurrentAccountId());
-                            aqVar.an("fid", 0);
-                            aqVar.w("tid", jVar.getThreadId());
-                            aqVar.an("obj_type", jVar.bQu());
-                            aqVar.w("star_id", jVar.cPH());
-                            aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
-                            TiebaStatic.log(aqVar);
+                            ar arVar = new ar("c13623");
+                            arVar.v("uid", TbadkApplication.getCurrentAccountId());
+                            arVar.ap("fid", 0);
+                            arVar.v("tid", jVar.getThreadId());
+                            arVar.ap("obj_type", jVar.bQY());
+                            arVar.v("star_id", jVar.cRG());
+                            arVar.v(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
+                            TiebaStatic.log(arVar);
                         }
                     });
-                    if (!this.kbe.contains(Long.valueOf(liveId))) {
-                        aq aqVar = new aq("c13622");
-                        aqVar.w("uid", TbadkApplication.getCurrentAccountId());
-                        aqVar.an("fid", 0);
-                        aqVar.w("tid", jVar.getThreadId());
-                        aqVar.an("obj_type", jVar.bQu());
-                        aqVar.w("star_id", jVar.cPH());
-                        aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
-                        TiebaStatic.log(aqVar);
-                        this.kbe.add(Long.valueOf(liveId));
+                    if (!this.kjo.contains(Long.valueOf(liveId))) {
+                        ar arVar = new ar("c13622");
+                        arVar.v("uid", TbadkApplication.getCurrentAccountId());
+                        arVar.ap("fid", 0);
+                        arVar.v("tid", jVar.getThreadId());
+                        arVar.ap("obj_type", jVar.bQY());
+                        arVar.v("star_id", jVar.cRG());
+                        arVar.v(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
+                        TiebaStatic.log(arVar);
+                        this.kjo.add(Long.valueOf(liveId));
                     }
                 }
             } else {
-                alaUserInfoViewHolder.kbl.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_hot_live));
-                alaUserInfoViewHolder.fdF.setImageResource(R.drawable.pic_live_hand_n);
-                alaUserInfoViewHolder.eGI.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_live_square));
-                alaUserInfoViewHolder.kbh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.adapter.AlaRecommendListAdapter.1
+                alaUserInfoViewHolder.kjv.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_hot_live));
+                alaUserInfoViewHolder.ffU.setImageResource(R.drawable.pic_live_hand_n);
+                alaUserInfoViewHolder.eIO.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_live_square));
+                alaUserInfoViewHolder.kjr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.adapter.AlaRecommendListAdapter.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921445));
-                        aq aqVar2 = new aq("c13621");
-                        aqVar2.w("uid", TbadkApplication.getCurrentAccountId());
-                        aqVar2.an("fid", 0);
-                        TiebaStatic.log(aqVar2);
+                        ar arVar2 = new ar("c13621");
+                        arVar2.v("uid", TbadkApplication.getCurrentAccountId());
+                        arVar2.ap("fid", 0);
+                        TiebaStatic.log(arVar2);
                     }
                 });
             }
-            alaUserInfoViewHolder.cE(TbadkCoreApplication.getInst().getSkinType(), jVar.getType());
+            alaUserInfoViewHolder.cB(TbadkCoreApplication.getInst().getSkinType(), jVar.getType());
         }
     }
 
@@ -197,8 +197,8 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     /* renamed from: a */
     public void onViewDetachedFromWindow(@NonNull AlaUserInfoViewHolder alaUserInfoViewHolder) {
         super.onViewDetachedFromWindow(alaUserInfoViewHolder);
-        if (alaUserInfoViewHolder != null && alaUserInfoViewHolder.kbi != null) {
-            alaUserInfoViewHolder.kbi.cancel();
+        if (alaUserInfoViewHolder != null && alaUserInfoViewHolder.kjs != null) {
+            alaUserInfoViewHolder.kjs.cancel();
         }
     }
 
@@ -207,60 +207,60 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     /* renamed from: b */
     public void onViewAttachedToWindow(@NonNull AlaUserInfoViewHolder alaUserInfoViewHolder) {
         super.onViewAttachedToWindow(alaUserInfoViewHolder);
-        if (alaUserInfoViewHolder != null && alaUserInfoViewHolder.kbi != null) {
-            alaUserInfoViewHolder.kbi.start();
+        if (alaUserInfoViewHolder != null && alaUserInfoViewHolder.kjs != null) {
+            alaUserInfoViewHolder.kjs.start();
         }
     }
 
     /* loaded from: classes2.dex */
     public class AlaUserInfoViewHolder extends RecyclerView.ViewHolder {
-        private TextView eGI;
-        private HeadImageView fdF;
-        private View kbh;
-        public ObjectAnimator kbi;
-        private ImageView kbj;
-        private TbImageView kbk;
-        private TBSpecificationBtn kbl;
-        private TbImageView kbm;
+        private TextView eIO;
+        private HeadImageView ffU;
+        private View kjr;
+        public ObjectAnimator kjs;
+        private ImageView kjt;
+        private TbImageView kju;
+        private TBSpecificationBtn kjv;
+        private TbImageView kjw;
 
         public AlaUserInfoViewHolder(View view) {
             super(view);
-            this.kbh = view.findViewById(R.id.ala_recommend_container);
-            this.kbm = (TbImageView) view.findViewById(R.id.ala_animation_background);
-            ao.setImageResource(this.kbm, R.drawable.icon_mask_live);
-            this.kbi = ObjectAnimator.ofFloat(this.kbm, "rotation", 0.0f, 359.0f);
-            this.kbi.setRepeatCount(-1);
-            this.kbi.setDuration(10000L);
-            this.kbi.setInterpolator(new LinearInterpolator());
-            this.kbj = (ImageView) view.findViewById(R.id.ala_gradient_background);
-            this.fdF = (HeadImageView) view.findViewById(R.id.ala_protrait);
-            this.fdF.setRadius(com.baidu.adp.lib.util.l.getDimens(AlaRecommendListAdapter.this.mContext, R.dimen.tbds63));
-            this.kbk = (TbImageView) view.findViewById(R.id.ala_recommend_more);
-            this.kbl = (TBSpecificationBtn) view.findViewById(R.id.ala_sign_icon);
+            this.kjr = view.findViewById(R.id.ala_recommend_container);
+            this.kjw = (TbImageView) view.findViewById(R.id.ala_animation_background);
+            ap.setImageResource(this.kjw, R.drawable.icon_mask_live);
+            this.kjs = ObjectAnimator.ofFloat(this.kjw, "rotation", 0.0f, 359.0f);
+            this.kjs.setRepeatCount(-1);
+            this.kjs.setDuration(10000L);
+            this.kjs.setInterpolator(new LinearInterpolator());
+            this.kjt = (ImageView) view.findViewById(R.id.ala_gradient_background);
+            this.ffU = (HeadImageView) view.findViewById(R.id.ala_protrait);
+            this.ffU.setRadius(com.baidu.adp.lib.util.l.getDimens(AlaRecommendListAdapter.this.mContext, R.dimen.tbds63));
+            this.kju = (TbImageView) view.findViewById(R.id.ala_recommend_more);
+            this.kjv = (TBSpecificationBtn) view.findViewById(R.id.ala_sign_icon);
             com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
-            aVar.pM(R.color.CAM_X0310);
-            aVar.pJ(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds15));
-            aVar.aZ(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds120), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds46));
-            this.kbl.setTextSize(R.dimen.tbds26);
-            this.kbl.setClickState(false);
-            this.kbl.setConfig(aVar);
-            this.eGI = (TextView) view.findViewById(R.id.ala_recommend_user_name);
+            aVar.pR(R.color.CAM_X0310);
+            aVar.pO(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds15));
+            aVar.aW(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds120), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds46));
+            this.kjv.setTextSize(R.dimen.tbds26);
+            this.kjv.setClickState(false);
+            this.kjv.setConfig(aVar);
+            this.eIO = (TextView) view.findViewById(R.id.ala_recommend_user_name);
         }
 
-        public void cE(int i, int i2) {
+        public void cB(int i, int i2) {
             if (i != AlaRecommendListAdapter.this.mSkinType) {
-                ao.setViewTextColor(this.kbl, R.color.CAM_X0101);
-                ao.setViewTextColor(this.eGI, R.color.CAM_X0105);
-                ao.setImageResource(this.kbm, R.drawable.icon_mask_live);
-                SvgManager.bsx().a(this.kbj, R.drawable.ic_icon_pure_live_stroke, SvgManager.SvgResourceStateType.NORMAL);
-                this.kbl.btV();
+                ap.setViewTextColor(this.kjv, R.color.CAM_X0101);
+                ap.setViewTextColor(this.eIO, R.color.CAM_X0105);
+                ap.setImageResource(this.kjw, R.drawable.icon_mask_live);
+                SvgManager.bsR().a(this.kjt, R.drawable.ic_icon_pure_live_stroke, SvgManager.SvgResourceStateType.NORMAL);
+                this.kjv.bup();
                 if (i2 == 1) {
-                    ao.setImageResource(this.fdF, R.drawable.pic_live_hand_n);
+                    ap.setImageResource(this.ffU, R.drawable.pic_live_hand_n);
                 } else if (i2 == 2) {
-                    ao.setImageResource(this.kbk, R.drawable.icon_pure_live_moe22);
-                    ao.d(this.fdF, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds63), R.color.CAM_X0203, R.color.CAM_X0203);
+                    ap.setImageResource(this.kju, R.drawable.icon_pure_live_moe22);
+                    ap.d(this.ffU, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds63), R.color.CAM_X0203, R.color.CAM_X0203);
                 }
-                ao.setViewTextColor(this.eGI, R.color.CAM_X0105);
+                ap.setViewTextColor(this.eIO, R.color.CAM_X0105);
             }
         }
     }

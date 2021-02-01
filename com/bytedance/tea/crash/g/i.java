@@ -5,15 +5,15 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import com.bytedance.tea.crash.upload.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class i {
     public static String a(Context context) {
-        return a(hZ(context));
+        return a(ic(context));
     }
 
-    public static String a(b.EnumC1030b enumC1030b) {
+    public static String a(b.EnumC1034b enumC1034b) {
         try {
-            switch (enumC1030b) {
+            switch (enumC1034b) {
                 case WIFI:
                     return "wifi";
                 case MOBILE_2G:
@@ -32,20 +32,20 @@ public final class i {
         }
     }
 
-    private static b.EnumC1030b hZ(Context context) {
-        b.EnumC1030b enumC1030b;
+    private static b.EnumC1034b ic(Context context) {
+        b.EnumC1034b enumC1034b;
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
-                enumC1030b = b.EnumC1030b.NONE;
+                enumC1034b = b.EnumC1034b.NONE;
             } else {
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                 if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
-                    enumC1030b = b.EnumC1030b.NONE;
+                    enumC1034b = b.EnumC1034b.NONE;
                 } else {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        enumC1030b = b.EnumC1030b.WIFI;
+                        enumC1034b = b.EnumC1034b.WIFI;
                     } else if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
                             case 3:
@@ -57,26 +57,26 @@ public final class i {
                             case 12:
                             case 14:
                             case 15:
-                                enumC1030b = b.EnumC1030b.MOBILE_3G;
+                                enumC1034b = b.EnumC1034b.MOBILE_3G;
                                 break;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                enumC1030b = b.EnumC1030b.MOBILE;
+                                enumC1034b = b.EnumC1034b.MOBILE;
                                 break;
                             case 13:
-                                enumC1030b = b.EnumC1030b.MOBILE_4G;
+                                enumC1034b = b.EnumC1034b.MOBILE_4G;
                                 break;
                         }
                     } else {
-                        enumC1030b = b.EnumC1030b.MOBILE;
+                        enumC1034b = b.EnumC1034b.MOBILE;
                     }
                 }
             }
-            return enumC1030b;
+            return enumC1034b;
         } catch (Throwable th) {
-            return b.EnumC1030b.MOBILE;
+            return b.EnumC1034b.MOBILE;
         }
     }
 

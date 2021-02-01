@@ -2,11 +2,11 @@ package com.baidu.swan.apps.component.d;
 
 import androidx.annotation.IntRange;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int cKq = 5;
-    private int[] cKr;
+    private static int cME = 5;
+    private int[] cMF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.cKr = new int[gr(i - 1) + 1];
-        int length = this.cKr.length;
+        this.cMF = new int[gu(i - 1) + 1];
+        int length = this.cMF.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.cKr[i2] = -1;
+                this.cMF[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.cKr.length << cKq) - 1;
+        int length = (this.cMF.length << cME) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.cKr;
-        int gr = gr(i);
-        iArr[gr] = iArr[gr] | (1 << i);
+        int[] iArr = this.cMF;
+        int gu = gu(i);
+        iArr[gu] = iArr[gu] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.cKr.length << cKq) - 1;
+        int length = (this.cMF.length << cME) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.cKr[gr(i)] & (1 << i)) != 0;
+        return (this.cMF[gu(i)] & (1 << i)) != 0;
     }
 
-    private int gr(int i) {
-        return i >> cKq;
+    private int gu(int i) {
+        return i >> cME;
     }
 }

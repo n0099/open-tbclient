@@ -3,81 +3,81 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.tieba.lego.card.f;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private final String kTA;
-    private boolean kTB = false;
-    private boolean kTC = false;
-    private final String kTt;
-    private final int kTu;
-    private final String kTv;
-    private final String kTw;
-    private final int kTx;
-    private final String kTy;
-    private final String kTz;
+    private final int lbA;
+    private final String lbB;
+    private final String lbC;
+    private final String lbD;
+    private boolean lbE = false;
+    private boolean lbF = false;
+    private final String lbw;
+    private final int lbx;
+    private final String lby;
+    private final String lbz;
     private final String mIconUrl;
 
     public a(JSONObject jSONObject) {
         this.mIconUrl = jSONObject.optString("bIcon");
-        this.kTt = jSONObject.optString("bIconN");
-        this.kTu = jSONObject.optInt("bIconType");
-        this.kTv = jSONObject.optString("bSelIcon");
-        this.kTw = jSONObject.optString("bSelIconN");
-        this.kTx = jSONObject.optInt("bSelIconType");
-        this.kTy = jSONObject.optString("clickAction");
-        this.kTz = jSONObject.optString("preAction");
-        this.kTA = jSONObject.optString("statKey");
+        this.lbw = jSONObject.optString("bIconN");
+        this.lbx = jSONObject.optInt("bIconType");
+        this.lby = jSONObject.optString("bSelIcon");
+        this.lbz = jSONObject.optString("bSelIconN");
+        this.lbA = jSONObject.optInt("bSelIconType");
+        this.lbB = jSONObject.optString("clickAction");
+        this.lbC = jSONObject.optString("preAction");
+        this.lbD = jSONObject.optString("statKey");
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.mIconUrl) && TextUtils.isEmpty(this.kTt) && TextUtils.isEmpty(this.kTv) && TextUtils.isEmpty(this.kTw) && TextUtils.isEmpty(this.kTy) && TextUtils.isEmpty(this.kTz) && TextUtils.isEmpty(this.kTA) && this.kTu == 0 && this.kTx == 0) ? false : true;
+        return (TextUtils.isEmpty(this.mIconUrl) && TextUtils.isEmpty(this.lbw) && TextUtils.isEmpty(this.lby) && TextUtils.isEmpty(this.lbz) && TextUtils.isEmpty(this.lbB) && TextUtils.isEmpty(this.lbC) && TextUtils.isEmpty(this.lbD) && this.lbx == 0 && this.lbA == 0) ? false : true;
     }
 
-    public String cZC() {
-        return this.kTy;
+    public String dbA() {
+        return this.lbB;
     }
 
-    public String cZD() {
-        return this.kTz;
+    public String dbB() {
+        return this.lbC;
     }
 
-    public boolean cZE() {
-        return this.kTB;
+    public boolean dbC() {
+        return this.lbE;
     }
 
-    public void tt(boolean z) {
-        this.kTB = z;
+    public void tG(boolean z) {
+        this.lbE = z;
     }
 
-    public boolean cZF() {
-        return this.kTC;
+    public boolean dbD() {
+        return this.lbF;
     }
 
-    public void tu(boolean z) {
-        this.kTC = z;
+    public void tH(boolean z) {
+        this.lbF = z;
     }
 
-    public String cZG() {
-        return this.kTA;
+    public String dbE() {
+        return this.lbD;
     }
 
-    public boolean cZH() {
-        return cZJ() > 0;
+    public boolean dbF() {
+        return dbH() > 0;
     }
 
     public String getImageUrl() {
-        return this.kTB ? this.kTv : this.mIconUrl;
+        return this.lbE ? this.lby : this.mIconUrl;
     }
 
-    public String cZI() {
-        return this.kTB ? this.kTw : this.kTt;
+    public String dbG() {
+        return this.lbE ? this.lbz : this.lbw;
     }
 
-    public int cZJ() {
-        return DA(this.kTB ? this.kTx : this.kTu);
+    public int dbH() {
+        return DS(this.lbE ? this.lbA : this.lbx);
     }
 
-    private static int DA(int i) {
-        return f.ov(i);
+    private static int DS(int i) {
+        return f.oA(i);
     }
 }

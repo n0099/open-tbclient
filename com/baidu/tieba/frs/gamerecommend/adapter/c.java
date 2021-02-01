@@ -9,20 +9,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.card.aa;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.card.m;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, CardViewHolder<com.baidu.tieba.card.e>> {
-    private com.baidu.tieba.card.e jtA;
-    private aa jty;
+    private ab jze;
+    private com.baidu.tieba.card.e jzg;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.iyj);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.iDT);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -32,45 +32,45 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, Card
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder<com.baidu.tieba.card.e> e(ViewGroup viewGroup) {
-        this.jtA = new com.baidu.tieba.card.e(this.mPageContext);
-        return new CardViewHolder<>(this.jtA);
+        this.jzg = new com.baidu.tieba.card.e(this.mPageContext);
+        return new CardViewHolder<>(this.jzg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.b bVar, CardViewHolder<com.baidu.tieba.card.e> cardViewHolder) {
-        if (cardViewHolder.crP() == null) {
+        if (cardViewHolder.ctb() == null) {
             return null;
         }
-        cardViewHolder.crP().a(bVar);
-        cardViewHolder.crP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        cardViewHolder.crP().c(new aa<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.c.1
+        cardViewHolder.ctb().a(bVar);
+        cardViewHolder.ctb().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.ctb().c(new ab<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view2, com.baidu.tieba.e.b bVar2) {
-                TiebaStatic.log(new aq("c13047").an("obj_locate", 3).dW("fid", c.this.mForumId));
+                TiebaStatic.log(new ar("c13047").ap("obj_locate", 3).dR("fid", c.this.mForumId));
                 c.this.a(view2, bVar2);
             }
         });
-        return cardViewHolder.crP().getView();
+        return cardViewHolder.ctb().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.tieba.e.b bVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.bkV(), null, m.bnj(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(bVar.bkV().getFid()));
-        createFromThreadCfg.setForumName(bVar.bkV().bnB());
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.bln(), null, m.bnC(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(bVar.bln().getFid()));
+        createFromThreadCfg.setForumName(bVar.bln().bnU());
         createFromThreadCfg.setStartFrom(0);
-        m.Ic(bVar.bkV().getTid());
+        m.IM(bVar.bln().getTid());
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
-        if (this.jty != null) {
-            this.jty.a(view, bVar);
+        if (this.jze != null) {
+            this.jze.a(view, bVar);
         }
     }
 
-    public void d(aa aaVar) {
-        this.jty = aaVar;
+    public void d(ab abVar) {
+        this.jze = abVar;
     }
 }

@@ -7,15 +7,15 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.videochat.message.LiveVideoChatSendCancelResponseMessage;
 import com.baidu.live.videochat.message.LiveVideoChatSendStartResponseMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f extends b {
-    private g bKZ;
-    private HttpMessageListener bMX;
-    private HttpMessageListener bMY;
+    private g bOJ;
+    private HttpMessageListener bQN;
+    private HttpMessageListener bQO;
 
     public f(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.bMX = new HttpMessageListener(1021177) { // from class: com.baidu.live.videochat.e.f.1
+        this.bQN = new HttpMessageListener(1021177) { // from class: com.baidu.live.videochat.e.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -24,7 +24,7 @@ public class f extends b {
                 }
             }
         };
-        this.bMY = new HttpMessageListener(1021173) { // from class: com.baidu.live.videochat.e.f.2
+        this.bQO = new HttpMessageListener(1021173) { // from class: com.baidu.live.videochat.e.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -43,28 +43,28 @@ public class f extends b {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.bMX);
-        MessageManager.getInstance().registerListener(this.bMY);
+        MessageManager.getInstance().registerListener(this.bQN);
+        MessageManager.getInstance().registerListener(this.bQO);
     }
 
     public void a(g gVar) {
         a((c) gVar);
-        this.bKZ = gVar;
+        this.bOJ = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LiveVideoChatSendStartResponseMessage liveVideoChatSendStartResponseMessage) {
         if (liveVideoChatSendStartResponseMessage != null) {
-            if (liveVideoChatSendStartResponseMessage.getError() == 0 && liveVideoChatSendStartResponseMessage.Vi() != null) {
-                if (liveVideoChatSendStartResponseMessage.Vi().UL()) {
-                    if (this.bKZ != null) {
-                        this.bKZ.UB();
+            if (liveVideoChatSendStartResponseMessage.getError() == 0 && liveVideoChatSendStartResponseMessage.WR() != null) {
+                if (liveVideoChatSendStartResponseMessage.WR().Wu()) {
+                    if (this.bOJ != null) {
+                        this.bOJ.Wk();
                     }
-                } else if (this.bKZ != null) {
-                    this.bKZ.Q(liveVideoChatSendStartResponseMessage.Vi().UM(), liveVideoChatSendStartResponseMessage.Vi().UN());
+                } else if (this.bOJ != null) {
+                    this.bOJ.U(liveVideoChatSendStartResponseMessage.WR().Wv(), liveVideoChatSendStartResponseMessage.WR().Ww());
                 }
-            } else if (this.bKZ != null) {
-                this.bKZ.Q(liveVideoChatSendStartResponseMessage.getError(), liveVideoChatSendStartResponseMessage.getErrorString());
+            } else if (this.bOJ != null) {
+                this.bOJ.U(liveVideoChatSendStartResponseMessage.getError(), liveVideoChatSendStartResponseMessage.getErrorString());
             }
         }
     }
@@ -73,15 +73,15 @@ public class f extends b {
     public void a(LiveVideoChatSendCancelResponseMessage liveVideoChatSendCancelResponseMessage) {
         if (liveVideoChatSendCancelResponseMessage != null) {
             if (liveVideoChatSendCancelResponseMessage.hasError() || liveVideoChatSendCancelResponseMessage.getError() != 0) {
-                if (this.bKZ != null) {
-                    this.bKZ.R(liveVideoChatSendCancelResponseMessage.getError(), liveVideoChatSendCancelResponseMessage.getErrorString());
+                if (this.bOJ != null) {
+                    this.bOJ.V(liveVideoChatSendCancelResponseMessage.getError(), liveVideoChatSendCancelResponseMessage.getErrorString());
                 }
-            } else if (liveVideoChatSendCancelResponseMessage.UZ()) {
-                if (this.bKZ != null) {
-                    this.bKZ.UC();
+            } else if (liveVideoChatSendCancelResponseMessage.WI()) {
+                if (this.bOJ != null) {
+                    this.bOJ.Wl();
                 }
-            } else if (this.bKZ != null) {
-                this.bKZ.a(liveVideoChatSendCancelResponseMessage.Va(), liveVideoChatSendCancelResponseMessage.Vb(), liveVideoChatSendCancelResponseMessage.Vc());
+            } else if (this.bOJ != null) {
+                this.bOJ.a(liveVideoChatSendCancelResponseMessage.WJ(), liveVideoChatSendCancelResponseMessage.WK(), liveVideoChatSendCancelResponseMessage.WL());
             }
         }
     }

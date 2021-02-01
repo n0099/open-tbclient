@@ -6,8 +6,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.data.dd;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
+import com.baidu.live.data.dj;
 import com.baidu.live.lottie.LottieAnimationView;
 import com.baidu.live.message.ShowRoomCard;
 import com.baidu.live.message.YuyinShowRoomDialogMessage;
@@ -17,74 +17,74 @@ import com.baidu.live.tbadk.core.atomdata.YuyinAlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tieba.view.BarImageView;
 import com.baidu.tieba.yuyinala.AlaRankListActivity;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private TextView hTx;
-    private TextView ieE;
-    private TextView ieF;
-    private LottieAnimationView ieH;
+    private TextView hXS;
+    private LottieAnimationView ijB;
+    private TextView ijy;
+    private TextView ijz;
     private View mRootView;
-    private FrameLayout oDA;
-    private BarImageView oDN;
-    private com.baidu.tieba.yuyinala.data.c oDO;
-    private AlaRankListActivity ofd;
+    private FrameLayout oNJ;
+    private BarImageView oNW;
+    private com.baidu.tieba.yuyinala.data.c oNX;
+    private AlaRankListActivity ooW;
 
     public c(AlaRankListActivity alaRankListActivity, View view) {
-        this.ofd = alaRankListActivity;
+        this.ooW = alaRankListActivity;
         this.mRootView = view;
-        this.hTx = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
-        this.ieF = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
-        this.ieE = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_rank_info);
-        this.oDN = (BarImageView) this.mRootView.findViewById(a.f.ala_rank_list_header);
-        this.oDN.setShowOval(true);
-        this.oDN.setAutoChangeStyle(false);
-        this.ieH = (LottieAnimationView) this.mRootView.findViewById(a.f.rank_live_anim);
-        this.oDA = (FrameLayout) this.mRootView.findViewById(a.f.ll_living);
+        this.hXS = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
+        this.ijz = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
+        this.ijy = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_rank_info);
+        this.oNW = (BarImageView) this.mRootView.findViewById(a.f.ala_rank_list_header);
+        this.oNW.setShowOval(true);
+        this.oNW.setAutoChangeStyle(false);
+        this.ijB = (LottieAnimationView) this.mRootView.findViewById(a.f.rank_live_anim);
+        this.oNJ = (FrameLayout) this.mRootView.findViewById(a.f.ll_living);
     }
 
     public void a(com.baidu.tieba.yuyinala.data.c cVar, int i) {
         if (cVar != null) {
-            this.oDO = cVar;
-            this.hTx.setText(this.oDO.getNameShow());
-            this.oDN.startLoad(this.oDO.cover, 12, false);
-            if (this.oDO.ePl == 2) {
-                this.ieH.setAnimation("alavl_room_living.json");
-                this.ieH.loop(true);
-                this.ieH.playAnimation();
-                this.oDA.setVisibility(0);
+            this.oNX = cVar;
+            this.hXS.setText(this.oNX.getNameShow());
+            this.oNW.startLoad(this.oNX.cover, 12, false);
+            if (this.oNX.eRx == 2) {
+                this.ijB.setAnimation("alavl_room_living.json");
+                this.ijB.loop(true);
+                this.ijB.playAnimation();
+                this.oNJ.setVisibility(0);
             } else {
-                this.oDA.setVisibility(8);
+                this.oNJ.setVisibility(8);
             }
-            int i2 = this.oDO.rank;
-            this.ieF.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_cp_cont_d));
+            int i2 = this.oNX.rank;
+            this.ijz.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_cp_cont_d));
             if (i2 >= 100) {
-                this.ieF.setTextSize(0, this.ofd.getResources().getDimension(a.d.sdk_fontsize28));
+                this.ijz.setTextSize(0, this.ooW.getResources().getDimension(a.d.sdk_fontsize28));
             } else {
-                this.ieF.setTextSize(0, this.ofd.getResources().getDimension(a.d.sdk_fontsize32));
+                this.ijz.setTextSize(0, this.ooW.getResources().getDimension(a.d.sdk_fontsize32));
             }
-            this.ieF.setText(String.valueOf(i2));
-            this.ieF.setBackgroundResource(a.c.sdk_transparent);
-            this.ieE.setText(String.format(this.ofd.getString(a.h.ala_rank_list_charm_hour), StringHelper.formatYuyinValue(this.oDO.aER)));
+            this.ijz.setText(String.valueOf(i2));
+            this.ijz.setBackgroundResource(a.c.sdk_transparent);
+            this.ijy.setText(String.format(this.ooW.getString(a.h.ala_rank_list_charm_hour), StringHelper.formatYuyinValue(this.oNX.aGE)));
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.view.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    Intent intent = c.this.ofd.getIntent();
-                    boolean ib = com.baidu.live.aq.a.Wu().ib(intent.getStringExtra("uk"));
+                    Intent intent = c.this.ooW.getIntent();
+                    boolean iH = com.baidu.live.ao.a.Yj().iH(intent.getStringExtra("uk"));
                     long longExtra = intent.getLongExtra("live_id", 0L);
                     try {
-                        if (!String.valueOf(longExtra).equals(c.this.oDO.liveId)) {
-                            if (c.this.oDO.ePl == 2) {
-                                if (ib) {
-                                    x xVar = new x();
-                                    xVar.aGy = new dd();
-                                    xVar.aGy.live_id = c.this.oDO.liveId;
-                                    xVar.aGy.aQH = c.this.oDO.aQH;
-                                    MessageManager.getInstance().dispatchResponsedMessage(new YuyinShowRoomDialogMessage(new ShowRoomCard(xVar)));
+                        if (!String.valueOf(longExtra).equals(c.this.oNX.liveId)) {
+                            if (c.this.oNX.eRx == 2) {
+                                if (iH) {
+                                    ab abVar = new ab();
+                                    abVar.aIU = new dj();
+                                    abVar.aIU.live_id = c.this.oNX.liveId;
+                                    abVar.aIU.aTK = c.this.oNX.aTK;
+                                    MessageManager.getInstance().dispatchResponsedMessage(new YuyinShowRoomDialogMessage(new ShowRoomCard(abVar)));
                                 } else {
-                                    if (com.baidu.live.aq.a.Wu().isApplying()) {
-                                        com.baidu.live.aq.a.Wu().WD();
+                                    if (com.baidu.live.ao.a.Yj().isApplying()) {
+                                        com.baidu.live.ao.a.Yj().Yt();
                                     }
-                                    YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(c.this.ofd);
+                                    YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(c.this.ooW);
                                     String stringExtra = intent.getStringExtra("room_id");
                                     String stringExtra2 = intent.getStringExtra("portrait");
                                     AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
@@ -93,18 +93,18 @@ public class c {
                                     alaLastLiveroomInfo.setLastRoomId(Long.valueOf(stringExtra).longValue());
                                     alaLastLiveroomInfo.setIsAudio(1);
                                     alaLastLiveroomInfo.setLastAnchorPortrait(stringExtra2);
-                                    yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(Long.valueOf(c.this.oDO.liveId).longValue(), c.this.oDO.aQH, "live_sdk");
+                                    yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(Long.valueOf(c.this.oNX.liveId).longValue(), c.this.oNX.aTK, "live_sdk");
                                     yuyinAlaLiveRoomActivityConfig.addLastLiveInfoParams(alaLastLiveroomInfo);
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2501018, yuyinAlaLiveRoomActivityConfig));
                                 }
                             } else {
-                                x xVar2 = new x();
-                                xVar2.aGy = new dd();
-                                xVar2.aGy.live_id = c.this.oDO.liveId;
-                                xVar2.aGy.aQH = c.this.oDO.aQH;
-                                MessageManager.getInstance().dispatchResponsedMessage(new YuyinShowRoomDialogMessage(new ShowRoomCard(xVar2)));
+                                ab abVar2 = new ab();
+                                abVar2.aIU = new dj();
+                                abVar2.aIU.live_id = c.this.oNX.liveId;
+                                abVar2.aIU.aTK = c.this.oNX.aTK;
+                                MessageManager.getInstance().dispatchResponsedMessage(new YuyinShowRoomDialogMessage(new ShowRoomCard(abVar2)));
                             }
-                            c.this.ofd.finish();
+                            c.this.ooW.finish();
                         }
                     } catch (Throwable th) {
                     }

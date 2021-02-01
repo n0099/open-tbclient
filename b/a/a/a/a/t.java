@@ -7,7 +7,7 @@ import android.os.Message;
 import android.util.SparseArray;
 import com.tencent.map.geoloclite.tsa.TencentLiteLocationListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class t extends Handler {
     private /* synthetic */ p AR;
 

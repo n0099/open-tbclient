@@ -2,10 +2,10 @@ package com.baidu.tieba.themeCenter.bubble.group;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetBubbleByCategory.DataReq;
 import tbclient.GetBubbleByCategory.GetBubbleByCategoryReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BubbleGroupRequestMessage extends NetMessage {
     public BubbleGroupRequestMessage() {
         super(1003039, CmdConfigSocket.CMD_BUBBLE_CATEGORY);
@@ -15,7 +15,7 @@ public class BubbleGroupRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetBubbleByCategoryReqIdl.Builder builder2 = new GetBubbleByCategoryReqIdl.Builder();
         builder2.data = builder.build(false);

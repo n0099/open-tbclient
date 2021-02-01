@@ -1,77 +1,120 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.c;
 
-import com.baidu.live.data.AlaWheatInfoDataWrapper;
-import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
+import android.widget.RelativeLayout;
+import com.baidu.live.tbadk.core.util.ListUtils;
+import com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionLineView;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes11.dex */
 public class g {
-    public static int owL = 1;
-    public static int owM = 2;
-    public static int owN = 3;
-    private TbPageContext ovA;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.b.a owK;
+    private RelativeLayout lxd;
+    private final ConcurrentHashMap<String, ConnectionLineView> oGg = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Boolean> oGh = new ConcurrentHashMap<>();
+    private a oGi;
 
-    public g(TbPageContext tbPageContext) {
-        this.ovA = tbPageContext;
+    /* loaded from: classes11.dex */
+    public interface a {
+        void Wj(String str);
     }
 
-    public void b(com.baidu.tieba.yuyinala.liveroom.data.e eVar) {
-        AlaWheatInfoDataWrapper alaWheatInfoDataWrapper;
-        if (eVar != null && eVar.hcZ != null && (alaWheatInfoDataWrapper = eVar.hcZ.aGD) != null) {
-            if (alaWheatInfoDataWrapper.getRoomMode() == 0) {
-                if (this.owK == null || !(this.owK instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a)) {
-                    this.owK = new com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a(this.ovA);
-                }
-            } else if (alaWheatInfoDataWrapper.getRoomMode() == 1) {
-                switch (alaWheatInfoDataWrapper.getActivityStage()) {
-                    case 1:
-                        if (this.owK == null || !(this.owK instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.c)) {
-                            this.owK = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.c(this.ovA);
-                            break;
-                        }
-                        break;
-                    case 2:
-                        if (this.owK == null || !(this.owK instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.e)) {
-                            this.owK = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.e(this.ovA);
-                            break;
-                        }
-                        break;
-                    case 3:
-                        if (this.owK == null || !(this.owK instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.d)) {
-                            this.owK = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.d(this.ovA);
-                            break;
-                        }
-                        break;
-                    case 4:
-                        if (this.owK == null || !(this.owK instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.b)) {
-                            this.owK = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.b(this.ovA);
-                            break;
-                        }
-                        break;
-                    default:
-                        if (this.owK == null || !(this.owK instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.a)) {
-                            this.owK = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.a(this.ovA);
-                            break;
-                        }
-                        break;
-                }
-            } else if (alaWheatInfoDataWrapper.getRoomMode() == 2) {
-                if (this.owK == null || !(this.owK instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.c.a)) {
-                    this.owK = new com.baidu.tieba.yuyinala.liveroom.wheat.b.c.a(this.ovA);
-                }
-            } else if (this.owK == null || !(this.owK instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a)) {
-                this.owK = new com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a(this.ovA);
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0032, code lost:
+        if (r8.lxd.indexOfChild(r8.oGg.get(r1)) == (-1)) goto L16;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void a(int[] iArr, RelativeLayout relativeLayout, double[] dArr, double[] dArr2, int i) {
+        if (dArr[0] != dArr2[0] || dArr[1] != dArr2[1]) {
+            String o = o(iArr);
+            if (this.oGg.containsKey(o)) {
             }
-            if (this.owK != null) {
-                this.owK.a(eVar.hcZ, eVar.bYs, eVar.okn, eVar.oko);
-                this.owK.eaG();
+            this.lxd = relativeLayout;
+            ConnectionLineView connectionLineView = new ConnectionLineView(relativeLayout.getContext());
+            int a2 = (int) a(dArr, dArr2);
+            connectionLineView.setLayoutParams(new RelativeLayout.LayoutParams(a2 - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(52.0f, relativeLayout.getContext()), -2));
+            float b2 = (float) b(dArr, dArr2);
+            double[] a3 = a(a2, dArr, dArr2);
+            connectionLineView.setX((float) (a3[0] + (com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(52.0f, relativeLayout.getContext()) / 2)));
+            connectionLineView.setY((float) a3[1]);
+            if (dArr[1] > dArr2[1]) {
+                b2 = 180.0f - b2;
+            }
+            connectionLineView.setRotation(b2);
+            relativeLayout.addView(connectionLineView, i + 1);
+            this.oGg.put(o, connectionLineView);
+            if (this.oGi != null) {
+                this.oGi.Wj(o);
             }
         }
     }
 
-    public void onDestroy() {
-        if (this.owK != null) {
-            this.owK.onDestory();
+    public synchronized void Wh(String str) {
+        if (!ListUtils.isEmpty(this.oGg) && this.oGg.containsKey(str)) {
+            ConnectionLineView connectionLineView = this.oGg.get(str);
+            if (connectionLineView != null && this.lxd.indexOfChild(connectionLineView) != -1) {
+                this.lxd.removeView(connectionLineView);
+            }
+            this.oGg.remove(str);
         }
-        e.eaX().onDestroy();
+    }
+
+    public synchronized void edm() {
+        if (!ListUtils.isEmpty(this.oGg)) {
+            for (Map.Entry<String, ConnectionLineView> entry : this.oGg.entrySet()) {
+                Wh(entry.getKey());
+            }
+        }
+    }
+
+    public String o(int[] iArr) {
+        return (iArr == null || iArr.length != 2) ? "" : Integer.toString(iArr[0]) + Integer.toString(iArr[1]);
+    }
+
+    private double a(double[] dArr, double[] dArr2) {
+        double abs = Math.abs(dArr2[0] - dArr[0]);
+        double abs2 = Math.abs(dArr2[1] - dArr[1]);
+        return dArr[1] == dArr2[1] ? abs : Math.sqrt((abs * abs) + (abs2 * abs2));
+    }
+
+    public double b(double[] dArr, double[] dArr2) {
+        return Math.round((Math.asin(Math.abs(dArr2[1] - dArr[1]) / a(dArr, dArr2)) / 3.141592653589793d) * 180.0d);
+    }
+
+    private double[] a(int i, double[] dArr, double[] dArr2) {
+        return new double[]{((dArr[0] + dArr2[0]) - i) / 2.0d, ((dArr[1] + dArr2[1]) / 2.0d) - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(11.0f, this.lxd.getContext())};
+    }
+
+    public void a(a aVar) {
+        this.oGi = aVar;
+    }
+
+    public synchronized void p(int[] iArr) {
+        ConnectionLineView connectionLineView;
+        if (!ListUtils.isEmpty(this.oGg) && (connectionLineView = this.oGg.get(o(iArr))) != null) {
+            connectionLineView.eeW();
+        }
+    }
+
+    public ConcurrentHashMap<String, ConnectionLineView> edn() {
+        return this.oGg;
+    }
+
+    public synchronized void bh(String str, boolean z) {
+        if (this.oGh != null) {
+            if (this.oGh.containsKey(str)) {
+                this.oGh.remove(str);
+            }
+            this.oGh.put(str, Boolean.valueOf(z));
+        }
+    }
+
+    public synchronized boolean Wi(String str) {
+        return (this.oGh == null || !this.oGh.containsKey(str)) ? false : this.oGh.get(str).booleanValue();
+    }
+
+    public synchronized void edo() {
+        if (this.oGh != null) {
+            this.oGh.clear();
+        }
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
 import com.bytedance.sdk.openadsdk.d.a.c;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Common {
     @c(a = "ac")
     public String ac;

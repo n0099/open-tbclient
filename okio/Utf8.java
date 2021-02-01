@@ -1,5 +1,5 @@
 package okio;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Utf8 {
     private Utf8() {
     }

@@ -3,22 +3,22 @@ package com.bytedance.sdk.adnet.e;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface b {
-    a XP(String str);
+    a YQ(String str);
 
     void a();
 
     void a(String str, a aVar);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6061a;
+        public int f6063a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f6062b;
+        public byte[] f6064b;
         public String c;
         public long d;
         public long e;

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.logsystem.logsys.eventscene.snapshot;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public enum DeviceSnapshotType {
     DEVICE_APP_DB_INFO,
     DEVICE_APP_LOGCAT,

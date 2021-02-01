@@ -23,49 +23,49 @@ import com.baidu.tbadk.ProxyAdkBaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class h extends ProxyAdkBaseActivity<h> {
-    private TextView gdF;
-    private List<c> iNG;
-    private d iNI;
-    private a iNJ;
-    private LinearLayout iNK;
-    private NavigationBar iNL;
-    private TextView iNM;
-    private TextView iNN;
-    private ImageView iNO;
-    private BdListView iNP;
-    private TextView iNQ;
-    private View iNR;
-    private b iNS;
+    private TextView gfU;
+    private List<c> iTn;
+    private d iTp;
+    private a iTq;
+    private LinearLayout iTr;
+    private NavigationBar iTs;
+    private TextView iTt;
+    private TextView iTu;
+    private ImageView iTv;
+    private BdListView iTw;
+    private TextView iTx;
+    private View iTy;
+    private b iTz;
     private View mBack;
-    private final List<String> iNH = new LinkedList();
-    private boolean iNT = false;
+    private final List<String> iTo = new LinkedList();
+    private boolean iTA = false;
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == h.this.iNM) {
-                h.this.cxm();
-            } else if (view == h.this.gdF) {
-                if (h.this.iNT) {
-                    h.this.cxk();
-                    h.this.iNH.clear();
+            if (view == h.this.iTt) {
+                h.this.cyx();
+            } else if (view == h.this.gfU) {
+                if (h.this.iTA) {
+                    h.this.cyv();
+                    h.this.iTo.clear();
                 } else {
-                    h.this.cxj();
+                    h.this.cyu();
                 }
-                h.this.iNS.notifyDataSetChanged();
-            } else if (view == h.this.iNQ) {
+                h.this.iTz.notifyDataSetChanged();
+            } else if (view == h.this.iTx) {
                 IntentConfig intentConfig = new IntentConfig(h.this.getActivity());
                 intentConfig.getIntent().putExtra("emotion_manage", "emotion_manage");
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_FACEPURCHASERECORDS, intentConfig));
-                h.this.cxk();
-                h.this.pW(true);
+                h.this.cyv();
+                h.this.qg(true);
             }
         }
     };
@@ -73,22 +73,22 @@ public class h extends ProxyAdkBaseActivity<h> {
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             e eVar;
-            if (h.this.iNT) {
-                if (h.this.iNG.get(i) != null && (eVar = (e) view.getTag()) != null) {
-                    Object tag = eVar.iNX.getTag();
+            if (h.this.iTA) {
+                if (h.this.iTn.get(i) != null && (eVar = (e) view.getTag()) != null) {
+                    Object tag = eVar.iTE.getTag();
                     if (tag instanceof String) {
                         String str = (String) tag;
-                        for (c cVar : h.this.iNG) {
+                        for (c cVar : h.this.iTn) {
                             if (cVar.id.equals(str)) {
-                                if (h.this.iNH.contains(str)) {
-                                    ao.setImageResource(eVar.iNX, R.drawable.btn_expression_choose_n);
-                                    h.this.iNH.remove(str);
-                                    h.this.IP(str);
-                                    cVar.iNV = false;
+                                if (h.this.iTo.contains(str)) {
+                                    ap.setImageResource(eVar.iTE, R.drawable.btn_expression_choose_n);
+                                    h.this.iTo.remove(str);
+                                    h.this.JA(str);
+                                    cVar.iTC = false;
                                 } else {
-                                    ao.setImageResource(eVar.iNX, R.drawable.btn_expression_choose_s);
-                                    h.this.IO(str);
-                                    cVar.iNV = true;
+                                    ap.setImageResource(eVar.iTE, R.drawable.btn_expression_choose_s);
+                                    h.this.Jz(str);
+                                    cVar.iTC = true;
                                 }
                             }
                         }
@@ -98,16 +98,16 @@ public class h extends ProxyAdkBaseActivity<h> {
                 }
                 return;
             }
-            h.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FacePackageDetailActivityConfig(h.this.getPageContext().getPageActivity(), ((c) h.this.iNG.get(i)).id, false, "emotion_manage")));
+            h.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FacePackageDetailActivityConfig(h.this.getPageContext().getPageActivity(), ((c) h.this.iTn.get(i)).id, false, "emotion_manage")));
         }
     };
-    private final CustomMessageListener eHt = new CustomMessageListener(0) { // from class: com.baidu.tieba.faceshop.h.3
+    private final CustomMessageListener eJz = new CustomMessageListener(0) { // from class: com.baidu.tieba.faceshop.h.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001117) {
-                h.this.iNI = new d();
-                h.this.iNI.execute(new String[0]);
+                h.this.iTp = new d();
+                h.this.iTp.execute(new String[0]);
             }
         }
     };
@@ -119,16 +119,16 @@ public class h extends ProxyAdkBaseActivity<h> {
         setContentView(R.layout.activity_emotion_manage);
         initView();
         initData();
-        pW(true);
+        qg(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iNJ != null) {
-            this.iNJ.cancel(true);
-            this.iNJ = null;
+        if (this.iTq != null) {
+            this.iTq.cancel(true);
+            this.iTq = null;
         }
     }
 
@@ -136,49 +136,49 @@ public class h extends ProxyAdkBaseActivity<h> {
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iNL.onChangeSkinType(getPageContext(), i);
-        ao.setBackgroundResource(this.iNM, R.drawable.btn_delete_groupupdates);
+        this.iTs.onChangeSkinType(getPageContext(), i);
+        ap.setBackgroundResource(this.iTt, R.drawable.btn_delete_groupupdates);
     }
 
     private void initView() {
-        this.iNK = (LinearLayout) findViewById(R.id.emotion_manage_root);
-        this.iNL = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.iNL.setTitleText(R.string.title_activity_emotion_manage);
-        this.mBack = this.iNL.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.iNM = this.iNL.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.delete) + "(" + this.iNH.size() + ")", this.mOnClickListener, true);
-        cxl();
-        this.gdF = this.iNL.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit), this.mOnClickListener);
-        ao.setViewTextColor(this.gdF, R.color.CAM_X0106, 1);
-        this.iNN = (TextView) findViewById(R.id.emotion_manager_title);
-        this.iNO = (ImageView) findViewById(R.id.emotion_manage_enter_line_list_up);
-        this.iNP = (BdListView) findViewById(R.id.emotion_manage_list);
-        this.iNP.setOnItemClickListener(this.mOnItemClickListener);
-        this.iNR = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.emotion_manage_list_footer, (ViewGroup) null);
-        this.iNP.addFooterView(this.iNR);
-        this.iNQ = (TextView) this.iNR.findViewById(R.id.emotion_manage_enter_record);
-        this.iNQ.setOnClickListener(this.mOnClickListener);
+        this.iTr = (LinearLayout) findViewById(R.id.emotion_manage_root);
+        this.iTs = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.iTs.setTitleText(R.string.title_activity_emotion_manage);
+        this.mBack = this.iTs.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.iTt = this.iTs.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.delete) + "(" + this.iTo.size() + ")", this.mOnClickListener, true);
+        cyw();
+        this.gfU = this.iTs.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit), this.mOnClickListener);
+        ap.setViewTextColor(this.gfU, R.color.CAM_X0106, 1);
+        this.iTu = (TextView) findViewById(R.id.emotion_manager_title);
+        this.iTv = (ImageView) findViewById(R.id.emotion_manage_enter_line_list_up);
+        this.iTw = (BdListView) findViewById(R.id.emotion_manage_list);
+        this.iTw.setOnItemClickListener(this.mOnItemClickListener);
+        this.iTy = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.emotion_manage_list_footer, (ViewGroup) null);
+        this.iTw.addFooterView(this.iTy);
+        this.iTx = (TextView) this.iTy.findViewById(R.id.emotion_manage_enter_record);
+        this.iTx.setOnClickListener(this.mOnClickListener);
         getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        getLayoutMode().onModeChanged(this.iNK);
-        getLayoutMode().onModeChanged(this.iNR);
-        cxk();
+        getLayoutMode().onModeChanged(this.iTr);
+        getLayoutMode().onModeChanged(this.iTy);
+        cyv();
     }
 
     private void initData() {
-        registerListener(CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED, this.eHt);
-        this.iNI = new d();
-        this.iNI.execute(new String[0]);
-        this.iNS = new b();
-        this.iNP.setAdapter((ListAdapter) this.iNS);
+        registerListener(CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED, this.eJz);
+        this.iTp = new d();
+        this.iTp.execute(new String[0]);
+        this.iTz = new b();
+        this.iTw.setAdapter((ListAdapter) this.iTz);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pW(boolean z) {
+    public void qg(boolean z) {
         boolean z2;
         if (z) {
-            this.iNH.clear();
+            this.iTo.clear();
         } else {
-            for (String str : this.iNH) {
-                Iterator<c> it = this.iNG.iterator();
+            for (String str : this.iTo) {
+                Iterator<c> it = this.iTn.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z2 = false;
@@ -189,107 +189,107 @@ public class h extends ProxyAdkBaseActivity<h> {
                     }
                 }
                 if (!z2) {
-                    this.iNH.remove(str);
+                    this.iTo.remove(str);
                 }
             }
         }
-        cxl();
-        cxi();
-        this.iNS.notifyDataSetChanged();
+        cyw();
+        cyt();
+        this.iTz.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxi() {
-        if (this.iNG != null) {
-            if (this.iNG.size() == 0) {
-                this.iNN.setText(R.string.emotion_manage_title_nodata);
-                this.gdF.setEnabled(false);
-                this.iNO.setVisibility(8);
-                cxk();
+    public void cyt() {
+        if (this.iTn != null) {
+            if (this.iTn.size() == 0) {
+                this.iTu.setText(R.string.emotion_manage_title_nodata);
+                this.gfU.setEnabled(false);
+                this.iTv.setVisibility(8);
+                cyv();
                 return;
             }
-            this.iNN.setText(R.string.emotion_manage_title);
-            this.gdF.setEnabled(true);
-            this.iNO.setVisibility(0);
+            this.iTu.setText(R.string.emotion_manage_title);
+            this.gfU.setEnabled(true);
+            this.iTv.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IO(String str) {
-        if (!this.iNH.contains(str)) {
-            this.iNH.add(str);
-            cxl();
+    public void Jz(String str) {
+        if (!this.iTo.contains(str)) {
+            this.iTo.add(str);
+            cyw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IP(String str) {
-        this.iNH.remove(str);
-        cxl();
+    public void JA(String str) {
+        this.iTo.remove(str);
+        cyw();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxj() {
+    public void cyu() {
         this.mBack.setVisibility(8);
-        this.iNM.setVisibility(0);
-        cxl();
-        this.gdF.setText(getString(R.string.cancel));
-        this.iNT = true;
-        this.iNR.setVisibility(8);
+        this.iTt.setVisibility(0);
+        cyw();
+        this.gfU.setText(getString(R.string.cancel));
+        this.iTA = true;
+        this.iTy.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxk() {
+    public void cyv() {
         this.mBack.setVisibility(0);
-        this.iNM.setVisibility(8);
-        this.gdF.setText(getString(R.string.edit));
-        this.iNT = false;
-        this.iNR.setVisibility(0);
+        this.iTt.setVisibility(8);
+        this.gfU.setText(getString(R.string.edit));
+        this.iTA = false;
+        this.iTy.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void cxl() {
-        int size = this.iNH.size();
-        this.iNM.setText(getString(R.string.delete) + "(" + size + ")");
+    private void cyw() {
+        int size = this.iTo.size();
+        this.iTt.setText(getString(R.string.delete) + "(" + size + ")");
         if (size == 0) {
-            this.iNM.setEnabled(false);
+            this.iTt.setEnabled(false);
         } else {
-            this.iNM.setEnabled(true);
+            this.iTt.setEnabled(true);
         }
-        ao.setBackgroundResource(this.iNM, R.drawable.btn_delete_groupupdates);
+        ap.setBackgroundResource(this.iTt, R.drawable.btn_delete_groupupdates);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxm() {
-        this.iNJ = new a();
-        this.iNJ.execute(this.iNH);
+    public void cyx() {
+        this.iTq = new a();
+        this.iTq.execute(this.iTo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b extends BaseAdapter {
         private b() {
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (h.this.iNG != null) {
-                return h.this.iNG.size();
+            if (h.this.iTn != null) {
+                return h.this.iTn.size();
             }
             return 0;
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            if (h.this.iNG != null && i <= h.this.iNG.size()) {
-                return h.this.iNG.get(i);
+            if (h.this.iTn != null && i <= h.this.iTn.size()) {
+                return h.this.iTn.get(i);
             }
             return null;
         }
 
         @Override // android.widget.Adapter
         public long getItemId(int i) {
-            if (h.this.iNG == null || i > h.this.iNG.size()) {
+            if (h.this.iTn == null || i > h.this.iTn.size()) {
                 return 0L;
             }
             return i;
@@ -301,24 +301,24 @@ public class h extends ProxyAdkBaseActivity<h> {
                 view = createView();
             }
             e eVar = (e) view.getTag();
-            Bitmap bitmap = ((c) h.this.iNG.get(i)).iNW;
+            Bitmap bitmap = ((c) h.this.iTn.get(i)).iTD;
             if (bitmap != null) {
-                eVar.iNY.setImageBitmap(bitmap);
+                eVar.iTF.setImageBitmap(bitmap);
             } else {
-                ao.setImageResource(eVar.iNY, R.drawable.pic_image_h_not);
+                ap.setImageResource(eVar.iTF, R.drawable.pic_image_h_not);
             }
-            if (h.this.iNT) {
-                if (h.this.iNH.contains(((c) h.this.iNG.get(i)).id)) {
-                    ao.setImageResource(eVar.iNX, R.drawable.btn_expression_choose_s);
+            if (h.this.iTA) {
+                if (h.this.iTo.contains(((c) h.this.iTn.get(i)).id)) {
+                    ap.setImageResource(eVar.iTE, R.drawable.btn_expression_choose_s);
                 } else {
-                    ao.setImageResource(eVar.iNX, R.drawable.btn_expression_choose_n);
+                    ap.setImageResource(eVar.iTE, R.drawable.btn_expression_choose_n);
                 }
-                eVar.iNX.setVisibility(0);
-                eVar.iNX.setTag(((c) h.this.iNG.get(i)).id);
+                eVar.iTE.setVisibility(0);
+                eVar.iTE.setTag(((c) h.this.iTn.get(i)).id);
             } else {
-                eVar.iNX.setVisibility(8);
+                eVar.iTE.setVisibility(8);
             }
-            eVar.eli.setText(((c) h.this.iNG.get(i)).name);
+            eVar.enq.setText(((c) h.this.iTn.get(i)).name);
             h.this.getLayoutMode().onModeChanged(view);
             return view;
         }
@@ -326,29 +326,29 @@ public class h extends ProxyAdkBaseActivity<h> {
         private View createView() {
             View inflate = View.inflate(h.this.getPageContext().getPageActivity(), R.layout.emotion_manage_list_item, null);
             e eVar = new e();
-            eVar.iNX = (ImageView) inflate.findViewById(R.id.emotion_group_select);
-            eVar.iNY = (ImageView) inflate.findViewById(R.id.emotion_group_photo);
-            eVar.eli = (TextView) inflate.findViewById(R.id.emotion_group_name);
+            eVar.iTE = (ImageView) inflate.findViewById(R.id.emotion_group_select);
+            eVar.iTF = (ImageView) inflate.findViewById(R.id.emotion_group_photo);
+            eVar.enq = (TextView) inflate.findViewById(R.id.emotion_group_name);
             inflate.setTag(eVar);
             return inflate;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c {
-        boolean iNV;
-        Bitmap iNW;
+        boolean iTC;
+        Bitmap iTD;
         String id;
         String name;
 
         private c() {
-            this.iNV = false;
+            this.iTC = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class d extends BdAsyncTask<String, Integer, List<c>> {
         private d() {
         }
@@ -358,27 +358,27 @@ public class h extends ProxyAdkBaseActivity<h> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: R */
         public List<c> doInBackground(String... strArr) {
-            List<MyEmotionGroupData> IL = com.baidu.tieba.faceshop.a.cxd().IL(TbadkApplication.getCurrentAccount());
-            List<EmotionGroupData> xO = i.cxt().xO(1);
+            List<MyEmotionGroupData> Jw = com.baidu.tieba.faceshop.a.cyo().Jw(TbadkApplication.getCurrentAccount());
+            List<EmotionGroupData> xY = i.cyE().xY(1);
             LinkedList linkedList = new LinkedList();
-            for (MyEmotionGroupData myEmotionGroupData : IL) {
-                Iterator<EmotionGroupData> it = xO.iterator();
+            for (MyEmotionGroupData myEmotionGroupData : Jw) {
+                Iterator<EmotionGroupData> it = xY.iterator();
                 while (true) {
                     if (it.hasNext()) {
                         EmotionGroupData next = it.next();
-                        if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && com.baidu.tieba.faceshop.b.IM(next.getGroupId())) {
+                        if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && com.baidu.tieba.faceshop.b.Jx(next.getGroupId())) {
                             c cVar = new c();
                             cVar.id = next.getGroupId();
                             cVar.name = next.getGroupName();
-                            cVar.iNW = com.baidu.tieba.faceshop.b.eQ(cVar.id, "list.png");
+                            cVar.iTD = com.baidu.tieba.faceshop.b.eQ(cVar.id, "list.png");
                             linkedList.add(cVar);
                             break;
                         }
                     }
                 }
             }
-            IL.clear();
-            xO.clear();
+            Jw.clear();
+            xY.clear();
             return linkedList;
         }
 
@@ -398,15 +398,15 @@ public class h extends ProxyAdkBaseActivity<h> {
             if (list == null) {
                 list = new LinkedList<>();
             }
-            h.this.iNG = list;
-            h.this.pW(false);
+            h.this.iTn = list;
+            h.this.qg(false);
             h.this.hideProgressBar();
-            h.this.cxi();
+            h.this.cyt();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends BdAsyncTask<List<String>, Integer, Boolean> {
         private a() {
         }
@@ -425,7 +425,7 @@ public class h extends ProxyAdkBaseActivity<h> {
                 MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
                 myEmotionGroupData.setGroupId(str);
                 myEmotionGroupData.setUid(TbadkApplication.getCurrentAccount());
-                i = com.baidu.tieba.faceshop.a.cxd().a(myEmotionGroupData) ? i + 1 : i;
+                i = com.baidu.tieba.faceshop.a.cyo().a(myEmotionGroupData) ? i + 1 : i;
             }
             if (i > 0) {
                 return true;
@@ -440,18 +440,18 @@ public class h extends ProxyAdkBaseActivity<h> {
             super.onPostExecute((a) bool);
             if (bool.booleanValue()) {
                 MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, (Class) null);
-                h.this.iNT = true;
-                h.this.pW(true);
+                h.this.iTA = true;
+                h.this.qg(true);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class e {
-        TextView eli;
-        ImageView iNX;
-        ImageView iNY;
+        TextView enq;
+        ImageView iTE;
+        ImageView iTF;
 
         private e() {
         }
@@ -459,11 +459,11 @@ public class h extends ProxyAdkBaseActivity<h> {
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onBackPressed() {
-        if (this.iNT) {
-            cxk();
-            this.iNH.clear();
-            this.iNT = false;
-            this.iNS.notifyDataSetChanged();
+        if (this.iTA) {
+            cyv();
+            this.iTo.clear();
+            this.iTA = false;
+            this.iTz.notifyDataSetChanged();
             return;
         }
         super.onBackPressed();

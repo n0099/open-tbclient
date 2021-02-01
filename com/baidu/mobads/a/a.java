@@ -1,52 +1,49 @@
 package com.baidu.mobads.a;
 
-import com.baidu.ar.constants.HttpConstants;
-/* loaded from: classes14.dex */
-public final class a {
+import android.annotation.TargetApi;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.mobads.interfaces.utils.IXAdLogger;
+import com.baidu.mobads.utils.XAdSDKFoundationFacade;
+import com.baidu.mobads.utils.r;
+/* loaded from: classes5.dex */
+public class a extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3298a = b.f3300a.booleanValue();
+    protected final IXAdLogger f3288a = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3299b;
-    public static String c;
-    public static final Object d;
-    public static final Object e;
-    public static final Object f;
-    public static final Object g;
-    public static final Object h;
-    public static int i;
-    public static int j;
-    public static int k;
-    public static long l;
-    public static long m;
-    public static long n;
-    public static long o;
-    public static long p;
-    public static long q;
-    public static long r;
-    public static String s;
-    public static String t;
+    private com.baidu.mobads.command.a f3289b;
 
-    static {
-        f3299b = f3298a ? 2 : 4;
-        c = "0.0";
-        d = HttpConstants.OS_TYPE_VALUE;
-        e = "androidlunpan";
-        f = "androidinter";
-        g = "androidintin";
-        h = "androidlite";
-        i = 5;
-        j = 3468;
-        k = 0;
-        l = 0L;
-        m = 0L;
-        n = 0L;
-        o = 0L;
-        p = 0L;
-        q = 0L;
-        r = 0L;
-        s = "rsplash_type";
-        t = "rsplash_video_duration";
+    public a(com.baidu.mobads.command.a aVar) {
+        this.f3289b = aVar;
+    }
+
+    @Override // android.content.BroadcastReceiver
+    @TargetApi(3)
+    public void onReceive(Context context, Intent intent) {
+        if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {
+            String replace = intent.getDataString().replace("package:", "");
+            if (replace.equals(this.f3289b.f)) {
+                r packageUtils = XAdSDKFoundationFacade.getInstance().getPackageUtils();
+                if (this.f3289b.k && this.f3289b.l != null && !this.f3289b.l.equals("")) {
+                    if (packageUtils.sendAPOInfo(context, this.f3289b.l, replace, 381, XAdSDKFoundationFacade.getInstance().getAdConstants().getActTypeDownload(), 0)) {
+                        XAdSDKFoundationFacade.getInstance().getCommonUtils().browserOutside(context, this.f3289b.l);
+                    }
+                    context.unregisterReceiver(this);
+                } else if (this.f3289b.g) {
+                    try {
+                        Thread.sleep(600L);
+                        Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(replace);
+                        launchIntentForPackage.addFlags(268435456);
+                        context.startActivity(launchIntentForPackage);
+                        context.unregisterReceiver(this);
+                    } catch (Exception e) {
+                        this.f3288a.d("InstallReceiver", e);
+                    }
+                }
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.notification.c.e;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d extends c {
     public d(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);
@@ -32,7 +32,7 @@ public class d extends c {
     public void a(Notification notification, MessageV3 messageV3) {
         super.a(notification, messageV3);
         MessageV4 parse = MessageV4.parse(messageV3);
-        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.f11327a))) {
+        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.f11329a))) {
             com.meizu.cloud.a.a.e("AbstractPushNotification", "only wifi can download act");
             return;
         }

@@ -27,11 +27,11 @@ import java.util.Locale;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f13471a;
+    public static Context f13473a;
 
     public static int a(int i, boolean z, int i2) {
         return z ? (1 << i2) | i : (0 << i2) | i;
@@ -63,7 +63,7 @@ public class aj {
         Context context;
         synchronized (aj.class) {
             try {
-                context = f13471a;
+                context = f13473a;
             } catch (Throwable th) {
                 throw th;
             }
@@ -311,10 +311,10 @@ public class aj {
         boolean z = false;
         synchronized (aj.class) {
             try {
-                if (f13471a != null) {
+                if (f13473a != null) {
                     z = true;
                 } else if (context != null && (applicationContext = context.getApplicationContext()) != null) {
-                    f13471a = applicationContext;
+                    f13473a = applicationContext;
                     z = true;
                 }
             } finally {

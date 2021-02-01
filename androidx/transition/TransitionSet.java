@@ -16,7 +16,7 @@ import androidx.core.content.res.TypedArrayUtils;
 import androidx.transition.Transition;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class TransitionSet extends Transition {
     private static final int FLAG_CHANGE_EPICENTER = 8;
     private static final int FLAG_CHANGE_INTERPOLATOR = 1;
@@ -370,7 +370,7 @@ public class TransitionSet extends Transition {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class TransitionSetListener extends TransitionListenerAdapter {
         TransitionSet mTransitionSet;
 
@@ -599,11 +599,11 @@ public class TransitionSet extends Transition {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     public Transition clone() {
-        TransitionSet transitionSet = (TransitionSet) super.m4clone();
+        TransitionSet transitionSet = (TransitionSet) super.m5clone();
         transitionSet.mTransitions = new ArrayList<>();
         int size = this.mTransitions.size();
         for (int i = 0; i < size; i++) {
-            transitionSet.addTransition(this.mTransitions.get(i).m4clone());
+            transitionSet.addTransition(this.mTransitions.get(i).m5clone());
         }
         return transitionSet;
     }

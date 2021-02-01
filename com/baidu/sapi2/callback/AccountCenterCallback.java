@@ -1,7 +1,7 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.result.AccountCenterResult;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class AccountCenterCallback {
     public void onBdussChange() {
     }

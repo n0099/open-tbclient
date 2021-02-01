@@ -3,7 +3,7 @@ package com.ss.android.socialbase.downloader.m;
 import android.util.SparseArray;
 import com.ss.android.socialbase.downloader.d.ag;
 import com.ss.android.socialbase.downloader.d.x;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static void a(int i, SparseArray<com.ss.android.socialbase.downloader.d.b> sparseArray, boolean z, com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar) {
         SparseArray<com.ss.android.socialbase.downloader.d.b> clone;

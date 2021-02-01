@@ -2,88 +2,88 @@ package com.baidu.tieba.ala.d;
 
 import android.content.Context;
 import android.view.ViewGroup;
-import com.baidu.live.data.an;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
+import com.baidu.live.data.ar;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
-public class d implements com.baidu.live.u.b {
-    private x buq;
-    private com.baidu.tieba.ala.view.c gOb;
-    private boolean gOc;
+/* loaded from: classes11.dex */
+public class d implements com.baidu.live.t.c {
+    private ab bxN;
+    private com.baidu.tieba.ala.view.c gQH;
+    private boolean gQI;
     private boolean isShowing = false;
     private Context mContext;
     private ViewGroup mParentView;
 
     public d(Context context) {
         this.mContext = context;
-        bTp();
-        an anVar = com.baidu.live.af.a.OJ().bru;
-        if (anVar != null && anVar.aKA != null) {
-            this.gOc = anVar.aKA.aNJ;
+        bTT();
+        ar arVar = com.baidu.live.ae.a.Qj().buX;
+        if (arVar != null && arVar.aNn != null) {
+            this.gQI = arVar.aNn.aQK;
         }
     }
 
-    private void bTp() {
-        if (this.gOb == null) {
-            this.gOb = new com.baidu.tieba.ala.view.c(this.mContext);
-            this.gOb.setId(a.f.ala_rank_level_entry);
+    private void bTT() {
+        if (this.gQH == null) {
+            this.gQH = new com.baidu.tieba.ala.view.c(this.mContext);
+            this.gQH.setId(a.f.ala_rank_level_entry);
         }
     }
 
-    @Override // com.baidu.live.u.b
-    public void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, x xVar) {
+    @Override // com.baidu.live.t.c
+    public void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, ab abVar) {
         this.mParentView = viewGroup;
-        this.buq = xVar;
+        this.bxN = abVar;
         if (this.mParentView != null) {
-            if (this.mParentView.indexOfChild(this.gOb.getView()) == -1) {
-                this.mParentView.addView(this.gOb.getView(), layoutParams);
-                this.gOb.getView().setVisibility(8);
+            if (this.mParentView.indexOfChild(this.gQH.getView()) == -1) {
+                this.mParentView.addView(this.gQH.getView(), layoutParams);
+                this.gQH.getView().setVisibility(8);
             }
-            if (this.gOc && xVar != null && xVar.aGj != null && xVar.aGj.aHg != null) {
+            if (this.gQI && abVar != null && abVar.aIF != null && abVar.aIF.aJK != null) {
                 setVisible(0);
-                this.gOb.V(xVar);
+                this.gQH.X(abVar);
             }
         }
     }
 
-    @Override // com.baidu.live.u.b
-    public void a(x xVar) {
-        this.buq = xVar;
-        if (this.gOc && xVar != null && xVar.aGj != null && xVar.aGj.aHg != null) {
+    @Override // com.baidu.live.t.c
+    public void a(ab abVar) {
+        this.bxN = abVar;
+        if (this.gQI && abVar != null && abVar.aIF != null && abVar.aIF.aJK != null) {
             setVisible(0);
-            this.gOb.V(xVar);
+            this.gQH.X(abVar);
         }
     }
 
-    @Override // com.baidu.live.u.b
+    @Override // com.baidu.live.t.c
     public void setVisible(int i) {
-        if (this.gOc && this.buq != null && this.buq.aGj != null && this.buq.aGj.aHg != null && this.gOb != null && this.gOb.getView() != null && i != this.gOb.getView().getVisibility()) {
+        if (this.gQI && this.bxN != null && this.bxN.aIF != null && this.bxN.aIF.aJK != null && this.gQH != null && this.gQH.getView() != null && i != this.gQH.getView().getVisibility()) {
             if (i == 0) {
                 this.isShowing = true;
             } else {
                 this.isShowing = false;
             }
-            this.gOb.getView().setVisibility(i);
+            this.gQH.getView().setVisibility(i);
         }
     }
 
-    @Override // com.baidu.live.u.b
-    public void xk() {
+    @Override // com.baidu.live.t.c
+    public void xh() {
         this.isShowing = false;
-        if (this.gOb != null) {
-            this.gOb.xk();
+        if (this.gQH != null) {
+            this.gQH.xh();
         }
     }
 
-    @Override // com.baidu.live.u.b
+    @Override // com.baidu.live.t.c
     public void onDestroy() {
-        if (this.gOb != null) {
-            this.gOb.onDestroy();
+        if (this.gQH != null) {
+            this.gQH.onDestroy();
         }
         this.isShowing = false;
     }
 
-    @Override // com.baidu.live.u.b
+    @Override // com.baidu.live.t.c
     public boolean isShowing() {
         return this.isShowing;
     }

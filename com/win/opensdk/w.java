@@ -14,21 +14,21 @@ import org.json.JSONObject;
 import org.json.JSONStringer;
 /* loaded from: classes3.dex */
 public final class w {
-    private static final String[] pZt = {"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
-    private static final String[] pZE = {"ins", Config.DEVICE_BRAND, "wdtr", "witr"};
+    private static final String[] qjx = {"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
+    private static final String[] qjI = {"ins", Config.DEVICE_BRAND, "wdtr", "witr"};
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f13765a = {"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
+    private static final String[] f13767a = {"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String[] f13766b = {"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
+    private static final String[] f13768b = {"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static JSONStringer eGF() {
+    public static JSONStringer eIV() {
         return new JSONStringer().object();
     }
 
-    public static a iK(Context context) {
+    public static a iN(Context context) {
         w wVar = new w();
         wVar.getClass();
         return new a(context);
@@ -36,17 +36,17 @@ public final class w {
 
     /* loaded from: classes3.dex */
     public class a {
-        Context pYJ;
-        JSONStringer pZF = new JSONStringer();
+        Context qiN;
+        JSONStringer qjJ = new JSONStringer();
         String java = "";
 
         public a(Context context) {
-            this.pYJ = context;
+            this.qiN = context;
         }
 
         public final a a(x xVar) {
             try {
-                this.pZF = w.a("as", xVar);
+                this.qjJ = w.a("as", xVar);
             } catch (JSONException e) {
             }
             return this;
@@ -54,9 +54,9 @@ public final class w {
 
         public final a a(x xVar, int i, int i2) {
             try {
-                this.pZF = w.a("asr", xVar);
-                Q("width", i);
-                Q("height", i2);
+                this.qjJ = w.a("asr", xVar);
+                P("width", i);
+                P("height", i2);
             } catch (JSONException e) {
             }
             return this;
@@ -64,8 +64,8 @@ public final class w {
 
         public final a a(x xVar, String str) {
             try {
-                this.pZF = w.a("ac", xVar);
-                hu("msg", w.aaH(str));
+                this.qjJ = w.a("ac", xVar);
+                hB("msg", w.abI(str));
             } catch (JSONException e) {
             }
             return this;
@@ -73,8 +73,8 @@ public final class w {
 
         public final a b(x xVar, String str) {
             try {
-                this.pZF = w.a("wdst", xVar);
-                hu("msg", w.aaH(str));
+                this.qjJ = w.a("wdst", xVar);
+                hB("msg", w.abI(str));
             } catch (JSONException e) {
             }
             return this;
@@ -82,8 +82,8 @@ public final class w {
 
         public final a c(x xVar, String str) {
             try {
-                this.pZF = w.a("wist", xVar);
-                hu("msg", w.aaH(str));
+                this.qjJ = w.a("wist", xVar);
+                hB("msg", w.abI(str));
             } catch (JSONException e) {
             }
             return this;
@@ -91,9 +91,9 @@ public final class w {
 
         public final a a(x xVar, String str, int i) {
             try {
-                this.pZF = w.a("dplop", xVar);
-                hu("msg", w.aaH(str));
-                Q(BdStatsConstant.StatsKey.COUNT, i);
+                this.qjJ = w.a("dplop", xVar);
+                hB("msg", w.abI(str));
+                P(BdStatsConstant.StatsKey.COUNT, i);
             } catch (JSONException e) {
             }
             return this;
@@ -101,8 +101,8 @@ public final class w {
 
         public final a d(x xVar, String str) {
             try {
-                this.pZF = w.a("wdtr", xVar);
-                hu("msg", w.aaH(str));
+                this.qjJ = w.a("wdtr", xVar);
+                hB("msg", w.abI(str));
             } catch (JSONException e) {
             }
             return this;
@@ -110,8 +110,8 @@ public final class w {
 
         public final a e(x xVar, String str) {
             try {
-                this.pZF = w.a("wii", xVar);
-                hu("msg", w.aaH(str));
+                this.qjJ = w.a("wii", xVar);
+                hB("msg", w.abI(str));
             } catch (JSONException e) {
             }
             return this;
@@ -119,8 +119,8 @@ public final class w {
 
         public final a f(x xVar, String str) {
             try {
-                this.pZF = w.a("wiop", xVar);
-                hu("msg", w.aaH(str));
+                this.qjJ = w.a("wiop", xVar);
+                hB("msg", w.abI(str));
             } catch (JSONException e) {
             }
             return this;
@@ -128,10 +128,10 @@ public final class w {
 
         public final a a(x xVar, String str, int i, int i2) {
             try {
-                this.pZF = w.a("wdre", xVar);
-                hu(Config.INPUT_DEF_PKG, w.aaH(str));
-                Q("vsc", i);
-                Q(BdStatsConstant.StatsKey.COUNT, i2);
+                this.qjJ = w.a("wdre", xVar);
+                hB(Config.INPUT_DEF_PKG, w.abI(str));
+                P("vsc", i);
+                P(BdStatsConstant.StatsKey.COUNT, i2);
             } catch (JSONException e) {
             }
             return this;
@@ -139,8 +139,8 @@ public final class w {
 
         public final a g(x xVar, String str) {
             try {
-                this.pZF = w.a("witr", xVar);
-                hu("msg", w.aaH(str));
+                this.qjJ = w.a("witr", xVar);
+                hB("msg", w.abI(str));
             } catch (JSONException e) {
             }
             return this;
@@ -148,8 +148,8 @@ public final class w {
 
         public final a h(x xVar, String str) {
             try {
-                this.pZF = w.a("wiin", xVar);
-                hu("msg", w.aaH(str));
+                this.qjJ = w.a("wiin", xVar);
+                hB("msg", w.abI(str));
             } catch (JSONException e) {
             }
             return this;
@@ -157,8 +157,8 @@ public final class w {
 
         public final a a(x xVar, int i) {
             try {
-                this.pZF = w.a("wdin", xVar);
-                Q(BdStatsConstant.StatsKey.COUNT, i);
+                this.qjJ = w.a("wdin", xVar);
+                P(BdStatsConstant.StatsKey.COUNT, i);
             } catch (JSONException e) {
             }
             return this;
@@ -166,8 +166,8 @@ public final class w {
 
         public final a b(x xVar) {
             try {
-                this.pZF = w.a("wie", xVar);
-                Q(BdStatsConstant.StatsKey.COUNT, 200L);
+                this.qjJ = w.a("wie", xVar);
+                P(BdStatsConstant.StatsKey.COUNT, 200L);
             } catch (JSONException e) {
             }
             return this;
@@ -175,8 +175,8 @@ public final class w {
 
         public final a b(x xVar, int i) {
             try {
-                this.pZF = w.a("wde", xVar);
-                Q(BdStatsConstant.StatsKey.COUNT, i);
+                this.qjJ = w.a("wde", xVar);
+                P(BdStatsConstant.StatsKey.COUNT, i);
             } catch (JSONException e) {
             }
             return this;
@@ -184,7 +184,7 @@ public final class w {
 
         public final a c(x xVar) {
             try {
-                this.pZF = w.a("ao", xVar);
+                this.qjJ = w.a("ao", xVar);
             } catch (JSONException e) {
             }
             return this;
@@ -192,7 +192,7 @@ public final class w {
 
         public final a d(x xVar) {
             try {
-                this.pZF = w.a("wbao", xVar);
+                this.qjJ = w.a("wbao", xVar);
             } catch (JSONException e) {
             }
             return this;
@@ -200,8 +200,8 @@ public final class w {
 
         public final a a(x xVar, int i, String str) {
             try {
-                this.pZF = w.a("wbe", xVar);
-                Q(BdStatsConstant.StatsKey.COUNT, i).hu("msg", w.aaH(str));
+                this.qjJ = w.a("wbe", xVar);
+                P(BdStatsConstant.StatsKey.COUNT, i).hB("msg", w.abI(str));
             } catch (JSONException e) {
             }
             return this;
@@ -209,7 +209,7 @@ public final class w {
 
         public final a e(x xVar) {
             try {
-                this.pZF = w.a("wbas", xVar);
+                this.qjJ = w.a("wbas", xVar);
             } catch (JSONException e) {
             }
             return this;
@@ -217,8 +217,8 @@ public final class w {
 
         public final a i(x xVar, String str) {
             try {
-                this.pZF = w.a("vvsf", xVar);
-                hu("desc", str);
+                this.qjJ = w.a("vvsf", xVar);
+                hB("desc", str);
             } catch (JSONException e) {
             }
             return this;
@@ -226,8 +226,8 @@ public final class w {
 
         public final a c(x xVar, int i) {
             try {
-                this.pZF = w.a("vvst", xVar);
-                Q("desc", i);
+                this.qjJ = w.a("vvst", xVar);
+                P("desc", i);
             } catch (JSONException e) {
             }
             return this;
@@ -235,26 +235,26 @@ public final class w {
 
         public final a a(x xVar, long j) {
             try {
-                this.pZF = w.a("vvss", xVar);
-                Q("desc", j);
+                this.qjJ = w.a("vvss", xVar);
+                P("desc", j);
             } catch (JSONException e) {
             }
             return this;
         }
 
-        public final a F(int i, long j) {
+        public final a H(int i, long j) {
             try {
-                this.pZF = w.eGF();
-                hu("e", "bce").hu("timeis", w.eGG()).Q(BdStatsConstant.StatsKey.COUNT, i).Q("dr", j);
+                this.qjJ = w.eIV();
+                hB("e", "bce").hB("timeis", w.eIW()).P(BdStatsConstant.StatsKey.COUNT, i).P("dr", j);
             } catch (JSONException e) {
             }
             return this;
         }
 
-        public final a js(long j) {
+        public final a jv(long j) {
             try {
-                this.pZF = w.eGF();
-                hu("e", "hbt").Q("dr", j);
+                this.qjJ = w.eIV();
+                hB("e", "hbt").P("dr", j);
             } catch (JSONException e) {
             }
             return this;
@@ -262,8 +262,8 @@ public final class w {
 
         public final a a(x xVar, long j, int i, int i2) {
             try {
-                this.pZF = w.a("be", xVar);
-                Q("dr", j).Q(BdStatsConstant.StatsKey.COUNT, i).Q("num", i2);
+                this.qjJ = w.a("be", xVar);
+                P("dr", j).P(BdStatsConstant.StatsKey.COUNT, i).P("num", i2);
             } catch (JSONException e) {
             }
             return this;
@@ -271,8 +271,8 @@ public final class w {
 
         public final a a(x xVar, int i, long j) {
             try {
-                this.pZF = w.a("bpe", xVar);
-                Q(BdStatsConstant.StatsKey.COUNT, i).Q("dr", j);
+                this.qjJ = w.a("bpe", xVar);
+                P(BdStatsConstant.StatsKey.COUNT, i).P("dr", j);
             } catch (JSONException e) {
             }
             return this;
@@ -280,68 +280,68 @@ public final class w {
 
         public final a b(x xVar, int i, String str) {
             try {
-                this.pZF = w.a("ps", xVar);
-                Q(BdStatsConstant.StatsKey.COUNT, i);
-                hu("msg", str);
+                this.qjJ = w.a("ps", xVar);
+                P(BdStatsConstant.StatsKey.COUNT, i);
+                hB("msg", str);
             } catch (JSONException e) {
             }
             return this;
         }
 
-        public final a aaJ(String str) {
+        public final a abK(String str) {
             try {
-                this.pZF = w.eGF();
-                hu("e", "Ld").hu("pid", str).hu("timeis", w.eGG());
+                this.qjJ = w.eIV();
+                hB("e", "Ld").hB("pid", str).hB("timeis", w.eIW());
             } catch (JSONException e) {
             }
             return this;
         }
 
-        public final a hu(String str, String str2) {
+        public final a hB(String str, String str2) {
             try {
                 if (!TextUtils.isEmpty(str2)) {
-                    this.pZF.key(str).value(str2);
+                    this.qjJ.key(str).value(str2);
                 }
             } catch (JSONException e) {
             }
             return this;
         }
 
-        private a Q(String str, long j) {
+        private a P(String str, long j) {
             try {
-                this.pZF.key(str).value(j);
+                this.qjJ.key(str).value(j);
             } catch (JSONException e) {
             }
             return this;
         }
 
-        public final void eGz() {
+        public final void eIP() {
             JSONArray jSONArray = new JSONArray();
             try {
-                if (!TextUtils.isEmpty(this.pZF.toString())) {
-                    this.pZF.endObject();
-                    this.java = this.pZF.toString();
+                if (!TextUtils.isEmpty(this.qjJ.toString())) {
+                    this.qjJ.endObject();
+                    this.java = this.qjJ.toString();
                 }
                 JSONObject jSONObject = new JSONObject(this.java);
                 String optString = jSONObject.optString("e");
-                if (!aaD(optString)) {
-                    boolean z = !bc.c(w.pZt, optString);
+                if (!abE(optString)) {
+                    boolean z = !bc.c(w.qjx, optString);
                     jSONArray.put(jSONObject);
-                    L(z, jSONArray.toString());
+                    T(z, jSONArray.toString());
                 }
             } catch (JSONException e) {
             }
         }
 
-        private boolean aaD(String str) {
-            if (az.c(this.pYJ) < 0) {
+        private boolean abE(String str) {
+            if (az.c(this.qiN) < 0) {
                 return false;
             }
-            return bc.c(w.pZt, str) ? az.c(this.pYJ) <= 0 : bc.c(w.pZE, str) ? az.c(this.pYJ) < 2 : bc.c(w.f13765a, str) ? az.c(this.pYJ) < 3 : bc.c(w.f13766b, str) && az.c(this.pYJ) < 4;
+            return bc.c(w.qjx, str) ? az.c(this.qiN) <= 0 : bc.c(w.qjI, str) ? az.c(this.qiN) < 2 : bc.c(w.f13767a, str) ? az.c(this.qiN) < 3 : bc.c(w.f13768b, str) && az.c(this.qiN) < 4;
         }
 
-        private void L(final boolean z, final String str) {
-            ba.D(new Runnable() { // from class: com.win.opensdk.w.a.1
+        private void T(final boolean z, final String str) {
+            ba.C(new Runnable() { // from class: com.win.opensdk.w.a.1
                 @Override // java.lang.Runnable
                 public final void run() {
                     String str2;
@@ -352,7 +352,7 @@ public final class w {
                         str2 = al.f21case;
                     }
                     try {
-                        str2 = str2 + ak.R(ak.iM(a.this.pYJ));
+                        str2 = str2 + ak.T(ak.iP(a.this.qiN));
                     } catch (UnsupportedEncodingException e) {
                     }
                     String str3 = str;
@@ -363,16 +363,16 @@ public final class w {
                         }
 
                         @Override // com.win.opensdk.r
-                        public final void eGz() {
+                        public final void eIP() {
                         }
 
                         @Override // com.win.opensdk.r
-                        public final void cd(int i, String str4) {
+                        public final void ck(int i, String str4) {
                         }
                     };
                     try {
-                        rVar.eGz();
-                        s sVar = new s(str2, "POST", ai.eGM());
+                        rVar.eIP();
+                        s sVar = new s(str2, "POST", ai.eJc());
                         if (str3 == null || str3.length() == 0) {
                             bArr = new byte[0];
                         } else {
@@ -382,47 +382,47 @@ public final class w {
                             gZIPOutputStream.close();
                             bArr = byteArrayOutputStream.toByteArray();
                         }
-                        sVar.pZz = bArr;
-                        t eGD = sVar.eGD();
+                        sVar.qjD = bArr;
+                        t eIT = sVar.eIT();
                         am amVar = new am();
-                        int a2 = ai.a(eGD, amVar);
+                        int a2 = ai.a(eIT, amVar);
                         if (a2 == 200) {
                             rVar.bH(amVar);
                         } else {
-                            rVar.cd(a2, amVar.f23java);
+                            rVar.ck(a2, amVar.f23java);
                         }
                     } catch (JSONException e2) {
-                        rVar.cd(101, e2.getMessage());
+                        rVar.ck(101, e2.getMessage());
                     } catch (Exception e3) {
-                        rVar.cd(100, e3.getMessage());
+                        rVar.ck(100, e3.getMessage());
                     }
                 }
             });
         }
     }
 
-    public static String aaH(String str) {
+    public static String abI(String str) {
         try {
-            return bc.aaI(str);
+            return bc.abJ(str);
         } catch (Exception e) {
             return str;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String eGG() {
-        return aaH(String.valueOf(System.currentTimeMillis()));
+    public static String eIW() {
+        return abI(String.valueOf(System.currentTimeMillis()));
     }
 
     static /* synthetic */ JSONStringer a(String str, x xVar) {
-        JSONStringer eGF = eGF();
-        eGF.key("e").value(str).key("timeis").value(eGG());
+        JSONStringer eIV = eIV();
+        eIV.key("e").value(str).key("timeis").value(eIW());
         if (xVar != null) {
-            eGF.key("pid").value(xVar.java);
-            if (xVar.pZe != null) {
-                eGF.key("traceid").value(aaH(xVar.pZe.getTraceid())).key(IXAdRequestInfo.CELL_ID).value(aaH(xVar.pZe.getId())).key("type").value(xVar.pZe.getType());
+            eIV.key("pid").value(xVar.java);
+            if (xVar.qji != null) {
+                eIV.key("traceid").value(abI(xVar.qji.getTraceid())).key(IXAdRequestInfo.CELL_ID).value(abI(xVar.qji.getId())).key("type").value(xVar.qji.getType());
             }
         }
-        return eGF;
+        return eIV;
     }
 }

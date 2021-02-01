@@ -9,14 +9,14 @@ import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.ap;
 import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends View implements ap.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private InterfaceC1099a f9368a;
+    private InterfaceC1103a f9370a;
 
     /* renamed from: b  reason: collision with root package name */
-    private View f9369b;
+    private View f9371b;
     private boolean c;
     private boolean d;
     private boolean e;
@@ -24,8 +24,8 @@ public class a extends View implements ap.a {
     private final AtomicBoolean g;
 
     /* renamed from: com.kwad.sdk.core.page.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1099a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1103a {
         void a();
 
         void a(View view);
@@ -39,22 +39,22 @@ public class a extends View implements ap.a {
         super(context);
         this.f = new ap(this);
         this.g = new AtomicBoolean(true);
-        this.f9369b = view;
+        this.f9371b = view;
         setLayoutParams(new ViewGroup.LayoutParams(0, 0));
     }
 
     private void a() {
-        if (!this.g.getAndSet(false) || this.f9368a == null) {
+        if (!this.g.getAndSet(false) || this.f9370a == null) {
             return;
         }
-        this.f9368a.a();
+        this.f9370a.a();
     }
 
     private void b() {
-        if (this.g.getAndSet(true) || this.f9368a == null) {
+        if (this.g.getAndSet(true) || this.f9370a == null) {
             return;
         }
-        this.f9368a.b();
+        this.f9370a.b();
     }
 
     private void c() {
@@ -78,7 +78,7 @@ public class a extends View implements ap.a {
             case 1:
                 com.kwad.sdk.core.d.a.a("EmptyView", "handleMsg MSG_CHECKING");
                 if (this.d) {
-                    if (!ao.a(this.f9369b, 30, false)) {
+                    if (!ao.a(this.f9371b, 30, false)) {
                         this.f.sendEmptyMessageDelayed(1, 500L);
                         return;
                     }
@@ -92,15 +92,15 @@ public class a extends View implements ap.a {
                 return;
             case 2:
                 com.kwad.sdk.core.d.a.a("EmptyView", "handleMsg MSG_SHOWING");
-                if (!ao.a(this.f9369b, 30, false)) {
+                if (!ao.a(this.f9371b, 30, false)) {
                     if (this.c) {
                         return;
                     }
                     setNeedCheckingShow(true);
                     return;
                 }
-                if (message.arg1 == 1000 && this.f9368a != null) {
-                    this.f9368a.a(this.f9369b);
+                if (message.arg1 == 1000 && this.f9370a != null) {
+                    this.f9370a.a(this.f9371b);
                 }
                 this.f.sendEmptyMessageDelayed(2, 500L);
                 return;
@@ -130,14 +130,14 @@ public class a extends View implements ap.a {
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         super.onFinishTemporaryDetach();
-        com.kwad.sdk.core.d.a.a("EmptyView", "onFinishTemporaryDetach:" + this.f9369b.getParent());
+        com.kwad.sdk.core.d.a.a("EmptyView", "onFinishTemporaryDetach:" + this.f9371b.getParent());
         a();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        com.kwad.sdk.core.d.a.a("EmptyView", "onStartTemporaryDetach:" + this.f9369b.getParent());
+        com.kwad.sdk.core.d.a.a("EmptyView", "onStartTemporaryDetach:" + this.f9371b.getParent());
         b();
     }
 
@@ -145,8 +145,8 @@ public class a extends View implements ap.a {
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
         com.kwad.sdk.core.d.a.a("EmptyView", "onWindowFocusChanged hasWindowFocus:" + z);
-        if (this.f9368a != null) {
-            this.f9368a.a(z);
+        if (this.f9370a != null) {
+            this.f9370a.a(z);
         }
     }
 
@@ -166,7 +166,7 @@ public class a extends View implements ap.a {
         }
     }
 
-    public void setViewCallback(InterfaceC1099a interfaceC1099a) {
-        this.f9368a = interfaceC1099a;
+    public void setViewCallback(InterfaceC1103a interfaceC1103a) {
+        this.f9370a = interfaceC1103a;
     }
 }

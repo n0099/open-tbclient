@@ -1,4 +1,4 @@
 package com.baidu.yuyinala.privatemessage.session.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class d {
 }

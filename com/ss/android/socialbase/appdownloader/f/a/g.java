@@ -2,14 +2,14 @@ package com.ss.android.socialbase.appdownloader.f.a;
 
 import androidx.core.internal.view.SupportMenu;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private int[] f13046a;
+    private int[] f13048a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int[] f13047b;
+    private int[] f13049b;
 
     public static g a(d dVar) throws IOException {
         b.a(dVar, 1835009);
@@ -20,7 +20,7 @@ public class g {
         int b5 = dVar.b();
         int b6 = dVar.b();
         g gVar = new g();
-        gVar.f13046a = dVar.b(b3);
+        gVar.f13048a = dVar.b(b3);
         if (b4 != 0) {
             dVar.b(b4);
         }
@@ -28,7 +28,7 @@ public class g {
         if (i % 4 != 0) {
             throw new IOException("String data size is not multiple of 4 (" + i + ").");
         }
-        gVar.f13047b = dVar.b(i / 4);
+        gVar.f13049b = dVar.b(i / 4);
         if (b6 != 0) {
             int i2 = b2 - b6;
             if (i2 % 4 != 0) {
@@ -40,15 +40,15 @@ public class g {
     }
 
     public String a(int i) {
-        if (i < 0 || this.f13046a == null || i >= this.f13046a.length) {
+        if (i < 0 || this.f13048a == null || i >= this.f13048a.length) {
             return null;
         }
-        int i2 = this.f13046a[i];
-        int c = c(this.f13047b, i2);
+        int i2 = this.f13048a[i];
+        int c = c(this.f13049b, i2);
         StringBuilder sb = new StringBuilder(c);
         while (c != 0) {
             i2 += 2;
-            sb.append((char) c(this.f13047b, i2));
+            sb.append((char) c(this.f13049b, i2));
             c--;
         }
         return sb.toString();

@@ -6,11 +6,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
 import com.baidu.pass.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MaxHeightScrollView extends ScrollView implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4124a;
+    private int f4127a;
 
     public MaxHeightScrollView(Context context) {
         super(context);
@@ -18,13 +18,13 @@ public class MaxHeightScrollView extends ScrollView implements com.baidu.pass.a 
 
     private void a(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.sapi_sdk_max_height_scroll_view);
-        this.f4124a = obtainStyledAttributes.getLayoutDimension(R.styleable.sapi_sdk_max_height_scroll_view_sapi_sdk_max_height, this.f4124a);
+        this.f4127a = obtainStyledAttributes.getLayoutDimension(R.styleable.sapi_sdk_max_height_scroll_view_sapi_sdk_max_height, this.f4127a);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        int i3 = this.f4124a;
+        int i3 = this.f4127a;
         if (i3 > 0) {
             i2 = View.MeasureSpec.makeMeasureSpec(i3, Integer.MIN_VALUE);
         }

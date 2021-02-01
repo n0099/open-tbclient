@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.recommend.data;
 
 import com.baidu.live.data.AlaLiveInfoData;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaRecommendLiveData extends AlaLiveInfoData {
     public String distance;
 

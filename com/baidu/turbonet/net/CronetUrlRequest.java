@@ -20,9 +20,9 @@ import java.util.concurrent.RejectedExecutionException;
 import javax.annotation.concurrent.GuardedBy;
 /* JADX INFO: Access modifiers changed from: package-private */
 @JNINamespace
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class CronetUrlRequest implements UrlRequest {
-    private static final TurbonetEngine.UrlRequestMetrics oFj = new TurbonetEngine.UrlRequestMetrics(null, null, null, null);
+    private static final TurbonetEngine.UrlRequestMetrics oPs = new TurbonetEngine.UrlRequestMetrics(null, null, null, null);
     private final boolean mDisableCache;
     private final boolean mDisableConnectionMigration;
     private final Executor mExecutor;
@@ -32,39 +32,39 @@ public final class CronetUrlRequest implements UrlRequest {
     private final int mPriority;
     private final Collection<Object> mRequestAnnotations;
     private Object mTag;
+    private int mTimeout;
     @GuardedBy("mUrlRequestAdapterLock")
     private long mUrlRequestAdapter;
-    private final CronetUrlRequestContext oEU;
-    private UrlResponseInfo oEY;
-    private final boolean oFB;
-    private boolean oFC;
-    private boolean oFD;
-    private int oFE;
-    private int oFF;
-    private int oFG;
-    private int oFH;
-    private String oFI;
-    private String oFJ;
-    private CronetUploadDataStream oFK;
-    private a oFL;
+    private String oPA;
+    private String oPB;
+    private String oPC;
+    private long oPD;
+    private long oPE;
+    private long oPF;
+    private long oPG;
+    private long oPH;
+    private RequestTimeInfo oPI;
+    private final boolean oPK;
+    private boolean oPL;
+    private boolean oPM;
+    private int oPN;
+    private int oPO;
+    private int oPP;
+    private String oPQ;
+    private String oPR;
+    private CronetUploadDataStream oPS;
+    private a oPT;
+    private final CronetUrlRequestContext oPd;
+    private UrlResponseInfo oPh;
     @Nullable
     @GuardedBy("mUrlRequestAdapterLock")
-    private final b oFk;
-    private long oFl;
-    private final UrlRequest.Callback oFm;
-    private String oFn;
-    private String oFo;
-    private String oFp;
-    private String oFq;
-    private String oFr;
-    private String oFs;
-    private String oFt;
-    private long oFu;
-    private long oFv;
-    private long oFw;
-    private long oFx;
-    private long oFy;
-    private RequestTimeInfo oFz;
+    private final b oPt;
+    private long oPu;
+    private final UrlRequest.Callback oPv;
+    private String oPw;
+    private String oPx;
+    private String oPy;
+    private String oPz;
     @GuardedBy("mUrlRequestAdapterLock")
     private boolean mStarted = false;
     @GuardedBy("mUrlRequestAdapterLock")
@@ -73,9 +73,9 @@ public final class CronetUrlRequest implements UrlRequest {
     private boolean mWaitingOnRead = false;
     private final Object mUrlRequestAdapterLock = new Object();
     private final List<String> mUrlChain = new ArrayList();
-    private final HeadersList oFA = new HeadersList();
+    private final HeadersList oPJ = new HeadersList();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class SpendTimeType {
     }
 
@@ -154,13 +154,13 @@ public final class CronetUrlRequest implements UrlRequest {
     private native int nativeSynGetStatus(long j);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class HeadersList extends ArrayList<Map.Entry<String, String>> {
         private HeadersList() {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private final class a implements Runnable {
         ByteBuffer mByteBuffer;
 
@@ -175,7 +175,7 @@ public final class CronetUrlRequest implements UrlRequest {
                 synchronized (CronetUrlRequest.this.mUrlRequestAdapterLock) {
                     if (!CronetUrlRequest.this.isDoneLocked()) {
                         CronetUrlRequest.this.mWaitingOnRead = true;
-                        CronetUrlRequest.this.oFm.a(CronetUrlRequest.this, CronetUrlRequest.this.oEY, byteBuffer);
+                        CronetUrlRequest.this.oPv.a(CronetUrlRequest.this, CronetUrlRequest.this.oPh, byteBuffer);
                     }
                 }
             } catch (Exception e) {
@@ -198,27 +198,27 @@ public final class CronetUrlRequest implements UrlRequest {
         if (collection == null) {
             throw new NullPointerException("requestAnnotations is required");
         }
-        this.oEU = cronetUrlRequestContext;
+        this.oPd = cronetUrlRequestContext;
         this.mInitialUrl = str;
         this.mUrlChain.add(str);
-        this.mPriority = Mt(i);
-        this.oFm = callback;
+        this.mPriority = MP(i);
+        this.oPv = callback;
         this.mExecutor = executor;
         this.mRequestAnnotations = collection;
-        this.oFk = z ? new b() : null;
+        this.oPt = z ? new b() : null;
         this.mDisableCache = z2;
         this.mDisableConnectionMigration = z3;
-        this.oFB = z4;
-        this.oFC = false;
-        this.oFD = false;
-        this.oFE = 0;
-        this.oFF = 0;
-        this.oFG = 0;
-        this.oFH = 0;
+        this.oPK = z4;
+        this.oPL = false;
+        this.oPM = false;
+        this.mTimeout = 0;
+        this.oPN = 0;
+        this.oPO = 0;
+        this.oPP = 0;
         this.mTag = null;
-        this.oFI = null;
-        this.oFJ = null;
-        this.oEY = new UrlResponseInfo(new ArrayList(this.mUrlChain), 0, "", new HeadersList(), false, "", "");
+        this.oPQ = null;
+        this.oPR = null;
+        this.oPh = new UrlResponseInfo(new ArrayList(this.mUrlChain), 0, "", new HeadersList(), false, "", "");
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
@@ -239,7 +239,7 @@ public final class CronetUrlRequest implements UrlRequest {
         if (str2 == null) {
             throw new NullPointerException("Invalid header value.");
         }
-        this.oFA.add(new AbstractMap.SimpleImmutableEntry(str, str2));
+        this.oPJ.add(new AbstractMap.SimpleImmutableEntry(str, str2));
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
@@ -250,7 +250,7 @@ public final class CronetUrlRequest implements UrlRequest {
         if (this.mInitialMethod == null) {
             this.mInitialMethod = "POST";
         }
-        this.oFK = new CronetUploadDataStream(uploadDataProvider, executor, this);
+        this.oPS = new CronetUploadDataStream(uploadDataProvider, executor, this);
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
@@ -259,39 +259,39 @@ public final class CronetUrlRequest implements UrlRequest {
             com.baidu.turbonet.base.a.i("ChromiumNetwork", "****** Request start, url is: %s", this.mInitialUrl);
             checkNotStarted();
             try {
-                this.mUrlRequestAdapter = nativeCreateRequestAdapter(this.oEU.getUrlRequestContextAdapter(), this.mInitialUrl, this.mPriority, this.mDisableCache, this.mDisableConnectionMigration, this.oFB);
-                this.oEU.onRequestStarted();
+                this.mUrlRequestAdapter = nativeCreateRequestAdapter(this.oPd.getUrlRequestContextAdapter(), this.mInitialUrl, this.mPriority, this.mDisableCache, this.mDisableConnectionMigration, this.oPK);
+                this.oPd.onRequestStarted();
                 if (this.mInitialMethod != null && !nativeSetHttpMethod(this.mUrlRequestAdapter, this.mInitialMethod)) {
                     throw new IllegalArgumentException("Invalid http method " + this.mInitialMethod);
                 }
                 if (this.mTag != null) {
-                    this.oEU.a(this);
+                    this.oPd.a(this);
                 }
-                if (this.oFC) {
+                if (this.oPL) {
                     nativeDisableResponseAutoUngzip(this.mUrlRequestAdapter);
                 }
-                if (this.oFD) {
+                if (this.oPM) {
                     nativeEnableBrotliByRequest(this.mUrlRequestAdapter);
                 }
-                if (this.oFE > 0) {
-                    nativeSetTimeout(this.mUrlRequestAdapter, this.oFE);
+                if (this.mTimeout > 0) {
+                    nativeSetTimeout(this.mUrlRequestAdapter, this.mTimeout);
                 }
-                if (this.oFF > 0) {
-                    nativeSetTCPConnectTimeout(this.mUrlRequestAdapter, this.oFF);
+                if (this.oPN > 0) {
+                    nativeSetTCPConnectTimeout(this.mUrlRequestAdapter, this.oPN);
                 }
-                if (this.oFG > 0) {
-                    nativeSetResponseHeaderRecvTimeout(this.mUrlRequestAdapter, this.oFG);
+                if (this.oPO > 0) {
+                    nativeSetResponseHeaderRecvTimeout(this.mUrlRequestAdapter, this.oPO);
                 }
-                if (this.oFH > 0) {
-                    nativeSetResponseBodyReadTimeout(this.mUrlRequestAdapter, this.oFH);
+                if (this.oPP > 0) {
+                    nativeSetResponseBodyReadTimeout(this.mUrlRequestAdapter, this.oPP);
                 }
-                if (!TextUtils.isEmpty(this.oFI)) {
-                    nativeSetDestinationAddress(this.mUrlRequestAdapter, this.oFI);
+                if (!TextUtils.isEmpty(this.oPQ)) {
+                    nativeSetDestinationAddress(this.mUrlRequestAdapter, this.oPQ);
                 }
-                if (!TextUtils.isEmpty(this.oFJ)) {
-                    nativeSetRequestTag(this.mUrlRequestAdapter, this.oFJ);
+                if (!TextUtils.isEmpty(this.oPR)) {
+                    nativeSetRequestTag(this.mUrlRequestAdapter, this.oPR);
                 }
-                Iterator<Map.Entry<String, String>> it = this.oFA.iterator();
+                Iterator<Map.Entry<String, String>> it = this.oPJ.iterator();
                 boolean z = false;
                 while (it.hasNext()) {
                     Map.Entry<String, String> next = it.next();
@@ -301,19 +301,19 @@ public final class CronetUrlRequest implements UrlRequest {
                     }
                     z = z2;
                 }
-                if (this.oFK != null) {
+                if (this.oPS != null) {
                     if (!z) {
                         throw new IllegalArgumentException("Requests with upload data must have a Content-Type.");
                     }
                     this.mStarted = true;
-                    this.oFK.postTaskToExecutor(new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequest.1
+                    this.oPS.postTaskToExecutor(new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequest.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            CronetUrlRequest.this.oFK.initializeWithRequest();
+                            CronetUrlRequest.this.oPS.initializeWithRequest();
                             synchronized (CronetUrlRequest.this.mUrlRequestAdapterLock) {
                                 if (!CronetUrlRequest.this.isDoneLocked()) {
-                                    CronetUrlRequest.this.oFK.attachNativeAdapterToRequest(CronetUrlRequest.this.mUrlRequestAdapter);
-                                    CronetUrlRequest.this.edK();
+                                    CronetUrlRequest.this.oPS.attachNativeAdapterToRequest(CronetUrlRequest.this.mUrlRequestAdapter);
+                                    CronetUrlRequest.this.egc();
                                 }
                             }
                         }
@@ -321,9 +321,9 @@ public final class CronetUrlRequest implements UrlRequest {
                     return;
                 }
                 this.mStarted = true;
-                edK();
+                egc();
             } catch (RuntimeException e) {
-                Aa(false);
+                At(false);
                 throw e;
             }
         }
@@ -331,9 +331,9 @@ public final class CronetUrlRequest implements UrlRequest {
 
     /* JADX INFO: Access modifiers changed from: private */
     @GuardedBy("mUrlRequestAdapterLock")
-    public void edK() {
-        if (this.oFk != null) {
-            this.oFk.onRequestStarted();
+    public void egc() {
+        if (this.oPt != null) {
+            this.oPt.onRequestStarted();
         }
         nativeStart(this.mUrlRequestAdapter);
     }
@@ -374,7 +374,7 @@ public final class CronetUrlRequest implements UrlRequest {
         synchronized (this.mUrlRequestAdapterLock) {
             com.baidu.turbonet.base.a.i("ChromiumNetwork", "****** Request cancel, url is: %s", this.mInitialUrl);
             if (!isDoneLocked() && this.mStarted) {
-                Aa(true);
+                At(true);
             }
         }
     }
@@ -386,39 +386,39 @@ public final class CronetUrlRequest implements UrlRequest {
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
-    public void edL() {
+    public void egd() {
         checkNotStarted();
-        this.oFC = true;
+        this.oPL = true;
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
-    public void edM() {
+    public void ege() {
         checkNotStarted();
-        this.oFD = true;
+        this.oPM = true;
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
     public void setTimeout(int i) {
         checkNotStarted();
-        this.oFE = i;
+        this.mTimeout = i;
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
-    public void Mq(int i) {
+    public void MM(int i) {
         checkNotStarted();
-        this.oFF = i;
+        this.oPN = i;
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
-    public void Mr(int i) {
+    public void MN(int i) {
         checkNotStarted();
-        this.oFG = i;
+        this.oPO = i;
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
-    public void Ms(int i) {
+    public void MO(int i) {
         checkNotStarted();
-        this.oFH = i;
+        this.oPP = i;
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
@@ -428,15 +428,15 @@ public final class CronetUrlRequest implements UrlRequest {
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
-    public void VN(String str) {
+    public void WM(String str) {
         checkNotStarted();
-        this.oFI = str;
+        this.oPQ = str;
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
-    public void VO(String str) {
+    public void WN(String str) {
         checkNotStarted();
-        this.oFJ = str;
+        this.oPR = str;
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
@@ -454,11 +454,11 @@ public final class CronetUrlRequest implements UrlRequest {
             this.mExecutor.execute(runnable);
         } catch (RejectedExecutionException e) {
             com.baidu.turbonet.base.a.e("ChromiumNetwork", "Exception posting task to executor", e);
-            Aa(false);
+            At(false);
         }
     }
 
-    private static int Mt(int i) {
+    private static int MP(int i) {
         switch (i) {
             case 0:
                 return 0;
@@ -491,69 +491,69 @@ public final class CronetUrlRequest implements UrlRequest {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Aa(boolean z) {
+    public void At(boolean z) {
         synchronized (this.mUrlRequestAdapterLock) {
             if (this.mUrlRequestAdapter != 0) {
                 String nativeGetDNSNameServers = nativeGetDNSNameServers(this.mUrlRequestAdapter);
                 if (!nativeGetDNSNameServers.isEmpty()) {
-                    this.oFo = nativeGetDNSNameServers;
+                    this.oPx = nativeGetDNSNameServers;
                 }
                 String nativeGetDNSResults = nativeGetDNSResults(this.mUrlRequestAdapter);
                 if (!nativeGetDNSResults.isEmpty()) {
-                    this.oFn = nativeGetDNSResults;
+                    this.oPw = nativeGetDNSResults;
                 }
                 String nativeGetDNSErrorCode = nativeGetDNSErrorCode(this.mUrlRequestAdapter);
                 if (!nativeGetDNSErrorCode.isEmpty()) {
-                    this.oFp = nativeGetDNSErrorCode;
+                    this.oPy = nativeGetDNSErrorCode;
                 }
                 String nativeGetConnectionAttempts = nativeGetConnectionAttempts(this.mUrlRequestAdapter, false);
                 if (!nativeGetConnectionAttempts.isEmpty()) {
-                    this.oFq = nativeGetConnectionAttempts;
+                    this.oPz = nativeGetConnectionAttempts;
                 }
                 String nativeGetConnectionAttempts2 = nativeGetConnectionAttempts(this.mUrlRequestAdapter, true);
                 if (!nativeGetConnectionAttempts2.isEmpty()) {
-                    this.oFr = nativeGetConnectionAttempts2;
+                    this.oPA = nativeGetConnectionAttempts2;
                 }
                 String nativeGetRemoteEndpoint = nativeGetRemoteEndpoint(this.mUrlRequestAdapter);
                 if (!nativeGetRemoteEndpoint.isEmpty()) {
-                    this.oFs = nativeGetRemoteEndpoint;
+                    this.oPB = nativeGetRemoteEndpoint;
                 }
                 String nativeGetSuperPipeInfo = nativeGetSuperPipeInfo(this.mUrlRequestAdapter);
                 if (!nativeGetSuperPipeInfo.isEmpty()) {
-                    this.oFt = nativeGetSuperPipeInfo;
+                    this.oPC = nativeGetSuperPipeInfo;
                 }
                 long nativeRequestTimeGap = nativeRequestTimeGap(this.mUrlRequestAdapter, 1);
                 if (nativeRequestTimeGap >= 0) {
-                    this.oFu = nativeRequestTimeGap;
+                    this.oPD = nativeRequestTimeGap;
                 }
                 long nativeRequestTimeGap2 = nativeRequestTimeGap(this.mUrlRequestAdapter, 2);
                 if (nativeRequestTimeGap2 >= 0) {
-                    this.oFv = nativeRequestTimeGap2;
+                    this.oPE = nativeRequestTimeGap2;
                 }
                 long nativeRequestTimeGap3 = nativeRequestTimeGap(this.mUrlRequestAdapter, 3);
                 if (nativeRequestTimeGap3 >= 0) {
-                    this.oFw = nativeRequestTimeGap3;
+                    this.oPF = nativeRequestTimeGap3;
                 }
                 long nativeRequestTimeGap4 = nativeRequestTimeGap(this.mUrlRequestAdapter, 4);
                 if (nativeRequestTimeGap4 >= 0) {
-                    this.oFx = nativeRequestTimeGap4;
+                    this.oPG = nativeRequestTimeGap4;
                 }
                 long nativeRequestTimeGap5 = nativeRequestTimeGap(this.mUrlRequestAdapter, 5);
                 if (nativeRequestTimeGap5 >= 0) {
-                    this.oFy = nativeRequestTimeGap5;
+                    this.oPH = nativeRequestTimeGap5;
                 }
-                this.oFz = nativeGetRequestTimeInfo(this.mUrlRequestAdapter);
-                if (this.oFz == null) {
-                    this.oFz = new RequestTimeInfo();
+                this.oPI = nativeGetRequestTimeInfo(this.mUrlRequestAdapter);
+                if (this.oPI == null) {
+                    this.oPI = new RequestTimeInfo();
                 }
-                if (this.oFk != null) {
-                    this.oFk.edN();
+                if (this.oPt != null) {
+                    this.oPt.egf();
                 }
                 nativeDestroy(this.mUrlRequestAdapter, z);
                 if (this.mTag != null) {
-                    this.oEU.b(this);
+                    this.oPd.b(this);
                 }
-                this.oEU.onRequestDestroyed();
+                this.oPd.onRequestDestroyed();
                 this.mUrlRequestAdapter = 0L;
                 if (this.mOnDestroyedCallbackForTesting != null) {
                     this.mOnDestroyedCallbackForTesting.run();
@@ -568,9 +568,9 @@ public final class CronetUrlRequest implements UrlRequest {
         com.baidu.turbonet.base.a.e("ChromiumNetwork", "Exception in CalledByNative method", exc);
         synchronized (this.mUrlRequestAdapterLock) {
             if (!isDoneLocked()) {
-                Aa(false);
+                At(false);
                 try {
-                    this.oFm.a(this, this.oEY, urlRequestException);
+                    this.oPv.a(this, this.oPh, urlRequestException);
                 } catch (Exception e) {
                     com.baidu.turbonet.base.a.e("ChromiumNetwork", "Exception notifying of failed request", e);
                 }
@@ -591,9 +591,9 @@ public final class CronetUrlRequest implements UrlRequest {
             public void run() {
                 synchronized (CronetUrlRequest.this.mUrlRequestAdapterLock) {
                     if (!CronetUrlRequest.this.isDoneLocked()) {
-                        CronetUrlRequest.this.Aa(false);
+                        CronetUrlRequest.this.At(false);
                         try {
-                            CronetUrlRequest.this.oFm.a(CronetUrlRequest.this, CronetUrlRequest.this.oEY, urlRequestException);
+                            CronetUrlRequest.this.oPv.a(CronetUrlRequest.this, CronetUrlRequest.this.oPh, urlRequestException);
                         } catch (Exception e) {
                             com.baidu.turbonet.base.a.e("ChromiumNetwork", "Exception in onError method", e);
                         }
@@ -606,8 +606,8 @@ public final class CronetUrlRequest implements UrlRequest {
     @CalledByNative
     private void onRedirectReceived(final String str, int i, String str2, String[] strArr, boolean z, String str3, String str4, long j) {
         final UrlResponseInfo a2 = a(i, str2, strArr, z, str3, str4);
-        this.oFl += j;
-        a2.hQ(this.oFl);
+        this.oPu += j;
+        a2.hT(this.oPu);
         this.mUrlChain.add(str);
         postTaskToExecutor(new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequest.3
             @Override // java.lang.Runnable
@@ -616,7 +616,7 @@ public final class CronetUrlRequest implements UrlRequest {
                     if (!CronetUrlRequest.this.isDoneLocked()) {
                         CronetUrlRequest.this.mWaitingOnRedirect = true;
                         try {
-                            CronetUrlRequest.this.oFm.a(CronetUrlRequest.this, a2, str);
+                            CronetUrlRequest.this.oPv.a(CronetUrlRequest.this, a2, str);
                         } catch (Exception e) {
                             CronetUrlRequest.this.onCallbackException(e);
                         }
@@ -628,18 +628,18 @@ public final class CronetUrlRequest implements UrlRequest {
 
     @CalledByNative
     private void onResponseStarted(int i, String str, String[] strArr, boolean z, String str2, String str3) {
-        this.oEY = a(i, str, strArr, z, str2, str3);
+        this.oPh = a(i, str, strArr, z, str2, str3);
         postTaskToExecutor(new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequest.4
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (CronetUrlRequest.this.mUrlRequestAdapterLock) {
                     if (!CronetUrlRequest.this.isDoneLocked()) {
-                        if (CronetUrlRequest.this.oFk != null) {
-                            CronetUrlRequest.this.oFk.edO();
+                        if (CronetUrlRequest.this.oPt != null) {
+                            CronetUrlRequest.this.oPt.egg();
                         }
                         CronetUrlRequest.this.mWaitingOnRead = true;
                         try {
-                            CronetUrlRequest.this.oFm.a(CronetUrlRequest.this, CronetUrlRequest.this.oEY);
+                            CronetUrlRequest.this.oPv.a(CronetUrlRequest.this, CronetUrlRequest.this.oPh);
                         } catch (Exception e) {
                             CronetUrlRequest.this.onCallbackException(e);
                         }
@@ -651,30 +651,30 @@ public final class CronetUrlRequest implements UrlRequest {
 
     @CalledByNative
     private void onReadCompleted(ByteBuffer byteBuffer, int i, int i2, int i3, long j) {
-        this.oEY.hQ(this.oFl + j);
+        this.oPh.hT(this.oPu + j);
         if (byteBuffer.position() != i2 || byteBuffer.limit() != i3) {
             a(new UrlRequestException("ByteBuffer modified externally during read", null));
             return;
         }
-        if (this.oFL == null) {
-            this.oFL = new a();
+        if (this.oPT == null) {
+            this.oPT = new a();
         }
         byteBuffer.position(i2 + i);
-        this.oFL.mByteBuffer = byteBuffer;
-        postTaskToExecutor(this.oFL);
+        this.oPT.mByteBuffer = byteBuffer;
+        postTaskToExecutor(this.oPT);
     }
 
     @CalledByNative
     private void onSucceeded(long j) {
-        this.oEY.hQ(this.oFl + j);
+        this.oPh.hT(this.oPu + j);
         postTaskToExecutor(new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequest.5
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (CronetUrlRequest.this.mUrlRequestAdapterLock) {
                     if (!CronetUrlRequest.this.isDoneLocked()) {
-                        CronetUrlRequest.this.Aa(false);
+                        CronetUrlRequest.this.At(false);
                         try {
-                            CronetUrlRequest.this.oFm.b(CronetUrlRequest.this, CronetUrlRequest.this.oEY);
+                            CronetUrlRequest.this.oPv.b(CronetUrlRequest.this, CronetUrlRequest.this.oPh);
                         } catch (Exception e) {
                             com.baidu.turbonet.base.a.e("ChromiumNetwork", "Exception in onComplete method", e);
                         }
@@ -686,8 +686,8 @@ public final class CronetUrlRequest implements UrlRequest {
 
     @CalledByNative
     private void onError(int i, int i2, int i3, String str, long j) {
-        if (this.oEY != null) {
-            this.oEY.hQ(this.oFl + j);
+        if (this.oPh != null) {
+            this.oPh.hT(this.oPu + j);
         }
         a(new UrlRequestException("Exception in CronetUrlRequest: " + str, i, i2));
     }
@@ -698,8 +698,8 @@ public final class CronetUrlRequest implements UrlRequest {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    com.baidu.turbonet.base.a.e("ChromiumNetwork", "****** onCanceled, url is: %s", CronetUrlRequest.this.oEY.getUrl());
-                    CronetUrlRequest.this.oFm.c(CronetUrlRequest.this, CronetUrlRequest.this.oEY);
+                    com.baidu.turbonet.base.a.e("ChromiumNetwork", "****** onCanceled, url is: %s", CronetUrlRequest.this.oPh.getUrl());
+                    CronetUrlRequest.this.oPv.c(CronetUrlRequest.this, CronetUrlRequest.this.oPh);
                 } catch (Exception e) {
                     com.baidu.turbonet.base.a.e("ChromiumNetwork", "Exception in onCanceled method", e);
                 }
@@ -712,43 +712,43 @@ public final class CronetUrlRequest implements UrlRequest {
         postTaskToExecutor(new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequest.7
             @Override // java.lang.Runnable
             public void run() {
-                statusListener.onStatus(UrlRequest.Status.MF(i));
+                statusListener.onStatus(UrlRequest.Status.Nb(i));
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public final class b {
         @Nullable
-        private Long oFQ;
+        private Long oPY;
         @Nullable
-        private Long oFR;
+        private Long oPZ;
         @Nullable
-        private Long oFS;
+        private Long oQa;
 
         private b() {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void onRequestStarted() {
-            if (this.oFQ != null) {
+            if (this.oPY != null) {
                 throw new IllegalStateException("onRequestStarted called repeatedly");
             }
-            this.oFQ = Long.valueOf(SystemClock.elapsedRealtime());
+            this.oPY = Long.valueOf(SystemClock.elapsedRealtime());
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void edN() {
-            if (this.oFQ != null && this.oFS == null) {
-                this.oFS = Long.valueOf(SystemClock.elapsedRealtime() - this.oFQ.longValue());
+        public void egf() {
+            if (this.oPY != null && this.oQa == null) {
+                this.oQa = Long.valueOf(SystemClock.elapsedRealtime() - this.oPY.longValue());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void edO() {
-            if (this.oFQ != null && this.oFR == null) {
-                this.oFR = Long.valueOf(SystemClock.elapsedRealtime() - this.oFQ.longValue());
+        public void egg() {
+            if (this.oPY != null && this.oPZ == null) {
+                this.oPZ = Long.valueOf(SystemClock.elapsedRealtime() - this.oPY.longValue());
             }
         }
     }

@@ -4,7 +4,7 @@ import javax.annotation.Priority;
 import javax.ws.rs.core.FeatureContext;
 import org.glassfish.jersey.internal.spi.AutoDiscoverable;
 @Priority(1999)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FastJsonAutoDiscoverable implements AutoDiscoverable {
     public static volatile boolean autoDiscover = true;
 

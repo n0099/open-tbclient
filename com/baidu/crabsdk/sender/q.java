@@ -5,13 +5,13 @@ import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class q implements Runnable {
-    final /* synthetic */ Context aqW;
+    final /* synthetic */ Context aqM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(Context context) {
-        this.aqW = context;
+        this.aqM = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00b8 A[Catch: Exception -> 0x00bc, TRY_LEAVE, TryCatch #3 {Exception -> 0x00bc, blocks: (B:34:0x00b3, B:36:0x00b8), top: B:53:0x00b3, outer: #9 }] */
@@ -27,8 +27,8 @@ public final class q implements Runnable {
         Exception e;
         try {
             try {
-                String ux = g.ux();
-                com.baidu.crabsdk.c.a.v("sync json is " + ux);
+                String uu = g.uu();
+                com.baidu.crabsdk.c.a.v("sync json is " + uu);
                 HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(com.baidu.crabsdk.a.c()).openConnection();
                 try {
                     httpURLConnection2.setRequestMethod("POST");
@@ -50,7 +50,7 @@ public final class q implements Runnable {
                     dataOutputStream = null;
                 }
                 try {
-                    dataOutputStream.writeBytes(ux);
+                    dataOutputStream.writeBytes(uu);
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     if (httpURLConnection2.getResponseCode() == 200) {

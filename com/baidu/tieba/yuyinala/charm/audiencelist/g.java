@@ -3,102 +3,102 @@ package com.baidu.tieba.yuyinala.charm.audiencelist;
 import android.view.View;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g implements com.baidu.live.liveroom.d.d {
-    private String aBO;
-    private String bab;
-    private boolean bkm;
-    private boolean bsO;
+    private String aDB;
+    private String bdi;
+    private boolean bnF;
+    private boolean bws;
     private String mLiveId;
-    com.baidu.live.k.c ofA = null;
-    private YuyinALaAudiencesActivity ofi;
+    private YuyinALaAudiencesActivity opa;
+    com.baidu.live.j.c ops = null;
 
     public g(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.ofi = yuyinALaAudiencesActivity;
+        this.opa = yuyinALaAudiencesActivity;
     }
 
     public void createView() {
         com.baidu.live.noble.data.e eVar = new com.baidu.live.noble.data.e();
-        eVar.mTbPageContext = this.ofi.getPageContext();
+        eVar.mTbPageContext = this.opa.getPageContext();
         eVar.mLiveId = this.mLiveId;
-        eVar.bre = this.aBO;
-        eVar.mIsHost = this.bkm;
-        eVar.bsO = this.bsO;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501013, com.baidu.live.k.c.class, eVar);
+        eVar.buH = this.aDB;
+        eVar.mIsHost = this.bnF;
+        eVar.bws = this.bws;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501013, com.baidu.live.j.c.class, eVar);
         if (runTask != null && runTask.getData() != null) {
-            this.ofA = (com.baidu.live.k.c) runTask.getData();
+            this.ops = (com.baidu.live.j.c) runTask.getData();
         }
     }
 
-    public g UB(String str) {
+    public g Vz(String str) {
         this.mLiveId = str;
         return this;
     }
 
-    public g zu(boolean z) {
-        this.bsO = z;
+    public g zP(boolean z) {
+        this.bws = z;
         return this;
     }
 
-    public g zv(boolean z) {
-        this.bkm = z;
+    public g zQ(boolean z) {
+        this.bnF = z;
         return this;
     }
 
-    public g UC(String str) {
-        this.aBO = str;
+    public g VA(String str) {
+        this.aDB = str;
         return this;
     }
 
-    public g UD(String str) {
-        this.bab = str;
+    public g VB(String str) {
+        this.bdi = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.ofA == null) {
+        if (this.ops == null) {
             return null;
         }
-        return this.ofA.getView();
+        return this.ops.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        if (this.ofA == null) {
+        if (this.ops == null) {
             return null;
         }
-        return this.ofA.getTitle();
+        return this.ops.getTitle();
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Im() {
+    public String JK() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short In() {
+    public short JL() {
         return (short) 1;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterBackground() {
-        if (this.ofA != null) {
-            this.ofA.bW(false);
+        if (this.ops != null) {
+            this.ops.cb(false);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.ofA != null) {
-            this.ofA.bW(true);
+        if (this.ops != null) {
+            this.ops.cb(true);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.ofA != null) {
-            this.ofA.onDestroy();
+        if (this.ops != null) {
+            this.ops.onDestroy();
         }
     }
 
@@ -106,9 +106,9 @@ public class g implements com.baidu.live.liveroom.d.d {
     public void onChangeSkinType(int i) {
     }
 
-    public void mD(boolean z) {
-        if (this.ofA != null) {
-            this.ofA.bX(z);
+    public void mH(boolean z) {
+        if (this.ops != null) {
+            this.ops.cc(z);
         }
     }
 }

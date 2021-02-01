@@ -25,7 +25,7 @@ import com.baidu.swan.apps.adaptation.b.e;
 import com.baidu.swan.apps.ao.ah;
 import com.baidu.swan.apps.core.container.view.SwanAppSelectPopView;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, SwanAppSelectPopView.a {
     public static final String APP_CACHE_PATH = "appcache";
     public static final String APP_DATABASE_PATH = "databases";
@@ -38,7 +38,7 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
     private e mWebViewManager;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String WEBVIEW_SIZE_SWITCH = "swan_app_set_webview_size_switch";
-    private static final boolean sIsSetWebViewSize = com.baidu.swan.apps.t.a.awB().getSwitch(WEBVIEW_SIZE_SWITCH, false);
+    private static final boolean sIsSetWebViewSize = com.baidu.swan.apps.t.a.awZ().getSwitch(WEBVIEW_SIZE_SWITCH, false);
 
     @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
     public /* bridge */ /* synthetic */ AbsoluteLayout getCurrentWebView() {
@@ -119,14 +119,14 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
     public boolean canGoBack() {
         boolean canGoBack = super.canGoBack();
         if (this.mWebViewHookHandler != null) {
-            return this.mWebViewHookHandler.fa(canGoBack);
+            return this.mWebViewHookHandler.fc(canGoBack);
         }
         return canGoBack;
     }
 
     @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
     public void goBack() {
-        if (this.mWebViewHookHandler == null || !this.mWebViewHookHandler.anb()) {
+        if (this.mWebViewHookHandler == null || !this.mWebViewHookHandler.anz()) {
             super.goBack();
         }
     }
@@ -200,9 +200,9 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
         if (sIsSetWebViewSize) {
             Pair<Integer, Integer> pair = null;
             if (i2 == Integer.MIN_VALUE) {
-                Pair<Integer, Integer> tJ = ah.tJ(str);
-                i2 = ((Integer) tJ.second).intValue();
-                pair = tJ;
+                Pair<Integer, Integer> uc = ah.uc(str);
+                i2 = ((Integer) uc.second).intValue();
+                pair = uc;
             }
             if (i == Integer.MIN_VALUE) {
                 i3 = pair != null ? ((Integer) pair.first).intValue() : ah.getDisplayWidth(AppRuntime.getAppContext());
@@ -383,7 +383,7 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
         int i2;
         int i3;
         int i4;
-        int O;
+        int P;
         int popLeftX = swanAppSelectPopView.getPopLeftX();
         int popRightX = swanAppSelectPopView.getPopRightX();
         int popTopY = swanAppSelectPopView.getPopTopY();
@@ -418,16 +418,16 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
         }
         int measuredHeight = swanAppSelectPopView.getMeasuredHeight();
         int height = getCurrentWebView().getHeight();
-        int O2 = ah.O(22.0f) + measuredHeight;
-        int i6 = i4 - O2;
+        int P2 = ah.P(22.0f) + measuredHeight;
+        int i6 = i4 - P2;
         if (i6 < 0) {
-            O = ah.O(22.0f) + i3;
+            P = ah.P(22.0f) + i3;
             swanAppSelectPopView.setBackgroundResource(a.e.swanapp_browser_select_menu_up_bg);
         } else {
-            O = i6 + ah.O(22.0f);
+            P = i6 + ah.P(22.0f);
             swanAppSelectPopView.setBackgroundResource(a.e.swanapp_browser_select_menu_down_bg);
         }
-        int i7 = O + O2 > height ? (i3 - i4) - O2 : O;
+        int i7 = P + P2 > height ? (i3 - i4) - P2 : P;
         swanAppSelectPopView.setPopX(i5 + scrollX);
         swanAppSelectPopView.setPopY(i7 + scrollY);
         if (DEBUG) {
@@ -437,6 +437,6 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
 
     @Override // com.baidu.swan.apps.core.container.a
     public String getContainerId() {
-        return this.mWebViewManager != null ? this.mWebViewManager.aiA() : "";
+        return this.mWebViewManager != null ? this.mWebViewManager.aiY() : "";
     }
 }

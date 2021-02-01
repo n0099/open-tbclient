@@ -4,18 +4,18 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.glide.load.ImageHeaderParser;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<ImageHeaderParser> f9966a = new ArrayList();
+    private final List<ImageHeaderParser> f9968a = new ArrayList();
 
     @NonNull
     public synchronized List<ImageHeaderParser> a() {
-        return this.f9966a;
+        return this.f9968a;
     }
 
     public synchronized void a(@NonNull ImageHeaderParser imageHeaderParser) {
-        this.f9966a.add(imageHeaderParser);
+        this.f9968a.add(imageHeaderParser);
     }
 }

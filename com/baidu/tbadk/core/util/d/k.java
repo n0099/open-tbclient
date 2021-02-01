@@ -11,16 +11,16 @@ public class k implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     private int height = 0;
 
     public k() {
-        bsZ();
+        btt();
     }
 
-    private void bsZ() {
+    private void btt() {
         this.width = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         this.height = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public boolean my() {
+    public boolean mx() {
         return true;
     }
 
@@ -28,7 +28,7 @@ public class k implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, boolean z, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(r(str, i, i2), com.baidu.tbadk.imageManager.c.bCx().CT(r(str, i, i2)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(r(str, i, i2), com.baidu.tbadk.imageManager.c.bCP().Dk(r(str, i, i2)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -51,7 +51,7 @@ public class k implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.aP(i);
             aVar.aQ(i2);
-            com.baidu.tbadk.imageManager.c.bCx().b(r(str, i, i2), aVar);
+            com.baidu.tbadk.imageManager.c.bCP().b(r(str, i, i2), aVar);
         }
     }
 
@@ -63,12 +63,12 @@ public class k implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public BdAsyncTaskParallel mz() {
+    public BdAsyncTaskParallel my() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public int mA() {
+    public int mz() {
         return 1;
     }
 

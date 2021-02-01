@@ -25,7 +25,7 @@ import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import java.lang.reflect.Method;
 @Deprecated
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     private static final int ID_HOME = 16908332;
     private static final String TAG = "ActionBarDrawerToggle";
@@ -45,7 +45,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     private SlideDrawable mSlider;
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public interface Delegate {
         @Nullable
         Drawable getThemeUpIndicator();
@@ -56,7 +56,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public interface DelegateProvider {
         @Nullable
         Delegate getDrawerToggleDelegate();
@@ -264,7 +264,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class SetIndicatorInfo {
         Method mSetHomeActionContentDescription;
         Method mSetHomeAsUpIndicator;
@@ -291,7 +291,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public class SlideDrawable extends InsetDrawable implements Drawable.Callback {
         private final boolean mHasMirroring;
         private float mOffset;

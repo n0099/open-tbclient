@@ -1,5 +1,5 @@
 package com.kwad.sdk.contentalliance.detail.video;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f implements e {
     @Override // com.kwad.sdk.contentalliance.detail.video.e
     public void a() {

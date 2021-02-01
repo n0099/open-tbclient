@@ -10,7 +10,7 @@ import java.util.List;
 public class gn {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14059a;
+    private int f14061a;
 
     /* renamed from: a  reason: collision with other field name */
     private String f481a;
@@ -19,7 +19,7 @@ public class gn {
     private List<gg> f482a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14060b;
+    private String f14062b;
     private String c;
     private String d;
 
@@ -27,10 +27,10 @@ public class gn {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f14061a = new a("internal-server-error");
+        public static final a f14063a = new a("internal-server-error");
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f14062b = new a("forbidden");
+        public static final a f14064b = new a("forbidden");
         public static final a c = new a("bad-request");
         public static final a d = new a("conflict");
         public static final a e = new a("feature-not-implemented");
@@ -68,21 +68,21 @@ public class gn {
 
     public gn(int i, String str, String str2, String str3, String str4, List<gg> list) {
         this.f482a = null;
-        this.f14059a = i;
+        this.f14061a = i;
         this.f481a = str;
         this.c = str2;
-        this.f14060b = str3;
+        this.f14062b = str3;
         this.d = str4;
         this.f482a = list;
     }
 
     public gn(Bundle bundle) {
         this.f482a = null;
-        this.f14059a = bundle.getInt("ext_err_code");
+        this.f14061a = bundle.getInt("ext_err_code");
         if (bundle.containsKey("ext_err_type")) {
             this.f481a = bundle.getString("ext_err_type");
         }
-        this.f14060b = bundle.getString("ext_err_cond");
+        this.f14062b = bundle.getString("ext_err_cond");
         this.c = bundle.getString("ext_err_reason");
         this.d = bundle.getString("ext_err_msg");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
@@ -104,7 +104,7 @@ public class gn {
     }
 
     private void a(a aVar) {
-        this.f14060b = aVar.f483a;
+        this.f14062b = aVar.f483a;
     }
 
     public Bundle a() {
@@ -112,12 +112,12 @@ public class gn {
         if (this.f481a != null) {
             bundle.putString("ext_err_type", this.f481a);
         }
-        bundle.putInt("ext_err_code", this.f14059a);
+        bundle.putInt("ext_err_code", this.f14061a);
         if (this.c != null) {
             bundle.putString("ext_err_reason", this.c);
         }
-        if (this.f14060b != null) {
-            bundle.putString("ext_err_cond", this.f14060b);
+        if (this.f14062b != null) {
+            bundle.putString("ext_err_cond", this.f14062b);
         }
         if (this.d != null) {
             bundle.putString("ext_err_msg", this.d);
@@ -147,7 +147,7 @@ public class gn {
     /* renamed from: a  reason: collision with other method in class */
     public String m344a() {
         StringBuilder sb = new StringBuilder();
-        sb.append("<error code=\"").append(this.f14059a).append("\"");
+        sb.append("<error code=\"").append(this.f14061a).append("\"");
         if (this.f481a != null) {
             sb.append(" type=\"");
             sb.append(this.f481a);
@@ -159,8 +159,8 @@ public class gn {
             sb.append("\"");
         }
         sb.append(">");
-        if (this.f14060b != null) {
-            sb.append("<").append(this.f14060b);
+        if (this.f14062b != null) {
+            sb.append("<").append(this.f14062b);
             sb.append(" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\"/>");
         }
         if (this.d != null) {
@@ -182,10 +182,10 @@ public class gn {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (this.f14060b != null) {
-            sb.append(this.f14060b);
+        if (this.f14062b != null) {
+            sb.append(this.f14062b);
         }
-        sb.append("(").append(this.f14059a).append(")");
+        sb.append("(").append(this.f14061a).append(")");
         if (this.d != null) {
             sb.append(" ").append(this.d);
         }

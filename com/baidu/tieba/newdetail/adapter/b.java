@@ -11,13 +11,13 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.a.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lqJ);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lyO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,31 +58,31 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private View bPy;
-        private TextView eFr;
-        private int jZf;
+        private View bTo;
+        private TextView eHx;
+        private int kgI;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.jZf = 3;
-            this.eFr = textView;
-            this.bPy = view2;
+            this.kgI = 3;
+            this.eHx = textView;
+            this.bTo = view2;
         }
 
         void a(c cVar) {
             if (cVar != null) {
-                this.eFr.setText(cVar.title);
-                this.bPy.setVisibility(cVar.lei ? 0 : 8);
+                this.eHx.setText(cVar.title);
+                this.bTo.setVisibility(cVar.lml ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.jZf != i) {
-                ao.setViewTextColor(this.eFr, R.color.CAM_X0105);
-                ao.setBackgroundColor(this.bPy, R.color.CAM_X0204);
-                this.jZf = i;
+            if (this.kgI != i) {
+                ap.setViewTextColor(this.eHx, R.color.CAM_X0105);
+                ap.setBackgroundColor(this.bTo, R.color.CAM_X0204);
+                this.kgI = i;
             }
         }
     }

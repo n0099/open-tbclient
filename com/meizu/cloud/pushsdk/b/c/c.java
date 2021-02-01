@@ -5,17 +5,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String[] f11148a;
+    private final String[] f11150a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<String> f11149a = new ArrayList(20);
+        private final List<String> f11151a = new ArrayList(20);
 
         private void c(String str, String str2) {
             if (str == null) {
@@ -53,18 +53,18 @@ public final class c {
         }
 
         a b(String str, String str2) {
-            this.f11149a.add(str);
-            this.f11149a.add(str2.trim());
+            this.f11151a.add(str);
+            this.f11151a.add(str2.trim());
             return this;
         }
     }
 
     private c(a aVar) {
-        this.f11148a = (String[]) aVar.f11149a.toArray(new String[aVar.f11149a.size()]);
+        this.f11150a = (String[]) aVar.f11151a.toArray(new String[aVar.f11151a.size()]);
     }
 
     private c(String[] strArr) {
-        this.f11148a = strArr;
+        this.f11150a = strArr;
     }
 
     public static c a(String... strArr) {
@@ -98,19 +98,19 @@ public final class c {
     }
 
     public int a() {
-        return this.f11148a.length / 2;
+        return this.f11150a.length / 2;
     }
 
     public String a(int i) {
-        return this.f11148a[i * 2];
+        return this.f11150a[i * 2];
     }
 
     public String a(String str) {
-        return a(this.f11148a, str);
+        return a(this.f11150a, str);
     }
 
     public String b(int i) {
-        return this.f11148a[(i * 2) + 1];
+        return this.f11150a[(i * 2) + 1];
     }
 
     public Set<String> b() {
@@ -124,7 +124,7 @@ public final class c {
 
     public a c() {
         a aVar = new a();
-        Collections.addAll(aVar.f11149a, this.f11148a);
+        Collections.addAll(aVar.f11151a, this.f11150a);
         return aVar;
     }
 

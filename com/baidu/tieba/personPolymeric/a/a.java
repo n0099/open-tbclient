@@ -6,16 +6,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.tbadkCore.LikeModel;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.b, CardViewHolder<com.baidu.tieba.personPolymeric.view.b>> {
-    private LikeModel fle;
+    private LikeModel fnw;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.b.msu);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.b.mBu);
         this.mPageContext = tbPageContext;
-        this.fle = new LikeModel(tbPageContext);
+        this.fnw = new LikeModel(tbPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* renamed from: aX */
     public CardViewHolder<com.baidu.tieba.personPolymeric.view.b> e(ViewGroup viewGroup) {
         com.baidu.tieba.personPolymeric.view.b bVar = new com.baidu.tieba.personPolymeric.view.b(this.mPageContext);
-        bVar.a(this.fle);
+        bVar.a(this.fnw);
         return new CardViewHolder<>(bVar);
     }
 
@@ -32,8 +32,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.b bVar, CardViewHolder<com.baidu.tieba.personPolymeric.view.b> cardViewHolder) {
-        cardViewHolder.crP().a(bVar);
-        cardViewHolder.crP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.ctb().a(bVar);
+        cardViewHolder.ctb().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return cardViewHolder.getView();
     }
 }

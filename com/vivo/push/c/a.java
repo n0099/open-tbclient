@@ -1,6 +1,6 @@
 package com.vivo.push.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class a extends com.vivo.push.v {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(com.vivo.push.y yVar) {
@@ -10,7 +10,7 @@ public final class a extends com.vivo.push.v {
     @Override // com.vivo.push.v
     protected final void a(com.vivo.push.y yVar) {
         com.vivo.push.b.c cVar = (com.vivo.push.b.c) yVar;
-        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f13709a);
+        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f13711a);
         if (a2 == null) {
             com.vivo.push.p.a().a(cVar.h(), 1005, new Object[0]);
             return;
@@ -26,6 +26,6 @@ public final class a extends com.vivo.push.v {
                 return;
             }
         }
-        com.vivo.push.a.a.a(this.f13709a, a3, yVar);
+        com.vivo.push.a.a.a(this.f13711a, a3, yVar);
     }
 }

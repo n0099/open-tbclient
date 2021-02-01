@@ -10,14 +10,14 @@ import com.baidu.cyberplayer.sdk.remote.e;
 import com.baidu.cyberplayer.sdk.remote.g;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d extends ExtractorProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.cyberplayer.sdk.remote.a f1767a;
+    private com.baidu.cyberplayer.sdk.remote.a f1765a;
 
     public d(com.baidu.cyberplayer.sdk.remote.a aVar) {
-        this.f1767a = aVar;
+        this.f1765a = aVar;
     }
 
     public static ExtractorProvider a() {
@@ -29,11 +29,11 @@ public class d extends ExtractorProvider {
     }
 
     private void a(Uri uri, Map<String, String> map) {
-        if (this.f1767a == null) {
+        if (this.f1765a == null) {
             return;
         }
         try {
-            this.f1767a.a(new e(uri, map));
+            this.f1765a.a(new e(uri, map));
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -41,11 +41,11 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public Bundle getMediaMeta() {
-        if (this.f1767a == null) {
+        if (this.f1765a == null) {
             return null;
         }
         try {
-            return this.f1767a.a();
+            return this.f1765a.a();
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;
@@ -59,12 +59,12 @@ public class d extends ExtractorProvider {
         } catch (RemoteException e) {
             e.printStackTrace();
         } finally {
-            this.f1767a = null;
+            this.f1765a = null;
         }
-        if (this.f1767a == null) {
+        if (this.f1765a == null) {
             return;
         }
-        this.f1767a.b();
+        this.f1765a.b();
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
@@ -88,11 +88,11 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setOption(int i, String str, long j) {
-        if (this.f1767a == null) {
+        if (this.f1765a == null) {
             return;
         }
         try {
-            this.f1767a.a(i, str, j);
+            this.f1765a.a(i, str, j);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b {
-    private volatile HashMap<String, List<com.baidu.swan.gamecenter.appmanager.b.b>> dZe = new HashMap<>();
+    private volatile HashMap<String, List<com.baidu.swan.gamecenter.appmanager.b.b>> ebl = new HashMap<>();
 
     public synchronized void a(String str, com.baidu.swan.gamecenter.appmanager.c.b bVar) {
         for (com.baidu.swan.gamecenter.appmanager.b.b bVar2 : new ArrayList(getEventListeners(str))) {
@@ -22,8 +22,8 @@ public class b {
             if (!eventListeners.contains(bVar)) {
                 eventListeners.add(bVar);
             }
-            if (!this.dZe.containsKey(str)) {
-                this.dZe.put(str, eventListeners);
+            if (!this.ebl.containsKey(str)) {
+                this.ebl.put(str, eventListeners);
             }
         }
     }
@@ -35,13 +35,13 @@ public class b {
     public synchronized void g(String str, com.baidu.swan.gamecenter.appmanager.b.b bVar) {
         if (!TextUtils.isEmpty(str)) {
             if (bVar == null) {
-                this.dZe.remove(str);
+                this.ebl.remove(str);
             } else {
                 List<com.baidu.swan.gamecenter.appmanager.b.b> eventListeners = getEventListeners(str);
                 if (eventListeners.contains(bVar)) {
                     eventListeners.remove(bVar);
                     if (eventListeners.isEmpty()) {
-                        this.dZe.remove(str);
+                        this.ebl.remove(str);
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class b {
         boolean z2 = false;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                List<com.baidu.swan.gamecenter.appmanager.b.b> list = this.dZe.get(str);
+                List<com.baidu.swan.gamecenter.appmanager.b.b> list = this.ebl.get(str);
                 if (list != null) {
                     if (!list.isEmpty()) {
                         z = true;
@@ -75,7 +75,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return new ArrayList();
         }
-        List<com.baidu.swan.gamecenter.appmanager.b.b> list = this.dZe.get(str);
+        List<com.baidu.swan.gamecenter.appmanager.b.b> list = this.ebl.get(str);
         return list == null ? new ArrayList() : list;
     }
 }

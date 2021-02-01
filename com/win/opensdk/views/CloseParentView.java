@@ -9,20 +9,21 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.thunder.livesdk.video.serviceConfig.VideoLiveConfig;
 import com.win.opensdk.bg;
 import com.win.opensdk.d;
 /* loaded from: classes3.dex */
 public class CloseParentView extends LinearLayout {
     private int java;
-    private Context pYJ;
-    private Handler pZR;
-    private View qaU;
-    private TextView qbd;
-    private LinearLayout qbe;
-    private RelativeLayout qbf;
-    private View qbg;
-    private a qbh;
-    private b qbi;
+    private Context qiN;
+    private Handler qjV;
+    private View qkY;
+    private TextView qlh;
+    private LinearLayout qli;
+    private RelativeLayout qlj;
+    private View qlk;
+    private a qll;
+    private b qlm;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -30,7 +31,7 @@ public class CloseParentView extends LinearLayout {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void eGz();
+        void eIP();
     }
 
     static /* synthetic */ int d(CloseParentView closeParentView) {
@@ -39,7 +40,7 @@ public class CloseParentView extends LinearLayout {
         return i;
     }
 
-    static /* synthetic */ void eGz() {
+    static /* synthetic */ void eIP() {
     }
 
     public CloseParentView(Context context) {
@@ -48,38 +49,38 @@ public class CloseParentView extends LinearLayout {
 
     public CloseParentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.pZR = new Handler() { // from class: com.win.opensdk.views.CloseParentView.1
+        this.qjV = new Handler() { // from class: com.win.opensdk.views.CloseParentView.1
             @Override // android.os.Handler
             public final void handleMessage(Message message) {
                 if (message.what == 10) {
-                    CloseParentView.this.qbd.setText(String.valueOf(CloseParentView.this.java));
+                    CloseParentView.this.qlh.setText(String.valueOf(CloseParentView.this.java));
                     if (CloseParentView.this.java <= 0) {
-                        CloseParentView.this.qbd.setVisibility(8);
-                        CloseParentView.this.qbd.setClickable(false);
-                        CloseParentView.this.pZR.removeMessages(10);
+                        CloseParentView.this.qlh.setVisibility(8);
+                        CloseParentView.this.qlh.setClickable(false);
+                        CloseParentView.this.qjV.removeMessages(10);
                     } else {
-                        CloseParentView.this.qbd.setVisibility(0);
-                        CloseParentView.this.qbd.setClickable(true);
+                        CloseParentView.this.qlh.setVisibility(0);
+                        CloseParentView.this.qlh.setClickable(true);
                     }
-                    CloseParentView.this.pZR.sendEmptyMessageDelayed(10, 1000L);
+                    CloseParentView.this.qjV.sendEmptyMessageDelayed(10, 1000L);
                     CloseParentView.d(CloseParentView.this);
                 }
             }
         };
-        this.pYJ = context;
+        this.qiN = context;
         inflate(context, d.c.layout_close, this);
-        this.qbe = (LinearLayout) findViewById(d.b.parent);
-        this.qaU = findViewById(d.b.iv_clct);
-        this.qbf = (RelativeLayout) findViewById(d.b.parent_close);
-        this.qbg = findViewById(d.b.tv_area);
-        this.qbd = (TextView) findViewById(d.b.tv_cdt);
-        this.qbe.setOnClickListener(new View.OnClickListener() { // from class: com.win.opensdk.views.CloseParentView.2
+        this.qli = (LinearLayout) findViewById(d.b.parent);
+        this.qkY = findViewById(d.b.iv_clct);
+        this.qlj = (RelativeLayout) findViewById(d.b.parent_close);
+        this.qlk = findViewById(d.b.tv_area);
+        this.qlh = (TextView) findViewById(d.b.tv_cdt);
+        this.qli.setOnClickListener(new View.OnClickListener() { // from class: com.win.opensdk.views.CloseParentView.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                CloseParentView.eGz();
+                CloseParentView.eIP();
             }
         });
-        this.qbg.setOnClickListener(new View.OnClickListener() { // from class: com.win.opensdk.views.CloseParentView.3
+        this.qlk.setOnClickListener(new View.OnClickListener() { // from class: com.win.opensdk.views.CloseParentView.3
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 CloseParentView.e(CloseParentView.this);
@@ -101,58 +102,58 @@ public class CloseParentView extends LinearLayout {
                 i2 = 30;
                 break;
         }
-        ViewGroup.LayoutParams layoutParams = this.qbg.getLayoutParams();
-        int k = bg.k(this.pYJ, i2);
+        ViewGroup.LayoutParams layoutParams = this.qlk.getLayoutParams();
+        int k = bg.k(this.qiN, i2);
         layoutParams.width = k;
         layoutParams.height = k;
     }
 
     public void setCollectVisible(boolean z) {
-        this.qaU.setVisibility(z ? 0 : 8);
-        this.qbe.setClickable(z);
+        this.qkY.setVisibility(z ? 0 : 8);
+        this.qli.setClickable(z);
     }
 
     public void setLocation(int i) {
         switch (i) {
             case 110:
-                this.qbe.removeView(this.qbf);
-                this.qbe.addView(this.qbf, 0);
-                ((LinearLayout.LayoutParams) this.qaU.getLayoutParams()).rightMargin = 0;
-                ((LinearLayout.LayoutParams) this.qbf.getLayoutParams()).rightMargin = bg.k(this.pYJ, 12.0f);
+                this.qli.removeView(this.qlj);
+                this.qli.addView(this.qlj, 0);
+                ((LinearLayout.LayoutParams) this.qkY.getLayoutParams()).rightMargin = 0;
+                ((LinearLayout.LayoutParams) this.qlj.getLayoutParams()).rightMargin = bg.k(this.qiN, 12.0f);
                 return;
-            case 220:
-                eGA();
+            case VideoLiveConfig.EncodeType.PHONE_CODEC_HW_H265 /* 220 */:
+                eIQ();
                 return;
             default:
-                eGA();
+                eIQ();
                 return;
         }
     }
 
     public void setCountDown(int i) {
         this.java = i;
-        this.pZR.sendEmptyMessage(10);
+        this.qjV.sendEmptyMessage(10);
     }
 
     public void setOnCollectListener(a aVar) {
-        this.qbh = aVar;
+        this.qll = aVar;
     }
 
     public void setOnCloseListener(b bVar) {
-        this.qbi = bVar;
+        this.qlm = bVar;
     }
 
-    private void eGA() {
-        this.qbe.removeView(this.qbf);
-        this.qbe.addView(this.qbf, 1);
-        ((LinearLayout.LayoutParams) this.qaU.getLayoutParams()).rightMargin = bg.k(this.pYJ, 12.0f);
-        ((LinearLayout.LayoutParams) this.qbf.getLayoutParams()).rightMargin = 0;
+    private void eIQ() {
+        this.qli.removeView(this.qlj);
+        this.qli.addView(this.qlj, 1);
+        ((LinearLayout.LayoutParams) this.qkY.getLayoutParams()).rightMargin = bg.k(this.qiN, 12.0f);
+        ((LinearLayout.LayoutParams) this.qlj.getLayoutParams()).rightMargin = 0;
     }
 
     static /* synthetic */ void e(CloseParentView closeParentView) {
-        if (closeParentView.qbi == null) {
+        if (closeParentView.qlm == null) {
             return;
         }
-        closeParentView.qbi.eGz();
+        closeParentView.qlm.eIP();
     }
 }

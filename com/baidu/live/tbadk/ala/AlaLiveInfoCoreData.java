@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.data.BaseData;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveInfoCoreData extends BaseData implements Serializable {
     private static final long serialVersionUID = 5768965545624138312L;
     public String action;

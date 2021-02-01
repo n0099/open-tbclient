@@ -6,27 +6,27 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.d.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class c extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f6270a;
+    private ImageView f6272a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f6271b;
+    private final Context f6273b;
     private l c;
 
     public c(@NonNull Context context) {
         super(context);
-        this.f6271b = context;
+        this.f6273b = context;
         c();
     }
 
     private void c() {
-        this.f6270a = new ImageView(this.f6271b);
-        this.f6270a.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.f6270a.setScaleType(ImageView.ScaleType.FIT_XY);
-        addView(this.f6270a);
+        this.f6272a = new ImageView(this.f6273b);
+        this.f6272a.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.f6272a.setScaleType(ImageView.ScaleType.FIT_XY);
+        addView(this.f6272a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,12 +41,12 @@ class c extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Bitmap bitmap) {
-        this.f6270a.setImageBitmap(bitmap);
+        this.f6272a.setImageBitmap(bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        this.f6270a.setImageBitmap(null);
+        this.f6272a.setImageBitmap(null);
         setOnClickListener(null);
         this.c = null;
     }

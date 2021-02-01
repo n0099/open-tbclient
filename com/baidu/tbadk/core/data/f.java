@@ -1,47 +1,17 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.ActivityInfo;
 /* loaded from: classes.dex */
 public class f {
-    public long eJW;
-    public int eJX;
-    public int eJY;
-    public String eJZ;
-    public String main_title;
-    public String sub_title;
-    public String subpage_link;
+    public String labelColor;
+    public int labelId;
+    public String labelName;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            try {
-                this.eJW = jSONObject.optLong("activity_id");
-                this.main_title = jSONObject.optString("main_title");
-                this.sub_title = jSONObject.optString("sub_title");
-                this.eJX = jSONObject.optInt("back_pic_width");
-                this.eJY = jSONObject.optInt("back_pic_height");
-                this.eJZ = jSONObject.optString("back_pic");
-                this.subpage_link = jSONObject.optString("subpage_link");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void a(ActivityInfo activityInfo) {
-        if (activityInfo != null) {
-            try {
-                this.eJW = activityInfo.activity_id.longValue();
-                this.main_title = activityInfo.main_title;
-                this.sub_title = activityInfo.sub_title;
-                this.eJX = activityInfo.back_pic_width.intValue();
-                this.eJY = activityInfo.back_pic_height.intValue();
-                this.eJZ = activityInfo.back_pic;
-                this.subpage_link = activityInfo.subpage_link;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+            this.labelId = jSONObject.optInt("label_id");
+            this.labelName = jSONObject.optString("label_name");
+            this.labelColor = jSONObject.optString("label_rgb");
         }
     }
 }

@@ -11,18 +11,18 @@ import android.util.Log;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LeftLadderTextView extends TextView {
     private int height;
-    private Path oiJ;
-    private float oiK;
-    private BgColor oiL;
-    private LinearGradient oiM;
-    private LinearGradient oiN;
+    private Path osC;
+    private float osD;
+    private BgColor osE;
+    private LinearGradient osF;
+    private LinearGradient osG;
     private Paint paint;
     private int width;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum BgColor {
         RED,
         GRAY
@@ -30,29 +30,29 @@ public class LeftLadderTextView extends TextView {
 
     public LeftLadderTextView(Context context) {
         super(context);
-        this.oiK = 0.5f;
-        this.oiL = BgColor.RED;
+        this.osD = 0.5f;
+        this.osE = BgColor.RED;
         init();
     }
 
     public LeftLadderTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oiK = 0.5f;
-        this.oiL = BgColor.RED;
+        this.osD = 0.5f;
+        this.osE = BgColor.RED;
         init();
     }
 
     public LeftLadderTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oiK = 0.5f;
-        this.oiL = BgColor.RED;
+        this.osD = 0.5f;
+        this.osE = BgColor.RED;
         init();
     }
 
     private void init() {
         Log.v("LadderView", OneKeyLoginSdkCall.l);
         this.paint = new Paint();
-        this.oiJ = new Path();
+        this.osC = new Path();
         this.paint.setAntiAlias(true);
         this.paint.setStyle(Paint.Style.FILL_AND_STROKE);
         this.paint.setStrokeJoin(Paint.Join.ROUND);
@@ -63,8 +63,8 @@ public class LeftLadderTextView extends TextView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.oiM = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_d70471), getResources().getColor(a.c.sdk_color_ff528f), Shader.TileMode.CLAMP);
-        this.oiN = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_A2A2A2), getResources().getColor(a.c.sdk_color_717171), Shader.TileMode.CLAMP);
+        this.osF = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_d70471), getResources().getColor(a.c.sdk_color_ff528f), Shader.TileMode.CLAMP);
+        this.osG = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_A2A2A2), getResources().getColor(a.c.sdk_color_717171), Shader.TileMode.CLAMP);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -72,23 +72,23 @@ public class LeftLadderTextView extends TextView {
         super.onDraw(canvas);
         Log.v("LadderView", "onDraw");
         this.paint.reset();
-        switch (this.oiL) {
+        switch (this.osE) {
             case RED:
-                this.paint.setShader(this.oiM);
+                this.paint.setShader(this.osF);
                 break;
             case GRAY:
-                this.paint.setShader(this.oiN);
+                this.paint.setShader(this.osG);
                 break;
         }
-        this.oiJ.moveTo(0.0f, 0.0f);
-        this.oiJ.lineTo(this.width, 0.0f);
-        this.oiJ.lineTo((int) (this.width - (this.oiK * this.height)), this.height);
-        this.oiJ.lineTo(0.0f, this.height);
-        this.oiJ.close();
-        canvas.drawPath(this.oiJ, this.paint);
+        this.osC.moveTo(0.0f, 0.0f);
+        this.osC.lineTo(this.width, 0.0f);
+        this.osC.lineTo((int) (this.width - (this.osD * this.height)), this.height);
+        this.osC.lineTo(0.0f, this.height);
+        this.osC.close();
+        canvas.drawPath(this.osC, this.paint);
     }
 
     public void setBgColor(BgColor bgColor) {
-        this.oiL = bgColor;
+        this.osE = bgColor;
     }
 }

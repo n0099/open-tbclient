@@ -1,79 +1,79 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private String forumId;
-    private AntiData fos;
-    private av iZk;
-    private final ArrayList<bz> iZm;
-    private boolean iZn;
-    private boolean iZo;
+    private AntiData fqK;
+    private av jeR;
+    private final ArrayList<cb> jeT;
+    private boolean jeU;
+    private boolean jeV;
 
     private b() {
-        this.iZn = false;
-        this.iZm = new ArrayList<>();
+        this.jeU = false;
+        this.jeT = new ArrayList<>();
     }
 
-    public static b cAg() {
-        return a.iZp;
+    public static b cBr() {
+        return a.jeW;
     }
 
-    public boolean cAa() {
-        return this.iZn;
+    public boolean cBl() {
+        return this.jeU;
     }
 
     public void X(boolean z, boolean z2) {
-        this.iZn = z;
-        if (this.iZk != null) {
-            this.iZk.e(this.iZn, z2, 1);
+        this.jeU = z;
+        if (this.jeR != null) {
+            this.jeR.g(this.jeU, z2, 1);
         }
     }
 
-    public boolean al(bz bzVar) {
-        if (bzVar == null) {
+    public boolean am(cb cbVar) {
+        if (cbVar == null) {
             return false;
         }
-        if (this.iZm.size() > 29) {
-            if (this.iZk != null) {
-                this.iZk.yr(1);
+        if (this.jeT.size() > 29) {
+            if (this.jeR != null) {
+                this.jeR.yB(1);
                 return false;
             }
             return false;
         }
-        this.iZm.add(bzVar);
-        if (this.iZk != null) {
-            this.iZk.co(this.iZm.size(), 1);
+        this.jeT.add(cbVar);
+        if (this.jeR != null) {
+            this.jeR.cl(this.jeT.size(), 1);
         }
         return true;
     }
 
-    public List<bz> cAd() {
-        return this.iZm;
+    public List<cb> cBo() {
+        return this.jeT;
     }
 
-    public void am(bz bzVar) {
-        this.iZm.remove(bzVar);
-        if (this.iZk != null) {
-            this.iZk.co(this.iZm.size(), 1);
+    public void an(cb cbVar) {
+        this.jeT.remove(cbVar);
+        if (this.jeR != null) {
+            this.jeR.cl(this.jeT.size(), 1);
         }
     }
 
     public void clearData() {
-        Iterator<bz> it = this.iZm.iterator();
+        Iterator<cb> it = this.jeT.iterator();
         while (it.hasNext()) {
-            bz next = it.next();
+            cb next = it.next();
             if (next != null) {
-                next.jy(false);
+                next.jA(false);
             }
         }
-        this.iZm.clear();
-        if (this.iZk != null) {
-            this.iZk.co(0, 1);
+        this.jeT.clear();
+        if (this.jeR != null) {
+            this.jeR.cl(0, 1);
         }
     }
 
@@ -83,21 +83,21 @@ public class b {
     }
 
     public void a(av avVar) {
-        this.iZk = avVar;
+        this.jeR = avVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static b iZp = new b();
+        private static b jeW = new b();
     }
 
-    public AntiData cAh() {
-        return this.fos;
+    public AntiData cBs() {
+        return this.fqK;
     }
 
     public void b(AntiData antiData) {
-        this.fos = antiData;
+        this.fqK = antiData;
     }
 
     public String getForumId() {
@@ -108,21 +108,21 @@ public class b {
         this.forumId = str;
     }
 
-    public void qh(boolean z) {
-        this.iZo = z;
+    public void qr(boolean z) {
+        this.jeV = z;
     }
 
-    public void dn(List<String> list) {
-        if (!com.baidu.tbadk.core.util.x.isEmpty(list) && !com.baidu.tbadk.core.util.x.isEmpty(this.iZm)) {
-            Iterator<bz> it = this.iZm.iterator();
+    public void di(List<String> list) {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.jeT)) {
+            Iterator<cb> it = this.jeT.iterator();
             while (it.hasNext()) {
-                bz next = it.next();
+                cb next = it.next();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 >= list.size()) {
                         break;
-                    } else if (!com.baidu.tbadk.core.util.at.equals(list.get(i2), next.getId())) {
+                    } else if (!com.baidu.tbadk.core.util.au.equals(list.get(i2), next.getId())) {
                         i = i2 + 1;
                     } else {
                         it.remove();
@@ -130,13 +130,13 @@ public class b {
                     }
                 }
             }
-            if (this.iZk != null) {
-                this.iZk.co(this.iZm.size(), 1);
+            if (this.jeR != null) {
+                this.jeR.cl(this.jeT.size(), 1);
             }
         }
     }
 
-    public boolean cAi() {
-        return this.iZo;
+    public boolean cBt() {
+        return this.jeV;
     }
 }

@@ -2,14 +2,14 @@ package com.kwai.sodler.lib.b;
 
 import androidx.annotation.NonNull;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b implements Comparable<b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11003a;
+    public String f11005a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11004b;
+    public String f11006b;
     public String c;
     public long d;
     public boolean e;
@@ -21,6 +21,6 @@ public class b implements Comparable<b> {
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(@NonNull b bVar) {
-        return -this.f11004b.compareTo(bVar.f11004b);
+        return -this.f11006b.compareTo(bVar.f11006b);
     }
 }

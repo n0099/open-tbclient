@@ -4,14 +4,14 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
 import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private static u f6683a;
+    private static u f6685a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.video.nativevideo.c f6684b;
+    private com.bytedance.sdk.openadsdk.core.video.nativevideo.c f6686b;
     private com.bytedance.sdk.openadsdk.core.d.l d;
     private TTRewardVideoAd.RewardAdInteractionListener e;
     private com.bytedance.sdk.openadsdk.downloadnew.core.a f;
@@ -24,10 +24,10 @@ public class u {
 
     @MainThread
     public static u a() {
-        if (f6683a == null) {
-            f6683a = new u();
+        if (f6685a == null) {
+            f6685a = new u();
         }
-        return f6683a;
+        return f6685a;
     }
 
     public void a(boolean z) {
@@ -76,7 +76,7 @@ public class u {
     }
 
     public void g() {
-        this.f6684b = null;
+        this.f6686b = null;
         this.d = null;
         this.e = null;
         this.g = null;

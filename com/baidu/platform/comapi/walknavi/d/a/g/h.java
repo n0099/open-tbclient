@@ -10,14 +10,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4244a = "";
+    public static String f4247a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4245b = "";
+    public static String f4248b = "";
     public static String c = "";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [222=4] */

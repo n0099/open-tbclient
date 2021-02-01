@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class w extends aa {
     private int h;
     private int i;
@@ -20,7 +20,7 @@ public class w extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (dVar.f10501a != c()) {
+        if (dVar.f10503a != c()) {
             throw new PngjException("bad chunk length " + dVar);
         }
         if (this.e.f) {

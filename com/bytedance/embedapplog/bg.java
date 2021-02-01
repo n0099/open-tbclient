@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.bytedance.embedapplog.bi;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class bg implements bi {
     @Override // com.bytedance.embedapplog.bi
     public boolean a(Context context) {
@@ -17,7 +17,7 @@ public final class bg implements bi {
     }
 
     @Override // com.bytedance.embedapplog.bi
-    public bi.a hP(Context context) {
+    public bi.a hS(Context context) {
         Bundle call;
         Uri parse = Uri.parse("content://cn.nubia.identity/identity");
         try {
@@ -39,14 +39,14 @@ public final class bg implements bi {
             if (call != null) {
                 if (call.getInt("code", -1) == 0) {
                     bi.a aVar = new bi.a();
-                    aVar.f5801b = call.getString("id");
+                    aVar.f5803b = call.getString("id");
                     return aVar;
                 }
                 String string = call.getString("message");
                 if (TextUtils.isEmpty(string)) {
                     return null;
                 }
-                Log.e(bh.f5799a, string);
+                Log.e(bh.f5801a, string);
                 return null;
             }
             return null;

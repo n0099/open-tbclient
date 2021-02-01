@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.network.exception;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SdkException extends Exception {
     public SdkException(String str) {
         super(str);

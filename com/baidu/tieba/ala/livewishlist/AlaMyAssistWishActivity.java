@@ -27,51 +27,51 @@ import com.baidu.live.utils.r;
 import com.baidu.tieba.ala.data.f;
 import com.baidu.tieba.ala.g.e;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaMyAssistWishActivity extends BaseFragmentActivity {
-    private String bre;
-    private CommonEmptyView btf;
-    private View glm;
-    private ImageView hOg;
-    private ListView hOh;
-    private e hOi;
-    private com.baidu.tieba.ala.livewishlist.a.a hOj;
+    private String buH;
+    private CommonEmptyView bwJ;
+    private View gnS;
+    private ImageView hSC;
+    private ListView hSD;
+    private e hSE;
+    private com.baidu.tieba.ala.livewishlist.a.a hSF;
     private FrameLayout mContentView;
     private View mRootView;
-    private boolean aTo = false;
-    private boolean aXA = false;
-    private boolean aXB = false;
-    private CustomMessageListener aTE = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.1
+    private boolean aWt = false;
+    private boolean baH = false;
+    private boolean baI = false;
+    private CustomMessageListener aWJ = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaMyAssistWishActivity.this.closeActivity();
         }
     };
-    private CustomMessageListener aTF = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.2
+    private CustomMessageListener aWK = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaMyAssistWishActivity.this.closeActivity();
         }
     };
-    private CustomMessageListener aww = new CustomMessageListener(2913129) { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.3
+    private CustomMessageListener awl = new CustomMessageListener(2913129) { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaMyAssistWishActivity.this.finish();
         }
     };
-    private e.a hOk = new e.a() { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.4
+    private e.a hSG = new e.a() { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.4
         @Override // com.baidu.tieba.ala.g.e.a
-        public void ab(ArrayList<f> arrayList) {
-            AlaMyAssistWishActivity.this.btf.setVisibility(8);
+        public void aa(ArrayList<f> arrayList) {
+            AlaMyAssistWishActivity.this.bwJ.setVisibility(8);
             if (!ListUtils.isEmpty(arrayList)) {
-                if (AlaMyAssistWishActivity.this.hOh != null) {
-                    AlaMyAssistWishActivity.this.hOh.setVisibility(0);
+                if (AlaMyAssistWishActivity.this.hSD != null) {
+                    AlaMyAssistWishActivity.this.hSD.setVisibility(0);
                 }
-                if (AlaMyAssistWishActivity.this.hOj != null) {
-                    AlaMyAssistWishActivity.this.hOj.setData(arrayList);
+                if (AlaMyAssistWishActivity.this.hSF != null) {
+                    AlaMyAssistWishActivity.this.hSF.setData(arrayList);
                     return;
                 }
                 return;
@@ -80,8 +80,8 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
         }
 
         @Override // com.baidu.tieba.ala.g.e.a
-        public void bo(int i, String str) {
-            AlaMyAssistWishActivity.this.arA();
+        public void bt(int i, String str) {
+            AlaMyAssistWishActivity.this.arY();
         }
     };
 
@@ -97,84 +97,84 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         if (!isFinishing()) {
             parserIntent();
-            this.hOi = new e(getPageContext(), this.hOk);
-            this.hOi.HA(this.bre);
-            MessageManager.getInstance().registerListener(this.aTF);
-            MessageManager.getInstance().registerListener(this.aTE);
-            MessageManager.getInstance().registerListener(this.aww);
+            this.hSE = new e(getPageContext(), this.hSG);
+            this.hSE.Ie(this.buH);
+            MessageManager.getInstance().registerListener(this.aWK);
+            MessageManager.getInstance().registerListener(this.aWJ);
+            MessageManager.getInstance().registerListener(this.awl);
             initView();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            this.aXA = false;
-            me(UtilHelper.getRealScreenOrientation(this) == 2);
+            this.baH = false;
+            mi(UtilHelper.getRealScreenOrientation(this) == 2);
         }
     }
 
     private void parserIntent() {
-        this.bre = getIntent().getStringExtra("anchor_id");
+        this.buH = getIntent().getStringExtra("anchor_id");
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.ala_my_assis_wish_list_layout, (ViewGroup) null);
         setContentView(this.mRootView);
-        this.glm = findViewById(a.f.ala_wish_list_my_assist_root_bg);
-        this.glm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.5
+        this.gnS = findViewById(a.f.ala_wish_list_my_assist_root_bg);
+        this.gnS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaMyAssistWishActivity.this.closeActivity();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913155));
             }
         });
-        this.hOg = (ImageView) findViewById(a.f.ala_wish_list_my_assist_back);
-        this.hOg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.6
+        this.hSC = (ImageView) findViewById(a.f.ala_wish_list_my_assist_back);
+        this.hSC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaMyAssistWishActivity.this.closeActivity();
             }
         });
         this.mContentView = (FrameLayout) findViewById(a.f.ala_wish_list_my_assist_content);
-        this.hOh = (ListView) findViewById(a.f.my_assist_list_view);
-        this.btf = (CommonEmptyView) findViewById(a.f.my_assist_list_empty_view);
-        this.hOj = new com.baidu.tieba.ala.livewishlist.a.a(getPageContext().getPageActivity());
-        this.hOh.setAdapter((ListAdapter) this.hOj);
+        this.hSD = (ListView) findViewById(a.f.my_assist_list_view);
+        this.bwJ = (CommonEmptyView) findViewById(a.f.my_assist_list_empty_view);
+        this.hSF = new com.baidu.tieba.ala.livewishlist.a.a(getPageContext().getPageActivity());
+        this.hSD.setAdapter((ListAdapter) this.hSF);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void arA() {
-        bQU();
+    public void arY() {
+        bRy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNoDataView() {
-        bQU();
+        bRy();
     }
 
-    private void bQU() {
-        if (this.hOh != null) {
-            this.hOh.setVisibility(8);
+    private void bRy() {
+        if (this.hSD != null) {
+            this.hSD.setVisibility(8);
         }
-        this.btf.setVisibility(0);
-        this.btf.reset();
-        this.btf.setTitle(a.h.sdk_net_fail_tip_rank);
-        this.btf.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.7
+        this.bwJ.setVisibility(0);
+        this.bwJ.reset();
+        this.bwJ.setTitle(a.h.sdk_net_fail_tip_rank);
+        this.bwJ.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaMyAssistWishActivity.this.btf.setVisibility(8);
-                if (AlaMyAssistWishActivity.this.hOi != null) {
-                    AlaMyAssistWishActivity.this.hOi.HA(AlaMyAssistWishActivity.this.bre);
+                AlaMyAssistWishActivity.this.bwJ.setVisibility(8);
+                if (AlaMyAssistWishActivity.this.hSE != null) {
+                    AlaMyAssistWishActivity.this.hSE.Ie(AlaMyAssistWishActivity.this.buH);
                 }
             }
         });
-        this.btf.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.btf.setVisibility(0);
+        this.bwJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.bwJ.setVisibility(0);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        me(configuration.orientation == 2);
+        mi(configuration.orientation == 2);
     }
 
-    private void me(boolean z) {
+    private void mi(boolean z) {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mContentView.getLayoutParams();
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
         if (z) {
@@ -199,27 +199,27 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aTo) {
+        if (!this.aWt) {
             this.mRootView.setVisibility(0);
-            EL();
-            this.aTo = true;
+            Gb();
+            this.aWt = true;
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        EM();
+        Gc();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.hOi != null) {
-            this.hOi.onDestroy();
+        if (this.hSE != null) {
+            this.hSE.onDestroy();
         }
-        MessageManager.getInstance().unRegisterListener(this.aTF);
-        MessageManager.getInstance().unRegisterListener(this.aTE);
-        MessageManager.getInstance().unRegisterListener(this.aww);
+        MessageManager.getInstance().unRegisterListener(this.aWK);
+        MessageManager.getInstance().unRegisterListener(this.aWJ);
+        MessageManager.getInstance().unRegisterListener(this.awl);
         super.onDestroy();
     }
 
@@ -228,9 +228,9 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
         finish();
     }
 
-    private void EL() {
-        this.aXA = true;
-        Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0194a.sdk_in_from_bottom);
+    private void Gb() {
+        this.baH = true;
+        Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_bottom);
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.8
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
@@ -238,7 +238,7 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaMyAssistWishActivity.this.aXA = false;
+                AlaMyAssistWishActivity.this.baH = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -248,9 +248,9 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void EM() {
-        if (!this.aXB && !this.aXA) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0194a.sdk_out_to_bottom);
+    private void Gc() {
+        if (!this.baI && !this.baH) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_bottom);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.livewishlist.AlaMyAssistWishActivity.9
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
@@ -266,7 +266,7 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aXB = true;
+            this.baI = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }

@@ -3,14 +3,14 @@ package com.xiaomi.push;
 class gc implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ fz f14041a;
+    final /* synthetic */ fz f14043a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ String f463a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gc(fz fzVar, String str) {
-        this.f14041a = fzVar;
+        this.f14043a = fzVar;
         this.f463a = str;
     }
 

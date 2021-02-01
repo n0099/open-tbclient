@@ -7,9 +7,9 @@ import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class h {
-    public static String aph = null;
+    public static String aoX = null;
     private static Context mContext = null;
 
     public static String a(String str) {
@@ -54,15 +54,15 @@ public final class h {
     }
 
     public static String z() {
-        if (aph != null) {
-            return aph;
+        if (aoX != null) {
+            return aoX;
         }
         try {
-            aph = a(Settings.Secure.getString(mContext.getContentResolver(), "android_id"));
+            aoX = a(Settings.Secure.getString(mContext.getContentResolver(), "android_id"));
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("getCUID failed!", e);
-            aph = "N/A";
+            aoX = "N/A";
         }
-        return aph;
+        return aoX;
     }
 }

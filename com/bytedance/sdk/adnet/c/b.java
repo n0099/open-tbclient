@@ -3,7 +3,7 @@ package com.bytedance.sdk.adnet.c;
 import android.content.Context;
 import android.location.Address;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface b {
     int a();
 

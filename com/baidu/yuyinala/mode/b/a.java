@@ -3,20 +3,20 @@ package com.baidu.yuyinala.mode.b;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private String ePW;
+    private String eSi;
     private String mIconUrl;
     private int mMode;
     private String mTitle;
-    private boolean oMt;
+    private boolean oWz;
 
     public void parse(JSONObject jSONObject) {
         this.mMode = jSONObject.optInt(UbcStatConstant.KEY_CONTENT_EXT_MODE);
         this.mTitle = jSONObject.optString("text");
         this.mIconUrl = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-        this.oMt = jSONObject.optInt("is_chosen", 0) == 1;
-        this.ePW = jSONObject.optString("notice");
+        this.oWz = jSONObject.optInt("is_chosen", 0) == 1;
+        this.eSi = jSONObject.optString("notice");
     }
 
     public int getMode() {
@@ -31,15 +31,15 @@ public class a {
         return this.mIconUrl;
     }
 
-    public boolean egB() {
-        return this.oMt;
+    public boolean eiT() {
+        return this.oWz;
     }
 
-    public void An(boolean z) {
-        this.oMt = z;
+    public void AG(boolean z) {
+        this.oWz = z;
     }
 
     public String getNotice() {
-        return this.ePW;
+        return this.eSi;
     }
 }

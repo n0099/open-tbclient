@@ -8,14 +8,14 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f7713a;
+    String f7715a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f7714b;
+    private String f7716b;
     private Map<String, String> c;
     private String d;
     private boolean e;
@@ -23,15 +23,15 @@ public class c {
     private long h;
     private String i;
     private int j;
-    private Network pmE;
-    private g pmF;
+    private Network pwT;
+    private g pwU;
 
     private c(String str, Map<String, String> map, g gVar, String str2, String str3) {
         this.e = false;
-        this.f7714b = str;
-        this.pmF = gVar;
+        this.f7716b = str;
+        this.pwU = gVar;
         this.c = map == null ? new HashMap<>() : map;
-        this.f7713a = gVar == null ? "" : gVar.b().toString();
+        this.f7715a = gVar == null ? "" : gVar.b().toString();
         this.d = str2;
         this.f = str3;
         this.i = gVar == null ? "" : gVar.a();
@@ -55,7 +55,7 @@ public class c {
     }
 
     public String a() {
-        return this.f7714b;
+        return this.f7716b;
     }
 
     public boolean b() {
@@ -72,7 +72,7 @@ public class c {
     }
 
     public String d() {
-        return this.f7713a;
+        return this.f7715a;
     }
 
     public String e() {
@@ -84,15 +84,15 @@ public class c {
     }
 
     public boolean g() {
-        return !e.a(this.f) || this.f7714b.contains("logReport") || this.f7714b.contains("uniConfig");
+        return !e.a(this.f) || this.f7716b.contains("logReport") || this.f7716b.contains("uniConfig");
     }
 
-    public Network eoX() {
-        return this.pmE;
+    public Network erp() {
+        return this.pwT;
     }
 
     public void d(Network network) {
-        this.pmE = network;
+        this.pwT = network;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -111,7 +111,7 @@ public class c {
         return i < 2;
     }
 
-    public g eoY() {
-        return this.pmF;
+    public g erq() {
+        return this.pwU;
     }
 }

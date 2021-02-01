@@ -3,7 +3,7 @@ package com.baidu.searchbox.config;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class HostConfig {
     public static final String CONFIG_ABTEST_SCOP = "scop_abtest";
     public static final String CONFIG_KEY_TCBOX_HOST = "TCBOX_HOST";
@@ -15,7 +15,7 @@ public final class HostConfig {
     static final String UBC_DEBUG_URL = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
     private static ConfigInterceptor sConfigInterceptor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface ConfigInterceptor {
         boolean getBooleanConfig(String str, String str2);
     }

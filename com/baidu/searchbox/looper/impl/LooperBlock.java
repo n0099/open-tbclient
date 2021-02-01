@@ -4,7 +4,7 @@ import com.baidu.searchbox.track.ui.TrackUI;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.LinkedList;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LooperBlock {
     private String mCpuRateInfo;
     private String mCurrentPage;

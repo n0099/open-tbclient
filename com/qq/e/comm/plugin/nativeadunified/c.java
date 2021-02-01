@@ -1,14 +1,14 @@
 package com.qq.e.comm.plugin.nativeadunified;
 
 import com.qq.e.comm.plugin.w.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f12262a;
+    private static b f12264a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static com.qq.e.comm.plugin.aa.b.f f12263b;
+    private static com.qq.e.comm.plugin.aa.b.f f12265b;
     private static com.qq.e.comm.plugin.aa.b.b c;
     private static int d = -1;
     private static boolean e;
@@ -16,7 +16,7 @@ public class c {
     private static d.e g;
 
     public static b a() {
-        return f12262a;
+        return f12264a;
     }
 
     public static void a(int i) {
@@ -28,11 +28,11 @@ public class c {
     }
 
     public static void a(com.qq.e.comm.plugin.aa.b.f fVar) {
-        f12263b = fVar;
+        f12265b = fVar;
     }
 
     public static void a(b bVar) {
-        f12262a = bVar;
+        f12264a = bVar;
     }
 
     public static void a(d.b bVar) {
@@ -48,7 +48,7 @@ public class c {
     }
 
     public static com.qq.e.comm.plugin.aa.b.f b() {
-        return f12263b;
+        return f12265b;
     }
 
     public static com.qq.e.comm.plugin.aa.b.b c() {
@@ -68,8 +68,8 @@ public class c {
     }
 
     public static void g() {
-        f12262a = null;
-        f12263b = null;
+        f12264a = null;
+        f12265b = null;
         c = null;
         d = -1;
         e = false;

@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.c.a;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
-    private be data;
+    private bg data;
     private int mErrCode;
     private String mErrMsg;
     private PersonListModel mModel;
@@ -30,7 +30,7 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
         return this.mErrMsg;
     }
 
-    public be getData() {
+    public bg getData() {
         return this.data;
     }
 
@@ -45,7 +45,7 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
             this.mErrMsg = jSONObject.optString("error_msg");
-            this.data = new be();
+            this.data = new bg();
             this.data.parserJson(jSONObject);
         }
     }
@@ -58,9 +58,9 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
             boolean z = tag != null && tag.equals(PersonListModel.FOLLOWME);
             String str = new String(bArr);
-            l<String> Ab = a.bpZ().Ab("tb.my_pages");
-            if (Ab != null) {
-                Ab.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mModel.getId(), str, 604800000L);
+            l<String> As = a.bqr().As("tb.my_pages");
+            if (As != null) {
+                As.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mModel.getId(), str, 604800000L);
             }
         }
     }

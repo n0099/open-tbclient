@@ -3,6 +3,7 @@ package com.baidu.tbadk;
 public class TbDomainConfig {
     public static final String DOMAIN_HTTPS_BAIDU = "http://www.baidu.com/";
     public static final String DOMAIN_HTTPS_BCS_CDN = "http://bcscdn.baidu.com/";
+    public static final String DOMAIN_HTTPS_GSP = "https://gsp0.baidu.com/";
     public static final String DOMAIN_HTTPS_IMAGE_SRC = "http://imgsrc.baidu.com/";
     public static final String DOMAIN_HTTPS_MOBILE_BAIDU = "http://m.baidu.com/";
     public static final String DOMAIN_HTTPS_QUICK_WEBVIEW_ADDRESS = "https://tieba.baidu.com/";

@@ -5,19 +5,19 @@ import com.baidu.live.tbadk.core.data.AlaBroadcastGiftToastData;
 import com.baidu.tieba.ala.liveroom.livepager.AlaLoopViewPager;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public com.baidu.live.v.f bon;
+    public com.baidu.live.u.f brO;
     public long enterTime;
     public String fromType;
-    public com.baidu.live.v.e hxi;
-    public com.baidu.tieba.ala.liveroom.p.d hxj;
-    public AlaLiveView hxk;
-    public AlaLoopViewPager hxl;
-    public boolean hxm;
-    public boolean hxn = false;
-    public boolean hxo = false;
-    public ArrayList<AlaBroadcastGiftToastData> hxp;
-    public boolean hxq;
+    public boolean hBA;
+    public com.baidu.live.u.e hBs;
+    public com.baidu.tieba.ala.liveroom.n.d hBt;
+    public AlaLiveView hBu;
+    public AlaLoopViewPager hBv;
+    public boolean hBw;
+    public boolean hBx = false;
+    public boolean hBy = false;
+    public ArrayList<AlaBroadcastGiftToastData> hBz;
     public TbPageContext pageContext;
 }

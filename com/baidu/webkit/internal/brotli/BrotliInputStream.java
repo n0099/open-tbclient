@@ -4,7 +4,7 @@ import com.baidu.webkit.internal.INoProGuard;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.channels.Channels;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class BrotliInputStream extends InputStream implements INoProGuard {
     private static final int DEFAULT_BUFFER_SIZE = 16384;
     private final Decoder decoder;

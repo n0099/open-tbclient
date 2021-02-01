@@ -4,14 +4,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import com.kwad.sdk.utils.w;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f9143a;
+    private Context f9145a;
 
     public h(Context context) {
-        this.f9143a = context;
+        this.f9145a = context;
     }
 
     public String a() {
@@ -19,7 +19,7 @@ public class h {
         String str;
         try {
             try {
-                cursor = this.f9143a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+                cursor = this.f9145a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
             } catch (Throwable th) {
                 th = th;
                 w.a((Cursor) null);

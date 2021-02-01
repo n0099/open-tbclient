@@ -16,14 +16,14 @@ import com.kwad.sdk.utils.g;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements com.kwad.sdk.reward.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f10644a;
+    private String f10646a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f10645b;
+    private long f10647b;
     private long c;
     private com.kwad.sdk.contentalliance.detail.video.a d;
     private KsVideoPlayConfig e;
@@ -56,18 +56,18 @@ public class a implements com.kwad.sdk.reward.a.a {
         this.e = ksVideoPlayConfig;
         this.f = adTemplate.mVideoPlayerStatus;
         String a2 = com.kwad.sdk.core.response.b.a.a(c.j(adTemplate));
-        this.f10645b = com.kwad.sdk.core.response.b.a.k(c.j(adTemplate));
+        this.f10647b = com.kwad.sdk.core.response.b.a.k(c.j(adTemplate));
         this.c = adTemplate.mKsPlayerClickTimeParam;
         int v = com.kwad.sdk.core.config.c.v();
         if (v < 0) {
             File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(a2);
             if (b2 != null && b2.exists()) {
-                this.f10644a = b2.getAbsolutePath();
+                this.f10646a = b2.getAbsolutePath();
             }
         } else if (v == 0) {
-            this.f10644a = a2;
+            this.f10646a = a2;
         } else {
-            this.f10644a = com.kwad.sdk.core.videocache.c.a.a(detailVideoView.getContext()).a(a2);
+            this.f10646a = com.kwad.sdk.core.videocache.c.a.a(detailVideoView.getContext()).a(a2);
         }
         this.d = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
         k();
@@ -89,7 +89,7 @@ public class a implements com.kwad.sdk.reward.a.a {
     }
 
     private void k() {
-        this.d.a(new d.a().a(this.f10644a).a(this.f).a(new com.kwad.sdk.contentalliance.detail.video.c(this.f10645b, this.c)).a());
+        this.d.a(new d.a().a(this.f10646a).a(this.f).a(new com.kwad.sdk.contentalliance.detail.video.c(this.f10647b, this.c)).a());
         if (this.e != null) {
             a(this.e.isVideoSoundEnable(), false);
         }

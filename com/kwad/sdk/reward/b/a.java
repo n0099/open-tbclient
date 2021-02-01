@@ -11,11 +11,11 @@ import android.text.TextUtils;
 import com.baidu.fsg.base.activity.BaseActivity;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.utils.ap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.reward.d implements ap.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private Handler f10526b;
+    private Handler f10528b;
     private AdInfo c;
     private com.kwad.sdk.reward.c.a d;
     private BroadcastReceiver e = new BroadcastReceiver() { // from class: com.kwad.sdk.reward.b.a.1
@@ -28,7 +28,7 @@ public class a extends com.kwad.sdk.reward.d implements ap.a {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            Message obtainMessage = a.this.f10526b.obtainMessage(BaseActivity.DIALOG_LOADING);
+            Message obtainMessage = a.this.f10528b.obtainMessage(BaseActivity.DIALOG_LOADING);
             obtainMessage.obj = str;
             obtainMessage.sendToTarget();
         }
@@ -38,11 +38,11 @@ public class a extends com.kwad.sdk.reward.d implements ap.a {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
         intentFilter.addDataScheme("package");
-        this.f10650a.g.registerReceiver(this.e, intentFilter);
+        this.f10652a.g.registerReceiver(this.e, intentFilter);
     }
 
     private void f() {
-        Activity activity = this.f10650a.g;
+        Activity activity = this.f10652a.g;
         if (activity != null) {
             activity.unregisterReceiver(this.e);
         }
@@ -52,20 +52,20 @@ public class a extends com.kwad.sdk.reward.d implements ap.a {
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = com.kwad.sdk.core.response.b.c.j(this.f10650a.f);
-        this.d = this.f10650a.i;
-        this.f10526b = new ap(this);
+        this.c = com.kwad.sdk.core.response.b.c.j(this.f10652a.f);
+        this.d = this.f10652a.i;
+        this.f10528b = new ap(this);
         e();
     }
 
     @Override // com.kwad.sdk.utils.ap.a
     public void a(Message message) {
         if (message.what == 242 && message.obj != null && message.obj.equals(this.c.adBaseInfo.appPackageName)) {
-            if (this.f10650a.f10525b != null) {
-                this.f10650a.f10525b.e();
+            if (this.f10652a.f10527b != null) {
+                this.f10652a.f10527b.e();
             }
             this.d.h();
-            this.f10650a.b();
+            this.f10652a.b();
         }
     }
 

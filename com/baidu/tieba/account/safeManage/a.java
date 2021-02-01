@@ -7,22 +7,22 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes2.dex */
 public class a implements View.OnClickListener {
-    private b gem;
-    private AccountSafeModel gen;
+    private b ggB;
+    private AccountSafeModel ggC;
     private final BaseActivity mActivity;
     private com.baidu.adp.framework.listener.a mNetMessagelistener = new com.baidu.adp.framework.listener.a(1002501, CmdConfigSocket.CMD_GET_PRIVATE_INFO) { // from class: com.baidu.tieba.account.safeManage.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.gen != null) {
-                a.this.gen.setLoading(false);
+            if (a.this.ggC != null) {
+                a.this.ggC.setLoading(false);
             }
             a.this.mActivity.closeLoadingDialog();
             if (responsedMessage != null) {
@@ -42,11 +42,11 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.gen != null) {
-                    a.this.gen.a(aVar);
+                if (a.this.ggC != null) {
+                    a.this.ggC.a(aVar);
                 }
-                if (a.this.gem != null && a.this.gen != null && a.this.gen.bKI() != null) {
-                    a.this.gem.a(a.this.gen.bKI().bKM());
+                if (a.this.ggB != null && a.this.ggC != null && a.this.ggC.bLc() != null) {
+                    a.this.ggB.a(a.this.ggC.bLc().bLg());
                 }
             }
         }
@@ -55,38 +55,38 @@ public class a implements View.OnClickListener {
     public a(BaseActivity baseActivity) {
         this.mActivity = baseActivity;
         this.mActivity.registerListener(this.mNetMessagelistener);
-        this.gem = new b(this.mActivity, this);
-        this.gen = new AccountSafeModel(this.mActivity);
+        this.ggB = new b(this.mActivity, this);
+        this.ggC = new AccountSafeModel(this.mActivity);
         if (j.isNetWorkAvailable()) {
-            bKN();
+            bLh();
         } else {
             this.mActivity.showToast(R.string.neterror);
         }
     }
 
     public View getRootView() {
-        return this.gem.getView();
+        return this.ggB.getView();
     }
 
-    private void bKN() {
-        if (this.gen != null && !this.gen.isLoading()) {
-            this.gen.bKK();
+    private void bLh() {
+        if (this.ggC != null && !this.ggC.isLoading()) {
+            this.ggC.bLe();
         }
     }
 
     public void onDestroy() {
         this.mActivity.closeLoadingDialog();
-        if (this.gen != null) {
-            this.gen.cancelLoadData();
+        if (this.ggC != null) {
+            this.ggC.cancelLoadData();
         }
-        if (this.gem != null) {
-            this.gem.release();
+        if (this.ggB != null) {
+            this.ggB.release();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gem != null) {
-            this.gem.qE(i);
+        if (this.ggB != null) {
+            this.ggB.qJ(i);
         }
     }
 
@@ -97,10 +97,10 @@ public class a implements View.OnClickListener {
             if (!j.isNetWorkAvailable()) {
                 this.mActivity.showToast(R.string.neterror);
             } else {
-                be.bsB().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                bf.bsV().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == R.id.account_status) {
-            AntiHelper.bt(this.mActivity, this.gen != null ? this.gen.AF() : "");
+            AntiHelper.bs(this.mActivity, this.ggC != null ? this.ggC.BS() : "");
         }
     }
 }

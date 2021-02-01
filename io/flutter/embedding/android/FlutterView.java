@@ -34,7 +34,7 @@ import io.flutter.view.AccessibilityBridge;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class FlutterView extends FrameLayout {
     private static final String TAG = "FlutterView";
     @Nullable
@@ -62,7 +62,7 @@ public class FlutterView extends FrameLayout {
     private final FlutterRenderer.ViewportMetrics viewportMetrics;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface FlutterEngineAttachmentListener {
         void onFlutterEngineAttachedToFlutterView(@NonNull FlutterEngine flutterEngine);
 
@@ -70,14 +70,14 @@ public class FlutterView extends FrameLayout {
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public enum RenderMode {
         surface,
         texture
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public enum TransparencyMode {
         opaque,
         transparent

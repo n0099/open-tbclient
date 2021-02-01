@@ -3,7 +3,7 @@ package com.baidu.live.adp.framework.task;
 import com.baidu.live.adp.framework.FrameHelper;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.framework.settings.TimeOutData;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class HttpMessageTask extends MessageTask {
     private TimeOutData mConnectTimeOut;
     private HttpDownloadTask mDownloadTask;
@@ -13,7 +13,7 @@ public class HttpMessageTask extends MessageTask {
     private Class<? extends HttpResponsedMessage> mResponsedClass;
     private String mUrl;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum HTTP_METHOD {
         GET,
         POST
@@ -94,7 +94,7 @@ public class HttpMessageTask extends MessageTask {
         this.mConnectTimeOut = timeOutData;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class HttpDownloadTask {
         private int mCmd;
         private String mDownloadPath;

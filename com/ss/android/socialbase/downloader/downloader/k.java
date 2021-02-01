@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.downloader;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface k {
     com.ss.android.socialbase.downloader.g.c a(int i, int i2);
 

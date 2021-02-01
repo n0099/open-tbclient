@@ -5,14 +5,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.SSLHandshakeException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ClientUpdater f1669a;
+    final /* synthetic */ ClientUpdater f1667a;
 
     public c(ClientUpdater clientUpdater) {
-        this.f1669a = clientUpdater;
+        this.f1667a = clientUpdater;
         setName("SDK_ClientUpdater_thread");
     }
 
@@ -44,34 +44,34 @@ public class c extends Thread {
         String str2;
         boolean z2;
         com.baidu.clientupdate.c.a aVar4;
-        aVar = this.f1669a.n;
+        aVar = this.f1667a.n;
         if (aVar == null) {
             return;
         }
-        z = this.f1669a.d;
+        z = this.f1667a.d;
         try {
             try {
                 try {
                     if (!z) {
-                        z2 = this.f1669a.k;
+                        z2 = this.f1667a.k;
                         if (!z2) {
-                            aVar4 = this.f1669a.n;
+                            aVar4 = this.f1667a.n;
                             aVar4.b(false);
-                            this.f1669a.k = false;
-                            ClientUpdater clientUpdater = this.f1669a;
-                            aVar3 = this.f1669a.n;
+                            this.f1667a.k = false;
+                            ClientUpdater clientUpdater = this.f1667a;
+                            aVar3 = this.f1667a.n;
                             clientUpdater.c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
                             r0 = "ClientUpdater";
                             StringBuilder append = new StringBuilder().append("更新检查请求的完整参数： ");
-                            str = this.f1669a.c;
+                            str = this.f1667a.c;
                             LogUtil.logE("ClientUpdater", append.append(str).toString());
                             StringBuilder sb = new StringBuilder();
-                            str2 = this.f1669a.c;
+                            str2 = this.f1667a.c;
                             r0 = (HttpURLConnection) new URL(str2).openConnection();
                             r0.setConnectTimeout(5000);
                             r0.setReadTimeout(5000);
                             r0.connect();
-                            this.f1669a.a(r0, null, sb);
+                            this.f1667a.a(r0, null, sb);
                             if (r0 == 0) {
                                 r0.disconnect();
                                 return;
@@ -82,15 +82,15 @@ public class c extends Thread {
                     r0.setConnectTimeout(5000);
                     r0.setReadTimeout(5000);
                     r0.connect();
-                    this.f1669a.a(r0, null, sb);
+                    this.f1667a.a(r0, null, sb);
                     if (r0 == 0) {
                     }
                 } catch (SSLHandshakeException e) {
                     try {
                         LogUtil.logE("ClientUpdater", "SSLHandshakeException caught!!!! ");
-                        this.f1669a.c();
+                        this.f1667a.c();
                     } catch (Exception e2) {
-                        this.f1669a.a(e2);
+                        this.f1667a.a(e2);
                     }
                     if (r0 != 0) {
                         r0.disconnect();
@@ -101,7 +101,7 @@ public class c extends Thread {
                     exc = e3;
                     httpURLConnection = r0;
                     try {
-                        this.f1669a.a(exc);
+                        this.f1667a.a(exc);
                         if (httpURLConnection != null) {
                             httpURLConnection.disconnect();
                             return;
@@ -114,7 +114,7 @@ public class c extends Thread {
                         throw th;
                     }
                 }
-                str2 = this.f1669a.c;
+                str2 = this.f1667a.c;
                 r0 = (HttpURLConnection) new URL(str2).openConnection();
             } catch (Throwable th3) {
                 th = th3;
@@ -136,15 +136,15 @@ public class c extends Thread {
             }
             throw th;
         }
-        aVar2 = this.f1669a.n;
+        aVar2 = this.f1667a.n;
         aVar2.b(true);
-        this.f1669a.k = false;
-        ClientUpdater clientUpdater2 = this.f1669a;
-        aVar3 = this.f1669a.n;
+        this.f1667a.k = false;
+        ClientUpdater clientUpdater2 = this.f1667a;
+        aVar3 = this.f1667a.n;
         clientUpdater2.c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
         r0 = "ClientUpdater";
         StringBuilder append2 = new StringBuilder().append("更新检查请求的完整参数： ");
-        str = this.f1669a.c;
+        str = this.f1667a.c;
         LogUtil.logE("ClientUpdater", append2.append(str).toString());
         StringBuilder sb2 = new StringBuilder();
     }

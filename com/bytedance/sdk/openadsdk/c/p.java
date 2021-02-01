@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6246a;
+    private String f6248a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.d.l f6247b;
+    private com.bytedance.sdk.openadsdk.core.d.l f6249b;
     private Boolean c = false;
     private Boolean d = false;
     private Boolean e = false;
@@ -24,9 +24,9 @@ public class p {
     private JSONArray h = new JSONArray();
 
     public p(int i, String str, com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        this.f6246a = "embeded_ad";
-        this.f6246a = str;
-        this.f6247b = lVar;
+        this.f6248a = "embeded_ad";
+        this.f6248a = str;
+        this.f6249b = lVar;
         a(this.f, "webview_source", Integer.valueOf(i));
     }
 
@@ -215,7 +215,7 @@ public class p {
             if (com.bytedance.sdk.openadsdk.core.i.c().u() && this.f != null) {
                 u.b("WebviewTimeTrack", this.f.toString());
             }
-            d.h(com.bytedance.sdk.openadsdk.core.p.a(), this.f6247b, this.f6246a, "webview_time_track", hashMap);
+            d.h(com.bytedance.sdk.openadsdk.core.p.a(), this.f6249b, this.f6248a, "webview_time_track", hashMap);
             this.i = false;
         }
     }

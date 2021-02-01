@@ -1,5 +1,5 @@
 package com.baidu.live.liveroom.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface c {
-    b Lt();
+    b MR();
 }

@@ -7,9 +7,9 @@ import io.flutter.plugin.platform.PlatformView;
 import io.flutter.plugin.platform.PlatformViewFactory;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class b extends PlatformViewFactory {
-    private static HashMap<String, a> aom = new HashMap<>();
+    private static HashMap<String, a> aoc = new HashMap<>();
     private final BinaryMessenger messenger;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,10 +28,10 @@ public final class b extends PlatformViewFactory {
         }
         String valueOf = map == null ? "0" : String.valueOf(map.get("persistentViewId"));
         if (Integer.parseInt(valueOf) < 0) {
-            a aVar = aom.get(valueOf);
+            a aVar = aoc.get(valueOf);
             if (aVar == null) {
                 a aVar2 = new a(context, this.messenger, i, map);
-                aom.put(valueOf, aVar2);
+                aoc.put(valueOf, aVar2);
                 return aVar2;
             }
             return aVar;
@@ -40,8 +40,8 @@ public final class b extends PlatformViewFactory {
     }
 
     public static void bI(int i) {
-        if (aom.containsKey(String.valueOf(i))) {
-            aom.remove(Integer.valueOf(i));
+        if (aoc.containsKey(String.valueOf(i))) {
+            aoc.remove(Integer.valueOf(i));
         }
     }
 }

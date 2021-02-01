@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class z extends aa {
     private byte h;
 
@@ -11,7 +11,7 @@ public class z extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (dVar.f10501a != 1) {
+        if (dVar.f10503a != 1) {
             throw new PngjException("bad chunk length " + dVar);
         }
         this.h = dVar.d[0];

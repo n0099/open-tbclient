@@ -22,10 +22,10 @@ public class fl {
     private byte[] f421b;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f14019b = gu.a(5) + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
+    private static String f14021b = gu.a(5) + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f14018a = 0;
+    private static long f14020a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     private static final byte[] f417a = new byte[0];
@@ -96,9 +96,9 @@ public class fl {
     public static synchronized String d() {
         String sb;
         synchronized (fl.class) {
-            StringBuilder append = new StringBuilder().append(f14019b);
-            long j = f14018a;
-            f14018a = 1 + j;
+            StringBuilder append = new StringBuilder().append(f14021b);
+            long j = f14020a;
+            f14020a = 1 + j;
             sb = append.append(Long.toString(j)).toString();
         }
         return sb;

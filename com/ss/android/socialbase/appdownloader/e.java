@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.appdownloader;
 
 import com.baidu.ar.constants.HttpConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static int a() {
         return i.a("appdownloader_notification_layout");

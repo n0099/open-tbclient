@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.data;
 import com.baidu.adp.BdUniqueId;
 import java.io.Serializable;
 import tbclient.Hottopic.RelateForum;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RelateForumItemData implements com.baidu.adp.widget.ListView.n, Serializable {
     public static final BdUniqueId TYPE_FORUM_CARD = BdUniqueId.gen();
     private static final long serialVersionUID = 1;

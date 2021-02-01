@@ -1,201 +1,186 @@
 package com.baidu.mobads.c;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Build;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.core.util.TbEnum;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.mobads.interfaces.IXAdInstanceInfo;
-import com.baidu.mobads.interfaces.IXAdProdInfo;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.mobads.interfaces.download.activate.IXAppInfo;
-import com.baidu.mobads.interfaces.utils.IXAdLogger;
+import android.util.DisplayMetrics;
+import android.util.LruCache;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.mobads.utils.e;
-import com.baidu.mobads.utils.h;
-import com.baidu.mobads.utils.m;
-import com.baidu.mobads.vo.a.d;
-import com.baidu.webkit.internal.ETAG;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.tencent.connect.common.Constants;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-/* loaded from: classes14.dex */
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Observer;
+/* loaded from: classes5.dex */
 public class a {
 
-    /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f3309a = XAdSDKFoundationFacade.getInstance().getAdLogger();
-    private Context e;
-    private static a d = new a();
-
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f3308b = "";
-    public static volatile String c = "";
-    private static boolean f = false;
+    private static final Handler f3295b = new Handler(Looper.getMainLooper());
+    private static a c;
+
+    /* renamed from: a  reason: collision with root package name */
+    private LruCache<String, Bitmap> f3296a = new b(this, ((int) Runtime.getRuntime().maxMemory()) / 32);
 
     public static a a() {
-        return d;
+        if (c == null) {
+            synchronized (a.class) {
+                if (c == null) {
+                    c = new a();
+                }
+            }
+        }
+        return c;
     }
 
     private a() {
-        new Handler(Looper.getMainLooper()).postDelayed(new b(this), 2000L);
     }
 
-    public void a(Context context) {
-        if (this.e == null) {
-            this.e = context;
+    public void a(ImageView imageView, String str) {
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            throw new IllegalThreadStateException("please invoke in main thread!");
         }
-    }
-
-    public void a(Context context, com.baidu.mobads.command.a aVar) {
-        a(context, "9", aVar);
-    }
-
-    public void a(com.baidu.mobads.command.a aVar) {
-    }
-
-    public void a(Context context, IXAppInfo iXAppInfo) {
-        a(context, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, iXAppInfo);
-    }
-
-    public void b(Context context, IXAppInfo iXAppInfo) {
-        a(context, Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, iXAppInfo);
-    }
-
-    public void a(String str) {
-        if (!TextUtils.isEmpty(str) && str.contains("temp_for_feed_response_html")) {
-            if (!f) {
-                a("temp_for_feed_response_html", TbEnum.SystemMessage.EVENT_ID_DELETE_FRIEND, f3308b + "___" + c);
-                f = true;
+        if (imageView != null && str != null) {
+            Bitmap bitmap = this.f3296a.get(str);
+            if (bitmap != null) {
+                imageView.setImageBitmap(bitmap);
                 return;
             }
-            return;
-        }
-        a(str, "400", (Uri.Builder) null);
-    }
-
-    public void a(String str, String str2, String str3) {
-        try {
-            Uri.Builder appendQueryParameter = new Uri.Builder().appendQueryParameter("stacktrace", str2);
-            appendQueryParameter.appendQueryParameter("ad", str3);
-            for (Map.Entry<String, String> entry : new com.baidu.mobads.vo.a.b().c().entrySet()) {
-                appendQueryParameter.appendQueryParameter(entry.getKey(), entry.getValue());
+            Bitmap a2 = a(b(str), imageView, true);
+            if (a2 != null) {
+                a(str, a2);
+            } else {
+                b(str, new c(this, str, imageView));
             }
-            a(str, "404", appendQueryParameter);
-        } catch (Exception e) {
-            XAdSDKFoundationFacade.getInstance().getAdLogger().e(e);
         }
     }
 
-    private void a(String str, String str2, Uri.Builder builder) {
-        h adConstants = XAdSDKFoundationFacade.getInstance().getAdConstants();
-        e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        if (builder == null) {
-            builder = new Uri.Builder();
-        }
-        try {
-            builder.appendQueryParameter("type", str2).appendQueryParameter(IXAdRequestInfo.P_VER, "8.8146").appendQueryParameter("appsid", adConstants.getAppSid()).appendQueryParameter("v", "android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30").appendQueryParameter(TiebaInitialize.LogFields.REASON, str).appendQueryParameter(IXAdRequestInfo.OSV, Build.VERSION.RELEASE).appendQueryParameter(IXAdRequestInfo.BDR, "" + Build.VERSION.SDK_INT).appendQueryParameter(IXAdRequestInfo.BRAND, "" + commonUtils.getTextEncoder(Build.BRAND)).appendQueryParameter("pack", adConstants.getAppPackageNameOfPublisher());
-        } catch (Exception e) {
-            XAdSDKFoundationFacade.getInstance().getAdLogger().e(e);
-        }
-        com.baidu.mobads.openad.d.c cVar = new com.baidu.mobads.openad.d.c("https://mobads-logs.baidu.com/brwhis.log", "");
-        cVar.a(builder);
-        cVar.a(0);
-        new com.baidu.mobads.openad.d.a().a(cVar);
-    }
-
-    private void a(Context context, String str, com.baidu.mobads.command.a aVar) {
-        IXAppInfo a2 = com.baidu.mobads.command.a.a.a(aVar);
-        if (a2 != null) {
-            a(context, str, a2);
-        }
-    }
-
-    private void a(Context context, String str, IXAppInfo iXAppInfo) {
-        com.baidu.mobads.vo.a.c cVar = new com.baidu.mobads.vo.a.c(context, iXAppInfo);
-        cVar.f3517b = iXAppInfo.getAdId();
-        b(a(context, str, cVar.c()));
-    }
-
-    public void a(Context context, String str, IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo, Object... objArr) {
-        a(0.1d, context, str, iXAdInstanceInfo, iXAdProdInfo, objArr);
-    }
-
-    public void a(double d2, Context context, String str, IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo, Object... objArr) {
-        HashMap<String, String> hashMap = new HashMap<>();
-        for (int i = 0; i < objArr.length; i++) {
+    public void a(String str, Observer observer) {
+        if (str != null && observer != null) {
             try {
-                hashMap.put("custom_" + i, String.valueOf(objArr[i]));
-            } catch (Exception e) {
-                m.a().e(e);
-                return;
+                b(str, observer);
+            } catch (Throwable th) {
             }
         }
-        a(d2, context, str, iXAdInstanceInfo, iXAdProdInfo, hashMap);
     }
 
-    public void a(Context context, String str, IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo, HashMap<String, String> hashMap) {
-        a(1.0d, context, str, iXAdInstanceInfo, iXAdProdInfo, hashMap);
-    }
-
-    public void a(double d2, Context context, String str, IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo, HashMap<String, String> hashMap) {
-        try {
-            if (d2 > new Random().nextDouble()) {
-                if (hashMap == null) {
-                    hashMap = new HashMap<>();
-                }
-                hashMap.put("probability", String.valueOf(d2));
-                b(new d(str, iXAdInstanceInfo, iXAdProdInfo, hashMap).a(context));
+    public boolean a(String str) {
+        if (!TextUtils.isEmpty(str) && this.f3296a.get(str) == null) {
+            Bitmap c2 = c(b(str));
+            if (c2 == null) {
+                return true;
             }
-        } catch (Exception e) {
-            m.a().e(e);
+            a(str, c2);
+        }
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str, Bitmap bitmap) {
+        if (this.f3296a.get(str) == null && str != null && bitmap != null) {
+            this.f3296a.put(str, bitmap);
         }
     }
 
-    private void b(String str) {
-        a(1, str);
-    }
-
-    private void a(int i, String str) {
-        com.baidu.mobads.openad.d.a aVar = new com.baidu.mobads.openad.d.a();
-        com.baidu.mobads.openad.d.c cVar = new com.baidu.mobads.openad.d.c(str, "");
-        cVar.e = i;
-        aVar.a(cVar, (Boolean) true);
-    }
-
-    private String a(Context context, String str, Map<String, String> map) {
+    private void b(String str, Observer observer) {
         try {
-            StringBuilder sb = new StringBuilder("type=" + str + ETAG.ITEM_SEPARATOR);
-            StringBuilder sb2 = new StringBuilder();
-            map.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis() + "");
-            e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-            for (String str2 : map.keySet()) {
-                String str3 = map.get(str2);
-                if (str2 != null && str3 != null) {
-                    String encodeURIComponent = commonUtils.encodeURIComponent(str2);
-                    String encodeURIComponent2 = commonUtils.encodeURIComponent(str3);
-                    sb.append(encodeURIComponent);
-                    sb.append("=");
-                    sb.append(encodeURIComponent2);
-                    sb.append(ETAG.ITEM_SEPARATOR);
-                    sb2.append(encodeURIComponent2);
-                    sb2.append(",");
-                }
-            }
-            sb2.append("mobads,");
-            String md5 = commonUtils.getMD5(sb2.toString());
-            this.f3309a.d("ExtraQuery.allValue:" + ((Object) sb2));
-            sb.append("vd=" + md5 + ETAG.ITEM_SEPARATOR);
-            this.f3309a.d("ExtraQuery.params:" + ((Object) sb));
-            return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();
-        } catch (Exception e) {
-            this.f3309a.d(e);
-            return "";
+            com.baidu.mobads.openad.download.b bVar = new com.baidu.mobads.openad.download.b(XAdSDKFoundationFacade.getInstance().getApplicationContext(), new URL(str), d(str), e(str) + ".temp", true);
+            bVar.addObserver(observer);
+            bVar.start();
+        } catch (MalformedURLException e) {
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Bitmap a(String str, ImageView imageView, boolean z) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(str, options);
+        a(imageView);
+        options.inSampleSize = a(options, imageView);
+        options.inJustDecodeBounds = false;
+        Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
+        if (z) {
+            imageView.setImageBitmap(decodeFile);
+        }
+        return decodeFile;
+    }
+
+    private Bitmap c(String str) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeFile(str, options);
+    }
+
+    private static int a(BitmapFactory.Options options, ImageView imageView) {
+        C0262a a2 = a(imageView);
+        int i = options.outWidth;
+        int i2 = options.outHeight;
+        if (i <= a2.f3297a && i2 <= a2.f3298b) {
+            return 1;
+        }
+        return Math.max(Math.round((i * 1.0f) / a2.f3297a), Math.round((i2 * 1.0f) / a2.f3298b));
+    }
+
+    private static C0262a a(ImageView imageView) {
+        C0262a c0262a = new C0262a(null);
+        DisplayMetrics displayMetrics = imageView.getContext().getResources().getDisplayMetrics();
+        ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+        int width = imageView.getWidth();
+        if (width <= 0) {
+            width = layoutParams.width;
+        }
+        if (width <= 0) {
+            width = imageView.getMaxWidth();
+        }
+        if (width <= 0) {
+            width = displayMetrics.widthPixels;
+        }
+        int height = imageView.getHeight();
+        if (height <= 0) {
+            height = layoutParams.height;
+        }
+        if (height <= 0) {
+            height = imageView.getMaxHeight();
+        }
+        if (height <= 0) {
+            height = displayMetrics.heightPixels;
+        }
+        c0262a.f3297a = width;
+        c0262a.f3298b = height;
+        return c0262a;
+    }
+
+    public static String b(String str) {
+        String storeagePath = XAdSDKFoundationFacade.getInstance().getIoUtils().getStoreagePath(XAdSDKFoundationFacade.getInstance().getApplicationContext());
+        return storeagePath + XAdSDKFoundationFacade.getInstance().getCommonUtils().md5(str) + ".temp";
+    }
+
+    private static String d(String str) {
+        return XAdSDKFoundationFacade.getInstance().getIoUtils().getStoreagePath(XAdSDKFoundationFacade.getInstance().getApplicationContext());
+    }
+
+    private static String e(String str) {
+        return XAdSDKFoundationFacade.getInstance().getCommonUtils().md5(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: com.baidu.mobads.c.a$a  reason: collision with other inner class name */
+    /* loaded from: classes5.dex */
+    public static class C0262a {
+
+        /* renamed from: a  reason: collision with root package name */
+        int f3297a;
+
+        /* renamed from: b  reason: collision with root package name */
+        int f3298b;
+
+        private C0262a() {
+        }
+
+        /* synthetic */ C0262a(b bVar) {
+            this();
         }
     }
 }

@@ -10,7 +10,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 @TargetApi(21)
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
@@ -20,7 +20,7 @@ public class a {
     private static boolean f1445b;
 
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     private static class C0064a {
 
         /* renamed from: a  reason: collision with root package name */

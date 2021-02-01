@@ -3,10 +3,9 @@ package com.baidu.mobstat;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public enum t {
     SERVICE(1) { // from class: com.baidu.mobstat.t.1
         @Override // com.baidu.mobstat.t
@@ -29,8 +28,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3641a = false;
-                acVar.f3642b = "M";
+                acVar.f3644a = false;
+                acVar.f3645b = "M";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }
@@ -43,8 +42,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3641a = false;
-                acVar.f3642b = "R";
+                acVar.f3644a = false;
+                acVar.f3645b = "R";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }
@@ -57,8 +56,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3641a = false;
-                acVar.f3642b = "E";
+                acVar.f3644a = false;
+                acVar.f3645b = "E";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }
@@ -92,7 +91,7 @@ public enum t {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         if (activityManager != null) {
             try {
-                List<ActivityManager.RunningServiceInfo> runningServices = activityManager.getRunningServices(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                List<ActivityManager.RunningServiceInfo> runningServices = activityManager.getRunningServices(Integer.MAX_VALUE);
                 int i = 0;
                 while (runningServices != null) {
                     if (i >= runningServices.size()) {

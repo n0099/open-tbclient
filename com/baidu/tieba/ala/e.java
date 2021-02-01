@@ -1,52 +1,24 @@
 package com.baidu.tieba.ala;
 
-import android.os.CountDownTimer;
-/* loaded from: classes10.dex */
-public class e extends CountDownTimer {
-    private a goi;
-    private boolean isRunning;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
+public class e {
+    boolean gqQ = false;
+    String date = "";
+    int brp = 0;
 
-    /* loaded from: classes10.dex */
-    public interface a {
-        void onFinish();
-
-        void onTick(long j);
-    }
-
-    public e(long j, long j2) {
-        super(j, j2);
-        this.isRunning = false;
-    }
-
-    @Override // android.os.CountDownTimer
-    public void onTick(long j) {
-        if (this.goi != null) {
-            this.goi.onTick(j);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String toJsonString() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("hasToast", this.gqQ);
+            jSONObject.put("date", this.date);
+            jSONObject.put("times", this.brp);
+            return jSONObject.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "";
         }
-    }
-
-    @Override // android.os.CountDownTimer
-    public void onFinish() {
-        if (this.goi != null) {
-            this.goi.onFinish();
-        }
-    }
-
-    public void startTimer() {
-        this.isRunning = true;
-        start();
-    }
-
-    public void cancelTimer() {
-        this.isRunning = false;
-        cancel();
-    }
-
-    public boolean isRunning() {
-        return this.isRunning;
-    }
-
-    public void a(a aVar) {
-        this.goi = aVar;
     }
 }

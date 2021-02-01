@@ -1,27 +1,27 @@
 package com.yxcorp.kuaishou.addfp.a.b.h.a;
 
 import android.database.ContentObserver;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14368a;
+    private String f14370a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f14369b;
-    private b qbM;
+    private int f14371b;
+    private b qlQ;
 
     public a(b bVar, int i, String str) {
         super(null);
-        this.qbM = bVar;
-        this.f14369b = i;
-        this.f14368a = str;
+        this.qlQ = bVar;
+        this.f14371b = i;
+        this.f14370a = str;
     }
 
     @Override // android.database.ContentObserver
     public final void onChange(boolean z) {
-        if (this.qbM != null) {
-            this.qbM.a(this.f14369b, this.f14368a);
+        if (this.qlQ != null) {
+            this.qlQ.a(this.f14371b, this.f14370a);
         }
     }
 }

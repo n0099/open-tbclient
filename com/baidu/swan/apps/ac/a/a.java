@@ -11,12 +11,12 @@ import com.baidu.swan.pms.model.h;
 import com.baidu.swan.pms.utils.f;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends j {
-    private b<Boolean> dpU;
-    private String dpV;
-    private String dpW;
-    private c<h> dpX = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.apps.ac.a.a.1
+    private b<Boolean> dsf;
+    private String dsg;
+    private String dsh;
+    private c<h> dsi = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.apps.ac.a.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -27,7 +27,7 @@ public class a extends j {
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: a */
         public String U(h hVar) {
-            return d.C0449d.aws().getAbsolutePath();
+            return d.C0446d.awQ().getAbsolutePath();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,7 +36,7 @@ public class a extends j {
         public void S(h hVar) {
             super.S(hVar);
             if (hVar != null) {
-                com.baidu.swan.apps.ac.d.a.print("plugin download start: bundleId = " + hVar.erV);
+                com.baidu.swan.apps.ac.d.a.print("plugin download start: bundleId = " + hVar.euc);
             }
         }
 
@@ -54,7 +54,7 @@ public class a extends j {
             if (aVar != null) {
                 com.baidu.swan.apps.ac.d.a.print("plugin download error: " + aVar.toString());
             }
-            a.this.dpU.N(false);
+            a.this.dsf.N(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,62 +64,62 @@ public class a extends j {
             super.Q(hVar);
             if (hVar == null) {
                 com.baidu.swan.apps.ac.d.a.print("download finish, plugin is null");
-                a.this.dpU.N(false);
-            } else if (!ae.f(new File(hVar.filePath), hVar.sign)) {
+                a.this.dsf.N(false);
+            } else if (!ae.e(new File(hVar.filePath), hVar.sign)) {
                 com.baidu.swan.apps.ac.d.a.print("download finish, check zip sign failure");
-                a.this.dpU.N(false);
+                a.this.dsf.N(false);
             } else {
-                File bO = d.bO(hVar.erV, String.valueOf(com.baidu.swan.apps.swancore.b.td(hVar.versionName)));
-                com.baidu.swan.c.d.ensureDirectoryExist(bO);
-                if (bO == null || !bO.exists()) {
-                    com.baidu.swan.apps.ac.d.a.print("download finish, create file failure, name = " + hVar.erV + " ; version = " + hVar.versionCode);
-                    a.this.dpU.N(false);
+                File bI = d.bI(hVar.euc, String.valueOf(com.baidu.swan.apps.swancore.b.tw(hVar.versionName)));
+                com.baidu.swan.c.d.ensureDirectoryExist(bI);
+                if (bI == null || !bI.exists()) {
+                    com.baidu.swan.apps.ac.d.a.print("download finish, create file failure, name = " + hVar.euc + " ; version = " + hVar.versionCode);
+                    a.this.dsf.N(false);
                     return;
                 }
-                boolean unzipFile = com.baidu.swan.c.d.unzipFile(hVar.filePath, bO.getAbsolutePath());
-                hVar.createTime = hVar.bcu();
-                hVar.updateTime = hVar.bcu();
-                com.baidu.swan.pms.database.a.bci().c(hVar);
+                boolean unzipFile = com.baidu.swan.c.d.unzipFile(hVar.filePath, bI.getAbsolutePath());
+                hVar.createTime = hVar.bcH();
+                hVar.updateTime = hVar.bcH();
+                com.baidu.swan.pms.database.a.bcv().c(hVar);
                 com.baidu.swan.c.d.deleteFile(hVar.filePath);
                 com.baidu.swan.apps.ac.d.a.print("download finish, unZipSuccess = " + unzipFile);
-                a.this.dpU.N(Boolean.valueOf(unzipFile));
+                a.this.dsf.N(Boolean.valueOf(unzipFile));
             }
         }
     };
 
     public a(String str, String str2, b<Boolean> bVar) {
-        this.dpU = bVar;
-        this.dpV = str;
-        this.dpW = str2;
+        this.dsf = bVar;
+        this.dsg = str;
+        this.dsh = str2;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void aqj() {
-        super.aqj();
+    public void aqH() {
+        super.aqH();
         com.baidu.swan.apps.ac.d.a.print("fetch plugin success");
     }
 
     @Override // com.baidu.swan.pms.a.g
     public void b(com.baidu.swan.pms.model.a aVar) {
-        h dv;
+        h dp;
         super.b(aVar);
         if (aVar != null) {
-            if (aVar.errorNo == 1010 && (dv = com.baidu.swan.pms.database.a.bci().dv(this.dpV, this.dpW)) != null) {
-                dv.updateTime = dv.bcu();
-                com.baidu.swan.pms.database.a.bci().g(dv);
+            if (aVar.errorNo == 1010 && (dp = com.baidu.swan.pms.database.a.bcv().dp(this.dsg, this.dsh)) != null) {
+                dp.updateTime = dp.bcH();
+                com.baidu.swan.pms.database.a.bcv().g(dp);
             }
             com.baidu.swan.apps.ac.d.a.print("fetch plugin error: " + aVar.toString());
         } else {
             com.baidu.swan.apps.ac.d.a.print("fetch plugin error");
         }
-        this.dpU.N(false);
+        this.dsf.N(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void ani() {
-        super.ani();
+    public void anG() {
+        super.anG();
         com.baidu.swan.apps.ac.d.a.print("no package");
-        this.dpU.N(false);
+        this.dsf.N(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -128,7 +128,7 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<h> aEr() {
-        return this.dpX;
+    public c<h> aEM() {
+        return this.dsi;
     }
 }

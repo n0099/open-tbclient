@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DarkLinearLayout extends LinearLayout {
     public DarkLinearLayout(Context context) {
         super(context);
@@ -22,7 +22,7 @@ public class DarkLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.ejW() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.emo() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawColor(2130706432);
         }
     }

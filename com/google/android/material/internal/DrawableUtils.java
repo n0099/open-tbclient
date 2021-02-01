@@ -6,7 +6,7 @@ import android.util.Log;
 import androidx.annotation.RestrictTo;
 import java.lang.reflect.Method;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class DrawableUtils {
     private static final String LOG_TAG = "DrawableUtils";
     private static Method setConstantStateMethod;

@@ -7,7 +7,7 @@ import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
 import okhttp3.internal.Util;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class Challenge {
     private final Map<String, String> authParams;
     private final String scheme;

@@ -57,9 +57,9 @@ public class d {
         }
     }
 
-    public static String ml() {
-        String mm = mm();
-        return mm + mn();
+    public static String mk() {
+        String ml = ml();
+        return ml + mm();
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0107 */
@@ -73,7 +73,7 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String mm() {
+    private static String ml() {
         HttpGet httpGet;
         long currentTimeMillis;
         String str;
@@ -243,7 +243,7 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String mn() {
+    private static String mm() {
         Throwable th;
         HttpURLConnection httpURLConnection;
         InputStream inputStream;

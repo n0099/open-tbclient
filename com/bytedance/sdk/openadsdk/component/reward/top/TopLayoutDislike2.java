@@ -13,14 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.utils.ac;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike2> {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f6350a;
+    private View f6352a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f6351b;
+    private ImageView f6353b;
     private TextView c;
     private boolean d;
     private l e;
@@ -47,8 +47,8 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
         this.d = z;
         this.e = lVar;
         LayoutInflater.from(getContext()).inflate(ac.f(getContext(), "tt_top_reward_dislike_2"), (ViewGroup) this, true);
-        this.f6350a = findViewById(ac.e(getContext(), "tt_top_dislike"));
-        this.f6351b = (ImageView) findViewById(ac.e(getContext(), "tt_top_mute"));
+        this.f6352a = findViewById(ac.e(getContext(), "tt_top_dislike"));
+        this.f6353b = (ImageView) findViewById(ac.e(getContext(), "tt_top_mute"));
         this.c = (TextView) findViewById(ac.e(getContext(), "tt_top_skip"));
         this.c.setVisibility(0);
         this.c.setText("");
@@ -59,8 +59,8 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
     }
 
     private void d() {
-        if (this.f6350a != null) {
-            this.f6350a.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.1
+        if (this.f6352a != null) {
+            this.f6352a.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (TopLayoutDislike2.this.g != null) {
@@ -69,12 +69,12 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
                 }
             });
         }
-        if (this.f6351b != null) {
-            this.f6351b.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.2
+        if (this.f6353b != null) {
+            this.f6353b.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TopLayoutDislike2.this.f = !TopLayoutDislike2.this.f;
-                    TopLayoutDislike2.this.f6351b.setImageResource(TopLayoutDislike2.this.f ? ac.d(TopLayoutDislike2.this.getContext(), "tt_mute") : ac.d(TopLayoutDislike2.this.getContext(), "tt_unmute"));
+                    TopLayoutDislike2.this.f6353b.setImageResource(TopLayoutDislike2.this.f ? ac.d(TopLayoutDislike2.this.getContext(), "tt_mute") : ac.d(TopLayoutDislike2.this.getContext(), "tt_unmute"));
                     if (TopLayoutDislike2.this.g != null) {
                         TopLayoutDislike2.this.g.b(view);
                     }
@@ -115,15 +115,15 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowSound(boolean z) {
-        if (this.f6351b != null) {
-            this.f6351b.setVisibility(z ? 0 : 8);
+        if (this.f6353b != null) {
+            this.f6353b.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setSoundMute(boolean z) {
         this.f = z;
-        this.f6351b.setImageResource(this.f ? ac.d(getContext(), "tt_mute") : ac.d(getContext(), "tt_unmute"));
+        this.f6353b.setImageResource(this.f ? ac.d(getContext(), "tt_mute") : ac.d(getContext(), "tt_unmute"));
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
@@ -149,8 +149,8 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowDislike(boolean z) {
-        if (this.f6350a != null) {
-            this.f6350a.setVisibility(z ? 0 : 8);
+        if (this.f6352a != null) {
+            this.f6352a.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -168,8 +168,8 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void b() {
-        if (this.f6351b != null) {
-            this.f6351b.performClick();
+        if (this.f6353b != null) {
+            this.f6353b.performClick();
         }
     }
 

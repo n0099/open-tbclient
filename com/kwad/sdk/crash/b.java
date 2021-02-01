@@ -1,14 +1,14 @@
 package com.kwad.sdk.crash;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.crash.model.b f9621a;
+    public final com.kwad.sdk.crash.model.b f9623a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.crash.model.a f9622b;
+    public final com.kwad.sdk.crash.model.a f9624b;
     public final f c;
     public final String[] d;
     public final String[] e;
@@ -22,14 +22,14 @@ public class b {
     public final String m;
     public final String n;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f9623a;
+        public int f9625a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f9624b;
+        public String[] f9626b;
         private boolean c = false;
         private Context d;
         private e e;
@@ -96,12 +96,12 @@ public class b {
         }
 
         public a b(String[] strArr) {
-            this.f9624b = strArr;
+            this.f9626b = strArr;
             return this;
         }
 
         public a c(int i) {
-            this.f9623a = i;
+            this.f9625a = i;
             return this;
         }
 
@@ -152,8 +152,8 @@ public class b {
     }
 
     private b(a aVar) {
-        this.f9621a = new com.kwad.sdk.crash.model.b();
-        this.f9622b = new com.kwad.sdk.crash.model.a();
+        this.f9623a = new com.kwad.sdk.crash.model.b();
+        this.f9624b = new com.kwad.sdk.crash.model.a();
         this.f = aVar.c;
         this.g = aVar.d;
         this.h = aVar.e;
@@ -163,19 +163,19 @@ public class b {
         this.l = aVar.i;
         this.m = aVar.j;
         this.n = aVar.k;
-        this.f9622b.f9638a = aVar.q;
-        this.f9622b.f9639b = aVar.r;
-        this.f9622b.d = aVar.t;
-        this.f9622b.c = aVar.s;
-        this.f9621a.d = aVar.o;
-        this.f9621a.e = aVar.p;
-        this.f9621a.f9641b = aVar.m;
-        this.f9621a.c = aVar.n;
-        this.f9621a.f9640a = aVar.l;
-        this.f9621a.f = aVar.f9623a;
+        this.f9624b.f9640a = aVar.q;
+        this.f9624b.f9641b = aVar.r;
+        this.f9624b.d = aVar.t;
+        this.f9624b.c = aVar.s;
+        this.f9623a.d = aVar.o;
+        this.f9623a.e = aVar.p;
+        this.f9623a.f9643b = aVar.m;
+        this.f9623a.c = aVar.n;
+        this.f9623a.f9642a = aVar.l;
+        this.f9623a.f = aVar.f9625a;
         this.c = aVar.u;
         this.d = aVar.v;
-        this.e = aVar.f9624b;
+        this.e = aVar.f9626b;
     }
 
     public e a() {

@@ -6,143 +6,143 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
-import com.baidu.live.data.an;
-import com.baidu.live.data.by;
+import com.baidu.live.data.ar;
+import com.baidu.live.data.cf;
 import com.baidu.live.message.AlaSyncHttpResponseMessage;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes10.dex */
-public class c implements com.baidu.live.w.c {
-    private static final String ibe = com.baidu.live.ah.b.Pq();
-    private static final String ibf = com.baidu.live.ah.b.Ps();
-    private static final String ibg = com.baidu.live.ah.b.Pu();
-    private boolean ibh;
-    private HttpMessageListener ibi;
-    private d ibj;
-    private String ibk;
+/* loaded from: classes11.dex */
+public class c implements com.baidu.live.v.c {
+    private static final String ifC = com.baidu.live.storage.b.QU();
+    private static final String ifD = com.baidu.live.storage.b.QZ();
+    private static final String ifE = com.baidu.live.storage.b.Re();
+    private boolean ifF;
+    private HttpMessageListener ifG;
+    private d ifH;
+    private String ifI;
 
-    public static c cny() {
-        return a.ibn;
+    public static c cow() {
+        return a.ifL;
     }
 
-    public String cnz() {
-        return this.ibk;
+    public String cox() {
+        return this.ifI;
     }
 
-    @Override // com.baidu.live.w.c
-    public void NH() {
-        final an anVar = com.baidu.live.af.a.OJ().bru;
-        if (anVar == null || anVar.aKB == null || TextUtils.isEmpty(anVar.aKB.downloadUrl)) {
-            bWb();
-        } else if (!this.ibh) {
-            this.ibk = "";
-            this.ibh = true;
-            new BdAsyncTask<by, Void, by>() { // from class: com.baidu.tieba.ala.poke.startanim.c.1
+    @Override // com.baidu.live.v.c
+    public void Pj() {
+        final ar arVar = com.baidu.live.ae.a.Qj().buX;
+        if (arVar == null || arVar.aNr == null || TextUtils.isEmpty(arVar.aNr.downloadUrl)) {
+            bWF();
+        } else if (!this.ifF) {
+            this.ifI = "";
+            this.ifF = true;
+            new BdAsyncTask<cf, Void, cf>() { // from class: com.baidu.tieba.ala.poke.startanim.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: a */
-                public by doInBackground(by... byVarArr) {
-                    by HP;
-                    if (byVarArr == null || byVarArr.length == 0) {
+                public cf doInBackground(cf... cfVarArr) {
+                    cf It;
+                    if (cfVarArr == null || cfVarArr.length == 0) {
                         return null;
                     }
-                    by byVar = byVarArr[0];
-                    String string = com.baidu.live.d.xf().getString("live_poke_start_anim", "");
-                    if (TextUtils.isEmpty(string) || (HP = b.HP(string)) == null || !byVar.downloadUrl.equals(HP.downloadUrl) || !byVar.aNI.equals(HP.aNI) || TextUtils.isEmpty(HP.videoMd5) || !HP.videoMd5.equals(c.this.cnA())) {
-                        c.this.cnB();
+                    cf cfVar = cfVarArr[0];
+                    String string = com.baidu.live.d.xc().getString("live_poke_start_anim", "");
+                    if (TextUtils.isEmpty(string) || (It = b.It(string)) == null || !cfVar.downloadUrl.equals(It.downloadUrl) || !cfVar.aQJ.equals(It.aQJ) || TextUtils.isEmpty(It.videoMd5) || !It.videoMd5.equals(c.this.coy())) {
+                        c.this.coz();
                         return null;
                     }
-                    return HP;
+                    return It;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
-                public void onPostExecute(by byVar) {
-                    super.onPostExecute(byVar);
-                    if (byVar == null) {
-                        c.this.b(anVar.aKB);
+                public void onPostExecute(cf cfVar) {
+                    super.onPostExecute(cfVar);
+                    if (cfVar == null) {
+                        c.this.b(arVar.aNr);
                         return;
                     }
-                    c.this.ibk = byVar.videoPath;
+                    c.this.ifI = cfVar.videoPath;
                 }
-            }.execute(anVar.aKB);
+            }.execute(arVar.aNr);
         }
     }
 
-    @Override // com.baidu.live.w.c
+    @Override // com.baidu.live.v.c
     public void release() {
-        this.ibh = false;
-        this.ibk = "";
-        MessageManager.getInstance().unRegisterListener(this.ibi);
-        this.ibi = null;
-        if (this.ibj != null) {
-            this.ibj.release();
+        this.ifF = false;
+        this.ifI = "";
+        MessageManager.getInstance().unRegisterListener(this.ifG);
+        this.ifG = null;
+        if (this.ifH != null) {
+            this.ifH.release();
         }
-        com.baidu.live.i.b.cz(21);
+        com.baidu.live.h.b.cE(21);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cQ(List<by> list) {
+    public void cL(List<cf> list) {
         if (list != null && !list.isEmpty()) {
-            by byVar = list.get(0);
-            this.ibk = byVar.videoPath;
-            com.baidu.live.d.xf().putString("live_poke_start_anim", b.a(byVar));
+            cf cfVar = list.get(0);
+            this.ifI = cfVar.videoPath;
+            com.baidu.live.d.xc().putString("live_poke_start_anim", b.a(cfVar));
         }
     }
 
-    private void bWb() {
-        if (this.ibi == null) {
-            this.ibi = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.poke.startanim.c.2
+    private void bWF() {
+        if (this.ifG == null) {
+            this.ifG = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.poke.startanim.c.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021011 && (httpResponsedMessage instanceof AlaSyncHttpResponseMessage)) {
-                        c.this.NH();
+                        c.this.Pj();
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.ibi);
+            MessageManager.getInstance().registerListener(this.ifG);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String cnA() {
-        File[] listFiles = new File(ibg).listFiles();
+    public String coy() {
+        File[] listFiles = new File(ifE).listFiles();
         if (listFiles == null || listFiles.length == 0) {
             return null;
         }
         for (File file : listFiles) {
             if (!file.isDirectory()) {
-                return com.baidu.live.i.a.getFileMd5(file);
+                return com.baidu.live.h.a.getFileMd5(file);
             }
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(by byVar) {
-        if (byVar != null && !TextUtils.isEmpty(byVar.downloadUrl)) {
-            this.ibj = new d();
-            this.ibj.y(byVar.downloadUrl, byVar.aNI, ibf, ibg);
+    public void b(cf cfVar) {
+        if (cfVar != null && !TextUtils.isEmpty(cfVar.downloadUrl)) {
+            this.ifH = new d();
+            this.ifH.y(cfVar.downloadUrl, cfVar.aQJ, ifD, ifE);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnB() {
-        this.ibk = "";
-        com.baidu.live.d.xf().putString("live_poke_start_anim", "");
-        com.baidu.live.i.a.cleanDir(new File(ibe));
+    public void coz() {
+        this.ifI = "";
+        com.baidu.live.d.xc().putString("live_poke_start_anim", "");
+        com.baidu.live.h.a.cleanDir(new File(ifC));
     }
 
     private c() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        private static c ibn = new c();
+        private static c ifL = new c();
     }
 }

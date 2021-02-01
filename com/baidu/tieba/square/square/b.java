@@ -12,26 +12,26 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
     private Activity mContext;
-    private ArrayList<e> nii;
-    View.OnClickListener nij = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
+    private ArrayList<e> nrQ;
+    View.OnClickListener nrR = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Object tag = view.getTag();
-            if ((tag instanceof a) && (eVar = ((a) tag).nin) != null) {
-                if (eVar.ngk == null) {
-                    com.baidu.tieba.square.square.a.h(b.this.dJP(), null);
+            if ((tag instanceof a) && (eVar = ((a) tag).nrV) != null) {
+                if (eVar.npT == null) {
+                    com.baidu.tieba.square.square.a.h(b.this.dMa(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dJP(), eVar.ngj, eVar.ngk, eVar.ngl)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dMa(), eVar.npS, eVar.npT, eVar.npU)));
                 }
             }
         }
@@ -39,49 +39,49 @@ public class b extends BaseAdapter {
 
     public b(Activity activity, c cVar, boolean z) {
         this.mContext = activity;
-        this.nii = cVar.dJO();
+        this.nrQ = cVar.dLZ();
     }
 
-    public ArrayList<e> dJO() {
-        return this.nii;
+    public ArrayList<e> dLZ() {
+        return this.nrQ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public TextView eli;
-        public BarImageView nil;
-        public BestStringsFitTextView nim;
-        public e nin;
+        public TextView enq;
+        public BarImageView nrT;
+        public BestStringsFitTextView nrU;
+        public e nrV;
 
         protected a() {
         }
     }
 
-    public void be(ArrayList<e> arrayList) {
-        this.nii = arrayList;
+    public void bd(ArrayList<e> arrayList) {
+        this.nrQ = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.nii == null) {
+        if (this.nrQ == null) {
             return 0;
         }
-        return (this.nii.size() * 2) + 1;
+        return (this.nrQ.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = R(viewGroup, itemViewType);
-            bg.by(view);
+            view = S(viewGroup, itemViewType);
+            bh.bu(view);
         }
-        bg.bx(view);
+        bh.bt(view);
         if (itemViewType != 3) {
             TbadkCoreApplication.getInst().getSkinType();
             View findViewById = view.findViewById(R.id.container);
-            ao.setBackgroundResource(findViewById, R.drawable.addresslist_item_bg);
+            ap.setBackgroundResource(findViewById, R.drawable.addresslist_item_bg);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
                     findViewById.setVisibility(0);
@@ -93,7 +93,7 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    private View R(ViewGroup viewGroup, int i) {
+    private View S(ViewGroup viewGroup, int i) {
         if (i == 3) {
             return LayoutInflater.from(this.mContext).inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
@@ -101,33 +101,33 @@ public class b extends BaseAdapter {
             return LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.nij);
+        inflate.setOnClickListener(this.nrR);
         a aVar = new a();
-        aVar.nil = (BarImageView) inflate.findViewById(R.id.portrait);
-        aVar.eli = (TextView) inflate.findViewById(R.id.name);
-        aVar.nim = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        aVar.nrT = (BarImageView) inflate.findViewById(R.id.portrait);
+        aVar.enq = (TextView) inflate.findViewById(R.id.name);
+        aVar.nrU = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(aVar);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, a aVar, int i) {
-        e eVar = this.nii.get(i / 2);
-        aVar.nin = eVar;
-        aVar.eli.setText(eVar.ngj);
-        if (eVar.niq != null) {
-            aVar.nim.setVisibility(0);
-            String[] strArr = new String[eVar.niq.size()];
-            for (int i2 = 0; i2 < eVar.niq.size(); i2++) {
-                strArr[i2] = eVar.niq.get(i2).ngj;
+        e eVar = this.nrQ.get(i / 2);
+        aVar.nrV = eVar;
+        aVar.enq.setText(eVar.npS);
+        if (eVar.nrY != null) {
+            aVar.nrU.setVisibility(0);
+            String[] strArr = new String[eVar.nrY.size()];
+            for (int i2 = 0; i2 < eVar.nrY.size(); i2++) {
+                strArr[i2] = eVar.nrY.get(i2).npS;
             }
-            aVar.nim.setTextArray(strArr);
+            aVar.nrU.setTextArray(strArr);
         } else {
-            aVar.nim.setVisibility(8);
+            aVar.nrU.setVisibility(8);
         }
         if (eVar.logoUrl != null) {
             int dip2px = l.dip2px(this.mContext, 45.0f);
-            aVar.nil.setTag(eVar.logoUrl);
-            aVar.nil.a(eVar.logoUrl, 10, dip2px, dip2px, false);
+            aVar.nrT.setTag(eVar.logoUrl);
+            aVar.nrT.a(eVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 
@@ -154,7 +154,7 @@ public class b extends BaseAdapter {
         return 2;
     }
 
-    protected Activity dJP() {
+    protected Activity dMa() {
         return this.mContext;
     }
 }

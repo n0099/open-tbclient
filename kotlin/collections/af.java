@@ -5,11 +5,11 @@ import java.util.Iterator;
 import java.util.RandomAccess;
 import kotlin.TypeCastException;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class af<T> extends d<T> implements RandomAccess {
-    private int bJW;
+    private int bNG;
     private final int capacity;
-    private final Object[] qiV;
+    private final Object[] qsZ;
     private int size;
 
     public af(int i) {
@@ -17,7 +17,7 @@ final class af<T> extends d<T> implements RandomAccess {
         if (!(this.capacity >= 0)) {
             throw new IllegalArgumentException(("ring buffer capacity should not be negative but it is " + this.capacity).toString());
         }
-        this.qiV = new Object[this.capacity];
+        this.qsZ = new Object[this.capacity];
     }
 
     public final int getCapacity() {
@@ -35,8 +35,8 @@ final class af<T> extends d<T> implements RandomAccess {
 
     @Override // kotlin.collections.d, java.util.List
     public T get(int i) {
-        d.qiN.el(i, size());
-        return (T) this.qiV[(this.bJW + i) % getCapacity()];
+        d.qsR.ei(i, size());
+        return (T) this.qsZ[(this.bNG + i) % getCapacity()];
     }
 
     public final boolean isFull() {
@@ -44,7 +44,7 @@ final class af<T> extends d<T> implements RandomAccess {
     }
 
     @kotlin.e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends b<T> {
         private int count;
         private int index;
@@ -52,15 +52,15 @@ final class af<T> extends d<T> implements RandomAccess {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
             this.count = af.this.size();
-            this.index = af.this.bJW;
+            this.index = af.this.bNG;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.collections.af$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlin.collections.b
-        protected void eIC() {
+        protected void eKS() {
             if (this.count != 0) {
-                bR(af.this.qiV[this.index]);
+                bR(af.this.qsZ[this.index]);
                 this.index = (this.index + 1) % af.this.getCapacity();
                 this.count--;
                 return;
@@ -87,12 +87,12 @@ final class af<T> extends d<T> implements RandomAccess {
         }
         int size = size();
         int i2 = 0;
-        for (int i3 = this.bJW; i2 < size && i3 < this.capacity; i3++) {
-            tArr[i2] = this.qiV[i3];
+        for (int i3 = this.bNG; i2 < size && i3 < this.capacity; i3++) {
+            tArr[i2] = this.qsZ[i3];
             i2++;
         }
         while (i2 < size) {
-            tArr[i2] = this.qiV[i];
+            tArr[i2] = this.qsZ[i];
             i2++;
             i++;
         }
@@ -117,13 +117,13 @@ final class af<T> extends d<T> implements RandomAccess {
         if (isFull()) {
             throw new IllegalStateException("ring buffer is full");
         }
-        this.qiV[(this.bJW + size()) % getCapacity()] = t;
+        this.qsZ[(this.bNG + size()) % getCapacity()] = t;
         setSize(size() + 1);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: kotlin.collections.af<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public final void RY(int i) {
+    public final void St(int i) {
         if (!(i >= 0)) {
             throw new IllegalArgumentException(("n shouldn't be negative but it is " + i).toString());
         }
@@ -131,15 +131,15 @@ final class af<T> extends d<T> implements RandomAccess {
             throw new IllegalArgumentException(("n shouldn't be greater than the buffer size: n = " + i + ", size = " + size()).toString());
         }
         if (i > 0) {
-            int i2 = this.bJW;
+            int i2 = this.bNG;
             int capacity = (i2 + i) % getCapacity();
             if (i2 > capacity) {
-                a(this.qiV, null, i2, this.capacity);
-                a(this.qiV, null, 0, capacity);
+                a(this.qsZ, null, i2, this.capacity);
+                a(this.qsZ, null, 0, capacity);
             } else {
-                a(this.qiV, null, i2, capacity);
+                a(this.qsZ, null, i2, capacity);
             }
-            this.bJW = capacity;
+            this.bNG = capacity;
             setSize(size() - i);
         }
     }

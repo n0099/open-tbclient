@@ -12,14 +12,14 @@ import androidx.annotation.RequiresApi;
 import com.bytedance.sdk.openadsdk.core.video.renderview.b;
 @RequiresApi(api = 14)
 @TargetApi(14)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SSRenderTextureView extends TextureView implements TextureView.SurfaceTextureListener, b {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f6756a;
+    private a f6758a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b.a f6757b;
+    private b.a f6759b;
 
     public SSRenderTextureView(Context context) {
         this(context, null);
@@ -31,7 +31,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
     public void a(a aVar) {
-        this.f6756a = aVar;
+        this.f6758a = aVar;
         setSurfaceTextureListener(this);
     }
 
@@ -74,39 +74,39 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        if (this.f6756a != null) {
-            this.f6756a.a(surfaceTexture, i, i2);
+        if (this.f6758a != null) {
+            this.f6758a.a(surfaceTexture, i, i2);
         }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-        if (this.f6756a != null) {
-            this.f6756a.b(surfaceTexture, i, i2);
+        if (this.f6758a != null) {
+            this.f6758a.b(surfaceTexture, i, i2);
         }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        return this.f6756a != null && this.f6756a.a(surfaceTexture);
+        return this.f6758a != null && this.f6758a.a(surfaceTexture);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        if (this.f6756a != null) {
-            this.f6756a.b(surfaceTexture);
+        if (this.f6758a != null) {
+            this.f6758a.b(surfaceTexture);
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.f6757b != null) {
-            this.f6757b.a(i);
+        if (this.f6759b != null) {
+            this.f6759b.a(i);
         }
     }
 
     public void setWindowVisibilityChangedListener(b.a aVar) {
-        this.f6757b = aVar;
+        this.f6759b = aVar;
     }
 }

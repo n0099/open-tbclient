@@ -7,33 +7,33 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private long cNC;
-    private c doV;
-    private SimpleDateFormat doW;
-    private HashMap<String, List<a>> doX;
-    private String doY;
-    private boolean doZ;
-    private boolean dpa;
-    private long dpb;
+    private long cPQ;
+    private c drg;
+    private SimpleDateFormat drh;
+    private HashMap<String, List<a>> dri;
+    private String drj;
+    private boolean drk;
+    private boolean drl;
+    private long drm;
     private final Object mLock = new Object();
 
-    private void aDO() {
-        if (this.doX == null) {
+    private void aEj() {
+        if (this.dri == null) {
             synchronized (this.mLock) {
-                if (this.doX == null) {
-                    this.doX = new HashMap<>();
-                    this.doW = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
-                    this.doV = new c() { // from class: com.baidu.swan.apps.performance.a.b.1
+                if (this.dri == null) {
+                    this.dri = new HashMap<>();
+                    this.drh = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
+                    this.drg = new c() { // from class: com.baidu.swan.apps.performance.a.b.1
                         @Override // com.baidu.swan.apps.performance.a.c
                         public boolean a(a aVar) {
-                            if (aVar == null || aVar.apW() < 0) {
+                            if (aVar == null || aVar.aqu() < 0) {
                                 return false;
                             }
-                            if (b.DEBUG || !d.dpd.contains(aVar.getApiName())) {
-                                return b.this.cz(aVar.getStart());
+                            if (b.DEBUG || !d.dro.contains(aVar.getApiName())) {
+                                return b.this.cF(aVar.getStart());
                             }
                             return false;
                         }
@@ -44,33 +44,33 @@ public class b implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cz(long j) {
-        return j >= this.dpb && j <= this.dpb + this.cNC;
+    public boolean cF(long j) {
+        return j >= this.drm && j <= this.drm + this.cPQ;
     }
 
     public String format() {
         int i;
         int i2;
-        if (!this.dpa) {
+        if (!this.drl) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("----- ").append("launch start time ").append(this.doW.format(Long.valueOf(this.dpb))).append("\n");
-        sb.append("----- ").append("launch end time ").append(this.doW.format(Long.valueOf(this.dpb + this.cNC))).append("\n");
-        sb.append("----- ").append("swan js version ").append(this.doY).append("\n");
+        sb.append("----- ").append("launch start time ").append(this.drh.format(Long.valueOf(this.drm))).append("\n");
+        sb.append("----- ").append("launch end time ").append(this.drh.format(Long.valueOf(this.drm + this.cPQ))).append("\n");
+        sb.append("----- ").append("swan js version ").append(this.drj).append("\n");
         int i3 = 0;
         int i4 = 0;
         synchronized (this.mLock) {
-            for (Map.Entry<String, List<a>> entry : this.doX.entrySet()) {
+            for (Map.Entry<String, List<a>> entry : this.dri.entrySet()) {
                 List<a> value = entry.getValue();
                 if (value != null && value.size() > 0) {
                     StringBuilder sb2 = new StringBuilder();
                     int i5 = 0;
                     for (a aVar : value) {
-                        if (this.doV == null || this.doV.a(aVar)) {
-                            sb2.append("----- start time ").append(this.doW.format(Long.valueOf(aVar.getStart()))).append("\n");
-                            sb2.append("----- end time ").append(this.doW.format(Long.valueOf(aVar.getEnd()))).append("\n");
-                            sb2.append("----- cost time ").append(aVar.apW()).append("ms\n");
+                        if (this.drg == null || this.drg.a(aVar)) {
+                            sb2.append("----- start time ").append(this.drh.format(Long.valueOf(aVar.getStart()))).append("\n");
+                            sb2.append("----- end time ").append(this.drh.format(Long.valueOf(aVar.getEnd()))).append("\n");
+                            sb2.append("----- cost time ").append(aVar.aqu()).append("ms\n");
                             sb2.append("----------------------------\n");
                             i4++;
                             i2 = i5 + 1;
@@ -104,37 +104,37 @@ public class b implements d {
 
     @Override // com.baidu.swan.apps.performance.a.e
     public void start(long j) {
-        aDO();
+        aEj();
         reset();
-        this.dpb = j;
+        this.drm = j;
         log("launch start time-" + j);
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
-    public void cx(long j) {
-        this.dpa = true;
-        this.cNC = j;
-        ql(format());
-        log("launch end time-" + (this.dpb + this.cNC));
+    public void cD(long j) {
+        this.drl = true;
+        this.cPQ = j;
+        qD(format());
+        log("launch end time-" + (this.drm + this.cPQ));
     }
 
     private void reset() {
-        if (this.doX.size() > 0) {
+        if (this.dri.size() > 0) {
             synchronized (this.mLock) {
-                this.doX.clear();
+                this.dri.clear();
             }
         }
-        this.doZ = false;
-        this.dpa = false;
-        this.cNC = 0L;
-        this.dpb = 0L;
-        this.doY = null;
-        ql("===== loading... =====");
+        this.drk = false;
+        this.drl = false;
+        this.cPQ = 0L;
+        this.drm = 0L;
+        this.drj = null;
+        qD("===== loading... =====");
     }
 
-    private void ql(String str) {
+    private void qD(String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.apps.al.e.dMc.ab(str);
+            com.baidu.swan.apps.al.e.dOg.ab(str);
         }
     }
 }

@@ -9,7 +9,6 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,28 +28,28 @@ public class VideoPasterRequestData extends HttpMessage {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
         addCommonParams();
         addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
-        addParam("pid", aVar.rc());
+        addParam("pid", aVar.ra());
         addParam("ac", "1");
         String ext = getExt(aVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
         }
         addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.qR()));
+        addParam("flr", String.valueOf(aVar.qP()));
         addParam("sw", String.valueOf(aVar.width()));
-        addParam(IXAdRequestInfo.SCREEN_HEIGHT, String.valueOf(aVar.height()));
+        addParam("sh", String.valueOf(aVar.height()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.qR()));
-        addParam("ft", aVar.qP());
+        addParam("fc", String.valueOf(aVar.qP()));
+        addParam("ft", aVar.qN());
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
     private static String getExt(com.baidu.afd.videopaster.a aVar) {
-        if (aVar == null || aVar.qS() == null || aVar.qS().isEmpty()) {
+        if (aVar == null || aVar.qQ() == null || aVar.qQ().isEmpty()) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : aVar.qS().entrySet()) {
+        for (Map.Entry<String, String> entry : aVar.qQ().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();

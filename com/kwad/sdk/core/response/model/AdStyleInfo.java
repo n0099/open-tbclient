@@ -5,21 +5,21 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdStyleInfo implements com.kwad.sdk.core.b, Serializable {
     private static final long serialVersionUID = 8719785586052076737L;
     public PlayDetailInfo playDetailInfo = new PlayDetailInfo();
     public PlayEndInfo playEndInfo = new PlayEndInfo();
     public FeedAdInfo feedAdInfo = new FeedAdInfo();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FeedAdInfo extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = -7200581738130214277L;
         public double heightRatio;
         public String templateConfig;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class PlayDetailInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = -1341583579732471663L;
         public int type;
@@ -28,7 +28,7 @@ public class AdStyleInfo implements com.kwad.sdk.core.b, Serializable {
         public ActionBarInfo actionBarInfo = new ActionBarInfo();
         public PatchAdInfo patchAdInfo = new PatchAdInfo();
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class ActionBarInfo implements com.kwad.sdk.core.b, Serializable {
             private static final long serialVersionUID = 8435676971458116236L;
             public long cardShowTime;
@@ -54,7 +54,7 @@ public class AdStyleInfo implements com.kwad.sdk.core.b, Serializable {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class DetailTopToolBarInfo implements com.kwad.sdk.core.b, Serializable {
             private static final long serialVersionUID = 7018855616083214769L;
             public String callButtonDescription;
@@ -83,7 +83,7 @@ public class AdStyleInfo implements com.kwad.sdk.core.b, Serializable {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class DetailWebCardInfo implements com.kwad.sdk.core.b, Serializable {
             private static final long serialVersionUID = -3413444348973947395L;
             public String cardData;
@@ -118,7 +118,7 @@ public class AdStyleInfo implements com.kwad.sdk.core.b, Serializable {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class PatchAdInfo implements com.kwad.sdk.core.b, Serializable {
             private static final long serialVersionUID = 2983090319692390903L;
             private String strongStyleAdMark;
@@ -197,7 +197,7 @@ public class AdStyleInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class PlayEndInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 4733855071604625289L;
         @NonNull
@@ -207,7 +207,7 @@ public class AdStyleInfo implements com.kwad.sdk.core.b, Serializable {
         public int showLandingPage;
         public int type;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class AdWebCardInfo implements com.kwad.sdk.core.b, Serializable {
             private static final long serialVersionUID = 5629721137592788675L;
             public String cardData;
@@ -245,7 +245,7 @@ public class AdStyleInfo implements com.kwad.sdk.core.b, Serializable {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class EndTopToolBarInfo implements com.kwad.sdk.core.b, Serializable {
             private static final long serialVersionUID = -3850938239125130621L;
             public String callButtonDescription;

@@ -1,7 +1,7 @@
 package aegon.chrome.base;
 
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Log {
     public static void e(String str, String str2, Object... objArr) {
         String formatLog = formatLog(str2, objArr);

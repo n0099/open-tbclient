@@ -1,6 +1,5 @@
 package com.bytedance.sdk.a.b;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.bytedance.sdk.a.b.a.b.g;
 import java.lang.ref.Reference;
@@ -12,22 +11,22 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class m {
     static final /* synthetic */ boolean c;
     private static final Executor d;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f5964b;
+    boolean f5966b;
     private final int e;
     private final long f;
     private final Runnable g;
-    private final Deque<com.bytedance.sdk.a.b.a.b.c> pja;
-    final com.bytedance.sdk.a.b.a.b.d pjb;
+    private final Deque<com.bytedance.sdk.a.b.a.b.c> ptp;
+    final com.bytedance.sdk.a.b.a.b.d ptq;
 
     static {
         c = !m.class.desiredAssertionStatus();
-        d = new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new SynchronousQueue(), com.bytedance.sdk.a.b.a.c.bm("OkHttp ConnectionPool", true));
+        d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), com.bytedance.sdk.a.b.a.c.bm("OkHttp ConnectionPool", true));
     }
 
     public m() {
@@ -56,8 +55,8 @@ public final class m {
                 }
             }
         };
-        this.pja = new ArrayDeque();
-        this.pjb = new com.bytedance.sdk.a.b.a.b.d();
+        this.ptp = new ArrayDeque();
+        this.ptq = new com.bytedance.sdk.a.b.a.b.d();
         this.e = i;
         this.f = timeUnit.toNanos(j);
         if (j <= 0) {
@@ -68,7 +67,7 @@ public final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.bytedance.sdk.a.b.a.b.c a(a aVar, com.bytedance.sdk.a.b.a.b.g gVar, d dVar) {
         if (c || Thread.holdsLock(this)) {
-            for (com.bytedance.sdk.a.b.a.b.c cVar : this.pja) {
+            for (com.bytedance.sdk.a.b.a.b.c cVar : this.ptp) {
                 if (cVar.a(aVar, dVar)) {
                     gVar.a(cVar, true);
                     return cVar;
@@ -82,8 +81,8 @@ public final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Socket a(a aVar, com.bytedance.sdk.a.b.a.b.g gVar) {
         if (c || Thread.holdsLock(this)) {
-            for (com.bytedance.sdk.a.b.a.b.c cVar : this.pja) {
-                if (cVar.a(aVar, null) && cVar.d() && cVar != gVar.emL()) {
+            for (com.bytedance.sdk.a.b.a.b.c cVar : this.ptp) {
+                if (cVar.a(aVar, null) && cVar.d() && cVar != gVar.epf()) {
                     return gVar.b(cVar);
                 }
             }
@@ -97,18 +96,18 @@ public final class m {
         if (!c && !Thread.holdsLock(this)) {
             throw new AssertionError();
         }
-        if (!this.f5964b) {
-            this.f5964b = true;
+        if (!this.f5966b) {
+            this.f5966b = true;
             d.execute(this.g);
         }
-        this.pja.add(cVar);
+        this.ptp.add(cVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean d(com.bytedance.sdk.a.b.a.b.c cVar) {
         if (c || Thread.holdsLock(this)) {
-            if (cVar.f5862a || this.e == 0) {
-                this.pja.remove(cVar);
+            if (cVar.f5864a || this.e == 0) {
+                this.ptp.remove(cVar);
                 return true;
             }
             notifyAll();
@@ -123,7 +122,7 @@ public final class m {
         synchronized (this) {
             int i = 0;
             int i2 = 0;
-            for (com.bytedance.sdk.a.b.a.b.c cVar2 : this.pja) {
+            for (com.bytedance.sdk.a.b.a.b.c cVar2 : this.ptp) {
                 if (a(cVar2, j) > 0) {
                     i2++;
                 } else {
@@ -138,15 +137,15 @@ public final class m {
                 }
             }
             if (j2 >= this.f || i > this.e) {
-                this.pja.remove(cVar);
-                com.bytedance.sdk.a.b.a.c.a(cVar.emD());
+                this.ptp.remove(cVar);
+                com.bytedance.sdk.a.b.a.c.a(cVar.eoX());
                 return 0L;
             } else if (i > 0) {
                 return this.f - j2;
             } else if (i2 > 0) {
                 return this.f;
             } else {
-                this.f5964b = false;
+                this.f5966b = false;
                 return -1L;
             }
         }
@@ -160,9 +159,9 @@ public final class m {
             if (reference.get() != null) {
                 i++;
             } else {
-                com.bytedance.sdk.a.b.a.g.e.eng().a("A connection to " + cVar.emC().ens().emp() + " was leaked. Did you forget to close a response body?", ((g.a) reference).f5869a);
+                com.bytedance.sdk.a.b.a.g.e.epz().a("A connection to " + cVar.eoW().epL().eoJ() + " was leaked. Did you forget to close a response body?", ((g.a) reference).f5871a);
                 list.remove(i);
-                cVar.f5862a = true;
+                cVar.f5864a = true;
                 if (list.isEmpty()) {
                     cVar.e = j - this.f;
                     return 0;

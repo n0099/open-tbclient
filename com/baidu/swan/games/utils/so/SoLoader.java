@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -23,7 +24,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SoLoader {
     private static final String TAG = "SoLoader";
     private StringBuilder sb = new StringBuilder();
@@ -35,20 +36,20 @@ public final class SoLoader {
     }
 
     public static f loadV8EngineSo(Context context) {
-        String aYV = e.aYV();
-        if (sLoadedLibraries.contains(aYV)) {
-            return f.aYX();
+        String aZh = e.aZh();
+        if (sLoadedLibraries.contains(aZh)) {
+            return f.aZj();
         }
         f a2 = e.a(context, new SoLoader());
         if (a2.isSuccess()) {
-            sLoadedLibraries.add(aYV);
+            sLoadedLibraries.add(aZh);
             return a2;
         }
         return a2;
     }
 
     public static String getV8SoDependentFilePath() {
-        if (!sLoadedLibraries.contains(e.aYV())) {
+        if (!sLoadedLibraries.contains(e.aZh())) {
             return null;
         }
         String v8SoDependentFilePath = e.getV8SoDependentFilePath();
@@ -70,11 +71,11 @@ public final class SoLoader {
     public static void load(Context context, String str, boolean z, boolean z2) {
         boolean load;
         if (!sLoadedLibraries.contains(str)) {
-            a aYL = a.aYL();
+            a aYX = a.aYX();
             if (!z) {
-                load = new SoLoader().loadInternalFromLocal(context, str, aYL, z2);
+                load = new SoLoader().loadInternalFromLocal(context, str, aYX, z2);
             } else {
-                load = load(context, str, aYL, z2);
+                load = load(context, str, aYX, z2);
             }
             if (load) {
                 sLoadedLibraries.add(str);
@@ -84,7 +85,7 @@ public final class SoLoader {
 
     private static boolean load(Context context, String str, b bVar, boolean z) {
         if (bVar == null) {
-            bVar = a.aYL();
+            bVar = a.aYX();
         }
         SoLoader soLoader = new SoLoader();
         if (soSources.size() == 0) {
@@ -247,7 +248,7 @@ public final class SoLoader {
                     }
                 }
                 try {
-                    fileChannel3 = new RandomAccessFile(file2, "rw").getChannel();
+                    fileChannel3 = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth).getChannel();
                 } catch (FileNotFoundException e2) {
                     e = e2;
                     fileChannel3 = null;

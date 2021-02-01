@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.R;
 import androidx.core.view.ViewCompat;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class AppCompatBackgroundHelper {
     private TintInfo mBackgroundTint;
     private TintInfo mInternalBackgroundTint;

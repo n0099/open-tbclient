@@ -6,7 +6,7 @@ import com.baidu.android.imrtc.utils.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMPushUploadManager;
 import com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BIMRtcTrackManager {
     public static final String TAG = "BIMRtcTrackManager";
 

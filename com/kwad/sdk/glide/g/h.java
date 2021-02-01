@@ -3,40 +3,40 @@ package com.kwad.sdk.glide.g;
 import androidx.annotation.NonNull;
 import java.io.FilterInputStream;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h extends FilterInputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f10026a;
+    private int f10028a;
 
     public h(@NonNull InputStream inputStream) {
         super(inputStream);
-        this.f10026a = Integer.MIN_VALUE;
+        this.f10028a = Integer.MIN_VALUE;
     }
 
     private long a(long j) {
-        if (this.f10026a == 0) {
+        if (this.f10028a == 0) {
             return -1L;
         }
-        return (this.f10026a == Integer.MIN_VALUE || j <= ((long) this.f10026a)) ? j : this.f10026a;
+        return (this.f10028a == Integer.MIN_VALUE || j <= ((long) this.f10028a)) ? j : this.f10028a;
     }
 
     private void b(long j) {
-        if (this.f10026a == Integer.MIN_VALUE || j == -1) {
+        if (this.f10028a == Integer.MIN_VALUE || j == -1) {
             return;
         }
-        this.f10026a = (int) (this.f10026a - j);
+        this.f10028a = (int) (this.f10028a - j);
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int available() {
-        return this.f10026a == Integer.MIN_VALUE ? super.available() : Math.min(this.f10026a, super.available());
+        return this.f10028a == Integer.MIN_VALUE ? super.available() : Math.min(this.f10028a, super.available());
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized void mark(int i) {
         super.mark(i);
-        this.f10026a = i;
+        this.f10028a = i;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -63,7 +63,7 @@ public class h extends FilterInputStream {
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized void reset() {
         super.reset();
-        this.f10026a = Integer.MIN_VALUE;
+        this.f10028a = Integer.MIN_VALUE;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream

@@ -11,7 +11,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Process;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CronetLibraryLoader {
     public static volatile boolean sInitThreadInitDone;
     public static final /* synthetic */ boolean $assertionsDisabled = !CronetLibraryLoader.class.desiredAssertionStatus();

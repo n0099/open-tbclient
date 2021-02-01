@@ -7,10 +7,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.person.holder.PersonInfoUserPicsHolder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends com.baidu.tieba.adapter.a<f, PersonInfoUserPicsHolder> {
     private TbPageContext mPageContext;
-    private View.OnClickListener mjf;
+    private View.OnClickListener msh;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
@@ -20,10 +20,10 @@ public class d extends com.baidu.tieba.adapter.a<f, PersonInfoUserPicsHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cP */
+    /* renamed from: cQ */
     public PersonInfoUserPicsHolder e(ViewGroup viewGroup) {
         PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.mContext).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.mPageContext);
-        personInfoUserPicsHolder.mjG.setItemOnclickListener(this.mjf);
+        personInfoUserPicsHolder.msI.setItemOnclickListener(this.msh);
         return personInfoUserPicsHolder;
     }
 
@@ -32,7 +32,7 @@ public class d extends com.baidu.tieba.adapter.a<f, PersonInfoUserPicsHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, f fVar, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
         if (fVar != null && personInfoUserPicsHolder != null) {
-            personInfoUserPicsHolder.duh();
+            personInfoUserPicsHolder.dwq();
             personInfoUserPicsHolder.a(fVar);
         }
         return view;

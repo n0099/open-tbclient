@@ -4,11 +4,11 @@ import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f7592a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] f7594a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String a(byte[] bArr) {
         if (bArr == null) {
@@ -29,9 +29,9 @@ public class j {
         for (int i4 = 0; i4 < i2; i4++) {
             int i5 = bArr[i4 + i] & 255;
             int i6 = i3 + 1;
-            cArr[i3] = f7592a[i5 >> 4];
+            cArr[i3] = f7594a[i5 >> 4];
             i3 = i6 + 1;
-            cArr[i6] = f7592a[i5 & 15];
+            cArr[i6] = f7594a[i5 & 15];
         }
         return new String(cArr, 0, i2 * 2);
     }

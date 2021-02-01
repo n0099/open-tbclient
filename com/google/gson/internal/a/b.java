@@ -1,17 +1,17 @@
 package com.google.gson.internal.a;
 
 import java.lang.reflect.AccessibleObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class b {
-    private static final b pKM;
+    private static final b pUR;
 
     public abstract void c(AccessibleObject accessibleObject);
 
     static {
-        pKM = com.google.gson.internal.c.eyK() < 9 ? new a() : new c();
+        pUR = com.google.gson.internal.c.eBc() < 9 ? new a() : new c();
     }
 
-    public static b ezr() {
-        return pKM;
+    public static b eBJ() {
+        return pUR;
     }
 }

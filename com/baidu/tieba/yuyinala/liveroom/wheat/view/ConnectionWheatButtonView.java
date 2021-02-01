@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import com.baidu.live.view.SafeFrameLayout;
-import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
-/* loaded from: classes10.dex */
+import com.baidu.tieba.yuyinala.liveroom.wheat.c.q;
+/* loaded from: classes11.dex */
 public class ConnectionWheatButtonView extends SafeFrameLayout implements View.OnClickListener {
-    private TextView oBc;
-    private LinearLayout oBd;
-    private TextView oBe;
-    private TextView oBf;
-    private a oBg;
+    private TextView oKM;
+    private LinearLayout oKN;
+    private TextView oKO;
+    private TextView oKP;
+    private a oKQ;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void ebK();
+        void edY();
 
-        void ebL();
+        void edZ();
 
-        void ebM();
+        void eea();
     }
 
     public ConnectionWheatButtonView(@NonNull Context context) {
@@ -43,86 +43,86 @@ public class ConnectionWheatButtonView extends SafeFrameLayout implements View.O
     }
 
     private void initListener() {
-        this.oBc.setOnClickListener(this);
-        this.oBe.setOnClickListener(this);
-        this.oBf.setOnClickListener(this);
-        this.oBc.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-        this.oBe.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-        this.oBf.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+        this.oKM.setOnClickListener(this);
+        this.oKO.setOnClickListener(this);
+        this.oKP.setOnClickListener(this);
+        this.oKM.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+        this.oKO.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+        this.oKP.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
     }
 
     private void initView() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.yuyin_layout_dialog_connection_wheat_button_view, this);
-        this.oBc = (TextView) inflate.findViewById(a.f.tv_apply_default_wheat_btn);
-        this.oBd = (LinearLayout) inflate.findViewById(a.f.team_fright_connection_wheat_button_container);
-        this.oBe = (TextView) inflate.findViewById(a.f.tv_apply_red_team_btn);
-        this.oBf = (TextView) inflate.findViewById(a.f.tv_apply_blue_team_btn);
+        this.oKM = (TextView) inflate.findViewById(a.f.tv_apply_default_wheat_btn);
+        this.oKN = (LinearLayout) inflate.findViewById(a.f.team_fright_connection_wheat_button_container);
+        this.oKO = (TextView) inflate.findViewById(a.f.tv_apply_red_team_btn);
+        this.oKP = (TextView) inflate.findViewById(a.f.tv_apply_blue_team_btn);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.oBc) {
-            if (this.oBg != null) {
-                this.oBg.ebK();
+        if (view == this.oKM) {
+            if (this.oKQ != null) {
+                this.oKQ.edY();
             }
-        } else if (view == this.oBe) {
-            if (this.oBg != null) {
-                this.oBg.ebL();
+        } else if (view == this.oKO) {
+            if (this.oKQ != null) {
+                this.oKQ.edZ();
             }
-        } else if (view == this.oBf && this.oBg != null) {
-            this.oBg.ebM();
+        } else if (view == this.oKP && this.oKQ != null) {
+            this.oKQ.eea();
         }
     }
 
     public void setListener(a aVar) {
-        this.oBg = aVar;
+        this.oKQ = aVar;
     }
 
     public void init() {
-        if (o.ebo().ebE()) {
-            this.oBc.setVisibility(8);
-            this.oBd.setVisibility(0);
+        if (q.edE().edR()) {
+            this.oKM.setVisibility(8);
+            this.oKN.setVisibility(0);
         } else {
-            this.oBc.setVisibility(0);
-            this.oBd.setVisibility(8);
+            this.oKM.setVisibility(0);
+            this.oKN.setVisibility(8);
         }
-        this.oBe.setSelected(false);
-        this.oBf.setSelected(true);
+        this.oKO.setSelected(false);
+        this.oKP.setSelected(true);
     }
 
-    public void aj(int i, int i2, int i3) {
+    public void ah(int i, int i2, int i3) {
         init();
-        this.oBe.setEnabled(true);
-        this.oBf.setEnabled(true);
-        this.oBe.setBackgroundResource(a.e.yuyin_sdk_wheat_connection_apply_btn_red_shape);
-        this.oBf.setBackgroundResource(a.e.yuyin_sdk_wheat_connection_apply_btn_blue_shape);
-        this.oBe.setTextColor(getContext().getResources().getColor(a.c.sdk_white_alpha100));
-        this.oBf.setTextColor(getContext().getResources().getColor(a.c.sdk_white_alpha100));
+        this.oKO.setEnabled(true);
+        this.oKP.setEnabled(true);
+        this.oKO.setBackgroundResource(a.e.yuyin_sdk_wheat_connection_apply_btn_red_shape);
+        this.oKP.setBackgroundResource(a.e.yuyin_sdk_wheat_connection_apply_btn_blue_shape);
+        this.oKO.setTextColor(getContext().getResources().getColor(a.c.sdk_white_alpha100));
+        this.oKP.setTextColor(getContext().getResources().getColor(a.c.sdk_white_alpha100));
         if (i > 0) {
             if (i2 > 0) {
-                this.oBc.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_cancel_text));
+                this.oKM.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_cancel_text));
                 if (i3 < 5) {
-                    this.oBf.setEnabled(false);
-                    this.oBf.setTextColor(getContext().getResources().getColor(a.c.sdk_color_B8B8B8));
-                    this.oBf.setBackgroundResource(a.e.yuyin_sdk_wheat_connection_wheat_button_gray_bg);
-                    this.oBe.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_cancel_text));
-                    this.oBf.setText(getContext().getString(a.h.yuyin_ala_apply_blue_team_btn));
+                    this.oKP.setEnabled(false);
+                    this.oKP.setTextColor(getContext().getResources().getColor(a.c.sdk_color_B8B8B8));
+                    this.oKP.setBackgroundResource(a.e.yuyin_sdk_wheat_connection_wheat_button_gray_bg);
+                    this.oKO.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_cancel_text));
+                    this.oKP.setText(getContext().getString(a.h.yuyin_ala_apply_blue_team_btn));
                     return;
                 }
-                this.oBe.setEnabled(false);
-                this.oBe.setTextColor(getContext().getResources().getColor(a.c.sdk_color_B8B8B8));
-                this.oBe.setBackgroundResource(a.e.yuyin_sdk_wheat_connection_wheat_button_gray_bg);
-                this.oBe.setText(getContext().getString(a.h.yuyin_ala_apply_red_team_btn));
-                this.oBf.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_cancel_text));
+                this.oKO.setEnabled(false);
+                this.oKO.setTextColor(getContext().getResources().getColor(a.c.sdk_color_B8B8B8));
+                this.oKO.setBackgroundResource(a.e.yuyin_sdk_wheat_connection_wheat_button_gray_bg);
+                this.oKO.setText(getContext().getString(a.h.yuyin_ala_apply_red_team_btn));
+                this.oKP.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_cancel_text));
                 return;
             }
-            this.oBc.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_request_text));
-            this.oBe.setText(getContext().getString(a.h.yuyin_ala_apply_red_team_btn));
-            this.oBf.setText(getContext().getString(a.h.yuyin_ala_apply_blue_team_btn));
+            this.oKM.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_request_text));
+            this.oKO.setText(getContext().getString(a.h.yuyin_ala_apply_red_team_btn));
+            this.oKP.setText(getContext().getString(a.h.yuyin_ala_apply_blue_team_btn));
             return;
         }
-        this.oBc.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_request_text));
-        this.oBe.setText(getContext().getString(a.h.yuyin_ala_apply_red_team_btn));
-        this.oBf.setText(getContext().getString(a.h.yuyin_ala_apply_blue_team_btn));
+        this.oKM.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_request_text));
+        this.oKO.setText(getContext().getString(a.h.yuyin_ala_apply_red_team_btn));
+        this.oKP.setText(getContext().getString(a.h.yuyin_ala_apply_blue_team_btn));
     }
 }

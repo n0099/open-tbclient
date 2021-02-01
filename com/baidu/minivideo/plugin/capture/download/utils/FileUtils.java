@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class FileUtils {
     private static final String DOWNLOAD_DIR = "UgcDownload";
 

@@ -2,7 +2,7 @@ package com.baidu.live.adp.framework.task;
 
 import com.baidu.live.adp.framework.FrameHelper;
 import com.baidu.live.adp.framework.message.SocketResponsedMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SocketMessageTask extends MessageTask {
     public static final int PRIORITY_HIGH = -1;
     public static final int PRIORITY_LOW = 1;
@@ -15,7 +15,7 @@ public class SocketMessageTask extends MessageTask {
     private boolean mNeedCompress;
     private Class<? extends SocketResponsedMessage> mResponsedClass;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum DupLicateMode {
         NONE,
         REMOVE_ME,

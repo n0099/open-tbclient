@@ -3,10 +3,10 @@ package com.baidu.swan.games.bdtls.model;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class i {
-    private String ebD;
-    private Integer ebE;
+    private String edK;
+    private Integer edL;
 
     public i() {
         this(null, null, 3, null);
@@ -16,7 +16,7 @@ public final class i {
         if (this != obj) {
             if (obj instanceof i) {
                 i iVar = (i) obj;
-                if (!p.l(this.ebD, iVar.ebD) || !p.l(this.ebE, iVar.ebE)) {
+                if (!p.l(this.edK, iVar.edK) || !p.l(this.edL, iVar.edL)) {
                 }
             }
             return false;
@@ -25,19 +25,19 @@ public final class i {
     }
 
     public int hashCode() {
-        String str = this.ebD;
+        String str = this.edK;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        Integer num = this.ebE;
+        Integer num = this.edL;
         return hashCode + (num != null ? num.hashCode() : 0);
     }
 
     public String toString() {
-        return "ResponseParams(responseMessage=" + this.ebD + ", responseStatusCode=" + this.ebE + ")";
+        return "ResponseParams(responseMessage=" + this.edK + ", responseStatusCode=" + this.edL + ")";
     }
 
     public i(String str, Integer num) {
-        this.ebD = str;
-        this.ebE = num;
+        this.edK = str;
+        this.edL = num;
     }
 
     public /* synthetic */ i(String str, Integer num, int i, o oVar) {
@@ -45,18 +45,18 @@ public final class i {
     }
 
     public final String getResponseMessage() {
-        return this.ebD;
+        return this.edK;
     }
 
-    public final void vK(String str) {
-        this.ebD = str;
+    public final void wd(String str) {
+        this.edK = str;
     }
 
-    public final Integer aUX() {
-        return this.ebE;
+    public final Integer aVj() {
+        return this.edL;
     }
 
     public final void h(Integer num) {
-        this.ebE = num;
+        this.edL = num;
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.tieba.frs.game.strategy.view;
 import android.view.View;
 /* loaded from: classes2.dex */
 public interface e {
-    boolean cGG();
+    boolean cHT();
 
-    void cZ(View view);
+    void cX(View view);
 
     int getArrowIndex();
 

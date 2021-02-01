@@ -2,10 +2,10 @@ package com.baidu.tieba.themeCenter.background;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetBgByCategory.DataReq;
 import tbclient.GetBgByCategory.GetBgByCategoryReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BackgroundGroupRequestMessage extends NetMessage {
     public BackgroundGroupRequestMessage() {
         super(1003033, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_GROUP);
@@ -15,7 +15,7 @@ public class BackgroundGroupRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetBgByCategoryReqIdl.Builder builder2 = new GetBgByCategoryReqIdl.Builder();
         builder2.data = builder.build(false);

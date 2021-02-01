@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class FragmentTransaction {
     public static final int TRANSIT_ENTER_MASK = 4096;
     public static final int TRANSIT_EXIT_MASK = 8192;

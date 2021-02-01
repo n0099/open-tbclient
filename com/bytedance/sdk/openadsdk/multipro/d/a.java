@@ -11,14 +11,14 @@ import com.bytedance.sdk.openadsdk.multipro.e;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f7409a;
+    private static Context f7411a;
 
     public static boolean a() {
-        if (f7409a == null || p.a() == null) {
+        if (f7411a == null || p.a() == null) {
             u.b("The context of SPHelper is null, please initialize sdk in main process");
             return false;
         }
@@ -36,15 +36,15 @@ public class a {
     }
 
     public static void a(Context context) {
-        f7409a = context == null ? p.a() : context.getApplicationContext();
+        f7411a = context == null ? p.a() : context.getApplicationContext();
     }
 
     private static Context c() {
-        return f7409a == null ? p.a() : f7409a;
+        return f7411a == null ? p.a() : f7411a;
     }
 
     private static String d() {
-        return e.f7413b + "/t_sp/";
+        return e.f7415b + "/t_sp/";
     }
 
     private static String b(String str) {

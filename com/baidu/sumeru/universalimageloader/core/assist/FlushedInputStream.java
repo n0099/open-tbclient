@@ -3,7 +3,7 @@ package com.baidu.sumeru.universalimageloader.core.assist;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class FlushedInputStream extends FilterInputStream {
     public FlushedInputStream(InputStream inputStream) {
         super(inputStream);

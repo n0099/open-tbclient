@@ -26,7 +26,7 @@ import java.io.StringReader;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LottieAnimationView extends ImageView {
     private static final String TAG = LottieAnimationView.class.getSimpleName();
     private String animationName;
@@ -56,6 +56,7 @@ public class LottieAnimationView extends ImageView {
         this.failureListener = new j<Throwable>() { // from class: com.baidu.live.lottie.LottieAnimationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.lottie.j
+            /* renamed from: f */
             public void onResult(Throwable th) {
                 throw new IllegalStateException("Unable to parse composition", th);
             }
@@ -80,6 +81,7 @@ public class LottieAnimationView extends ImageView {
         this.failureListener = new j<Throwable>() { // from class: com.baidu.live.lottie.LottieAnimationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.lottie.j
+            /* renamed from: f */
             public void onResult(Throwable th) {
                 throw new IllegalStateException("Unable to parse composition", th);
             }
@@ -104,6 +106,7 @@ public class LottieAnimationView extends ImageView {
         this.failureListener = new j<Throwable>() { // from class: com.baidu.live.lottie.LottieAnimationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.lottie.j
+            /* renamed from: f */
             public void onResult(Throwable th) {
                 throw new IllegalStateException("Unable to parse composition", th);
             }
@@ -209,7 +212,7 @@ public class LottieAnimationView extends ImageView {
         savedState.animationResId = this.animationResId;
         savedState.progress = this.lottieDrawable.getProgress();
         savedState.isAnimating = this.lottieDrawable.isAnimating();
-        savedState.BK = this.lottieDrawable.getImageAssetsFolder();
+        savedState.BL = this.lottieDrawable.getImageAssetsFolder();
         savedState.repeatMode = this.lottieDrawable.getRepeatMode();
         savedState.repeatCount = this.lottieDrawable.getRepeatCount();
         return savedState;
@@ -235,7 +238,7 @@ public class LottieAnimationView extends ImageView {
         if (savedState.isAnimating) {
             playAnimation();
         }
-        this.lottieDrawable.be(savedState.BK);
+        this.lottieDrawable.be(savedState.BL);
         setRepeatMode(savedState.repeatMode);
         setRepeatCount(savedState.repeatCount);
     }
@@ -561,7 +564,7 @@ public class LottieAnimationView extends ImageView {
 
     public long getDuration() {
         if (this.composition != null) {
-            return this.composition.hS();
+            return this.composition.hR();
         }
         return 0L;
     }
@@ -597,7 +600,7 @@ public class LottieAnimationView extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.live.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -609,12 +612,12 @@ public class LottieAnimationView extends ImageView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: dC */
+            /* renamed from: dI */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
         };
-        String BK;
+        String BL;
         String animationName;
         int animationResId;
         boolean isAnimating;
@@ -631,7 +634,7 @@ public class LottieAnimationView extends ImageView {
             this.animationName = parcel.readString();
             this.progress = parcel.readFloat();
             this.isAnimating = parcel.readInt() == 1;
-            this.BK = parcel.readString();
+            this.BL = parcel.readString();
             this.repeatMode = parcel.readInt();
             this.repeatCount = parcel.readInt();
         }
@@ -642,7 +645,7 @@ public class LottieAnimationView extends ImageView {
             parcel.writeString(this.animationName);
             parcel.writeFloat(this.progress);
             parcel.writeInt(this.isAnimating ? 1 : 0);
-            parcel.writeString(this.BK);
+            parcel.writeString(this.BL);
             parcel.writeInt(this.repeatMode);
             parcel.writeInt(this.repeatCount);
         }

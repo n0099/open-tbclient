@@ -14,14 +14,14 @@ import com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
 import com.bytedance.sdk.openadsdk.utils.ah;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class v implements TTAdManager {
 
     /* renamed from: a  reason: collision with root package name */
-    String f6685a = "com.union_test.toutiao";
+    String f6687a = "com.union_test.toutiao";
 
     /* renamed from: b  reason: collision with root package name */
-    String f6686b = "5001121";
+    String f6688b = "5001121";
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
@@ -174,7 +174,7 @@ public class v implements TTAdManager {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public boolean onlyVerityPlayable(String str, int i, String str2, String str3, String str4) {
-        if (this.f6685a.equals(p.a().getPackageName()) && this.f6686b.equals(i.c().e()) && !TextUtils.isEmpty(str)) {
+        if (this.f6687a.equals(p.a().getPackageName()) && this.f6688b.equals(i.c().e()) && !TextUtils.isEmpty(str)) {
             try {
                 Method a2 = ah.a("com.bytedance.sdk.openadsdk.TTC3Proxy", "verityPlayable", String.class, Integer.TYPE, String.class, String.class, String.class);
                 if (a2 != null) {

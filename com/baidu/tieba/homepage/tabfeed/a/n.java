@@ -9,7 +9,7 @@ import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout;
 /* loaded from: classes2.dex */
 public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, AdapterViewHolder<SpecialTopicLayout>> {
-    private s amu;
+    private s amk;
     private TbPageContext mPageContext;
 
     public n(TbPageContext tbPageContext) {
@@ -18,7 +18,7 @@ public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, Ad
     }
 
     public void a(s sVar) {
-        this.amu = sVar;
+        this.amk = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, Ad
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, SpecialColumnListData specialColumnListData, AdapterViewHolder<SpecialTopicLayout> adapterViewHolder) {
-        adapterViewHolder.qt().C(specialColumnListData);
+        adapterViewHolder.qr().C(specialColumnListData);
         return adapterViewHolder.getView();
     }
 }

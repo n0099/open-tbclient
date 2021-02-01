@@ -20,7 +20,7 @@ import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
     private static volatile d e;
     private volatile com.bytedance.sdk.openadsdk.j.b.c f;
@@ -32,17 +32,17 @@ public class d {
     private volatile boolean n;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f7245a = 163840;
+    private volatile int f7247a = 163840;
 
     /* renamed from: b  reason: collision with root package name */
-    private final SparseArray<Map<String, com.bytedance.sdk.openadsdk.j.b>> f7246b = new SparseArray<>(2);
+    private final SparseArray<Map<String, com.bytedance.sdk.openadsdk.j.b>> f7248b = new SparseArray<>(2);
     private final HashSet<a> i = new HashSet<>();
-    private final b.InterfaceC1018b j = new b.InterfaceC1018b() { // from class: com.bytedance.sdk.openadsdk.j.d.1
-        @Override // com.bytedance.sdk.openadsdk.j.b.InterfaceC1018b
+    private final b.InterfaceC1022b j = new b.InterfaceC1022b() { // from class: com.bytedance.sdk.openadsdk.j.d.1
+        @Override // com.bytedance.sdk.openadsdk.j.b.InterfaceC1022b
         public void a(com.bytedance.sdk.openadsdk.j.b bVar) {
             int f = bVar.f();
-            synchronized (d.this.f7246b) {
-                Map map = (Map) d.this.f7246b.get(f);
+            synchronized (d.this.f7248b) {
+                Map map = (Map) d.this.f7248b.get(f);
                 if (map != null) {
                     map.remove(bVar.h);
                 }
@@ -67,7 +67,7 @@ public class d {
 
     public void a(int i) {
         if (i > 0) {
-            this.f7245a = i;
+            this.f7247a = i;
         }
         if (e.c) {
             Log.i("TAG_PROXY_Preloader", "MaxPreloadSize: " + i);
@@ -76,8 +76,8 @@ public class d {
 
     private d() {
         this.c.a((ThreadPoolExecutor) this.d);
-        this.f7246b.put(0, new HashMap());
-        this.f7246b.put(1, new HashMap());
+        this.f7248b.put(0, new HashMap());
+        this.f7248b.put(1, new HashMap());
     }
 
     public synchronized void a(long j, long j2, long j3) {
@@ -125,7 +125,7 @@ public class d {
                 Iterator it = hashSet.iterator();
                 while (it.hasNext()) {
                     a aVar = (a) it.next();
-                    a(aVar.f7253a, aVar.f7254b, aVar.c, aVar.d, aVar.e, aVar.f);
+                    a(aVar.f7255a, aVar.f7256b, aVar.c, aVar.d, aVar.e, aVar.f);
                     if (e.c) {
                         Log.i("TAG_PROXY_Preloader", "setCurrentPlayKey, resume preload: " + aVar.d);
                     }
@@ -136,11 +136,11 @@ public class d {
         }
         int i = e.h;
         if (i == 3 || i == 2) {
-            synchronized (this.f7246b) {
-                int size = this.f7246b.size();
+            synchronized (this.f7248b) {
+                int size = this.f7248b.size();
                 int i2 = 0;
                 while (i2 < size) {
-                    Map<String, com.bytedance.sdk.openadsdk.j.b> map = this.f7246b.get(this.f7246b.keyAt(i2));
+                    Map<String, com.bytedance.sdk.openadsdk.j.b> map = this.f7248b.get(this.f7248b.keyAt(i2));
                     if (map != null) {
                         Collection<com.bytedance.sdk.openadsdk.j.b> values = map.values();
                         if (values != null && !values.isEmpty()) {
@@ -176,8 +176,8 @@ public class d {
                 }
             }
         } else if (i == 1) {
-            synchronized (this.f7246b) {
-                Map<String, com.bytedance.sdk.openadsdk.j.b> map2 = this.f7246b.get(com.bytedance.sdk.openadsdk.j.b.b.a(z));
+            synchronized (this.f7248b) {
+                Map<String, com.bytedance.sdk.openadsdk.j.b> map2 = this.f7248b.get(com.bytedance.sdk.openadsdk.j.b.b.a(z));
                 remove = map2 != null ? map2.remove(str) : null;
             }
             if (remove != null) {
@@ -201,7 +201,7 @@ public class d {
                 Log.e("TAG_PROXY_Preloader", "cache or videoProxyDB null in Preloader!!!");
             }
         } else if (!TextUtils.isEmpty(str) && strArr != null && strArr.length > 0) {
-            int i2 = i <= 0 ? this.f7245a : i;
+            int i2 = i <= 0 ? this.f7247a : i;
             String a2 = z2 ? str : com.bytedance.sdk.openadsdk.j.g.b.a(str);
             File d = aVar.d(a2);
             if (d != null && d.length() >= i2) {
@@ -213,8 +213,8 @@ public class d {
                     Log.w("TAG_PROXY_Preloader", "has running proxy task, skip preload for key: " + str);
                 }
             } else {
-                synchronized (this.f7246b) {
-                    Map<String, com.bytedance.sdk.openadsdk.j.b> map2 = this.f7246b.get(z ? 1 : 0);
+                synchronized (this.f7248b) {
+                    Map<String, com.bytedance.sdk.openadsdk.j.b> map2 = this.f7248b.get(z ? 1 : 0);
                     if (!map2.containsKey(a2)) {
                         a aVar2 = new a(z, z2, i2, str, map, strArr);
                         String str2 = this.m;
@@ -248,7 +248,7 @@ public class d {
                             for (int i4 = 0; i4 < size; i4++) {
                                 i.b bVar = a3.get(i4);
                                 if (bVar != null) {
-                                    arrayList2.add(new i.b(bVar.f7301a, bVar.f7302b));
+                                    arrayList2.add(new i.b(bVar.f7303a, bVar.f7304b));
                                 }
                             }
                             arrayList = arrayList2;
@@ -272,8 +272,8 @@ public class d {
                 @Override // java.lang.Runnable
                 public void run() {
                     com.bytedance.sdk.openadsdk.j.b bVar;
-                    synchronized (d.this.f7246b) {
-                        Map map = (Map) d.this.f7246b.get(com.bytedance.sdk.openadsdk.j.b.b.a(z));
+                    synchronized (d.this.f7248b) {
+                        Map map = (Map) d.this.f7248b.get(com.bytedance.sdk.openadsdk.j.b.b.a(z));
                         if (map != null) {
                             bVar = (com.bytedance.sdk.openadsdk.j.b) map.remove(z2 ? str : com.bytedance.sdk.openadsdk.j.g.b.a(str));
                         } else {
@@ -293,10 +293,10 @@ public class d {
             @Override // java.lang.Runnable
             public void run() {
                 ArrayList<com.bytedance.sdk.openadsdk.j.b> arrayList = new ArrayList();
-                synchronized (d.this.f7246b) {
-                    int size = d.this.f7246b.size();
+                synchronized (d.this.f7248b) {
+                    int size = d.this.f7248b.size();
                     for (int i = 0; i < size; i++) {
-                        Map map = (Map) d.this.f7246b.get(d.this.f7246b.keyAt(i));
+                        Map map = (Map) d.this.f7248b.get(d.this.f7248b.keyAt(i));
                         if (map != null) {
                             arrayList.addAll(map.values());
                             map.clear();
@@ -315,22 +315,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final boolean f7253a;
+        final boolean f7255a;
 
         /* renamed from: b  reason: collision with root package name */
-        final boolean f7254b;
+        final boolean f7256b;
         final int c;
         final String d;
         final Map<String, String> e;
         final String[] f;
 
         a(boolean z, boolean z2, int i, String str, Map<String, String> map, String[] strArr) {
-            this.f7253a = z;
-            this.f7254b = z2;
+            this.f7255a = z;
+            this.f7256b = z2;
             this.c = i;
             this.d = str;
             this.e = map;
@@ -345,45 +345,45 @@ public class d {
                 return false;
             }
             a aVar = (a) obj;
-            if (this.f7253a == aVar.f7253a && this.f7254b == aVar.f7254b && this.c == aVar.c) {
+            if (this.f7255a == aVar.f7255a && this.f7256b == aVar.f7256b && this.c == aVar.c) {
                 return this.d.equals(aVar.d);
             }
             return false;
         }
 
         public int hashCode() {
-            return ((((((this.f7253a ? 1 : 0) * 31) + (this.f7254b ? 1 : 0)) * 31) + this.c) * 31) + this.d.hashCode();
+            return ((((((this.f7255a ? 1 : 0) * 31) + (this.f7256b ? 1 : 0)) * 31) + this.c) * 31) + this.d.hashCode();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class b<T> extends LinkedBlockingDeque<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private ThreadPoolExecutor f7255a;
+        private ThreadPoolExecutor f7257a;
 
         private b() {
         }
 
         public void a(ThreadPoolExecutor threadPoolExecutor) {
             synchronized (this) {
-                if (this.f7255a != null) {
+                if (this.f7257a != null) {
                     throw new IllegalStateException("You can only call setExecutor() once!");
                 }
                 if (threadPoolExecutor == null) {
                     throw new NullPointerException("executor argument can't be null!");
                 }
-                this.f7255a = threadPoolExecutor;
+                this.f7257a = threadPoolExecutor;
             }
         }
 
         @Override // java.util.concurrent.LinkedBlockingDeque, java.util.Queue, java.util.concurrent.BlockingDeque, java.util.concurrent.BlockingQueue, java.util.Deque
         public boolean offer(T t) {
             synchronized (this) {
-                int poolSize = this.f7255a.getPoolSize();
-                int activeCount = this.f7255a.getActiveCount();
-                int maximumPoolSize = this.f7255a.getMaximumPoolSize();
+                int poolSize = this.f7257a.getPoolSize();
+                int activeCount = this.f7257a.getActiveCount();
+                int maximumPoolSize = this.f7257a.getMaximumPoolSize();
                 if (activeCount >= poolSize && poolSize < maximumPoolSize) {
                     if (e.c) {
                         Log.i("TAG_PROXY_TT", "create new preloader thread");

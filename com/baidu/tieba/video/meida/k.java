@@ -1,5 +1,5 @@
 package com.baidu.tieba.video.meida;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k {
     public void a(int i, int i2, double[] dArr, int[] iArr, double[] dArr2) {
         int i3 = iArr[0];

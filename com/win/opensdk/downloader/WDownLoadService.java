@@ -32,7 +32,7 @@ import java.lang.ref.WeakReference;
 public class WDownLoadService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13744a;
+    private String f13746a;
 
     /* renamed from: case  reason: not valid java name */
     private String f51case;
@@ -54,14 +54,14 @@ public class WDownLoadService extends Service {
         final Info info = null;
         try {
             this.f51case = intent.getStringExtra("down_load_apk_url");
-            this.f13744a = intent.getStringExtra("down_load_pkg_name");
-            this.f53java = bv.iP(getApplicationContext()) + File.separator + "win" + File.separator + bv.aaH(this.f51case);
+            this.f13746a = intent.getStringExtra("down_load_pkg_name");
+            this.f53java = bv.iS(getApplicationContext()) + File.separator + "win" + File.separator + bv.abI(this.f51case);
             File parentFile = new File(this.f53java).getParentFile();
             if (!parentFile.exists()) {
                 parentFile.mkdirs();
             }
             try {
-                info = (Info) az.bM(getApplicationContext(), this.f13744a);
+                info = (Info) az.bL(getApplicationContext(), this.f13746a);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -70,22 +70,22 @@ public class WDownLoadService extends Service {
             } else {
                 java(info, getString(d.e.wdownload_start), getString(d.e.wdownload_start), 0);
             }
-            w.iK(getApplicationContext()).b(new x(info), this.f51case).hu("desc", w.aaH(this.f53java)).eGz();
+            w.iN(getApplicationContext()).b(new x(info), this.f51case).hB("desc", w.abI(this.f53java)).eIP();
             try {
                 z.a(info, 300);
                 if (info != null && !TextUtils.isEmpty(info.getVv_downs_urls())) {
-                    z.aaE(info.getVv_downs_urls());
+                    z.abF(info.getVv_downs_urls());
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            bu eHa = bu.eHa();
+            bu eJq = bu.eJq();
             String str = this.f51case;
             String str2 = this.f53java;
             bt btVar = new bt() { // from class: com.win.opensdk.downloader.WDownLoadService.1
                 @Override // com.win.opensdk.bt
-                public final void RJ(int i3) {
-                    bu.eHa().pYM = true;
+                public final void Se(int i3) {
+                    bu.eJq().qiQ = true;
                     if (info != null) {
                         WDownLoadService.this.java(info, info.getDl_name(), WDownLoadService.this.getString(d.e.wdownload_processing), i3);
                     } else {
@@ -94,8 +94,8 @@ public class WDownLoadService extends Service {
                 }
 
                 @Override // com.win.opensdk.bt
-                public final void eGz() {
-                    bu.eHa().pYM = false;
+                public final void eIP() {
+                    bu.eJq().qiQ = false;
                     if (info != null) {
                         WDownLoadService.this.java(info, info.getDl_name(), WDownLoadService.this.getString(d.e.wdownload_failed_msg), 0);
                     } else {
@@ -103,25 +103,25 @@ public class WDownLoadService extends Service {
                     }
                     WDownLoadService.m77java(WDownLoadService.this);
                     WDownLoadService.this.stopSelf();
-                    w.iK(WDownLoadService.this.getApplicationContext()).b(new x(info), 1).eGz();
+                    w.iN(WDownLoadService.this.getApplicationContext()).b(new x(info), 1).eIP();
                 }
 
                 @Override // com.win.opensdk.bt
-                public final void eGA() {
-                    bu.eHa().pYM = false;
-                    w.iK(WDownLoadService.this.getApplicationContext()).b(new x(info), 200).eGz();
+                public final void eIQ() {
+                    bu.eJq().qiQ = false;
+                    w.iN(WDownLoadService.this.getApplicationContext()).b(new x(info), 200).eIP();
                     Info info2 = info;
                     try {
                         z.a(info2, 301);
                         if (info2 != null && !TextUtils.isEmpty(info2.getVv_downf_urls())) {
-                            z.aaE(info2.getVv_downf_urls());
+                            z.abF(info2.getVv_downf_urls());
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
                     WDownLoadService.java(WDownLoadService.this, info);
                     WDownLoadService.this.stopSelf();
-                    w.iK(WDownLoadService.this.getApplicationContext()).g(new x(info), WDownLoadService.this.f53java).eGz();
+                    w.iN(WDownLoadService.this.getApplicationContext()).g(new x(info), WDownLoadService.this.f53java).eIP();
                     bv.a(info, WDownLoadService.this.getApplicationContext(), WDownLoadService.this.f53java);
                 }
 
@@ -133,8 +133,8 @@ public class WDownLoadService extends Service {
                             Toast.makeText(WDownLoadService.this.getApplicationContext(), d.e.win_toast_network_error2, 0).show();
                         }
                     });
-                    bu.eHa().pYM = false;
-                    w.iK(WDownLoadService.this.getApplicationContext()).b(new x(info), 2).eGz();
+                    bu.eJq().qiQ = false;
+                    w.iN(WDownLoadService.this.getApplicationContext()).b(new x(info), 2).eIP();
                     if (info != null) {
                         WDownLoadService.this.java(info, info.getDl_name(), WDownLoadService.this.getString(d.e.wdownload_failed_msg), 0);
                     } else {
@@ -148,7 +148,7 @@ public class WDownLoadService extends Service {
                     WDownLoadService.this.stopSelf();
                 }
             };
-            if (!eHa.pYM) {
+            if (!eJq.qiQ) {
                 File file = new File(str2.substring(0, str2.lastIndexOf("/") + 1));
                 File file2 = new File(str2);
                 if (!file.exists()) {
@@ -161,13 +161,13 @@ public class WDownLoadService extends Service {
                         e3.printStackTrace();
                     }
                 }
-                eHa.qay = new i(str, str2, btVar);
-                new WeakReference(eHa.qaj.submit(eHa.qay));
+                eJq.qkC = new i(str, str2, btVar);
+                new WeakReference(eJq.qkn.submit(eJq.qkC));
             }
         } catch (Exception e4) {
             e4.printStackTrace();
             if (info != null) {
-                w.iK(getApplicationContext()).a(new x(info), 3).hu("desc", e4.getMessage()).eGz();
+                w.iN(getApplicationContext()).a(new x(info), 3).hB("desc", e4.getMessage()).eIP();
             }
         }
         return super.onStartCommand(intent, i, i2);
@@ -230,7 +230,7 @@ public class WDownLoadService extends Service {
     public void onDestroy() {
         super.onDestroy();
         try {
-            bu.eHa().pYM = false;
+            bu.eJq().qiQ = false;
             if (this.f52java != null) {
                 this.f52java.cancel(232);
             }

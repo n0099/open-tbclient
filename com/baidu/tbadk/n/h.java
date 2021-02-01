@@ -1,35 +1,35 @@
 package com.baidu.tbadk.n;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class h extends g {
     public long allDataReadTime;
-    public long chW;
+    public long cmm;
     public int errCode;
     public HashMap<String, String> extra;
-    public long fHa;
-    public long fHb;
-    public long fHc;
-    public long fHd;
-    public long fHe;
-    public long fHf;
-    public long fHg;
-    public long fHh;
-    public long fHi;
-    public long fHj;
-    public long fHk;
-    public long fHl;
-    public long fHm;
-    public boolean fHn;
-    public long fHo;
-    public long fHp;
-    public boolean fHq;
-    public long fHr;
-    public long fHs;
-    public long fHt;
-    public long fHu;
+    public long fJA;
+    public boolean fJB;
+    public long fJC;
+    public long fJD;
+    public long fJE;
+    public long fJF;
+    public long fJl;
+    public long fJm;
+    public long fJn;
+    public long fJo;
+    public long fJp;
+    public long fJq;
+    public long fJr;
+    public long fJs;
+    public long fJt;
+    public long fJu;
+    public long fJv;
+    public long fJw;
+    public long fJx;
+    public boolean fJy;
+    public long fJz;
     public long firstByteReachTime;
     public boolean isSuccess;
     public long sequenceID;
@@ -39,86 +39,86 @@ public class h extends g {
     public h() {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.fHi = 0L;
-        this.fHk = 0L;
-        this.fHl = 0L;
-        this.fHm = 0L;
-        this.fHo = 0L;
-        this.fHp = 0L;
-        this.fHq = false;
+        this.fJt = 0L;
+        this.fJv = 0L;
+        this.fJw = 0L;
+        this.fJx = 0L;
+        this.fJz = 0L;
+        this.fJA = 0L;
+        this.fJB = false;
         this.extra = new HashMap<>();
     }
 
     public h(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.fHi = 0L;
-        this.fHk = 0L;
-        this.fHl = 0L;
-        this.fHm = 0L;
-        this.fHo = 0L;
-        this.fHp = 0L;
-        this.fHq = false;
+        this.fJt = 0L;
+        this.fJv = 0L;
+        this.fJw = 0L;
+        this.fJx = 0L;
+        this.fJz = 0L;
+        this.fJA = 0L;
+        this.fJB = false;
         this.extra = new HashMap<>();
         if (responsedMessage != null) {
             this.mSubType = i;
-            this.fHn = z;
-            if (this.fHn) {
-                this.fHm = responsedMessage.getDownSize();
-                this.fHr = responsedMessage.getOrginalMessage().getClientLogID();
+            this.fJy = z;
+            if (this.fJy) {
+                this.fJx = responsedMessage.getDownSize();
+                this.fJC = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.fHo = responsedMessage.performanceData.mHttpRetryNum;
-                this.fHp = responsedMessage.performanceData.mHttpRetryCostTime;
+                this.fJz = responsedMessage.performanceData.mHttpRetryNum;
+                this.fJA = responsedMessage.performanceData.mHttpRetryCostTime;
                 this.socketErrNo = responsedMessage.performanceData.mSocketErrNo;
                 this.socketCostTime = responsedMessage.performanceData.mSocketCostTime;
             } else {
-                this.fHl = responsedMessage.getDownSize();
+                this.fJw = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.fHa = j;
-            this.fHb = j4;
-            this.fHc = j2;
-            this.fHj = j3;
-            this.fHh = j5;
+            this.fJl = j;
+            this.fJm = j4;
+            this.fJn = j2;
+            this.fJu = j3;
+            this.fJs = j5;
             this.isSuccess = !responsedMessage.hasError();
-            this.chW = responsedMessage.performanceData.mQueneTime;
-            this.fHd = responsedMessage.performanceData.mNetConTime;
-            this.fHe = responsedMessage.performanceData.mNetRWTime;
+            this.cmm = responsedMessage.performanceData.mQueneTime;
+            this.fJo = responsedMessage.performanceData.mNetConTime;
+            this.fJp = responsedMessage.performanceData.mNetRWTime;
             this.firstByteReachTime = responsedMessage.performanceData.mFirstByteReachTime;
             this.allDataReadTime = responsedMessage.performanceData.mAllDataReadTime;
-            this.fHf = responsedMessage.performanceData.mCompressTime;
-            this.fHg = responsedMessage.performanceData.mAnalysisTime;
-            this.fHi = responsedMessage.performanceData.mTaskWaitTime;
-            this.fHi += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.fJq = responsedMessage.performanceData.mCompressTime;
+            this.fJr = responsedMessage.performanceData.mAnalysisTime;
+            this.fJt = responsedMessage.performanceData.mTaskWaitTime;
+            this.fJt += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.fHq = z2;
-            this.fHk = j6;
+            this.fJB = z2;
+            this.fJv = j6;
         }
     }
 
-    public void bDL() {
-        m mVar = (m) k.bDO().rq(this.mSubType);
+    public void bEd() {
+        m mVar = (m) k.bEg().rv(this.mSubType);
         if (mVar != null) {
             mVar.a(this);
         }
     }
 
-    public void lj(boolean z) {
-        m mVar = (m) k.bDO().rq(this.mSubType);
+    public void lm(boolean z) {
+        m mVar = (m) k.bEg().rv(this.mSubType);
         if (mVar != null) {
             mVar.a(this, z);
         }
     }
 
-    public void rp(int i) {
-        m mVar = (m) k.bDO().rq(this.mSubType);
+    public void ru(int i) {
+        m mVar = (m) k.bEg().rv(this.mSubType);
         if (mVar != null) {
             mVar.a(this, i);
         }
     }
 
-    public void ee(String str, String str2) {
-        if (!at.isEmpty(str) && !at.isEmpty(str2)) {
+    public void dZ(String str, String str2) {
+        if (!au.isEmpty(str) && !au.isEmpty(str2)) {
             this.extra.put(str, str2);
         }
     }

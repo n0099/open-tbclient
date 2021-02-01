@@ -5,19 +5,19 @@ import com.baidu.adp.widget.ListView.n;
 import com.baidu.tieba.card.data.k;
 /* loaded from: classes2.dex */
 public class d implements n {
-    public String aEU;
-    public String jUe;
-    public boolean jUf;
-    public a[] jUg = new a[3];
+    public String aHq;
+    public String kbF;
+    public boolean kbG;
+    public a[] kbH = new a[3];
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return k.ivc;
+        return k.iAM;
     }
 
-    public String cNi() {
+    public String cPe() {
         StringBuilder sb = new StringBuilder();
-        for (a aVar : this.jUg) {
+        for (a aVar : this.kbH) {
             sb.append(aVar.getForumId()).append(',');
         }
         sb.delete(sb.length() - 1, sb.length());
@@ -27,35 +27,35 @@ public class d implements n {
     /* loaded from: classes2.dex */
     public static class a implements n {
         private long forumId;
-        private String iGq;
-        private String jUh;
-        private int jUi;
-        private int jUj;
-        private boolean jUk;
-        private String jwp;
-        private long jzm;
+        private String iLZ;
+        private String jBV;
+        private long jER;
+        private String kbI;
+        private int kbJ;
+        private int kbK;
+        private boolean kbL;
         private String slogan;
 
         @Override // com.baidu.adp.widget.ListView.n
         public BdUniqueId getType() {
-            return k.ivc;
+            return k.iAM;
         }
 
-        public String cNj() {
-            return this.jwp;
+        public String cPf() {
+            return this.jBV;
         }
 
-        public a Le(String str) {
-            this.jwp = str;
+        public a LP(String str) {
+            this.jBV = str;
             return this;
         }
 
-        public String cNk() {
-            return this.jUh;
+        public String cPg() {
+            return this.kbI;
         }
 
-        public a Lf(String str) {
-            this.jUh = str;
+        public a LQ(String str) {
+            this.kbI = str;
             return this;
         }
 
@@ -63,44 +63,44 @@ public class d implements n {
             return this.slogan;
         }
 
-        public a Lg(String str) {
+        public a LR(String str) {
             this.slogan = str;
             return this;
         }
 
-        public String cNl() {
-            return this.iGq;
+        public String cPh() {
+            return this.iLZ;
         }
 
-        public a Lh(String str) {
-            this.iGq = str;
+        public a LS(String str) {
+            this.iLZ = str;
             return this;
         }
 
-        public int cNm() {
-            return this.jUi;
+        public int cPi() {
+            return this.kbJ;
         }
 
-        public a Bg(int i) {
-            this.jUi = i;
+        public a Bw(int i) {
+            this.kbJ = i;
             return this;
         }
 
-        public int cNn() {
-            return this.jUj;
+        public int cPj() {
+            return this.kbK;
         }
 
-        public a Bh(int i) {
-            this.jUj = i;
+        public a Bx(int i) {
+            this.kbK = i;
             return this;
         }
 
-        public boolean cNo() {
-            return this.jUk;
+        public boolean cPk() {
+            return this.kbL;
         }
 
-        public a rM(boolean z) {
-            this.jUk = z;
+        public a rY(boolean z) {
+            this.kbL = z;
             return this;
         }
 
@@ -117,12 +117,12 @@ public class d implements n {
             return this;
         }
 
-        public long cue() {
-            return this.jzm;
+        public long cvq() {
+            return this.jER;
         }
 
-        public a gy(long j) {
-            this.jzm = j;
+        public a gD(long j) {
+            this.jER = j;
             return this;
         }
     }

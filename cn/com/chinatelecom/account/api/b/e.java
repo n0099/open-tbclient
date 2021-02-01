@@ -1,5 +1,5 @@
 package cn.com.chinatelecom.account.api.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: b  reason: collision with root package name */

@@ -1,7 +1,7 @@
 package com.baidu.mobads;
 
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface AdViewListener {
     void onAdClick(JSONObject jSONObject);
 

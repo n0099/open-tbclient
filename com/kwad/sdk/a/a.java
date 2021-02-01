@@ -26,15 +26,15 @@ import com.kwad.sdk.utils.s;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends AbstractKsNativeAd {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private AdTemplate f8125a;
+    private AdTemplate f8127a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AdInfo f8126b;
+    private AdInfo f8128b;
     @Nullable
     private com.kwad.sdk.core.download.b.b c;
     @Nullable
@@ -81,20 +81,20 @@ public class a extends AbstractKsNativeAd {
     };
 
     public a(@NonNull AdTemplate adTemplate) {
-        this.f8125a = adTemplate;
-        this.f8126b = c.j(this.f8125a);
-        if (com.kwad.sdk.core.response.b.a.y(this.f8126b)) {
-            this.c = new com.kwad.sdk.core.download.b.b(this.f8125a);
+        this.f8127a = adTemplate;
+        this.f8128b = c.j(this.f8127a);
+        if (com.kwad.sdk.core.response.b.a.y(this.f8128b)) {
+            this.c = new com.kwad.sdk.core.download.b.b(this.f8127a);
         }
-        KSImageLoader.preloadImage(com.kwad.sdk.core.response.b.a.c(this.f8126b), this.f8125a);
+        KSImageLoader.preloadImage(com.kwad.sdk.core.response.b.a.c(this.f8128b), this.f8127a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final View view, final s.a aVar) {
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f8125a, new a.InterfaceC1088a() { // from class: com.kwad.sdk.a.a.3
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f8127a, new a.InterfaceC1092a() { // from class: com.kwad.sdk.a.a.3
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
             public void a() {
-                com.kwad.sdk.core.report.b.a(a.this.f8125a, aVar);
+                com.kwad.sdk.core.report.b.a(a.this.f8127a, aVar);
                 if (a.this.d != null) {
                     a.this.d.onAdClicked(view, a.this);
                 }
@@ -108,24 +108,24 @@ public class a extends AbstractKsNativeAd {
             b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
             viewGroup.addView(b2);
         }
-        b2.setViewCallback(new a.InterfaceC1099a() { // from class: com.kwad.sdk.a.a.4
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1099a
+        b2.setViewCallback(new a.InterfaceC1103a() { // from class: com.kwad.sdk.a.a.4
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
             public void a() {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1099a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
             public void a(View view) {
-                if (!a.this.f8125a.mPvReported && a.this.d != null) {
+                if (!a.this.f8127a.mPvReported && a.this.d != null) {
                     a.this.d.onAdShow(a.this);
                 }
-                com.kwad.sdk.core.report.b.a(a.this.f8125a, (JSONObject) null);
+                com.kwad.sdk.core.report.b.a(a.this.f8127a, (JSONObject) null);
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1099a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
             public void a(boolean z) {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1099a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
             public void b() {
             }
         });
@@ -182,7 +182,7 @@ public class a extends AbstractKsNativeAd {
     @Nullable
     /* renamed from: a */
     public com.kwad.sdk.internal.api.a getVideoCoverImage() {
-        AdInfo.AdMaterialInfo.MaterialFeature E = com.kwad.sdk.core.response.b.a.E(this.f8126b);
+        AdInfo.AdMaterialInfo.MaterialFeature E = com.kwad.sdk.core.response.b.a.E(this.f8128b);
         if (TextUtils.isEmpty(E.coverUrl)) {
             return null;
         }
@@ -191,89 +191,89 @@ public class a extends AbstractKsNativeAd {
 
     @NonNull
     public AdTemplate b() {
-        return this.f8125a;
+        return this.f8127a;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getActionDescription() {
-        return com.kwad.sdk.core.response.b.a.w(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.w(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAdDescription() {
-        return com.kwad.sdk.core.response.b.a.n(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.n(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAdSource() {
-        return com.kwad.sdk.core.response.b.a.v(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.v(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAppDownloadCountDes() {
-        return com.kwad.sdk.core.response.b.a.t(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.t(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAppIconUrl() {
-        return com.kwad.sdk.core.response.b.a.o(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.o(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public String getAppName() {
-        return com.kwad.sdk.core.response.b.a.q(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.q(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAppPackageName() {
-        return com.kwad.sdk.core.response.b.a.s(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.s(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public long getAppPackageSize() {
-        return com.kwad.sdk.core.response.b.a.ag(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.ag(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAppPrivacyUrl() {
-        return com.kwad.sdk.core.response.b.a.ae(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.ae(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public float getAppScore() {
-        return com.kwad.sdk.core.response.b.a.u(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.u(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAppVersion() {
-        return com.kwad.sdk.core.response.b.a.af(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.af(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getCorporationName() {
-        return com.kwad.sdk.core.response.b.a.ac(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.ac(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.b.a.A(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.A(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public List<KsImage> getImageList() {
         ArrayList arrayList = new ArrayList();
-        AdInfo j = c.j(this.f8125a);
-        int L = com.kwad.sdk.core.response.b.a.L(this.f8126b);
+        AdInfo j = c.j(this.f8127a);
+        int L = com.kwad.sdk.core.response.b.a.L(this.f8128b);
         if (L == 2 || L == 3) {
             for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : j.adMaterialInfo.materialFeatureList) {
                 if (materialFeature.featureType == 2 && !TextUtils.isEmpty(materialFeature.materialUrl)) {
@@ -286,18 +286,18 @@ public class a extends AbstractKsNativeAd {
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getInteractionType() {
-        return com.kwad.sdk.core.response.b.a.z(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.z(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getMaterialType() {
-        return com.kwad.sdk.core.response.b.a.L(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.L(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getPermissionInfo() {
-        return com.kwad.sdk.core.response.b.a.ad(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.ad(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -312,17 +312,17 @@ public class a extends AbstractKsNativeAd {
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getVideoDuration() {
-        return com.kwad.sdk.core.response.b.a.b(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.b(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getVideoHeight() {
-        return com.kwad.sdk.core.response.b.a.E(this.f8126b).videoHeight;
+        return com.kwad.sdk.core.response.b.a.E(this.f8128b).videoHeight;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public String getVideoUrl() {
-        return com.kwad.sdk.core.response.b.a.a(this.f8126b);
+        return com.kwad.sdk.core.response.b.a.a(this.f8128b);
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsNativeAd
@@ -336,7 +336,7 @@ public class a extends AbstractKsNativeAd {
             this.e = new b(context);
             this.e.setAdInteractionListener(this.h);
             this.e.setVideoPlayListener(this.g);
-            this.e.a(this.f8125a, this.c, ksAdVideoPlayConfig);
+            this.e.a(this.f8127a, this.c, ksAdVideoPlayConfig);
         }
         return this.e;
     }
@@ -348,7 +348,7 @@ public class a extends AbstractKsNativeAd {
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getVideoWidth() {
-        return com.kwad.sdk.core.response.b.a.E(this.f8126b).videoWidth;
+        return com.kwad.sdk.core.response.b.a.E(this.f8128b).videoWidth;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -370,8 +370,8 @@ public class a extends AbstractKsNativeAd {
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public void setBidEcpm(int i) {
-        this.f8125a.mBidEcpm = i;
-        com.kwad.sdk.core.report.b.m(this.f8125a);
+        this.f8127a.mBidEcpm = i;
+        com.kwad.sdk.core.report.b.m(this.f8127a);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd

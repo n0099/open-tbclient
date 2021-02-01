@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class VideoDraftBean implements Jsonable, Serializable, Cloneable, Comparable<VideoDraftBean> {
     private int mBackUpType;
     private String mCoverPath;

@@ -1,11 +1,11 @@
 package com.baidu.n.a;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class c {
-    public com.baidu.n.a.a.c oKS;
+    public com.baidu.n.a.a.c oUY;
 
     public c(Context context) {
-        this.oKS = new d(context).egf();
+        this.oUY = new d(context).eix();
     }
 }

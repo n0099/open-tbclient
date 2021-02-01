@@ -1,5 +1,5 @@
 package com.kwai.video.player;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MediaInfo {
     public String mAudioDecoder;
     public String mAudioDecoderImpl;

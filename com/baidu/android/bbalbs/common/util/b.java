@@ -45,7 +45,7 @@ import javax.crypto.Cipher;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
@@ -58,7 +58,7 @@ public final class b {
     private PublicKey d;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
@@ -82,7 +82,7 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.bbalbs.common.util.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class C0031b {
 
         /* renamed from: a  reason: collision with root package name */
@@ -142,7 +142,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class c {
         static boolean a(String str, int i) {
             try {

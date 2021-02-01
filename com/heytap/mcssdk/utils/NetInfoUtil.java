@@ -8,7 +8,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NetInfoUtil {
     private static final int NETWORK_CLASS_2_G = 1;
     private static final int NETWORK_CLASS_3_G = 2;

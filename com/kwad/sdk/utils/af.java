@@ -5,7 +5,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class af {
     public static void a(Activity activity) {
         if (Build.VERSION.SDK_INT >= 21) {

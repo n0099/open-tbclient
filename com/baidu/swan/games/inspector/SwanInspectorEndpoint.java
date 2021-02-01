@@ -16,64 +16,64 @@ import java.util.UUID;
 import java.util.concurrent.LinkedBlockingQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SwanInspectorEndpoint {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static SwanInspectorEndpoint efB = new SwanInspectorEndpoint();
-    private String efD;
-    private String efE;
-    private a.C0518a efH;
-    private Runnable efJ;
-    private Throwable efM;
-    private int efN;
-    private WebSocketTask efO;
-    private InspectorNativeChannel efR;
-    private com.baidu.swan.games.f.a efd;
+    private static SwanInspectorEndpoint ehJ = new SwanInspectorEndpoint();
+    private String ehL;
+    private String ehM;
+    private a.C0515a ehP;
+    private Runnable ehR;
+    private Throwable ehU;
+    private int ehV;
+    private WebSocketTask ehW;
+    private InspectorNativeChannel ehZ;
+    private com.baidu.swan.games.f.a ehl;
     private InspectorNativeClient mInspectorNativeClient;
-    private LinkedBlockingQueue<String> cLY = new LinkedBlockingQueue<>();
-    private boolean efF = false;
-    private boolean efG = false;
-    private boolean efI = false;
-    private ConnectionState efK = ConnectionState.CLOSED;
-    private ConnectionState efL = ConnectionState.CLOSED;
-    private int efP = 0;
-    private long efQ = 0;
-    private String efC = UUID.randomUUID().toString();
+    private LinkedBlockingQueue<String> cOm = new LinkedBlockingQueue<>();
+    private boolean ehN = false;
+    private boolean ehO = false;
+    private boolean ehQ = false;
+    private ConnectionState ehS = ConnectionState.CLOSED;
+    private ConnectionState ehT = ConnectionState.CLOSED;
+    private int ehX = 0;
+    private long ehY = 0;
+    private String ehK = UUID.randomUUID().toString();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum ConnectionState {
         CLOSED,
         CONNECTING,
         OPEN
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     private static class a {
-        private String efS;
-        private JSONObject efT;
+        private String eia;
+        private JSONObject eib;
 
         public a(String str) {
-            this.efS = str;
+            this.eia = str;
         }
 
-        public boolean aWZ() {
-            return "Debugger.enable".equals(cA(aXb()));
+        public boolean aXl() {
+            return "Debugger.enable".equals(cx(aXn()));
         }
 
-        public boolean aXa() {
-            String cA = cA(aXb());
-            return cA != null && cA.indexOf("Debugger.") == 0;
+        public boolean aXm() {
+            String cx = cx(aXn());
+            return cx != null && cx.indexOf("Debugger.") == 0;
         }
 
-        private JSONObject aXb() {
-            if (this.efT == null) {
-                this.efT = wv(this.efS);
+        private JSONObject aXn() {
+            if (this.eib == null) {
+                this.eib = wO(this.eia);
             }
-            return this.efT;
+            return this.eib;
         }
 
-        private JSONObject wv(String str) {
+        private JSONObject wO(String str) {
             try {
                 return new JSONObject(str);
             } catch (JSONException e) {
@@ -84,7 +84,7 @@ public class SwanInspectorEndpoint {
             }
         }
 
-        private String cA(JSONObject jSONObject) {
+        private String cx(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return null;
             }
@@ -97,7 +97,7 @@ public class SwanInspectorEndpoint {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b extends InspectorNativeChannel {
         private b() {
         }
@@ -105,7 +105,7 @@ public class SwanInspectorEndpoint {
         @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
         public void sendMessage(String str) {
             try {
-                SwanInspectorEndpoint.this.efO.send(str);
+                SwanInspectorEndpoint.this.ehW.send(str);
             } catch (Exception e) {
                 if (SwanInspectorEndpoint.DEBUG) {
                     Log.e("SwanInspector", "Inspector WS send error", e);
@@ -119,8 +119,8 @@ public class SwanInspectorEndpoint {
                 Log.d("SwanInspector", "getInspectorMessage");
             }
             try {
-                SwanInspectorEndpoint.this.efI = true;
-                return (String) SwanInspectorEndpoint.this.cLY.take();
+                SwanInspectorEndpoint.this.ehQ = true;
+                return (String) SwanInspectorEndpoint.this.cOm.take();
             } catch (InterruptedException e) {
                 if (SwanInspectorEndpoint.DEBUG) {
                     Log.e("SwanInspector", "awaitMessage on Debugger", e);
@@ -131,43 +131,43 @@ public class SwanInspectorEndpoint {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c implements IWebSocketListener {
-        private int efV;
+        private int eid;
 
         public c(int i) {
-            this.efV = -1;
-            this.efV = i;
+            this.eid = -1;
+            this.eid = i;
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onOpen(Map map) {
-            if (this.efV == SwanInspectorEndpoint.this.efP) {
+            if (this.eid == SwanInspectorEndpoint.this.ehX) {
                 if (SwanInspectorEndpoint.DEBUG) {
-                    Log.i("SwanInspector", "WebSocket connect onOpened: " + SwanInspectorEndpoint.this.efE);
+                    Log.i("SwanInspector", "WebSocket connect onOpened: " + SwanInspectorEndpoint.this.ehM);
                 }
-                SwanInspectorEndpoint.this.efK = ConnectionState.OPEN;
+                SwanInspectorEndpoint.this.ehS = ConnectionState.OPEN;
             }
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onClose(JSONObject jSONObject) {
-            if (this.efV == SwanInspectorEndpoint.this.efP) {
+            if (this.eid == SwanInspectorEndpoint.this.ehX) {
                 if (SwanInspectorEndpoint.DEBUG) {
-                    Log.i("SwanInspector", "WebSocket connect onClose: " + SwanInspectorEndpoint.this.efE);
+                    Log.i("SwanInspector", "WebSocket connect onClose: " + SwanInspectorEndpoint.this.ehM);
                 }
-                SwanInspectorEndpoint.this.efK = ConnectionState.CLOSED;
+                SwanInspectorEndpoint.this.ehS = ConnectionState.CLOSED;
                 SwanInspectorEndpoint.this.au(true);
             }
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onMessage(String str) {
-            if (this.efV == SwanInspectorEndpoint.this.efP) {
+            if (this.eid == SwanInspectorEndpoint.this.ehX) {
                 if (SwanInspectorEndpoint.DEBUG) {
                     Log.d("SwanInspector", "WebSocket onMessage: " + str);
                 }
-                if (SwanInspectorEndpoint.this.efL != ConnectionState.OPEN) {
+                if (SwanInspectorEndpoint.this.ehT != ConnectionState.OPEN) {
                     if (SwanInspectorEndpoint.DEBUG) {
                         Log.e("SwanInspector", str, new Exception("Illegal state: " + ConnectionState.OPEN));
                         return;
@@ -175,23 +175,23 @@ public class SwanInspectorEndpoint {
                     return;
                 }
                 a aVar = new a(str);
-                if (!SwanInspectorEndpoint.this.efG || !aVar.aXa()) {
-                    SwanInspectorEndpoint.this.cLY.offer(str);
-                    SwanInspectorEndpoint.this.efd.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.inspector.SwanInspectorEndpoint.c.1
+                if (!SwanInspectorEndpoint.this.ehO || !aVar.aXm()) {
+                    SwanInspectorEndpoint.this.cOm.offer(str);
+                    SwanInspectorEndpoint.this.ehl.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.inspector.SwanInspectorEndpoint.c.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            SwanInspectorEndpoint.this.efI = false;
-                            String str2 = (String) SwanInspectorEndpoint.this.cLY.poll();
+                            SwanInspectorEndpoint.this.ehQ = false;
+                            String str2 = (String) SwanInspectorEndpoint.this.cOm.poll();
                             while (str2 != null) {
                                 SwanInspectorEndpoint.this.mInspectorNativeClient.dispatchProtocolMessage(str2);
-                                str2 = (String) SwanInspectorEndpoint.this.cLY.poll();
+                                str2 = (String) SwanInspectorEndpoint.this.cOm.poll();
                             }
                         }
                     });
-                    if (SwanInspectorEndpoint.this.efJ != null && aVar.aWZ()) {
-                        final Runnable runnable = SwanInspectorEndpoint.this.efJ;
-                        SwanInspectorEndpoint.this.efJ = null;
-                        SwanInspectorEndpoint.this.efd.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.inspector.SwanInspectorEndpoint.c.2
+                    if (SwanInspectorEndpoint.this.ehR != null && aVar.aXl()) {
+                        final Runnable runnable = SwanInspectorEndpoint.this.ehR;
+                        SwanInspectorEndpoint.this.ehR = null;
+                        SwanInspectorEndpoint.this.ehl.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.inspector.SwanInspectorEndpoint.c.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 if (SwanInspectorEndpoint.DEBUG) {
@@ -215,29 +215,29 @@ public class SwanInspectorEndpoint {
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onError(Throwable th, JSONObject jSONObject) {
-            if (this.efV == SwanInspectorEndpoint.this.efP) {
+            if (this.eid == SwanInspectorEndpoint.this.ehX) {
                 if (SwanInspectorEndpoint.DEBUG) {
                     Log.e("SwanInspector", "WebSocket connect onError.", th);
                 }
-                SwanInspectorEndpoint.this.efM = th;
+                SwanInspectorEndpoint.this.ehU = th;
             }
         }
     }
 
-    public static SwanInspectorEndpoint aWY() {
-        return efB;
+    public static SwanInspectorEndpoint aXk() {
+        return ehJ;
     }
 
     private SwanInspectorEndpoint() {
     }
 
-    public void a(com.baidu.swan.games.inspector.a aVar, com.baidu.swan.games.f.a aVar2, a.C0518a c0518a, Runnable runnable) {
+    public void a(com.baidu.swan.games.inspector.a aVar, com.baidu.swan.games.f.a aVar2, a.C0515a c0515a, Runnable runnable) {
         au(false);
-        a(c0518a);
+        a(c0515a);
         try {
             u(aVar2);
-            if (aVar.aWT()) {
-                this.efJ = runnable;
+            if (aVar.aXf()) {
+                this.ehR = runnable;
                 b(aVar);
             } else {
                 b(aVar);
@@ -251,37 +251,37 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public void a(a.C0518a c0518a) {
-        this.efH = c0518a;
+    public void a(a.C0515a c0515a) {
+        this.ehP = c0515a;
     }
 
     private void b(com.baidu.swan.games.inspector.a aVar) {
-        this.efK = ConnectionState.CONNECTING;
-        this.efD = aVar.aWU();
-        this.efG = aVar.aWV();
-        this.efF = aVar.aWT();
-        this.efE = "ws://" + this.efD + "/inspect/inspectorTarget/" + this.efC;
+        this.ehS = ConnectionState.CONNECTING;
+        this.ehL = aVar.aXg();
+        this.ehO = aVar.aXh();
+        this.ehN = aVar.aXf();
+        this.ehM = "ws://" + this.ehL + "/inspect/inspectorTarget/" + this.ehK;
         if (DEBUG) {
-            Log.i("SwanInspector", "Starting inspector to " + this.efE);
+            Log.i("SwanInspector", "Starting inspector to " + this.ehM);
         }
-        this.efQ = System.currentTimeMillis();
+        this.ehY = System.currentTimeMillis();
         WebSocketManager webSocketManager = WebSocketManager.INSTANCE;
-        WebSocketRequest webSocketRequest = new WebSocketRequest(this.efE);
-        int i = this.efP + 1;
-        this.efP = i;
-        this.efO = webSocketManager.connect(webSocketRequest, new c(i));
+        WebSocketRequest webSocketRequest = new WebSocketRequest(this.ehM);
+        int i = this.ehX + 1;
+        this.ehX = i;
+        this.ehW = webSocketManager.connect(webSocketRequest, new c(i));
     }
 
     private void u(com.baidu.swan.games.f.a aVar) throws Exception {
-        this.efL = ConnectionState.CONNECTING;
-        if (this.efN == aVar.hashCode()) {
+        this.ehT = ConnectionState.CONNECTING;
+        if (this.ehV == aVar.hashCode()) {
             throw new Exception("Can not use the previous connected v8Engine.");
         }
-        this.efd = aVar;
-        this.efN = this.efd.hashCode();
-        this.efR = new b();
-        this.mInspectorNativeClient = this.efd.initInspector(this.efR);
-        this.efL = ConnectionState.OPEN;
+        this.ehl = aVar;
+        this.ehV = this.ehl.hashCode();
+        this.ehZ = new b();
+        this.mInspectorNativeClient = this.ehl.initInspector(this.ehZ);
+        this.ehT = ConnectionState.OPEN;
     }
 
     public String g(Resources resources) {
@@ -290,21 +290,21 @@ public class SwanInspectorEndpoint {
         String string3;
         StringBuilder sb = new StringBuilder();
         long currentTimeMillis = System.currentTimeMillis();
-        a.C0518a c0518a = this.efH;
-        if (c0518a == null) {
-            c0518a = a.C0518a.aWW();
+        a.C0515a c0515a = this.ehP;
+        if (c0515a == null) {
+            c0515a = a.C0515a.aXi();
         }
-        sb.append(c0518a.aWX()).append("\n");
-        if (!c0518a.isEnabled()) {
+        sb.append(c0515a.aXj()).append("\n");
+        if (!c0515a.isEnabled()) {
             return sb.toString();
         }
         String str = null;
-        if (this.efK == ConnectionState.OPEN) {
+        if (this.ehS == ConnectionState.OPEN) {
             string = resources.getString(a.h.aiapps_swan_inspector_connection_state_open);
-        } else if (this.efM != null || (this.efK == ConnectionState.CONNECTING && currentTimeMillis - this.efQ > 5000)) {
+        } else if (this.ehU != null || (this.ehS == ConnectionState.CONNECTING && currentTimeMillis - this.ehY > 5000)) {
             string = resources.getString(a.h.aiapps_swan_inspector_connection_state_error);
             str = resources.getString(a.h.aiapps_swan_inspector_connection_error_hint);
-        } else if (this.efK == ConnectionState.CONNECTING) {
+        } else if (this.ehS == ConnectionState.CONNECTING) {
             string = resources.getString(a.h.aiapps_swan_inspector_connection_state_connecting);
         } else {
             string = resources.getString(a.h.aiapps_swan_inspector_connection_state_close);
@@ -313,19 +313,19 @@ public class SwanInspectorEndpoint {
         if (str != null) {
             sb.append(str).append("\n");
         }
-        sb.append(resources.getString(a.h.aiapps_swan_inspector_info_label_addr)).append(this.efD).append("\n");
-        if (this.efK == ConnectionState.OPEN) {
+        sb.append(resources.getString(a.h.aiapps_swan_inspector_info_label_addr)).append(this.ehL).append("\n");
+        if (this.ehS == ConnectionState.OPEN) {
             StringBuilder append = sb.append(resources.getString(a.h.aiapps_swan_inspector_info_label_program_state));
-            if (this.efJ != null) {
+            if (this.ehR != null) {
                 string2 = resources.getString(a.h.aiapps_swan_inspector_program_state_pause_at_start);
-            } else if (this.efI) {
+            } else if (this.ehQ) {
                 string2 = resources.getString(a.h.aiapps_swan_inspector_program_state_pause_at_breakpoint);
             } else {
                 string2 = resources.getString(a.h.aiapps_swan_inspector_program_state_running);
             }
             append.append(string2).append("\n");
             StringBuilder append2 = sb.append(resources.getString(a.h.aiapps_swan_inspector_info_label_pause_at_start_set));
-            if (this.efF) {
+            if (this.ehN) {
                 string3 = resources.getString(a.h.aiapps_swan_inspector_text_yes);
             } else {
                 string3 = resources.getString(a.h.aiapps_swan_inspector_text_no);
@@ -337,35 +337,35 @@ public class SwanInspectorEndpoint {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void au(boolean z) {
-        if (this.efO != null && this.efK != ConnectionState.CLOSED) {
+        if (this.ehW != null && this.ehS != ConnectionState.CLOSED) {
             if (DEBUG) {
-                Log.i("SwanInspector", "WebSocket connect onClosed: " + this.efE);
+                Log.i("SwanInspector", "WebSocket connect onClosed: " + this.ehM);
             }
             try {
-                this.efO.close(0, "Inspector close");
+                this.ehW.close(0, "Inspector close");
             } catch (Exception e) {
                 if (DEBUG) {
                     Log.e("SwanInspector", "close error", e);
                 }
             }
         }
-        this.efO = null;
-        this.efQ = 0L;
-        this.efK = ConnectionState.CLOSED;
-        this.efd = null;
-        this.efR = null;
+        this.ehW = null;
+        this.ehY = 0L;
+        this.ehS = ConnectionState.CLOSED;
+        this.ehl = null;
+        this.ehZ = null;
         this.mInspectorNativeClient = null;
-        this.efL = ConnectionState.CLOSED;
-        this.efJ = null;
-        this.cLY.clear();
+        this.ehT = ConnectionState.CLOSED;
+        this.ehR = null;
+        this.cOm.clear();
         if (!z) {
-            this.efI = false;
-            this.efM = null;
-            this.efD = null;
-            this.efE = null;
-            this.efF = false;
-            this.efG = false;
-            this.efH = null;
+            this.ehQ = false;
+            this.ehU = null;
+            this.ehL = null;
+            this.ehM = null;
+            this.ehN = false;
+            this.ehO = false;
+            this.ehP = null;
         }
     }
 

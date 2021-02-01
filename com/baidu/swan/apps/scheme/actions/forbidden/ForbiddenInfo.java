@@ -3,7 +3,7 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.swan.apps.u.c.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ForbiddenInfo implements Parcelable {
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR = new Parcelable.Creator<ForbiddenInfo>() { // from class: com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public class ForbiddenInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: jm */
+        /* renamed from: jp */
         public ForbiddenInfo[] newArray(int i) {
             return new ForbiddenInfo[i];
         }
@@ -74,17 +74,17 @@ public class ForbiddenInfo implements Parcelable {
         if (bVar != null) {
             this.appId = bVar.getAppId();
             this.appKey = bVar.getAppKey();
-            this.appTitle = bVar.asE();
+            this.appTitle = bVar.atc();
             this.launchPath = bVar.getPage();
-            this.launchSource = bVar.ayC();
+            this.launchSource = bVar.aza();
         }
     }
 
-    public boolean aoB() {
+    public boolean aoZ() {
         return this.enableSlidingFlag == 0;
     }
 
     public String toString() {
-        return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + aoB() + "'}";
+        return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + aoZ() + "'}";
     }
 }

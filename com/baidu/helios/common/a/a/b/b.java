@@ -1,23 +1,22 @@
 package com.baidu.helios.common.a.a.b;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int[] f2433b = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    private static final int[] f2431b = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f2434a;
+    private final int f2432a;
 
     public b(int i) {
-        this.f2434a = i;
+        this.f2432a = i;
     }
 
     private static int a(int i, int i2) {
@@ -28,7 +27,7 @@ public class b {
         int remaining = byteBuffer2.remaining();
         int i = (remaining / 64) + 1;
         for (int i2 = 0; i2 < i; i2++) {
-            ByteBuffer c = c(bArr, bArr2, this.f2434a + i2);
+            ByteBuffer c = c(bArr, bArr2, this.f2432a + i2);
             if (i2 == i - 1) {
                 a.a(byteBuffer, byteBuffer2, c, remaining % 64);
             } else {
@@ -62,8 +61,8 @@ public class b {
     }
 
     static void d(int[] iArr, int[] iArr2) {
-        System.arraycopy(f2433b, 0, iArr, 0, f2433b.length);
-        System.arraycopy(iArr2, 0, iArr, f2433b.length, 8);
+        System.arraycopy(f2431b, 0, iArr, 0, f2431b.length);
+        System.arraycopy(iArr2, 0, iArr, f2431b.length, 8);
     }
 
     static int[] s(byte[] bArr) {
@@ -105,7 +104,7 @@ public class b {
     }
 
     public byte[] a(byte[] bArr, byte[] bArr2) {
-        if (bArr.length > ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED - a()) {
+        if (bArr.length > Integer.MAX_VALUE - a()) {
             throw new GeneralSecurityException("data too long");
         }
         ByteBuffer allocate = ByteBuffer.allocate(a() + bArr.length);

@@ -4,7 +4,7 @@ import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class e implements com.baidu.d.c.d {
-    private static String ncO = "";
+    private static String nmw = "";
 
     @Override // com.baidu.d.c.d
     public String getDeviceId() {
@@ -18,7 +18,7 @@ public class e implements com.baidu.d.c.d {
 
     @Override // com.baidu.d.c.d
     public String getZid() {
-        return ncO;
+        return nmw;
     }
 
     @Override // com.baidu.d.c.d

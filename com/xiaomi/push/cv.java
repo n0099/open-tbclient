@@ -34,11 +34,11 @@ public class cv {
     private ArrayList<de> f262a = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    private double f13923a = 0.1d;
+    private double f13925a = 0.1d;
     private String j = "s.mi1.cc";
 
     /* renamed from: b  reason: collision with root package name */
-    private long f13924b = 86400000;
+    private long f13926b = 86400000;
 
     public cv(String str) {
         this.f261a = "";
@@ -62,8 +62,8 @@ public class cv {
 
     public synchronized cv a(JSONObject jSONObject) {
         this.f261a = jSONObject.optString("net");
-        this.f13924b = jSONObject.getLong("ttl");
-        this.f13923a = jSONObject.getDouble("pct");
+        this.f13926b = jSONObject.getLong("ttl");
+        this.f13925a = jSONObject.getDouble("pct");
         this.f260a = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
         this.d = jSONObject.optString("city");
         this.c = jSONObject.optString("prv");
@@ -142,8 +142,8 @@ public class cv {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put("net", this.f261a);
-        jSONObject.put("ttl", this.f13924b);
-        jSONObject.put("pct", this.f13923a);
+        jSONObject.put("ttl", this.f13926b);
+        jSONObject.put("pct", this.f13925a);
         jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f260a);
         jSONObject.put("city", this.d);
         jSONObject.put("prv", this.c);
@@ -162,14 +162,14 @@ public class cv {
     }
 
     public void a(double d) {
-        this.f13923a = d;
+        this.f13925a = d;
     }
 
     public void a(long j) {
         if (j <= 0) {
             throw new IllegalArgumentException("the duration is invalid " + j);
         }
-        this.f13924b = j;
+        this.f13926b = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -238,7 +238,7 @@ public class cv {
         int i2 = 0;
         while (it.hasNext()) {
             de next = it.next();
-            i2 = next.f13933a > i2 ? next.f13933a : i2;
+            i2 = next.f13935a > i2 ? next.f13935a : i2;
         }
         for (int i3 = 0; i3 < strArr.length; i3++) {
             a(new de(strArr[i3], (strArr.length + i2) - i3));
@@ -267,14 +267,14 @@ public class cv {
     }
 
     public boolean b() {
-        return System.currentTimeMillis() - this.f260a < this.f13924b;
+        return System.currentTimeMillis() - this.f260a < this.f13926b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean c() {
-        long j = 864000000 < this.f13924b ? this.f13924b : 864000000L;
+        long j = 864000000 < this.f13926b ? this.f13926b : 864000000L;
         long currentTimeMillis = System.currentTimeMillis();
-        return currentTimeMillis - this.f260a > j || (currentTimeMillis - this.f260a > this.f13924b && this.f261a.startsWith("WIFI-"));
+        return currentTimeMillis - this.f260a > j || (currentTimeMillis - this.f260a > this.f13926b && this.f261a.startsWith("WIFI-"));
     }
 
     public String toString() {

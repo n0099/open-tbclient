@@ -16,7 +16,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationLoader;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TBLottieAnimationView extends LottieAnimationView {
     private static final String DIR_ANIMATION = "animation";
     public static final String JSON_FILE = "data.json";

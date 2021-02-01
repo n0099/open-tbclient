@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.impls;
 
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.ss.android.socialbase.downloader.downloader.s;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j implements s {
     @Override // com.ss.android.socialbase.downloader.downloader.s
     public long a(int i, int i2) {

@@ -2,7 +2,6 @@ package com.baidu.sapi2;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.sapi2.e;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.enums.BindType;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class SapiConfiguration implements NoProguard {
     public static final int JOIN_LOGIN = 4;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_CHINA_MOBILE_OAUTH = 5;
@@ -28,7 +27,7 @@ public final class SapiConfiguration implements NoProguard {
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_SMS_LOGIN = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    private final LoginShareStrategy f4564a;
+    private final LoginShareStrategy f4566a;
     public final boolean accountCenterRealAutnen;
     public int activityExitAnimId;
     public int activityOpenAnimId;
@@ -36,7 +35,7 @@ public final class SapiConfiguration implements NoProguard {
     public final String appSignKey;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f4565b;
+    private boolean f4567b;
     public final String bdOauthAppId;
     private boolean c;
     public String chinaMobileAppID;
@@ -186,7 +185,7 @@ public final class SapiConfiguration implements NoProguard {
     }
 
     public boolean isAgreeDangerousProtocol() {
-        return this.f4565b;
+        return this.f4567b;
     }
 
     public boolean isSupportTouchLogin() {
@@ -205,21 +204,21 @@ public final class SapiConfiguration implements NoProguard {
             if (sapiOptions.h() != null) {
                 return sapiOptions.h();
             }
-            return this.f4564a;
+            return this.f4566a;
         }
         return loginShareStrategy;
     }
 
     public void setAgreeDangerousProtocol(boolean z) {
-        this.f4565b = z;
+        this.f4567b = z;
         try {
-            FH.setAgreePolicy(this.context, this.f4565b);
+            FH.setAgreePolicy(this.context, this.f4567b);
         } catch (Exception e) {
             Log.e(e);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class Builder implements NoProguard {
         private String A;
         private String B;
@@ -232,10 +231,10 @@ public final class SapiConfiguration implements NoProguard {
         private String X;
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f4566a;
+        private Context f4568a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f4567b;
+        private String f4569b;
         private String c;
         private String d;
         private String e;
@@ -289,7 +288,7 @@ public final class SapiConfiguration implements NoProguard {
         private boolean j0 = true;
 
         public Builder(Context context) {
-            this.f4566a = context.getApplicationContext();
+            this.f4568a = context.getApplicationContext();
         }
 
         public Builder bdOauthAppId(String str) {
@@ -298,7 +297,7 @@ public final class SapiConfiguration implements NoProguard {
         }
 
         public SapiConfiguration build() {
-            if (!TextUtils.isEmpty(this.f4567b) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d)) {
+            if (!TextUtils.isEmpty(this.f4569b) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d)) {
                 if (this.f == null) {
                     this.f = Domain.DOMAIN_ONLINE;
                 }
@@ -431,7 +430,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setAgreeDangerousProtocol(boolean z) {
             this.y = z;
             try {
-                FH.setAgreePolicy(this.f4566a, z);
+                FH.setAgreePolicy(this.f4568a, z);
             } catch (Exception e) {
                 Log.e(e);
             }
@@ -459,7 +458,7 @@ public final class SapiConfiguration implements NoProguard {
 
         public Builder setNeedOpenid(boolean z) {
             this.e0 = z;
-            SapiContext.MAX_SHARE_ACCOUNTS = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            SapiContext.MAX_SHARE_ACCOUNTS = Integer.MAX_VALUE;
             return this;
         }
 
@@ -489,7 +488,7 @@ public final class SapiConfiguration implements NoProguard {
         }
 
         public Builder setProductLineInfo(String str, String str2, String str3) {
-            this.f4567b = str;
+            this.f4569b = str;
             this.c = str2;
             this.d = str3;
             return this;
@@ -615,14 +614,14 @@ public final class SapiConfiguration implements NoProguard {
     }
 
     private SapiConfiguration(Builder builder) {
-        this.context = builder.f4566a;
-        this.tpl = builder.f4567b;
+        this.context = builder.f4568a;
+        this.tpl = builder.f4569b;
         this.appId = builder.c;
         this.appSignKey = builder.d;
         this.environment = builder.f;
         this.language = builder.h;
         this.socialBindType = builder.g;
-        this.f4564a = builder.i;
+        this.f4566a = builder.i;
         this.fastLoginFeatureList = builder.j;
         this.wxAppID = builder.k;
         this.qqAppID = builder.l;
@@ -637,7 +636,7 @@ public final class SapiConfiguration implements NoProguard {
         this.chinaMobileAppKey = builder.r;
         this.chinaTelecomAppKey = builder.s;
         this.chinaTelecomAppSecret = builder.t;
-        this.f4565b = builder.y;
+        this.f4567b = builder.y;
         this.chinaUnicomAppKey = builder.u;
         this.chinaUnicomAppPublicKey = builder.v;
         this.twitterAppKey = builder.w;
@@ -676,7 +675,7 @@ public final class SapiConfiguration implements NoProguard {
         this.supportMultipleAccounts = builder.j0;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class SmsLoginConfig implements NoProguard {
         public Switch flagHideExtraEntry;
         public Switch flagLoginBtnType;

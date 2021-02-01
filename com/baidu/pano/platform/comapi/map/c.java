@@ -5,15 +5,15 @@ import android.os.Message;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ InnerPanoramaView f3924a;
+    final /* synthetic */ InnerPanoramaView f3927a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(InnerPanoramaView innerPanoramaView) {
-        this.f3924a = innerPanoramaView;
+        this.f3927a = innerPanoramaView;
     }
 
     @Override // android.os.Handler
@@ -22,7 +22,7 @@ public class c extends Handler {
         switch (message.what) {
             case 1001:
                 String str = (String) message.obj;
-                hashMap = this.f3924a.d;
+                hashMap = this.f3927a.d;
                 for (Map.Entry entry : hashMap.entrySet()) {
                     if (str.equals(entry.getKey()) && ((com.baidu.pano.platform.comapi.a.a) entry.getValue()).mListener != null) {
                         ((com.baidu.pano.platform.comapi.a.a) entry.getValue()).mListener.onTab();

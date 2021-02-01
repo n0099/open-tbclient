@@ -4,90 +4,90 @@ import android.util.SparseArray;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 class v {
-    private boolean exn = false;
-    private JSONArray dsK = new JSONArray();
-    private SparseArray<Integer> exj = new SparseArray<>();
-    private ArrayList<String> exk = new ArrayList<>();
-    private long exl = 0;
-    private long exm = 0;
-    private String ewp = "0";
+    private boolean ezw = false;
+    private JSONArray duV = new JSONArray();
+    private SparseArray<Integer> ezs = new SparseArray<>();
+    private ArrayList<String> ezt = new ArrayList<>();
+    private long ezu = 0;
+    private long ezv = 0;
+    private String eyy = "0";
 
-    public final void dn(JSONObject jSONObject) {
-        this.dsK.put(jSONObject);
+    public final void dk(JSONObject jSONObject) {
+        this.duV.put(jSONObject);
     }
 
-    public final SparseArray<Integer> bfe() {
-        return this.exj;
+    public final SparseArray<Integer> bfr() {
+        return this.ezs;
     }
 
-    public final void aE(int i, int i2) {
-        this.exj.put(i, Integer.valueOf(i2));
+    public final void aB(int i, int i2) {
+        this.ezs.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList bff() {
-        return this.exk;
+    public final ArrayList bfs() {
+        return this.ezt;
     }
 
-    public final void yt(String str) {
-        if (!this.exk.contains(str)) {
-            this.exk.add(str);
+    public final void yM(String str) {
+        if (!this.ezt.contains(str)) {
+            this.ezt.add(str);
         }
     }
 
-    public final void u(long j, long j2) {
-        if ((j < this.exl || this.exl == 0) && j != 0) {
-            this.exl = j;
+    public final void y(long j, long j2) {
+        if ((j < this.ezu || this.ezu == 0) && j != 0) {
+            this.ezu = j;
         }
-        if (j2 > this.exm) {
-            this.exm = j2;
+        if (j2 > this.ezv) {
+            this.ezv = j2;
         }
     }
 
-    public boolean mm(int i) {
-        return this.dsK.toString().getBytes().length >= i;
+    public boolean mp(int i) {
+        return this.duV.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.dsK.length() == 0;
+        return this.duV.length() == 0;
     }
 
-    public JSONArray bfg() {
-        return this.dsK;
+    public JSONArray bft() {
+        return this.duV;
     }
 
     public void clearData() {
-        this.exj.clear();
-        this.exk.clear();
-        this.dsK = null;
+        this.ezs.clear();
+        this.ezt.clear();
+        this.duV = null;
     }
 
-    public void yu(String str) {
-        this.ewp = str;
+    public void yN(String str) {
+        this.eyy = str;
     }
 
-    public String bfh() {
-        return this.ewp;
+    public String bfu() {
+        return this.eyy;
     }
 
-    public long bfi() {
-        return this.exl;
+    public long bfv() {
+        return this.ezu;
     }
 
     public long getMaxTime() {
-        return this.exm;
+        return this.ezv;
     }
 
-    public JSONArray bfj() {
-        return this.dsK;
+    public JSONArray bfw() {
+        return this.duV;
     }
 
-    public boolean bfk() {
-        return this.exn;
+    public boolean bfx() {
+        return this.ezw;
     }
 
-    public void iJ(boolean z) {
-        this.exn = z;
+    public void iL(boolean z) {
+        this.ezw = z;
     }
 }

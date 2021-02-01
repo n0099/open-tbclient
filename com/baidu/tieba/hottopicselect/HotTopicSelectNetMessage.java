@@ -4,13 +4,13 @@ import GetSugTopic.DataReq;
 import GetSugTopic.GetSugTopicReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.CommonReq;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HotTopicSelectNetMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f5339common;
+    private CommonReq f5341common;
     private long fid;
     private String firstDir;
     private String prefix;
@@ -52,11 +52,11 @@ public class HotTopicSelectNetMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f5339common;
+        return this.f5341common;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f5339common = commonReq;
+        this.f5341common = commonReq;
     }
 
     public void setPrefix(String str) {
@@ -78,7 +78,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
             builder.second_dir = this.secondDir;
         }
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetSugTopicReqIdl.Builder builder2 = new GetSugTopicReqIdl.Builder();
         builder2.data = builder.build(false);

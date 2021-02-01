@@ -15,14 +15,14 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WeiboSsoSdk {
-    private static WeiboSsoSdk pYx;
-    private static b pYy;
-    private a pYA;
-    private int pYB;
-    private volatile ReentrantLock pYw = new ReentrantLock(true);
-    private boolean pYz = true;
+    private static WeiboSsoSdk qiB;
+    private static b qiC;
+    private volatile ReentrantLock qiA = new ReentrantLock(true);
+    private boolean qiD = true;
+    private a qiE;
+    private int qiF;
 
     private native String riseWind(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, int i2);
 
@@ -31,17 +31,17 @@ public class WeiboSsoSdk {
     }
 
     private WeiboSsoSdk() throws Exception {
-        if (pYy == null || !pYy.eGx()) {
+        if (qiC == null || !qiC.eIN()) {
             throw new Exception("config error");
         }
-        this.pYB = 0;
+        this.qiF = 0;
         new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.1
             @Override // java.lang.Runnable
             public void run() {
                 while (true) {
                     try {
                         Thread.sleep(86400000L);
-                        WeiboSsoSdk.eGu().cm((WeiboSsoSdk.this.pYA == null || TextUtils.isEmpty(WeiboSsoSdk.this.pYA.uE())) ? WeiboSsoSdk.this.eGw() : WeiboSsoSdk.this.pYA.uE(), 2);
+                        WeiboSsoSdk.eIK().cn((WeiboSsoSdk.this.qiE == null || TextUtils.isEmpty(WeiboSsoSdk.this.qiE.uB())) ? WeiboSsoSdk.this.eIM() : WeiboSsoSdk.this.qiE.uB(), 2);
                     } catch (Exception e) {
                     }
                 }
@@ -52,8 +52,8 @@ public class WeiboSsoSdk {
             public void run() {
                 try {
                     Thread.sleep(AppStatusRules.DEFAULT_GRANULARITY);
-                    if (WeiboSsoSdk.this.pYz) {
-                        WeiboSsoSdk.this.cm((WeiboSsoSdk.this.pYA == null || TextUtils.isEmpty(WeiboSsoSdk.this.pYA.uE())) ? WeiboSsoSdk.this.eGw() : WeiboSsoSdk.this.pYA.uE(), 2);
+                    if (WeiboSsoSdk.this.qiD) {
+                        WeiboSsoSdk.this.cn((WeiboSsoSdk.this.qiE == null || TextUtils.isEmpty(WeiboSsoSdk.this.qiE.uB())) ? WeiboSsoSdk.this.eIM() : WeiboSsoSdk.this.qiE.uB(), 2);
                     }
                 } catch (Exception e) {
                 }
@@ -65,9 +65,9 @@ public class WeiboSsoSdk {
         boolean z = false;
         synchronized (WeiboSsoSdk.class) {
             if (bVar != null) {
-                if (bVar.eGx() && pYy == null) {
-                    pYy = (b) bVar.clone();
-                    com.weibo.ssosdk.a.init(pYy.getApplicationContext());
+                if (bVar.eIN() && qiC == null) {
+                    qiC = (b) bVar.clone();
+                    com.weibo.ssosdk.a.init(qiC.getApplicationContext());
                     z = true;
                 }
             }
@@ -75,27 +75,27 @@ public class WeiboSsoSdk {
         return z;
     }
 
-    public static synchronized WeiboSsoSdk eGu() throws Exception {
+    public static synchronized WeiboSsoSdk eIK() throws Exception {
         WeiboSsoSdk weiboSsoSdk;
         synchronized (WeiboSsoSdk.class) {
-            if (pYx == null) {
-                pYx = new WeiboSsoSdk();
+            if (qiB == null) {
+                qiB = new WeiboSsoSdk();
             }
-            weiboSsoSdk = pYx;
+            weiboSsoSdk = qiB;
         }
         return weiboSsoSdk;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         private String mAid;
-        private String pYD;
+        private String qiH;
 
-        public String uE() {
+        public String uB() {
             return this.mAid;
         }
 
-        static a aaA(String str) throws Exception {
+        static a abB(String str) throws Exception {
             a aVar = new a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -105,7 +105,7 @@ public class WeiboSsoSdk {
                     throw new Exception("error： " + optString + " msg:" + jSONObject.optString("msg", ""));
                 }
                 aVar.mAid = jSONObject2.optString("aid", "");
-                aVar.pYD = jSONObject2.optString("sub", "");
+                aVar.qiH = jSONObject2.optString("sub", "");
                 return aVar;
             } catch (Exception e) {
                 throw e;
@@ -113,7 +113,7 @@ public class WeiboSsoSdk {
         }
     }
 
-    private String aay(String str) {
+    private String abz(String str) {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("https://login.sina.com.cn/visitor/signin").openConnection();
             httpURLConnection.setRequestMethod("POST");
@@ -147,51 +147,51 @@ public class WeiboSsoSdk {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cm(String str, int i) throws Exception {
+    public void cn(String str, int i) throws Exception {
         String str2;
-        if (!TextUtils.isEmpty(pYy.CA(false))) {
-            if (!this.pYw.tryLock()) {
-                this.pYw.lock();
-                this.pYw.unlock();
+        if (!TextUtils.isEmpty(qiC.CU(false))) {
+            if (!this.qiA.tryLock()) {
+                this.qiA.lock();
+                this.qiA.unlock();
                 return;
             }
-            this.pYz = false;
-            String mfp = com.weibo.ssosdk.a.getMfp(pYy.getApplicationContext());
+            this.qiD = false;
+            String mfp = com.weibo.ssosdk.a.getMfp(qiC.getApplicationContext());
             try {
                 str2 = URLEncoder.encode(str, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 str2 = "";
             }
-            String aay = aay(riseWind(pYy.CA(true), pYy.getApplicationContext().getPackageName(), str2, mfp, pYy.Cz(true), pYy.Cy(true), pYy.Cx(true), pYy.Cw(true), pYy.CB(true), pYy.Cv(true), i, this.pYB));
-            this.pYB++;
-            if (aay != null) {
+            String abz = abz(riseWind(qiC.CU(true), qiC.getApplicationContext().getPackageName(), str2, mfp, qiC.CT(true), qiC.CS(true), qiC.CR(true), qiC.CQ(true), qiC.CV(true), qiC.CP(true), i, this.qiF));
+            this.qiF++;
+            if (abz != null) {
                 try {
-                    a aaA = a.aaA(aay);
-                    if (aaA != null && !TextUtils.isEmpty(aaA.uE())) {
-                        aaz(aaA.uE());
+                    a abB = a.abB(abz);
+                    if (abB != null && !TextUtils.isEmpty(abB.uB())) {
+                        abA(abB.uB());
                     }
                     if (i == 1) {
-                        this.pYA = aaA;
+                        this.qiE = abB;
                     }
-                    this.pYw.unlock();
+                    this.qiA.unlock();
                     return;
                 } catch (Exception e2) {
-                    this.pYw.unlock();
+                    this.qiA.unlock();
                     throw e2;
                 }
             }
-            this.pYw.unlock();
+            this.qiA.unlock();
             throw new Exception("network error.");
         }
     }
 
-    public a eGv() throws Exception {
-        if (this.pYA == null) {
+    public a eIL() throws Exception {
+        if (this.qiE == null) {
             Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.3
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        WeiboSsoSdk.this.cm("", 1);
+                        WeiboSsoSdk.this.cn("", 1);
                     } catch (Exception e) {
                     }
                 }
@@ -199,21 +199,21 @@ public class WeiboSsoSdk {
             thread.start();
             thread.join();
         }
-        if (this.pYA == null) {
+        if (this.qiE == null) {
             throw new Exception("visitor login failed");
         }
-        return this.pYA;
+        return this.qiE;
     }
 
-    public String uE() throws Exception {
-        String eGw = eGw();
-        if (TextUtils.isEmpty(eGw)) {
-            if (this.pYA == null || TextUtils.isEmpty(this.pYA.uE())) {
+    public String uB() throws Exception {
+        String eIM = eIM();
+        if (TextUtils.isEmpty(eIM)) {
+            if (this.qiE == null || TextUtils.isEmpty(this.qiE.uB())) {
                 Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.4
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            WeiboSsoSdk.this.cm("", 1);
+                            WeiboSsoSdk.this.cn("", 1);
                         } catch (Exception e) {
                         }
                     }
@@ -221,23 +221,23 @@ public class WeiboSsoSdk {
                 thread.start();
                 thread.join();
             }
-            if (this.pYA == null) {
+            if (this.qiE == null) {
                 throw new Exception("visitor login failed");
             }
-            return this.pYA.uE();
+            return this.qiE.uB();
         }
-        return eGw;
+        return eIM;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [378=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public String eGw() {
+    public String eIM() {
         Throwable th;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         FileInputStream fileInputStream3 = null;
         try {
-            fileInputStream2 = new FileInputStream(RH(1));
+            fileInputStream2 = new FileInputStream(Sc(1));
         } catch (Exception e) {
         } catch (Throwable th2) {
             th = th2;
@@ -278,18 +278,18 @@ public class WeiboSsoSdk {
         }
     }
 
-    private File RH(int i) {
-        return new File(pYy.getApplicationContext().getFilesDir(), "weibo_sso_sdk_aid" + i);
+    private File Sc(int i) {
+        return new File(qiC.getApplicationContext().getFilesDir(), "weibo_sso_sdk_aid" + i);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [406=4] */
-    private synchronized void aaz(String str) {
+    private synchronized void abA(String str) {
         Throwable th;
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2;
         if (!TextUtils.isEmpty(str)) {
             try {
-                fileOutputStream2 = new FileOutputStream(RH(1));
+                fileOutputStream2 = new FileOutputStream(Sc(1));
                 try {
                     fileOutputStream2.write(str.getBytes());
                     if (fileOutputStream2 != null) {

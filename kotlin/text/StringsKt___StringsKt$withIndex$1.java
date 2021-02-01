@@ -2,7 +2,7 @@ package kotlin.text;
 
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class StringsKt___StringsKt$withIndex$1 extends Lambda implements kotlin.jvm.a.a<kotlin.collections.m> {
     final /* synthetic */ CharSequence receiver$0;
 
@@ -15,6 +15,6 @@ final class StringsKt___StringsKt$withIndex$1 extends Lambda implements kotlin.j
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.a
     public final kotlin.collections.m invoke() {
-        return l.z(this.receiver$0);
+        return l.A(this.receiver$0);
     }
 }

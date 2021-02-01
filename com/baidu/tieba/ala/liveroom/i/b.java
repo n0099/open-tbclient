@@ -1,125 +1,302 @@
 package com.baidu.tieba.ala.liveroom.i;
 
-import android.os.Build;
 import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Message;
 import android.text.TextUtils;
-import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.live.adp.lib.util.GUIDTool;
-import com.baidu.live.tbadk.TbConfig;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.CustomMessageListener;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.adp.lib.safe.SafeHandler;
+import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.data.AlaLiveInfoData;
+import com.baidu.live.data.ab;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.apk.ApkData;
+import com.baidu.live.tbadk.apk.ApkStatus;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes10.dex */
+import com.baidu.live.tbadk.core.util.UtilHelper;
+import com.baidu.live.tbadk.log.LogManager;
+import com.baidu.live.utils.o;
+import com.baidu.tieba.ala.liveroom.i.a;
+import com.baidu.tieba.ala.liveroom.n.e;
+import java.util.Timer;
+import java.util.TimerTask;
+/* loaded from: classes11.dex */
 public class b {
-    public static String PROFILE_LOG_ACTION = "com.baidu.open.profile.log";
-    private JSONArray hxT;
-    private Handler hxU;
-    private int hxV;
-    private long mLastTime;
-    private String hxQ = "http://10.101.44.50:8899/live-profile/analy";
-    private StringBuffer hxR = new StringBuffer();
-    private SimpleDateFormat aWA = new SimpleDateFormat("MM-dd HH:mm:ss:SSS");
-    private Date hxS = new Date();
-    private HandlerThread mHandlerThread = new HandlerThread("handlerThread");
+    private ViewGroup bRb;
+    protected c hDb;
+    private com.baidu.tieba.ala.liveroom.n.e hDc;
+    private com.baidu.tieba.ala.liveroom.data.c hDd;
+    private f hDe;
+    private a hDf;
+    private ApkData hpO;
+    protected TbPageContext mTbPageContext;
+    private Timer mTimer;
+    private TimerTask mTimerTask;
+    public String otherParams;
+    private long roomId;
+    private String gXF = "";
+    private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.i.b.2
+        private com.baidu.tieba.ala.liveroom.i.a hDi;
 
-    public b() {
-        this.mHandlerThread.start();
-        this.hxU = new Handler(this.mHandlerThread.getLooper()) { // from class: com.baidu.tieba.ala.liveroom.i.b.1
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                super.handleMessage(message);
-                try {
-                    HttpURLConnection httpURLConnection = (HttpURLConnection) new URL((String) message.obj).openConnection();
-                    httpURLConnection.setRequestMethod("GET");
-                    httpURLConnection.connect();
-                } catch (Exception e) {
-                    e.printStackTrace();
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            b.this.cfe();
+            String str = null;
+            String str2 = "";
+            if (b.this.hDe != null && b.this.hpO != null) {
+                ApkStatus b2 = b.this.hDe.b(b.this.hpO);
+                if (b2 == ApkStatus.READY) {
+                    str = b.this.mTbPageContext.getString(a.h.ala_feedback_flow_btn_launch);
+                    str2 = "gentazou";
+                } else if (b2 == ApkStatus.NEED_UPDATE) {
+                    b.this.mTbPageContext.showToast(a.h.ala_feedback_flow_low_version_tip);
+                    return;
+                } else if (b2 == ApkStatus.DOWNLOADED) {
+                    str = b.this.mTbPageContext.getString(a.h.ala_feedback_flow_btn_install);
+                    str2 = "anzhuang";
+                } else {
+                    str = b.this.mTbPageContext.getString(a.h.ala_feedback_flow_btn_download);
+                    str2 = "xiazai";
                 }
             }
+            if (!TextUtils.isEmpty(str)) {
+                if (this.hDi == null) {
+                    this.hDi = new com.baidu.tieba.ala.liveroom.i.a(b.this.getPageContext().getPageActivity());
+                    this.hDi.a(new a.InterfaceC0666a() { // from class: com.baidu.tieba.ala.liveroom.i.b.2.1
+                        @Override // com.baidu.tieba.ala.liveroom.i.a.InterfaceC0666a
+                        public void cfb() {
+                        }
+
+                        @Override // com.baidu.tieba.ala.liveroom.i.a.InterfaceC0666a
+                        public void cfc() {
+                            if (b.this.hDe != null && b.this.hpO != null) {
+                                b.this.hDe.c(b.this.hpO);
+                            }
+                        }
+                    });
+                }
+                if (b.this.hDd != null && b.this.hDd.aIu != null) {
+                    this.hDi.HK(b.this.hDd.aIu);
+                }
+                if (b.this.hDd != null && b.this.hDd.portrait != null) {
+                    this.hDi.HJ(b.this.hDd.getPortrait());
+                }
+                String str3 = "";
+                if (b.this.hDd != null) {
+                    str3 = b.this.hDd.getSubappType();
+                }
+                this.hDi.HL(str);
+                this.hDi.setRoomId(b.this.roomId);
+                this.hDi.HM(str2);
+                this.hDi.HN(str3);
+                this.hDi.show();
+                o.dt(true);
+                if (b.this.hDd != null) {
+                    LogManager.getFeedDiversionLogger().doClickGuideFloatLayerLog(b.this.roomId + "", b.this.hDd.getSubappType());
+                    LogManager.getFeedDiversionLogger().doDisplayGuideDialogLog(b.this.roomId + "", b.this.hDd.getSubappType());
+                }
+            }
+        }
+    };
+    CustomMessageListener gNs = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.i.b.3
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
+                String str = (String) customResponsedMessage.getData();
+                if (str == null) {
+                    str = "";
+                }
+                b.this.otherParams = str;
+            }
+        }
+    };
+    e.a hDg = new e.a() { // from class: com.baidu.tieba.ala.liveroom.i.b.6
+        @Override // com.baidu.tieba.ala.liveroom.n.e.a
+        public void a(com.baidu.tieba.ala.liveroom.data.c cVar) {
+            b.this.hDd = cVar;
+            if (b.this.hDe != null) {
+                b.this.hDe.HN(cVar.subappType);
+            }
+            if (cVar.needToast == 1) {
+                b.this.hpO = new ApkData();
+                b.this.hpO.apkUrl = cVar.appUrl;
+                b.this.hpO.apkPackageName = cVar.packageName;
+                b.this.hpO.apkClipBoardScheme = cVar.hBD;
+                b.this.hpO.apkDeeplinkScheme = cVar.hBB;
+                b.this.hpO.apkOldDeeplinkScheme = cVar.hBC;
+                g.vz(2913168);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913168, null));
+            }
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.n.e.a
+        public void bp(int i, String str) {
+            b.this.mTbPageContext.showToast(str);
+        }
+    };
+    private Handler handler = new Handler();
+
+    /* loaded from: classes11.dex */
+    public interface a {
+        void caJ();
+
+        void caK();
+    }
+
+    public b(TbPageContext tbPageContext, String str, f fVar, a aVar) {
+        this.mTbPageContext = tbPageContext;
+        this.otherParams = str;
+        this.hDe = fVar;
+        this.hDf = aVar;
+        MessageManager.getInstance().registerListener(this.gNs);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public TbPageContext getPageContext() {
+        return this.mTbPageContext;
+    }
+
+    protected boolean au(ViewGroup viewGroup) {
+        if (viewGroup == null) {
+            return false;
+        }
+        if (this.hDb == null) {
+            this.hDb = new c(getPageContext(), this.onClickListener);
+        }
+        cfe();
+        this.bRb = viewGroup;
+        return true;
+    }
+
+    public View getView() {
+        if (this.hDb == null) {
+            return null;
+        }
+        return this.hDb.getView();
+    }
+
+    public void c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
+        if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) != 2) {
+            if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isPopupWindowUnabled()) && au(viewGroup)) {
+                if (this.hDe == null || !this.hDe.isDownloading()) {
+                    if (!cfd()) {
+                        BdLog.e("apk download data invalid");
+                        return;
+                    }
+                    if (this.hDf != null) {
+                        this.hDf.caJ();
+                    }
+                    this.bRb.addView(this.hDb.getView(), layoutParams);
+                    o.by(this.roomId);
+                    if (this.hDd != null) {
+                        LogManager.getFeedDiversionLogger().doDisplayGuideFloatLayerLog(this.roomId + "", this.hDd.getSubappType());
+                    }
+                    this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.i.b.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (b.this.cfe()) {
+                                o.dt(false);
+                            }
+                        }
+                    }, 5000L);
+                }
+            }
+        }
+    }
+
+    private boolean cfd() {
+        return (this.hpO == null || TextUtils.isEmpty(this.hpO.apkPackageName) || TextUtils.isEmpty(this.hpO.apkUrl) || TextUtils.isEmpty(this.hpO.apkDeeplinkScheme) || TextUtils.isEmpty(this.hpO.apkClipBoardScheme)) ? false : true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean cfe() {
+        if (this.bRb == null || this.bRb.indexOfChild(this.hDb.getView()) < 0) {
+            return false;
+        }
+        this.bRb.removeView(this.hDb.getView());
+        g.vA(2913168);
+        if (this.hDf != null) {
+            this.hDf.caK();
+        }
+        return true;
+    }
+
+    public void onDestroy() {
+        this.handler.removeCallbacksAndMessages(null);
+        MessageManager.getInstance().unRegisterListener(this.gNs);
+    }
+
+    public void c(long j, final String str, final String str2, final long j2) {
+        if (j <= 0) {
+            j = 30000;
+        }
+        if (this.mTimer == null) {
+            this.mTimer = new Timer();
+        }
+        if (this.mTimerTask != null) {
+            this.mTimerTask.cancel();
+        }
+        this.mTimerTask = new TimerTask() { // from class: com.baidu.tieba.ala.liveroom.i.b.4
+            @Override // java.util.TimerTask, java.lang.Runnable
+            public void run() {
+                b.this.b(str, str2, j2, 0L);
+            }
         };
+        this.mTimer.schedule(this.mTimerTask, j);
     }
 
-    public void report(long j, long j2) {
-        this.hxV++;
-        long currentTimeMillis = System.currentTimeMillis();
-        JSONObject jSONObject = new JSONObject();
-        if (this.hxT == null) {
-            this.hxT = new JSONArray();
-        }
-        try {
-            jSONObject.put("frame_interval", j2);
-            jSONObject.put("frame_time", j);
-            this.hxS.setTime(System.currentTimeMillis());
-            jSONObject.put("time", this.aWA.format(this.hxS));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        if (this.hxV % 15 == 0) {
-            this.mLastTime = currentTimeMillis;
-            try {
-                jSONObject.put("memory", a.cdJ().cdK());
-                jSONObject.put("cpu", a.cdJ().aaG());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+    public void b(final String str, final String str2, final long j, long j2) {
+        SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.i.b.5
+            @Override // java.lang.Runnable
+            public void run() {
+                if (b.this.hDc == null) {
+                    b.this.hDc = new com.baidu.tieba.ala.liveroom.n.e(b.this.mTbPageContext, b.this.hDg);
+                }
+                b.this.hDc.j(str, str2, j);
             }
-        }
-        this.hxT.put(jSONObject);
-        if (this.hxV >= 75) {
-            this.hxV = 0;
-            try {
-                this.hxR.setLength(0);
-                this.hxR.append(this.hxQ).append("?extra=").append(this.hxT.toString()).append("&type=profile").append("&profile_id=" + GUIDTool.guid());
-                addCommonParams();
-                String stringBuffer = this.hxR.toString();
-                Message obtain = Message.obtain();
-                obtain.obj = stringBuffer;
-                this.hxU.sendMessage(obtain);
-                this.hxT = null;
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
+        }, j2);
+    }
+
+    public void Ar() {
+        cancel();
+        this.handler.removeCallbacksAndMessages(null);
+        if (cfe()) {
+            o.dt(false);
         }
     }
 
-    private void addCommonParams() {
-        this.hxR.append("&_client_type=2");
-        this.hxR.append("&_client_version=" + TbConfig.getVersion());
-        if (TbadkCoreApplication.getInst().getImei() != null) {
-            this.hxR.append("&_phone_imei=" + TbadkCoreApplication.getInst().getImei());
+    public void cancel() {
+        if (this.mTimerTask != null) {
+            this.mTimerTask.cancel();
         }
-        if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-            this.hxR.append("&subapp_type=" + TbConfig.getSubappType());
+        if (this.hDc != null) {
+            this.hDc.cancelLoadData();
         }
-        this.hxR.append("&subapp_version=" + TbConfig.getSubappVersionCode());
-        this.hxR.append("&subapp_version_name=" + TbConfig.getSubappVersionName());
-        this.hxR.append("&_sdk_version=4.2.0");
-        if (AlaLiveSwitchData.isHotLive == 1) {
-            this.hxR.append("&ishot=1");
+    }
+
+    public void b(com.baidu.tieba.ala.liveroom.data.a aVar) {
+        ab Fm = aVar.hBt.Fm();
+        AlaLiveInfoData cjz = aVar.hBt.cjz();
+        if (o.bz(cjz.room_id) && Fm != null && Fm.aIQ != null && Fm.aIQ.needToast == 1) {
+            c(Fm.aIQ.watchDurationMust, cjz.live_id + "", cjz.user_id + "", aVar.enterTime);
         }
-        if (!TextUtils.isEmpty(AlaLiveSwitchData.liveActivityType)) {
-            this.hxR.append("&live_activity_type=" + AlaLiveSwitchData.liveActivityType);
+    }
+
+    public void c(com.baidu.tieba.ala.liveroom.data.a aVar) {
+        ab Fm = aVar.hBt.Fm();
+        if (Fm != null && aVar != null && this.handler != null && Fm.aIQ != null && Fm.aIQ.needToast == 1 && System.currentTimeMillis() - (aVar.enterTime * 1000) > Fm.aIQ.watchDurationMust) {
+            AlaLiveInfoData cjz = aVar.hBt.cjz();
+            if (o.bz(this.roomId)) {
+                b(cjz.live_id + "", cjz.user_id + "", aVar.enterTime, 5000L);
+            }
         }
-        if (!TextUtils.isEmpty(TbConfig.getLiveEnterFrom())) {
-            this.hxR.append("&live_enter_type=" + TbConfig.getLiveEnterFrom());
-        }
-        String from = TbadkCoreApplication.getFrom();
-        if (from != null && from.length() > 0) {
-            this.hxR.append("&from=" + from);
-        }
-        this.hxR.append("&net_type=" + String.valueOf(BdNetTypeUtil.netType()));
-        this.hxR.append("&tbs=" + TbadkCoreApplication.getInst().getTbs());
-        this.hxR.append("&cuid=" + TbadkCoreApplication.getInst().getCuid());
-        this.hxR.append("&timestamp=" + Long.toString(System.currentTimeMillis()));
-        this.hxR.append("&model=" + Build.MODEL);
-        this.hxR.append("&brand=" + Build.BRAND);
-        this.hxR.append("&_os_version=" + Build.VERSION.RELEASE);
+    }
+
+    public void setRoomId(long j) {
+        this.roomId = j;
     }
 }

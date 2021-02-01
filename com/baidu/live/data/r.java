@@ -1,71 +1,60 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.data.BaseData;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public class r extends BaseData {
-    private long aFL;
-    private List<q> aFN;
-    private List<q> aFO;
-    public String liveId;
-    private long mAudienceCount;
-    private long aFM = 5000;
-    private boolean aFP = false;
+/* loaded from: classes11.dex */
+public class r {
+    public String aGi;
+    public long aGk;
+    public int aHD;
+    public int aHE;
+    public boolean aHF;
+    public String cuid;
+    public String customRoomId;
+    public int level;
+    public List<AlaLiveMarkInfoData> mLiveMarkInfo;
+    public String portrait;
+    public String roomId;
+    public int sex;
+    public String subappType;
+    public String uk;
+    public String userName;
 
-    public long getCount() {
-        return this.aFP ? this.aFL : this.mAudienceCount;
-    }
-
-    public long getInterval() {
-        return this.aFM;
-    }
-
-    public List<q> getList() {
-        return this.aFP ? this.aFO : this.aFN;
-    }
-
-    @Override // com.baidu.live.tbadk.core.data.BaseData
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aFM = jSONObject.optLong("interval", 5L);
-            if (this.aFM < 5) {
-                this.aFM = 5000L;
-            } else {
-                this.aFM *= 1000;
-            }
-            if (jSONObject.has("user_count")) {
-                this.aFP = true;
-                this.aFL = jSONObject.optLong("user_count");
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_info");
-                if (optJSONArray != null) {
-                    this.aFO = new ArrayList();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        q qVar = new q();
-                        qVar.parserJson(optJSONObject);
-                        this.aFO.add(qVar);
-                    }
-                } else {
-                    return;
-                }
-            }
-            if (jSONObject.has("audience_count")) {
-                this.aFP = false;
-                this.mAudienceCount = jSONObject.optLong("audience_count");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("initmacy_rank");
-                if (optJSONArray2 != null) {
-                    this.aFN = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
-                        q qVar2 = new q();
-                        qVar2.parserJson(optJSONObject2);
-                        this.aFN.add(qVar2);
-                    }
+    public void parseJson(JSONObject jSONObject) {
+        this.roomId = jSONObject.optString("room_id", "");
+        this.customRoomId = jSONObject.optString(UbcStatConstant.KEY_CUSTOM_ROOM_ID, "");
+        this.subappType = jSONObject.optString("subapp_type", "");
+        this.uk = jSONObject.optString("uk", "");
+        this.userName = jSONObject.optString("user_nickname", "");
+        this.portrait = jSONObject.optString("portrait", "");
+        this.sex = jSONObject.optInt("sex", 0);
+        this.level = jSONObject.optInt("level", 0);
+        this.cuid = jSONObject.optString("cuid", "");
+        this.aGi = jSONObject.optString("client_version", "0");
+        this.aHD = jSONObject.optInt("link_status", 0);
+        this.aHE = jSONObject.optInt("living_status", 0);
+        this.aGk = jSONObject.optLong("app_id", 0L);
+        this.aHF = jSONObject.optInt("forbidden_status", 0) == 0;
+        JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            this.mLiveMarkInfo = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                try {
+                    AlaLiveMarkInfoData alaLiveMarkInfoData = new AlaLiveMarkInfoData();
+                    alaLiveMarkInfoData.parseJson((JSONObject) optJSONArray.get(i));
+                    this.mLiveMarkInfo.add(alaLiveMarkInfoData);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
         }
+    }
+
+    public boolean BT() {
+        return this.aHE == 1;
     }
 }

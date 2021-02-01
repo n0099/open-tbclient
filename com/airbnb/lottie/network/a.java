@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class a {
     private final Context appContext;
     private final String url;
@@ -25,7 +25,7 @@ class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     @WorkerThread
-    public Pair<FileExtension, InputStream> kk() {
+    public Pair<FileExtension, InputStream> kj() {
         FileExtension fileExtension;
         try {
             File bn = bn(this.url);

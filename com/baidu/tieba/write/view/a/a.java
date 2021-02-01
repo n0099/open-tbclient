@@ -3,7 +3,7 @@ package com.baidu.tieba.write.view.a;
 import android.view.View;
 import com.baidu.adp.base.d;
 import com.baidu.adp.base.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends d {
     protected f mBdPageContext;
     protected View mRootView;

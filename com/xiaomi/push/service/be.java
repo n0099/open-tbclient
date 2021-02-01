@@ -13,7 +13,7 @@ import java.util.List;
 public class be {
 
     /* renamed from: a  reason: collision with root package name */
-    private static be f14269a = new be();
+    private static be f14271a = new be();
 
     /* renamed from: a  reason: collision with other field name */
     private static String f962a;
@@ -40,7 +40,7 @@ public class be {
     }
 
     public static be a() {
-        return f14269a;
+        return f14271a;
     }
 
     /* renamed from: a  reason: collision with other method in class */

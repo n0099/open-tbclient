@@ -13,16 +13,16 @@ import com.bytedance.sdk.adnet.core.o;
 import com.bytedance.sdk.adnet.core.q;
 import com.bytedance.sdk.adnet.d.h;
 import com.bytedance.sdk.openadsdk.core.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile e f7213a;
+    private static volatile e f7215a;
     private static com.bytedance.sdk.adnet.e.a c;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f7214b;
+    private Context f7216b;
     private o d;
     private com.bytedance.sdk.adnet.b.b e;
     private o f;
@@ -43,24 +43,24 @@ public class e {
     }
 
     public static e a(Context context) {
-        if (f7213a == null) {
+        if (f7215a == null) {
             synchronized (e.class) {
-                if (f7213a == null) {
-                    f7213a = new e(context);
+                if (f7215a == null) {
+                    f7215a = new e(context);
                 }
             }
         }
-        return f7213a;
+        return f7215a;
     }
 
     private e(Context context) {
-        this.f7214b = context == null ? p.a() : context.getApplicationContext();
+        this.f7216b = context == null ? p.a() : context.getApplicationContext();
     }
 
     public void a(String str, b.a aVar) {
         j();
         if (this.e == null) {
-            this.e = new com.bytedance.sdk.adnet.b.b(this.f7214b, this.d);
+            this.e = new com.bytedance.sdk.adnet.b.b(this.f7216b, this.d);
         }
         this.e.a(str, aVar);
     }
@@ -77,7 +77,7 @@ public class e {
 
     public o e() {
         if (this.f == null) {
-            this.f = com.bytedance.sdk.adnet.a.a(this.f7214b, l());
+            this.f = com.bytedance.sdk.adnet.a.a(this.f7216b, l());
         }
         return this.f;
     }
@@ -96,9 +96,9 @@ public class e {
         a(str, imageView, a(str, imageView, 0, 0));
     }
 
-    public void a(String str, ImageView imageView, d.InterfaceC0993d interfaceC0993d) {
+    public void a(String str, ImageView imageView, d.InterfaceC0997d interfaceC0997d) {
         i();
-        this.h.a(str, interfaceC0993d);
+        this.h.a(str, interfaceC0997d);
     }
 
     public static a a(String str, ImageView imageView, int i, int i2) {
@@ -106,24 +106,24 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static class a implements d.InterfaceC0993d {
+    /* loaded from: classes6.dex */
+    public static class a implements d.InterfaceC0997d {
 
         /* renamed from: a  reason: collision with root package name */
-        private ImageView f7215a;
+        private ImageView f7217a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f7216b;
+        private final String f7218b;
         private final int c;
         private final int d;
 
         a(ImageView imageView, String str, int i, int i2) {
-            this.f7215a = imageView;
-            this.f7216b = str;
+            this.f7217a = imageView;
+            this.f7218b = str;
             this.c = i;
             this.d = i2;
-            if (this.f7215a != null) {
-                this.f7215a.setTag(1094453505, str);
+            if (this.f7217a != null) {
+                this.f7217a.setTag(1094453505, str);
             }
         }
 
@@ -131,35 +131,35 @@ public class e {
         public void a(com.bytedance.sdk.adnet.core.p<Bitmap> pVar) {
         }
 
-        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0993d
+        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
         public void a() {
-            if ((this.f7215a == null || !(this.f7215a.getContext() instanceof Activity) || !((Activity) this.f7215a.getContext()).isFinishing()) && this.f7215a != null && c() && this.c != 0) {
-                this.f7215a.setImageResource(this.c);
+            if ((this.f7217a == null || !(this.f7217a.getContext() instanceof Activity) || !((Activity) this.f7217a.getContext()).isFinishing()) && this.f7217a != null && c() && this.c != 0) {
+                this.f7217a.setImageResource(this.c);
             }
         }
 
-        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0993d
+        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
         public void a(d.c cVar, boolean z) {
-            if ((this.f7215a == null || !(this.f7215a.getContext() instanceof Activity) || !((Activity) this.f7215a.getContext()).isFinishing()) && this.f7215a != null && c() && cVar.a() != null) {
-                this.f7215a.setImageBitmap(cVar.a());
+            if ((this.f7217a == null || !(this.f7217a.getContext() instanceof Activity) || !((Activity) this.f7217a.getContext()).isFinishing()) && this.f7217a != null && c() && cVar.a() != null) {
+                this.f7217a.setImageBitmap(cVar.a());
             }
         }
 
-        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0993d
+        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
         public void b() {
-            this.f7215a = null;
+            this.f7217a = null;
         }
 
         @Override // com.bytedance.sdk.adnet.core.p.a
         public void b(com.bytedance.sdk.adnet.core.p<Bitmap> pVar) {
-            if ((this.f7215a == null || !(this.f7215a.getContext() instanceof Activity) || !((Activity) this.f7215a.getContext()).isFinishing()) && this.f7215a != null && this.d != 0 && c()) {
-                this.f7215a.setImageResource(this.d);
+            if ((this.f7217a == null || !(this.f7217a.getContext() instanceof Activity) || !((Activity) this.f7217a.getContext()).isFinishing()) && this.f7217a != null && this.d != 0 && c()) {
+                this.f7217a.setImageResource(this.d);
             }
         }
 
         private boolean c() {
             Object tag;
-            return (this.f7215a == null || (tag = this.f7215a.getTag(1094453505)) == null || !tag.equals(this.f7216b)) ? false : true;
+            return (this.f7217a == null || (tag = this.f7217a.getTag(1094453505)) == null || !tag.equals(this.f7218b)) ? false : true;
         }
     }
 
@@ -179,18 +179,18 @@ public class e {
 
     private void j() {
         if (this.d == null) {
-            this.d = com.bytedance.sdk.adnet.a.a(this.f7214b, l());
+            this.d = com.bytedance.sdk.adnet.a.a(this.f7216b, l());
         }
     }
 
     private void k() {
         if (this.g == null) {
-            this.g = com.bytedance.sdk.adnet.a.a(this.f7214b, l());
+            this.g = com.bytedance.sdk.adnet.a.a(this.f7216b, l());
         }
     }
 
     private com.bytedance.sdk.adnet.e.a l() {
-        return a() != null ? a() : new m(new h(), h.f6056a, d.f7212a);
+        return a() != null ? a() : new m(new h(), h.f6058a, d.f7214a);
     }
 
     public void a(q qVar) {

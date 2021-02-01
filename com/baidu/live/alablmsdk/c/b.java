@@ -2,13 +2,13 @@ package com.baidu.live.alablmsdk.c;
 
 import com.baidu.live.alablmsdk.module.rtc.BLMStreamState;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    void a(com.baidu.live.alablmsdk.module.rtc.a aVar, int i);
+    void a(com.baidu.live.alablmsdk.module.rtc.a aVar);
 
-    void a(com.baidu.live.alablmsdk.module.rtc.a aVar, BLMStreamState bLMStreamState);
+    void a(com.baidu.live.alablmsdk.module.rtc.c cVar, int i);
 
-    void a(String str, com.baidu.live.alablmsdk.module.c cVar);
+    void a(com.baidu.live.alablmsdk.module.rtc.c cVar, BLMStreamState bLMStreamState);
 
     void a(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject);
 
@@ -24,9 +24,19 @@ public interface b {
 
     void d(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject);
 
+    void e(String str, com.baidu.live.alablmsdk.module.c cVar);
+
     void e(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject);
 
-    void ev(String str);
+    void ey(String str);
+
+    void f(String str, com.baidu.live.alablmsdk.module.c cVar);
+
+    void g(int i, String str);
+
+    void g(String str, com.baidu.live.alablmsdk.module.c cVar);
 
     void onLogReport(String str, JSONObject jSONObject, JSONObject jSONObject2);
+
+    String xn();
 }

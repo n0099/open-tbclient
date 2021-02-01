@@ -1,8 +1,8 @@
 package com.baidu.tieba.forumMember.bawu;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements i {
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int czr() {
+    public int cAC() {
         return 2;
     }
 }

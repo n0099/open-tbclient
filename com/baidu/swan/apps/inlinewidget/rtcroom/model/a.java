@@ -3,7 +3,7 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.model;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public String nicName;
     public long userId;

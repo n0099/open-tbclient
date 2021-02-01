@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
     private static int a(Context context) {
         if (MzSystemUtils.isMeizu(context)) {
@@ -99,7 +99,7 @@ public class d {
 
     public static void a(Context context, boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
         HashMap hashMap = new HashMap();
-        hashMap.put(h.f1947a, str5);
+        hashMap.put(h.f1945a, str5);
         hashMap.put(Config.FEED_LIST_PART, str3);
         hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, str2);
         if (TextUtils.isEmpty(str6)) {

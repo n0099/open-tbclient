@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class e {
-    private a eBk;
+    private a eDq;
     private boolean isLoading = false;
-    private com.baidu.adp.framework.listener.a eBn = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_TOKEN, 309608) { // from class: com.baidu.tbadk.BdToken.e.1
+    private com.baidu.adp.framework.listener.a eDt = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_TOKEN, 309608) { // from class: com.baidu.tbadk.BdToken.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             e.this.isLoading = false;
@@ -46,8 +46,8 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, y yVar) {
-        if (this.eBk != null) {
-            this.eBk.a(z, yVar);
+        if (this.eDq != null) {
+            this.eDq.a(z, yVar);
         }
     }
 
@@ -57,10 +57,10 @@ public class e {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.eBn);
+        MessageManager.getInstance().registerListener(this.eDt);
     }
 
     public void a(a aVar) {
-        this.eBk = aVar;
+        this.eDq = aVar;
     }
 }

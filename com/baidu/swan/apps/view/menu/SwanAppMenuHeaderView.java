@@ -17,28 +17,28 @@ import com.baidu.swan.apps.ao.s;
 import com.baidu.swan.apps.runtime.d;
 import com.baidu.swan.apps.u.c.b;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchListener {
-    private int WV;
-    private SwanAppRoundedImageView cOI;
-    private TextView dQE;
-    private View dQF;
-    private TextView dQG;
-    private a dQH;
-    private b dQI;
-    private a dQJ;
-    private int dQK;
-    private boolean dQL;
-    private int dQM;
-    private int dQN;
-    private Runnable dQO;
+    private int WQ;
+    private SwanAppRoundedImageView cQW;
+    private TextView dSK;
+    private View dSL;
+    private TextView dSM;
+    private a dSN;
+    private b dSO;
+    private a dSP;
+    private int dSQ;
+    private boolean dSR;
+    private int dSS;
+    private int dST;
+    private Runnable dSU;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void onClick(View view);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         boolean onLongClick(View view);
     }
@@ -53,80 +53,80 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
 
     public SwanAppMenuHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
         super(context, attributeSet, i);
-        this.dQL = false;
-        this.dQO = new Runnable() { // from class: com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.4
+        this.dSR = false;
+        this.dSU = new Runnable() { // from class: com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.4
             @Override // java.lang.Runnable
             public void run() {
-                if (SwanAppMenuHeaderView.this.dQI != null) {
-                    SwanAppMenuHeaderView.this.dQL = SwanAppMenuHeaderView.this.dQI.onLongClick(SwanAppMenuHeaderView.this.dQF);
+                if (SwanAppMenuHeaderView.this.dSO != null) {
+                    SwanAppMenuHeaderView.this.dSR = SwanAppMenuHeaderView.this.dSO.onLongClick(SwanAppMenuHeaderView.this.dSL);
                 }
             }
         };
-        ap(inflate(context, a.g.swan_app_menu_header_view, this));
-        setAttentionBtnStates(com.baidu.swan.apps.database.favorite.a.mX(d.aIn().getAppId()));
+        am(inflate(context, a.g.swan_app_menu_header_view, this));
+        setAttentionBtnStates(com.baidu.swan.apps.database.favorite.a.np(d.aIG().getAppId()));
     }
 
-    private void ap(View view) {
-        this.dQF = view.findViewById(a.f.header_content);
-        this.cOI = (SwanAppRoundedImageView) view.findViewById(a.f.swan_app_icon);
-        this.dQE = (TextView) view.findViewById(a.f.swan_app_title);
-        this.dQG = (TextView) view.findViewById(a.f.btn_item_attenion);
-        b.a aIv = d.aIn().aIj().aIv();
-        this.cOI.setImageBitmap(ak.a(aIv.getIconUrl(), "SwanAppMenuHeaderView", false, new s.a() { // from class: com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.1
+    private void am(View view) {
+        this.dSL = view.findViewById(a.f.header_content);
+        this.cQW = (SwanAppRoundedImageView) view.findViewById(a.f.swan_app_icon);
+        this.dSK = (TextView) view.findViewById(a.f.swan_app_title);
+        this.dSM = (TextView) view.findViewById(a.f.btn_item_attenion);
+        b.a aIO = d.aIG().aIC().aIO();
+        this.cQW.setImageBitmap(ak.a(aIO.getIconUrl(), "SwanAppMenuHeaderView", false, new s.a() { // from class: com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.1
             @Override // com.baidu.swan.apps.ao.s.a
-            public void g(String str, Bitmap bitmap) {
-                if (bitmap != null && SwanAppMenuHeaderView.this.cOI != null) {
-                    SwanAppMenuHeaderView.this.cOI.setImageBitmap(bitmap);
+            public void f(String str, Bitmap bitmap) {
+                if (bitmap != null && SwanAppMenuHeaderView.this.cQW != null) {
+                    SwanAppMenuHeaderView.this.cQW.setImageBitmap(bitmap);
                 }
             }
         }));
-        this.dQE.setText(aIv.asE());
-        this.dQF.setOnTouchListener(this);
-        this.dQF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.2
+        this.dSK.setText(aIO.atc());
+        this.dSL.setOnTouchListener(this);
+        this.dSL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (SwanAppMenuHeaderView.this.dQH != null) {
-                    SwanAppMenuHeaderView.this.dQH.onClick(view2);
+                if (SwanAppMenuHeaderView.this.dSN != null) {
+                    SwanAppMenuHeaderView.this.dSN.onClick(view2);
                     view2.setPressed(true);
                 }
             }
         });
-        this.dQG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.3
+        this.dSM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (SwanAppMenuHeaderView.this.dQJ != null) {
-                    SwanAppMenuHeaderView.this.dQJ.onClick(view2);
+                if (SwanAppMenuHeaderView.this.dSP != null) {
+                    SwanAppMenuHeaderView.this.dSP.onClick(view2);
                 }
             }
         });
     }
 
     public void setOnMenuHeaderClickListener(a aVar) {
-        this.dQH = aVar;
+        this.dSN = aVar;
     }
 
     public void setOnAttentionBtnClickListener(a aVar) {
-        this.dQJ = aVar;
+        this.dSP = aVar;
     }
 
     public void setAttentionBtnShow(boolean z) {
-        this.dQG.setVisibility(z ? 0 : 8);
+        this.dSM.setVisibility(z ? 0 : 8);
     }
 
     public void setAttentionBtnStates(boolean z) {
         if (!z) {
-            this.dQG.setText(a.h.aiapps_favorite_guide_add);
-            this.dQG.setBackground(com.baidu.swan.support.v4.a.a.getDrawable(getContext(), a.e.swanapp_attention_btn_bg));
-            this.dQG.setTextColor(com.baidu.swan.support.v4.a.a.getColorStateList(getContext(), a.c.swanapp_attention_btn_text_color));
+            this.dSM.setText(a.h.aiapps_favorite_guide_add);
+            this.dSM.setBackground(com.baidu.swan.support.v4.a.a.getDrawable(getContext(), a.e.swanapp_attention_btn_bg));
+            this.dSM.setTextColor(com.baidu.swan.support.v4.a.a.getColorStateList(getContext(), a.c.swanapp_attention_btn_text_color));
             return;
         }
-        this.dQG.setText(a.h.swanapp_favored);
-        this.dQG.setBackground(com.baidu.swan.support.v4.a.a.getDrawable(getContext(), a.e.swanapp_cancel_attention_btn_bg));
-        this.dQG.setTextColor(com.baidu.swan.support.v4.a.a.getColorStateList(getContext(), a.c.swanapp_cancel_attention_btn_text_color));
+        this.dSM.setText(a.h.swanapp_favored);
+        this.dSM.setBackground(com.baidu.swan.support.v4.a.a.getDrawable(getContext(), a.e.swanapp_cancel_attention_btn_bg));
+        this.dSM.setTextColor(com.baidu.swan.support.v4.a.a.getColorStateList(getContext(), a.c.swanapp_cancel_attention_btn_text_color));
     }
 
     public void setOnMenuHeaderLongClickListener(b bVar) {
-        this.dQI = bVar;
+        this.dSO = bVar;
     }
 
     @Override // android.view.ViewGroup
@@ -135,14 +135,14 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         float y = motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.dQM = (int) x;
-                this.dQN = (int) y;
+                this.dSS = (int) x;
+                this.dST = (int) y;
                 return false;
             case 1:
             default:
                 return false;
             case 2:
-                if (Math.abs(this.dQM - x) <= 10.0f && Math.abs(this.dQN - y) <= 10.0f) {
+                if (Math.abs(this.dSS - x) <= 10.0f && Math.abs(this.dST - y) <= 10.0f) {
                     return false;
                 }
                 return true;
@@ -155,34 +155,34 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.dQI == null) {
+                if (this.dSO == null) {
                     return super.onTouchEvent(motionEvent);
                 }
-                removeCallbacks(this.dQO);
-                this.dQL = false;
-                this.dQK = x;
-                this.WV = y;
-                postDelayed(this.dQO, IMConnection.RETRY_DELAY_TIMES);
+                removeCallbacks(this.dSU);
+                this.dSR = false;
+                this.dSQ = x;
+                this.WQ = y;
+                postDelayed(this.dSU, IMConnection.RETRY_DELAY_TIMES);
                 view.setPressed(true);
                 break;
             case 1:
-                removeCallbacks(this.dQO);
-                if (!this.dQL && this.dQH != null) {
-                    this.dQH.onClick(this.dQF);
+                removeCallbacks(this.dSU);
+                if (!this.dSR && this.dSN != null) {
+                    this.dSN.onClick(this.dSL);
                 }
-                this.dQL = false;
+                this.dSR = false;
                 view.setPressed(false);
                 return false;
             case 2:
-                if (Math.abs(this.dQK - x) > 10 || Math.abs(this.WV - y) > 10) {
-                    removeCallbacks(this.dQO);
-                    this.dQL = false;
+                if (Math.abs(this.dSQ - x) > 10 || Math.abs(this.WQ - y) > 10) {
+                    removeCallbacks(this.dSU);
+                    this.dSR = false;
                     break;
                 }
                 break;
             case 3:
-                removeCallbacks(this.dQO);
-                this.dQL = false;
+                removeCallbacks(this.dSU);
+                this.dSR = false;
                 view.setPressed(false);
                 break;
         }

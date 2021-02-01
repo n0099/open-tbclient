@@ -7,32 +7,32 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d UX;
-    private PluginNetConfigInfos UY = new PluginNetConfigInfos();
-    private b UZ;
+    private static volatile d UV;
+    private PluginNetConfigInfos UW = new PluginNetConfigInfos();
+    private b UX;
 
-    public static d pT() {
-        if (UX == null) {
+    public static d pR() {
+        if (UV == null) {
             synchronized (d.class) {
-                if (UX == null) {
-                    UX = new d();
+                if (UV == null) {
+                    UV = new d();
                 }
             }
         }
-        return UX;
+        return UV;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
         c b2 = b(pluginSettings);
-        if (this.UZ != null) {
-            this.UZ.a(z, b2, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        if (this.UX != null) {
+            this.UX.a(z, b2, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
                 public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos, String str) {
                     if (z2) {
-                        d.this.UY = pluginNetConfigInfos;
+                        d.this.UW = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.UY, str);
+                        aVar.a(z2, cVar, d.this.UW, str);
                     }
                 }
             });
@@ -54,11 +54,11 @@ public class d {
         return cVar;
     }
 
-    public PluginNetConfigInfos pU() {
-        return this.UY;
+    public PluginNetConfigInfos pS() {
+        return this.UW;
     }
 
     public void a(b bVar) {
-        this.UZ = bVar;
+        this.UX = bVar;
     }
 }

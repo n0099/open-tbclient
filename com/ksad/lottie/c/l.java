@@ -7,14 +7,14 @@ import androidx.annotation.IntRange;
 import com.kwai.video.player.KsMediaMeta;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class l implements aj<com.ksad.lottie.model.content.c> {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7974a;
+    private int f7976a;
 
     public l(int i) {
-        this.f7974a = i;
+        this.f7976a = i;
     }
 
     @IntRange(from = 0, to = KsMediaMeta.AV_CH_LAYOUT_7POINT1_WIDE_BACK)
@@ -36,7 +36,7 @@ public class l implements aj<com.ksad.lottie.model.content.c> {
 
     private void a(com.ksad.lottie.model.content.c cVar, List<Float> list) {
         int i;
-        int i2 = this.f7974a * 4;
+        int i2 = this.f7976a * 4;
         if (list.size() <= i2) {
             return;
         }
@@ -77,14 +77,14 @@ public class l implements aj<com.ksad.lottie.model.content.c> {
         if (z) {
             jsonReader.endArray();
         }
-        if (this.f7974a == -1) {
-            this.f7974a = arrayList.size() / 4;
+        if (this.f7976a == -1) {
+            this.f7976a = arrayList.size() / 4;
         }
-        float[] fArr = new float[this.f7974a];
-        int[] iArr = new int[this.f7974a];
+        float[] fArr = new float[this.f7976a];
+        int[] iArr = new int[this.f7976a];
         int i = 0;
         int i2 = 0;
-        for (int i3 = 0; i3 < this.f7974a * 4; i3++) {
+        for (int i3 = 0; i3 < this.f7976a * 4; i3++) {
             int i4 = i3 / 4;
             double floatValue = arrayList.get(i3).floatValue();
             switch (i3 % 4) {

@@ -2,7 +2,7 @@ package org.webrtc;
 
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface EglBase {
     public static final int EGL_OPENGL_ES2_BIT = 4;
     public static final int EGL_RECORDABLE_ANDROID = 12610;
@@ -13,10 +13,8 @@ public interface EglBase {
     public static final int[] CONFIG_PIXEL_RGBA_BUFFER = {12324, 8, 12323, 8, 12322, 8, 12321, 8, 12352, 4, 12339, 1, 12344};
     public static final int[] CONFIG_RECORDABLE = {12324, 8, 12323, 8, 12322, 8, 12352, 4, 12610, 1, 12344};
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Context {
-        public static final long NO_CONTEXT = 0;
-
         long getNativeEglContext();
     }
 

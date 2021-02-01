@@ -20,15 +20,15 @@ import javax.microedition.khronos.opengles.GL10;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduMap f2789a;
+    final /* synthetic */ BaiduMap f2787a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BaiduMap baiduMap) {
-        this.f2789a = baiduMap;
+        this.f2787a = baiduMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -39,9 +39,9 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
     public void a(Bitmap bitmap) {
         BaiduMap.SnapshotReadyCallback snapshotReadyCallback;
         BaiduMap.SnapshotReadyCallback snapshotReadyCallback2;
-        snapshotReadyCallback = this.f2789a.z;
+        snapshotReadyCallback = this.f2787a.z;
         if (snapshotReadyCallback != null) {
-            snapshotReadyCallback2 = this.f2789a.z;
+            snapshotReadyCallback2 = this.f2787a.z;
             snapshotReadyCallback2.onSnapshotReady(bitmap);
         }
     }
@@ -50,9 +50,9 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
     public void a(MotionEvent motionEvent) {
         BaiduMap.OnMapTouchListener onMapTouchListener;
         BaiduMap.OnMapTouchListener onMapTouchListener2;
-        onMapTouchListener = this.f2789a.p;
+        onMapTouchListener = this.f2787a.p;
         if (onMapTouchListener != null) {
-            onMapTouchListener2 = this.f2789a.p;
+            onMapTouchListener2 = this.f2787a.p;
             onMapTouchListener2.onTouch(motionEvent);
         }
     }
@@ -61,10 +61,10 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
     public void a(GeoPoint geoPoint) {
         BaiduMap.OnMapClickListener onMapClickListener;
         BaiduMap.OnMapClickListener onMapClickListener2;
-        onMapClickListener = this.f2789a.q;
+        onMapClickListener = this.f2787a.q;
         if (onMapClickListener != null) {
             LatLng mc2ll = CoordUtil.mc2ll(geoPoint);
-            onMapClickListener2 = this.f2789a.q;
+            onMapClickListener2 = this.f2787a.q;
             onMapClickListener2.onMapClick(mc2ll);
         }
     }
@@ -78,23 +78,23 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         BaiduMap.OnMapStatusChangeListener onMapStatusChangeListener2;
         BaiduMap.OnMapStatusChangeListener onMapStatusChangeListener3;
         View view2;
-        view = this.f2789a.J;
+        view = this.f2787a.J;
         if (view != null) {
-            view2 = this.f2789a.J;
+            view2 = this.f2787a.J;
             view2.setVisibility(4);
         }
         int i = (BaiduMap.mapStatusReason & 256) == 256 ? 3 : (BaiduMap.mapStatusReason & 16) == 16 ? 2 : 1;
-        onMapStatusChangeListener = this.f2789a.o;
+        onMapStatusChangeListener = this.f2787a.o;
         if (onMapStatusChangeListener != null) {
             MapStatus a2 = MapStatus.a(abVar);
-            onMapStatusChangeListener2 = this.f2789a.o;
+            onMapStatusChangeListener2 = this.f2787a.o;
             onMapStatusChangeListener2.onMapStatusChangeStart(a2);
-            onMapStatusChangeListener3 = this.f2789a.o;
+            onMapStatusChangeListener3 = this.f2787a.o;
             onMapStatusChangeListener3.onMapStatusChangeStart(a2, i);
         }
-        onSynchronizationListener = this.f2789a.C;
+        onSynchronizationListener = this.f2787a.C;
         if (onSynchronizationListener != null) {
-            onSynchronizationListener2 = this.f2789a.C;
+            onSynchronizationListener2 = this.f2787a.C;
             onSynchronizationListener2.onMapStatusChangeReason(i);
         }
         BaiduMap.mapStatusReason = 0;
@@ -122,49 +122,49 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         try {
             JSONObject jSONObject = new JSONObject(str);
             JSONObject optJSONObject = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET).optJSONObject(0);
-            eVar = this.f2789a.i;
+            eVar = this.f2787a.i;
             GeoPoint b2 = eVar.b(jSONObject.optInt("px"), jSONObject.optInt("py"));
             int optInt = optJSONObject.optInt(Config.EXCEPTION_CRASH_CHANNEL);
             if (optInt == 17) {
-                onMapClickListener = this.f2789a.q;
+                onMapClickListener = this.f2787a.q;
                 if (onMapClickListener != null) {
                     MapPoi mapPoi = new MapPoi();
                     mapPoi.a(optJSONObject);
-                    onMapClickListener2 = this.f2789a.q;
+                    onMapClickListener2 = this.f2787a.q;
                     onMapClickListener2.onMapPoiClick(mapPoi);
                 }
             } else if (optInt == 18) {
-                onMyLocationClickListener = this.f2789a.y;
+                onMyLocationClickListener = this.f2787a.y;
                 if (onMyLocationClickListener == null) {
                     a(b2);
                     return;
                 }
-                onMyLocationClickListener2 = this.f2789a.y;
+                onMyLocationClickListener2 = this.f2787a.y;
                 onMyLocationClickListener2.onMyLocationClick();
             } else if (optInt == 19) {
-                eVar2 = this.f2789a.i;
+                eVar2 = this.f2787a.i;
                 if (eVar2 != null) {
-                    eVar3 = this.f2789a.i;
+                    eVar3 = this.f2787a.i;
                     ab E = eVar3.E();
                     if (E != null) {
                         E.c = 0;
-                        E.f3041b = 0;
+                        E.f3039b = 0;
                         BaiduMap.mapStatusReason |= 16;
-                        eVar4 = this.f2789a.i;
+                        eVar4 = this.f2787a.i;
                         eVar4.a(E, 300);
                     }
                 }
             } else if (optInt != 90909) {
                 if (optInt == 90910) {
                     String optString = optJSONObject.optString("polyline_id");
-                    list = this.f2789a.k;
+                    list = this.f2787a.k;
                     for (Overlay overlay : list) {
                         if ((overlay instanceof Polyline) && overlay.v.equals(optString)) {
-                            copyOnWriteArrayList = this.f2789a.w;
+                            copyOnWriteArrayList = this.f2787a.w;
                             if (copyOnWriteArrayList.isEmpty()) {
                                 a(b2);
                             } else {
-                                copyOnWriteArrayList2 = this.f2789a.w;
+                                copyOnWriteArrayList2 = this.f2787a.w;
                                 Iterator it = copyOnWriteArrayList2.iterator();
                                 while (it.hasNext()) {
                                     ((BaiduMap.OnPolylineClickListener) it.next()).onPolylineClick((Polyline) overlay);
@@ -175,11 +175,11 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
                 }
             } else {
                 String optString2 = optJSONObject.optString("marker_id");
-                infoWindow = this.f2789a.H;
+                infoWindow = this.f2787a.H;
                 if (infoWindow != null) {
-                    marker = this.f2789a.I;
+                    marker = this.f2787a.I;
                     if (optString2.equals(marker.v)) {
-                        infoWindow2 = this.f2789a.H;
+                        infoWindow2 = this.f2787a.H;
                         InfoWindow.OnInfoWindowClickListener onInfoWindowClickListener = infoWindow2.d;
                         if (onInfoWindowClickListener != null) {
                             onInfoWindowClickListener.onInfoWindowClick();
@@ -190,12 +190,12 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
                         }
                     }
                 }
-                list2 = this.f2789a.k;
+                list2 = this.f2787a.k;
                 for (Overlay overlay2 : list2) {
                     if ((overlay2 instanceof Marker) && overlay2.v.equals(optString2)) {
-                        copyOnWriteArrayList3 = this.f2789a.v;
+                        copyOnWriteArrayList3 = this.f2787a.v;
                         if (!copyOnWriteArrayList3.isEmpty()) {
-                            copyOnWriteArrayList4 = this.f2789a.v;
+                            copyOnWriteArrayList4 = this.f2787a.v;
                             Iterator it2 = copyOnWriteArrayList4.iterator();
                             while (it2.hasNext()) {
                                 ((BaiduMap.OnMarkerClickListener) it2.next()).onMarkerClick((Marker) overlay2);
@@ -215,10 +215,10 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
     public void a(GL10 gl10, ab abVar) {
         BaiduMap.OnMapDrawFrameCallback onMapDrawFrameCallback;
         BaiduMap.OnMapDrawFrameCallback onMapDrawFrameCallback2;
-        onMapDrawFrameCallback = this.f2789a.A;
+        onMapDrawFrameCallback = this.f2787a.A;
         if (onMapDrawFrameCallback != null) {
             MapStatus a2 = MapStatus.a(abVar);
-            onMapDrawFrameCallback2 = this.f2789a.A;
+            onMapDrawFrameCallback2 = this.f2787a.A;
             onMapDrawFrameCallback2.onMapDrawFrame(a2);
         }
     }
@@ -227,10 +227,10 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
     public void a(boolean z) {
         BaiduMap.OnBaseIndoorMapListener onBaseIndoorMapListener;
         BaiduMap.OnBaseIndoorMapListener onBaseIndoorMapListener2;
-        onBaseIndoorMapListener = this.f2789a.B;
+        onBaseIndoorMapListener = this.f2787a.B;
         if (onBaseIndoorMapListener != null) {
-            MapBaseIndoorMapInfo focusedBaseIndoorMapInfo = this.f2789a.getFocusedBaseIndoorMapInfo();
-            onBaseIndoorMapListener2 = this.f2789a.B;
+            MapBaseIndoorMapInfo focusedBaseIndoorMapInfo = this.f2787a.getFocusedBaseIndoorMapInfo();
+            onBaseIndoorMapListener2 = this.f2787a.B;
             onBaseIndoorMapListener2.onBaseIndoorMapMode(z, focusedBaseIndoorMapInfo);
         }
     }
@@ -240,13 +240,13 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         BaiduMap.OnMapLoadedCallback onMapLoadedCallback;
         BaiduMap.OnMapLoadedCallback onMapLoadedCallback2;
-        BaiduMap baiduMap = this.f2789a;
-        eVar = this.f2789a.i;
+        BaiduMap baiduMap = this.f2787a;
+        eVar = this.f2787a.i;
         baiduMap.f = new Projection(eVar);
-        this.f2789a.Q = true;
-        onMapLoadedCallback = this.f2789a.r;
+        this.f2787a.Q = true;
+        onMapLoadedCallback = this.f2787a.r;
         if (onMapLoadedCallback != null) {
-            onMapLoadedCallback2 = this.f2789a.r;
+            onMapLoadedCallback2 = this.f2787a.r;
             onMapLoadedCallback2.onMapLoaded();
         }
     }
@@ -255,10 +255,10 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
     public void b(GeoPoint geoPoint) {
         BaiduMap.OnMapDoubleClickListener onMapDoubleClickListener;
         BaiduMap.OnMapDoubleClickListener onMapDoubleClickListener2;
-        onMapDoubleClickListener = this.f2789a.t;
+        onMapDoubleClickListener = this.f2787a.t;
         if (onMapDoubleClickListener != null) {
             LatLng mc2ll = CoordUtil.mc2ll(geoPoint);
-            onMapDoubleClickListener2 = this.f2789a.t;
+            onMapDoubleClickListener2 = this.f2787a.t;
             onMapDoubleClickListener2.onMapDoubleClick(mc2ll);
         }
     }
@@ -267,10 +267,10 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
     public void b(ab abVar) {
         BaiduMap.OnMapStatusChangeListener onMapStatusChangeListener;
         BaiduMap.OnMapStatusChangeListener onMapStatusChangeListener2;
-        onMapStatusChangeListener = this.f2789a.o;
+        onMapStatusChangeListener = this.f2787a.o;
         if (onMapStatusChangeListener != null) {
             MapStatus a2 = MapStatus.a(abVar);
-            onMapStatusChangeListener2 = this.f2789a.o;
+            onMapStatusChangeListener2 = this.f2787a.o;
             onMapStatusChangeListener2.onMapStatusChange(a2);
         }
     }
@@ -282,23 +282,23 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         if (r0.f == false) goto L30;
      */
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0063, code lost:
-        r5.f2789a.K = r0;
-        r0 = r5.f2789a.f;
-        r2 = r5.f2789a.K;
-        r0 = r0.toScreenLocation(r2.f2744a);
+        r5.f2787a.K = r0;
+        r0 = r5.f2787a.f;
+        r2 = r5.f2787a.K;
+        r0 = r0.toScreenLocation(r2.f2742a);
         r2 = new android.graphics.Point(r0.x, r0.y - 60);
-        r0 = r5.f2789a.f;
+        r0 = r5.f2787a.f;
         r0 = r0.fromScreenLocation(r2);
-        r2 = r5.f2789a.K;
+        r2 = r5.f2787a.K;
         r2.setPosition(r0);
-        r0 = r5.f2789a.x;
+        r0 = r5.f2787a.x;
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x009e, code lost:
         if (r0 == null) goto L24;
      */
     /* JADX WARN: Code restructure failed: missing block: B:20:0x00a0, code lost:
-        r0 = r5.f2789a.x;
-        r2 = r5.f2789a.K;
+        r0 = r5.f2787a.x;
+        r2 = r5.f2787a.K;
         r0.onMarkerDragStart(r2);
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x00af, code lost:
@@ -319,11 +319,11 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
             JSONObject optJSONObject = new JSONObject(str).optJSONArray(ActionJsonData.TAG_DATASET).optJSONObject(0);
             if (optJSONObject.optInt(Config.EXCEPTION_CRASH_CHANNEL) == 90909) {
                 String optString = optJSONObject.optString("marker_id");
-                marker = this.f2789a.I;
+                marker = this.f2787a.I;
                 if (marker != null) {
-                    marker2 = this.f2789a.I;
+                    marker2 = this.f2787a.I;
                 }
-                list = this.f2789a.k;
+                list = this.f2787a.k;
                 Iterator it = list.iterator();
                 while (true) {
                     if (!it.hasNext()) {
@@ -345,9 +345,9 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
     public void c() {
         BaiduMap.OnMapRenderCallback onMapRenderCallback;
         BaiduMap.OnMapRenderCallback onMapRenderCallback2;
-        onMapRenderCallback = this.f2789a.s;
+        onMapRenderCallback = this.f2787a.s;
         if (onMapRenderCallback != null) {
-            onMapRenderCallback2 = this.f2789a.s;
+            onMapRenderCallback2 = this.f2787a.s;
             onMapRenderCallback2.onMapRenderFinished();
         }
     }
@@ -356,10 +356,10 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
     public void c(GeoPoint geoPoint) {
         BaiduMap.OnMapLongClickListener onMapLongClickListener;
         BaiduMap.OnMapLongClickListener onMapLongClickListener2;
-        onMapLongClickListener = this.f2789a.u;
+        onMapLongClickListener = this.f2787a.u;
         if (onMapLongClickListener != null) {
             LatLng mc2ll = CoordUtil.mc2ll(geoPoint);
-            onMapLongClickListener2 = this.f2789a.u;
+            onMapLongClickListener2 = this.f2787a.u;
             onMapLongClickListener2.onMapLongClick(mc2ll);
         }
     }
@@ -370,15 +370,15 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         BaiduMap.OnMapStatusChangeListener onMapStatusChangeListener;
         BaiduMap.OnMapStatusChangeListener onMapStatusChangeListener2;
         View view2;
-        view = this.f2789a.J;
+        view = this.f2787a.J;
         if (view != null) {
-            view2 = this.f2789a.J;
+            view2 = this.f2787a.J;
             view2.setVisibility(0);
         }
-        onMapStatusChangeListener = this.f2789a.o;
+        onMapStatusChangeListener = this.f2787a.o;
         if (onMapStatusChangeListener != null) {
             MapStatus a2 = MapStatus.a(abVar);
-            onMapStatusChangeListener2 = this.f2789a.o;
+            onMapStatusChangeListener2 = this.f2787a.o;
             onMapStatusChangeListener2.onMapStatusChangeFinish(a2);
         }
     }
@@ -389,16 +389,16 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         Lock lock2;
         HeatMap heatMap;
         HeatMap heatMap2;
-        lock = this.f2789a.F;
+        lock = this.f2787a.F;
         lock.lock();
         try {
-            heatMap = this.f2789a.E;
+            heatMap = this.f2787a.E;
             if (heatMap != null) {
-                heatMap2 = this.f2789a.E;
+                heatMap2 = this.f2787a.E;
                 heatMap2.a();
             }
         } finally {
-            lock2 = this.f2789a.F;
+            lock2 = this.f2787a.F;
             lock2.unlock();
         }
     }
@@ -414,24 +414,24 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         Marker marker4;
         BaiduMap.OnMarkerDragListener onMarkerDragListener2;
         Marker marker5;
-        marker = this.f2789a.K;
+        marker = this.f2787a.K;
         if (marker != null) {
-            marker2 = this.f2789a.K;
+            marker2 = this.f2787a.K;
             if (marker2.f) {
                 LatLng mc2ll = CoordUtil.mc2ll(geoPoint);
-                projection = this.f2789a.f;
+                projection = this.f2787a.f;
                 Point screenLocation = projection.toScreenLocation(mc2ll);
                 Point point = new Point(screenLocation.x, screenLocation.y - 60);
-                projection2 = this.f2789a.f;
+                projection2 = this.f2787a.f;
                 LatLng fromScreenLocation = projection2.fromScreenLocation(point);
-                marker3 = this.f2789a.K;
+                marker3 = this.f2787a.K;
                 marker3.setPosition(fromScreenLocation);
-                onMarkerDragListener = this.f2789a.x;
+                onMarkerDragListener = this.f2787a.x;
                 if (onMarkerDragListener != null) {
-                    marker4 = this.f2789a.K;
+                    marker4 = this.f2787a.K;
                     if (marker4.f) {
-                        onMarkerDragListener2 = this.f2789a.x;
-                        marker5 = this.f2789a.K;
+                        onMarkerDragListener2 = this.f2787a.x;
+                        marker5 = this.f2787a.K;
                         onMarkerDragListener2.onMarkerDrag(marker5);
                     }
                 }
@@ -446,18 +446,18 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         HeatMap heatMap;
         HeatMap heatMap2;
         com.baidu.mapsdkplatform.comapi.map.e eVar;
-        lock = this.f2789a.F;
+        lock = this.f2787a.F;
         lock.lock();
         try {
-            heatMap = this.f2789a.E;
+            heatMap = this.f2787a.E;
             if (heatMap != null) {
-                heatMap2 = this.f2789a.E;
+                heatMap2 = this.f2787a.E;
                 heatMap2.a();
-                eVar = this.f2789a.i;
+                eVar = this.f2787a.i;
                 eVar.o();
             }
         } finally {
-            lock2 = this.f2789a.F;
+            lock2 = this.f2787a.F;
             lock2.unlock();
         }
     }
@@ -473,28 +473,28 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         Marker marker4;
         BaiduMap.OnMarkerDragListener onMarkerDragListener2;
         Marker marker5;
-        marker = this.f2789a.K;
+        marker = this.f2787a.K;
         if (marker != null) {
-            marker2 = this.f2789a.K;
+            marker2 = this.f2787a.K;
             if (marker2.f) {
                 LatLng mc2ll = CoordUtil.mc2ll(geoPoint);
-                projection = this.f2789a.f;
+                projection = this.f2787a.f;
                 Point screenLocation = projection.toScreenLocation(mc2ll);
                 Point point = new Point(screenLocation.x, screenLocation.y - 60);
-                projection2 = this.f2789a.f;
+                projection2 = this.f2787a.f;
                 LatLng fromScreenLocation = projection2.fromScreenLocation(point);
-                marker3 = this.f2789a.K;
+                marker3 = this.f2787a.K;
                 marker3.setPosition(fromScreenLocation);
-                onMarkerDragListener = this.f2789a.x;
+                onMarkerDragListener = this.f2787a.x;
                 if (onMarkerDragListener != null) {
-                    marker4 = this.f2789a.K;
+                    marker4 = this.f2787a.K;
                     if (marker4.f) {
-                        onMarkerDragListener2 = this.f2789a.x;
-                        marker5 = this.f2789a.K;
+                        onMarkerDragListener2 = this.f2787a.x;
+                        marker5 = this.f2787a.K;
                         onMarkerDragListener2.onMarkerDragEnd(marker5);
                     }
                 }
-                this.f2789a.K = null;
+                this.f2787a.K = null;
             }
         }
     }
@@ -506,19 +506,19 @@ public class b implements com.baidu.mapsdkplatform.comapi.map.l {
         Lock lock2;
         HeatMap heatMap;
         HeatMap heatMap2;
-        eVar = this.f2789a.i;
+        eVar = this.f2787a.i;
         eVar.b(false);
-        lock = this.f2789a.F;
+        lock = this.f2787a.F;
         lock.lock();
         try {
-            heatMap = this.f2789a.E;
+            heatMap = this.f2787a.E;
             if (heatMap != null) {
-                BaiduMap baiduMap = this.f2789a;
-                heatMap2 = this.f2789a.E;
+                BaiduMap baiduMap = this.f2787a;
+                heatMap2 = this.f2787a.E;
                 baiduMap.a(heatMap2);
             }
         } finally {
-            lock2 = this.f2789a.F;
+            lock2 = this.f2787a.F;
             lock2.unlock();
         }
     }

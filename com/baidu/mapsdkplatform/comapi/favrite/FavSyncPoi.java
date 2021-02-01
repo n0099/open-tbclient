@@ -1,14 +1,14 @@
 package com.baidu.mapsdkplatform.comapi.favrite;
 
 import com.baidu.mapapi.model.inner.Point;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FavSyncPoi {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3027a;
+    public String f3025a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3028b;
+    public String f3026b;
     public Point c;
     public String d;
     public String e;

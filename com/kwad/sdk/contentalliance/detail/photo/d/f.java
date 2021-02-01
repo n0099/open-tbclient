@@ -11,7 +11,7 @@ import com.kwad.sdk.live.a.b;
 import com.kwad.sdk.live.mode.LiveInfo;
 import com.kwad.sdk.utils.i;
 import com.kwad.sdk.utils.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f extends a<LinearLayout> {
     public d c;
     private com.kwad.sdk.contentalliance.detail.photo.f.c d;
@@ -28,8 +28,8 @@ public class f extends a<LinearLayout> {
     private void p() {
         b.a aVar = new b.a();
         LiveInfo A = com.kwad.sdk.core.response.b.c.A(this.f);
-        aVar.f10478a = com.kwad.sdk.live.mode.a.b(A);
-        aVar.f10479b = com.kwad.sdk.live.mode.a.a(A);
+        aVar.f10480a = com.kwad.sdk.live.mode.a.b(A);
+        aVar.f10481b = com.kwad.sdk.live.mode.a.a(A);
         new k().a(aVar, new k.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.f.2
             @Override // com.kwad.sdk.core.g.k.a
             public void a(int i, String str) {
@@ -64,9 +64,9 @@ public class f extends a<LinearLayout> {
     @Override // com.kwad.sdk.contentalliance.detail.photo.d.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = this.f8455a.f8464a;
+        this.c = this.f8457a.f8466a;
         this.f = this.c.a();
-        this.d = this.f8455a.f8465b;
+        this.d = this.f8457a.f8467b;
         com.kwad.sdk.core.report.e.e(this.c.a());
     }
 

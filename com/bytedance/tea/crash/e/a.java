@@ -7,28 +7,28 @@ import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7633a;
+    private Context f7635a;
     private Map<String, Object> c;
-    private com.bytedance.tea.crash.d plv;
+    private com.bytedance.tea.crash.d pvK;
 
     public a(@NonNull Context context, @NonNull com.bytedance.tea.crash.d dVar) {
-        this.f7633a = context;
-        this.plv = dVar;
+        this.f7635a = context;
+        this.pvK = dVar;
     }
 
     @Nullable
     public Map<String, Object> a() {
-        Map<String, Object> a2 = this.plv.a();
+        Map<String, Object> a2 = this.pvK.a();
         if (a2 == null) {
             a2 = new HashMap<>(4);
         }
         if (a(a2)) {
             try {
-                PackageInfo packageInfo = this.f7633a.getPackageManager().getPackageInfo(this.f7633a.getPackageName(), 128);
+                PackageInfo packageInfo = this.f7635a.getPackageManager().getPackageInfo(this.f7635a.getPackageName(), 128);
                 a2.put(SharedPrefConfig.VERSION_NAME, packageInfo.versionName);
                 a2.put("version_code", Integer.valueOf(packageInfo.versionCode));
                 if (a2.get("update_version_code") == null) {
@@ -42,8 +42,8 @@ public class a {
                     a2.put("update_version_code", obj);
                 }
             } catch (Throwable th) {
-                a2.put(SharedPrefConfig.VERSION_NAME, com.bytedance.tea.crash.g.a.e(this.f7633a));
-                a2.put("version_code", Integer.valueOf(com.bytedance.tea.crash.g.a.f(this.f7633a)));
+                a2.put(SharedPrefConfig.VERSION_NAME, com.bytedance.tea.crash.g.a.e(this.f7635a));
+                a2.put("version_code", Integer.valueOf(com.bytedance.tea.crash.g.a.f(this.f7635a)));
                 if (a2.get("update_version_code") == null) {
                     a2.put("update_version_code", a2.get("version_code"));
                 }
@@ -55,7 +55,7 @@ public class a {
     @Nullable
     public Map<String, Object> b() {
         if (this.c == null) {
-            this.c = this.plv.g();
+            this.c = this.pvK.g();
         }
         return this.c;
     }
@@ -65,15 +65,15 @@ public class a {
     }
 
     @NonNull
-    public com.bytedance.tea.crash.d eoF() {
-        return this.plv;
+    public com.bytedance.tea.crash.d eqX() {
+        return this.pvK;
     }
 
     public String d() {
-        return com.bytedance.tea.crash.g.a.d(this.f7633a);
+        return com.bytedance.tea.crash.g.a.d(this.f7635a);
     }
 
     public String e() {
-        return this.plv.b();
+        return this.pvK.b();
     }
 }

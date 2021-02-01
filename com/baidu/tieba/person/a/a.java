@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
 /* loaded from: classes2.dex */
@@ -18,7 +18,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cM */
+    /* renamed from: cN */
     public PersonCenterIntervalHolder e(ViewGroup viewGroup) {
         return new PersonCenterIntervalHolder(LayoutInflater.from(this.mContext).inflate(R.layout.item_person_center_list_interval, viewGroup, false));
     }
@@ -29,19 +29,19 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.d dVar, PersonCenterIntervalHolder personCenterIntervalHolder) {
         if (dVar != null && personCenterIntervalHolder != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (personCenterIntervalHolder.akf != skinType) {
-                personCenterIntervalHolder.akf = skinType;
-                ao.setBackgroundResource(personCenterIntervalHolder.mjB, dVar.backgroundId);
+            if (personCenterIntervalHolder.ajU != skinType) {
+                personCenterIntervalHolder.ajU = skinType;
+                ap.setBackgroundResource(personCenterIntervalHolder.msD, dVar.backgroundId);
             }
-            ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.mjB.getLayoutParams();
-            if (dVar.mfY > 0) {
-                layoutParams.height = dVar.mfY;
+            ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.msD.getLayoutParams();
+            if (dVar.mpb > 0) {
+                layoutParams.height = dVar.mpb;
             }
-            if (dVar.mfX > 0) {
-                layoutParams.width = dVar.mfX;
+            if (dVar.mpa > 0) {
+                layoutParams.width = dVar.mpa;
             }
-            personCenterIntervalHolder.mjB.setLayoutParams(layoutParams);
-            personCenterIntervalHolder.mjB.setOnClickListener(null);
+            personCenterIntervalHolder.msD.setLayoutParams(layoutParams);
+            personCenterIntervalHolder.msD.setOnClickListener(null);
         }
         return view;
     }

@@ -7,7 +7,7 @@ import com.baidu.live.adp.lib.util.SecureHelper;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static String a(String str, String str2) {
         try {

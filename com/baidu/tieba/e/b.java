@@ -1,23 +1,23 @@
 package com.baidu.tieba.e;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class b extends BaseCardInfo {
-    public static final BdUniqueId iyj = BdUniqueId.gen();
-    private bz ale;
+    public static final BdUniqueId iDT = BdUniqueId.gen();
+    private cb akU;
 
-    public void setData(bz bzVar) {
-        this.ale = bzVar;
+    public void setData(cb cbVar) {
+        this.akU = cbVar;
     }
 
-    public bz bkV() {
-        return this.ale;
+    public cb bln() {
+        return this.akU;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return iyj;
+        return iDT;
     }
 }

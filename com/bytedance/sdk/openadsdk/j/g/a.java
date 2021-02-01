@@ -7,22 +7,22 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static Context f7286a;
+    static Context f7288a;
 
     public static void a(Context context) {
         if (context == null) {
             throw new NullPointerException();
         }
-        f7286a = context;
+        f7288a = context;
     }
 
     @Deprecated
     public static File a() {
-        return b(f7286a);
+        return b(f7288a);
     }
 
     public static File b(Context context) {

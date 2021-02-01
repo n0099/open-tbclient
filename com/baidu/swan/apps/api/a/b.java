@@ -3,13 +3,13 @@ package com.baidu.swan.apps.api.a;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface b {
     @NonNull
-    CallbackHandler ajn();
+    CallbackHandler ajL();
 
     @NonNull
-    com.baidu.swan.apps.core.container.a ajo();
+    com.baidu.swan.apps.core.container.a ajM();
 
     @NonNull
     Context getContext();

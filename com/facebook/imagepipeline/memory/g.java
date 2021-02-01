@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.memory;
 
 import android.util.SparseIntArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class g {
-    public static final int pAx = Runtime.getRuntime().availableProcessors();
+    public static final int pKF = Runtime.getRuntime().availableProcessors();
 
-    public static SparseIntArray al(int i, int i2, int i3) {
+    public static SparseIntArray aj(int i, int i2, int i3) {
         SparseIntArray sparseIntArray = new SparseIntArray();
         while (i <= i2) {
             sparseIntArray.put(i, i3);
@@ -14,7 +14,7 @@ public class g {
         return sparseIntArray;
     }
 
-    public static r ewo() {
-        return new r(4194304, pAx * 4194304, al(131072, 4194304, pAx), 131072, 4194304, pAx);
+    public static r eyG() {
+        return new r(4194304, pKF * 4194304, aj(131072, 4194304, pKF), 131072, 4194304, pKF);
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class cg {
-    public int aNs;
-    public int aOm;
-    public int aOn;
+    public String aIu;
+    public int buttonStatus;
 
-    public cg(JSONObject jSONObject) {
-        this.aOm = jSONObject.optInt("show_times_daily");
-        this.aOn = jSONObject.optInt("continue_show_times");
-        this.aNs = jSONObject.optInt("condition");
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.buttonStatus = jSONObject.optInt("button_status");
+            this.aIu = jSONObject.optString("toast_text");
+        }
     }
 }

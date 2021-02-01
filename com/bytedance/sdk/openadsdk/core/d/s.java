@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk.core.d;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6527a;
+    private int f6529a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6528b;
+    private int f6530b;
     private long c;
     private double d;
     private String e;
@@ -32,19 +32,19 @@ public class s {
     }
 
     public int b() {
-        return this.f6527a;
+        return this.f6529a;
     }
 
     public void b(int i) {
-        this.f6527a = i;
+        this.f6529a = i;
     }
 
     public int c() {
-        return this.f6528b;
+        return this.f6530b;
     }
 
     public void c(int i) {
-        this.f6528b = i;
+        this.f6530b = i;
     }
 
     public long d() {

@@ -19,7 +19,7 @@ public class fd implements fc.a {
     private PendingIntent f393a = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile long f14007a = 0;
+    private volatile long f14009a = 0;
 
     public fd(Context context) {
         this.f394a = null;
@@ -49,10 +49,10 @@ public class fd implements fc.a {
             } finally {
                 this.f393a = null;
                 com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
-                this.f14007a = 0L;
+                this.f14009a = 0L;
             }
         }
-        this.f14007a = 0L;
+        this.f14009a = 0L;
     }
 
     public void a(Intent intent, long j) {
@@ -71,26 +71,26 @@ public class fd implements fc.a {
     @Override // com.xiaomi.push.fc.a
     public void a(boolean z) {
         long a2 = a();
-        if (z || this.f14007a != 0) {
+        if (z || this.f14009a != 0) {
             if (z) {
                 a();
             }
-            if (z || this.f14007a == 0) {
-                this.f14007a = (a2 - (SystemClock.elapsedRealtime() % a2)) + System.currentTimeMillis();
+            if (z || this.f14009a == 0) {
+                this.f14009a = (a2 - (SystemClock.elapsedRealtime() % a2)) + System.currentTimeMillis();
             } else {
-                this.f14007a += a2;
-                if (this.f14007a < System.currentTimeMillis()) {
-                    this.f14007a = a2 + System.currentTimeMillis();
+                this.f14009a += a2;
+                if (this.f14009a < System.currentTimeMillis()) {
+                    this.f14009a = a2 + System.currentTimeMillis();
                 }
             }
             Intent intent = new Intent(com.xiaomi.push.service.at.o);
             intent.setPackage(this.f394a.getPackageName());
-            a(intent, this.f14007a);
+            a(intent, this.f14009a);
         }
     }
 
     @Override // com.xiaomi.push.fc.a
     public boolean a() {
-        return this.f14007a != 0;
+        return this.f14009a != 0;
     }
 }

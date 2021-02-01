@@ -18,11 +18,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class a {
-    private static HashMap<String, Integer> dMW = new HashMap<>();
-    private static HashMap<String, Integer> dMX = new HashMap<>();
-    private static HashMap<String, String> dMY = new HashMap<>();
-    private static HashMap<String, String> dMZ = new HashMap<>();
-    private static final Pattern dNa;
+    private static HashMap<String, Integer> dPa = new HashMap<>();
+    private static HashMap<String, Integer> dPb = new HashMap<>();
+    private static HashMap<String, String> dPc = new HashMap<>();
+    private static HashMap<String, String> dPd = new HashMap<>();
+    private static final Pattern dPe;
 
     static {
         k("application/andrew-inset", "ez", 5);
@@ -343,26 +343,26 @@ public final class a {
         k("audio/aac", "aac", 1);
         k("application/vnd.rn-realmedia", "rm", 0);
         k("message/rfc822", "mht", 11);
-        dNa = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        dPe = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void k(String str, String str2, int i) {
-        dMW.put(str2, Integer.valueOf(i));
-        dMX.put(str, Integer.valueOf(i));
-        dMY.put(str2, str);
-        if (!dMZ.containsKey(str)) {
-            dMZ.put(str, str2);
+        dPa.put(str2, Integer.valueOf(i));
+        dPb.put(str, Integer.valueOf(i));
+        dPc.put(str2, str);
+        if (!dPd.containsKey(str)) {
+            dPd.put(str, str2);
         }
     }
 
-    public static int em(String str, String str2) {
+    public static int ek(String str, String str2) {
         return A(!TextUtils.isEmpty(str) ? str.toLowerCase() : "", str2, true);
     }
 
     public static int A(String str, String str2, boolean z) {
-        Integer num = dMX.get(str2);
+        Integer num = dPb.get(str2);
         if (num == null) {
-            num = dMW.get(str);
+            num = dPa.get(str);
             if (num == null) {
                 num = 5;
             } else if (z && num.intValue() == 8) {
@@ -374,7 +374,7 @@ public final class a {
         return num.intValue();
     }
 
-    public static String ty(String str) {
+    public static String tR(String str) {
         int lastIndexOf;
         if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -382,21 +382,21 @@ public final class a {
         return str.substring(lastIndexOf + 1);
     }
 
-    public static String tA(String str) {
+    public static String tT(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return dMY.get(str);
+        return dPc.get(str);
     }
 
-    public static String Er(String str) {
+    public static String EP(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return dMZ.get(str);
+        return dPd.get(str);
     }
 
-    public static String as(String str, String str2, String str3) {
+    public static String au(String str, String str2, String str3) {
         String str4;
         String str5;
         int lastIndexOf;
@@ -405,7 +405,7 @@ public final class a {
         if (0 != 0 || str2 == null) {
             str4 = null;
         } else {
-            str4 = Es(str2);
+            str4 = EQ(str2);
             if (str4 != null && (lastIndexOf2 = str4.lastIndexOf(File.separator) + 1) > 0) {
                 str4 = str4.substring(lastIndexOf2);
             }
@@ -452,14 +452,14 @@ public final class a {
         } else {
             if (str3 != null) {
                 String substring = str4.substring(str4.lastIndexOf(".") + 1);
-                String Er = Er(str3);
+                String EP = EP(str3);
                 String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
                 String lowerCase = !TextUtils.isEmpty(substring) ? substring.toLowerCase() : "";
-                String lowerCase2 = !TextUtils.isEmpty(Er) ? Er.toLowerCase() : "";
+                String lowerCase2 = !TextUtils.isEmpty(EP) ? EP.toLowerCase() : "";
                 String lowerCase3 = !TextUtils.isEmpty(extensionFromMimeType) ? extensionFromMimeType.toLowerCase() : "";
-                String tA = tA(lowerCase);
+                String tT = tT(lowerCase);
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
-                String lowerCase4 = !TextUtils.isEmpty(tA) ? tA.toLowerCase() : "";
+                String lowerCase4 = !TextUtils.isEmpty(tT) ? tT.toLowerCase() : "";
                 String lowerCase5 = !TextUtils.isEmpty(mimeTypeFromExtension) ? mimeTypeFromExtension.toLowerCase() : "";
                 if (TextUtils.equals(lowerCase4, lowerCase5)) {
                     if (!TextUtils.isEmpty(lowerCase2) && TextUtils.equals(lowerCase2, lowerCase3)) {
@@ -503,9 +503,9 @@ public final class a {
         return null;
     }
 
-    static String Es(String str) {
+    static String EQ(String str) {
         try {
-            Matcher matcher = dNa.matcher(str);
+            Matcher matcher = dPe.matcher(str);
             if (matcher.find()) {
                 return matcher.group(2);
             }

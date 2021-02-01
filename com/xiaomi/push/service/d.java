@@ -18,7 +18,7 @@ import java.util.Iterator;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private p f14292a = new p();
+    private p f14294a = new p();
 
     public static String a(ap.b bVar) {
         return !"9".equals(bVar.g) ? bVar.f938a + ".permission.MIPUSH_RECEIVE" : bVar.f938a + ".permission.MIMC_RECEIVE";
@@ -128,7 +128,7 @@ public class d {
 
     public void a(Context context, ap.b bVar, boolean z, int i, String str) {
         if ("5".equalsIgnoreCase(bVar.g)) {
-            this.f14292a.a(context, bVar, z, i, str);
+            this.f14294a.a(context, bVar, z, i, str);
             return;
         }
         Intent intent = new Intent();
@@ -152,7 +152,7 @@ public class d {
         if (a2 == null) {
             com.xiaomi.channel.commonutils.logger.b.d("error while notify channel closed! channel " + str + " not registered");
         } else if ("5".equalsIgnoreCase(str)) {
-            this.f14292a.a(xMPushService, flVar, a2);
+            this.f14294a.a(xMPushService, flVar, a2);
         } else {
             String str2 = a2.f938a;
             Intent intent = new Intent();
@@ -184,7 +184,7 @@ public class d {
         if (a2 == null) {
             com.xiaomi.channel.commonutils.logger.b.d("error while notify channel closed! channel " + str + " not registered");
         } else if ("5".equalsIgnoreCase(str)) {
-            this.f14292a.a(xMPushService, gjVar, a2);
+            this.f14294a.a(xMPushService, gjVar, a2);
         } else {
             String str3 = a2.f938a;
             if (gjVar instanceof gi) {

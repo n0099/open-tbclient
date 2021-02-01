@@ -8,7 +8,7 @@ import java.util.HashMap;
 public final class eq {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile eq f13996a;
+    private static volatile eq f13998a;
 
     /* renamed from: a  reason: collision with other field name */
     private int f380a;
@@ -26,7 +26,7 @@ public final class eq {
     private HashMap<es, et> f384a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13997b;
+    private String f13999b;
 
     private eq(Context context) {
         this.f381a = context;
@@ -37,14 +37,14 @@ public final class eq {
     }
 
     public static eq a(Context context) {
-        if (f13996a == null) {
+        if (f13998a == null) {
             synchronized (eq.class) {
-                if (f13996a == null) {
-                    f13996a = new eq(context);
+                if (f13998a == null) {
+                    f13998a = new eq(context);
                 }
             }
         }
-        return f13996a;
+        return f13998a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -108,10 +108,10 @@ public final class eq {
     }
 
     public String b() {
-        return this.f13997b;
+        return this.f13999b;
     }
 
     public void b(String str) {
-        this.f13997b = str;
+        this.f13999b = str;
     }
 }

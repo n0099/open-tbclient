@@ -1,6 +1,7 @@
 package com.baidu.tieba.ala.headline.view;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,34 +12,34 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends BaseAdapter {
-    private ArrayList<g> eTF = new ArrayList<>();
-    private double hcA = -1.0d;
-    private int hcz;
+    private int hfi;
     private Context mContext;
+    private ArrayList<g> eVV = new ArrayList<>();
+    private double hfj = -1.0d;
 
     public b(Context context) {
         this.mContext = context;
     }
 
     public void a(List<g> list, double d) {
-        if (list != null && this.hcA != d) {
-            this.eTF.clear();
-            this.eTF.addAll(list);
+        if (list != null && this.hfj != d) {
+            this.eVV.clear();
+            this.eVV.addAll(list);
             notifyDataSetChanged();
-            this.hcA = d;
+            this.hfj = d;
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.eTF.size();
+        return this.eVV.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.eTF.get(i);
+        return this.eVV.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,13 +60,15 @@ public class b extends BaseAdapter {
         }
         g gVar = (g) getItem(i);
         if (gVar != null) {
-            aVar.hcB.setText(gVar.CD() + " x" + gVar.CG());
-            aVar.hcC.setText(com.baidu.tieba.ala.headline.a.fm(Long.parseLong(gVar.CG()) * Long.parseLong(gVar.getPrice())));
-            if (!gVar.getThumbnail_url().equals(aVar.gor.getUrl())) {
-                aVar.gor.startLoad(gVar.getThumbnail_url(), 10, false);
-                aVar.gor.setTag(gVar.getThumbnail_url());
+            aVar.hfk.setText(gVar.DS() + " x" + gVar.DW());
+            aVar.hfl.setText(com.baidu.tieba.ala.headline.a.fs(Long.parseLong(gVar.DW()) * Long.parseLong(gVar.getPrice())));
+            if (gVar.getThumbnail_url().equals(aVar.gra.getUrl())) {
+                Log.d("bugbye", "bugbye");
+            } else {
+                aVar.gra.startLoad(gVar.getThumbnail_url(), 10, false);
+                aVar.gra.setTag(gVar.getThumbnail_url());
             }
-            if (this.hcz == i) {
+            if (this.hfi == i) {
                 aVar.rootView.setBackgroundResource(a.e.sdk_get_headline_item_bg_stroke);
             } else {
                 aVar.rootView.setBackgroundResource(0);
@@ -74,31 +77,31 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    public int bWm() {
-        return this.hcz;
+    public int bWQ() {
+        return this.hfi;
     }
 
-    public void uy(int i) {
-        this.hcz = i;
+    public void uE(int i) {
+        this.hfi = i;
     }
 
-    public void bWn() {
-        this.hcA = -1.0d;
+    public void bWR() {
+        this.hfj = -1.0d;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        public TbImageView gor;
-        public TextView hcB;
-        public TextView hcC;
+        public TbImageView gra;
+        public TextView hfk;
+        public TextView hfl;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.hcB = (TextView) view.findViewById(a.f.get_view_gift_item_info);
-            this.hcC = (TextView) view.findViewById(a.f.get_view_gift_item_cost);
-            this.gor = (TbImageView) view.findViewById(a.f.get_view_gift_item_image);
-            this.gor.setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.hfk = (TextView) view.findViewById(a.f.get_view_gift_item_info);
+            this.hfl = (TextView) view.findViewById(a.f.get_view_gift_item_cost);
+            this.gra = (TbImageView) view.findViewById(a.f.get_view_gift_item_image);
+            this.gra.setDefaultBgResource(a.e.sdk_shape_transparent);
         }
     }
 }

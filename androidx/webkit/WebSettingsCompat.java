@@ -10,13 +10,13 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class WebSettingsCompat {
 
     @Target({ElementType.PARAMETER, ElementType.METHOD})
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public @interface MenuItemFlags {
     }
 

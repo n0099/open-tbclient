@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class PublishProgressView extends RelativeLayout implements View.OnClickListener {
-    private PublishProgressBar fgl;
-    private TextView fgm;
-    private TextView fgn;
-    private bg fgo;
+    private PublishProgressBar fiE;
+    private TextView fiF;
+    private TextView fiG;
+    private bi fiH;
 
     public PublishProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -33,38 +33,38 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
 
     private void init(Context context, AttributeSet attributeSet) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.publish_progress_view, this);
-        this.fgl = (PublishProgressBar) inflate.findViewById(R.id.progress_bar);
-        this.fgm = (TextView) inflate.findViewById(R.id.progress_text);
-        this.fgn = (TextView) inflate.findViewById(R.id.progress_close_btn);
-        this.fgn.setOnClickListener(this);
-        this.fgl.setOnClickListener(this);
+        this.fiE = (PublishProgressBar) inflate.findViewById(R.id.progress_bar);
+        this.fiF = (TextView) inflate.findViewById(R.id.progress_text);
+        this.fiG = (TextView) inflate.findViewById(R.id.progress_close_btn);
+        this.fiG.setOnClickListener(this);
+        this.fiE.setOnClickListener(this);
         onChangeSkinType();
     }
 
-    public void b(@NonNull bg bgVar) {
-        if (bgVar.equals(this.fgo)) {
-            this.fgo.a(bgVar);
+    public void b(@NonNull bi biVar) {
+        if (biVar.equals(this.fiH)) {
+            this.fiH.a(biVar);
             updateUI();
             return;
         }
-        this.fgo = bgVar;
+        this.fiH = biVar;
         updateUI();
     }
 
     public void onChangeSkinType() {
-        this.fgl.onChangeSkinType();
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.fgm).nV(R.color.CAM_X0101).nW(R.dimen.T_X06).nX(R.string.F_X01);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.fgn).nV(R.color.CAM_X0101).nW(R.dimen.T_X09).nX(R.string.F_X01);
+        this.fiE.onChangeSkinType();
+        com.baidu.tbadk.core.elementsMaven.c.br(this.fiF).nY(R.color.CAM_X0101).nZ(R.dimen.T_X06).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.fiG).nY(R.color.CAM_X0101).nZ(R.dimen.T_X09).oa(R.string.F_X01);
     }
 
     private void setProgress(int i) {
-        this.fgm.setText(String.format(getResources().getString(R.string.publish_progress_prefix), Integer.valueOf(this.fgl.pz(i))));
+        this.fiF.setText(String.format(getResources().getString(R.string.publish_progress_prefix), Integer.valueOf(this.fiE.pE(i))));
     }
 
     private void updateUI() {
-        if (this.fgo != null) {
-            if (this.fgo.isRunning()) {
-                setProgress(this.fgo.getProgress());
+        if (this.fiH != null) {
+            if (this.fiH.isRunning()) {
+                setProgress(this.fiH.getProgress());
                 setVisibility(0);
                 return;
             }
@@ -76,11 +76,11 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.progress_close_btn) {
-            if (this.fgo != null) {
-                this.fgo.bmz();
+            if (this.fiH != null) {
+                this.fiH.bmS();
                 updateUI();
             }
-            com.baidu.tieba.tbadkCore.writeModel.d.dMV();
+            com.baidu.tieba.tbadkCore.writeModel.d.dPg();
         }
     }
 }

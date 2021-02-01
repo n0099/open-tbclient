@@ -4,23 +4,23 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Inflater;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class j implements s {
-    private final e pds;
-    private final Inflater pdt;
-    private final k pdu;
+    private final e pnF;
+    private final Inflater pnG;
+    private final k pnH;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f5843a = 0;
-    private final CRC32 pdv = new CRC32();
+    private int f5845a = 0;
+    private final CRC32 pnI = new CRC32();
 
     public j(s sVar) {
         if (sVar == null) {
             throw new IllegalArgumentException("source == null");
         }
-        this.pdt = new Inflater(true);
-        this.pds = l.c(sVar);
-        this.pdu = new k(this.pds, this.pdt);
+        this.pnG = new Inflater(true);
+        this.pnF = l.c(sVar);
+        this.pnH = new k(this.pnF, this.pnG);
     }
 
     @Override // com.bytedance.sdk.a.a.s
@@ -31,23 +31,23 @@ public final class j implements s {
         if (j == 0) {
             return 0L;
         }
-        if (this.f5843a == 0) {
+        if (this.f5845a == 0) {
             b();
-            this.f5843a = 1;
+            this.f5845a = 1;
         }
-        if (this.f5843a == 1) {
-            long j2 = cVar.f5840b;
-            long b2 = this.pdu.b(cVar, j);
+        if (this.f5845a == 1) {
+            long j2 = cVar.f5842b;
+            long b2 = this.pnH.b(cVar, j);
             if (b2 != -1) {
                 b(cVar, j2, b2);
                 return b2;
             }
-            this.f5843a = 2;
+            this.f5845a = 2;
         }
-        if (this.f5843a == 2) {
+        if (this.f5845a == 2) {
             c();
-            this.f5843a = 3;
-            if (!this.pds.e()) {
+            this.f5845a = 3;
+            if (!this.pnF.e()) {
                 throw new IOException("gzip finished without exhausting source");
             }
         }
@@ -55,79 +55,79 @@ public final class j implements s {
     }
 
     private void b() throws IOException {
-        this.pds.a(10L);
-        byte ie = this.pds.elX().ie(3L);
-        boolean z = ((ie >> 1) & 1) == 1;
+        this.pnF.a(10L);
+        byte ih = this.pnF.eor().ih(3L);
+        boolean z = ((ih >> 1) & 1) == 1;
         if (z) {
-            b(this.pds.elX(), 0L, 10L);
+            b(this.pnF.eor(), 0L, 10L);
         }
-        a("ID1ID2", 8075, this.pds.emb());
-        this.pds.h(8L);
-        if (((ie >> 2) & 1) == 1) {
-            this.pds.a(2L);
+        a("ID1ID2", 8075, this.pnF.eov());
+        this.pnF.h(8L);
+        if (((ih >> 2) & 1) == 1) {
+            this.pnF.a(2L);
             if (z) {
-                b(this.pds.elX(), 0L, 2L);
+                b(this.pnF.eor(), 0L, 2L);
             }
-            short emc = this.pds.elX().emc();
-            this.pds.a(emc);
+            short eow = this.pnF.eor().eow();
+            this.pnF.a(eow);
             if (z) {
-                b(this.pds.elX(), 0L, emc);
+                b(this.pnF.eor(), 0L, eow);
             }
-            this.pds.h(emc);
+            this.pnF.h(eow);
         }
-        if (((ie >> 3) & 1) == 1) {
-            long e = this.pds.e((byte) 0);
+        if (((ih >> 3) & 1) == 1) {
+            long e = this.pnF.e((byte) 0);
             if (e == -1) {
                 throw new EOFException();
             }
             if (z) {
-                b(this.pds.elX(), 0L, 1 + e);
+                b(this.pnF.eor(), 0L, 1 + e);
             }
-            this.pds.h(1 + e);
+            this.pnF.h(1 + e);
         }
-        if (((ie >> 4) & 1) == 1) {
-            long e2 = this.pds.e((byte) 0);
+        if (((ih >> 4) & 1) == 1) {
+            long e2 = this.pnF.e((byte) 0);
             if (e2 == -1) {
                 throw new EOFException();
             }
             if (z) {
-                b(this.pds.elX(), 0L, 1 + e2);
+                b(this.pnF.eor(), 0L, 1 + e2);
             }
-            this.pds.h(1 + e2);
+            this.pnF.h(1 + e2);
         }
         if (z) {
-            a("FHCRC", this.pds.emc(), (short) this.pdv.getValue());
-            this.pdv.reset();
+            a("FHCRC", this.pnF.eow(), (short) this.pnI.getValue());
+            this.pnI.reset();
         }
     }
 
     private void c() throws IOException {
-        a("CRC", this.pds.l(), (int) this.pdv.getValue());
-        a("ISIZE", this.pds.l(), (int) this.pdt.getBytesWritten());
+        a("CRC", this.pnF.l(), (int) this.pnI.getValue());
+        a("ISIZE", this.pnF.l(), (int) this.pnG.getBytesWritten());
     }
 
     @Override // com.bytedance.sdk.a.a.s
-    public t elW() {
-        return this.pds.elW();
+    public t eoq() {
+        return this.pnF.eoq();
     }
 
     @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.pdu.close();
+        this.pnH.close();
     }
 
     private void b(c cVar, long j, long j2) {
         int i;
-        o oVar = cVar.pdp;
-        while (j >= oVar.c - oVar.f5849b) {
-            j -= oVar.c - oVar.f5849b;
-            oVar = oVar.pdB;
+        o oVar = cVar.pnC;
+        while (j >= oVar.c - oVar.f5851b) {
+            j -= oVar.c - oVar.f5851b;
+            oVar = oVar.pnO;
         }
         while (j2 > 0) {
             int min = (int) Math.min(oVar.c - i, j2);
-            this.pdv.update(oVar.f5848a, (int) (oVar.f5849b + j), min);
+            this.pnI.update(oVar.f5850a, (int) (oVar.f5851b + j), min);
             j2 -= min;
-            oVar = oVar.pdB;
+            oVar = oVar.pnO;
             j = 0;
         }
     }

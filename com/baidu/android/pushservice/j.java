@@ -2,7 +2,7 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */

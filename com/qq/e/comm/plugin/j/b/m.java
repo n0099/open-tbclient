@@ -4,14 +4,14 @@ import com.qq.e.comm.plugin.util.ai;
 import java.io.File;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class m implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f12175a;
+    private final String f12177a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final File f12176b;
+    private final File f12178b;
     private final long c;
     private final long d;
     private final com.qq.e.comm.plugin.j.b.a.b e;
@@ -21,8 +21,8 @@ public class m implements h {
     private AtomicBoolean i = new AtomicBoolean(false);
 
     public m(String str, File file, long j, long j2, com.qq.e.comm.plugin.j.b.a.b bVar) {
-        this.f12175a = str;
-        this.f12176b = file;
+        this.f12177a = str;
+        this.f12178b = file;
         this.c = j;
         this.d = j2;
         this.e = bVar;
@@ -30,10 +30,10 @@ public class m implements h {
 
     @Override // com.qq.e.comm.plugin.j.b.h
     public int a(c cVar) {
-        long length = this.c + this.f12176b.length();
-        long length2 = this.d - this.f12176b.length();
+        long length = this.c + this.f12178b.length();
+        long length2 = this.d - this.f12178b.length();
         if (length2 == 0) {
-            cVar.a(this.f12176b.length());
+            cVar.a(this.f12178b.length());
             return 0;
         }
         try {
@@ -50,18 +50,18 @@ public class m implements h {
         if (this.i.get()) {
             return 0;
         }
-        this.h = this.e.a(this.f12175a, length, length2);
+        this.h = this.e.a(this.f12177a, length, length2);
         if (!this.h.h()) {
             this.f |= this.h.b();
             this.g = this.h.g();
             ai.a("sub fail, [%d - %d], code = %d, msg = %s", Long.valueOf(length), Long.valueOf(length2), Integer.valueOf(this.f), this.g);
         } else if (this.h.c()) {
-            e eVar = new e(this.h, this.f12176b, this.d);
+            e eVar = new e(this.h, this.f12178b, this.d);
             this.f |= eVar.a(cVar);
             this.g = eVar.a();
         } else {
             this.f |= 33554432;
-            this.g = "RangeNotSupportForURL-" + this.f12175a;
+            this.g = "RangeNotSupportForURL-" + this.f12177a;
         }
         return this.f;
     }

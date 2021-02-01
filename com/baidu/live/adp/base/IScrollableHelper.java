@@ -6,7 +6,7 @@ import com.baidu.megapp.ma.MAActivity;
 import com.baidu.megapp.ma.MAFragmentActivity;
 import com.baidu.searchbox.live.base.LiveBaseActivity;
 import java.lang.reflect.Field;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class IScrollableHelper {
     public static BdPageContextCreator defaultPageContextCreater = null;
 

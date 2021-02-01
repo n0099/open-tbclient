@@ -18,7 +18,7 @@ import android.view.KeyEvent;
 import androidx.annotation.RestrictTo;
 import androidx.media.MediaBrowserServiceCompat;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class MediaButtonReceiver extends BroadcastReceiver {
     private static final String TAG = "MediaButtonReceiver";
 
@@ -47,7 +47,7 @@ public class MediaButtonReceiver extends BroadcastReceiver {
         throw new IllegalStateException("Could not find any Service that handles android.intent.action.MEDIA_BUTTON or implements a media browser service.");
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     private static class MediaButtonConnectionCallback extends MediaBrowserCompat.ConnectionCallback {
         private final Context mContext;
         private final Intent mIntent;

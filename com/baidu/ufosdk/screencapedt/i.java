@@ -9,14 +9,14 @@ import android.widget.TextView;
 import com.baidu.ufosdk.f.m;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 final class i extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference f5405a;
+    private final WeakReference f5407a;
 
     public i(ScreenCapEditActivity screenCapEditActivity) {
-        this.f5405a = new WeakReference(screenCapEditActivity);
+        this.f5407a = new WeakReference(screenCapEditActivity);
     }
 
     @Override // android.os.Handler
@@ -29,7 +29,7 @@ final class i extends Handler {
         TextView textView2;
         RelativeLayout relativeLayout2;
         super.handleMessage(message);
-        ScreenCapEditActivity screenCapEditActivity = (ScreenCapEditActivity) this.f5405a.get();
+        ScreenCapEditActivity screenCapEditActivity = (ScreenCapEditActivity) this.f5407a.get();
         if (screenCapEditActivity != null && message.what == 0) {
             com.baidu.ufosdk.f.c.c("msg.what==0");
             hashMap = screenCapEditActivity.t;

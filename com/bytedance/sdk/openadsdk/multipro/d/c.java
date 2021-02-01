@@ -9,15 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.p;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7411a;
+    private Context f7413a;
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        this.f7411a = context;
+        this.f7413a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -31,7 +31,7 @@ public class c implements com.bytedance.sdk.openadsdk.multipro.a {
     }
 
     private Context c() {
-        return this.f7411a == null ? p.a() : this.f7411a;
+        return this.f7413a == null ? p.a() : this.f7413a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a

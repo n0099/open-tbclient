@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.l;
 
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface f {
     List<e> a();
 

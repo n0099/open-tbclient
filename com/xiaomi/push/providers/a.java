@@ -10,7 +10,7 @@ import com.xiaomi.channel.commonutils.logger.b;
 public class a extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f14193a = 1;
+    private static int f14195a = 1;
 
     /* renamed from: a  reason: collision with other field name */
     public static final Object f871a = new Object();
@@ -19,7 +19,7 @@ public class a extends SQLiteOpenHelper {
     private static final String[] f872a = {"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", HttpConstants.NETWORK_TYPE, " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", "imsi", "TEXT"};
 
     public a(Context context) {
-        super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, f14193a);
+        super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, f14195a);
     }
 
     private void a(SQLiteDatabase sQLiteDatabase) {

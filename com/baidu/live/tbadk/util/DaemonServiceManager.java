@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.FileHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DaemonServiceManager {
     public static final String CRASH_HOUR_RECORD_FILE = "crash_hour_record.log";
     public static final int MAX_CRASH_NUM_HOUR = 1;
@@ -14,7 +14,7 @@ public class DaemonServiceManager {
     private CheckCrashNumCallBack mCallBack;
     private CheckCrashNumOverLimitTask mTask;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface CheckCrashNumCallBack {
         void onResult(boolean z);
     }
@@ -64,7 +64,7 @@ public class DaemonServiceManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class CheckCrashNumOverLimitTask extends BdAsyncTask<String, Integer, Boolean> {
         private CheckCrashNumOverLimitTask() {
         }

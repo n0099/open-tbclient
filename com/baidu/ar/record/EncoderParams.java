@@ -20,7 +20,7 @@ public class EncoderParams {
     private int mOutputFormat = 0;
     private long mOutputTotalMs = 0;
     private boolean mVideoIncluded = true;
-    private int mVideoWidth = VIDEO_WIDTH;
+    private int mVideoWidth = 720;
     private int mVideoHeight = 1280;
     private String mVideoCodec = "video/avc";
     private int mVideoBitrate = VIDEO_BIT_RATE;

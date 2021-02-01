@@ -2,14 +2,14 @@ package com.baidu.swan.pms.node.b;
 
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.swan.pms.node.a {
     @Override // com.baidu.swan.pms.node.a, com.baidu.swan.pms.node.d
     public void a(JSONObject jSONObject, com.baidu.swan.pms.a.g gVar, @Nullable com.baidu.swan.pms.a.g gVar2, @Nullable com.baidu.swan.pms.a.g gVar3) {
         if (jSONObject != null) {
-            e.bds().cW(jSONObject.optJSONObject("tipmsgs"));
-            b.bdq().cW(jSONObject.optJSONObject("pkg_clean_strategy"));
-            g.bdu().cW(jSONObject.optJSONObject("pkg_preload"));
+            e.bdF().cT(jSONObject.optJSONObject("tipmsgs"));
+            b.bdD().cT(jSONObject.optJSONObject("pkg_clean_strategy"));
+            g.bdH().cT(jSONObject.optJSONObject("pkg_preload"));
         }
     }
 }

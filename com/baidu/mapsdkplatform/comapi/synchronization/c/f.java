@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class f {
     public static String a() {
         return "https://api.map.baidu.com/sdkproxy/lbs_android/tripshare/v1/passenger/pullpath";

@@ -8,11 +8,11 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CommonWebView extends WebView {
-    private boolean bSb;
-    private boolean bSc;
-    private boolean bSd;
+    private boolean bVV;
+    private boolean bVW;
+    private boolean bVX;
 
     public CommonWebView(Context context) {
         super(context);
@@ -20,41 +20,41 @@ public class CommonWebView extends WebView {
     }
 
     public void setRequestDisallowInterceptTouchEvent(boolean z) {
-        this.bSb = z;
+        this.bVV = z;
     }
 
     public void setVerticalScrollEnabled(boolean z) {
-        this.bSc = z;
+        this.bVW = z;
     }
 
     public void setHorizontalScrollEnabled(boolean z) {
-        this.bSd = z;
+        this.bVX = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        requestDisallowInterceptTouchEvent(this.bSb);
+        requestDisallowInterceptTouchEvent(this.bVV);
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean canScrollHorizontally(int i) {
-        return this.bSd && super.canScrollHorizontally(i);
+        return this.bVX && super.canScrollHorizontally(i);
     }
 
     @Override // android.view.View
     public boolean canScrollVertically(int i) {
-        return this.bSc && super.canScrollVertically(i);
+        return this.bVW && super.canScrollVertically(i);
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (!this.bSc && !this.bSd) {
+        if (!this.bVW && !this.bVX) {
             scrollTo(0, 0);
-        } else if (!this.bSc) {
+        } else if (!this.bVW) {
             scrollTo(i, 0);
-        } else if (!this.bSd) {
+        } else if (!this.bVX) {
             scrollTo(0, i2);
         }
     }
@@ -67,9 +67,9 @@ public class CommonWebView extends WebView {
     }
 
     private void init() {
-        this.bSb = true;
-        this.bSc = true;
-        this.bSd = true;
+        this.bVV = true;
+        this.bVW = true;
+        this.bVX = true;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);
@@ -86,6 +86,9 @@ public class CommonWebView extends WebView {
         settings.setJavaScriptEnabled(true);
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setLoadWithOverviewMode(true);
+        if (Build.VERSION.SDK_INT >= 17) {
+            settings.setMediaPlaybackRequiresUserGesture(false);
+        }
         if (Build.VERSION.SDK_INT >= 21) {
             settings.setMixedContentMode(0);
         }

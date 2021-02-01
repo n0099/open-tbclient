@@ -1,7 +1,7 @@
 package com.ksad.lottie.c;
 
 import android.util.JsonReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.c a(JsonReader jsonReader) {

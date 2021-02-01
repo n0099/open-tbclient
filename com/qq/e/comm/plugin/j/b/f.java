@@ -17,7 +17,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class f implements com.qq.e.comm.plugin.j.e, com.qq.e.comm.plugin.j.f {
     private static final com.qq.e.comm.plugin.j.a s = new com.qq.e.comm.plugin.j.a() { // from class: com.qq.e.comm.plugin.j.b.f.1
         @Override // com.qq.e.comm.plugin.j.a
@@ -50,10 +50,10 @@ public class f implements com.qq.e.comm.plugin.j.e, com.qq.e.comm.plugin.j.f {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f12165a;
+    private final String f12167a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final File f12166b;
+    private final File f12168b;
     private final int c;
     private final com.qq.e.comm.plugin.j.b.a.b d;
     private final ExecutorService f;
@@ -72,39 +72,39 @@ public class f implements com.qq.e.comm.plugin.j.e, com.qq.e.comm.plugin.j.f {
     private final l e = new b();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class a implements Callable<Pair<Integer, String>> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final h f12167a;
+        private final h f12169a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final c f12168b;
+        private final c f12170b;
 
         public a(h hVar, c cVar) {
-            this.f12167a = hVar;
-            this.f12168b = cVar;
+            this.f12169a = hVar;
+            this.f12170b = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Pair<Integer, String> call() throws Exception {
-            this.f12167a.a(this.f12168b);
-            return new Pair<>(Integer.valueOf(this.f12167a.b()), this.f12167a.a());
+            this.f12169a.a(this.f12170b);
+            return new Pair<>(Integer.valueOf(this.f12169a.b()), this.f12169a.a());
         }
     }
 
     public f(String str, File file, int i, com.qq.e.comm.plugin.j.b bVar) {
-        this.f12165a = str;
-        this.f12166b = file;
+        this.f12167a = str;
+        this.f12168b = file;
         this.c = i;
         this.d = new com.qq.e.comm.plugin.j.b.a.b(bVar.a(), bVar.b(), bVar.c());
         this.f = bVar.d();
     }
 
     private File a(int i) {
-        return new File(this.f12166b.getParentFile(), this.f12166b.getName() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i);
+        return new File(this.f12168b.getParentFile(), this.f12168b.getName() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i);
     }
 
     private Future<Pair<Integer, String>> a(a aVar) {
@@ -125,8 +125,8 @@ public class f implements com.qq.e.comm.plugin.j.e, com.qq.e.comm.plugin.j.f {
     }
 
     private void a(List<File> list) {
-        if (this.f12166b.exists()) {
-            this.f12166b.delete();
+        if (this.f12168b.exists()) {
+            this.f12168b.delete();
         }
         if (list.isEmpty()) {
             return;
@@ -177,7 +177,7 @@ public class f implements com.qq.e.comm.plugin.j.e, com.qq.e.comm.plugin.j.f {
         try {
             try {
                 if (list.size() != 1) {
-                    FileOutputStream fileOutputStream = new FileOutputStream(this.f12166b, false);
+                    FileOutputStream fileOutputStream = new FileOutputStream(this.f12168b, false);
                     byte[] bArr = new byte[8192];
                     for (File file : list) {
                         FileInputStream fileInputStream = new FileInputStream(file);
@@ -193,12 +193,12 @@ public class f implements com.qq.e.comm.plugin.j.e, com.qq.e.comm.plugin.j.f {
                     for (File file2 : list) {
                         file2.delete();
                     }
-                } else if (!FileUtil.renameTo(list.get(0), this.f12166b)) {
+                } else if (!FileUtil.renameTo(list.get(0), this.f12168b)) {
                     this.i |= 16384;
                     this.j = "ExceptionWhileRenameTmpFileToTargetFile";
                     return false;
                 }
-                if (this.f12166b.exists()) {
+                if (this.f12168b.exists()) {
                     return true;
                 }
                 this.i |= 32768;
@@ -223,7 +223,7 @@ public class f implements com.qq.e.comm.plugin.j.e, com.qq.e.comm.plugin.j.f {
             return false;
         }
         try {
-            this.g = this.d.a(this.f12165a, a2.length(), -1L);
+            this.g = this.d.a(this.f12167a, a2.length(), -1L);
             if (!this.g.h()) {
                 this.i |= this.g.b();
                 this.j = this.g.g();
@@ -255,7 +255,7 @@ public class f implements com.qq.e.comm.plugin.j.e, com.qq.e.comm.plugin.j.f {
                 list2.add(aVarArr[i]);
                 File a3 = a(i);
                 list.add(a3);
-                m mVar = new m(this.f12165a, a3, aVarArr[i].a(), aVarArr[i].b(), this.d);
+                m mVar = new m(this.f12167a, a3, aVarArr[i].a(), aVarArr[i].b(), this.d);
                 this.q.add(mVar);
                 arrayList.add(a(new a(mVar, this.l.a(i))));
             }
@@ -296,12 +296,12 @@ public class f implements com.qq.e.comm.plugin.j.e, com.qq.e.comm.plugin.j.f {
             this.p = System.currentTimeMillis() - currentTimeMillis;
             this.n = arrayList.size();
             if (z) {
-                this.o = this.f12166b.length();
+                this.o = this.f12168b.length();
             } else {
                 this.o = -1L;
             }
             if (z) {
-                i().a(this.f12166b, this.p);
+                i().a(this.f12168b, this.p);
             } else if (com.qq.e.comm.plugin.j.d.c(this.i)) {
                 this.i = 512;
                 this.j = "DownloaderIsPausedManual";
@@ -319,13 +319,13 @@ public class f implements com.qq.e.comm.plugin.j.e, com.qq.e.comm.plugin.j.f {
     }
 
     private boolean g() {
-        if (TextUtils.isEmpty(this.f12165a)) {
+        if (TextUtils.isEmpty(this.f12167a)) {
             this.i |= 134217728;
             this.j = "UrlEmptyError";
             i().a(new com.qq.e.comm.plugin.j.c(this.i, this.j));
             return false;
         }
-        File parentFile = this.f12166b == null ? null : this.f12166b.getParentFile();
+        File parentFile = this.f12168b == null ? null : this.f12168b.getParentFile();
         if (parentFile == null || !(parentFile.exists() || parentFile.mkdirs())) {
             this.i |= 2048;
             this.j = "FailToCreateDirectory";

@@ -13,91 +13,91 @@ import com.ss.android.a.a.a.r;
 import com.ss.android.a.a.d.a;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f12962a;
-    private static com.ss.android.a.a.a.f pRK;
-    private static com.ss.android.a.a.a.c pRL;
-    private static com.ss.android.a.a.a.k pRM;
-    private static com.ss.android.a.a.a.g pRN;
-    private static com.ss.android.a.a.a.h pRO;
-    private static com.ss.android.a.a.a.i pRP;
-    private static com.ss.android.a.a.d.a pRQ;
-    private static com.ss.android.a.a.a.b pRR;
-    private static com.ss.android.socialbase.appdownloader.c.h pRS;
-    private static com.ss.android.a.a.a.d pRT;
-    private static com.ss.android.a.a.a.e pRU;
-    private static o pRV;
-    private static com.ss.android.a.a.a.j pRW;
-    private static r pRX;
-    private static n pRY;
-    private static m pRZ;
-    private static com.ss.android.a.a.a.l pSa;
-    private static com.ss.android.a.a.c.a pSb;
+    private static Context f12964a;
+    private static com.ss.android.a.a.a.f qbO;
+    private static com.ss.android.a.a.a.c qbP;
+    private static com.ss.android.a.a.a.k qbQ;
+    private static com.ss.android.a.a.a.g qbR;
+    private static com.ss.android.a.a.a.h qbS;
+    private static com.ss.android.a.a.a.i qbT;
+    private static com.ss.android.a.a.d.a qbU;
+    private static com.ss.android.a.a.a.b qbV;
+    private static com.ss.android.socialbase.appdownloader.c.h qbW;
+    private static com.ss.android.a.a.a.d qbX;
+    private static com.ss.android.a.a.a.e qbY;
+    private static o qbZ;
+    private static com.ss.android.a.a.a.j qca;
+    private static r qcb;
+    private static n qcc;
+    private static m qcd;
+    private static com.ss.android.a.a.a.l qce;
+    private static com.ss.android.a.a.c.a qcf;
 
     public static void a(Context context) {
         if (context == null || context.getApplicationContext() == null) {
             throw new IllegalArgumentException("Context is null");
         }
-        f12962a = context.getApplicationContext();
+        f12964a = context.getApplicationContext();
     }
 
     public static void b(Context context) {
-        if (f12962a == null && context != null && context.getApplicationContext() != null) {
-            f12962a = context.getApplicationContext();
+        if (f12964a == null && context != null && context.getApplicationContext() != null) {
+            f12964a = context.getApplicationContext();
         }
     }
 
     public static Context a() {
-        if (f12962a == null) {
+        if (f12964a == null) {
             throw new IllegalArgumentException("Context is null");
         }
-        return f12962a;
+        return f12964a;
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.f fVar) {
-        pRK = fVar;
+        qbO = fVar;
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.k kVar) {
-        pRM = kVar;
+        qbQ = kVar;
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.g gVar) {
-        pRN = gVar;
+        qbR = gVar;
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.h hVar) {
-        pRO = hVar;
+        qbS = hVar;
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.i iVar) {
-        pRP = iVar;
+        qbT = iVar;
         try {
-            com.ss.android.socialbase.appdownloader.d.eCW().b(y());
+            com.ss.android.socialbase.appdownloader.d.eFn().b(y());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void b(@NonNull com.ss.android.a.a.d.a aVar) {
-        pRQ = aVar;
+        qbU = aVar;
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.b bVar) {
-        pRR = bVar;
+        qbV = bVar;
     }
 
-    public static com.ss.android.a.a.a.f eCm() {
-        return pRK;
+    public static com.ss.android.a.a.a.f eED() {
+        return qbO;
     }
 
     @NonNull
-    public static com.ss.android.a.a.a.c eCn() {
-        if (pRL == null) {
-            pRL = new com.ss.android.a.a.a.c() { // from class: com.ss.android.downloadlib.a.j.1
+    public static com.ss.android.a.a.a.c eEE() {
+        if (qbP == null) {
+            qbP = new com.ss.android.a.a.a.c() { // from class: com.ss.android.downloadlib.a.j.1
                 @Override // com.ss.android.a.a.a.c
                 public void a(@Nullable Context context, @NonNull com.ss.android.a.a.b.c cVar, @Nullable com.ss.android.a.a.b.a aVar, @Nullable com.ss.android.a.a.b.b bVar) {
                 }
@@ -107,128 +107,128 @@ public class j {
                 }
             };
         }
-        return pRL;
+        return qbP;
     }
 
     @NonNull
-    public static com.ss.android.a.a.a.k eCo() {
-        if (pRM == null) {
-            pRM = new com.ss.android.downloadlib.c.a();
+    public static com.ss.android.a.a.a.k eEF() {
+        if (qbQ == null) {
+            qbQ = new com.ss.android.downloadlib.c.a();
         }
-        return pRM;
+        return qbQ;
     }
 
-    public static com.ss.android.a.a.a.g eCp() {
-        return pRN;
+    public static com.ss.android.a.a.a.g eEG() {
+        return qbR;
     }
 
     @NonNull
-    public static com.ss.android.a.a.a.h eCq() {
-        if (pRO == null) {
-            pRO = new com.ss.android.downloadlib.c.b();
+    public static com.ss.android.a.a.a.h eEH() {
+        if (qbS == null) {
+            qbS = new com.ss.android.downloadlib.c.b();
         }
-        return pRO;
+        return qbS;
     }
 
-    public static com.ss.android.socialbase.appdownloader.c.h eCr() {
-        if (pRS == null) {
-            pRS = new com.ss.android.socialbase.appdownloader.c.h() { // from class: com.ss.android.downloadlib.a.j.2
+    public static com.ss.android.socialbase.appdownloader.c.h eEI() {
+        if (qbW == null) {
+            qbW = new com.ss.android.socialbase.appdownloader.c.h() { // from class: com.ss.android.downloadlib.a.j.2
                 @Override // com.ss.android.socialbase.appdownloader.c.h
                 public void a(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar, int i) {
                 }
             };
         }
-        return pRS;
+        return qbW;
     }
 
-    public static o eCs() {
-        return pRV;
+    public static o eEJ() {
+        return qbZ;
     }
 
     @NonNull
     public static JSONObject i() {
-        if (pRP == null) {
-            pRP = new com.ss.android.a.a.a.i() { // from class: com.ss.android.downloadlib.a.j.3
+        if (qbT == null) {
+            qbT = new com.ss.android.a.a.a.i() { // from class: com.ss.android.downloadlib.a.j.3
                 @Override // com.ss.android.a.a.a.i
                 public JSONObject a() {
                     return new JSONObject();
                 }
             };
         }
-        return (JSONObject) com.ss.android.downloadlib.f.i.M(pRP.a(), new JSONObject());
+        return (JSONObject) com.ss.android.downloadlib.f.i.M(qbT.a(), new JSONObject());
     }
 
     @NonNull
-    public static com.ss.android.a.a.d.a eCt() {
-        if (pRQ == null) {
-            pRQ = new a.C1213a().eBK();
+    public static com.ss.android.a.a.d.a eEK() {
+        if (qbU == null) {
+            qbU = new a.C1217a().eEb();
         }
-        return pRQ;
+        return qbU;
     }
 
-    public static m eCu() {
-        return pRZ;
-    }
-
-    @Nullable
-    public static com.ss.android.a.a.a.b eCv() {
-        return pRR;
+    public static m eEL() {
+        return qcd;
     }
 
     @Nullable
-    public static n eCw() {
-        return pRY;
+    public static com.ss.android.a.a.a.b eEM() {
+        return qbV;
     }
 
-    public static com.ss.android.a.a.a.l eCx() {
-        return pSa;
+    @Nullable
+    public static n eEN() {
+        return qcc;
+    }
+
+    public static com.ss.android.a.a.a.l eEO() {
+        return qce;
     }
 
     public static void a(String str) {
-        com.ss.android.socialbase.appdownloader.d.eCW().a(str);
+        com.ss.android.socialbase.appdownloader.d.eFn().a(str);
     }
 
     public static String o() {
         return "1.9.5.1";
     }
 
-    public static com.ss.android.a.a.a.d eCy() {
-        return pRT;
+    public static com.ss.android.a.a.a.d eEP() {
+        return qbX;
     }
 
-    public static com.ss.android.a.a.a.e eCz() {
-        return pRU;
+    public static com.ss.android.a.a.a.e eEQ() {
+        return qbY;
     }
 
     @NonNull
-    public static com.ss.android.a.a.c.a eCA() {
-        if (pSb == null) {
-            pSb = new com.ss.android.a.a.c.a() { // from class: com.ss.android.downloadlib.a.j.4
-                com.ss.android.downloadlib.guide.install.a pSc = null;
+    public static com.ss.android.a.a.c.a eER() {
+        if (qcf == null) {
+            qcf = new com.ss.android.a.a.c.a() { // from class: com.ss.android.downloadlib.a.j.4
+                com.ss.android.downloadlib.guide.install.a qcg = null;
 
                 @Override // com.ss.android.a.a.c.a
                 public void a(Activity activity, int i, String str, Drawable drawable, String str2, long j, com.ss.android.socialbase.appdownloader.c.m mVar) {
-                    this.pSc = new com.ss.android.downloadlib.guide.install.a(activity, i, str, drawable, str2, j, mVar);
-                    this.pSc.show();
+                    this.qcg = new com.ss.android.downloadlib.guide.install.a(activity, i, str, drawable, str2, j, mVar);
+                    this.qcg.show();
                 }
 
                 @Override // com.ss.android.a.a.c.a
                 public void a() {
-                    if (this.pSc != null && this.pSc.isShowing()) {
-                        this.pSc.dismiss();
+                    if (this.qcg != null && this.qcg.isShowing()) {
+                        this.qcg.dismiss();
                     }
                 }
             };
         }
-        return pSb;
+        return qcf;
     }
 
-    public static com.ss.android.a.a.a.j eCB() {
-        return pRW;
+    public static com.ss.android.a.a.a.j eES() {
+        return qca;
     }
 
-    public static r eCC() {
-        return pRX;
+    public static r eET() {
+        return qcb;
     }
 
     public static boolean u() {
@@ -247,7 +247,7 @@ public class j {
         return optLong;
     }
 
-    public static long elP() {
+    public static long eoj() {
         long optLong = i().optLong("next_install_min_interval");
         if (optLong == 0) {
             return 10000L;

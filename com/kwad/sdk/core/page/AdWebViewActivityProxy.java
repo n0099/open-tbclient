@@ -31,7 +31,7 @@ import com.kwad.sdk.core.webview.jshandler.m;
 import java.io.Serializable;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
     public static final String KEY_TEMPLATE = "key_template";
     private static final String TAG = "AdWebViewActivityProxy";
@@ -59,8 +59,8 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
 
     private void inflateJsBridgeContext() {
         this.mJsBridgeContext = new com.kwad.sdk.core.webview.a();
-        this.mJsBridgeContext.f9537b = this.mAdTemplate;
-        this.mJsBridgeContext.f9536a = 0;
+        this.mJsBridgeContext.f9539b = this.mAdTemplate;
+        this.mJsBridgeContext.f9538a = 0;
         this.mJsBridgeContext.f = this.mAdWebView;
         this.mJsBridgeContext.e = this.mWebContainer;
     }

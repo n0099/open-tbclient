@@ -1,57 +1,56 @@
 package com.baidu.tbadk.a.b;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private static String eEh = "key_user_last_access_tab_";
-    private static String eEi = "key_frs_new_area_tab_sort_";
-    public static int eEj = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public static final String eEk = TbadkCoreApplication.getInst().getString(R.string.frs_hot_tab_name);
-    public static final String eEl = TbadkCoreApplication.getInst().getString(R.string.frs_new_area_tab_name);
+    private static String eGo = "key_user_last_access_tab_";
+    private static String eGp = "key_frs_new_area_tab_sort_";
+    public static int eGq = Integer.MAX_VALUE;
+    public static final String eGr = TbadkCoreApplication.getInst().getString(R.string.frs_hot_tab_name);
+    public static final String eGs = TbadkCoreApplication.getInst().getString(R.string.frs_new_area_tab_name);
 
-    public static int bjl() {
-        if (d.bjb()) {
+    public static int bjG() {
+        if (d.bjn()) {
             return 1;
         }
-        if (d.bjc()) {
+        if (d.bjo()) {
             return 503;
         }
-        if (d.bjd()) {
-            return zb(bjo());
+        if (d.bjp()) {
+            return zt(bjJ());
         }
         return 1;
     }
 
-    private static int zb(String str) {
-        return (!eEk.equals(str) && eEl.equals(str)) ? 503 : 1;
+    private static int zt(String str) {
+        return (!eGr.equals(str) && eGs.equals(str)) ? 503 : 1;
     }
 
-    private static String bjm() {
-        return eEh + TbadkCoreApplication.getCurrentAccount();
+    private static String bjH() {
+        return eGo + TbadkCoreApplication.getCurrentAccount();
     }
 
-    private static String bjn() {
-        return eEi + TbadkCoreApplication.getCurrentAccount();
+    private static String bjI() {
+        return eGp + TbadkCoreApplication.getCurrentAccount();
     }
 
-    private static String bjo() {
-        return com.baidu.tbadk.core.sharedPref.b.brx().getString(bjm(), eEk);
+    private static String bjJ() {
+        return com.baidu.tbadk.core.sharedPref.b.brQ().getString(bjH(), eGr);
     }
 
-    public static void zc(String str) {
-        if (eEk.equals(str) || eEl.equals(str)) {
-            com.baidu.tbadk.core.sharedPref.b.brx().putString(bjm(), str);
+    public static void zu(String str) {
+        if (eGr.equals(str) || eGs.equals(str)) {
+            com.baidu.tbadk.core.sharedPref.b.brQ().putString(bjH(), str);
         }
     }
 
-    public static int bjp() {
-        return com.baidu.tbadk.core.sharedPref.b.brx().getInt(bjn(), eEj);
+    public static int bjK() {
+        return com.baidu.tbadk.core.sharedPref.b.brQ().getInt(bjI(), eGq);
     }
 
-    public static void mG(int i) {
-        com.baidu.tbadk.core.sharedPref.b.brx().putInt(bjn(), i);
+    public static void mJ(int i) {
+        com.baidu.tbadk.core.sharedPref.b.brQ().putInt(bjI(), i);
     }
 }

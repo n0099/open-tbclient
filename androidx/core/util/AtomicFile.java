@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class AtomicFile {
     private final File mBackupName;
     private final File mBaseName;

@@ -3,12 +3,12 @@ package com.tencent.mm.opensdk.modelbiz;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class JumpToBizTempSession {
     public static final int SHOW_CHAT = 1;
     public static final int SHOW_MENU = 0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class Req extends BaseReq {
         private static final int MAX_SESSION_FROM_LENGTH = 1024;
         private static final String TAG = "MicroMsg.SDK.JumpToBizTempSession.Req";

@@ -6,8 +6,10 @@ public interface p<K, V> {
     @Nullable
     com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar);
 
-    boolean b(com.facebook.common.internal.h<K> hVar);
-
     @Nullable
     com.facebook.common.references.a<V> bu(K k);
+
+    int c(com.facebook.common.internal.h<K> hVar);
+
+    boolean d(com.facebook.common.internal.h<K> hVar);
 }

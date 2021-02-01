@@ -4,16 +4,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h.a;
 import com.baidu.tieba.recapp.k;
@@ -21,13 +17,13 @@ import com.baidu.tieba.recapp.o;
 import com.baidu.tieba.tbadkCore.data.n;
 import com.fun.ad.sdk.FunNativeAd;
 import java.util.List;
-/* loaded from: classes14.dex */
-public class c extends com.baidu.adp.widget.ListView.a<bz, FunAdCardHolder> implements k, o {
-    private BaseFragmentActivity iEK;
+/* loaded from: classes5.dex */
+public class c extends com.baidu.adp.widget.ListView.a<cb, FunAdCardHolder> implements k, o {
+    private BaseFragmentActivity iKt;
 
     public c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity, bdUniqueId);
-        this.iEK = baseFragmentActivity;
+        this.iKt = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,24 +40,24 @@ public class c extends com.baidu.adp.widget.ListView.a<bz, FunAdCardHolder> impl
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bz bzVar, FunAdCardHolder funAdCardHolder) {
-        n nVar = bzVar.eRU;
+    public View a(int i, View view, ViewGroup viewGroup, cb cbVar, FunAdCardHolder funAdCardHolder) {
+        n nVar = cbVar.eUi;
         if (nVar == null) {
-            return ((FunAdCardHolder) this.Ws).getView();
+            return ((FunAdCardHolder) this.Wo).getView();
         }
-        if (!nVar.dKY()) {
-            nVar.xW(true);
-            List<bz> KD = com.baidu.tieba.h.a.cLv().KD("6051001535-87847998");
-            if (KD != null && KD.size() > 0) {
-                nVar.aR(KD.get(0).eRU.dKW());
-                bzVar.np(com.baidu.tieba.horizonalList.a.a.cK(20, 100));
-                com.baidu.tieba.h.a.cLv().A("6051001535-87847998", KD.get(0).eRU.dKW());
+        if (!nVar.dNj()) {
+            nVar.yp(true);
+            List<cb> Lq = com.baidu.tieba.h.a.cNj().Lq("6051001642-2027944992");
+            if (Lq != null && Lq.size() > 0) {
+                nVar.aR(Lq.get(0).eUi.dNh());
+                cbVar.ns(com.baidu.tieba.horizonalList.a.a.cH(20, 100));
+                com.baidu.tieba.h.a.cNj().y("6051001642-2027944992", Lq.get(0).eUi.dNh());
             } else {
                 nVar.aR(null);
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921527));
+            com.baidu.tieba.h.a.cNj().b(this.iKt, "6051001642-2027944992", "c14005", PageStayDurationConstants.PageName.FRS);
         }
-        a(funAdCardHolder, bzVar);
+        a(funAdCardHolder, cbVar);
         return funAdCardHolder.getView();
     }
 
@@ -71,74 +67,66 @@ public class c extends com.baidu.adp.widget.ListView.a<bz, FunAdCardHolder> impl
 
     @Override // com.baidu.tieba.recapp.k
     public void onPause() {
+        if (this.Wo != 0) {
+            ((FunAdCardHolder) this.Wo).cNq();
+        }
     }
 
     @Override // com.baidu.tieba.recapp.k
     public void onResume() {
+        if (this.Wo != 0) {
+            ((FunAdCardHolder) this.Wo).cNq();
+        }
     }
 
     @Override // com.baidu.tieba.recapp.k
     public void onDestroy() {
-        if (this.Ws != 0) {
-            com.baidu.tieba.h.a.cLv().a(((FunAdCardHolder) this.Ws).jMs);
+        if (this.Wo != 0) {
+            ((FunAdCardHolder) this.Wo).cNq();
+            com.baidu.tieba.h.a.cNj().a(((FunAdCardHolder) this.Wo).jTx);
         }
     }
 
-    private void a(final FunAdCardHolder funAdCardHolder, final bz bzVar) {
-        if (bzVar != null && bzVar.eRU != null && bzVar.eRU.dKW() != null) {
-            funAdCardHolder.jMe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.funad.adapter.c.1
+    private void a(final FunAdCardHolder funAdCardHolder, final cb cbVar) {
+        if (cbVar != null && cbVar.eUi != null && cbVar.eUi.dNh() != null) {
+            funAdCardHolder.jTg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.funad.adapter.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    bzVar.eRU.aR(null);
+                    cbVar.eUi.aR(null);
                     c.this.notifyDataSetChanged();
-                    TiebaStatic.log(new aq("c14044").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", 0));
+                    TiebaStatic.log(new ar("c14044").ap("obj_source", 6).dR("obj_type", PageStayDurationConstants.PageName.FRS).ap("obj_locate", 0));
                 }
             });
-            funAdCardHolder.jMl.setAgreeAlone(true);
-            funAdCardHolder.jMl.setData(bzVar.bpr());
-            funAdCardHolder.cLD();
-            funAdCardHolder.cLC();
-            com.baidu.tieba.h.a.cLv().a(funAdCardHolder.a(bzVar.eRU), new a.e() { // from class: com.baidu.tieba.funad.adapter.c.2
+            funAdCardHolder.jTo.setAgreeAlone(true);
+            funAdCardHolder.jTo.setData(cbVar.bpJ());
+            funAdCardHolder.cNs();
+            funAdCardHolder.cNr();
+            final FunNativeAd funNativeAd = (FunNativeAd) cbVar.eUi.dNh();
+            funAdCardHolder.rN(com.baidu.tieba.funad.c.b(funNativeAd));
+            com.baidu.tieba.h.a.cNj().a(funAdCardHolder.a(cbVar.eUi), new a.e() { // from class: com.baidu.tieba.funad.adapter.c.2
                 @Override // com.baidu.tieba.h.a.e
                 public void onAdClicked(String str) {
-                    TiebaStatic.log(new aq("c14053").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", 0));
-                    Object dKW = bzVar.eRU.dKW();
-                    if (!(dKW instanceof FunNativeAd) || ((FunNativeAd) dKW).isDownloadAd()) {
+                    TiebaStatic.log(new ar("c14053").ap("obj_source", 6).dR("obj_type", PageStayDurationConstants.PageName.FRS).ap("obj_locate", 0));
+                    if (funAdCardHolder.jTf != null && com.baidu.tieba.funad.c.c(funNativeAd)) {
+                        funAdCardHolder.jTf.setTextDelay(c.this.mContext.getString(R.string.fun_ad_downloading), 1000L);
                     }
                 }
 
                 @Override // com.baidu.tieba.h.a.e
                 public void onAdShow(String str) {
-                    TiebaStatic.log(new aq("c14006").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", 0));
+                    TiebaStatic.log(new ar("c14006").ap("obj_source", 6).dR("obj_type", PageStayDurationConstants.PageName.FRS).ap("obj_locate", 0));
                 }
 
                 @Override // com.baidu.tieba.h.a.e
                 public void onAdError(String str, int i, String str2) {
-                    funAdCardHolder.itemView.setVisibility(8);
-                    TiebaStatic.log(new aq("c14006").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", 1));
+                    TiebaStatic.log(new ar("c14006").ap("obj_source", 6).dR("obj_type", PageStayDurationConstants.PageName.FRS).ap("obj_locate", 1));
                 }
             });
-            funAdCardHolder.jMk.setText(funAdCardHolder.jLO.getText());
+            funAdCardHolder.jTn.setText(funAdCardHolder.jSO.getText());
             funAdCardHolder.itemView.setVisibility(0);
-            a(funAdCardHolder);
+            funAdCardHolder.cNt();
+            funAdCardHolder.jTw.setViewData(funNativeAd, this.iKt.getActivity(), funAdCardHolder.jSO.getText(), PageStayDurationConstants.PageName.FRS);
+            funAdCardHolder.Bg(TbadkCoreApplication.getInst().getSkinType());
         }
-    }
-
-    public void a(FunAdCardHolder funAdCardHolder) {
-        WebPManager.a(funAdCardHolder.jMe, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-        funAdCardHolder.jMh.setVisibility(8);
-        com.baidu.tbadk.core.elementsMaven.c.bv(funAdCardHolder.jLP).nV(R.color.CAM_X0105);
-        com.baidu.tbadk.core.elementsMaven.c.bv(funAdCardHolder.jLO).nV(R.color.CAM_X0109);
-        com.baidu.tbadk.core.elementsMaven.c.bv(funAdCardHolder.jLR).od(R.string.J_X01).nV(R.color.CAM_X0302).setBackGroundColor(R.color.CAM_X0905);
-        com.baidu.tbadk.core.elementsMaven.c.bv(funAdCardHolder.jMg).nV(R.color.CAM_X0109);
-        com.baidu.tbadk.core.elementsMaven.c.bv(funAdCardHolder.jLJ).od(R.string.J_X06).aM(R.color.CAM_X0205, R.color.CAM_X0206);
-        com.baidu.tbadk.core.elementsMaven.c.bv(funAdCardHolder.jMj).nV(R.color.CAM_X0109);
-        com.baidu.tbadk.core.elementsMaven.c.bv(funAdCardHolder.jMk).nV(R.color.CAM_X0105);
-        funAdCardHolder.jMm.setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_share22, com.baidu.tieba.tbadkCore.c.m(ao.getColor(R.color.CAM_X0107), ao.eYz), WebPManager.ResourceStateType.NORMAL_DISABLE));
-        funAdCardHolder.jMo.setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_comment22, com.baidu.tieba.tbadkCore.c.m(ao.getColor(R.color.CAM_X0107), ao.eYz), WebPManager.ResourceStateType.NORMAL_DISABLE));
-        funAdCardHolder.jMn.setTextColor(com.baidu.tieba.tbadkCore.c.m(ao.getColor(R.color.CAM_X0107), ao.eYz));
-        funAdCardHolder.jMp.setTextColor(com.baidu.tieba.tbadkCore.c.m(ao.getColor(R.color.CAM_X0107), ao.eYz));
-        funAdCardHolder.jMi.setVisibility(TbadkCoreApplication.getInst().getSkinType() != 0 ? 0 : 8);
-        com.baidu.tbadk.core.elementsMaven.c.bv(funAdCardHolder.jMi).setBackGroundColor(R.color.CAM_X0607);
     }
 }

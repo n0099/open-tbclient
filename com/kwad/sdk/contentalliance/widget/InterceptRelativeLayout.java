@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class InterceptRelativeLayout extends FrameLayout {
     public InterceptRelativeLayout(Context context) {
         this(context, null);

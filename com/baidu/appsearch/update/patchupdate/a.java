@@ -3,7 +3,7 @@ package com.baidu.appsearch.update.patchupdate;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a implements d {
 
     /* renamed from: a  reason: collision with root package name */

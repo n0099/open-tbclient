@@ -2,14 +2,14 @@ package com.baidu.swan.apps.inlinewidget.f.a;
 
 import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class k extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.f.c.a> {
-    public static String dce = "release";
+    public static String der = "release";
 
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String avy() {
-        return dce;
+    public String avW() {
+        return der;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

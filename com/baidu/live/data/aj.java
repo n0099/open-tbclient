@@ -1,19 +1,35 @@
 package com.baidu.live.data;
 
-import android.text.TextUtils;
-/* loaded from: classes10.dex */
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
 public class aj {
-    public String aHp;
-    public String endColor;
-    public String imageUrl;
-    public String startColor;
-    public String url;
+    public String aHq;
+    public s aJJ;
+    public ah aJK;
+    private int aJL;
+    public String msg;
 
-    public String getLabelName() {
-        return (TextUtils.isEmpty(this.aHp) || this.aHp.length() <= 4) ? this.aHp : this.aHp.substring(0, 4);
+    public boolean Cc() {
+        return this.aJL == 1;
     }
 
-    public String toString() {
-        return "AlaSceneData{url='" + this.url + "', sceneName='" + this.aHp + "', imageUrl='" + this.imageUrl + "', startColor='" + this.startColor + "', endColor='" + this.endColor + "'}";
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.msg = jSONObject.optString("msg");
+            this.aHq = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            JSONObject optJSONObject = jSONObject.optJSONObject("super_king");
+            if (optJSONObject != null) {
+                this.aJJ = new s();
+                this.aJJ.iconUrl = optJSONObject.optString("icon_url");
+                this.aJJ.msg = optJSONObject.optString("msg");
+            }
+            this.aJL = jSONObject.optInt("is_season_over", 0);
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("division");
+            if (optJSONObject2 != null) {
+                this.aJK = new ah();
+                this.aJK.parserJson(optJSONObject2);
+            }
+        }
     }
 }

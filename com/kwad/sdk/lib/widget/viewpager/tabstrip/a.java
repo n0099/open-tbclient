@@ -15,14 +15,14 @@ import com.kwad.sdk.api.core.fragment.KsSavedState;
 import com.kwad.sdk.lib.widget.viewpager.tabstrip.PagerSlidingTabStrip;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f10473a;
+    private final Context f10475a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final KsFragmentManager f10474b;
+    private final KsFragmentManager f10476b;
     private final List<b> c = new ArrayList();
     private KsFragmentTransaction d = null;
     private SparseArray<KsFragment> e = new SparseArray<>();
@@ -32,18 +32,18 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
     private int i;
 
     /* renamed from: com.kwad.sdk.lib.widget.viewpager.tabstrip.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1138a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1142a {
         void a(Bundle bundle);
     }
 
     public a(Context context, KsFragmentManager ksFragmentManager) {
-        this.f10474b = ksFragmentManager;
-        this.f10473a = context;
+        this.f10476b = ksFragmentManager;
+        this.f10475a = context;
     }
 
     private KsFragment d(int i) {
-        return KsFragment.instantiate(this.f10473a, this.c.get(i).b().getName(), this.g.get(i));
+        return KsFragment.instantiate(this.f10475a, this.c.get(i).b().getName(), this.g.get(i));
     }
 
     public int a(String str) {
@@ -82,7 +82,7 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
             return ksFragment;
         }
         if (this.d == null) {
-            this.d = this.f10474b.beginTransaction();
+            this.d = this.f10476b.beginTransaction();
         }
         KsFragment d = d(i);
         this.c.get(i).a(i, d);
@@ -108,8 +108,8 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
         }
         this.g.put(i, bundle);
         KsFragment a2 = a(i);
-        if (a2 instanceof InterfaceC1138a) {
-            ((InterfaceC1138a) a2).a(bundle);
+        if (a2 instanceof InterfaceC1142a) {
+            ((InterfaceC1142a) a2).a(bundle);
         }
     }
 
@@ -148,9 +148,9 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         KsFragment ksFragment = (KsFragment) obj;
         if (this.d == null) {
-            this.d = this.f10474b.beginTransaction();
+            this.d = this.f10476b.beginTransaction();
         }
-        this.f.put(i, this.f10474b.saveFragmentInstanceState(ksFragment));
+        this.f.put(i, this.f10476b.saveFragmentInstanceState(ksFragment));
         this.e.remove(i);
         this.d.remove(ksFragment);
     }
@@ -161,7 +161,7 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
             this.d.commitAllowingStateLoss();
             this.d = null;
             try {
-                this.f10474b.executePendingTransactions();
+                this.f10476b.executePendingTransactions();
             } catch (IllegalStateException e) {
                 e.printStackTrace();
             }

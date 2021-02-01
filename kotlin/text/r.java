@@ -6,7 +6,7 @@ import java.util.Iterator;
 import kotlin.collections.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class r extends q {
     public static final boolean N(String str, String str2, boolean z) {
         if (str == null) {
@@ -51,14 +51,14 @@ public class r extends q {
         boolean z;
         kotlin.jvm.internal.p.o(charSequence, "$receiver");
         if (charSequence.length() != 0) {
-            kotlin.b.h A = l.A(charSequence);
-            if (!(A instanceof Collection) || !((Collection) A).isEmpty()) {
-                Iterator<Integer> it = A.iterator();
+            kotlin.b.h B = l.B(charSequence);
+            if (!(B instanceof Collection) || !((Collection) B).isEmpty()) {
+                Iterator<Integer> it = B.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;
                         break;
-                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).ezg()))) {
+                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).eBy()))) {
                         z = false;
                         break;
                     }

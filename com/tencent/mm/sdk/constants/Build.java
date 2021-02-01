@@ -1,5 +1,5 @@
 package com.tencent.mm.sdk.constants;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class Build {
     public static final int EMOJI_SUPPORTED_SDK_INT = 553844737;
     public static final int FAVORITE_SUPPPORTED_SDK_INT = 570425345;

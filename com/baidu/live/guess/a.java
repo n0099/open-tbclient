@@ -1,16 +1,17 @@
 package com.baidu.live.guess;
 
 import android.app.Activity;
-import com.baidu.live.data.x;
-/* loaded from: classes10.dex */
+import android.view.ViewGroup;
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
 public interface a {
-    void HJ();
+    void IZ();
 
-    void b(x xVar);
+    void a(ab abVar, ViewGroup viewGroup);
 
-    void dq(int i);
+    void b(ab abVar);
 
-    void f(x xVar);
+    void dv(int i);
 
     void onDestroy();
 

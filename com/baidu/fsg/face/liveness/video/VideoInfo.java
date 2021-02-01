@@ -26,29 +26,29 @@ public class VideoInfo implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2307a;
+    private String f2305a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f2308b;
+    private int f2306b;
     private int c;
     private int d;
     private long e;
     private int f;
 
     public String a() {
-        return this.f2307a;
+        return this.f2305a;
     }
 
     public void a(String str) {
-        this.f2307a = str;
+        this.f2305a = str;
     }
 
     public int b() {
-        return this.f2308b;
+        return this.f2306b;
     }
 
     public void a(int i) {
-        this.f2308b = i;
+        this.f2306b = i;
     }
 
     public int c() {
@@ -69,8 +69,8 @@ public class VideoInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2307a);
-        parcel.writeInt(this.f2308b);
+        parcel.writeString(this.f2305a);
+        parcel.writeInt(this.f2306b);
         parcel.writeInt(this.c);
         parcel.writeLong(this.e);
         parcel.writeFloat(this.d);
@@ -78,8 +78,8 @@ public class VideoInfo implements Parcelable {
     }
 
     protected VideoInfo(Parcel parcel) {
-        this.f2307a = parcel.readString();
-        this.f2308b = parcel.readInt();
+        this.f2305a = parcel.readString();
+        this.f2306b = parcel.readInt();
         this.c = parcel.readInt();
         this.e = parcel.readLong();
         this.d = parcel.readInt();
@@ -118,8 +118,8 @@ public class VideoInfo implements Parcelable {
         videoInfo.d = this.d;
         videoInfo.e = this.e;
         videoInfo.c = this.c;
-        videoInfo.f2308b = this.f2308b;
-        videoInfo.f2307a = this.f2307a;
+        videoInfo.f2306b = this.f2306b;
+        videoInfo.f2305a = this.f2305a;
         return videoInfo;
     }
 
@@ -159,6 +159,6 @@ public class VideoInfo implements Parcelable {
     }
 
     public String toString() {
-        return "VideoInfo{videoPath='" + this.f2307a + "', videoWidth=" + this.f2308b + ", videoHeight=" + this.c + ", frameRate=" + this.d + ", duration=" + this.e + ", videoRotation=" + this.f + '}';
+        return "VideoInfo{videoPath='" + this.f2305a + "', videoWidth=" + this.f2306b + ", videoHeight=" + this.c + ", frameRate=" + this.d + ", duration=" + this.e + ", videoRotation=" + this.f + '}';
     }
 }

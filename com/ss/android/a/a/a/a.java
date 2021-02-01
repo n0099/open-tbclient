@@ -2,7 +2,7 @@ package com.ss.android.a.a.a;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements com.ss.android.a.a.b.d {
     @Override // com.ss.android.a.a.b.d
     public void a() {

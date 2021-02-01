@@ -6,14 +6,14 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class AudioInfoData extends com.baidu.tbadk.core.data.n implements Serializable {
+public class AudioInfoData extends com.baidu.tbadk.core.data.o implements Serializable {
     private static final long serialVersionUID = -3295150133270063363L;
     private int errorCode;
     private String errorMsg;
     private String errorUserMsg;
     private String voiceId;
 
-    @Override // com.baidu.tbadk.core.data.n
+    @Override // com.baidu.tbadk.core.data.o
     public void parserJson(String str) {
         if (str != null) {
             try {
@@ -24,7 +24,7 @@ public class AudioInfoData extends com.baidu.tbadk.core.data.n implements Serial
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.n
+    @Override // com.baidu.tbadk.core.data.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {

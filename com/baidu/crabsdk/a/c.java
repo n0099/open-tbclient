@@ -6,33 +6,33 @@ import android.os.Looper;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c {
     private static boolean an = false;
-    private static c aou;
-    private static Context aov;
-    private static ExecutorService aow;
-    public l aos;
-    public p aot;
+    private static c aok;
+    private static Context aol;
+    private static ExecutorService aom;
+    public l aoi;
+    public p aoj;
 
     private c(Context context) {
-        aov = context;
-        this.aot = new p(Looper.getMainLooper().getThread(), a.W);
-        this.aos = new l(new d(this), context);
-        if (aow == null) {
-            aow = Executors.newSingleThreadExecutor();
+        aol = context;
+        this.aoj = new p(Looper.getMainLooper().getThread(), a.W);
+        this.aoi = new l(new d(this), context);
+        if (aom == null) {
+            aom = Executors.newSingleThreadExecutor();
         }
     }
 
     public static c ad(Context context) {
-        if (aou == null) {
+        if (aok == null) {
             synchronized (c.class) {
-                if (aou == null) {
-                    aou = new c(context);
+                if (aok == null) {
+                    aok = new c(context);
                 }
             }
         }
-        return aou;
+        return aok;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,15 +42,15 @@ public class c {
         if (f.isEmpty()) {
             return;
         }
-        a uk = a.uk();
-        uk.aoo = f;
-        uk.a(j, j2, j3, j4);
+        a uh = a.uh();
+        uh.aoe = f;
+        uh.a(j, j2, j3, j4);
     }
 
     public static void start() {
         an = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.aoy.start();
+            e.aoo.start();
             com.baidu.crabsdk.c.a.ds("start FrameMonitor...");
         }
     }
@@ -58,7 +58,7 @@ public class c {
     public static void stop() {
         an = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.aoy.stop();
+            e.aoo.stop();
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.bytedance.tea.crash.a;
 
 import android.app.ActivityManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(ActivityManager.ProcessErrorStateInfo processErrorStateInfo) {

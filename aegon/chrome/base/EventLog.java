@@ -1,7 +1,7 @@
 package aegon.chrome.base;
 
 import aegon.chrome.base.annotations.CalledByNative;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EventLog {
     @CalledByNative
     public static void writeEvent(int i, int i2) {

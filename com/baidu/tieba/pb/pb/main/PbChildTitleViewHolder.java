@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
-    private ViewGroup lFV;
+    private ViewGroup lOL;
     private View mRootView;
     private TextView mTitle;
     private View mTopLine;
@@ -16,9 +16,9 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
         super(view);
         this.mRootView = view;
         this.mTopLine = view.findViewById(R.id.pb_child_title_top_line);
-        this.lFV = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
+        this.lOL = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
         this.mTitle = (TextView) view.findViewById(R.id.tv_pb_child_title);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.mTitle).nX(R.string.F_X02);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.mTitle).oa(R.string.F_X02);
     }
 
     public void a(com.baidu.tieba.pb.data.e eVar) {
@@ -26,16 +26,16 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public void onChangeSkinType() {
-        com.baidu.tbadk.core.util.ao.setBackgroundColor(this.mTopLine, R.color.CAM_X0204);
-        com.baidu.tbadk.core.util.ao.setBackgroundColor(this.lFV, R.color.CAM_X0205);
-        com.baidu.tbadk.core.util.ao.setViewTextColor(this.mTitle, R.color.CAM_X0105);
+        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mTopLine, R.color.CAM_X0204);
+        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lOL, R.color.CAM_X0205);
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void Fj(int i) {
+    public void FC(int i) {
         if (this.mRootView != null) {
             this.mRootView.setVisibility(i);
         }

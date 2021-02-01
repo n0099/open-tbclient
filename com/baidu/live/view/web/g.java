@@ -19,11 +19,12 @@ import com.baidu.live.view.web.a.u;
 import com.baidu.live.view.web.a.v;
 import com.baidu.live.view.web.a.w;
 import com.baidu.live.view.web.a.x;
-/* loaded from: classes10.dex */
+import com.baidu.live.view.web.a.y;
+/* loaded from: classes11.dex */
 public class g {
-    private f bSe;
-    private AlaLastLiveroomInfo bSf;
-    private h bSg;
+    private f bVY;
+    private AlaLastLiveroomInfo bVZ;
+    private h bWa;
     private BaseActivity baseActivity;
     private Activity context;
     private boolean isHost = false;
@@ -32,30 +33,30 @@ public class g {
     private long userId;
     private String userName;
 
-    public a[] Wm() {
-        r0[0].a(this.bSg);
+    public a[] XY() {
+        r0[0].a(this.bWa);
         com.baidu.live.view.web.a.i iVar = new com.baidu.live.view.web.a.i();
         iVar.setHost(this.isHost);
-        iVar.b(this.bSf);
-        p pVar = new p(this.context);
-        pVar.setHost(this.isHost);
-        t tVar = new t();
-        tVar.setActivityContext(this.context);
-        tVar.setUserId(this.userId);
-        tVar.setUserName(this.userName);
-        tVar.setLiveId(this.liveId);
-        o oVar = new o(this.schemeCallback);
-        oVar.b(this.baseActivity);
+        iVar.b(this.bVZ);
+        q qVar = new q(this.context);
+        qVar.setHost(this.isHost);
+        u uVar = new u();
+        uVar.setActivityContext(this.context);
+        uVar.setUserId(this.userId);
+        uVar.setUserName(this.userName);
+        uVar.setLiveId(this.liveId);
+        p pVar = new p(this.schemeCallback);
+        pVar.b(this.baseActivity);
         com.baidu.live.view.web.a.a aVar = new com.baidu.live.view.web.a.a();
         aVar.setHost(this.isHost);
-        aVar.b(this.bSf);
+        aVar.b(this.bVZ);
         com.baidu.live.view.web.a.b bVar = new com.baidu.live.view.web.a.b(this.context);
         bVar.setHost(this.isHost);
-        a[] aVarArr = {new w(this.context, this.schemeCallback), iVar, pVar, new n(this.schemeCallback), tVar, new k(this.schemeCallback), new com.baidu.live.view.web.a.g(), new com.baidu.live.view.web.a.c(this.bSe), new com.baidu.live.view.web.a.d(this.schemeCallback), new x(this.schemeCallback), oVar, new com.baidu.live.view.web.a.f(), new r(), aVar, bVar, new s(this.context, this.schemeCallback), new q(), new l(), new com.baidu.live.view.web.a.h(), new v(this.schemeCallback), new m(), new com.baidu.live.view.web.a.e(), new u(this.schemeCallback), new j(this.schemeCallback)};
+        a[] aVarArr = {new x(this.context, this.schemeCallback), iVar, qVar, new o(this.schemeCallback), uVar, new k(this.schemeCallback), new com.baidu.live.view.web.a.g(), new com.baidu.live.view.web.a.c(this.bVY), new com.baidu.live.view.web.a.d(this.schemeCallback), new y(this.schemeCallback), pVar, new com.baidu.live.view.web.a.f(), new s(), aVar, bVar, new t(this.context, this.schemeCallback), new r(), new m(), new com.baidu.live.view.web.a.h(), new w(this.schemeCallback), new n(), new com.baidu.live.view.web.a.e(), new v(this.schemeCallback), new j(this.schemeCallback), new l()};
         return aVarArr;
     }
 
-    public g w(Activity activity) {
+    public g t(Activity activity) {
         this.context = activity;
         return this;
     }
@@ -71,37 +72,37 @@ public class g {
     }
 
     public g a(f fVar) {
-        this.bSe = fVar;
+        this.bVY = fVar;
         return this;
     }
 
-    public g bA(long j) {
+    public g bE(long j) {
         this.userId = j;
         return this;
     }
 
-    public g hY(String str) {
+    public g iy(String str) {
         this.userName = str;
         return this;
     }
 
-    public g dz(boolean z) {
+    public g dH(boolean z) {
         this.isHost = z;
         return this;
     }
 
     public g b(h hVar) {
-        this.bSg = hVar;
+        this.bWa = hVar;
         return this;
     }
 
-    public g bB(long j) {
+    public g bF(long j) {
         this.liveId = j;
         return this;
     }
 
     public g a(AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        this.bSf = alaLastLiveroomInfo;
+        this.bVZ = alaLastLiveroomInfo;
         return this;
     }
 }

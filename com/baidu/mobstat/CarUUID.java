@@ -14,11 +14,11 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class CarUUID {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f3586a = Pattern.compile("(\\w{32})");
+    private static final Pattern f3589a = Pattern.compile("(\\w{32})");
 
     public static String optUUID(Context context) {
         String b2 = b(context);
@@ -158,7 +158,7 @@ public class CarUUID {
             try {
                 byte[] bArr = new byte[1024];
                 String str = new String(bArr, 0, fileInputStream.read(bArr));
-                if (!f3586a.matcher(str).matches()) {
+                if (!f3589a.matcher(str).matches()) {
                     str = null;
                 }
                 bu.a(fileInputStream);

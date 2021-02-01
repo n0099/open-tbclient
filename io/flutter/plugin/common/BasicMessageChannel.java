@@ -8,7 +8,7 @@ import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class BasicMessageChannel<T> {
     public static final String CHANNEL_BUFFERS_CHANNEL = "dev.flutter/channel-buffers";
     private static final String TAG = "BasicMessageChannel#";
@@ -19,12 +19,12 @@ public final class BasicMessageChannel<T> {
     @NonNull
     private final String name;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface MessageHandler<T> {
         void onMessage(@Nullable T t, @NonNull Reply<T> reply);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface Reply<T> {
         void reply(@Nullable T t);
     }
@@ -59,7 +59,7 @@ public final class BasicMessageChannel<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public final class IncomingReplyHandler implements BinaryMessenger.BinaryReply {
         private final Reply<T> callback;
 
@@ -79,7 +79,7 @@ public final class BasicMessageChannel<T> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     private final class IncomingMessageHandler implements BinaryMessenger.BinaryMessageHandler {
         private final MessageHandler<T> handler;
 

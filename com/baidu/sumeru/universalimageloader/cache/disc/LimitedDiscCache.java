@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class LimitedDiscCache extends BaseDiscCache {
     private static final int INVALID_SIZE = -1;
     private final AtomicInteger cacheSize;

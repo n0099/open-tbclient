@@ -3,13 +3,13 @@ package com.facebook.imagepipeline.a;
 import android.graphics.Bitmap;
 /* loaded from: classes5.dex */
 public class g implements com.facebook.common.references.c<Bitmap> {
-    private static g pwH;
+    private static g pGP;
 
-    public static g etm() {
-        if (pwH == null) {
-            pwH = new g();
+    public static g evE() {
+        if (pGP == null) {
+            pGP = new g();
         }
-        return pwH;
+        return pGP;
     }
 
     private g() {

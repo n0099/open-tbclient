@@ -18,49 +18,49 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c implements b {
-    private final b.C0424b cYD;
+    private final b.C0421b daP;
 
-    private c(b.C0424b c0424b) {
-        this.cYD = c0424b == null ? new b.C0424b() : c0424b;
+    private c(b.C0421b c0421b) {
+        this.daP = c0421b == null ? new b.C0421b() : c0421b;
     }
 
-    public static c atM() {
-        return a((b.C0424b) null);
+    public static c auk() {
+        return a((b.C0421b) null);
     }
 
-    public static c a(b.C0424b c0424b) {
-        return new c(c0424b);
+    public static c a(b.C0421b c0421b) {
+        return new c(c0421b);
     }
 
-    public b.C0424b atN() {
-        return this.cYD;
+    public b.C0421b aul() {
+        return this.daP;
     }
 
-    public c he(int i) {
-        if (isValid() && i != this.cYD.cYC && (this.cYD.cYC == 0 || this.cYD.cYC == this.cYD.cYB)) {
-            this.cYD.cYC = i;
+    public c hh(int i) {
+        if (isValid() && i != this.daP.daO && (this.daP.daO == 0 || this.daP.daO == this.daP.daN)) {
+            this.daP.daO = i;
         }
         return this;
     }
 
-    public c hf(int i) {
+    public c hi(int i) {
         if (isValid()) {
-            this.cYD.cYB = i;
+            this.daP.daN = i;
         }
         return this;
     }
 
-    public int atO() {
-        return this.cYD.cYC == 0 ? this.cYD.cYB : this.cYD.cYC;
+    public int aum() {
+        return this.daP.daO == 0 ? this.daP.daN : this.daP.daO;
     }
 
-    public c nr(@Nullable String str) {
-        if (isValid() && !TextUtils.isEmpty(str) && !a(this.cYD.cYA.get(str))) {
-            a nq = a.nq(str);
-            if (a(nq)) {
-                this.cYD.cYA.put(nq.atL(), nq);
+    public c nJ(@Nullable String str) {
+        if (isValid() && !TextUtils.isEmpty(str) && !a(this.daP.daM.get(str))) {
+            a nI = a.nI(str);
+            if (a(nI)) {
+                this.daP.daM.put(nI.auj(), nI);
             }
         }
         return this;
@@ -68,8 +68,8 @@ public final class c implements b {
 
     public boolean isValid() {
         boolean z;
-        synchronized (this.cYD) {
-            z = this.cYD.mIsValid;
+        synchronized (this.daP) {
+            z = this.daP.mIsValid;
         }
         return z;
     }
@@ -79,31 +79,31 @@ public final class c implements b {
     }
 
     @NonNull
-    private JSONArray atP() {
+    private JSONArray aun() {
         JSONArray jSONArray = new JSONArray();
         try {
-            Cursor T = com.baidu.swan.apps.database.a.b.T("", 400);
-            int count = T.getCount();
-            while (T.moveToNext()) {
-                String string = T.getString(T.getColumnIndex("app_id"));
+            Cursor V = com.baidu.swan.apps.database.a.b.V("", 400);
+            int count = V.getCount();
+            while (V.moveToNext()) {
+                String string = V.getString(V.getColumnIndex("app_id"));
                 if (!TextUtils.isEmpty(string)) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("pkg_id", string);
                     jSONArray.put(jSONObject);
                 }
             }
-            if (cYz) {
+            if (daL) {
                 Log.i("PurgerStatistic", "queryHisList: cursor=" + count + " items=" + jSONArray.length());
             }
-            if (T != null) {
+            if (V != null) {
                 if (0 != 0) {
-                    T.close();
+                    V.close();
                 } else {
-                    T.close();
+                    V.close();
                 }
             }
         } catch (JSONException e) {
-            if (cYz) {
+            if (daL) {
                 e.printStackTrace();
                 Log.i("PurgerStatistic", "queryHisList: e=" + e);
             }
@@ -111,43 +111,43 @@ public final class c implements b {
         return jSONArray;
     }
 
-    public void atQ() {
-        if (cYz) {
-            Log.i("PurgerStatistic", "performReport: " + this.cYD);
+    public void auo() {
+        if (daL) {
+            Log.i("PurgerStatistic", "performReport: " + this.daP);
         }
         if (isValid()) {
             ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.env.c.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.this.atR();
+                    c.this.aup();
                 }
             }, "PurgerStatistic", 3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void atR() {
+    public void aup() {
         String str;
         b.a value;
-        synchronized (this.cYD) {
+        synchronized (this.daP) {
             if (isValid()) {
-                this.cYD.mIsValid = false;
+                this.daP.mIsValid = false;
                 e eVar = new e();
                 eVar.mFrom = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
                 eVar.mSource = "NA";
-                int atO = atO();
-                eVar.mType = String.valueOf(atO);
+                int aum = aum();
+                eVar.mType = String.valueOf(aum);
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, b.a> entry : this.cYD.cYA.entrySet()) {
+                for (Map.Entry<String, b.a> entry : this.daP.daM.entrySet()) {
                     if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
                         jSONArray.put(value.toJSONObject());
                     }
                 }
-                eVar.t("purged_list", jSONArray);
-                if (7 == atO) {
-                    eVar.t("history_list", atP());
+                eVar.r("purged_list", jSONArray);
+                if (7 == aum) {
+                    eVar.r("history_list", aun());
                 }
-                if (cYz) {
+                if (daL) {
                     JSONObject jSONObject = eVar.toJSONObject();
                     if (jSONObject == null) {
                         str = "null";

@@ -9,25 +9,25 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.newdetail.adapter.a;
 import com.baidu.tieba.newdetail.adapter.b;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
-    private int jZf;
+    private int kgI;
 
     public HotTopicDetailSpecialLayout(Context context) {
         super(context);
-        this.jZf = 3;
+        this.kgI = 3;
         initView();
     }
 
     public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jZf = 3;
+        this.kgI = 3;
         initView();
     }
 
     public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jZf = 3;
+        this.kgI = 3;
         initView();
     }
 
@@ -36,7 +36,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         setOverScrollMode(2);
     }
 
-    public void w(TbPageContext tbPageContext) {
+    public void y(TbPageContext tbPageContext) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new a(tbPageContext));
         arrayList.add(new b(tbPageContext));
@@ -44,9 +44,9 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jZf != i) {
+        if (this.kgI != i) {
             getListAdapter().notifyDataSetChanged();
-            this.jZf = i;
+            this.kgI = i;
         }
     }
 }

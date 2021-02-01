@@ -19,18 +19,18 @@ import java.util.Comparator;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3828a;
+    private static String f3831a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static s f3829b;
+    private static s f3832b;
     private Handler c;
 
     static {
-        f3828a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
+        f3831a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
     }
 
     private s() {
@@ -40,14 +40,14 @@ public class s {
     }
 
     public static s a() {
-        if (f3829b == null) {
+        if (f3832b == null) {
             synchronized (s.class) {
-                if (f3829b == null) {
-                    f3829b = new s();
+                if (f3832b == null) {
+                    f3832b = new s();
                 }
             }
         }
-        return f3829b;
+        return f3832b;
     }
 
     public void a(final Context context, final String str) {
@@ -138,7 +138,7 @@ public class s {
         }
         if (bw.c().booleanValue()) {
             try {
-                a(context, f3828a, str);
+                a(context, f3831a, str);
                 return true;
             } catch (Exception e) {
                 bb.c().c(e);

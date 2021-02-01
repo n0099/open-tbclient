@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a nop;
-    private final int noq = 10;
-    private final int nor = 3000;
+    private com.baidu.adp.lib.stats.a nya;
+    private final int nyb = 10;
+    private final int nyc = 3000;
     public String mLogType = null;
     public boolean mIsJson = false;
 
@@ -18,45 +18,45 @@ public class b {
     public void be(String str, boolean z) {
         this.mLogType = str;
         this.mIsJson = z;
-        this.nop = new com.baidu.adp.lib.stats.a("dbg");
+        this.nya = new com.baidu.adp.lib.stats.a("dbg");
         c.H(str, getNetType(), z);
     }
 
     public void start() {
-        this.nop.startTimer();
+        this.nya.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e dLE;
-        if (this.nop != null && (dLE = dLE()) != null) {
+        e dNP;
+        if (this.nya != null && (dNP = dNP()) != null) {
             if (z) {
-                if (dLE.noy != null) {
-                    dLE.noy.num++;
+                if (dNP.nyh != null) {
+                    dNP.nyh.num++;
                     if (z2) {
-                        dLE.noy.nou += j2;
-                        dLE.noy.size += j;
+                        dNP.nyh.nye += j2;
+                        dNP.nyh.size += j;
                     } else {
-                        dLE.noy.nov++;
+                        dNP.nyh.nyf++;
                     }
                 } else {
                     return;
                 }
-            } else if (dLE.noz != null) {
-                dLE.noz.num++;
+            } else if (dNP.nyi != null) {
+                dNP.nyi.num++;
                 if (z2) {
-                    dLE.noz.nou += j3;
-                    dLE.noz.size += j;
+                    dNP.nyi.nye += j3;
+                    dNP.nyi.size += j;
                     j2 = j3;
                 } else {
-                    dLE.noz.nov++;
+                    dNP.nyi.nyf++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.nop = null;
+            this.nya = null;
             if (z2) {
-                c.a(dLE, 10);
+                c.a(dNP, 10);
             }
             if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > IMConnection.RETRY_DELAY_TIMES) {
@@ -75,19 +75,19 @@ public class b {
     }
 
     public void destory() {
-        e dLE;
-        if (this.nop != null && (dLE = dLE()) != null && dLE.noA != null) {
-            long timeCost = this.nop.getTimeCost();
+        e dNP;
+        if (this.nya != null && (dNP = dNP()) != null && dNP.nyj != null) {
+            long timeCost = this.nya.getTimeCost();
             if (timeCost > IMConnection.RETRY_DELAY_TIMES) {
-                d dVar = dLE.noA;
-                dVar.nou = timeCost + dVar.nou;
-                dLE.noA.num++;
-                c.a(dLE, 10);
+                d dVar = dNP.nyj;
+                dVar.nye = timeCost + dVar.nye;
+                dNP.nyj.num++;
+                c.a(dNP, 10);
             }
         }
     }
 
-    private e dLE() {
+    private e dNP() {
         return c.I(this.mLogType, getNetType(), this.mIsJson);
     }
 

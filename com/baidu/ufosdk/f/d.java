@@ -2,24 +2,24 @@ package com.baidu.ufosdk.f;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f5380a;
+    Context f5382a;
 
     /* renamed from: b  reason: collision with root package name */
-    SharedPreferences f5381b;
+    SharedPreferences f5383b;
     SharedPreferences.Editor c;
 
     public d(Context context) {
-        this.f5380a = context;
-        this.f5381b = context.getSharedPreferences("UfoSharePreference", 0);
-        this.c = this.f5381b.edit();
+        this.f5382a = context;
+        this.f5383b = context.getSharedPreferences("UfoSharePreference", 0);
+        this.c = this.f5383b.edit();
     }
 
     private int a(String str) {
-        return this.f5381b.getInt(str, 0);
+        return this.f5383b.getInt(str, 0);
     }
 
     private void a(String str, int i) {

@@ -2,15 +2,15 @@ package com.bytedance.sdk.openadsdk.f.a;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f7153a;
+    private static boolean f7155a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(@Nullable Throwable th) {
-        return "{\"code\":" + (th instanceof r ? ((r) th).f7136a : 0) + "}";
+        return "{\"code\":" + (th instanceof r ? ((r) th).f7138a : 0) + "}";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +19,7 @@ class x {
             return "{\"code\":1}";
         }
         String str2 = "";
-        if (f7153a) {
+        if (f7155a) {
             str2 = str.substring(1, str.length() - 1);
         }
         String str3 = "{\"code\":1,\"__data\":" + str;
@@ -36,6 +36,6 @@ class x {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(boolean z) {
-        f7153a = z;
+        f7155a = z;
     }
 }

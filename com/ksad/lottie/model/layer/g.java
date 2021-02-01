@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g extends a {
     private final char[] e;
     private final RectF f;
@@ -58,13 +58,13 @@ public class g extends a {
         this.k.a(this);
         a(this.k);
         k t = layer.t();
-        if (t != null && t.f8044a != null) {
-            this.n = t.f8044a.a();
+        if (t != null && t.f8046a != null) {
+            this.n = t.f8046a.a();
             this.n.a(this);
             a(this.n);
         }
-        if (t != null && t.f8045b != null) {
-            this.o = t.f8045b.a();
+        if (t != null && t.f8047b != null) {
+            this.o = t.f8047b.a();
             this.o.a(this);
             a(this.o);
         }
@@ -119,7 +119,7 @@ public class g extends a {
     private void a(com.ksad.lottie.model.b bVar, Matrix matrix, com.ksad.lottie.model.c cVar, Canvas canvas) {
         float f = ((float) bVar.c) / 100.0f;
         float a2 = com.ksad.lottie.d.f.a(matrix);
-        String str = bVar.f8049a;
+        String str = bVar.f8051a;
         int i = 0;
         while (true) {
             int i2 = i;
@@ -143,7 +143,7 @@ public class g extends a {
         if (a3 == null) {
             return;
         }
-        String str = bVar.f8049a;
+        String str = bVar.f8051a;
         m o = this.l.o();
         String a4 = o != null ? o.a(str) : str;
         this.h.setTypeface(a3);
@@ -195,7 +195,7 @@ public class g extends a {
             canvas.setMatrix(matrix);
         }
         com.ksad.lottie.model.b e = this.k.e();
-        com.ksad.lottie.model.c cVar = this.m.i().get(e.f8050b);
+        com.ksad.lottie.model.c cVar = this.m.i().get(e.f8052b);
         if (cVar == null) {
             canvas.restore();
             return;

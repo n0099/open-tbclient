@@ -8,11 +8,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LiveFollowPendantView extends LinearLayout {
-    private HeadImageView aSg;
-    private TextView aSh;
-    private ImageView aSi;
+    private HeadImageView aVk;
+    private TextView aVl;
+    private ImageView aVm;
 
     public LiveFollowPendantView(Context context) {
         super(context);
@@ -20,38 +20,38 @@ public class LiveFollowPendantView extends LinearLayout {
     }
 
     public void c(View.OnClickListener onClickListener) {
-        this.aSh.setOnClickListener(onClickListener);
-        this.aSg.setOnClickListener(onClickListener);
-        this.aSi.setOnClickListener(onClickListener);
+        this.aVl.setOnClickListener(onClickListener);
+        this.aVk.setOnClickListener(onClickListener);
+        this.aVm.setOnClickListener(onClickListener);
     }
 
     public void setNickName(String str) {
-        this.aSh.setText(str);
+        this.aVl.setText(str);
     }
 
     public void setHeadImage(String str) {
-        this.aSg.startLoad(str, 10, true);
+        this.aVk.startLoad(str, 10, true);
     }
 
     public TextView getNickNameView() {
-        return this.aSh;
+        return this.aVl;
     }
 
     public HeadImageView getHeadView() {
-        return this.aSg;
+        return this.aVk;
     }
 
     public ImageView getFollowView() {
-        return this.aSi;
+        return this.aVm;
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.sdk_video_follow_pendant, this);
-        this.aSi = (ImageView) findViewById(a.f.img_follow);
-        this.aSh = (TextView) findViewById(a.f.tv_nickname);
-        this.aSg = (HeadImageView) findViewById(a.f.head_view);
-        this.aSg.setIsRound(true);
-        this.aSg.setAutoChangeStyle(false);
-        this.aSg.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.aVm = (ImageView) findViewById(a.f.img_follow);
+        this.aVl = (TextView) findViewById(a.f.tv_nickname);
+        this.aVk = (HeadImageView) findViewById(a.f.head_view);
+        this.aVk.setIsRound(true);
+        this.aVk.setAutoChangeStyle(false);
+        this.aVk.setDefaultBgResource(a.e.sdk_default_avatar);
     }
 }

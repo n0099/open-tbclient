@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class KeyboardLayout extends RelativeLayout {
-    private a fLM;
+    private a fOa;
     private boolean mHasInit;
     private boolean mHasKeybord;
     private int mHeight;
@@ -31,7 +31,7 @@ public class KeyboardLayout extends RelativeLayout {
     }
 
     public void setOnkbdStateListener(a aVar) {
-        this.fLM = aVar;
+        this.fOa = aVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
@@ -40,22 +40,22 @@ public class KeyboardLayout extends RelativeLayout {
         if (!this.mHasInit) {
             this.mHasInit = true;
             this.mHeight = i4;
-            if (this.fLM != null) {
-                this.fLM.onKeyBoardStateChange(-1);
+            if (this.fOa != null) {
+                this.fOa.onKeyBoardStateChange(-1);
             }
         } else {
             this.mHeight = this.mHeight < i4 ? i4 : this.mHeight;
         }
         if (this.mHasInit && this.mHeight > i4) {
             this.mHasKeybord = true;
-            if (this.fLM != null) {
-                this.fLM.onKeyBoardStateChange(-3);
+            if (this.fOa != null) {
+                this.fOa.onKeyBoardStateChange(-3);
             }
         }
         if (this.mHasInit && this.mHasKeybord && this.mHeight == i4) {
             this.mHasKeybord = false;
-            if (this.fLM != null) {
-                this.fLM.onKeyBoardStateChange(-2);
+            if (this.fOa != null) {
+                this.fOa.onKeyBoardStateChange(-2);
             }
         }
     }

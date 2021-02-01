@@ -1,16 +1,16 @@
 package com.ksad.lottie.model.content;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MergePaths implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8055a;
+    private final String f8057a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final MergePathsMode f8056b;
+    private final MergePathsMode f8058b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum MergePathsMode {
         Merge,
         Add,
@@ -37,8 +37,8 @@ public class MergePaths implements b {
     }
 
     public MergePaths(String str, MergePathsMode mergePathsMode) {
-        this.f8055a = str;
-        this.f8056b = mergePathsMode;
+        this.f8057a = str;
+        this.f8058b = mergePathsMode;
     }
 
     @Override // com.ksad.lottie.model.content.b
@@ -52,14 +52,14 @@ public class MergePaths implements b {
     }
 
     public String a() {
-        return this.f8055a;
+        return this.f8057a;
     }
 
     public MergePathsMode b() {
-        return this.f8056b;
+        return this.f8058b;
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.f8056b + '}';
+        return "MergePaths{mode=" + this.f8058b + '}';
     }
 }

@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.alasquare.live_tab.view;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class StageLiveViewHolder extends TypeAdapter.ViewHolder {
-    public c gxV;
+    public c gAF;
 
     public StageLiveViewHolder(c cVar) {
         super(cVar.getView());
-        this.gxV = cVar;
+        this.gAF = cVar;
     }
 }

@@ -7,12 +7,12 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class NavigationBarShadowView extends View {
-    private AlphaAnimation ffh;
-    private AlphaAnimation ffi;
+    private AlphaAnimation fhx;
+    private AlphaAnimation fhy;
     private int mSkinType;
 
     public NavigationBarShadowView(Context context) {
@@ -34,22 +34,22 @@ public class NavigationBarShadowView extends View {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         if (getVisibility() != 0) {
             setVisibility(0);
-            if (this.ffh == null) {
-                this.ffh = new AlphaAnimation(0.0f, 1.0f);
-                this.ffh.setFillAfter(true);
-                this.ffh.setDuration(300L);
+            if (this.fhx == null) {
+                this.fhx = new AlphaAnimation(0.0f, 1.0f);
+                this.fhx.setFillAfter(true);
+                this.fhx.setDuration(300L);
             }
-            startAnimation(this.ffh);
+            startAnimation(this.fhx);
         }
     }
 
     public void hide() {
         if (getVisibility() == 0) {
-            if (this.ffi == null) {
-                this.ffi = new AlphaAnimation(1.0f, 0.0f);
-                this.ffi.setFillAfter(true);
-                this.ffi.setDuration(300L);
-                this.ffi.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.core.view.NavigationBarShadowView.1
+            if (this.fhy == null) {
+                this.fhy = new AlphaAnimation(1.0f, 0.0f);
+                this.fhy.setFillAfter(true);
+                this.fhy.setDuration(300L);
+                this.fhy.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.core.view.NavigationBarShadowView.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
@@ -64,13 +64,13 @@ public class NavigationBarShadowView extends View {
                     }
                 });
             }
-            startAnimation(this.ffi);
+            startAnimation(this.fhy);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundResource(this, R.drawable.personalize_tab_shadow);
+            ap.setBackgroundResource(this, R.drawable.personalize_tab_shadow);
             this.mSkinType = i;
         }
     }

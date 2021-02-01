@@ -1,24 +1,24 @@
 package com.baidu.mapapi.walknavi.model;
 
 import android.graphics.Bitmap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WalkNaviDisplayOption {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f2987a;
+    private Bitmap f2985a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Bitmap f2988b;
+    private Bitmap f2986b;
     private boolean c = true;
     private boolean d = false;
 
     public WalkNaviDisplayOption imageToNormal(Bitmap bitmap) {
-        this.f2988b = bitmap;
+        this.f2986b = bitmap;
         return this;
     }
 
     public WalkNaviDisplayOption imageToAr(Bitmap bitmap) {
-        this.f2987a = bitmap;
+        this.f2985a = bitmap;
         return this;
     }
 
@@ -33,11 +33,11 @@ public class WalkNaviDisplayOption {
     }
 
     public Bitmap getImageToAR() {
-        return this.f2987a;
+        return this.f2985a;
     }
 
     public Bitmap getImageToNormal() {
-        return this.f2988b;
+        return this.f2986b;
     }
 
     public boolean isShowDialogWithExitNavi() {

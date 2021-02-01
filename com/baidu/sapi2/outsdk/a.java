@@ -8,7 +8,7 @@ import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.enums.Domain;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
     public void a(SapiConfiguration sapiConfiguration) {
         PassBiometric biometric = PassBiometricFactory.getDefaultFactory().getBiometric(4);

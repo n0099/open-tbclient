@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import java.util.UUID;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ck extends ch {
     private final Context e;
 

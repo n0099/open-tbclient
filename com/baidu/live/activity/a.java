@@ -8,15 +8,15 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.im.n;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks aws;
+    private static Application.ActivityLifecycleCallbacks awh;
 
     public static void d(Application application) {
-        if (aws == null) {
-            aws = new C0155a();
+        if (awh == null) {
+            awh = new C0155a();
         }
-        application.registerActivityLifecycleCallbacks(aws);
+        application.registerActivityLifecycleCallbacks(awh);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -36,18 +36,18 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.activity.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class C0155a implements Application.ActivityLifecycleCallbacks {
-        private n awt;
-        private CustomMessageListener awu;
+        private n awi;
+        private CustomMessageListener awj;
 
         private C0155a() {
-            this.awu = new CustomMessageListener(2913191) { // from class: com.baidu.live.activity.a.a.1
+            this.awj = new CustomMessageListener(2913191) { // from class: com.baidu.live.activity.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (C0155a.this.awt != null) {
-                        C0155a.this.awt.IV();
+                    if (C0155a.this.awi != null) {
+                        C0155a.this.awi.Kt();
                     }
                 }
             };
@@ -60,11 +60,11 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             if (a.n(activity)) {
-                if (this.awt == null) {
-                    this.awt = new n();
+                if (this.awi == null) {
+                    this.awi = new n();
                 }
-                this.awt.init(String.valueOf(activity.hashCode()));
-                MessageManager.getInstance().registerListener(this.awu);
+                this.awi.init(String.valueOf(activity.hashCode()));
+                MessageManager.getInstance().registerListener(this.awj);
             }
         }
 
@@ -87,10 +87,10 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (a.n(activity)) {
-                if (this.awt != null) {
-                    this.awt.gE(String.valueOf(activity.hashCode()));
+                if (this.awi != null) {
+                    this.awi.hc(String.valueOf(activity.hashCode()));
                 }
-                MessageManager.getInstance().unRegisterListener(this.awu);
+                MessageManager.getInstance().unRegisterListener(this.awj);
             }
         }
     }

@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f14327a;
+    private static Context f14329a;
 
     /* renamed from: a  reason: collision with other field name */
     private static String f1016a = null;
@@ -27,7 +27,7 @@ public class t {
 
     /* renamed from: a  reason: collision with other method in class */
     public static Context m609a() {
-        return f14327a;
+        return f14329a;
     }
 
     public static Class<?> a(Context context, String str) {
@@ -87,7 +87,7 @@ public class t {
 
     /* renamed from: a  reason: collision with other method in class */
     public static void m611a(Context context) {
-        f14327a = context.getApplicationContext();
+        f14329a = context.getApplicationContext();
     }
 
     /* renamed from: a  reason: collision with other method in class */

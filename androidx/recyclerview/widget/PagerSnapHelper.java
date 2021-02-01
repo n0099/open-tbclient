@@ -5,9 +5,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class PagerSnapHelper extends SnapHelper {
     private static final int MAX_SCROLL_ON_FLING_DURATION = 100;
     @Nullable
@@ -126,7 +125,7 @@ public class PagerSnapHelper extends SnapHelper {
             } else {
                 end = orientationHelper.getEnd() / 2;
             }
-            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i = Integer.MAX_VALUE;
             int i2 = 0;
             while (i2 < childCount) {
                 View childAt = layoutManager.getChildAt(i2);
@@ -148,7 +147,7 @@ public class PagerSnapHelper extends SnapHelper {
         View view = null;
         int childCount = layoutManager.getChildCount();
         if (childCount != 0) {
-            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i = Integer.MAX_VALUE;
             int i2 = 0;
             while (i2 < childCount) {
                 View childAt = layoutManager.getChildAt(i2);

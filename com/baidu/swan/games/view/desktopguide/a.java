@@ -1,7 +1,7 @@
 package com.baidu.swan.games.view.desktopguide;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends com.baidu.swan.games.binding.model.b {
     @V8JavascriptField
     public int errCode;

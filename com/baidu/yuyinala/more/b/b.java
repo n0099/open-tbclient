@@ -5,17 +5,17 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     private String mTitle;
-    private List<a> oMT;
+    private List<a> oXd;
 
     public String getTitle() {
         return this.mTitle;
     }
 
-    public List<a> ehe() {
-        return this.oMT;
+    public List<a> ejy() {
+        return this.oXd;
     }
 
     public void parse(JSONObject jSONObject) throws JSONException {
@@ -23,12 +23,12 @@ public class b {
             this.mTitle = jSONObject.optString("title");
             JSONArray optJSONArray = jSONObject.optJSONArray("btn_list");
             if (optJSONArray != null && optJSONArray.length() != 0) {
-                this.oMT = new ArrayList();
+                this.oXd = new ArrayList();
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     a aVar = new a();
                     aVar.parse(optJSONArray.optJSONObject(i));
-                    this.oMT.add(aVar);
+                    this.oXd.add(aVar);
                 }
             }
         }

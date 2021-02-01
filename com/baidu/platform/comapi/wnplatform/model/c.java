@@ -1,9 +1,9 @@
 package com.baidu.platform.comapi.wnplatform.model;
 
 import android.os.Bundle;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Bundle f4434a = new Bundle();
+    public static Bundle f4437a = new Bundle();
 }

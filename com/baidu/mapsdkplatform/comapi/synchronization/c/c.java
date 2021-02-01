@@ -14,11 +14,11 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    HttpURLConnection f3099a;
+    HttpURLConnection f3097a;
     private String d = null;
     private String e = null;
     private int f;
@@ -28,9 +28,9 @@ public class c {
     private static final String c = c.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f3098b = true;
+    public static boolean f3096b = true;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public enum a {
         SUCCESS,
         NETWORK_ERROR,
@@ -120,7 +120,7 @@ public class c {
         HttpURLConnection httpURLConnection;
         try {
             URL url = new URL(this.d);
-            if (f3098b) {
+            if (f3096b) {
                 httpURLConnection = (HttpsURLConnection) url.openConnection();
                 ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(new d(this));
             } else {
@@ -255,9 +255,9 @@ public class c {
                 this.i.a(a.NETWORK_ERROR);
                 return;
             }
-            this.f3099a = b();
-            if (this.f3099a != null) {
-                a(this.f3099a);
+            this.f3097a = b();
+            if (this.f3097a != null) {
+                a(this.f3097a);
                 return;
             }
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(c, "url connection failed");

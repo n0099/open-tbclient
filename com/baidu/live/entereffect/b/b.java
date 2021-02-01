@@ -20,11 +20,11 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private boolean aRx;
-    private com.baidu.live.entereffect.a.a aRy;
-    private String aRz;
+    private boolean aUB;
+    private com.baidu.live.entereffect.a.a aUC;
+    private String aUD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final boolean z, final com.baidu.live.entereffect.a.a aVar, final String str, final String str2, final String str3, final boolean z2) {
@@ -38,11 +38,11 @@ public class b {
                     if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                         return null;
                     }
-                    b.this.aRx = z;
-                    b.this.aRy = aVar;
-                    b.this.aRz = str;
-                    if (com.baidu.live.i.a.existFile(str2)) {
-                        b.this.fm(str2);
+                    b.this.aUB = z;
+                    b.this.aUC = aVar;
+                    b.this.aUD = str;
+                    if (com.baidu.live.h.a.existFile(str2)) {
+                        b.this.fH(str2);
                     }
                     final String str4 = aVar.id;
                     DownloadData downloadData = new DownloadData();
@@ -60,7 +60,7 @@ public class b {
 
                         @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                         public boolean onPreDownload(DownloadData downloadData2) {
-                            return com.baidu.live.ah.a.b.Pv().G(downloadData2);
+                            return com.baidu.live.storage.opt.b.Rg().G(downloadData2);
                         }
 
                         @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -189,15 +189,15 @@ public class b {
                 public List<com.baidu.live.entereffect.a.b> doInBackground(Void... voidArr) {
                     List<com.baidu.live.entereffect.a.b> ar = b.this.ar(str, str2);
                     if (ar == null || ar.isEmpty()) {
-                        b.this.fm(str);
-                        b.this.fm(str2);
-                        l.E(b.this.aRy == null ? "" : b.this.aRy.id, b.this.aRz, "unZip result null");
+                        b.this.fH(str);
+                        b.this.fH(str2);
+                        l.F(b.this.aUC == null ? "" : b.this.aUC.id, b.this.aUD, "unZip result null");
                         JSONObject jSONObject = new JSONObject();
                         JSONObject jSONObject2 = new JSONObject();
                         try {
                             String str3 = "";
-                            if (b.this.aRy != null) {
-                                str3 = b.this.aRx ? b.this.aRy.videoUrl : b.this.aRy.aRi;
+                            if (b.this.aUC != null) {
+                                str3 = b.this.aUB ? b.this.aUC.videoUrl : b.this.aUC.aUn;
                             }
                             jSONObject2.put("step_error", 6);
                             jSONObject2.put("down_type", UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST);
@@ -218,7 +218,7 @@ public class b {
                 public void onPostExecute(List<com.baidu.live.entereffect.a.b> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.BK().a(b.this.aRx, b.this.aRy, str2, list);
+                        c.CZ().a(b.this.aUB, b.this.aUC, str2, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -269,7 +269,7 @@ public class b {
             r5.<init>()     // Catch: java.lang.Throwable -> L4d
             java.lang.String r6 = r4.getAbsolutePath()     // Catch: java.lang.Throwable -> L4d
             r5.path = r6     // Catch: java.lang.Throwable -> L4d
-            java.lang.String r4 = com.baidu.live.i.a.getFileMd5(r4)     // Catch: java.lang.Throwable -> L4d
+            java.lang.String r4 = com.baidu.live.h.a.getFileMd5(r4)     // Catch: java.lang.Throwable -> L4d
             r5.md5 = r4     // Catch: java.lang.Throwable -> L4d
             r0.add(r5)     // Catch: java.lang.Throwable -> L4d
             goto L11
@@ -277,13 +277,13 @@ public class b {
             r0 = move-exception
         L4e:
             r0.printStackTrace()     // Catch: java.lang.Throwable -> Lb5
-            com.baidu.live.entereffect.a.a r4 = r7.aRy     // Catch: java.lang.Throwable -> Lb5
+            com.baidu.live.entereffect.a.a r4 = r7.aUC     // Catch: java.lang.Throwable -> Lb5
             if (r4 != 0) goto L95
             java.lang.String r4 = ""
         L58:
-            java.lang.String r5 = r7.aRz     // Catch: java.lang.Throwable -> Lb5
+            java.lang.String r5 = r7.aUD     // Catch: java.lang.Throwable -> Lb5
             java.lang.String r0 = r0.getMessage()     // Catch: java.lang.Throwable -> Lb5
-            com.baidu.live.utils.l.E(r4, r5, r0)     // Catch: java.lang.Throwable -> Lb5
+            com.baidu.live.utils.l.F(r4, r5, r0)     // Catch: java.lang.Throwable -> Lb5
             if (r2 == 0) goto L66
             r2.close()     // Catch: java.io.IOException -> L9a
         L66:
@@ -315,7 +315,7 @@ public class b {
             r1.printStackTrace()
             goto L6c
         L95:
-            com.baidu.live.entereffect.a.a r4 = r7.aRy     // Catch: java.lang.Throwable -> Lb5
+            com.baidu.live.entereffect.a.a r4 = r7.aUC     // Catch: java.lang.Throwable -> Lb5
             java.lang.String r4 = r4.id     // Catch: java.lang.Throwable -> Lb5
             goto L58
         L9a:
@@ -429,7 +429,7 @@ public class b {
                         } catch (IOException e4) {
                             e = e4;
                             e.printStackTrace();
-                            l.F(this.aRy == null ? "" : this.aRy.id, this.aRz, e.getMessage());
+                            l.G(this.aUC == null ? "" : this.aUC.id, this.aUD, e.getMessage());
                             if (fileOutputStream != null) {
                                 try {
                                     fileOutputStream.flush();
@@ -470,9 +470,9 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fm(String str) {
+    public void fH(String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.live.i.a.cleanDir(new File(str));
+            com.baidu.live.h.a.cleanDir(new File(str));
         }
     }
 }

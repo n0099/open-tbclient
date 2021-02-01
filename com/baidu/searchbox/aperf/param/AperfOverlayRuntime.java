@@ -1,7 +1,7 @@
 package com.baidu.searchbox.aperf.param;
 
 import com.baidu.tieba.q.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AperfOverlayRuntime {
     private static final IAperfOverlayContext OVERLAY_EMPTY = new IAperfOverlayContext() { // from class: com.baidu.searchbox.aperf.param.AperfOverlayRuntime.1
         @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
@@ -11,6 +11,6 @@ public class AperfOverlayRuntime {
     };
 
     public static IAperfOverlayContext getAperfOverlayContext() {
-        return b.dHP();
+        return b.dKa();
     }
 }

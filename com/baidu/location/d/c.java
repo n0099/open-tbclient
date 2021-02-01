@@ -1,17 +1,18 @@
 package com.baidu.location.d;
 
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
     static c c;
 
     /* renamed from: a  reason: collision with root package name */
-    String f2627a = "firll.dat";
+    String f2625a = "firll.dat";
 
     /* renamed from: b  reason: collision with root package name */
-    int f2628b = 3164;
+    int f2626b = 3164;
     int d = 0;
     int e = 20;
     int f = 40;
@@ -25,10 +26,10 @@ public class c {
         if (h == null) {
             return -1L;
         }
-        String str = h + File.separator + this.f2627a;
+        String str = h + File.separator + this.f2625a;
         RandomAccessFile randomAccessFile2 = null;
         try {
-            randomAccessFile = new RandomAccessFile(str, "rw");
+            randomAccessFile = new RandomAccessFile(str, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             try {
                 randomAccessFile.seek(i);
                 int readInt = randomAccessFile.readInt();
@@ -92,11 +93,11 @@ public class c {
             return;
         }
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(h + File.separator + this.f2627a, "rw");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(h + File.separator + this.f2625a, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             randomAccessFile.seek(i);
-            randomAccessFile.writeInt(this.f2628b);
+            randomAccessFile.writeInt(this.f2626b);
             randomAccessFile.writeLong(j);
-            randomAccessFile.writeInt(this.f2628b);
+            randomAccessFile.writeInt(this.f2626b);
             randomAccessFile.close();
         } catch (Exception e) {
         }

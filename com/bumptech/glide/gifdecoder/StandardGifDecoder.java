@@ -13,7 +13,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class StandardGifDecoder implements GifDecoder {
     private static final int BYTES_PER_INTEGER = 4;
     @ColorInt

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.kwai.video.cache.OfflineCacheVodAdaptiveTaskBuilder;
 import com.kwai.video.hodor.util.Timber;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AwesomeCache {
     public static final int DATA_SOURCE_TYPE_ASYNC_V2 = 0;
     public static final int DATA_SOURCE_TYPE_LIVE = 1;
@@ -14,11 +14,11 @@ public class AwesomeCache {
     public static final int UPSTREAM_TYPE_FFURL = 1;
     public static final int UPSTREAM_TYPE_P2SP = 2;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface DataSourceType {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class OfflineCacheDataSpec {
         int bandWidthThreshold;
         int cacheMode;
@@ -35,11 +35,11 @@ public class AwesomeCache {
         String url;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface UpstreamType {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class VodAdaptive {
         public static final int NET_WORK_TYPE_FIVE_G = 5;
         public static final int NET_WORK_TYPE_FOUR_G = 2;

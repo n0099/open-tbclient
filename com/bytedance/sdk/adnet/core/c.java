@@ -15,21 +15,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c implements com.bytedance.sdk.adnet.e.c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final boolean f6019a = r.f6046a;
-    protected final com.bytedance.sdk.adnet.e.a pkG;
-    protected final d pkH;
+    protected static final boolean f6021a = r.f6048a;
+    protected final com.bytedance.sdk.adnet.e.a puV;
+    protected final d puW;
 
     public c(com.bytedance.sdk.adnet.e.a aVar) {
         this(aVar, new d(4096));
     }
 
     public c(com.bytedance.sdk.adnet.e.a aVar, d dVar) {
-        this.pkG = aVar;
-        this.pkH = dVar;
+        this.puV = aVar;
+        this.puW = dVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [177=6, 178=6, 179=6, 182=5] */
@@ -46,15 +46,15 @@ public class c implements com.bytedance.sdk.adnet.e.c {
             b bVar2 = null;
             List<a> emptyList = Collections.emptyList();
             try {
-                bVar = this.pkG.a(request, a(request.getCacheEntry()));
+                bVar = this.puV.a(request, a(request.getCacheEntry()));
                 try {
                     try {
                         int statusCode = bVar.getStatusCode();
-                        emptyList = bVar.eot();
+                        emptyList = bVar.eqL();
                         if (statusCode == 304) {
                             b.a cacheEntry = request.getCacheEntry();
                             if (cacheEntry != null) {
-                                l lVar = new l(304, cacheEntry.f6062b, true, SystemClock.elapsedRealtime() - elapsedRealtime, a(emptyList, cacheEntry));
+                                l lVar = new l(304, cacheEntry.f6064b, true, SystemClock.elapsedRealtime() - elapsedRealtime, a(emptyList, cacheEntry));
                                 if (bVar != null) {
                                     try {
                                         if (bVar.getContent() != null) {
@@ -191,7 +191,7 @@ public class c implements com.bytedance.sdk.adnet.e.c {
     }
 
     private void a(long j, Request<?> request, byte[] bArr, int i) {
-        if (f6019a || j > IMConnection.RETRY_DELAY_TIMES) {
+        if (f6021a || j > IMConnection.RETRY_DELAY_TIMES) {
             Object[] objArr = new Object[5];
             objArr[0] = request;
             objArr[1] = Long.valueOf(j);
@@ -241,12 +241,12 @@ public class c implements com.bytedance.sdk.adnet.e.c {
     }
 
     private byte[] a(InputStream inputStream, int i) throws IOException, com.bytedance.sdk.adnet.err.f {
-        e eVar = new e(this.pkH, i);
+        e eVar = new e(this.puW, i);
         try {
             if (inputStream == null) {
                 throw new com.bytedance.sdk.adnet.err.f();
             }
-            byte[] a2 = this.pkH.a(1024);
+            byte[] a2 = this.puW.a(1024);
             while (true) {
                 int read = inputStream.read(a2);
                 if (read == -1) {
@@ -262,7 +262,7 @@ public class c implements com.bytedance.sdk.adnet.e.c {
                     r.a("Error occurred when closing InputStream", new Object[0]);
                 }
             }
-            this.pkH.a(a2);
+            this.puW.a(a2);
             eVar.close();
             return byteArray;
         } catch (Throwable th) {
@@ -273,7 +273,7 @@ public class c implements com.bytedance.sdk.adnet.e.c {
                     r.a("Error occurred when closing InputStream", new Object[0]);
                 }
             }
-            this.pkH.a((byte[]) null);
+            this.puW.a((byte[]) null);
             eVar.close();
             throw th;
         }

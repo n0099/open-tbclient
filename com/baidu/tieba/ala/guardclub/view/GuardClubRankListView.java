@@ -8,17 +8,17 @@ import com.baidu.live.adp.widget.listview.BdListView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.LoadMoreFooter;
 import com.baidu.tieba.ala.guardclub.n;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GuardClubRankListView extends BdListView {
-    private boolean gZA;
-    private LoadMoreFooter gZB;
-    private a gZz;
+    private a hcj;
+    private boolean hck;
+    private LoadMoreFooter hcl;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void bVs();
+        void bVX();
 
-        void bVt();
+        void onScroll();
     }
 
     public GuardClubRankListView(Context context, AttributeSet attributeSet) {
@@ -27,24 +27,24 @@ public class GuardClubRankListView extends BdListView {
     }
 
     public void setCallback(a aVar) {
-        this.gZz = aVar;
+        this.hcj = aVar;
     }
 
     public void setLoadMoreEnabled(boolean z, boolean z2) {
-        this.gZA = z;
+        this.hck = z;
         if (z) {
-            bUZ();
+            bVE();
         } else {
-            nk(z2);
+            np(z2);
         }
     }
 
     public void release() {
-        this.gZz = null;
-        bVE();
+        this.hcj = null;
+        bWi();
     }
 
-    public void bVE() {
+    public void bWi() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -65,9 +65,9 @@ public class GuardClubRankListView extends BdListView {
 
     private void init() {
         initUI();
-        bVF();
-        bVG();
-        bVH();
+        bWj();
+        bWk();
+        bWl();
     }
 
     private void initUI() {
@@ -79,7 +79,7 @@ public class GuardClubRankListView extends BdListView {
         setVerticalScrollBarEnabled(false);
     }
 
-    private void bVF() {
+    private void bWj() {
         setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -87,18 +87,18 @@ public class GuardClubRankListView extends BdListView {
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (GuardClubRankListView.this.gZz != null) {
-                    GuardClubRankListView.this.gZz.bVs();
+                if (GuardClubRankListView.this.hcj != null) {
+                    GuardClubRankListView.this.hcj.onScroll();
                 }
-                if (GuardClubRankListView.this.gZz != null && GuardClubRankListView.this.gZA && !GuardClubRankListView.this.gZB.isLoading() && i + i2 > i3 - 2) {
-                    GuardClubRankListView.this.bVI();
-                    GuardClubRankListView.this.gZz.bVt();
+                if (GuardClubRankListView.this.hcj != null && GuardClubRankListView.this.hck && !GuardClubRankListView.this.hcl.isLoading() && i + i2 > i3 - 2) {
+                    GuardClubRankListView.this.bWm();
+                    GuardClubRankListView.this.hcj.bVX();
                 }
             }
         });
     }
 
-    private void bVG() {
+    private void bWk() {
         setRecyclerListener(new AbsListView.RecyclerListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.2
             @Override // android.widget.AbsListView.RecyclerListener
             public void onMovedToScrapHeap(View view) {
@@ -110,39 +110,39 @@ public class GuardClubRankListView extends BdListView {
         });
     }
 
-    private void bVH() {
-        this.gZB = new LoadMoreFooter(getContext());
-        this.gZB.setBackgroundColor(getResources().getColor(a.c.live_gcb_primary));
-        this.gZB.createView();
+    private void bWl() {
+        this.hcl = new LoadMoreFooter(getContext());
+        this.hcl.setBackgroundColor(getResources().getColor(a.c.live_gcb_primary));
+        this.hcl.createView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVI() {
-        if (this.gZB != null) {
-            if (this.gZB.getView().getParent() == null) {
-                setNextPage(this.gZB);
+    public void bWm() {
+        if (this.hcl != null) {
+            if (this.hcl.getView().getParent() == null) {
+                setNextPage(this.hcl);
             }
-            this.gZB.showLoadView();
+            this.hcl.showLoadView();
         }
     }
 
-    private void bUZ() {
-        if (this.gZB != null) {
-            this.gZB.endLoadData();
+    private void bVE() {
+        if (this.hcl != null) {
+            this.hcl.endLoadData();
             setNextPage(null);
         }
     }
 
-    private void nk(boolean z) {
+    private void np(boolean z) {
         if (z) {
-            if (this.gZB != null) {
+            if (this.hcl != null) {
                 setNextPage(null);
             }
-        } else if (this.gZB != null) {
-            if (this.gZB.getView().getParent() == null) {
-                setNextPage(this.gZB);
+        } else if (this.hcl != null) {
+            if (this.hcl.getView().getParent() == null) {
+                setNextPage(this.hcl);
             }
-            this.gZB.showNoMoreData();
+            this.hcl.showNoMoreData();
         }
     }
 }

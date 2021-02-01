@@ -15,10 +15,10 @@ import com.baidu.tieba.R;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
     protected MediaPlayer mMediaPlayer;
-    protected ScalableType nDo;
+    protected ScalableType nMY;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -31,11 +31,11 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.nDo = ScalableType.NONE;
+        this.nMY = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.videoScaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(R.styleable.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.nDo = ScalableType.values()[i2];
+            this.nMY = ScalableType.values()[i2];
         }
     }
 
@@ -77,17 +77,17 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
     public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-        bA(i, i2);
+        bx(i, i2);
     }
 
-    private void bA(int i, int i2) {
+    private void bx(int i, int i2) {
         Matrix a2;
-        if (i != 0 && i2 != 0 && (a2 = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.nDo)) != null) {
+        if (i != 0 && i2 != 0 && (a2 = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.nMY)) != null) {
             setTransform(a2);
         }
     }
 
-    private void bMh() {
+    private void bMI() {
         if (this.mMediaPlayer == null) {
             this.mMediaPlayer = new MediaPlayer();
             this.mMediaPlayer.setOnVideoSizeChangedListener(this);
@@ -111,33 +111,33 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        bMh();
+        bMI();
         this.mMediaPlayer.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException {
-        bMh();
+        bMI();
         this.mMediaPlayer.setDataSource(context, uri, map);
     }
 
     public void setDataSource(Context context, Uri uri) throws IOException {
-        bMh();
+        bMI();
         this.mMediaPlayer.setDataSource(context, uri);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
-        bMh();
+        bMI();
         this.mMediaPlayer.setDataSource(fileDescriptor, j, j2);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
-        bMh();
+        bMI();
         this.mMediaPlayer.setDataSource(fileDescriptor);
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.nDo = scalableType;
-        bA(getVideoWidth(), getVideoHeight());
+        this.nMY = scalableType;
+        bx(getVideoWidth(), getVideoHeight());
     }
 
     public void a(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {

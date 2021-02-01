@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTaskParallel;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.TiebaIMConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TbSingleExecutor {
     private static final BdUniqueId TASK_UNIQUEID = BdUniqueId.gen();
     private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, TASK_UNIQUEID);
@@ -30,7 +30,7 @@ public class TbSingleExecutor {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class SerialAsyncTask<T> extends BdAsyncTask<String, Object, T> {
         private ISingleRunnableCallback<T> callback;
         private SingleRunnable<T> runnable;

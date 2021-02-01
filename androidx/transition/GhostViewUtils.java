@@ -4,7 +4,7 @@ import android.graphics.Matrix;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 class GhostViewUtils {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static GhostViewImpl addGhost(View view, ViewGroup viewGroup, Matrix matrix) {

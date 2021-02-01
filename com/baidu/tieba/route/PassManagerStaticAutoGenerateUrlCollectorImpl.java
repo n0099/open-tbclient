@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class PassManagerStaticAutoGenerateUrlCollectorImpl implements d {
     @Override // com.baidu.adp.framework.a.d
     public Map<String, ArrayList<String>> getConfigRouterMap() {
@@ -25,6 +25,7 @@ public final class PassManagerStaticAutoGenerateUrlCollectorImpl implements d {
         hashMap.put("2001268", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
         hashMap.put("2001293", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
         hashMap.put("2016301", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
+        hashMap.put("2921530", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
         hashMap.put("2921438", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
         hashMap.put("2921328", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
         hashMap.put("2921329", "com.baidu.tieba.passaccount.framework.PassManagerStatic");

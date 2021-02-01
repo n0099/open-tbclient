@@ -3,7 +3,7 @@ package GetSugTopic;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import tbclient.CommonReq;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataReq extends Message {
     public static final Long DEFAULT_FID = 0L;
     public static final String DEFAULT_FIRST_DIR = "";
@@ -56,7 +56,7 @@ public final class DataReq extends Message {
         this.second_dir = builder.second_dir;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataReq> {
 
         /* renamed from: common  reason: collision with root package name */

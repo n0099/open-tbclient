@@ -39,14 +39,14 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected IListenerManager f7083a;
+    protected IListenerManager f7085a;
 
     /* renamed from: b  reason: collision with root package name */
-    private WeakReference<Context> f7084b;
+    private WeakReference<Context> f7086b;
     private final com.bytedance.sdk.openadsdk.core.d.b c;
     private final l d;
     private String e;
@@ -97,7 +97,7 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
         public void a(com.ss.android.a.a.d.e eVar, int i) {
             b.this.j.set(3);
             b.this.k.set(false);
-            b.this.a(eVar.f12905a);
+            b.this.a(eVar.f12907a);
             b.b("onDownloadActive: " + eVar.c + ", " + eVar.d);
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 b.this.a("onDownloadActive", eVar.c, eVar.d, eVar.e, b.this.c.c());
@@ -110,7 +110,7 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
         public void b(com.ss.android.a.a.d.e eVar, int i) {
             b.this.j.set(4);
             b.this.k.set(false);
-            b.this.a(eVar.f12905a);
+            b.this.a(eVar.f12907a);
             b.b("onDownloadPaused: " + eVar.c + ", " + eVar.d);
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 b.this.a("onDownloadPaused", eVar.c, eVar.d, eVar.e, b.this.c.c());
@@ -122,7 +122,7 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
         @Override // com.ss.android.a.a.b.d
         public void a(com.ss.android.a.a.d.e eVar) {
             b.this.j.set(5);
-            b.this.a(eVar.f12905a);
+            b.this.a(eVar.f12907a);
             b.b("onDownloadFailed: " + eVar.c + ", " + eVar.d);
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 b.this.a("onDownloadFailed", eVar.c, eVar.d, eVar.e, b.this.c.c());
@@ -135,7 +135,7 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
         public void b(com.ss.android.a.a.d.e eVar) {
             b.this.j.set(7);
             b.this.k.set(true);
-            b.this.a(eVar.f12905a);
+            b.this.a(eVar.f12907a);
             b.b("onInstalled: " + eVar.c + ", " + eVar.d);
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 b.this.a("onInstalled", eVar.c, eVar.d, eVar.e, b.this.c.c());
@@ -147,7 +147,7 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
         @Override // com.ss.android.a.a.b.d
         public void c(com.ss.android.a.a.d.e eVar) {
             b.this.j.set(6);
-            b.this.a(eVar.f12905a);
+            b.this.a(eVar.f12907a);
             b.b("onDownloadFinished: " + eVar.c + ", " + eVar.d);
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 b.this.a("onDownloadFinished", eVar.c, eVar.d, eVar.e, b.this.c.c());
@@ -174,10 +174,10 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     protected IListenerManager k() {
-        if (this.f7083a == null) {
-            this.f7083a = com.bytedance.sdk.openadsdk.multipro.aidl.a.b.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(p.a()).a(3));
+        if (this.f7085a == null) {
+            this.f7085a = com.bytedance.sdk.openadsdk.multipro.aidl.a.b.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(p.a()).a(3));
         }
-        return this.f7083a;
+        return this.f7085a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -187,7 +187,7 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
     public b(Context context, l lVar, String str) {
         this.f = -1;
-        this.f7084b = new WeakReference<>(context);
+        this.f7086b = new WeakReference<>(context);
         this.d = lVar;
         this.c = lVar.U();
         this.e = str;
@@ -202,9 +202,9 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
             p.a(context);
         }
         this.s = new com.bytedance.sdk.openadsdk.downloadnew.core.c();
-        this.i = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.e, this.d, null).eBP();
-        this.g = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.d).eBN();
-        this.h = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.d, this.e).eBO();
+        this.i = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.e, this.d, null).eEg();
+        this.g = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.d).eEe();
+        this.h = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.d, this.e).eEf();
         a();
     }
 
@@ -244,9 +244,9 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
                 it.remove();
             }
         }
-        if (this.f7084b != null) {
-            this.f7084b.clear();
-            this.f7084b = null;
+        if (this.f7086b != null) {
+            this.f7086b.clear();
+            this.f7086b = null;
         }
     }
 
@@ -254,7 +254,7 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     public void a(@NonNull Activity activity) {
         u.f("DMLibManager", "setActivity==activity:" + activity.getLocalClassName());
         if (activity != null) {
-            this.f7084b = new WeakReference<>(activity);
+            this.f7086b = new WeakReference<>(activity);
             p();
         }
     }
@@ -269,12 +269,12 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     private void n() {
         b("tryReleaseResource==");
         Activity activity = null;
-        if (this.f7084b == null) {
+        if (this.f7086b == null) {
             b("tryReleaseResource==  mContext is null");
             return;
         }
-        if (this.f7084b.get() instanceof Activity) {
-            activity = (Activity) this.f7084b.get();
+        if (this.f7086b.get() instanceof Activity) {
+            activity = (Activity) this.f7086b.get();
         }
         if (activity == null) {
             b("tryReleaseResource==  activity is null");
@@ -329,7 +329,7 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
             TTCustomController d = i.c().d();
             if (d != null && !d.isCanUseWriteExternal()) {
                 try {
-                    String str = e.f7097a;
+                    String str = e.f7099a;
                     String absolutePath = Environment.getDataDirectory().getAbsolutePath();
                     if (str != null) {
                         if (!str.startsWith(absolutePath)) {
@@ -428,7 +428,7 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     private Context s() {
-        return (this.f7084b == null || this.f7084b.get() == null) ? p.a() : this.f7084b.get();
+        return (this.f7086b == null || this.f7086b.get() == null) ? p.a() : this.f7086b.get();
     }
 
     public boolean l() {
@@ -754,12 +754,12 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
-    public void a(int i, a.InterfaceC1013a interfaceC1013a) {
+    public void a(int i, a.InterfaceC1017a interfaceC1017a) {
         if (this.r == null) {
             this.r = new HashSet<>();
         }
         this.r.add(Integer.valueOf(i));
-        e.a(i, interfaceC1013a);
+        e.a(i, interfaceC1017a);
     }
 
     @Override // com.bytedance.sdk.openadsdk.utils.am.a
@@ -812,14 +812,14 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        String f7090a;
+        String f7092a;
 
         /* renamed from: b  reason: collision with root package name */
-        long f7091b;
+        long f7093b;
         long c;
         String d;
         String e;
@@ -828,19 +828,19 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
         }
 
         public a(String str, long j, long j2, String str2, String str3) {
-            this.f7090a = str;
-            this.f7091b = j;
+            this.f7092a = str;
+            this.f7093b = j;
             this.c = j2;
             this.d = str2;
             this.e = str3;
         }
 
         public void a(String str) {
-            this.f7090a = str;
+            this.f7092a = str;
         }
 
         public void a(long j) {
-            this.f7091b = j;
+            this.f7093b = j;
         }
 
         public void b(long j) {
@@ -858,7 +858,7 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                b.this.k().executeAppDownloadCallback(b.this.v, this.f7090a, this.f7091b, this.c, this.d, this.e);
+                b.this.k().executeAppDownloadCallback(b.this.v, this.f7092a, this.f7093b, this.c, this.d, this.e);
             } catch (Throwable th) {
                 u.c("DMLibManager", "executeRewardVideoCallback execute throw Exception : ", th);
             }

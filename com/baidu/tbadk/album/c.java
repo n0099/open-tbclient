@@ -3,7 +3,7 @@ package com.baidu.tbadk.album;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface c {
-    void bq(List<a> list);
+    void bl(List<a> list);
 
     void onPreLoad();
 }

@@ -24,47 +24,47 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e {
     static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final long drT = TimeUnit.MINUTES.toMillis(5);
-    private final Set<com.baidu.swan.apps.process.messaging.service.a> cYb;
-    private final LinkedHashMap<SwanAppProcessInfo, c> drS;
-    private final Deque<Long> drU;
-    private final com.baidu.swan.apps.process.messaging.service.a drV;
+    public static final long duf = TimeUnit.MINUTES.toMillis(5);
+    private final Set<com.baidu.swan.apps.process.messaging.service.a> dal;
+    private final LinkedHashMap<SwanAppProcessInfo, c> due;
+    private final Deque<Long> dug;
+    private final com.baidu.swan.apps.process.messaging.service.a duh;
     public final Messenger mMessenger;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a<FILTER> {
         boolean a(FILTER filter, c cVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
-        private static e dsa = new e();
+        private static e dum = new e();
     }
 
-    public static e aFS() {
+    public static e aGn() {
         if (!DEBUG || ProcessUtils.isMainProcess()) {
-            return b.dsa;
+            return b.dum;
         }
         throw new IllegalStateException("SwanAppClientObjManager should run in main process only");
     }
 
     private e() {
         SwanAppProcessInfo[] indices;
-        this.drS = new LinkedHashMap<>();
-        this.drU = new ArrayDeque();
+        this.due = new LinkedHashMap<>();
+        this.dug = new ArrayDeque();
         this.mMessenger = new Messenger(new SwanAppMessengerService.a());
-        this.cYb = new HashSet();
-        this.drV = new com.baidu.swan.apps.process.messaging.service.a() { // from class: com.baidu.swan.apps.process.messaging.service.e.1
+        this.dal = new HashSet();
+        this.duh = new com.baidu.swan.apps.process.messaging.service.a() { // from class: com.baidu.swan.apps.process.messaging.service.e.1
             @Override // com.baidu.swan.apps.process.messaging.service.a
             public void c(final String str, final c cVar) {
                 if (e.DEBUG) {
-                    Log.i("SwanPuppetManager", "onEvent: to=" + e.this.cYb.size() + " event=" + str + " client=" + cVar.drF);
+                    Log.i("SwanPuppetManager", "onEvent: to=" + e.this.dal.size() + " event=" + str + " client=" + cVar.dtR);
                 }
-                synchronized (e.this.cYb) {
+                synchronized (e.this.dal) {
                     com.baidu.swan.apps.ao.e.a.a(com.baidu.swan.apps.runtime.d.getMainHandler(), (com.baidu.swan.apps.ao.e.b) new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.process.messaging.service.a>() { // from class: com.baidu.swan.apps.process.messaging.service.e.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.swan.apps.ao.e.b
@@ -72,44 +72,44 @@ public final class e {
                         public void L(com.baidu.swan.apps.process.messaging.service.a aVar) {
                             aVar.c(str, cVar);
                         }
-                    }, (Collection) e.this.cYb);
+                    }, (Collection) e.this.dal);
                 }
             }
 
             @Override // com.baidu.swan.apps.process.messaging.service.a
-            public void atm() {
+            public void atK() {
             }
         };
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
             if (swanAppProcessInfo != null && swanAppProcessInfo.isSwanAppProcess()) {
-                this.drS.put(swanAppProcessInfo, new c(swanAppProcessInfo));
+                this.due.put(swanAppProcessInfo, new c(swanAppProcessInfo));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.baidu.swan.apps.process.messaging.service.a aFT() {
-        return this.drV;
+    public com.baidu.swan.apps.process.messaging.service.a aGo() {
+        return this.duh;
     }
 
     public void a(final com.baidu.swan.apps.process.messaging.service.a aVar, long j) {
-        synchronized (this.cYb) {
-            this.cYb.add(aVar);
+        synchronized (this.dal) {
+            this.dal.add(aVar);
             if (DEBUG) {
-                Log.i("SwanPuppetManager", "addCallback: after = " + this.cYb.size());
+                Log.i("SwanPuppetManager", "addCallback: after = " + this.dal.size());
             }
         }
         if (j > 0) {
             com.baidu.swan.apps.runtime.d.getMainHandler().postDelayed(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.service.e.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    synchronized (e.this.cYb) {
-                        if (e.this.cYb.contains(aVar)) {
+                    synchronized (e.this.dal) {
+                        if (e.this.dal.contains(aVar)) {
                             if (e.DEBUG) {
                                 Log.i("SwanPuppetManager", "timeout: callback = " + aVar);
                             }
                             e.this.a(aVar);
-                            aVar.atm();
+                            aVar.atK();
                         }
                     }
                 }
@@ -118,25 +118,25 @@ public final class e {
     }
 
     public void a(com.baidu.swan.apps.process.messaging.service.a aVar) {
-        synchronized (this.cYb) {
-            this.cYb.remove(aVar);
+        synchronized (this.dal) {
+            this.dal.remove(aVar);
             if (DEBUG) {
-                Log.i("SwanPuppetManager", "delCallback: after = " + this.cYb.size());
+                Log.i("SwanPuppetManager", "delCallback: after = " + this.dal.size());
             }
         }
     }
 
-    public synchronized c it(int i) {
+    public synchronized c iw(int i) {
         return a(SwanAppProcessInfo.indexOf(i));
     }
 
     public synchronized c a(SwanAppProcessInfo swanAppProcessInfo) {
-        return this.drS.get(swanAppProcessInfo);
+        return this.due.get(swanAppProcessInfo);
     }
 
     public synchronized <FILTER> c a(FILTER filter, a<FILTER> aVar) {
         c cVar;
-        Iterator<c> it = this.drS.values().iterator();
+        Iterator<c> it = this.due.values().iterator();
         while (true) {
             if (!it.hasNext()) {
                 cVar = null;
@@ -150,45 +150,45 @@ public final class e {
         return cVar;
     }
 
-    public synchronized LinkedHashSet<c> aFU() {
-        return new LinkedHashSet<>(this.drS.values());
+    public synchronized LinkedHashSet<c> aGp() {
+        return new LinkedHashSet<>(this.due.values());
     }
 
-    public synchronized c qM(@Nullable String str) {
-        c qO;
-        qO = qO(str);
-        if (qO == null) {
-            qO = aFV();
+    public synchronized c re(@Nullable String str) {
+        c rg;
+        rg = rg(str);
+        if (rg == null) {
+            rg = aGq();
         }
-        return qO;
+        return rg;
     }
 
     @NonNull
-    public synchronized c qN(@Nullable String str) {
-        c qM;
-        qM = qM(str);
-        b(qM.drF);
-        return qM;
+    public synchronized c rf(@Nullable String str) {
+        c re;
+        re = re(str);
+        b(re.dtR);
+        return re;
     }
 
-    public synchronized c aFV() {
+    public synchronized c aGq() {
         c a2;
-        qR("b4 computNextAvailableProcess");
+        rj("b4 computNextAvailableProcess");
         int i = 0;
         c cVar = null;
         c cVar2 = null;
         while (true) {
             if (i <= 5) {
-                a2 = this.drS.get(SwanAppProcessInfo.indexOf(i));
-                if (a2 != null && a2.drF.isSwanAppProcess()) {
-                    if (a2.aFD()) {
+                a2 = this.due.get(SwanAppProcessInfo.indexOf(i));
+                if (a2 != null && a2.dtR.isSwanAppProcess()) {
+                    if (a2.aFY()) {
                         a2 = cVar;
-                    } else if (a2.aFC()) {
+                    } else if (a2.aFX()) {
                         if (DEBUG) {
                             Log.i("SwanPuppetManager", "computNextAvailableProcess: firstPreloadedClient=" + a2);
                         }
                     } else {
-                        if (cVar2 == null && a2.aFF()) {
+                        if (cVar2 == null && a2.aGa()) {
                             cVar2 = a2;
                         }
                         if (cVar == null) {
@@ -211,7 +211,7 @@ public final class e {
                 }
                 a2 = cVar;
             } else {
-                Iterator<c> it = this.drS.values().iterator();
+                Iterator<c> it = this.due.values().iterator();
                 while (true) {
                     if (it.hasNext()) {
                         a2 = it.next();
@@ -233,18 +233,18 @@ public final class e {
     }
 
     @Nullable
-    public synchronized c aFW() {
+    public synchronized c aGr() {
         c cVar;
-        qR("b4 computNextPreloadProcess");
+        rj("b4 computNextPreloadProcess");
         int i = 0;
         cVar = null;
         while (true) {
             if (i <= 5) {
-                c cVar2 = this.drS.get(SwanAppProcessInfo.indexOf(i));
-                if (cVar2 != null && cVar2.drF.isSwanAppProcess()) {
-                    if (cVar2.aFD()) {
+                c cVar2 = this.due.get(SwanAppProcessInfo.indexOf(i));
+                if (cVar2 != null && cVar2.dtR.isSwanAppProcess()) {
+                    if (cVar2.aFY()) {
                         cVar2 = cVar;
-                    } else if (cVar2.aFC()) {
+                    } else if (cVar2.aFX()) {
                         if (DEBUG) {
                             Log.i("SwanPuppetManager", "computNextPreloadProcess: return null by found empty process=" + cVar2);
                         }
@@ -265,18 +265,18 @@ public final class e {
     }
 
     @Nullable
-    public synchronized c qO(@Nullable String str) {
-        List<c> qP;
-        qP = qP(str);
-        return qP.isEmpty() ? null : qP.get(qP.size() - 1);
+    public synchronized c rg(@Nullable String str) {
+        List<c> rh;
+        rh = rh(str);
+        return rh.isEmpty() ? null : rh.get(rh.size() - 1);
     }
 
     @NonNull
-    public synchronized List<c> qP(@Nullable String str) {
+    public synchronized List<c> rh(@Nullable String str) {
         ArrayList arrayList;
         arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
-            for (c cVar : this.drS.values()) {
+            for (c cVar : this.due.values()) {
                 if (TextUtils.equals(cVar.getAppId(), str)) {
                     arrayList.add(cVar);
                 }
@@ -286,28 +286,28 @@ public final class e {
     }
 
     public synchronized void b(SwanAppProcessInfo swanAppProcessInfo) {
-        c remove = this.drS.remove(swanAppProcessInfo);
+        c remove = this.due.remove(swanAppProcessInfo);
         if (remove != null) {
-            this.drS.put(swanAppProcessInfo, remove);
+            this.due.put(swanAppProcessInfo, remove);
         }
         if (DEBUG) {
-            qR("lru -> " + swanAppProcessInfo);
+            rj("lru -> " + swanAppProcessInfo);
         }
     }
 
     public synchronized void d(String str, c cVar) {
         if (!TextUtils.isEmpty(str)) {
-            List<c> qP = aFS().qP(str);
-            if (!qP.isEmpty()) {
-                for (c cVar2 : qP) {
-                    if (cVar2 != cVar && cVar2 != null && cVar2.aFD()) {
+            List<c> rh = aGn().rh(str);
+            if (!rh.isEmpty()) {
+                for (c cVar2 : rh) {
+                    if (cVar2 != cVar && cVar2 != null && cVar2.aFY()) {
                         if (DEBUG) {
                             Log.i("SwanPuppetManager", "deduplicateClients: protectedClient=" + cVar);
                             Log.i("SwanPuppetManager", "deduplicateClients: exClient=" + cVar2);
                         }
-                        cVar2.aFR().aFP();
-                        if (cVar2.aFF()) {
-                            com.baidu.swan.apps.process.messaging.a.aFe().a(new com.baidu.swan.apps.process.messaging.c(110, new Bundle()).a(cVar2.drF));
+                        cVar2.aGm().aGk();
+                        if (cVar2.aGa()) {
+                            com.baidu.swan.apps.process.messaging.a.aFz().a(new com.baidu.swan.apps.process.messaging.c(110, new Bundle()).a(cVar2.dtR));
                         }
                     }
                 }
@@ -316,49 +316,49 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aFX() {
-        synchronized (this.drU) {
-            if (aFY()) {
-                this.drU.offer(Long.valueOf(System.currentTimeMillis()));
+    public void aGs() {
+        synchronized (this.dug) {
+            if (aGt()) {
+                this.dug.offer(Long.valueOf(System.currentTimeMillis()));
                 Bundle bundle = new Bundle();
                 bundle.putString("bundle_key_preload_preload_scene", "1");
-                com.baidu.swan.apps.process.messaging.service.b.c(com.baidu.swan.apps.t.a.awy(), bundle);
+                com.baidu.swan.apps.process.messaging.service.b.c(com.baidu.swan.apps.t.a.awW(), bundle);
             }
         }
     }
 
-    private boolean aFY() {
-        synchronized (this.drU) {
-            qQ("checkRescuable ===>");
-            if (this.drU.size() < 3) {
-                qQ(String.format(Locale.getDefault(), "allowRescue by size(%d) < max(%d)", Integer.valueOf(this.drU.size()), 3));
+    private boolean aGt() {
+        synchronized (this.dug) {
+            ri("checkRescuable ===>");
+            if (this.dug.size() < 3) {
+                ri(String.format(Locale.getDefault(), "allowRescue by size(%d) < max(%d)", Integer.valueOf(this.dug.size()), 3));
                 return true;
             }
-            int size = this.drU.size() - 3;
-            qQ("after offer purgeCount=" + size);
+            int size = this.dug.size() - 3;
+            ri("after offer purgeCount=" + size);
             if (size > 0) {
                 for (int i = 0; i < size; i++) {
-                    qQ("purge: " + this.drU.poll());
+                    ri("purge: " + this.dug.poll());
                 }
             }
-            qQ("after purge");
-            Long peek = this.drU.peek();
+            ri("after purge");
+            Long peek = this.dug.peek();
             if (peek == null) {
-                qQ("allowRescue by null oldestRecord is should not happen");
+                ri("allowRescue by null oldestRecord is should not happen");
                 return true;
             }
             long currentTimeMillis = System.currentTimeMillis() - peek.longValue();
-            boolean z = currentTimeMillis > drT;
-            qQ("allowRescue:" + z + " oldestRecordDuration:" + currentTimeMillis);
+            boolean z = currentTimeMillis > duf;
+            ri("allowRescue:" + z + " oldestRecordDuration:" + currentTimeMillis);
             return z;
         }
     }
 
-    private void qQ(String str) {
+    private void ri(String str) {
         if (DEBUG) {
             Log.i("SwanPuppetManager", "SwanRescue:: status => " + str);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault());
-            Iterator<Long> it = this.drU.iterator();
+            Iterator<Long> it = this.dug.iterator();
             while (it.hasNext()) {
                 Log.i("SwanPuppetManager", "SwanRescue::   >>>  record @ " + simpleDateFormat.format(new Date(it.next().longValue())));
             }
@@ -373,12 +373,12 @@ public final class e {
             if (indexOf.isSwanAppProcess() && (a2 = a(indexOf)) != null && (message.obj instanceof Bundle)) {
                 Bundle bundle = (Bundle) message.obj;
                 bundle.setClassLoader(getClass().getClassLoader());
-                a2.cK(bundle.getLong("property_launch_cost", -1L));
+                a2.cQ(bundle.getLong("property_launch_cost", -1L));
             }
         }
     }
 
-    public void qR(String str) {
+    public void rj(String str) {
         if (DEBUG) {
             if (TextUtils.isEmpty(str)) {
                 str = "";
@@ -388,9 +388,9 @@ public final class e {
     }
 
     public String toString() {
-        LinkedHashSet<c> aFU = aFU();
+        LinkedHashSet<c> aGp = aGp();
         StringBuilder append = new StringBuilder().append(super.toString()).append(":").append("\n-> clients: ");
-        for (c cVar : aFU) {
+        for (c cVar : aGp) {
             append.append("\n--> ").append(cVar.toString());
         }
         return append.toString();

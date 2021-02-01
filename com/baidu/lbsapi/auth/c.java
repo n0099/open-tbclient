@@ -4,25 +4,25 @@ import android.content.Context;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2485a;
+    private Context f2483a;
 
     /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, String> f2486b = null;
+    private HashMap<String, String> f2484b = null;
     private a<String> c = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a<Result> {
         void a(Result result);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context) {
-        this.f2485a = context;
+        this.f2483a = context;
     }
 
     private HashMap<String, String> a(HashMap<String, String> hashMap) {
@@ -60,7 +60,7 @@ class c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(HashMap<String, String> hashMap, a<String> aVar) {
-        this.f2486b = a(hashMap);
+        this.f2484b = a(hashMap);
         this.c = aVar;
         new Thread(new d(this)).start();
     }

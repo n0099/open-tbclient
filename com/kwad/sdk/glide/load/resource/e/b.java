@@ -8,19 +8,19 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.g.j;
 import com.kwad.sdk.glide.load.engine.s;
 import com.kwad.sdk.glide.load.resource.bitmap.q;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b implements e<Bitmap, BitmapDrawable> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Resources f10326a;
+    private final Resources f10328a;
 
     public b(@NonNull Resources resources) {
-        this.f10326a = (Resources) j.a(resources);
+        this.f10328a = (Resources) j.a(resources);
     }
 
     @Override // com.kwad.sdk.glide.load.resource.e.e
     @Nullable
     public s<BitmapDrawable> a(@NonNull s<Bitmap> sVar, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return q.a(this.f10326a, sVar);
+        return q.a(this.f10328a, sVar);
     }
 }

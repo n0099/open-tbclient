@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MeasureLinearLayout extends LinearLayout {
     public MeasureLinearLayout(Context context) {
         super(context);

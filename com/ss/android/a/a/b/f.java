@@ -2,14 +2,14 @@ package com.ss.android.a.a.b;
 
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12887a;
+    private String f12889a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f12888b;
+    private boolean f12890b;
     private String c;
     private String d;
     private String e;
@@ -30,8 +30,8 @@ public class f implements b {
     }
 
     private f(a aVar) {
-        this.f12887a = aVar.f12889a;
-        this.f12888b = aVar.f12890b;
+        this.f12889a = aVar.f12891a;
+        this.f12890b = aVar.f12892b;
         this.c = aVar.c;
         this.d = aVar.d;
         this.e = aVar.e;
@@ -56,7 +56,7 @@ public class f implements b {
 
     @Override // com.ss.android.a.a.b.b
     public String b() {
-        return this.f12887a;
+        return this.f12889a;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -95,7 +95,7 @@ public class f implements b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public Object eBC() {
+    public Object eDT() {
         return this.l;
     }
 
@@ -106,7 +106,7 @@ public class f implements b {
 
     @Override // com.ss.android.a.a.b.b
     public boolean l() {
-        return this.f12888b;
+        return this.f12890b;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -115,18 +115,18 @@ public class f implements b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public JSONObject eBD() {
+    public JSONObject eDU() {
         return null;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f12889a;
+        private String f12891a;
 
         /* renamed from: b  reason: collision with root package name */
-        private boolean f12890b;
+        private boolean f12892b;
         private String c;
         private String d;
         private String e;
@@ -143,7 +143,7 @@ public class f implements b {
         private String p;
         private String q;
 
-        public f eBJ() {
+        public f eEa() {
             return new f(this);
         }
     }

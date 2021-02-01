@@ -10,9 +10,9 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends BaseAdapter {
-    private int bbm = -1;
+    private int bes = -1;
     private List<com.baidu.tieba.ala.data.b> mDataList;
     private TbPageContext mTbPageContext;
 
@@ -27,7 +27,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: th */
+    /* renamed from: tn */
     public com.baidu.tieba.ala.data.b getItem(int i) {
         return (com.baidu.tieba.ala.data.b) ListUtils.getItem(this.mDataList, i);
     }
@@ -43,7 +43,7 @@ public class b extends BaseAdapter {
         if (view == null) {
             a aVar2 = new a();
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.ala_choose_feedback_reason_item_layout, viewGroup, false);
-            aVar2.bJt = (TextView) view.findViewById(a.f.id_feedback_content);
+            aVar2.bNd = (TextView) view.findViewById(a.f.id_feedback_content);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -51,12 +51,12 @@ public class b extends BaseAdapter {
         }
         com.baidu.tieba.ala.data.b item = getItem(i);
         if (item != null) {
-            aVar.bJt.setText(item.Tu());
+            aVar.bNd.setText(item.Vb());
         }
-        if (i == this.bbm) {
-            aVar.bJt.setSelected(true);
+        if (i == this.bes) {
+            aVar.bNd.setSelected(true);
         } else {
-            aVar.bJt.setSelected(false);
+            aVar.bNd.setSelected(false);
         }
         return view;
     }
@@ -73,17 +73,17 @@ public class b extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public int Tt() {
-        return this.bbm;
+    public int Va() {
+        return this.bes;
     }
 
-    public void eT(int i) {
-        this.bbm = i;
+    public void eX(int i) {
+        this.bes = i;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private class a {
-        public TextView bJt;
+        public TextView bNd;
 
         private a() {
         }

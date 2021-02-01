@@ -6,14 +6,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Set<String> f7307a = new HashSet();
+    private static final Set<String> f7309a = new HashSet();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Set<String> f7308b = new HashSet();
+    private static final Set<String> f7310b = new HashSet();
     private final ArrayList<a> c;
     private final int d;
     private int e;
@@ -34,11 +34,11 @@ public class l {
         ArrayList arrayList3 = null;
         for (String str : list) {
             a aVar = new a(str);
-            if (f7307a.contains(str)) {
+            if (f7309a.contains(str)) {
                 arrayList3 = arrayList3 == null ? new ArrayList() : arrayList3;
                 arrayList3.add(aVar);
                 arrayList = arrayList2;
-            } else if (f7308b.contains(str)) {
+            } else if (f7310b.contains(str)) {
                 arrayList = arrayList2 == null ? new ArrayList() : arrayList2;
                 arrayList.add(aVar);
             } else {
@@ -89,35 +89,35 @@ public class l {
             this.e = i;
         }
         a aVar = this.c.get(i);
-        aVar.f7310b = (this.f * this.d) + this.e;
+        aVar.f7312b = (this.f * this.d) + this.e;
         return aVar;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f7309a;
+        final String f7311a;
 
         /* renamed from: b  reason: collision with root package name */
-        int f7310b;
+        int f7312b;
 
         a(String str) {
-            this.f7309a = str;
+            this.f7311a = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void a() {
-            l.f7307a.add(this.f7309a);
+            l.f7309a.add(this.f7311a);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void b() {
-            l.f7308b.add(this.f7309a);
+            l.f7310b.add(this.f7311a);
         }
 
         public String toString() {
-            return this.f7309a;
+            return this.f7311a;
         }
     }
 }

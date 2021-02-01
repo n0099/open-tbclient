@@ -10,7 +10,7 @@ import com.baidu.android.pushservice.f;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class MzNotifyActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */

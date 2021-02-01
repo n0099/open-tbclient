@@ -2,7 +2,7 @@ package com.baidu.android.bbalbs.common.a;
 
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */

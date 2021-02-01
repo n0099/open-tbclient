@@ -3,27 +3,27 @@ package com.kwad.sdk.api.loader;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class a extends Application {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Context f8193a;
+        private final Context f8195a;
 
         a(Context context) {
-            this.f8193a = context;
+            this.f8195a = context;
         }
 
         @Override // android.content.ContextWrapper, android.content.Context
         public Context getApplicationContext() {
-            return this.f8193a;
+            return this.f8195a;
         }
 
         @Override // android.content.ContextWrapper, android.content.Context
         public ApplicationInfo getApplicationInfo() {
-            return this.f8193a.getApplicationInfo();
+            return this.f8195a.getApplicationInfo();
         }
     }
 

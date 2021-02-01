@@ -11,7 +11,7 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.tieba.ala.guardthrone.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
     private Context mContext;
     private List<a.C0639a.C0640a> mList = new ArrayList();
@@ -55,26 +55,26 @@ public class a extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.ala_guard_throne_privilege_item_layout, (ViewGroup) null);
             c0638a = new C0638a();
-            c0638a.fgZ = (TextView) view.findViewById(a.f.tv_text);
-            c0638a.gZK = (TbImageView) view.findViewById(a.f.iv_pic);
-            c0638a.gZK.setDefaultBgResource(a.e.ala_guard_throne_privilege_corner_bg);
+            c0638a.fjs = (TextView) view.findViewById(a.f.tv_text);
+            c0638a.hcu = (TbImageView) view.findViewById(a.f.iv_pic);
+            c0638a.hcu.setDefaultBgResource(a.e.ala_guard_throne_privilege_corner_bg);
             view.setTag(c0638a);
         } else {
             c0638a = (C0638a) view.getTag();
         }
         a.C0639a.C0640a c0640a = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
         if (c0640a != null) {
-            c0638a.fgZ.setText(c0640a.text);
-            c0638a.gZK.startLoad(c0640a.pic, 10, false);
+            c0638a.fjs.setText(c0640a.text);
+            c0638a.hcu.startLoad(c0640a.pic, 10, false);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private class C0638a {
-        public TextView fgZ;
-        public TbImageView gZK;
+        public TextView fjs;
+        public TbImageView hcu;
 
         private C0638a() {
         }

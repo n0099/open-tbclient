@@ -4,33 +4,33 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HeightListView extends ListView {
-    private int dOL;
+    private int dQR;
 
     public void setListViewHeight(int i) {
-        this.dOL = i;
+        this.dQR = i;
     }
 
     public HeightListView(Context context) {
         super(context);
-        this.dOL = -1;
+        this.dQR = -1;
     }
 
     public HeightListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dOL = -1;
+        this.dQR = -1;
     }
 
     public HeightListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dOL = -1;
+        this.dQR = -1;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.dOL > -1) {
-            i2 = View.MeasureSpec.makeMeasureSpec(this.dOL, Integer.MIN_VALUE);
+        if (this.dQR > -1) {
+            i2 = View.MeasureSpec.makeMeasureSpec(this.dQR, Integer.MIN_VALUE);
         }
         super.onMeasure(i, i2);
     }

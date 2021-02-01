@@ -8,29 +8,29 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private C0133a atc;
+    private C0133a asS;
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
-        vj().mkdirs();
+        vg().mkdirs();
     }
 
-    public File vi() {
+    public File vf() {
         return new File(this.mContext.getApplicationInfo().dataDir);
     }
 
-    private File vj() {
-        return new File(vi(), ".helios");
+    private File vg() {
+        return new File(vf(), ".helios");
     }
 
-    public synchronized C0133a vk() {
-        if (this.atc == null) {
-            this.atc = new C0133a(".helios", null);
+    public synchronized C0133a vh() {
+        if (this.asS == null) {
+            this.asS = new C0133a(".helios", null);
         }
-        return this.atc;
+        return this.asS;
     }
 
     public static void k(File file) {
@@ -125,46 +125,46 @@ public class a {
     }
 
     /* renamed from: com.baidu.helios.common.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class C0133a {
-        private File atd;
-        private String ate;
-        private C0133a atf;
-        private boolean atg;
+        private File asT;
+        private String asU;
+        private C0133a asV;
+        private boolean asW;
 
         C0133a(String str, C0133a c0133a) {
-            this.atg = false;
-            this.ate = str;
-            this.atf = c0133a;
-            this.atg = false;
+            this.asW = false;
+            this.asU = str;
+            this.asV = c0133a;
+            this.asW = false;
         }
 
         C0133a(File file) {
-            this.atg = false;
-            this.atg = true;
-            this.atd = file;
-            this.ate = file.getName();
+            this.asW = false;
+            this.asW = true;
+            this.asT = file;
+            this.asU = file.getName();
         }
 
-        public void vl() {
-            vm().mkdirs();
+        public void vi() {
+            vj().mkdirs();
         }
 
-        public File vm() {
-            File file = this.atd;
+        public File vj() {
+            File file = this.asT;
             if (file == null) {
-                if (this.atf == null) {
-                    file = new File(a.this.vi(), this.ate);
+                if (this.asV == null) {
+                    file = new File(a.this.vf(), this.asU);
                 } else {
-                    file = new File(this.atf.vm(), this.ate);
+                    file = new File(this.asV.vj(), this.asU);
                 }
-                this.atd = file;
+                this.asT = file;
             }
             return file;
         }
 
-        public String vn() {
-            return this.ate;
+        public String vk() {
+            return this.asU;
         }
 
         public C0133a ea(String str) {
@@ -172,30 +172,30 @@ public class a {
         }
 
         public File getFile(String str) {
-            return new File(this.atd, str);
+            return new File(this.asT, str);
         }
 
-        public C0133a vo() {
-            return this.atf;
+        public C0133a vl() {
+            return this.asV;
         }
 
         public boolean c(String str, String str2, boolean z) {
-            return a.b(vm(), str, str2, "UTF-8", z);
+            return a.b(vj(), str, str2, "UTF-8", z);
         }
 
         public String p(String str, boolean z) {
-            return a.b(vm(), str, "UTF-8", z);
+            return a.b(vj(), str, "UTF-8", z);
         }
 
         public C0133a l(File file) {
-            if (this.atg) {
+            if (this.asW) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();
             C0133a c0133a = this;
             do {
-                arrayList.add(c0133a.vn());
-                c0133a = c0133a.vo();
+                arrayList.add(c0133a.vk());
+                c0133a = c0133a.vl();
             } while (c0133a != null);
             int size = arrayList.size() - 1;
             while (size >= 0) {

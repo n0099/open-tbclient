@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import androidx.core.view.ViewCompat;
 /* JADX INFO: Access modifiers changed from: package-private */
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KSViewOffsetHelper {
     private int mLayoutLeft;
     private int mLayoutTop;

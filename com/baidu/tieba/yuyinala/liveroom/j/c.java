@@ -1,12 +1,12 @@
 package com.baidu.tieba.yuyinala.liveroom.j;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void UH(String str);
+        void VF(String str);
     }
 
     public static void b(com.baidu.tieba.yuyinala.liveroom.data.a aVar, com.baidu.live.im.data.b bVar, JSONObject jSONObject, a aVar2) {

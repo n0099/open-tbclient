@@ -4,13 +4,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FaceImageLayout extends FrameLayout {
-    private a ltC;
+    private a lBG;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void dgB();
+        void diC();
     }
 
     public FaceImageLayout(Context context) {
@@ -27,13 +27,13 @@ public class FaceImageLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.ltC != null) {
-            this.ltC.dgB();
+        if (this.lBG != null) {
+            this.lBG.diC();
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setListener(a aVar) {
-        this.ltC = aVar;
+        this.lBG = aVar;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IBVideoPlayer {
     boolean isPlaying();
 

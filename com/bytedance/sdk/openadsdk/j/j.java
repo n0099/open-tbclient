@@ -7,14 +7,14 @@ import java.net.SocketAddress;
 import java.net.URI;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class j extends ProxySelector {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final List<Proxy> f7305a = Collections.singletonList(Proxy.NO_PROXY);
+    private static final List<Proxy> f7307a = Collections.singletonList(Proxy.NO_PROXY);
 
     /* renamed from: b  reason: collision with root package name */
-    private final ProxySelector f7306b = ProxySelector.getDefault();
+    private final ProxySelector f7308b = ProxySelector.getDefault();
     private final String c;
     private final int d;
 
@@ -28,12 +28,12 @@ class j extends ProxySelector {
         if (uri == null) {
             throw new IllegalArgumentException("URI can't be null");
         }
-        return (this.c.equalsIgnoreCase(uri.getHost()) && this.d == uri.getPort()) ? f7305a : this.f7306b.select(uri);
+        return (this.c.equalsIgnoreCase(uri.getHost()) && this.d == uri.getPort()) ? f7307a : this.f7308b.select(uri);
     }
 
     @Override // java.net.ProxySelector
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
-        this.f7306b.connectFailed(uri, socketAddress, iOException);
+        this.f7308b.connectFailed(uri, socketAddress, iOException);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

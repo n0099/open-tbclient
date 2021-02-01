@@ -6,10 +6,10 @@ import androidx.fragment.app.FragmentTransaction;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.m.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MembercenterActivity extends BaseFragmentActivity {
-    private MemberCenterFragment ldY;
-    private FragmentTransaction ldZ;
+    private MemberCenterFragment lmb;
+    private FragmentTransaction lmc;
     private FragmentManager mFragmentManager;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -17,12 +17,12 @@ public class MembercenterActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         String stringExtra = getIntent().getStringExtra("key_url");
-        this.ldY = new MemberCenterFragment();
-        this.ldY.setUrl(stringExtra);
+        this.lmb = new MemberCenterFragment();
+        this.lmb.setUrl(stringExtra);
         this.mFragmentManager = getSupportFragmentManager();
-        this.ldZ = this.mFragmentManager.beginTransaction();
-        this.ldZ.add(16908290, this.ldY);
-        this.ldZ.commit();
+        this.lmc = this.mFragmentManager.beginTransaction();
+        this.lmc.add(16908290, this.lmb);
+        this.lmc.commit();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,8 +35,8 @@ public class MembercenterActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.ldY != null) {
-            this.ldY.loadData();
+        if (this.lmb != null) {
+            this.lmb.loadData();
         }
     }
 

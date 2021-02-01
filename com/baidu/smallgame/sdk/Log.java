@@ -2,7 +2,7 @@ package com.baidu.smallgame.sdk;
 
 import com.baidu.searchbox.v8engine.NotProguard;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public final class Log {
     public static String LOG_TAG = "MarioLog";
     private static boolean sDebugApk = false;

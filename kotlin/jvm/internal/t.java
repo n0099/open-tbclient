@@ -1,5 +1,5 @@
 package kotlin.jvm.internal;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class t {
     public kotlin.reflect.d k(Class cls, String str) {
         return new r(cls, str);

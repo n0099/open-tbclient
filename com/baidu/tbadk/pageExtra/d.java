@@ -17,7 +17,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import java.util.Stack;
 /* loaded from: classes.dex */
 public class d {
     private static String prePageKey = null;
-    private static HashMap<String, String> fGu = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper$1
+    private static HashMap<String, String> fIG = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper$1
         /* JADX INFO: Access modifiers changed from: package-private */
         {
             put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "a028");
@@ -38,15 +38,16 @@ public class d {
             put("1", "a075");
             put("2", "a028");
             put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "a075");
+            put("54", "a085");
         }
     };
 
-    private static boolean bDv() {
+    private static boolean bDN() {
         return TbadkCoreApplication.getInst().isDebugMode();
     }
 
     private static final void h(Object obj, String str) {
-        if (bDv()) {
+        if (bDN()) {
             if (obj != null) {
                 str = obj.getClass().getSimpleName() + " : " + str;
             }
@@ -55,18 +56,18 @@ public class d {
     }
 
     public static final void printLog(String str) {
-        if (bDv()) {
+        if (bDN()) {
             Log.d("TbPageKeyHelper", str);
         }
     }
 
     private static final void a(FragmentManager fragmentManager) {
-        if (bDv()) {
+        if (bDN()) {
             List<Fragment> fragments = fragmentManager.getFragments();
-            if (!x.isEmpty(fragments)) {
+            if (!y.isEmpty(fragments)) {
                 printLog("FragmentManager---->" + fragmentManager);
                 printLog("---------------------------Start---------------------------");
-                printLog("Print All ChildFragments=" + x.getCount(fragments));
+                printLog("Print All ChildFragments=" + y.getCount(fragments));
                 for (Fragment fragment : fragments) {
                     boolean isPrimary = fragment instanceof BaseFragment ? ((BaseFragment) fragment).isPrimary() : false;
                     h(fragment, "isUserVisible=" + fragment.getUserVisibleHint() + ",isVisible=" + fragment.isVisible() + ",isPrimary=" + isPrimary);
@@ -77,41 +78,41 @@ public class d {
     }
 
     private static final void a(c cVar) {
-        if (bDv() && cVar != null) {
+        if (bDN() && cVar != null) {
             String currentPageKey = cVar.getCurrentPageKey();
-            String bDu = cVar.bDu();
-            ArrayList<String> bDs = cVar.bDs();
-            ArrayList<String> bDt = cVar.bDt();
+            String bDM = cVar.bDM();
+            ArrayList<String> bDK = cVar.bDK();
+            ArrayList<String> bDL = cVar.bDL();
             StringBuilder sb = new StringBuilder("Current TbPageExtra:");
             sb.append("currentPageKey=").append(currentPageKey).append(",");
-            sb.append("prePageKey=").append(bDu).append(",");
-            sb.append("preList=").append(bDs.toString()).append(",");
-            sb.append("nextList=").append(bDt.toString());
+            sb.append("prePageKey=").append(bDM).append(",");
+            sb.append("preList=").append(bDK.toString()).append(",");
+            sb.append("nextList=").append(bDL.toString());
             h(cVar, sb.toString());
         }
     }
 
-    public static c bV(View view) {
+    public static c bR(View view) {
         c cVar = null;
-        BaseFragment bW = bW(view);
-        if (bW != null) {
-            cVar = bW.getTbPageExtra();
+        BaseFragment bS = bS(view);
+        if (bS != null) {
+            cVar = bS.getTbPageExtra();
         }
         if (cVar == null || cVar.isDirtyData()) {
-            return fr(bY(view));
+            return fq(bU(view));
         }
         return cVar;
     }
 
-    public static BaseFragment bW(View view) {
-        a bX = bX(view);
-        if (bX == null || bX.getTbFragmentExtra() == null) {
+    public static BaseFragment bS(View view) {
+        a bT = bT(view);
+        if (bT == null || bT.getTbFragmentExtra() == null) {
             return null;
         }
-        return bX.getTbFragmentExtra().bDr();
+        return bT.getTbFragmentExtra().bDJ();
     }
 
-    private static a bX(View view) {
+    private static a bT(View view) {
         a aVar;
         a aVar2 = null;
         ViewParent parent = view.getParent();
@@ -127,35 +128,35 @@ public class d {
                     aVar = (a) tag;
                     h(viewGroup, "ITbFragmentExtraSupport From View.getTag()------->");
                     if (aVar == null && aVar.getTbFragmentExtra() != null) {
-                        BaseFragment bDr = aVar.getTbFragmentExtra().bDr();
-                        if (bDr != null && bDr.getBaseFragmentActivity() != null) {
-                            BaseFragmentActivity baseFragmentActivity = bDr.getBaseFragmentActivity();
+                        BaseFragment bDJ = aVar.getTbFragmentExtra().bDJ();
+                        if (bDJ != null && bDJ.getBaseFragmentActivity() != null) {
+                            BaseFragmentActivity baseFragmentActivity = bDJ.getBaseFragmentActivity();
                             StringBuilder sb = new StringBuilder();
                             sb.append("ActivityPageKey=").append(baseFragmentActivity.getCurrentPageKey()).append(",");
-                            sb.append("FragmentPageKey=").append(bDr.getCurrentPageKey());
-                            h(bDr, sb.toString());
+                            sb.append("FragmentPageKey=").append(bDJ.getCurrentPageKey());
+                            h(bDJ, sb.toString());
                         }
                         return aVar;
                     }
-                    return bX(viewGroup);
+                    return bT(viewGroup);
                 }
             }
             aVar = aVar2;
             if (aVar == null) {
             }
-            return bX(viewGroup);
+            return bT(viewGroup);
         }
         return null;
     }
 
-    public static Activity bY(View view) {
+    public static Activity bU(View view) {
         if (view == null) {
             return null;
         }
-        return fp(view.getContext());
+        return fo(view.getContext());
     }
 
-    public static Activity fp(Context context) {
+    public static Activity fo(Context context) {
         h(context, "currentContext");
         Context context2 = context;
         while (context2 instanceof ContextWrapper) {
@@ -170,31 +171,31 @@ public class d {
         return null;
     }
 
-    public static String fq(Context context) {
-        c fr = fr(context);
-        if (fr == null) {
+    public static String fp(Context context) {
+        c fq = fq(context);
+        if (fq == null) {
             return null;
         }
-        return fr.getCurrentPageKey();
+        return fq.getCurrentPageKey();
     }
 
-    public static c fr(Context context) {
+    public static c fq(Context context) {
         printLog("======================Start==============================");
         printLog("context : " + context);
-        Activity fp = fp(context);
+        Activity fo = fo(context);
         if (!(context instanceof Activity)) {
             h(context, "context is not Activity, so getCurrentActivity()");
-            fp = TbadkCoreApplication.getInst().getCurrentActivity();
+            fo = TbadkCoreApplication.getInst().getCurrentActivity();
         }
-        c aj = aj(fp);
-        if (aj == null) {
+        c ad = ad(fo);
+        if (ad == null) {
             h(context, "------Not Activity，No TbPageExtra!------");
         }
         printLog("**************************End**************************");
-        return aj;
+        return ad;
     }
 
-    private static c aj(Activity activity) {
+    private static c ad(Activity activity) {
         if (activity instanceof BaseFragmentActivity) {
             BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) activity;
             h(baseFragmentActivity, "context is BaseFragmentActivity");
@@ -252,7 +253,7 @@ public class d {
             FragmentManager childFragmentManager = baseFragment.getChildFragmentManager();
             a(childFragmentManager);
             List<Fragment> fragments = childFragmentManager.getFragments();
-            if (!x.isEmpty(fragments)) {
+            if (!y.isEmpty(fragments)) {
                 for (Fragment fragment : fragments) {
                     if (fragment instanceof BaseFragment) {
                         BaseFragment baseFragment2 = (BaseFragment) fragment;
@@ -271,7 +272,7 @@ public class d {
 
     public static ArrayList<String> d(ArrayList<String> arrayList, String str) {
         ArrayList<String> arrayList2 = new ArrayList<>();
-        if (!x.isEmpty(arrayList)) {
+        if (!y.isEmpty(arrayList)) {
             arrayList2.addAll(arrayList);
         }
         if (!TextUtils.isEmpty(str)) {
@@ -280,20 +281,20 @@ public class d {
         return arrayList2;
     }
 
-    public static void CY(String str) {
+    public static void Dp(String str) {
         prePageKey = str;
     }
 
-    public static String bDu() {
+    public static String bDM() {
         return prePageKey;
     }
 
-    public static void CZ(final String str) {
-        if (!StringUtil.isEmpty(str) && fGu.containsKey(str)) {
-            com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tbadk.pageExtra.d.1
+    public static void Dq(final String str) {
+        if (!StringUtil.isEmpty(str) && fIG.containsKey(str)) {
+            com.baidu.adp.lib.f.e.mA().postDelayed(new Runnable() { // from class: com.baidu.tbadk.pageExtra.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    String unused = d.prePageKey = (String) d.fGu.get(str);
+                    String unused = d.prePageKey = (String) d.fIG.get(str);
                 }
             }, 100L);
         }

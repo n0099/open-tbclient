@@ -13,14 +13,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CommonEmptyView extends RelativeLayout {
-    public ImageView dtf;
-    public TextView dtg;
-    public TextView dth;
-    public TextView dti;
-    public FrameLayout dtj;
-    public TextView dtk;
+    public ImageView dvq;
+    public TextView dvr;
+    public TextView dvs;
+    public TextView dvt;
+    public FrameLayout dvu;
+    public TextView dvv;
     public TextView mTitle;
 
     public CommonEmptyView(Context context) {
@@ -39,13 +39,13 @@ public class CommonEmptyView extends RelativeLayout {
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.g.aiapps_common_empty_view, (ViewGroup) this, true);
         setBackground(context.getResources().getDrawable(a.c.aiapps_empty_layout_backgroud));
-        this.dtf = (ImageView) findViewById(a.f.emptyview_image);
+        this.dvq = (ImageView) findViewById(a.f.emptyview_image);
         this.mTitle = (TextView) findViewById(a.f.emptyview_title);
-        this.dtg = (TextView) findViewById(a.f.emptyview_subtitle);
-        this.dth = (TextView) findViewById(a.f.emptyview_link);
-        this.dti = (TextView) findViewById(a.f.emptyview_btn);
-        this.dtj = (FrameLayout) findViewById(a.f.emptyview_bottom_layout);
-        this.dtk = (TextView) findViewById(a.f.emptyview_problem_feedback);
+        this.dvr = (TextView) findViewById(a.f.emptyview_subtitle);
+        this.dvs = (TextView) findViewById(a.f.emptyview_link);
+        this.dvt = (TextView) findViewById(a.f.emptyview_btn);
+        this.dvu = (FrameLayout) findViewById(a.f.emptyview_bottom_layout);
+        this.dvv = (TextView) findViewById(a.f.emptyview_problem_feedback);
         setPageResources();
     }
 
@@ -62,68 +62,68 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setSubTitle(String str) {
-        this.dtg.setVisibility(0);
-        this.dtg.setText(str);
-        this.dtg.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
+        this.dvr.setVisibility(0);
+        this.dvr.setText(str);
+        this.dvr.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
     }
 
     public void setSubTitle(int i) {
-        this.dtg.setVisibility(0);
-        this.dtg.setText(i);
-        this.dtg.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
+        this.dvr.setVisibility(0);
+        this.dvr.setText(i);
+        this.dvr.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
     }
 
     public void setIcon(Drawable drawable) {
-        this.dtf.setImageDrawable(drawable);
+        this.dvq.setImageDrawable(drawable);
     }
 
     public void setIcon(int i) {
-        this.dtf.setImageDrawable(getResources().getDrawable(i));
+        this.dvq.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setButtonText(String str) {
-        this.dti.setText(str);
+        this.dvt.setText(str);
     }
 
     public void setButtonText(int i) {
-        this.dti.setText(i);
+        this.dvt.setText(i);
     }
 
     public void setTextButtonClickListener(View.OnClickListener onClickListener) {
-        this.dti.setVisibility(0);
-        this.dti.setOnClickListener(onClickListener);
+        this.dvt.setVisibility(0);
+        this.dvt.setOnClickListener(onClickListener);
     }
 
     public void setLinkClickListener(View.OnClickListener onClickListener) {
-        this.dth.setVisibility(0);
-        this.dth.setOnClickListener(onClickListener);
+        this.dvs.setVisibility(0);
+        this.dvs.setOnClickListener(onClickListener);
     }
 
     @Override // android.view.View
     protected void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.dtj != null && this.dtj.getLayoutParams() != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dtj.getLayoutParams();
+        if (this.dvu != null && this.dvu.getLayoutParams() != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dvu.getLayoutParams();
             if (configuration.orientation == 1) {
                 layoutParams.bottomMargin = getResources().getDimensionPixelOffset(a.d.aiapps_empty_view_bottom_margin_portrait);
             } else if (configuration.orientation == 2) {
                 layoutParams.bottomMargin = getResources().getDimensionPixelOffset(a.d.aiapps_empty_view_bottom_margin_landscape);
             }
-            this.dtj.setLayoutParams(layoutParams);
+            this.dvu.setLayoutParams(layoutParams);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.t.a.awU().a(this, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
+        com.baidu.swan.apps.t.a.axs().a(this, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
         });
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.t.a.awU().O(this);
+        com.baidu.swan.apps.t.a.axs().O(this);
     }
 
     public void setPageResources() {
@@ -131,19 +131,19 @@ public class CommonEmptyView extends RelativeLayout {
         if (this.mTitle != null) {
             this.mTitle.setTextColor(getResources().getColor(a.c.aiapps_emptyview_title_text_color));
         }
-        if (this.dth != null) {
-            this.dth.setTextColor(getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
+        if (this.dvs != null) {
+            this.dvs.setTextColor(getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
         }
-        if (this.dti != null) {
-            this.dti.setBackground(getResources().getDrawable(a.e.aiapps_emptyview_btn_bg));
-            this.dti.setTextColor(getResources().getColorStateList(a.c.swan_app_emptyview_btn_text_color));
+        if (this.dvt != null) {
+            this.dvt.setBackground(getResources().getDrawable(a.e.aiapps_emptyview_btn_bg));
+            this.dvt.setTextColor(getResources().getColorStateList(a.c.swan_app_emptyview_btn_text_color));
         }
-        if (this.dtg != null) {
-            this.dtg.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
+        if (this.dvr != null) {
+            this.dvr.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
         }
     }
 
     public void setButtonTextColor(ColorStateList colorStateList) {
-        this.dti.setTextColor(colorStateList);
+        this.dvt.setTextColor(colorStateList);
     }
 }

@@ -10,14 +10,14 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.ss.android.downloadlib.f.i;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ClipImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f12991a;
+    private boolean f12993a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Path f12992b;
+    private Path f12994b;
     private RectF c;
     private Paint d;
     private float[] e;
@@ -38,7 +38,7 @@ public class ClipImageView extends ImageView {
     }
 
     protected void a(Context context) {
-        this.f12992b = new Path();
+        this.f12994b = new Path();
         this.c = new RectF();
         this.d = new Paint(1);
         this.d.setStrokeWidth(i.a(context, 0.5f));
@@ -53,14 +53,14 @@ public class ClipImageView extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.f12991a) {
-            this.f12992b.reset();
+        if (this.f12993a) {
+            this.f12994b.reset();
             this.c.set(0.0f, 0.0f, getWidth(), getHeight());
             if (this.e != null) {
-                this.f12992b.addRoundRect(this.c, this.e, Path.Direction.CW);
+                this.f12994b.addRoundRect(this.c, this.e, Path.Direction.CW);
             }
             canvas.setDrawFilter(new PaintFlagsDrawFilter(0, 3));
-            canvas.clipPath(this.f12992b);
+            canvas.clipPath(this.f12994b);
         }
         super.onDraw(canvas);
     }
@@ -72,6 +72,6 @@ public class ClipImageView extends ImageView {
     }
 
     public void setClip(boolean z) {
-        this.f12991a = z;
+        this.f12993a = z;
     }
 }

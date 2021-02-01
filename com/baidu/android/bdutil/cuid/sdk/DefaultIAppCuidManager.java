@@ -1,5 +1,5 @@
 package com.baidu.android.bdutil.cuid.sdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DefaultIAppCuidManager implements IAppCuidManager {
     @Override // com.baidu.android.bdutil.cuid.sdk.IAppCuidManager
     public String getCuid() {

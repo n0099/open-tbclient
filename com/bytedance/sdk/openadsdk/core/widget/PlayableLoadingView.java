@@ -12,14 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.utils.ac;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PlayableLoadingView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f6764a;
+    private ProgressBar f6766a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f6765b;
+    private TextView f6767b;
     private TextView c;
 
     public PlayableLoadingView(@NonNull Context context) {
@@ -42,19 +42,19 @@ public class PlayableLoadingView extends FrameLayout {
         setClickable(true);
         setVisibility(8);
         LayoutInflater.from(context).inflate(ac.f(context, "tt_playable_loading_layout"), (ViewGroup) this, true);
-        this.f6764a = (ProgressBar) findViewById(ac.e(context, "tt_playable_pb_view"));
-        this.f6765b = (TextView) findViewById(ac.e(context, "tt_playable_progress_tip"));
+        this.f6766a = (ProgressBar) findViewById(ac.e(context, "tt_playable_pb_view"));
+        this.f6767b = (TextView) findViewById(ac.e(context, "tt_playable_progress_tip"));
         this.c = (TextView) findViewById(ac.e(context, "tt_playable_play"));
     }
 
     public void setProgress(int i) {
         int i2 = i < 0 ? 0 : i;
         int i3 = i2 <= 100 ? i2 : 100;
-        if (this.f6764a != null) {
-            this.f6764a.setProgress(i3);
+        if (this.f6766a != null) {
+            this.f6766a.setProgress(i3);
         }
-        if (this.f6765b != null) {
-            this.f6765b.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i3)));
+        if (this.f6767b != null) {
+            this.f6767b.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i3)));
         }
     }
 

@@ -2,14 +2,14 @@ package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private T f9051a;
+    private T f9053a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f9052b;
+    private String f9054b;
     private T c;
 
     public a(String str, T t) {
@@ -17,14 +17,14 @@ public abstract class a<T> {
     }
 
     public a(String str, T t, T t2) {
-        this.f9052b = str;
+        this.f9054b = str;
         this.c = t;
-        this.f9051a = t2;
+        this.f9053a = t2;
         com.kwad.sdk.core.config.b.a(this);
     }
 
     public String a() {
-        return this.f9052b;
+        return this.f9054b;
     }
 
     public abstract void a(SharedPreferences.Editor editor);
@@ -42,6 +42,6 @@ public abstract class a<T> {
     }
 
     public T c() {
-        return this.f9051a;
+        return this.f9053a;
     }
 }

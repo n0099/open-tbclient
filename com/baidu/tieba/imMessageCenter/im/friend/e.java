@@ -8,9 +8,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private RequestCommitInviteMessage kHu;
-    private long kHv;
-    private long kst;
+    private long kAA;
+    private RequestCommitInviteMessage kPy;
+    private long kPz;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -23,29 +23,29 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.kst = intent.getLongExtra("gid", -1L);
-            this.kHv = intent.getLongExtra("groupid", -1L);
+            this.kAA = intent.getLongExtra("gid", -1L);
+            this.kPz = intent.getLongExtra("groupid", -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.kst = bundle.getLong("gid", -1L);
-            this.kHv = bundle.getLong("groupid", -1L);
+            this.kAA = bundle.getLong("gid", -1L);
+            this.kPz = bundle.getLong("groupid", -1L);
         }
     }
 
     public void ay(Bundle bundle) {
-        bundle.putLong("gid", this.kst);
-        bundle.putLong("groupid", this.kHv);
+        bundle.putLong("gid", this.kAA);
+        bundle.putLong("groupid", this.kPz);
     }
 
-    public void Mz(String str) {
-        this.kHu = d(this.kst, this.kHv, str);
-        super.sendMessage(this.kHu);
+    public void Nn(String str) {
+        this.kPy = e(this.kAA, this.kPz, str);
+        super.sendMessage(this.kPy);
     }
 
-    private RequestCommitInviteMessage d(long j, long j2, String str) {
+    private RequestCommitInviteMessage e(long j, long j2, String str) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.groupId = Long.valueOf(j);
         builder.msgType = 5;

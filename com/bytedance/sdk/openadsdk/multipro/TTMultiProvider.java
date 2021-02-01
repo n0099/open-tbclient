@@ -7,7 +7,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.h.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTMultiProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {

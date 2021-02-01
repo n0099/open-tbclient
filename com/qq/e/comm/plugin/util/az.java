@@ -11,10 +11,10 @@ import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class az {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public enum a {
         HTML("text/html"),
         CSS("text/css"),

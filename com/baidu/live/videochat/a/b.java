@@ -4,51 +4,51 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.videochat.player.LivePlayer;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private LivePlayer bLi;
-    private com.baidu.live.v.b bLj;
+    private LivePlayer bOS;
+    private com.baidu.live.u.b bOT;
     private Activity mActivity;
 
     public b(Activity activity) {
         this.mActivity = activity;
     }
 
-    public void a(com.baidu.live.v.b bVar) {
-        this.bLj = bVar;
+    public void a(com.baidu.live.u.b bVar) {
+        this.bOT = bVar;
     }
 
     public void e(AlaLiveInfoData alaLiveInfoData) {
-        if (this.bLi == null) {
-            this.bLi = new LivePlayer(this.mActivity);
-            this.bLi.setIPlayerCallBack(new com.baidu.live.v.b() { // from class: com.baidu.live.videochat.a.b.1
-                @Override // com.baidu.live.v.b
-                public void cs(int i) {
-                    if (b.this.bLj != null) {
-                        b.this.bLj.cs(i);
+        if (this.bOS == null) {
+            this.bOS = new LivePlayer(this.mActivity);
+            this.bOS.setIPlayerCallBack(new com.baidu.live.u.b() { // from class: com.baidu.live.videochat.a.b.1
+                @Override // com.baidu.live.u.b
+                public void cv(int i) {
+                    if (b.this.bOT != null) {
+                        b.this.bOT.cv(i);
                     }
                 }
             });
         }
-        this.bLi.c(alaLiveInfoData);
+        this.bOS.c(alaLiveInfoData);
     }
 
-    public void UH() {
-        if (this.bLi != null) {
-            this.bLi.setIPlayerCallBack(null);
-            this.bLi.cD(true);
-            this.bLi.destroy();
-            this.bLi = null;
+    public void Wq() {
+        if (this.bOS != null) {
+            this.bOS.setIPlayerCallBack(null);
+            this.bOS.cM(true);
+            this.bOS.destroy();
+            this.bOS = null;
         }
     }
 
     public boolean isStarted() {
-        return this.bLi != null;
+        return this.bOS != null;
     }
 
-    public View UF() {
-        if (this.bLi != null) {
-            return this.bLi.getLivePlayer();
+    public View Wo() {
+        if (this.bOS != null) {
+            return this.bOS.getLivePlayer();
         }
         return null;
     }

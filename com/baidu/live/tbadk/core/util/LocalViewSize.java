@@ -3,12 +3,12 @@ package com.baidu.live.tbadk.core.util;
 import android.content.Context;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LocalViewSize {
     private static LocalViewSize sInstance = null;
     private Context mContext = null;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class ImageSize implements Serializable {
         public int height;
         public int width;

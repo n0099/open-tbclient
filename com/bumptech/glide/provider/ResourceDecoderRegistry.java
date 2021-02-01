@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ResourceDecoderRegistry {
     private final List<String> bucketPriorityList = new ArrayList();
     private final Map<String, List<Entry<?, ?>>> decoders = new HashMap();
@@ -79,7 +79,7 @@ public class ResourceDecoderRegistry {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class Entry<T, R> {
         private final Class<T> dataClass;
         final ResourceDecoder<T, R> decoder;

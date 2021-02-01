@@ -2,7 +2,7 @@ package com.ss.android.socialbase.appdownloader.a;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g extends a {
     public g(Context context, String str) {
         super(context, str);
@@ -11,7 +11,7 @@ public class g extends a {
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
         Intent intent = new Intent(com.ss.android.socialbase.downloader.b.e.c + ".intent.action.OPEN_FILEMANAGER");
-        intent.putExtra("CurrentDir", this.f13008b);
+        intent.putExtra("CurrentDir", this.f13010b);
         intent.putExtra("first_position", 1);
         intent.putExtra("CurrentMode", 1);
         intent.putExtra("com.iqoo.secure", true);

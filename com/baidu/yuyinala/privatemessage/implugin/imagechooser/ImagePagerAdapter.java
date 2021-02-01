@@ -9,12 +9,12 @@ import com.baidu.sumeru.universalimageloader.core.DisplayImageOptions;
 import com.baidu.sumeru.universalimageloader.core.ImageLoader;
 import com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingListener;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ImagePagerAdapter extends PagerAdapter {
     private List<String> mDatas;
-    private ImageLoader oPu;
-    private String oPv;
-    private DisplayImageOptions oPw;
+    private ImageLoader oZE;
+    private String oZF;
+    private DisplayImageOptions oZG;
 
     public Object getItem(int i) {
         if (i < this.mDatas.size()) {
@@ -30,12 +30,12 @@ public class ImagePagerAdapter extends PagerAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.viewpager.widget.PagerAdapter
-    /* renamed from: U */
+    /* renamed from: v */
     public View instantiateItem(ViewGroup viewGroup, int i) {
         ImageView imageView = new ImageView(viewGroup.getContext());
         imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.oPv = (String) getItem(i);
-        this.oPu.displayImage(Xb(this.oPv), imageView, this.oPw, (ImageLoadingListener) null);
+        this.oZF = (String) getItem(i);
+        this.oZE.displayImage(Yc(this.oZF), imageView, this.oZG, (ImageLoadingListener) null);
         viewGroup.addView(imageView, -1, -1);
         return imageView;
     }
@@ -50,7 +50,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         return view == obj;
     }
 
-    private static String Xb(String str) {
+    private static String Yc(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

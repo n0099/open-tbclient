@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12453a;
+    private String f12455a;
 
     /* renamed from: b  reason: collision with root package name */
-    private List<Integer> f12454b;
+    private List<Integer> f12456b;
     private List<Point> c;
     private List<String> d;
     private boolean e;
@@ -69,7 +69,7 @@ public class h {
     }
 
     public String a() {
-        return this.f12453a;
+        return this.f12455a;
     }
 
     public String a(Integer num) {
@@ -86,11 +86,11 @@ public class h {
     }
 
     public void a(String str) {
-        this.f12453a = str;
+        this.f12455a = str;
     }
 
     public void a(List<Integer> list) {
-        this.f12454b = list;
+        this.f12456b = list;
     }
 
     public void a(boolean z) {
@@ -98,7 +98,7 @@ public class h {
     }
 
     public List<Integer> b() {
-        return this.f12454b;
+        return this.f12456b;
     }
 
     public void b(List<Point> list) {

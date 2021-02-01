@@ -70,7 +70,7 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
                     }
                     return;
                 }
-            } while (!compareAndSet(j2, io.reactivex.internal.util.b.T(j2, j)));
+            } while (!compareAndSet(j2, io.reactivex.internal.util.b.X(j2, j)));
             this.s.request(j);
         }
     }

@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.route;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MassTransitRoutePlanOption {
     public PlanNode mFrom = null;
     public PlanNode mTo = null;
@@ -10,7 +10,7 @@ public class MassTransitRoutePlanOption {
     public int mPageSize = 10;
     public int mPageIndex = 1;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public enum TacticsIncity {
         ETRANS_SUGGEST(0),
         ETRANS_LEAST_TRANSFER(1),
@@ -21,9 +21,29 @@ public class MassTransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2911a;
+        private int f2909a;
 
         TacticsIncity(int i) {
+            this.f2909a = 0;
+            this.f2909a = i;
+        }
+
+        public int getInt() {
+            return this.f2909a;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public enum TacticsIntercity {
+        ETRANS_LEAST_TIME(0),
+        ETRANS_START_EARLY(1),
+        ETRANS_LEAST_PRICE(2);
+        
+
+        /* renamed from: a  reason: collision with root package name */
+        private int f2911a;
+
+        TacticsIntercity(int i) {
             this.f2911a = 0;
             this.f2911a = i;
         }
@@ -33,27 +53,7 @@ public class MassTransitRoutePlanOption {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public enum TacticsIntercity {
-        ETRANS_LEAST_TIME(0),
-        ETRANS_START_EARLY(1),
-        ETRANS_LEAST_PRICE(2);
-        
-
-        /* renamed from: a  reason: collision with root package name */
-        private int f2913a;
-
-        TacticsIntercity(int i) {
-            this.f2913a = 0;
-            this.f2913a = i;
-        }
-
-        public int getInt() {
-            return this.f2913a;
-        }
-    }
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public enum TransTypeIntercity {
         ETRANS_TRAIN_FIRST(0),
         ETRANS_PLANE_FIRST(1),
@@ -61,15 +61,15 @@ public class MassTransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2915a;
+        private int f2913a;
 
         TransTypeIntercity(int i) {
-            this.f2915a = 0;
-            this.f2915a = i;
+            this.f2913a = 0;
+            this.f2913a = i;
         }
 
         public int getInt() {
-            return this.f2915a;
+            return this.f2913a;
         }
     }
 

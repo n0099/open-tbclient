@@ -1,7 +1,7 @@
 package com.baidu.pano.platform.comjni;
 
 import com.baidu.lbsapi.tools.Point;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class JNITool {
     public static native Point coorUtil(String str, double d, double d2);
 

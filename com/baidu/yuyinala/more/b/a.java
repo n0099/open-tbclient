@@ -4,18 +4,32 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements IAdapterData {
-    public static final BdUniqueId oMQ = BdUniqueId.gen();
+    public static final BdUniqueId oWZ = BdUniqueId.gen();
+    private String ggy;
     private String mAction;
     private String mIconUrl;
     private String mId;
     private String mName;
-    private boolean oMR;
-    private boolean oMS;
+    private boolean oXa;
+    private boolean oXb;
+    private String oXc;
 
     public String getId() {
         return this.mId;
+    }
+
+    public String BS() {
+        return this.ggy;
+    }
+
+    public String ejv() {
+        return this.oXc;
+    }
+
+    public void XX(String str) {
+        this.oXc = str;
     }
 
     public String getIconUrl() {
@@ -30,16 +44,16 @@ public class a implements IAdapterData {
         return this.mAction;
     }
 
-    public boolean ehc() {
-        return this.oMR;
+    public boolean ejw() {
+        return this.oXa;
     }
 
-    public boolean ehd() {
-        return this.oMS;
+    public boolean ejx() {
+        return this.oXb;
     }
 
-    public void Ap(boolean z) {
-        this.oMS = z;
+    public void AI(boolean z) {
+        this.oXb = z;
     }
 
     public void parse(JSONObject jSONObject) {
@@ -48,12 +62,13 @@ public class a implements IAdapterData {
             this.mIconUrl = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             this.mName = jSONObject.optString("text");
             this.mAction = jSONObject.optString("action");
-            this.oMR = jSONObject.optInt("red_note", 0) == 1;
+            this.oXa = jSONObject.optInt("red_note", 0) == 1;
+            this.ggy = jSONObject.optString("url");
         }
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return oMQ;
+        return oWZ;
     }
 }

@@ -2,10 +2,10 @@ package com.baidu.tieba.memberCenter.index;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.DoDailyTask.DataReq;
 import tbclient.DoDailyTask.DoDailyTaskReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DoDailyTaskRequestMessage extends NetMessage {
     private long taskId;
     private long userId;
@@ -20,7 +20,7 @@ public class DoDailyTaskRequestMessage extends NetMessage {
         builder.task_id = Long.valueOf(this.taskId);
         builder.user_id = Long.valueOf(this.userId);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         DoDailyTaskReqIdl.Builder builder2 = new DoDailyTaskReqIdl.Builder();
         builder2.data = builder.build(false);

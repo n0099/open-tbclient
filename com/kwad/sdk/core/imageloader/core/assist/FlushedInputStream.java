@@ -2,7 +2,7 @@ package com.kwad.sdk.core.imageloader.core.assist;
 
 import java.io.FilterInputStream;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FlushedInputStream extends FilterInputStream {
     public FlushedInputStream(InputStream inputStream) {
         super(inputStream);

@@ -2,20 +2,20 @@ package com.bytedance.sdk.a.b.a.g;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Class<?> f5940a;
+    private final Class<?> f5942a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f5941b;
+    private final String f5943b;
     private final Class[] c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Class<?> cls, String str, Class... clsArr) {
-        this.f5940a = cls;
-        this.f5941b = str;
+        this.f5942a = cls;
+        this.f5943b = str;
         this.c = clsArr;
     }
 
@@ -52,7 +52,7 @@ class d<T> {
     public Object d(T t, Object... objArr) throws InvocationTargetException {
         Method a2 = a(t.getClass());
         if (a2 == null) {
-            throw new AssertionError("Method " + this.f5941b + " not supported for object " + t);
+            throw new AssertionError("Method " + this.f5943b + " not supported for object " + t);
         }
         try {
             return a2.invoke(t, objArr);
@@ -78,9 +78,9 @@ class d<T> {
     }
 
     private Method a(Class<?> cls) {
-        if (this.f5941b != null) {
-            Method a2 = a(cls, this.f5941b, this.c);
-            if (a2 == null || this.f5940a == null || this.f5940a.isAssignableFrom(a2.getReturnType())) {
+        if (this.f5943b != null) {
+            Method a2 = a(cls, this.f5943b, this.c);
+            if (a2 == null || this.f5942a == null || this.f5942a.isAssignableFrom(a2.getReturnType())) {
                 return a2;
             }
             return null;

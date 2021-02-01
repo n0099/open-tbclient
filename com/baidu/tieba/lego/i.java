@@ -3,39 +3,39 @@ package com.baidu.tieba.lego;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.card.m;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.webkit.internal.ETAG;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i implements e {
-    final aq kRQ;
+    final ar kZS;
 
     private i(BaseLegoCardInfo baseLegoCardInfo) {
         this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
     }
 
     private i(String str, int i, int i2, String str2) {
-        this.kRQ = new aq(str);
-        this.kRQ.an("obj_source", i);
-        this.kRQ.an("obj_type", i2);
+        this.kZS = new ar(str);
+        this.kZS.ap("obj_source", i);
+        this.kZS.ap("obj_type", i2);
         if (!TextUtils.isEmpty(str2)) {
-            this.kRQ.dW("obj_card", str2);
+            this.kZS.dR("obj_card", str2);
         }
     }
 
     @Override // com.baidu.tieba.lego.e
     public void a(ICardInfo iCardInfo) {
         b(iCardInfo);
-        TiebaStatic.log(this.kRQ);
+        TiebaStatic.log(this.kZS);
     }
 
     @Override // com.baidu.tieba.lego.e
     public e fF(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.kRQ.dW(str, str2);
+            this.kZS.dR(str, str2);
         }
         return this;
     }
@@ -43,15 +43,15 @@ public class i implements e {
     @Override // com.baidu.tieba.lego.e
     public e bA(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
-            this.kRQ.an(str, i);
+            this.kZS.ap(str, i);
         }
         return this;
     }
 
     @Override // com.baidu.tieba.lego.e
-    public e O(String str, long j) {
+    public e N(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
-            this.kRQ.dW(str, String.valueOf(j));
+            this.kZS.dR(str, String.valueOf(j));
         }
         return this;
     }
@@ -59,7 +59,7 @@ public class i implements e {
     private void b(ICardInfo iCardInfo) {
         BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
         if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
-            List<Object> params = this.kRQ.getParams();
+            List<Object> params = this.kZS.getParams();
             for (String str : baseLegoCardInfo.getsExtras().split(ETAG.ITEM_SEPARATOR)) {
                 String[] split = str.split("=");
                 if (split.length == 2) {
@@ -75,11 +75,11 @@ public class i implements e {
                         }
                     }
                     if (!z) {
-                        this.kRQ.dW(str2, str3);
+                        this.kZS.dR(str2, str3);
                     }
                 }
             }
-            fF(TiebaInitialize.Params.OBJ_PARAM3, m.cra());
+            fF(TiebaInitialize.Params.OBJ_PARAM3, m.csk());
         }
     }
 
@@ -91,7 +91,7 @@ public class i implements e {
         return !TextUtils.isEmpty(str) ? new i(str, i, i2, str2) : new a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     private static class a implements e {
         private a() {
         }
@@ -111,7 +111,7 @@ public class i implements e {
         }
 
         @Override // com.baidu.tieba.lego.e
-        public e O(String str, long j) {
+        public e N(String str, long j) {
             return this;
         }
     }

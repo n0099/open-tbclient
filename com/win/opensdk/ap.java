@@ -9,7 +9,7 @@ public final class ap {
     public static String f24case = "YjJsbw==";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f13725a = "aTFob21lOGw=";
+    public static String f13727a = "aTFob21lOGw=";
 
     public static String java() {
         byte[] decode = Base64.decode(java, 2);
@@ -20,7 +20,7 @@ public final class ap {
         return sb.toString();
     }
 
-    public static String eGG() {
+    public static String eIW() {
         byte[] decode = Base64.decode(f24case, 0);
         StringBuilder sb = new StringBuilder();
         for (byte b2 : decode) {
@@ -30,7 +30,7 @@ public final class ap {
     }
 
     public static String a() {
-        byte[] decode = Base64.decode(f13725a, 0);
+        byte[] decode = Base64.decode(f13727a, 0);
         StringBuilder sb = new StringBuilder();
         for (byte b2 : decode) {
             sb.append((char) b2);

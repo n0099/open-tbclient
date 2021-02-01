@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class MultiDownloadTask extends DownloadTaskImpl {
     public MultiDownloadTask(DownloadInfo downloadInfo, ThreadRecord threadRecord, DownloadTask.OnDownloadListener onDownloadListener) {
         super(downloadInfo, threadRecord, onDownloadListener);

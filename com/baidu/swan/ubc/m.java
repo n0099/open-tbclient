@@ -1,7 +1,7 @@
 package com.baidu.swan.ubc;
 
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public interface m {
-    boolean I(JSONArray jSONArray);
+    boolean H(JSONArray jSONArray);
 }

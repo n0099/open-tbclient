@@ -3,10 +3,10 @@ package com.win.opensdk;
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    int[] f13754a;
+    int[] f13756a;
 
     /* renamed from: b  reason: collision with root package name */
-    int[] f13755b;
+    int[] f13757b;
     int[] c;
 
     /* renamed from: case  reason: not valid java name */
@@ -18,6 +18,6 @@ public final class p {
 
     /* renamed from: java  reason: collision with other field name */
     int[] f67java;
-    String[] pZt;
-    int[] pZu;
+    String[] qjx;
+    int[] qjy;
 }

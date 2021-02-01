@@ -12,7 +12,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RelationshipStatic {
     public static String Tag = "tag";
 
@@ -26,7 +26,7 @@ public class RelationshipStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseOnlineMessage) && TbadkCoreApplication.getCurrentAccount() != null && !TbadkCoreApplication.getInst().checkInterrupt() && com.baidu.tbadk.core.sharedPref.b.brx().getBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true)) {
+                if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseOnlineMessage) && TbadkCoreApplication.getCurrentAccount() != null && !TbadkCoreApplication.getInst().checkInterrupt() && com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true)) {
                     MessageManager.getInstance().sendMessage(new RequestGetAddressListMessage(CmdConfigSocket.CMD_GET_ADDRESSLIST));
                 }
             }
@@ -37,7 +37,7 @@ public class RelationshipStatic {
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
                     a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-                    com.baidu.tbadk.core.sharedPref.b.brx().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), false);
+                    com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), false);
                     new i(addressListData).execute(new Void[0]);
                 }
             }
@@ -50,7 +50,7 @@ public class RelationshipStatic {
                     ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
                     if (responseNewFriendUpdateUiMsg.getAction() == 0) {
                         com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                        aVar.BR(responseNewFriendUpdateUiMsg.getKey());
+                        aVar.Ci(responseNewFriendUpdateUiMsg.getKey());
                         aVar.setQuanpin(responseNewFriendUpdateUiMsg.getQuanping());
                         aVar.setUserId(responseNewFriendUpdateUiMsg.getFriendId());
                         aVar.setUserName(responseNewFriendUpdateUiMsg.getName());
@@ -69,7 +69,7 @@ public class RelationshipStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2002014) {
-                    h.bLP();
+                    h.bMj();
                 }
             }
         });

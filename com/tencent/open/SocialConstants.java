@@ -1,5 +1,5 @@
 package com.tencent.open;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class SocialConstants {
     public static final String ACTION_ASK = "action_ask";
     public static final String ACTION_BRAG = "action_brag";

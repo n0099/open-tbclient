@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static String c(String str, String str2, boolean z, String str3) {
         JSONObject jSONObject = new JSONObject();

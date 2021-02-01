@@ -20,7 +20,6 @@ import com.baidu.live.adp.lib.util.CloseUtil;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -28,7 +27,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BitmapHelper {
     public static final int FILE_2_BITMAP_MUL = 10;
     public static final int ROTATE_LEFT = 0;
@@ -1071,7 +1070,7 @@ public class BitmapHelper {
                 case 6:
                     return 90;
                 case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+                    return 270;
             }
         } catch (IOException e) {
             return 0;

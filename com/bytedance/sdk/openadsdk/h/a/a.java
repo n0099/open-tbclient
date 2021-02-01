@@ -2,16 +2,16 @@ package com.bytedance.sdk.openadsdk.h.a;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends d<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    private JSONObject f7172a = new JSONObject();
+    private JSONObject f7174a = new JSONObject();
 
     public a a(String str, Object obj) {
         if (!TextUtils.isEmpty(str) && obj != null) {
             try {
-                this.f7172a.put(str, obj);
+                this.f7174a.put(str, obj);
             } catch (Throwable th) {
             }
         }
@@ -29,7 +29,7 @@ public class a extends d<a> {
             } else {
                 jSONObject = new JSONObject(optString);
             }
-            jSONObject.put("dns_info", this.f7172a);
+            jSONObject.put("dns_info", this.f7174a);
             a2.put("event_extra", jSONObject.toString());
         } catch (Exception e) {
         }

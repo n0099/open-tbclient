@@ -9,18 +9,18 @@ import com.bytedance.sdk.openadsdk.f.a.f;
 import com.bytedance.sdk.openadsdk.f.a.q;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends e<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<SSWebView> f7161a;
+    private WeakReference<SSWebView> f7163a;
 
     public static void a(q qVar, SSWebView sSWebView) {
         qVar.a("preventTouchEvent", new c(sSWebView));
     }
 
     public c(SSWebView sSWebView) {
-        this.f7161a = new WeakReference<>(sSWebView);
+        this.f7163a = new WeakReference<>(sSWebView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class c extends e<JSONObject, JSONObject> {
         JSONObject jSONObject2 = new JSONObject();
         try {
             boolean optBoolean = jSONObject.optBoolean("isPrevent", false);
-            SSWebView sSWebView = this.f7161a.get();
+            SSWebView sSWebView = this.f7163a.get();
             if (sSWebView != null) {
                 sSWebView.setIsPreventTouchEvent(optBoolean);
                 jSONObject2.put("success", true);

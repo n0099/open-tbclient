@@ -20,13 +20,13 @@ import androidx.annotation.RequiresApi;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
     private com.baidu.tieba.tbadkCore.e.c jsCallback;
-    private CommonTbJsBridge mCommonJsBridge;
+    protected CommonTbJsBridge mCommonJsBridge;
     private Context mContext;
     private b mDownloadListener;
     private boolean mIsLoaded;
@@ -137,7 +137,7 @@ public class BaseWebView extends WebView {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
         getSettings().setUseWideViewPort(true);
-        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + ao.bsq());
+        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + ap.bsK());
         com.baidu.tbadk.browser.a.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new a();
         this.mWebChromeClient = new h();
@@ -360,7 +360,7 @@ public class BaseWebView extends WebView {
     public void onChangeSkinType() {
         if (this.mJsBridge != null) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("skin", ao.bsq());
+            linkedHashMap.put("skin", ap.bsK());
             this.mJsBridge.a(getWebView(), "changeSkinType", linkedHashMap);
         }
     }

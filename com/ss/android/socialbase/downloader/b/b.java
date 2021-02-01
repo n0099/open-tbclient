@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum b {
     BYTE_INVALID_RETRY_STATUS_NONE,
     BYTE_INVALID_RETRY_STATUS_RESTART,

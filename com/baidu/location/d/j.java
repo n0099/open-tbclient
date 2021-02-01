@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Process;
 import android.provider.Settings;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.location.BDLocation;
@@ -28,14 +27,14 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2644a = false;
+    public static boolean f2642a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f2645b = false;
+    public static boolean f2643b = false;
     public static boolean c = false;
     public static int d = 0;
     private static String aw = "http://loc.map.baidu.com/sdk.php";
@@ -98,7 +97,7 @@ public class j {
     public static int ac = 20;
     public static int ad = 300;
     public static int ae = 1000;
-    public static int af = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    public static int af = Integer.MAX_VALUE;
     public static long ag = FunAdConfig.Builder.AD_EXPIRED_INTERVAL;
     public static long ah = 420000;
     public static long ai = 180000;

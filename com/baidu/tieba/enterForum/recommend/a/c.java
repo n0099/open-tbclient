@@ -4,18 +4,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.recommend.b.d, CardViewHolder<com.baidu.tieba.enterForum.recommend.view.c>> {
-    private aa iGf;
+    private ab iLO;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public c(TbPageContext tbPageContext, aa aaVar) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.iGw);
+    public c(TbPageContext tbPageContext, ab abVar) {
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.iMf);
         this.mPageContext = tbPageContext;
-        this.iGf = aaVar;
+        this.iLO = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,15 +32,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.d dVar, CardViewHolder<com.baidu.tieba.enterForum.recommend.view.c> cardViewHolder) {
-        if (dVar == null || cardViewHolder == null || cardViewHolder.crP() == null) {
+        if (dVar == null || cardViewHolder == null || cardViewHolder.ctb() == null) {
             return null;
         }
         if (viewGroup instanceof BdTypeRecyclerView) {
-            cardViewHolder.crP().pP(dVar.needTopMargin);
+            cardViewHolder.ctb().pZ(dVar.needTopMargin);
         }
-        cardViewHolder.crP().a(dVar);
-        if (this.iGf != null) {
-            cardViewHolder.crP().c(this.iGf);
+        cardViewHolder.ctb().a(dVar);
+        if (this.iLO != null) {
+            cardViewHolder.ctb().c(this.iLO);
         }
         return cardViewHolder.getView();
     }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class BaseRewardAd {
     public static final int DEFAULT_PRIORITY = -1;
     public static final int EVENT_TYPE_ON_AD_CLICK = 6;
@@ -18,7 +18,7 @@ public abstract class BaseRewardAd {
     public static final int EVENT_TYPE_ON_VIDEO_COMPLETE = 7;
 
     /* renamed from: a  reason: collision with root package name */
-    private LoadAdParams f12761a = null;
+    private LoadAdParams f12763a = null;
 
     public BaseRewardAd(Context context, String str, String str2) {
     }
@@ -34,7 +34,7 @@ public abstract class BaseRewardAd {
     public abstract long getExpireTimestamp();
 
     public LoadAdParams getLoadAdParams() {
-        return this.f12761a;
+        return this.f12763a;
     }
 
     public int getRewardAdType() {
@@ -50,7 +50,7 @@ public abstract class BaseRewardAd {
     public abstract void setAdListener(ADListener aDListener);
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
-        this.f12761a = loadAdParams;
+        this.f12763a = loadAdParams;
     }
 
     public abstract void setVolumOn(boolean z);

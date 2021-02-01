@@ -8,7 +8,7 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class q extends a<o> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(Context context) {
@@ -17,7 +17,7 @@ public class q extends a<o> {
 
     @Override // com.qq.e.comm.plugin.y.a
     public void a(Set<Integer> set) {
-        i.a(this.f12694a).c().a(set);
+        i.a(this.f12696a).c().a(set);
     }
 
     @Override // com.qq.e.comm.plugin.y.a
@@ -27,7 +27,7 @@ public class q extends a<o> {
 
     @Override // com.qq.e.comm.plugin.y.a
     public void d(List<o> list) {
-        i.a(this.f12694a).c().a(list);
+        i.a(this.f12696a).c().a(list);
     }
 
     @Override // com.qq.e.comm.plugin.y.a
@@ -37,6 +37,6 @@ public class q extends a<o> {
 
     @Override // com.qq.e.comm.plugin.y.a
     public List<o> f() {
-        return i.a(this.f12694a).c().a();
+        return i.a(this.f12696a).c().a();
     }
 }

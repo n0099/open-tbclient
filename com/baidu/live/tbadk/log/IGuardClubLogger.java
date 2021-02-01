@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IGuardClubLogger {
     void doAccessLiveGuardMemberLog(String str, String str2, String str3, String str4);
 

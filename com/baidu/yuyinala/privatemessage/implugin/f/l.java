@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class l extends b {
     private boolean mNotify;
 
@@ -18,12 +18,12 @@ public class l extends b {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.f.b
-    public String ehu() {
+    public String ejO() {
         return IMTrack.DbBuilder.ACTION_UPDATE;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.f.b
-    public void a(StringBuilder sb) {
+    public void b(StringBuilder sb) {
         if (sb != null) {
             try {
                 JSONObject jSONObject = new JSONObject();

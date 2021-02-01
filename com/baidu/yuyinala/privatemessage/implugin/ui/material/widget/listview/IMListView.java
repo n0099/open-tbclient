@@ -14,197 +14,197 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Scroller;
 import com.baidu.yuyinala.privatemessage.implugin.util.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class IMListView extends ListView implements AbsListView.OnScrollListener {
-    private static int oUI = 60;
+    private static int peV = 60;
     @SuppressLint({"HandlerLeak"})
     private Handler mHandler;
     private Scroller mScroller;
-    private int oUJ;
-    private int oUK;
-    private IMChatHeader oUL;
-    private IMChatFooter oUM;
-    private a oUN;
-    private boolean oUO;
-    private boolean oUP;
-    private boolean oUQ;
-    private boolean oUR;
-    private boolean oUS;
-    private float oUT;
-    private float oUU;
-    private float oUV;
-    private int oUW;
+    private int peW;
+    private int peX;
+    private IMChatHeader peY;
+    private IMChatFooter peZ;
+    private a pfa;
+    private boolean pfb;
+    private boolean pfc;
+    private boolean pfd;
+    private boolean pfe;
+    private boolean pff;
+    private float pfg;
+    private float pfh;
+    private float pfi;
+    private int pfj;
     private int totalCount;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onRefresh();
     }
 
     public IMListView(Context context) {
         super(context);
-        this.oUO = true;
-        this.oUQ = false;
-        this.oUR = false;
-        this.oUS = false;
-        this.oUW = 2;
+        this.pfb = true;
+        this.pfd = false;
+        this.pfe = false;
+        this.pff = false;
+        this.pfj = 2;
         this.mHandler = new Handler() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.listview.IMListView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 c.d("", "LOADHAED handleMessage  " + message.what);
                 switch (message.what) {
                     case 1:
-                        if (IMListView.this.oUT >= IMListView.oUI) {
+                        if (IMListView.this.pfg >= IMListView.peV) {
                             IMListView.this.mHandler.removeMessages(1);
-                            IMListView.this.oUU = IMListView.this.oUT;
-                            IMListView.this.oUT = 0.0f;
+                            IMListView.this.pfh = IMListView.this.pfg;
+                            IMListView.this.pfg = 0.0f;
                             IMListView.this.mHandler.sendEmptyMessage(3);
                             break;
                         } else {
-                            IMListView.this.oUT = (IMListView.oUI / 10) + IMListView.this.oUT;
-                            if (IMListView.this.oUT > IMListView.oUI) {
-                                IMListView.this.oUT = IMListView.oUI;
+                            IMListView.this.pfg = (IMListView.peV / 10) + IMListView.this.pfg;
+                            if (IMListView.this.pfg > IMListView.peV) {
+                                IMListView.this.pfg = IMListView.peV;
                             }
-                            IMListView.this.bx(IMListView.this.oUT);
+                            IMListView.this.bA(IMListView.this.pfg);
                             IMListView.this.mHandler.sendEmptyMessageDelayed(1, 20L);
                             break;
                         }
                     case 2:
-                        IMListView.this.oUN.onRefresh();
-                        IMListView.this.oUW = 2;
+                        IMListView.this.pfa.onRefresh();
+                        IMListView.this.pfj = 2;
                         break;
                     case 3:
                         IMListView.this.mHandler.sendEmptyMessageDelayed(2, 1500L);
-                        IMListView.this.oUW = 3;
-                        IMListView.this.oUQ = true;
+                        IMListView.this.pfj = 3;
+                        IMListView.this.pfd = true;
                         break;
                     case 4:
-                        IMListView.this.oUU = 0.0f;
-                        IMListView.this.oUT = 0.0f;
-                        IMListView.this.ejf();
-                        IMListView.this.oUW = 2;
+                        IMListView.this.pfh = 0.0f;
+                        IMListView.this.pfg = 0.0f;
+                        IMListView.this.elz();
+                        IMListView.this.pfj = 2;
                         break;
                 }
-                IMListView.this.Ns(message.what);
+                IMListView.this.NN(message.what);
             }
         };
-        hA(context);
+        hD(context);
     }
 
     public IMListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oUO = true;
-        this.oUQ = false;
-        this.oUR = false;
-        this.oUS = false;
-        this.oUW = 2;
+        this.pfb = true;
+        this.pfd = false;
+        this.pfe = false;
+        this.pff = false;
+        this.pfj = 2;
         this.mHandler = new Handler() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.listview.IMListView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 c.d("", "LOADHAED handleMessage  " + message.what);
                 switch (message.what) {
                     case 1:
-                        if (IMListView.this.oUT >= IMListView.oUI) {
+                        if (IMListView.this.pfg >= IMListView.peV) {
                             IMListView.this.mHandler.removeMessages(1);
-                            IMListView.this.oUU = IMListView.this.oUT;
-                            IMListView.this.oUT = 0.0f;
+                            IMListView.this.pfh = IMListView.this.pfg;
+                            IMListView.this.pfg = 0.0f;
                             IMListView.this.mHandler.sendEmptyMessage(3);
                             break;
                         } else {
-                            IMListView.this.oUT = (IMListView.oUI / 10) + IMListView.this.oUT;
-                            if (IMListView.this.oUT > IMListView.oUI) {
-                                IMListView.this.oUT = IMListView.oUI;
+                            IMListView.this.pfg = (IMListView.peV / 10) + IMListView.this.pfg;
+                            if (IMListView.this.pfg > IMListView.peV) {
+                                IMListView.this.pfg = IMListView.peV;
                             }
-                            IMListView.this.bx(IMListView.this.oUT);
+                            IMListView.this.bA(IMListView.this.pfg);
                             IMListView.this.mHandler.sendEmptyMessageDelayed(1, 20L);
                             break;
                         }
                     case 2:
-                        IMListView.this.oUN.onRefresh();
-                        IMListView.this.oUW = 2;
+                        IMListView.this.pfa.onRefresh();
+                        IMListView.this.pfj = 2;
                         break;
                     case 3:
                         IMListView.this.mHandler.sendEmptyMessageDelayed(2, 1500L);
-                        IMListView.this.oUW = 3;
-                        IMListView.this.oUQ = true;
+                        IMListView.this.pfj = 3;
+                        IMListView.this.pfd = true;
                         break;
                     case 4:
-                        IMListView.this.oUU = 0.0f;
-                        IMListView.this.oUT = 0.0f;
-                        IMListView.this.ejf();
-                        IMListView.this.oUW = 2;
+                        IMListView.this.pfh = 0.0f;
+                        IMListView.this.pfg = 0.0f;
+                        IMListView.this.elz();
+                        IMListView.this.pfj = 2;
                         break;
                 }
-                IMListView.this.Ns(message.what);
+                IMListView.this.NN(message.what);
             }
         };
-        hA(context);
+        hD(context);
     }
 
     public IMListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oUO = true;
-        this.oUQ = false;
-        this.oUR = false;
-        this.oUS = false;
-        this.oUW = 2;
+        this.pfb = true;
+        this.pfd = false;
+        this.pfe = false;
+        this.pff = false;
+        this.pfj = 2;
         this.mHandler = new Handler() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.listview.IMListView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 c.d("", "LOADHAED handleMessage  " + message.what);
                 switch (message.what) {
                     case 1:
-                        if (IMListView.this.oUT >= IMListView.oUI) {
+                        if (IMListView.this.pfg >= IMListView.peV) {
                             IMListView.this.mHandler.removeMessages(1);
-                            IMListView.this.oUU = IMListView.this.oUT;
-                            IMListView.this.oUT = 0.0f;
+                            IMListView.this.pfh = IMListView.this.pfg;
+                            IMListView.this.pfg = 0.0f;
                             IMListView.this.mHandler.sendEmptyMessage(3);
                             break;
                         } else {
-                            IMListView.this.oUT = (IMListView.oUI / 10) + IMListView.this.oUT;
-                            if (IMListView.this.oUT > IMListView.oUI) {
-                                IMListView.this.oUT = IMListView.oUI;
+                            IMListView.this.pfg = (IMListView.peV / 10) + IMListView.this.pfg;
+                            if (IMListView.this.pfg > IMListView.peV) {
+                                IMListView.this.pfg = IMListView.peV;
                             }
-                            IMListView.this.bx(IMListView.this.oUT);
+                            IMListView.this.bA(IMListView.this.pfg);
                             IMListView.this.mHandler.sendEmptyMessageDelayed(1, 20L);
                             break;
                         }
                     case 2:
-                        IMListView.this.oUN.onRefresh();
-                        IMListView.this.oUW = 2;
+                        IMListView.this.pfa.onRefresh();
+                        IMListView.this.pfj = 2;
                         break;
                     case 3:
                         IMListView.this.mHandler.sendEmptyMessageDelayed(2, 1500L);
-                        IMListView.this.oUW = 3;
-                        IMListView.this.oUQ = true;
+                        IMListView.this.pfj = 3;
+                        IMListView.this.pfd = true;
                         break;
                     case 4:
-                        IMListView.this.oUU = 0.0f;
-                        IMListView.this.oUT = 0.0f;
-                        IMListView.this.ejf();
-                        IMListView.this.oUW = 2;
+                        IMListView.this.pfh = 0.0f;
+                        IMListView.this.pfg = 0.0f;
+                        IMListView.this.elz();
+                        IMListView.this.pfj = 2;
                         break;
                 }
-                IMListView.this.Ns(message.what);
+                IMListView.this.NN(message.what);
             }
         };
-        hA(context);
+        hD(context);
     }
 
-    private void hA(Context context) {
+    private void hD(Context context) {
         this.mScroller = new Scroller(context, new DecelerateInterpolator());
         setOnScrollListener(this);
-        this.oUL = new IMChatHeader(context);
-        this.oUM = new IMChatFooter(context);
+        this.peY = new IMChatHeader(context);
+        this.peZ = new IMChatFooter(context);
     }
 
-    public boolean ejc() {
+    public boolean elw() {
         View childAt;
         if (this.totalCount == 0) {
             c.d("", "RECEIVETEST -> return true");
             return true;
-        } else if (this.oUJ + this.oUK != this.totalCount || (childAt = getChildAt(getChildCount() - 1)) == null || childAt.getBottom() > getHeight()) {
-            c.d("", "RECEIVETEST -> return false  " + this.oUJ + " " + this.oUK + " " + this.totalCount);
+        } else if (this.peW + this.peX != this.totalCount || (childAt = getChildAt(getChildCount() - 1)) == null || childAt.getBottom() > getHeight()) {
+            c.d("", "RECEIVETEST -> return false  " + this.peW + " " + this.peX + " " + this.totalCount);
             return false;
         } else {
             return true;
@@ -214,35 +214,35 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
-        addHeaderView(this.oUL);
-        addFooterView(this.oUM);
+        addHeaderView(this.peY);
+        addFooterView(this.peZ);
         super.setAdapter(listAdapter);
     }
 
     public void setPullRefreshEnable(boolean z) {
-        this.oUO = z;
-        if (!this.oUO) {
-            this.oUL.setVisiableContent(4);
+        this.pfb = z;
+        if (!this.pfb) {
+            this.peY.setVisiableContent(4);
         } else {
-            this.oUL.setVisiableContent(0);
+            this.peY.setVisiableContent(0);
         }
     }
 
     public void setIMListViewListener(a aVar) {
-        this.oUN = aVar;
+        this.pfa = aVar;
     }
 
-    public void ejd() {
-        if (this.oUQ) {
+    public void elx() {
+        if (this.pfd) {
             c.d("", "LOADHAED stopRefresh");
-            this.oUQ = false;
-            ejf();
+            this.pfd = false;
+            elz();
         }
     }
 
-    public void eje() {
-        if (this.oUP) {
-            this.oUP = false;
+    public void ely() {
+        if (this.pfc) {
+            this.pfc = false;
         }
     }
 
@@ -252,32 +252,32 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
         try {
             switch (motionEvent.getAction()) {
                 case 1:
-                    if (this.oUW == 1 && this.oUT < oUI) {
+                    if (this.pfj == 1 && this.pfg < peV) {
                         this.mHandler.sendEmptyMessageDelayed(4, 20L);
                         break;
                     }
                     break;
                 case 2:
                     int y = (int) motionEvent.getY();
-                    if (this.oUW == 1) {
-                        if (this.oUV != 0.0f) {
-                            this.oUT += y - this.oUV;
+                    if (this.pfj == 1) {
+                        if (this.pfi != 0.0f) {
+                            this.pfg += y - this.pfi;
                         }
-                        if (this.oUT > oUI) {
-                            this.oUT = oUI;
+                        if (this.pfg > peV) {
+                            this.pfg = peV;
                         }
-                        if (this.oUT <= 0.0f) {
-                            this.oUT = 0.0f;
+                        if (this.pfg <= 0.0f) {
+                            this.pfg = 0.0f;
                         }
-                        bx(this.oUT);
-                        this.oUV = y;
-                        if (this.oUT >= oUI) {
+                        bA(this.pfg);
+                        this.pfi = y;
+                        if (this.pfg >= peV) {
                             this.mHandler.removeMessages(1);
-                            this.oUU = this.oUT;
-                            this.oUT = 0.0f;
+                            this.pfh = this.pfg;
+                            this.pfg = 0.0f;
                             c.d("", "LOADHAED onTouchEvent HEAD_REFRESH");
                             this.mHandler.sendEmptyMessage(3);
-                            this.oUS = false;
+                            this.pff = false;
                             break;
                         }
                     }
@@ -306,57 +306,57 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
         super.dispatchDraw(canvas);
     }
 
-    private void bw(float f) {
-        this.oUL.setVisiableHeight(((int) f) + this.oUL.getVisiableHeight());
+    private void bz(float f) {
+        this.peY.setVisiableHeight(((int) f) + this.peY.getVisiableHeight());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bx(float f) {
-        float f2 = f - this.oUU;
-        this.oUU = f;
+    public void bA(float f) {
+        float f2 = f - this.pfh;
+        this.pfh = f;
         if (getFirstVisiblePosition() == 0) {
-            if (this.oUL.getVisiableHeight() > 0 || f2 > 0.0f) {
-                bw(f2);
+            if (this.peY.getVisiableHeight() > 0 || f2 > 0.0f) {
+                bz(f2);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ejf() {
-        int visiableHeight = this.oUL.getVisiableHeight();
+    public void elz() {
+        int visiableHeight = this.peY.getVisiableHeight();
         if (visiableHeight != 0) {
             this.mScroller.startScroll(0, visiableHeight, 0, 0, 200);
-            this.oUL.setVisiableHeight(0);
+            this.peY.setVisiableHeight(0);
             invalidate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ns(int i) {
-        if (this.oUO) {
+    public void NN(int i) {
+        if (this.pfb) {
             switch (i) {
                 case 1:
-                    this.oUL.setState(1);
+                    this.peY.setState(1);
                     return;
                 case 2:
-                    this.oUL.setState(0);
+                    this.peY.setState(0);
                     return;
                 case 3:
-                    this.oUL.setState(2);
+                    this.peY.setState(2);
                     return;
                 default:
-                    this.oUL.setState(0);
+                    this.peY.setState(0);
                     return;
             }
         }
     }
 
     public void setRefreshTime() {
-        this.oUL.setRefreshTime();
+        this.peY.setRefreshTime();
     }
 
     public void setFooterHeight(int i) {
-        this.oUM.setFooterHeight(i);
+        this.peZ.setFooterHeight(i);
     }
 
     @Override // android.widget.ListView, android.widget.AdapterView
@@ -365,40 +365,40 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
     }
 
     public void setSelectionMove(int i) {
-        setSelectionFromTop(i + 2, this.oUL.getVisiableHeight());
+        setSelectionFromTop(i + 2, this.peY.getVisiableHeight());
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 2) {
-            this.oUR = true;
-            this.oUS = false;
+            this.pfe = true;
+            this.pff = false;
         } else if (i == 1) {
-            this.oUR = false;
-            this.oUS = true;
+            this.pfe = false;
+            this.pff = true;
         } else {
-            this.oUR = false;
-            this.oUS = false;
+            this.pfe = false;
+            this.pff = false;
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.oUJ = i;
-        this.oUK = i2;
+        this.peW = i;
+        this.peX = i2;
         this.totalCount = i3;
-        if (i == 0 && this.oUO) {
-            if (this.oUR) {
+        if (i == 0 && this.pfb) {
+            if (this.pfe) {
                 this.mHandler.removeMessages(1);
-                this.oUL.setVisiableHeight(0);
-                this.oUU = 0.0f;
-                this.oUT = 0.0f;
+                this.peY.setVisiableHeight(0);
+                this.pfh = 0.0f;
+                this.pfg = 0.0f;
                 this.mHandler.sendEmptyMessageDelayed(1, 20L);
-                this.oUR = false;
-                this.oUS = false;
+                this.pfe = false;
+                this.pff = false;
             }
-            if (this.oUS && this.oUW == 2) {
-                this.oUW = 1;
+            if (this.pff && this.pfj == 2) {
+                this.pfj = 1;
             }
         }
     }

@@ -16,10 +16,10 @@ import javax.crypto.spec.IvParameterSpec;
 final class e {
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f1576b = a();
+    private static String f1574b = a();
 
     /* renamed from: a  reason: collision with root package name */
-    private static Pattern f1575a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
+    private static Pattern f1573a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
 
     private static String a() {
         try {
@@ -59,7 +59,7 @@ final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(String str) {
-        return f1575a.matcher(str).matches();
+        return f1573a.matcher(str).matches();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -103,12 +103,12 @@ final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String f(String str) {
-        return a(f1576b, str.getBytes());
+        return a(f1574b, str.getBytes());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String g(String str) {
-        return g(f1576b, Base64.decode(str, 0));
+        return g(f1574b, Base64.decode(str, 0));
     }
 
     private static String g(String str, byte[] bArr) {

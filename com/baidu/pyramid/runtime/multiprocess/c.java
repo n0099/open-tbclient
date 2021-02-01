@@ -7,7 +7,7 @@ import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.net.Uri;
 import android.os.Bundle;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class c implements Cursor {
     private Bundle bundle;
 

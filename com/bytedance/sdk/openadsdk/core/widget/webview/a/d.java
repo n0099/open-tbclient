@@ -17,24 +17,24 @@ import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile d f6832a;
+    private static volatile d f6834a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AtomicBoolean f6833b = new AtomicBoolean(false);
+    private AtomicBoolean f6835b = new AtomicBoolean(false);
 
     public static d a() {
-        if (f6832a == null) {
+        if (f6834a == null) {
             synchronized (d.class) {
-                if (f6832a == null) {
-                    f6832a = new d();
+                if (f6834a == null) {
+                    f6834a = new d();
                 }
             }
         }
-        return f6832a;
+        return f6834a;
     }
 
     private d() {
@@ -90,17 +90,17 @@ public class d {
                 }
             }
             a(hashSet);
-            this.f6833b.set(false);
+            this.f6835b.set(false);
         }
     }
 
     private JSONObject c(String str) {
-        i eop = i.eop();
-        new j(0, str, eop).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(p.a()).d());
+        i eqH = i.eqH();
+        new j(0, str, eqH).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(p.a()).d());
         try {
-            com.bytedance.sdk.adnet.core.p pVar = eop.get();
-            if (pVar != null && pVar.a() && pVar.f6045a != 0) {
-                return new JSONObject((String) pVar.f6045a);
+            com.bytedance.sdk.adnet.core.p pVar = eqH.get();
+            if (pVar != null && pVar.a() && pVar.f6047a != 0) {
+                return new JSONObject((String) pVar.f6047a);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -127,9 +127,9 @@ public class d {
             u.f("TmplDiffManager", "saveTemplate error: tplInfo == null");
             return;
         }
-        final String str2 = mVar.f6599a;
+        final String str2 = mVar.f6601a;
         final String str3 = mVar.c;
-        final String str4 = mVar.f6600b;
+        final String str4 = mVar.f6602b;
         final String str5 = mVar.d;
         final String str6 = mVar.e;
         final String e = TextUtils.isEmpty(str) ? com.bytedance.sdk.openadsdk.core.i.c().e() : str;

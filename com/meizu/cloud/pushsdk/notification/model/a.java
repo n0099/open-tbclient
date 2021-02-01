@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.notification.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,19 +25,19 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11340a;
+    private int f11342a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11341b;
+    private String f11343b;
 
     public a() {
-        this.f11340a = 0;
+        this.f11342a = 0;
     }
 
     protected a(Parcel parcel) {
-        this.f11340a = 0;
-        this.f11340a = parcel.readInt();
-        this.f11341b = parcel.readString();
+        this.f11342a = 0;
+        this.f11342a = parcel.readInt();
+        this.f11343b = parcel.readString();
     }
 
     public static a a(MessageV3 messageV3) {
@@ -108,19 +108,19 @@ public class a implements Parcelable {
     }
 
     public int a() {
-        return this.f11340a;
+        return this.f11342a;
     }
 
     public void a(int i) {
-        this.f11340a = i;
+        this.f11342a = i;
     }
 
     public void a(String str) {
-        this.f11341b = str;
+        this.f11343b = str;
     }
 
     public String b() {
-        return this.f11341b;
+        return this.f11343b;
     }
 
     @Override // android.os.Parcelable
@@ -129,12 +129,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.f11340a + ", notifyKey='" + this.f11341b + "'}";
+        return "NotifyOption{notifyId=" + this.f11342a + ", notifyKey='" + this.f11343b + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f11340a);
-        parcel.writeString(this.f11341b);
+        parcel.writeInt(this.f11342a);
+        parcel.writeString(this.f11343b);
     }
 }

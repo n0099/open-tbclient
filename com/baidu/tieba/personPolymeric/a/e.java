@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.holder.CardViewHolder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.g, CardViewHolder<com.baidu.tieba.personPolymeric.view.e>> {
     private TbPageContext mPageContext;
 
@@ -26,10 +26,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.g gVar, CardViewHolder<com.baidu.tieba.personPolymeric.view.e> cardViewHolder) {
-        if (cardViewHolder == null || cardViewHolder.crP() == null || gVar == null) {
+        if (cardViewHolder == null || cardViewHolder.ctb() == null || gVar == null) {
             return null;
         }
-        cardViewHolder.crP().a(gVar);
-        return cardViewHolder.crP().getView();
+        cardViewHolder.ctb().a(gVar);
+        return cardViewHolder.ctb().getView();
     }
 }

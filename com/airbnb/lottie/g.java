@@ -3,7 +3,7 @@ package com.airbnb.lottie;
 import android.graphics.Bitmap;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
     private final String Cx;
     @Nullable
@@ -30,7 +30,7 @@ public class g {
         return this.fileName;
     }
 
-    public String il() {
+    public String ik() {
         return this.Cx;
     }
 

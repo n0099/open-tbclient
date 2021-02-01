@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import com.google.android.material.circularreveal.CircularRevealWidget;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class CircularRevealFrameLayout extends FrameLayout implements CircularRevealWidget {
     private final CircularRevealHelper helper;
 

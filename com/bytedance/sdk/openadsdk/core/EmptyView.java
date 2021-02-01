@@ -11,14 +11,14 @@ import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.am;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class EmptyView extends View implements am.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6439a;
+    private boolean f6441a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f6440b;
+    private boolean f6442b;
     private a c;
     private View d;
     private List<View> e;
@@ -29,7 +29,7 @@ public class EmptyView extends View implements am.a {
     private final Handler i;
     private final AtomicBoolean j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -119,24 +119,24 @@ public class EmptyView extends View implements am.a {
     }
 
     private void d() {
-        if (this.f6440b && !this.f6439a) {
-            this.f6439a = true;
+        if (this.f6442b && !this.f6441a) {
+            this.f6441a = true;
             this.i.sendEmptyMessage(1);
         }
     }
 
     private void e() {
-        if (this.f6439a) {
+        if (this.f6441a) {
             this.i.removeCallbacksAndMessages(null);
-            this.f6439a = false;
+            this.f6441a = false;
         }
     }
 
     public void setNeedCheckingShow(boolean z) {
-        this.f6440b = z;
-        if (!z && this.f6439a) {
+        this.f6442b = z;
+        if (!z && this.f6441a) {
             e();
-        } else if (z && !this.f6439a) {
+        } else if (z && !this.f6441a) {
             d();
         }
     }
@@ -153,7 +153,7 @@ public class EmptyView extends View implements am.a {
     public void a(Message message) {
         switch (message.what) {
             case 1:
-                if (this.f6439a) {
+                if (this.f6441a) {
                     if (y.a(this.d, 20, this.h)) {
                         e();
                         this.i.sendEmptyMessageDelayed(2, 1000L);

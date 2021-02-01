@@ -8,7 +8,7 @@ import com.kwad.sdk.crash.utils.j;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class ExceptionMessage implements b, Serializable {
     private static final long serialVersionUID = -5338556142957298914L;
     public long mCurrentTimeStamp;

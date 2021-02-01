@@ -14,7 +14,7 @@ import com.baidu.ala.recorder.video.hardware.EncoderOutputStream;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.kwai.video.player.KsMediaMeta;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class HardH264Encoder {
     private static final int CHECK_STREAM_DURATION = 5000;
     public static final int ENCODE_FPS = 25;

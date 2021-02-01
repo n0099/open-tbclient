@@ -4,33 +4,33 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.live.tbadk.core.BaseFragment;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GiftPanelFragmentPagerAdapter extends FragmentPagerAdapter {
-    private Fragment bdw;
-    private Fragment[] bdx;
+    private Fragment bgG;
+    private Fragment[] bgH;
 
-    public Fragment[] GG() {
-        return this.bdx;
+    public Fragment[] HW() {
+        return this.bgH;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return this.bdx[i];
+        return this.bgH[i];
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.bdx.length;
+        return this.bgH.length;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.bdw != obj) {
-            if (this.bdw instanceof BaseFragment) {
-                ((BaseFragment) this.bdw).setPrimary(false);
+        if (this.bgG != obj) {
+            if (this.bgG instanceof BaseFragment) {
+                ((BaseFragment) this.bgG).setPrimary(false);
             }
-            this.bdw = (Fragment) obj;
+            this.bgG = (Fragment) obj;
             if (obj instanceof BaseFragment) {
                 ((BaseFragment) obj).setPrimary(true);
             }

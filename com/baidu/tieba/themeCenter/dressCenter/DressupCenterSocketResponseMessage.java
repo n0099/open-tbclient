@@ -9,7 +9,7 @@ import java.util.List;
 import tbclient.GetThemeList.GetThemeListResIdl;
 import tbclient.GetThemeList.ThemeCarousel;
 import tbclient.GetThemeList.ThemeList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
     private e mRecommand;
     private List<a> mThemeCarouselList;

@@ -2,7 +2,7 @@ package com.qq.e.comm.plugin.n;
 
 import android.view.ViewGroup;
 import com.qq.e.comm.plugin.n.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface g {
     void a();
 

@@ -7,14 +7,14 @@ import android.text.TextUtils;
 import com.baidu.pass.common.Log;
 import com.baidu.pass.common.SharedPreferencesUtil;
 import com.baidu.pass.view.ConfirmDialog;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PermissionsHelperActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f4112a = 8000;
+    private static final int f4115a = 8000;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f4113b = 8001;
+    private static final int f4116b = 8001;
     private PermissionsDTO c;
     private PermissionsCallback d;
     private StringBuilder e;
@@ -23,7 +23,7 @@ public class PermissionsHelperActivity extends Activity {
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i == f4112a) {
+        if (i == f4115a) {
             if (PassPermissions.getInstance().a(PassPermissions.getInstance().getPermissionsDTO().permissions)) {
                 this.d.onSuccess();
             } else {
@@ -56,13 +56,13 @@ public class PermissionsHelperActivity extends Activity {
             this.f = true;
             return;
         }
-        requestPermissions(this.c.permissions, f4113b);
+        requestPermissions(this.c.permissions, f4116b);
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        if (i == f4113b) {
+        if (i == f4116b) {
             boolean z = false;
             boolean z2 = true;
             for (int i2 = 0; i2 < strArr.length; i2++) {

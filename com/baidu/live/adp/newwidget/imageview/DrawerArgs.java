@@ -1,7 +1,7 @@
 package com.baidu.live.adp.newwidget.imageview;
 
 import android.graphics.Matrix;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DrawerArgs {
     public int mBorderColor;
     public boolean mBorderSurroundContent;

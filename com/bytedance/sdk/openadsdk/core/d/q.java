@@ -1,12 +1,12 @@
 package com.bytedance.sdk.openadsdk.core.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6523a;
+    private String f6525a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6524b;
+    private String f6526b;
     private String c;
     private String d;
     private String e;
@@ -14,20 +14,20 @@ public class q {
     private Long g;
 
     public String a() {
-        return this.f6523a;
+        return this.f6525a;
     }
 
     public q a(String str) {
-        this.f6523a = str;
+        this.f6525a = str;
         return this;
     }
 
     public String b() {
-        return this.f6524b;
+        return this.f6526b;
     }
 
     public q b(String str) {
-        this.f6524b = str;
+        this.f6526b = str;
         return this;
     }
 

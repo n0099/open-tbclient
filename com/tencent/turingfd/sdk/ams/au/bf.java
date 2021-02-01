@@ -1,7 +1,7 @@
 package com.tencent.turingfd.sdk.ams.au;
 
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class bf implements Serializable {
     public abstract void a(ao aoVar);
 
@@ -10,8 +10,8 @@ public abstract class bf implements Serializable {
     public byte[] a() {
         as asVar = new as();
         a(asVar);
-        byte[] bArr = new byte[asVar.f13489a.position()];
-        System.arraycopy(asVar.f13489a.array(), 0, bArr, 0, asVar.f13489a.position());
+        byte[] bArr = new byte[asVar.f13491a.position()];
+        System.arraycopy(asVar.f13491a.array(), 0, bArr, 0, asVar.f13491a.position());
         return bArr;
     }
 

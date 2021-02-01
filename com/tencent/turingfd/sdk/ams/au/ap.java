@@ -1,12 +1,12 @@
 package com.tencent.turingfd.sdk.ams.au;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class ap implements x {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f13483a = new byte[0];
+    public static final byte[] f13485a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f13484b;
+    public final String f13486b;
     public final long c;
     public final int d;
     public final String e;
@@ -14,14 +14,14 @@ public class ap implements x {
     public final String g;
     public final String h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f13485a;
+        public String f13487a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f13486b;
+        public long f13488b;
         public int c;
         public byte[] d;
         public String e;
@@ -36,12 +36,12 @@ public class ap implements x {
         }
 
         public b a(long j) {
-            this.f13486b = j;
+            this.f13488b = j;
             return this;
         }
 
         public b a(String str) {
-            this.f13485a = str;
+            this.f13487a = str;
             return this;
         }
 
@@ -71,7 +71,7 @@ public class ap implements x {
     }
 
     public ap(int i, byte[] bArr) {
-        this.f13484b = "";
+        this.f13486b = "";
         this.c = 0L;
         this.d = i;
         this.e = "";
@@ -81,8 +81,8 @@ public class ap implements x {
     }
 
     public ap(b bVar) {
-        this.f13484b = bVar.f13485a;
-        this.c = bVar.f13486b;
+        this.f13486b = bVar.f13487a;
+        this.c = bVar.f13488b;
         this.d = bVar.c;
         byte[] bArr = bVar.d;
         this.e = bVar.e;
@@ -92,7 +92,7 @@ public class ap implements x {
     }
 
     public static ap a(int i) {
-        return new ap(i, f13483a);
+        return new ap(i, f13485a);
     }
 
     public static b b(int i) {

@@ -1,12 +1,12 @@
 package com.airbnb.lottie.model.content;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MergePaths implements b {
     private final MergePathsMode FW;
     private final String name;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum MergePathsMode {
         Merge,
         Add,
@@ -41,14 +41,14 @@ public class MergePaths implements b {
         return this.name;
     }
 
-    public MergePathsMode jB() {
+    public MergePathsMode jA() {
         return this.FW;
     }
 
     @Override // com.airbnb.lottie.model.content.b
     @Nullable
     public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar) {
-        if (fVar.ie()) {
+        if (fVar.ic()) {
             return new com.airbnb.lottie.a.a.k(this);
         }
         com.airbnb.lottie.c.warn("Animation contains merge paths but they are disabled.");

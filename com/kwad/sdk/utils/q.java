@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.config.item.TipsConfigItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class q {
     public static String a(Context context) {
         String a2 = com.kwad.sdk.core.config.c.a("bottom");

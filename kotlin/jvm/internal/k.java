@@ -3,25 +3,25 @@ package kotlin.jvm.internal;
 import java.util.NoSuchElementException;
 import kotlin.collections.aj;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class k extends aj {
     private int index;
-    private final short[] qjm;
+    private final short[] qtq;
 
     public k(short[] sArr) {
         p.o(sArr, com.baidu.fsg.base.statistics.b.j);
-        this.qjm = sArr;
+        this.qtq = sArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.qjm.length;
+        return this.index < this.qtq.length;
     }
 
     @Override // kotlin.collections.aj
-    public short eIQ() {
+    public short eLg() {
         try {
-            short[] sArr = this.qjm;
+            short[] sArr = this.qtq;
             int i = this.index;
             this.index = i + 1;
             return sArr[i];

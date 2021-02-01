@@ -3,18 +3,18 @@ package com.qq.e.comm.plugin.ab.b;
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11722a;
+    private String f11724a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11723b;
+    private String f11725b;
     private a c;
     private int d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public enum a {
         OK,
         ERROR,
@@ -24,9 +24,9 @@ public class e {
 
     public e(d dVar, a aVar, String str) {
         this.d = 0;
-        this.f11722a = dVar.c();
+        this.f11724a = dVar.c();
         this.c = aVar;
-        this.f11723b = str;
+        this.f11725b = str;
     }
 
     public e(d dVar, a aVar, JSONObject jSONObject) {
@@ -41,9 +41,9 @@ public class e {
     public String a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("callbackid", this.f11722a);
+            jSONObject.put("callbackid", this.f11724a);
             jSONObject.put("status", this.c.ordinal());
-            jSONObject.put("data", this.f11723b);
+            jSONObject.put("data", this.f11725b);
             jSONObject.put("keep", this.d);
         } catch (JSONException e) {
             GDTLogger.w("Exception while sendingJSResponse", e);

@@ -12,10 +12,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import okhttp3.internal.http.StatusLine;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int pyI;
+    private int pIQ;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -23,7 +23,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.pyI = i;
+        this.pIQ = i;
     }
 
     u(ExecutorService executorService) {
@@ -43,11 +43,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.exd().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.ezv().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void ewW() {
+            public void ezo() {
                 if (submit.cancel(false)) {
-                    aVar.eqc();
+                    aVar.esv();
                 }
             }
         });
@@ -68,7 +68,7 @@ public class u extends c<t> {
                             aVar.f(inputStream2, -1);
                         } catch (IOException e) {
                             e = e;
-                            aVar.D(e);
+                            aVar.C(e);
                             if (inputStream2 != null) {
                                 try {
                                     inputStream2.close();
@@ -126,9 +126,9 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection ab = ab(uri);
-        ab.setConnectTimeout(this.pyI);
+        ab.setConnectTimeout(this.pIQ);
         int responseCode = ab.getResponseCode();
-        if (!PQ(responseCode)) {
+        if (!Ql(responseCode)) {
             if (isHttpRedirect(responseCode)) {
                 String headerField = ab.getHeaderField(Headers.LOCATION);
                 ab.disconnect();
@@ -149,7 +149,7 @@ public class u extends c<t> {
         return (HttpURLConnection) com.facebook.common.util.d.J(uri).openConnection();
     }
 
-    private static boolean PQ(int i) {
+    private static boolean Ql(int i) {
         return i >= 200 && i < 300;
     }
 

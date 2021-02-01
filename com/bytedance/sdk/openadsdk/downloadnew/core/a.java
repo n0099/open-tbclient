@@ -4,18 +4,18 @@ import android.app.Activity;
 import android.view.View;
 import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
 import com.bytedance.sdk.openadsdk.core.d.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.downloadnew.core.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1013a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1017a {
         boolean a(int i, l lVar, String str, String str2, Object obj);
     }
 
     void a();
 
-    void a(int i, InterfaceC1013a interfaceC1013a);
+    void a(int i, InterfaceC1017a interfaceC1017a);
 
     void a(Activity activity);
 

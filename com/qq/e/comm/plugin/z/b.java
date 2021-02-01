@@ -8,28 +8,28 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, a> f12734a = new HashMap();
+    private Map<String, a> f12736a = new HashMap();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f12735a;
+        private String f12737a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f12736b;
+        private String f12738b;
         private String c;
         private String d;
         private String e;
         private JSONObject f;
 
         public a(String str, String str2, JSONObject jSONObject) {
-            this.f12735a = str;
-            this.f12736b = str2;
+            this.f12737a = str;
+            this.f12738b = str2;
             this.c = jSONObject.optString("ver");
             this.d = jSONObject.optString("root_id");
             this.e = jSONObject.optString("url");
@@ -41,7 +41,7 @@ class b {
         }
 
         public String a() {
-            return this.f12736b;
+            return this.f12738b;
         }
 
         public JSONObject b() {
@@ -63,7 +63,7 @@ class b {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                this.f12734a.put(next, new a(jSONObject.getJSONObject(next)));
+                this.f12736a.put(next, new a(jSONObject.getJSONObject(next)));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -71,7 +71,7 @@ class b {
     }
 
     public a a(String str) {
-        return this.f12734a.get(str);
+        return this.f12736a.get(str);
     }
 
     public boolean a(JSONObject jSONObject, com.qq.e.comm.plugin.y.c cVar) {
@@ -82,7 +82,7 @@ class b {
                 u.a(1210025, cVar);
                 return false;
             }
-            this.f12734a.put(optString, new a(optString, optString2, jSONObject));
+            this.f12736a.put(optString, new a(optString, optString2, jSONObject));
             u.a(1210026, cVar);
             return true;
         }
@@ -93,7 +93,7 @@ class b {
     public String toString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            for (Map.Entry<String, a> entry : this.f12734a.entrySet()) {
+            for (Map.Entry<String, a> entry : this.f12736a.entrySet()) {
                 a value = entry.getValue();
                 if (value != null && value.f != null) {
                     jSONObject.put(entry.getKey(), value.f);

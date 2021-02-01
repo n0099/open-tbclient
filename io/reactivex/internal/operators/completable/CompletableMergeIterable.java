@@ -9,14 +9,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
 public final class CompletableMergeIterable extends a {
-    final Iterable<? extends e> qdO;
+    final Iterable<? extends e> qnS;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
         io.reactivex.disposables.a aVar = new io.reactivex.disposables.a();
         cVar.onSubscribe(aVar);
         try {
-            Iterator it = (Iterator) io.reactivex.internal.functions.a.m(this.qdO.iterator(), "The source iterator returned is null");
+            Iterator it = (Iterator) io.reactivex.internal.functions.a.m(this.qnS.iterator(), "The source iterator returned is null");
             AtomicInteger atomicInteger = new AtomicInteger(1);
             MergeCompletableObserver mergeCompletableObserver = new MergeCompletableObserver(cVar, aVar, atomicInteger);
             while (!aVar.isDisposed()) {
@@ -32,7 +32,7 @@ public final class CompletableMergeIterable extends a {
                                     return;
                                 }
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.O(th);
+                                io.reactivex.exceptions.a.N(th);
                                 aVar.dispose();
                                 mergeCompletableObserver.onError(th);
                                 return;
@@ -45,14 +45,14 @@ public final class CompletableMergeIterable extends a {
                         return;
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.O(th2);
+                    io.reactivex.exceptions.a.N(th2);
                     aVar.dispose();
                     mergeCompletableObserver.onError(th2);
                     return;
                 }
             }
         } catch (Throwable th3) {
-            io.reactivex.exceptions.a.O(th3);
+            io.reactivex.exceptions.a.N(th3);
             cVar.onError(th3);
         }
     }

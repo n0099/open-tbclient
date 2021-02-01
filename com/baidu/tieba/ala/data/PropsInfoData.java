@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PropsInfoData extends BaseData implements Serializable {
     public long endTime;
     public long nowTime;
@@ -39,10 +39,10 @@ public class PropsInfoData extends BaseData implements Serializable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a {
         public long endTime;
-        public long gQu;
+        public long gTe;
         public long startTime;
         public long userId;
 
@@ -51,7 +51,7 @@ public class PropsInfoData extends BaseData implements Serializable {
 
         public void parserJson(JSONObject jSONObject) {
             this.userId = jSONObject.optLong("anchor_id");
-            this.gQu = jSONObject.optLong("pay_userid");
+            this.gTe = jSONObject.optLong("pay_userid");
             this.startTime = jSONObject.optLong("start_time");
             this.endTime = jSONObject.optLong("end_time");
         }

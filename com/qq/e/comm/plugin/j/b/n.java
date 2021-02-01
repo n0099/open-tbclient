@@ -4,15 +4,15 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class n<T> implements Future<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    final Callable<T> f12177a;
+    final Callable<T> f12179a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(Callable<T> callable) {
-        this.f12177a = callable;
+        this.f12179a = callable;
     }
 
     @Override // java.util.concurrent.Future
@@ -23,7 +23,7 @@ class n<T> implements Future<T> {
     @Override // java.util.concurrent.Future
     public T get() throws ExecutionException {
         try {
-            return this.f12177a.call();
+            return this.f12179a.call();
         } catch (Exception e) {
             throw new ExecutionException(e);
         }

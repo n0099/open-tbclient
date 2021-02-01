@@ -19,7 +19,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -653,7 +652,7 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream GetStreamFromFile = n.GetStreamFromFile(str);
+                InputStream GetStreamFromFile = o.GetStreamFromFile(str);
                 BitmapFactory.decodeStream(GetStreamFromFile, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
                 com.baidu.adp.lib.util.n.close(GetStreamFromFile);
@@ -663,7 +662,7 @@ public class BitmapHelper {
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream GetStreamFromFile2 = n.GetStreamFromFile(str);
+                        InputStream GetStreamFromFile2 = o.GetStreamFromFile(str);
                         decodeStream = BitmapFactory.decodeStream(GetStreamFromFile2, null, options);
                         com.baidu.adp.lib.util.n.close(GetStreamFromFile2);
                     }
@@ -685,7 +684,7 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream GetStreamFromFile = n.GetStreamFromFile(new File(str));
+                InputStream GetStreamFromFile = o.GetStreamFromFile(new File(str));
                 BitmapFactory.decodeStream(GetStreamFromFile, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
                 com.baidu.adp.lib.util.n.close(GetStreamFromFile);
@@ -695,7 +694,7 @@ public class BitmapHelper {
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream GetStreamFromFile2 = n.GetStreamFromFile(new File(str));
+                        InputStream GetStreamFromFile2 = o.GetStreamFromFile(new File(str));
                         decodeStream = BitmapFactory.decodeStream(GetStreamFromFile2, null, options);
                         com.baidu.adp.lib.util.n.close(GetStreamFromFile2);
                     }
@@ -1063,7 +1062,7 @@ public class BitmapHelper {
                 case 6:
                     return 90;
                 case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+                    return 270;
             }
         } catch (IOException e) {
             return 0;

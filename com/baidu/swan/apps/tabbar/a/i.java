@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i extends a {
     public i(j jVar) {
         super(jVar, "/swanAPI/setTabBarStyle");
@@ -18,13 +18,13 @@ public class i extends a {
         if (DEBUG) {
             Log.d("SetTabBarStyleAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        if (ajB()) {
+        if (ajZ()) {
             com.baidu.swan.apps.console.c.e("SetTabBarStyleAction", "fail not TabBar page");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         }
-        com.baidu.swan.apps.tabbar.b.a ajA = ajA();
-        if (ajA == null) {
+        com.baidu.swan.apps.tabbar.b.a ajY = ajY();
+        if (ajY == null) {
             com.baidu.swan.apps.console.c.e("setTabBarStyle", "tabBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -34,7 +34,7 @@ public class i extends a {
             com.baidu.swan.apps.console.c.e("setTabBarStyle", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!ajA.s(optParamsAsJo.optString("color"), optParamsAsJo.optString("selectedColor"), optParamsAsJo.optString("backgroundColor"), optParamsAsJo.optString("borderStyle"))) {
+        } else if (!ajY.s(optParamsAsJo.optString("color"), optParamsAsJo.optString("selectedColor"), optParamsAsJo.optString("backgroundColor"), optParamsAsJo.optString("borderStyle"))) {
             com.baidu.swan.apps.console.c.e("setTabBarStyle", "set bottom bar style fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

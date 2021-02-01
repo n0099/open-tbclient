@@ -1,16 +1,16 @@
 package com.baidu.n;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class d {
-    private boolean oKI;
-    private int oKJ;
+    private boolean oUP;
+    private int oUQ;
 
-    public d Ak(boolean z) {
-        this.oKI = z;
+    public d AD(boolean z) {
+        this.oUP = z;
         return this;
     }
 
-    public d MU(int i) {
-        this.oKJ = i;
+    public d Nq(int i) {
+        this.oUQ = i;
         return this;
     }
 }

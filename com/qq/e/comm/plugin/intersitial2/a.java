@@ -16,14 +16,14 @@ import com.qq.e.comm.util.GDTLogger;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class a implements ADListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12101a = a.class.getSimpleName();
+    private static final String f12103a = a.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private final UnifiedInterstitialADListener f12102b;
+    private final UnifiedInterstitialADListener f12104b;
     private final e c;
     private NativeExpressADView d;
     private AdData e;
@@ -32,7 +32,7 @@ class a implements ADListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(e eVar, UnifiedInterstitialADListener unifiedInterstitialADListener, String str, e.a aVar) {
         this.c = eVar;
-        this.f12102b = unifiedInterstitialADListener;
+        this.f12104b = unifiedInterstitialADListener;
         this.f = aVar;
     }
 
@@ -49,14 +49,14 @@ class a implements ADListener {
         w.a(new Runnable() { // from class: com.qq.e.comm.plugin.intersitial2.a.1
             @Override // java.lang.Runnable
             public void run() {
-                ai.b(a.f12101a, "onADEvent ( %d )", Integer.valueOf(aDEvent.getType()));
+                ai.b(a.f12103a, "onADEvent ( %d )", Integer.valueOf(aDEvent.getType()));
                 switch (aDEvent.getType()) {
                     case 1:
                         if (aDEvent.getParas().length != 1 || !(aDEvent.getParas()[0] instanceof Integer)) {
                             GDTLogger.e("AdEvent.Params error for UnifiedBannerView(" + aDEvent + ")");
                             return;
                         }
-                        a.this.f12102b.onNoAD(ag.a(((Integer) aDEvent.getParas()[0]).intValue()));
+                        a.this.f12104b.onNoAD(ag.a(((Integer) aDEvent.getParas()[0]).intValue()));
                         if (a.this.f != null) {
                             a.this.f.a(false);
                             return;
@@ -83,8 +83,8 @@ class a implements ADListener {
                                 a.this.e = null;
                             }
                             a.this.e = (AdData) aDEvent.getParas()[0];
-                            if (a.this.f12102b != null) {
-                                a.this.f12102b.onADReceive();
+                            if (a.this.f12104b != null) {
+                                a.this.f12104b.onADReceive();
                             }
                             if (a.this.f != null) {
                                 a.this.f.a(true);
@@ -97,10 +97,10 @@ class a implements ADListener {
                             a.this.d.destroy();
                             a.this.d = null;
                         }
-                        a.this.f12102b.onNoAD(ag.a(5007));
+                        a.this.f12104b.onNoAD(ag.a(5007));
                         return;
                     case 4:
-                        a.this.f12102b.onADReceive();
+                        a.this.f12104b.onADReceive();
                         if (a.this.f != null) {
                             a.this.f.a(true);
                             return;
@@ -108,7 +108,7 @@ class a implements ADListener {
                         return;
                     case 5:
                         if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                            a.this.f12102b.onADExposure();
+                            a.this.f12104b.onADExposure();
                         } else {
                             GDTLogger.e("ADEvent.Params error for UnifiedBannerView(" + aDEvent + ")");
                         }
@@ -132,7 +132,7 @@ class a implements ADListener {
                                 e2.printStackTrace();
                             }
                         }
-                        a.this.f12102b.onADClicked();
+                        a.this.f12104b.onADClicked();
                         return;
                     case 7:
                         if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
@@ -144,7 +144,7 @@ class a implements ADListener {
                         }
                     case 8:
                         if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                            a.this.f12102b.onADLeftApplication();
+                            a.this.f12104b.onADLeftApplication();
                             return;
                         } else {
                             GDTLogger.e("ADEvent.Params error for UnifiedBannerView(" + aDEvent + ")");
@@ -170,7 +170,7 @@ class a implements ADListener {
                         return;
                     case 21:
                         if (SDKStatus.getSDKVersionCode() >= 60) {
-                            a.this.f12102b.onVideoCached();
+                            a.this.f12104b.onVideoCached();
                             return;
                         }
                         return;

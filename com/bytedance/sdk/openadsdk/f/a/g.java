@@ -16,14 +16,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class g implements v.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final h f7118a;
+    private final h f7120a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final t f7119b;
+    private final t f7121b;
     private final Map<String, b> c = new HashMap();
     private final Map<String, d.b> d = new HashMap();
     private final List<p> e = new ArrayList();
@@ -36,10 +36,10 @@ class g implements v.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(@NonNull j jVar, @NonNull com.bytedance.sdk.openadsdk.f.a.a aVar, @Nullable u uVar) {
         this.j = aVar;
-        this.f7118a = jVar.d;
-        this.f7119b = new t(uVar, jVar.l, jVar.m);
-        this.f7119b.a(this);
-        this.f7119b.a(jVar.p);
+        this.f7120a = jVar.d;
+        this.f7121b = new t(uVar, jVar.l, jVar.m);
+        this.f7121b.a(this);
+        this.f7121b.a(jVar.p);
         this.g = jVar.i;
         this.h = jVar.h;
         this.i = jVar.o;
@@ -52,11 +52,11 @@ class g implements v.a {
         b bVar = this.c.get(pVar.d);
         if (bVar != null) {
             try {
-                w b2 = b(fVar.f7117b, bVar);
+                w b2 = b(fVar.f7119b, bVar);
                 fVar.d = b2;
                 if (b2 == null) {
                     if (this.g != null) {
-                        this.g.a(fVar.f7117b, pVar.d, 1);
+                        this.g.a(fVar.f7119b, pVar.d, 1);
                     }
                     i.a("Permission denied, call: " + pVar);
                     throw new r(-1);
@@ -77,7 +77,7 @@ class g implements v.a {
         if (bVar2 != null) {
             d a2 = bVar2.a();
             a2.a(pVar.d);
-            w b3 = b(fVar.f7117b, a2);
+            w b3 = b(fVar.f7119b, a2);
             fVar.d = b3;
             if (b3 == null) {
                 i.a("Permission denied, call: " + pVar);
@@ -88,7 +88,7 @@ class g implements v.a {
             return a(pVar, a2, fVar);
         }
         if (this.g != null) {
-            this.g.a(fVar.f7117b, pVar.d, 2);
+            this.g.a(fVar.f7119b, pVar.d, 2);
         }
         i.b("Received call: " + pVar + ", but not registered.");
         return null;
@@ -110,7 +110,7 @@ class g implements v.a {
     @NonNull
     @MainThread
     private a a(@NonNull p pVar, @NonNull e eVar, @NonNull f fVar) throws Exception {
-        return new a(true, x.a(this.f7118a.a((h) eVar.a(a(pVar.e, (b) eVar), fVar))));
+        return new a(true, x.a(this.f7120a.a((h) eVar.a(a(pVar.e, (b) eVar), fVar))));
     }
 
     @NonNull
@@ -121,7 +121,7 @@ class g implements v.a {
             @Override // com.bytedance.sdk.openadsdk.f.a.d.a
             public void a(@Nullable Object obj) {
                 if (g.this.j != null) {
-                    g.this.j.b(x.a(g.this.f7118a.a((h) obj)), pVar);
+                    g.this.j.b(x.a(g.this.f7120a.a((h) obj)), pVar);
                     g.this.f.remove(dVar);
                 }
             }
@@ -146,11 +146,11 @@ class g implements v.a {
     }
 
     private Object a(String str, b bVar) throws JSONException {
-        return this.f7118a.a(str, a(bVar)[0]);
+        return this.f7120a.a(str, a(bVar)[0]);
     }
 
     private w b(String str, b bVar) {
-        return this.i ? w.PRIVATE : this.f7119b.a(this.h, str, bVar);
+        return this.i ? w.PRIVATE : this.f7121b.a(this.h, str, bVar);
     }
 
     @NonNull
@@ -163,18 +163,18 @@ class g implements v.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f7124a;
+        boolean f7126a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f7125b;
+        String f7127b;
 
         private a(boolean z, @NonNull String str) {
-            this.f7124a = z;
-            this.f7125b = str;
+            this.f7126a = z;
+            this.f7127b = str;
         }
     }
 }

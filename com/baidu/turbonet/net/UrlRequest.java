@@ -12,23 +12,23 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface UrlRequest {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class StatusListener {
         public abstract void onStatus(int i);
     }
 
-    void Mq(int i);
+    void MM(int i);
 
-    void Mr(int i);
+    void MN(int i);
 
-    void Ms(int i);
+    void MO(int i);
 
-    void VN(String str);
+    void WM(String str);
 
-    void VO(String str);
+    void WN(String str);
 
     void a(UploadDataProvider uploadDataProvider, Executor executor);
 
@@ -36,9 +36,9 @@ public interface UrlRequest {
 
     void cancel();
 
-    void edL();
+    void egd();
 
-    void edM();
+    void ege();
 
     void followRedirect();
 
@@ -54,33 +54,33 @@ public interface UrlRequest {
 
     void start();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         boolean mDisableCache;
         boolean mDisableConnectionMigration;
         final Executor mExecutor;
         String mMethod;
         Object mTag;
+        int mTimeout;
         Executor mUploadDataProviderExecutor;
         final String mUrl;
-        boolean oFB;
-        boolean oFD;
-        int oFE;
-        int oFF;
-        int oFG;
-        int oFH;
-        String oFI;
-        String oFJ;
-        final Callback oFm;
-        final TurbonetEngine oGB;
-        UploadDataProvider oHf;
-        boolean oHg;
+        boolean oPK;
+        boolean oPM;
+        int oPN;
+        int oPO;
+        int oPP;
+        String oPQ;
+        String oPR;
+        final Callback oPv;
+        final TurbonetEngine oQJ;
+        UploadDataProvider oRn;
+        boolean oRo;
         final ArrayList<Pair<String, String>> mRequestHeaders = new ArrayList<>();
         int mPriority = 3;
         Collection<Object> mRequestAnnotations = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public @interface RequestPriority {
         }
 
@@ -98,21 +98,21 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.oFm = callback;
+            this.oPv = callback;
             this.mExecutor = executor;
-            this.oGB = turbonetEngine;
-            this.oHg = false;
-            this.oFD = false;
-            this.oFE = 0;
-            this.oFF = 0;
-            this.oFG = 0;
-            this.oFH = 0;
+            this.oQJ = turbonetEngine;
+            this.oRo = false;
+            this.oPM = false;
+            this.mTimeout = 0;
+            this.oPN = 0;
+            this.oPO = 0;
+            this.oPP = 0;
             this.mTag = null;
-            this.oFI = null;
-            this.oFJ = null;
+            this.oPQ = null;
+            this.oPR = null;
         }
 
-        public Builder VY(String str) {
+        public Builder WX(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
@@ -120,7 +120,7 @@ public interface UrlRequest {
             return this;
         }
 
-        public Builder gS(String str, String str2) {
+        public Builder gZ(String str, String str2) {
             if (str == null) {
                 throw new NullPointerException("Invalid header name.");
             }
@@ -135,43 +135,43 @@ public interface UrlRequest {
             return this;
         }
 
-        public Builder eew() {
+        public Builder egO() {
             this.mDisableCache = true;
             return this;
         }
 
-        public Builder eex() {
-            this.oHg = true;
+        public Builder egP() {
+            this.oRo = true;
             return this;
         }
 
-        public Builder eey() {
-            this.oFB = true;
+        public Builder egQ() {
+            this.oPK = true;
             return this;
         }
 
-        public Builder MC(int i) {
-            this.oFE = i;
+        public Builder MY(int i) {
+            this.mTimeout = i;
             return this;
         }
 
-        public Builder MD(int i) {
-            this.oFF = i;
+        public Builder MZ(int i) {
+            this.oPN = i;
             return this;
         }
 
-        public Builder ME(int i) {
-            this.oFG = i;
+        public Builder Na(int i) {
+            this.oPO = i;
             return this;
         }
 
-        public Builder VZ(String str) {
-            this.oFI = str;
+        public Builder WY(String str) {
+            this.oPQ = str;
             return this;
         }
 
-        public Builder Wa(String str) {
-            this.oFJ = str;
+        public Builder WZ(String str) {
+            this.oPR = str;
             return this;
         }
 
@@ -185,13 +185,13 @@ public interface UrlRequest {
             if (this.mMethod == null) {
                 this.mMethod = "POST";
             }
-            this.oHf = uploadDataProvider;
+            this.oRn = uploadDataProvider;
             this.mUploadDataProviderExecutor = executor;
             return this;
         }
 
-        public UrlRequest eez() {
-            UrlRequest a2 = this.oGB.a(this.mUrl, this.oFm, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oFB);
+        public UrlRequest egR() {
+            UrlRequest a2 = this.oQJ.a(this.mUrl, this.oPv, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oPK);
             if (this.mMethod != null) {
                 a2.setHttpMethod(this.mMethod);
             }
@@ -200,41 +200,41 @@ public interface UrlRequest {
                 Pair<String, String> next = it.next();
                 a2.addHeader((String) next.first, (String) next.second);
             }
-            if (this.oHf != null) {
-                a2.a(this.oHf, this.mUploadDataProviderExecutor);
+            if (this.oRn != null) {
+                a2.a(this.oRn, this.mUploadDataProviderExecutor);
             }
-            if (this.oHg) {
-                a2.edL();
+            if (this.oRo) {
+                a2.egd();
             }
-            if (this.oFD) {
-                a2.edM();
+            if (this.oPM) {
+                a2.ege();
             }
-            if (this.oFE > 0) {
-                a2.setTimeout(this.oFE);
+            if (this.mTimeout > 0) {
+                a2.setTimeout(this.mTimeout);
             }
-            if (this.oFF > 0) {
-                a2.Mq(this.oFF);
+            if (this.oPN > 0) {
+                a2.MM(this.oPN);
             }
-            if (this.oFG > 0) {
-                a2.Mr(this.oFG);
+            if (this.oPO > 0) {
+                a2.MN(this.oPO);
             }
-            if (this.oFH > 0) {
-                a2.Ms(this.oFH);
+            if (this.oPP > 0) {
+                a2.MO(this.oPP);
             }
             if (this.mTag != null) {
                 a2.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.oFI)) {
-                a2.VN(this.oFI);
+            if (!TextUtils.isEmpty(this.oPQ)) {
+                a2.WM(this.oPQ);
             }
-            if (!TextUtils.isEmpty(this.oFJ)) {
-                a2.VO(this.oFJ);
+            if (!TextUtils.isEmpty(this.oPR)) {
+                a2.WN(this.oPR);
             }
             return a2;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Callback {
         public abstract void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) throws Exception;
 
@@ -250,12 +250,12 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Status {
         static final /* synthetic */ boolean $assertionsDisabled;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public @interface StatusValues {
         }
 
@@ -267,7 +267,7 @@ public interface UrlRequest {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static int MF(int i) {
+        public static int Nb(int i) {
             if ($assertionsDisabled || (i >= 0 && i <= 15)) {
                 switch (i) {
                     case 0:

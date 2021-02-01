@@ -13,10 +13,10 @@ import com.xiaomi.push.iw;
 public class af extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f13800a;
+    private Context f13802a;
 
     public af(Context context) {
-        this.f13800a = context;
+        this.f13802a = context;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -27,13 +27,13 @@ public class af extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.xiaomi.push.service.ak a2 = com.xiaomi.push.service.ak.a(this.f13800a);
+        com.xiaomi.push.service.ak a2 = com.xiaomi.push.service.ak.a(this.f13802a);
         ie ieVar = new ie();
         ieVar.a(com.xiaomi.push.service.al.a(a2, hs.MISC_CONFIG));
         ieVar.b(com.xiaomi.push.service.al.a(a2, hs.PLUGIN_CONFIG));
         il ilVar = new il("-1", false);
         ilVar.c(hw.DailyCheckClientConfig.f555a);
         ilVar.a(iw.a(ieVar));
-        aq.a(this.f13800a).a((aq) ilVar, hm.Notification, (hz) null);
+        aq.a(this.f13802a).a((aq) ilVar, hm.Notification, (hz) null);
     }
 }

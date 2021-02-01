@@ -1,6 +1,5 @@
 package okhttp3;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.lang.ref.Reference;
 import java.net.Socket;
@@ -19,7 +18,7 @@ import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.RouteDatabase;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class ConnectionPool {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final Executor executor;
@@ -32,7 +31,7 @@ public final class ConnectionPool {
 
     static {
         $assertionsDisabled = !ConnectionPool.class.desiredAssertionStatus();
-        executor = new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp ConnectionPool", true));
+        executor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp ConnectionPool", true));
     }
 
     public ConnectionPool() {

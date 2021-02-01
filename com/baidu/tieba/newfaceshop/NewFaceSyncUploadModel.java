@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NewFaceSyncUploadModel extends FaceBaseModel {
     public NewFaceSyncUploadModel() {
         registerTask();
@@ -18,13 +18,13 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Ob(String str) {
+    public void OQ(String str) {
         long currentTimeMillis = System.currentTimeMillis();
         HttpMessage httpMessage = new HttpMessage(1003350);
         httpMessage.addParam("package_ids", str);
         httpMessage.addParam("pkg_update_time", currentTimeMillis);
         sendMessage(httpMessage);
-        d.hj(currentTimeMillis);
+        d.ho(currentTimeMillis);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -1,9 +1,11 @@
 package com.baidu.tieba.ala.liveroom.activeview;
-/* loaded from: classes10.dex */
-public interface d {
-    void onStart();
 
-    void onStop();
+import androidx.viewpager.widget.PagerAdapter;
+/* loaded from: classes11.dex */
+public interface d {
+    void XU();
 
     void release();
+
+    void setAdapter(PagerAdapter pagerAdapter);
 }

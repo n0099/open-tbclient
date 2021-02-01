@@ -13,7 +13,7 @@ import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Adapter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     public static final int INVALID_POSITION = -1;
     public static final long INVALID_ROW_ID = Long.MIN_VALUE;
@@ -49,17 +49,17 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     int mSyncPosition;
     long mSyncRowId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface d {
         boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface e {
         void onItemSelected(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
 
@@ -149,7 +149,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         return this.mOnItemSelectedListener;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a implements ContextMenu.ContextMenuInfo {
         public long id;
         public int position;
@@ -325,9 +325,9 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         dispatchThawSelfOnly(sparseArray);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     class b extends DataSetObserver {
-        private Parcelable bEs = null;
+        private Parcelable bIc = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -335,13 +335,13 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
-            com.huewu.pla.lib.a.YP("data changed by onChanged()");
+            com.huewu.pla.lib.a.ZQ("data changed by onChanged()");
             PLA_AdapterView.this.mDataChanged = true;
             PLA_AdapterView.this.mOldItemCount = PLA_AdapterView.this.mItemCount;
             PLA_AdapterView.this.mItemCount = PLA_AdapterView.this.getAdapter().getCount();
-            if (PLA_AdapterView.this.getAdapter().hasStableIds() && this.bEs != null && PLA_AdapterView.this.mOldItemCount == 0 && PLA_AdapterView.this.mItemCount > 0) {
-                PLA_AdapterView.this.onRestoreInstanceState(this.bEs);
-                this.bEs = null;
+            if (PLA_AdapterView.this.getAdapter().hasStableIds() && this.bIc != null && PLA_AdapterView.this.mOldItemCount == 0 && PLA_AdapterView.this.mItemCount > 0) {
+                PLA_AdapterView.this.onRestoreInstanceState(this.bIc);
+                this.bIc = null;
             } else {
                 PLA_AdapterView.this.rememberSyncState();
             }
@@ -350,10 +350,10 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
         @Override // android.database.DataSetObserver
         public void onInvalidated() {
-            com.huewu.pla.lib.a.YP("data changed by onInvalidated()");
+            com.huewu.pla.lib.a.ZQ("data changed by onInvalidated()");
             PLA_AdapterView.this.mDataChanged = true;
             if (PLA_AdapterView.this.getAdapter().hasStableIds()) {
-                this.bEs = PLA_AdapterView.this.onSaveInstanceState();
+                this.bIc = PLA_AdapterView.this.onSaveInstanceState();
             }
             PLA_AdapterView.this.mOldItemCount = PLA_AdapterView.this.mItemCount;
             PLA_AdapterView.this.mItemCount = 0;
@@ -372,7 +372,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class f implements Runnable {
         private f() {
         }

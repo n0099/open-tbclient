@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.load.engine.Resource;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 final class NonOwnedDrawableResource extends DrawableResource<Drawable> {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable

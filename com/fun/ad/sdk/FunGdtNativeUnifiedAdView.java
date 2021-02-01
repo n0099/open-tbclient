@@ -3,7 +3,7 @@ package com.fun.ad.sdk;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class FunGdtNativeUnifiedAdView extends NativeAdContainer {
     public FunGdtNativeUnifiedAdView(Context context) {
         super(context);

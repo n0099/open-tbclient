@@ -17,38 +17,38 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
     private final Map<h, com.ss.android.socialbase.downloader.d.b> d;
     private final SparseArray<h> e;
     private final SparseArray<com.ss.android.socialbase.downloader.d.b> f;
     private final SparseArray<com.ss.android.socialbase.downloader.d.b> g;
     private final SparseArray<com.ss.android.socialbase.downloader.d.b> h;
-    private c pRd;
-    private com.ss.android.socialbase.downloader.downloader.h pVR;
-    private i pVS;
-    private com.ss.android.socialbase.downloader.d.d pVT;
-    private an pVU;
-    private ad pVV;
-    private com.ss.android.socialbase.downloader.d.c pVW;
-    private c.a pVX;
-    private al pVY;
-    private af pVZ;
-    private s pWa;
-    private r pWb;
-    private ah pWc;
-    private ab pWd;
+    private c qbh;
+    private com.ss.android.socialbase.downloader.downloader.h qfV;
+    private i qfW;
+    private com.ss.android.socialbase.downloader.d.d qfX;
+    private an qfY;
+    private ad qfZ;
+    private com.ss.android.socialbase.downloader.d.c qga;
+    private c.a qgb;
+    private al qgc;
+    private af qgd;
+    private s qge;
+    private r qgf;
+    private ah qgg;
+    private ab qgh;
     private boolean r;
 
     public c a() {
-        return this.pRd;
+        return this.qbh;
     }
 
     public d() {
         this.d = new ConcurrentHashMap();
         this.e = new SparseArray<>();
         this.r = false;
-        this.pVX = new c.a();
+        this.qgb = new c.a();
         this.f = new SparseArray<>();
         this.g = new SparseArray<>();
         this.h = new SparseArray<>();
@@ -56,7 +56,7 @@ public class d {
 
     public d(c cVar) {
         this();
-        this.pRd = cVar;
+        this.qbh = cVar;
     }
 
     public boolean b() {
@@ -67,65 +67,65 @@ public class d {
         this.r = z;
     }
 
-    public an eFJ() {
-        return this.pVU;
+    public an eIa() {
+        return this.qfY;
     }
 
-    public ad eFK() {
-        return this.pVV;
+    public ad eIb() {
+        return this.qfZ;
     }
 
-    public com.ss.android.socialbase.downloader.d.c eFL() {
-        return this.pVW;
+    public com.ss.android.socialbase.downloader.d.c eIc() {
+        return this.qga;
     }
 
-    public i eFM() {
-        return this.pVS;
+    public i eId() {
+        return this.qfW;
     }
 
-    public s eFN() {
-        return this.pWa;
+    public s eIe() {
+        return this.qge;
     }
 
-    public al eFO() {
-        return this.pVY;
+    public al eIf() {
+        return this.qgc;
     }
 
-    public af eFP() {
-        return this.pVZ;
+    public af eIg() {
+        return this.qgd;
     }
 
-    public com.ss.android.socialbase.downloader.d.d eFQ() {
-        return this.pVT;
+    public com.ss.android.socialbase.downloader.d.d eIh() {
+        return this.qfX;
     }
 
-    public r eFR() {
-        return this.pWb;
+    public r eIi() {
+        return this.qgf;
     }
 
-    public ah eFS() {
-        return this.pWc;
+    public ah eIj() {
+        return this.qgg;
     }
 
     public boolean m() {
-        if (this.pRd != null) {
-            return this.pRd.eEN();
+        if (this.qbh != null) {
+            return this.qbh.eHe();
         }
         return false;
     }
 
     public d c(i iVar) {
-        this.pVS = iVar;
+        this.qfW = iVar;
         return this;
     }
 
     public d d(com.ss.android.socialbase.downloader.downloader.h hVar) {
-        this.pVR = hVar;
+        this.qfV = hVar;
         return this;
     }
 
     public d a(s sVar) {
-        this.pWa = sVar;
+        this.qge = sVar;
         return this;
     }
 
@@ -177,237 +177,237 @@ public class d {
     }
 
     public d a(com.ss.android.socialbase.downloader.d.d dVar) {
-        this.pVT = dVar;
+        this.qfX = dVar;
         return this;
     }
 
     public d a(an anVar) {
-        this.pVU = anVar;
+        this.qfY = anVar;
         return this;
     }
 
     public d a(ad adVar) {
-        this.pVV = adVar;
+        this.qfZ = adVar;
         return this;
     }
 
     public d a(com.ss.android.socialbase.downloader.d.c cVar) {
-        this.pVW = cVar;
+        this.qga = cVar;
         return this;
     }
 
     public d c(r rVar) {
-        this.pWb = rVar;
+        this.qgf = rVar;
         return this;
     }
 
     public d a(al alVar) {
-        this.pVY = alVar;
+        this.qgc = alVar;
         return this;
     }
 
     public d b(af afVar) {
-        this.pVZ = afVar;
+        this.qgd = afVar;
         return this;
     }
 
-    public d aaj(String str) {
-        this.pVX.ZZ(str);
+    public d abk(String str) {
+        this.qgb.aba(str);
         return this;
     }
 
-    public d aak(String str) {
-        this.pVX.aaa(str);
+    public d abl(String str) {
+        this.qgb.abb(str);
         return this;
     }
 
-    public d aal(String str) {
-        this.pVX.aab(str);
+    public d abm(String str) {
+        this.qgb.abc(str);
         return this;
     }
 
-    public d aam(String str) {
-        this.pVX.aac(str);
+    public d abn(String str) {
+        this.qgb.abd(str);
         return this;
     }
 
-    public d aan(String str) {
-        this.pVX.aad(str);
+    public d abo(String str) {
+        this.qgb.abe(str);
         return this;
     }
 
-    public d Ch(boolean z) {
-        this.pVX.BU(z);
+    public d CB(boolean z) {
+        this.qgb.Co(z);
         return this;
     }
 
-    public d hb(List<e> list) {
-        this.pVX.gZ(list);
+    public d gZ(List<e> list) {
+        this.qgb.gX(list);
         return this;
     }
 
-    public d Rn(int i) {
-        this.pVX.Ri(i);
+    public d RI(int i) {
+        this.qgb.RD(i);
         return this;
     }
 
-    public d Ro(int i) {
-        this.pVX.Rj(i);
+    public d RJ(int i) {
+        this.qgb.RE(i);
         return this;
     }
 
-    public d Ci(boolean z) {
-        this.pVX.BV(z);
+    public d CC(boolean z) {
+        this.qgb.Cp(z);
         return this;
     }
 
-    public d Rp(int i) {
-        this.pVX.Rk(i);
+    public d RK(int i) {
+        this.qgb.RF(i);
         return this;
     }
 
-    public d Rq(int i) {
-        this.pVX.Rl(i);
+    public d RL(int i) {
+        this.qgb.RG(i);
         return this;
     }
 
-    public d hc(List<String> list) {
-        this.pVX.ha(list);
+    public d ha(List<String> list) {
+        this.qgb.gY(list);
         return this;
     }
 
-    public d aao(String str) {
-        this.pVX.aae(str);
+    public d abp(String str) {
+        this.qgb.abf(str);
         return this;
     }
 
-    public d Cj(boolean z) {
-        this.pVX.BX(z);
+    public d CD(boolean z) {
+        this.qgb.Cr(z);
         return this;
     }
 
-    public d Ck(boolean z) {
-        this.pVX.BW(z);
+    public d CE(boolean z) {
+        this.qgb.Cq(z);
         return this;
     }
 
-    public d Cl(boolean z) {
-        this.pVX.BY(z);
+    public d CF(boolean z) {
+        this.qgb.Cs(z);
         return this;
     }
 
-    public d Cm(boolean z) {
-        this.pVX.BZ(z);
+    public d CG(boolean z) {
+        this.qgb.Ct(z);
         return this;
     }
 
-    public d aap(String str) {
-        this.pVX.aaf(str);
+    public d abq(String str) {
+        this.qgb.abg(str);
         return this;
     }
 
-    public d aaq(String str) {
-        this.pVX.aag(str);
+    public d abr(String str) {
+        this.qgb.abh(str);
         return this;
     }
 
-    public d jo(long j) {
-        this.pVX.jm(j);
+    public d jr(long j) {
+        this.qgb.jp(j);
         return this;
     }
 
-    public d Cn(boolean z) {
-        this.pVX.Cc(z);
+    public d CH(boolean z) {
+        this.qgb.Cw(z);
         return this;
     }
 
-    public d aar(String str) {
-        this.pVX.aah(str);
+    public d abs(String str) {
+        this.qgb.abi(str);
         return this;
     }
 
-    public d Co(boolean z) {
-        this.pVX.Ca(z);
+    public d CI(boolean z) {
+        this.qgb.Cu(z);
         return this;
     }
 
-    public d Cp(boolean z) {
-        this.pVX.Cd(z);
+    public d CJ(boolean z) {
+        this.qgb.Cx(z);
         return this;
     }
 
-    public d Cq(boolean z) {
-        this.pVX.Cg(z);
+    public d CK(boolean z) {
+        this.qgb.CA(z);
         return this;
     }
 
-    public d Cr(boolean z) {
-        this.pVX.Cb(z);
+    public d CL(boolean z) {
+        this.qgb.Cv(z);
         return this;
     }
 
-    public d Cs(boolean z) {
-        this.pVX.Ce(z);
+    public d CM(boolean z) {
+        this.qgb.Cy(z);
         return this;
     }
 
     public d c(g gVar) {
-        this.pVX.b(gVar);
+        this.qgb.b(gVar);
         return this;
     }
 
-    public d Ct(boolean z) {
-        this.pVX.Cf(z);
+    public d CN(boolean z) {
+        this.qgb.Cz(z);
         return this;
     }
 
     public d b(ah ahVar) {
-        this.pWc = ahVar;
+        this.qgg = ahVar;
         return this;
     }
 
-    public d fk(JSONObject jSONObject) {
-        this.pVX.fj(jSONObject);
+    public d fl(JSONObject jSONObject) {
+        this.qgb.fk(jSONObject);
         return this;
     }
 
-    public d aas(String str) {
-        this.pVX.aai(str);
+    public d abt(String str) {
+        this.qgb.abj(str);
         return this;
     }
 
-    public d Rr(int i) {
-        this.pVX.Rm(i);
+    public d RM(int i) {
+        this.qgb.RH(i);
         return this;
     }
 
-    public d jp(long j) {
-        this.pVX.jn(j);
+    public d js(long j) {
+        this.qgb.jq(j);
         return this;
     }
 
     public int n() {
-        this.pRd = this.pVX.a();
+        this.qbh = this.qgb.a();
         s();
-        com.ss.android.socialbase.downloader.downloader.c.eEh().a(this);
-        if (this.pRd == null) {
+        com.ss.android.socialbase.downloader.downloader.c.eGy().a(this);
+        if (this.qbh == null) {
             return 0;
         }
-        return this.pRd.g();
+        return this.qbh.g();
     }
 
     public int o() {
-        if (this.pRd == null) {
+        if (this.qbh == null) {
             return 0;
         }
-        return this.pRd.g();
+        return this.qbh.g();
     }
 
     public void p() {
         com.ss.android.socialbase.downloader.f.a.b("DownloadTask", "same task just tryDownloading, so add listener in last task instead of tryDownload");
         a(h.MAIN);
         a(h.SUB);
-        com.ss.android.socialbase.downloader.h.a.a(this.pVW, this.pRd, new com.ss.android.socialbase.downloader.e.a(1003, "has another same task, add Listener to old task"), 0);
+        com.ss.android.socialbase.downloader.h.a.a(this.qga, this.qbh, new com.ss.android.socialbase.downloader.e.a(1003, "has another same task, add Listener to old task"), 0);
     }
 
     private void a(h hVar) {
@@ -416,7 +416,7 @@ public class d {
             for (int i = 0; i < b2.size(); i++) {
                 com.ss.android.socialbase.downloader.d.b bVar = b2.get(b2.keyAt(i));
                 if (bVar != null) {
-                    com.ss.android.socialbase.downloader.downloader.c.eEh().b(o(), bVar, hVar, false);
+                    com.ss.android.socialbase.downloader.downloader.c.eGy().b(o(), bVar, hVar, false);
                 }
             }
         }
@@ -557,16 +557,16 @@ public class d {
     }
 
     public void b(com.ss.android.socialbase.downloader.d.d dVar) {
-        this.pVT = dVar;
+        this.qfX = dVar;
     }
 
-    public com.ss.android.socialbase.downloader.downloader.h eFT() {
-        return this.pVR;
+    public com.ss.android.socialbase.downloader.downloader.h eIk() {
+        return this.qfV;
     }
 
     public void a(d dVar) {
-        this.pVR = dVar.pVR;
-        this.pVS = dVar.pVS;
+        this.qfV = dVar.qfV;
+        this.qfW = dVar.qfW;
         this.d.clear();
         this.d.putAll(dVar.d);
         synchronized (this.f) {
@@ -581,16 +581,16 @@ public class d {
             this.h.clear();
             d(dVar.h, this.h);
         }
-        this.pVT = dVar.pVT;
-        this.pVU = dVar.pVU;
-        this.pVV = dVar.pVV;
-        this.pVW = dVar.pVW;
-        this.pVY = dVar.pVY;
-        this.pVZ = dVar.pVZ;
-        this.pWa = dVar.pWa;
-        this.pWb = dVar.pWb;
-        this.pWc = dVar.pWc;
-        this.pWd = dVar.pWd;
+        this.qfX = dVar.qfX;
+        this.qfY = dVar.qfY;
+        this.qfZ = dVar.qfZ;
+        this.qga = dVar.qga;
+        this.qgc = dVar.qgc;
+        this.qgd = dVar.qgd;
+        this.qge = dVar.qge;
+        this.qgf = dVar.qgf;
+        this.qgg = dVar.qgg;
+        this.qgh = dVar.qgh;
     }
 
     public void b(d dVar) {
@@ -643,16 +643,16 @@ public class d {
     }
 
     public d d(ab abVar) {
-        this.pWd = abVar;
+        this.qgh = abVar;
         return this;
     }
 
-    public ab eFU() {
-        return this.pWd;
+    public ab eIl() {
+        return this.qgh;
     }
 
     private void s() {
-        if (this.pRd.eFI() > 0) {
+        if (this.qbh.eHZ() > 0) {
             c(new i() { // from class: com.ss.android.socialbase.downloader.g.d.1
                 @Override // com.ss.android.socialbase.downloader.downloader.i
                 public int a(long j) {

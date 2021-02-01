@@ -9,27 +9,27 @@ import com.baidu.live.adp.framework.task.HttpMessageTask;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaApplyWheatHttpResponseMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a ozU;
+    private a oJB;
     private HttpMessageListener messageListener = new HttpMessageListener(1031007) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaApplyWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == d.this.brL && d.this.ozU != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaApplyWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == d.this.aCW && d.this.oJB != null) {
                 AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage = (AlaApplyWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaApplyWheatHttpResponseMessage.getError() != 0 || !alaApplyWheatHttpResponseMessage.isSuccess()) {
-                    d.this.ozU.c(alaApplyWheatHttpResponseMessage);
+                    d.this.oJB.c(alaApplyWheatHttpResponseMessage);
                 } else {
-                    d.this.ozU.b(alaApplyWheatHttpResponseMessage);
+                    d.this.oJB.b(alaApplyWheatHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId brL = BdUniqueId.gen();
+    private BdUniqueId aCW = BdUniqueId.gen();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void b(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage);
 
@@ -37,15 +37,15 @@ public class d extends BdBaseModel {
     }
 
     public d(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.brL);
+        setUniqueId(this.aCW);
         this.mPageContext = tbPageContext;
-        this.ozU = aVar;
-        bim();
+        this.oJB = aVar;
+        zH();
         registerListener(this.messageListener);
     }
 
-    private void bim() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031007, com.baidu.live.a.avU + "ala/audio/link/apply");
+    private void zH() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031007, com.baidu.live.a.avJ + "ala/audio/link/apply");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
@@ -53,8 +53,8 @@ public class d extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void K(String str, String str2, String str3, String str4) {
-        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.c(str, str2, str3, str4));
+    public void a(String str, String str2, String str3, long j, long j2, String str4) {
+        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.c(str, str2, str3, j, j2, str4));
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel

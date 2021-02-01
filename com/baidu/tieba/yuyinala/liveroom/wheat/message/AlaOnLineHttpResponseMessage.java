@@ -2,10 +2,10 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaOnLineHttpResponseMessage extends BaseJsonHttpResponsedMessage {
-    private int ozo;
-    private int ozv;
+    private int oIW;
+    private int oJd;
 
     public AlaOnLineHttpResponseMessage() {
         super(1031036);
@@ -16,12 +16,12 @@ public class AlaOnLineHttpResponseMessage extends BaseJsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031036 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ozo = optJSONObject.optInt("online");
-            this.ozv = optJSONObject.optInt(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY);
+            this.oIW = optJSONObject.optInt("online");
+            this.oJd = optJSONObject.optInt(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY);
         }
     }
 
     public boolean isOnline() {
-        return this.ozo == 1;
+        return this.oIW == 1;
     }
 }

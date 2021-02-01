@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.u.a;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.swan.apps.process.a.a.a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static Map<String, com.baidu.swan.apps.ao.e.b<Bundle>> mCallbackMap = new com.baidu.swan.support.v4.b.a();
@@ -23,7 +23,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                 b.this.mAppId = bundle2.getString("key_launch_app_id");
                 b.this.mStatus = bundle2.getInt("key_launch_status");
                 if (TextUtils.equals(string, b.this.mAppId)) {
-                    b.this.dqL.putInt("ok", b.this.mStatus);
+                    b.this.dsX.putInt("ok", b.this.mStatus);
                     b.this.finish();
                 }
                 b.mCallbackMap.remove(string);
@@ -31,8 +31,8 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         });
     }
 
-    public static void b(final String str, final a.InterfaceC0476a interfaceC0476a) {
-        if (!TextUtils.isEmpty(str) && interfaceC0476a != null) {
+    public static void b(final String str, final a.InterfaceC0473a interfaceC0473a) {
+        if (!TextUtils.isEmpty(str) && interfaceC0473a != null) {
             mCallbackMap.put(str, new com.baidu.swan.apps.ao.e.b<Bundle>() { // from class: com.baidu.swan.apps.u.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
@@ -42,9 +42,9 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                     int i = bundle.getInt("key_launch_status");
                     if (TextUtils.equals(str, string)) {
                         if (i == 0) {
-                            interfaceC0476a.ayg();
+                            interfaceC0473a.ayE();
                         } else {
-                            interfaceC0476a.ayh();
+                            interfaceC0473a.ayF();
                         }
                     }
                     b.mCallbackMap.remove(str);
@@ -53,7 +53,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         }
     }
 
-    public static void og(String str) {
+    public static void oz(String str) {
         com.baidu.swan.apps.ao.e.b<Bundle> bVar = mCallbackMap.get(str);
         if (bVar != null) {
             Bundle bundle = new Bundle();
@@ -63,7 +63,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         }
     }
 
-    public static void oh(String str) {
+    public static void oA(String str) {
         com.baidu.swan.apps.ao.e.b<Bundle> bVar = mCallbackMap.get(str);
         if (bVar != null) {
             Bundle bundle = new Bundle();

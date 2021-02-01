@@ -2,7 +2,7 @@ package com.baidu.android.bbalbs.common.util;
 
 import com.baidu.android.bbalbs.common.util.b;
 import java.util.Comparator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class c implements Comparator<b.a> {
 
     /* renamed from: a  reason: collision with root package name */

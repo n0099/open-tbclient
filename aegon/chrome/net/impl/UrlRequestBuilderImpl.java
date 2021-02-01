@@ -10,7 +10,7 @@ import com.baidubce.http.Headers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UrlRequestBuilderImpl extends ExperimentalUrlRequest.Builder {
     public static final String TAG = "UrlRequestBuilderImpl";
     public boolean mAllowDirectExecutor;

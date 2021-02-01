@@ -1,77 +1,77 @@
 package com.baidu.tieba.gift.myGiftList;
 
-import com.baidu.tbadk.core.data.ai;
+import com.baidu.tbadk.core.data.aj;
 import java.util.ArrayList;
 import tbclient.GetMyGift.DataRes;
 import tbclient.GetMyGift.PresentMyList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private ArrayList<C0740a> giftList;
-    private long jOr;
-    private long jOs;
-    private b jOt;
-    private c jOu;
-    public long jOv;
+    private ArrayList<C0741a> giftList;
+    private long jVT;
+    private long jVU;
+    private b jVV;
+    private c jVW;
+    public long jVX;
     private long sceneId;
-    public ai urlTitleData;
+    public aj urlTitleData;
 
     /* renamed from: com.baidu.tieba.gift.myGiftList.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0740a {
-        public long aUC;
-        public long aUx;
-        public String aUz;
+    /* loaded from: classes9.dex */
+    public static class C0741a {
+        public long aXC;
+        public String aXE;
+        public long aXH;
         public long createTime;
-        public int eLK;
+        public int eNW;
         public String giftName;
-        public int jOA;
-        public String jOw;
-        public long jOx;
-        public long jOy;
-        public String jOz;
+        public String jVY;
+        public long jVZ;
+        public long jWa;
+        public String jWb;
+        public int jWc;
         public String nameShow;
         public String playUrl;
         public String thumbnailUrl;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
-        public int gXH;
-        public int jOB;
-        public int jOC;
+        public int har;
+        public int jWd;
+        public int jWe;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c {
-        public String aEU;
-        public String jOD;
+        public String aHq;
+        public String jWf;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.jOr = dataRes.total_num.intValue();
-            this.jOs = dataRes.money.intValue();
+            this.jVT = dataRes.total_num.intValue();
+            this.jVU = dataRes.money.intValue();
             this.sceneId = dataRes.scene_id.intValue();
-            this.jOv = dataRes.blue_diamond.intValue();
+            this.jVX = dataRes.blue_diamond.intValue();
             if (dataRes.blue_diamond_txt != null) {
-                this.urlTitleData = new ai();
+                this.urlTitleData = new aj();
                 if (dataRes.blue_diamond_txt.txt != null) {
-                    this.urlTitleData.eLL = dataRes.blue_diamond_txt.txt;
+                    this.urlTitleData.eNX = dataRes.blue_diamond_txt.txt;
                 }
                 if (dataRes.blue_diamond_txt.url != null) {
-                    this.urlTitleData.eLM = dataRes.blue_diamond_txt.url;
+                    this.urlTitleData.eNY = dataRes.blue_diamond_txt.url;
                 }
             }
             if (dataRes.page != null) {
-                this.jOt = new b();
-                this.jOt.gXH = dataRes.page.cur_page.intValue();
-                this.jOt.jOB = dataRes.page.has_more.intValue();
-                this.jOt.jOC = dataRes.page.total.intValue();
+                this.jVV = new b();
+                this.jVV.har = dataRes.page.cur_page.intValue();
+                this.jVV.jWd = dataRes.page.has_more.intValue();
+                this.jVV.jWe = dataRes.page.total.intValue();
             }
             if (dataRes.money_txt != null) {
-                this.jOu = new c();
-                this.jOu.jOD = dataRes.money_txt.txt;
-                this.jOu.aEU = dataRes.money_txt.url;
+                this.jVW = new c();
+                this.jVW.jWf = dataRes.money_txt.txt;
+                this.jVW.aHq = dataRes.money_txt.url;
             }
             if (dataRes.gift_list != null && dataRes.gift_list.size() > 0) {
                 this.giftList = new ArrayList<>();
@@ -81,22 +81,22 @@ public class a {
                     if (i2 < dataRes.gift_list.size()) {
                         PresentMyList presentMyList = dataRes.gift_list.get(i2);
                         if (presentMyList != null) {
-                            C0740a c0740a = new C0740a();
-                            c0740a.jOA = i2 + 1;
-                            c0740a.aUx = presentMyList.pay_userid.longValue();
-                            c0740a.aUz = presentMyList.pay_username;
-                            c0740a.jOw = presentMyList.portrait;
-                            c0740a.aUC = presentMyList.gift_id.intValue();
-                            c0740a.giftName = presentMyList.gift_name;
-                            c0740a.playUrl = presentMyList.play_url;
-                            c0740a.thumbnailUrl = presentMyList.thumbnail_url;
-                            c0740a.createTime = presentMyList.create_time.intValue();
-                            c0740a.jOx = presentMyList.num.intValue();
-                            c0740a.eLK = presentMyList.currency_unit.intValue();
-                            c0740a.jOz = presentMyList.currency_type;
-                            c0740a.jOy = presentMyList.present_scores.longValue();
-                            c0740a.nameShow = presentMyList.name_show;
-                            this.giftList.add(c0740a);
+                            C0741a c0741a = new C0741a();
+                            c0741a.jWc = i2 + 1;
+                            c0741a.aXC = presentMyList.pay_userid.longValue();
+                            c0741a.aXE = presentMyList.pay_username;
+                            c0741a.jVY = presentMyList.portrait;
+                            c0741a.aXH = presentMyList.gift_id.intValue();
+                            c0741a.giftName = presentMyList.gift_name;
+                            c0741a.playUrl = presentMyList.play_url;
+                            c0741a.thumbnailUrl = presentMyList.thumbnail_url;
+                            c0741a.createTime = presentMyList.create_time.intValue();
+                            c0741a.jVZ = presentMyList.num.intValue();
+                            c0741a.eNW = presentMyList.currency_unit.intValue();
+                            c0741a.jWb = presentMyList.currency_type;
+                            c0741a.jWa = presentMyList.present_scores.longValue();
+                            c0741a.nameShow = presentMyList.name_show;
+                            this.giftList.add(c0741a);
                         }
                         i = i2 + 1;
                     } else {
@@ -107,43 +107,43 @@ public class a {
         }
     }
 
-    public long cLY() {
-        return this.jOr;
+    public long cNV() {
+        return this.jVT;
     }
 
-    public void gu(long j) {
-        this.jOr = j;
+    public void gz(long j) {
+        this.jVT = j;
     }
 
-    public long cLZ() {
-        return this.jOs;
+    public long cNW() {
+        return this.jVU;
     }
 
-    public void gv(long j) {
-        this.jOs = j;
+    public void gA(long j) {
+        this.jVU = j;
     }
 
-    public b cMa() {
-        return this.jOt;
+    public b cNX() {
+        return this.jVV;
     }
 
     public void a(b bVar) {
-        this.jOt = bVar;
+        this.jVV = bVar;
     }
 
-    public c cMb() {
-        return this.jOu;
+    public c cNY() {
+        return this.jVW;
     }
 
     public void a(c cVar) {
-        this.jOu = cVar;
+        this.jVW = cVar;
     }
 
-    public ArrayList<C0740a> getGiftList() {
+    public ArrayList<C0741a> getGiftList() {
         return this.giftList;
     }
 
-    public void aE(ArrayList<C0740a> arrayList) {
+    public void aD(ArrayList<C0741a> arrayList) {
         this.giftList = arrayList;
     }
 }

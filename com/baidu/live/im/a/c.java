@@ -17,25 +17,25 @@ import com.baidu.live.view.b;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends com.baidu.live.im.a.b {
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context) {
-        super(context, com.baidu.live.im.a.bgE);
+        super(context, com.baidu.live.im.a.bjV);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void Jb() {
-        if (Jc()) {
-            Jd();
+    protected void Kz() {
+        if (KA()) {
+            KB();
         } else {
-            Je();
+            KC();
         }
     }
 
     @Override // com.baidu.live.im.a.b
     protected int getColor() {
-        if (Jc()) {
+        if (KA()) {
             return -5864;
         }
         return TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_cp_other_b);
@@ -68,7 +68,7 @@ public class c extends com.baidu.live.im.a.b {
         if (str != null && jSONObject != null && str.equals("pk_send_props")) {
             String optString2 = jSONObject.optString("pk_image_url");
             String optString3 = jSONObject.optString("props_belong_text");
-            String str2 = bVar.JB().name_show;
+            String str2 = bVar.KZ().name_show;
             String optString4 = jSONObject.optString("gift_name");
             String optString5 = jSONObject.optString("gift_url");
             String optString6 = jSONObject.optString("props_text");
@@ -79,7 +79,7 @@ public class c extends com.baidu.live.im.a.b {
                 com.baidu.live.view.b bVar2 = new com.baidu.live.view.b(this.mContext, alaLiveMarkData, false, new b.a() { // from class: com.baidu.live.im.a.c.1
                     @Override // com.baidu.live.view.b.a
                     public void e(Bitmap bitmap) {
-                        cVar.bgU.forceLayout();
+                        cVar.bkl.forceLayout();
                     }
 
                     @Override // com.baidu.live.view.b.a
@@ -93,7 +93,7 @@ public class c extends com.baidu.live.im.a.b {
             SpannableString valueOf = SpannableString.valueOf(optString3 + str2);
             if (!TextUtils.isEmpty(valueOf)) {
                 valueOf.setSpan(new ForegroundColorSpan(-7479041), 0, optString3.length(), 33);
-                valueOf.setSpan(new ForegroundColorSpan(-5462), optString3.length(), optString3.length() + str2.length(), 33);
+                valueOf.setSpan(new ForegroundColorSpan(-7801), optString3.length(), optString3.length() + str2.length(), 33);
             }
             spannableStringBuilder.append((CharSequence) valueOf);
             String string = this.mContext.getString(a.h.ala_pk_props);
@@ -109,7 +109,7 @@ public class c extends com.baidu.live.im.a.b {
                 com.baidu.live.view.b bVar3 = new com.baidu.live.view.b(this.mContext, alaLiveMarkData2, false, new b.a() { // from class: com.baidu.live.im.a.c.2
                     @Override // com.baidu.live.view.b.a
                     public void e(Bitmap bitmap) {
-                        cVar.bgU.forceLayout();
+                        cVar.bkl.forceLayout();
                     }
 
                     @Override // com.baidu.live.view.b.a
@@ -130,7 +130,7 @@ public class c extends com.baidu.live.im.a.b {
             String optString7 = jSONObject.optString("tying_gift_name");
             int optInt = jSONObject.optInt("tying_status");
             JSONArray optJSONArray = jSONObject.optJSONArray("gift_member");
-            a(spannableStringBuilder, bVar.JB(), cVar, false, false);
+            a(spannableStringBuilder, bVar.KZ(), cVar, false, false);
             if (optJSONArray != null) {
                 int i = 0;
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -181,12 +181,12 @@ public class c extends com.baidu.live.im.a.b {
                 }
             }
         } else if (str != null && jSONObject != null && str.equals("luckybag_send")) {
-            a(spannableStringBuilder, bVar.JB(), cVar, false, false);
+            a(spannableStringBuilder, bVar.KZ(), cVar, false, false);
             jSONObject.optString("user_nickname");
             jSONObject.optString("user_name");
-            com.baidu.live.gift.g fQ = ac.fQ(jSONObject.optString(LogConfig.LOG_GIFT_ID));
-            if (fQ != null) {
-                optString = fQ.getThumbnail_url();
+            com.baidu.live.gift.g gm = ac.gm(jSONObject.optString(LogConfig.LOG_GIFT_ID));
+            if (gm != null) {
+                optString = gm.getThumbnail_url();
             } else {
                 optString = jSONObject.optString("gift_url");
             }
@@ -205,7 +205,7 @@ public class c extends com.baidu.live.im.a.b {
                 com.baidu.live.view.b bVar4 = new com.baidu.live.view.b(this.mContext, alaLiveMarkData3, false, new b.a() { // from class: com.baidu.live.im.a.c.3
                     @Override // com.baidu.live.view.b.a
                     public void e(Bitmap bitmap) {
-                        cVar.bgU.forceLayout();
+                        cVar.bkl.forceLayout();
                     }
 
                     @Override // com.baidu.live.view.b.a
@@ -222,22 +222,22 @@ public class c extends com.baidu.live.im.a.b {
                 spannableStringBuilder.append((CharSequence) valueOf12);
             }
         } else {
-            a(spannableStringBuilder, bVar.JB(), cVar, false, false);
-            b w = w(bVar);
-            String format2 = String.format(this.mContext.getString(a.h.ala_rec_gift), (w == null || TextUtils.isEmpty(w.giftName)) ? this.mContext.getString(a.h.sdk_gift) : w.giftName);
+            a(spannableStringBuilder, bVar.KZ(), cVar, false, false);
+            b C = C(bVar);
+            String format2 = String.format(this.mContext.getString(a.h.ala_rec_gift), (C == null || TextUtils.isEmpty(C.giftName)) ? this.mContext.getString(a.h.sdk_gift) : C.giftName);
             SpannableString valueOf13 = SpannableString.valueOf(format2);
             if (format2 != null) {
                 valueOf13.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf13.length(), 33);
             }
             spannableStringBuilder.append((CharSequence) valueOf13);
-            if (w != null && !TextUtils.isEmpty(w.aTL)) {
+            if (C != null && !TextUtils.isEmpty(C.aWQ)) {
                 AlaLiveMarkData alaLiveMarkData4 = new AlaLiveMarkData();
-                alaLiveMarkData4.mark_pic = w.aTL;
+                alaLiveMarkData4.mark_pic = C.aWQ;
                 alaLiveMarkData4.isWidthAutoFit = true;
                 com.baidu.live.view.b bVar5 = new com.baidu.live.view.b(this.mContext, alaLiveMarkData4, false, new b.a() { // from class: com.baidu.live.im.a.c.4
                     @Override // com.baidu.live.view.b.a
                     public void e(Bitmap bitmap) {
-                        cVar.bgU.forceLayout();
+                        cVar.bkl.forceLayout();
                     }
 
                     @Override // com.baidu.live.view.b.a
@@ -248,45 +248,45 @@ public class c extends com.baidu.live.im.a.b {
                 spannableStringBuilder5.setSpan(bVar5, 1, spannableStringBuilder5.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableStringBuilder5);
             }
-            a(spannableStringBuilder, w);
+            a(spannableStringBuilder, C);
         }
         return spannableStringBuilder;
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, b bVar) {
         if (bVar != null) {
-            String str = bVar.bkD;
-            String str2 = bVar.bkE;
+            String str = bVar.bnW;
+            String str2 = bVar.bnX;
             if (!TextUtils.isEmpty(str)) {
                 SpannableString valueOf = SpannableString.valueOf("×" + str);
                 valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf);
             }
-            if (!TextUtils.isEmpty(bVar.aZX) && (!bVar.aGR || !TextUtils.equals(bVar.bkM, "luckybag"))) {
-                SpannableString valueOf2 = SpannableString.valueOf("（" + bVar.aZX + "）");
+            if (!TextUtils.isEmpty(bVar.bde) && (!bVar.aJp || !TextUtils.equals(bVar.bof, "luckybag"))) {
+                SpannableString valueOf2 = SpannableString.valueOf("（" + bVar.bde + "）");
                 valueOf2.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf2.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf2);
             }
-            if (this.bko && !bVar.bjp && !TextUtils.isEmpty(str2)) {
+            if (this.bnH && !bVar.bmH && !TextUtils.isEmpty(str2)) {
                 SpannableString valueOf3 = SpannableString.valueOf(String.format(this.mContext.getString(a.h.ala_rec_gift_charm_value), str2));
                 valueOf3.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf3.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf3);
             }
-            if (ac.fU(bVar.giftId) && !ac.fS(bVar.giftId) && ac.fT(bVar.giftId)) {
+            if (ac.gq(bVar.giftId) && !ac.go(bVar.giftId) && ac.gp(bVar.giftId)) {
                 SpannableString valueOf4 = SpannableString.valueOf(this.mContext.getString(a.h.ala_dynamic_gift_downloading));
                 valueOf4.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf4.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf4);
-                l.d(bVar.giftId, bVar.bkC, bVar.msgId);
+                l.e(bVar.giftId, bVar.bnV, bVar.msgId);
             }
-            if (!bVar.bjp && bVar.bkG != 0.0d && !TextUtils.isEmpty(bVar.bkH)) {
-                com.baidu.live.im.view.b bVar2 = new com.baidu.live.im.view.b(this.mContext, bVar.bkG + "倍" + bVar.bkH, false, true, bVar.bkI, bVar.bkJ, bVar.bkK, true);
+            if (!bVar.bmH && bVar.bnZ != 0.0d && !TextUtils.isEmpty(bVar.boa)) {
+                com.baidu.live.im.view.b bVar2 = new com.baidu.live.im.view.b(this.mContext, bVar.bnZ + "倍" + bVar.boa, false, true, bVar.bob, bVar.boc, bVar.bod, true);
                 SpannableString spannableString = new SpannableString(" raterate");
                 spannableString.setSpan(bVar2, 1, spannableString.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableString);
             }
-            if (bVar.bkL != null) {
-                for (int i = 0; i < bVar.bkL.length; i++) {
-                    com.baidu.live.im.view.b bVar3 = new com.baidu.live.im.view.b(this.mContext, bVar.bkL[i].Jf(), false, true, bVar.bkL[i].Jh(), bVar.bkL[i].Ji(), bVar.bkL[i].Jg());
+            if (bVar.boe != null) {
+                for (int i = 0; i < bVar.boe.length; i++) {
+                    com.baidu.live.im.view.b bVar3 = new com.baidu.live.im.view.b(this.mContext, bVar.boe[i].KD(), false, true, bVar.boe[i].KF(), bVar.boe[i].KG(), bVar.boe[i].KE());
                     SpannableString spannableString2 = new SpannableString(" raterate");
                     spannableString2.setSpan(bVar3, 1, spannableString2.length(), 33);
                     spannableStringBuilder.append((CharSequence) spannableString2);
@@ -299,7 +299,7 @@ public class c extends com.baidu.live.im.a.b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private b w(com.baidu.live.im.data.b bVar) {
+    private b C(com.baidu.live.im.data.b bVar) {
         JSONObject jSONObject;
         boolean z = true;
         try {
@@ -311,86 +311,86 @@ public class c extends com.baidu.live.im.a.b {
             b bVar2 = new b();
             JSONObject optJSONObject = jSONObject.optJSONObject("pk_info");
             if (optJSONObject != null) {
-                bVar2.bkG = optJSONObject.optDouble("pk_honer_buff_multiple");
-                bVar2.bkH = optJSONObject.optString("pk_honer_buff_text");
-                bVar2.bkI = optJSONObject.optString("pk_honer_buff_text_color_start");
-                bVar2.bkJ = optJSONObject.optString("pk_honer_buff_text_color_end");
-                bVar2.bkK = optJSONObject.optString("pk_honer_buff_text_font_color");
+                bVar2.bnZ = optJSONObject.optDouble("pk_honer_buff_multiple");
+                bVar2.boa = optJSONObject.optString("pk_honer_buff_text");
+                bVar2.bob = optJSONObject.optString("pk_honer_buff_text_color_start");
+                bVar2.boc = optJSONObject.optString("pk_honer_buff_text_color_end");
+                bVar2.bod = optJSONObject.optString("pk_honer_buff_text_font_color");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("headline_info");
             if (optJSONObject2 != null) {
-                bVar2.bkF = optJSONObject2.optString("second_text");
-                bVar2.bkG = optJSONObject2.optDouble("headline_buff_multiple");
-                bVar2.bkH = optJSONObject2.optString("headline_buff_text");
-                bVar2.bkI = optJSONObject2.optString("headline_buff_text_color_start");
-                bVar2.bkJ = optJSONObject2.optString("headline_buff_text_color_end");
-                bVar2.bkK = optJSONObject2.optString("headline_buff_text_font_color");
+                bVar2.bnY = optJSONObject2.optString("second_text");
+                bVar2.bnZ = optJSONObject2.optDouble("headline_buff_multiple");
+                bVar2.boa = optJSONObject2.optString("headline_buff_text");
+                bVar2.bob = optJSONObject2.optString("headline_buff_text_color_start");
+                bVar2.boc = optJSONObject2.optString("headline_buff_text_color_end");
+                bVar2.bod = optJSONObject2.optString("headline_buff_text_font_color");
             }
             bVar2.parserJson(jSONObject);
             bVar2.msgId = bVar.getMsgId();
-            if (bVar.JB() != null) {
-                bVar2.bkC = bVar.JB().userId;
+            if (bVar.KZ() != null) {
+                bVar2.bnV = bVar.KZ().userId;
             }
             bVar2.giftId = jSONObject.optString(LogConfig.LOG_GIFT_ID);
-            bVar2.bkD = bVar.JJ() + "";
-            if (bVar.JL() > 0) {
-                bVar2.bkE = bVar.JL() + "";
+            bVar2.bnW = bVar.Lh() + "";
+            if (bVar.Lj() > 0) {
+                bVar2.bnX = bVar.Lj() + "";
             } else {
-                bVar2.bkE = "";
+                bVar2.bnX = "";
             }
-            bVar2.bjp = jSONObject.optInt("is_free") == 1;
-            bVar2.bjo = bVar.JK();
-            com.baidu.live.gift.g fQ = ac.fQ(bVar2.giftId);
-            if (fQ != null) {
-                if (fQ.CL()) {
+            bVar2.bmH = jSONObject.optInt("is_free") == 1;
+            bVar2.bmG = bVar.Li();
+            com.baidu.live.gift.g gm = ac.gm(bVar2.giftId);
+            if (gm != null) {
+                if (gm.Eb()) {
                     bVar2.giftName = this.mContext.getString(a.h.sdk_text_gift_graffiti);
                     if (TextUtils.isEmpty(bVar2.giftName)) {
                         bVar2.giftName = jSONObject.optString("gift_name");
                     }
-                    if (!z && TextUtils.isEmpty(bVar2.aTL)) {
-                        bVar2.aTL = jSONObject.optString("gift_url");
+                    if (!z && TextUtils.isEmpty(bVar2.aWQ)) {
+                        bVar2.aWQ = jSONObject.optString("gift_url");
                     }
-                    bVar2.aZX = jSONObject.optString("gift_source_text");
-                    bVar2.bkM = jSONObject.optString("gift_source");
-                    bVar2.aGR = bVar.aGR;
+                    bVar2.bde = jSONObject.optString("gift_source_text");
+                    bVar2.bof = jSONObject.optString("gift_source");
+                    bVar2.aJp = bVar.aJp;
                     return bVar2;
                 }
-                bVar2.giftName = fQ.CD();
-                bVar2.aTL = fQ.getThumbnail_url();
+                bVar2.giftName = gm.DS();
+                bVar2.aWQ = gm.getThumbnail_url();
             }
             z = false;
             if (TextUtils.isEmpty(bVar2.giftName)) {
             }
             if (!z) {
-                bVar2.aTL = jSONObject.optString("gift_url");
+                bVar2.aWQ = jSONObject.optString("gift_url");
             }
-            bVar2.aZX = jSONObject.optString("gift_source_text");
-            bVar2.bkM = jSONObject.optString("gift_source");
-            bVar2.aGR = bVar.aGR;
+            bVar2.bde = jSONObject.optString("gift_source_text");
+            bVar2.bof = jSONObject.optString("gift_source");
+            bVar2.aJp = bVar.aJp;
             return bVar2;
         } catch (JSONException e) {
             return null;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b {
-        public boolean aGR = false;
-        public String aTL;
-        public String aZX;
-        public double bjo;
-        public boolean bjp;
-        public String bkC;
-        public String bkD;
-        public String bkE;
-        public String bkF;
-        public double bkG;
-        public String bkH;
-        public String bkI;
-        public String bkJ;
-        public String bkK;
-        public a[] bkL;
-        public String bkM;
+        public boolean aJp = false;
+        public String aWQ;
+        public String bde;
+        public double bmG;
+        public boolean bmH;
+        public String bnV;
+        public String bnW;
+        public String bnX;
+        public String bnY;
+        public double bnZ;
+        public String boa;
+        public String bob;
+        public String boc;
+        public String bod;
+        public a[] boe;
+        public String bof;
         public String giftId;
         public String giftName;
         public long msgId;
@@ -398,10 +398,10 @@ public class c extends com.baidu.live.im.a.b {
         public void parserJson(JSONObject jSONObject) {
             JSONArray optJSONArray;
             if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("im_icon_conf")) != null) {
-                this.bkL = new a[optJSONArray.length()];
+                this.boe = new a[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     try {
-                        this.bkL[i] = new a(optJSONArray.getJSONObject(i));
+                        this.boe[i] = new a(optJSONArray.getJSONObject(i));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -411,34 +411,34 @@ public class c extends com.baidu.live.im.a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        public String bkA;
-        public String bkB;
-        public String bky;
-        public String bkz;
+        public String bnR;
+        public String bnS;
+        public String bnT;
+        public String bnU;
 
         public a(JSONObject jSONObject) {
-            this.bky = jSONObject.optString("text");
-            this.bkz = jSONObject.optString("text_color");
-            this.bkA = jSONObject.optString("bg_color_start");
-            this.bkB = jSONObject.optString("bg_color_end");
+            this.bnR = jSONObject.optString("text");
+            this.bnS = jSONObject.optString("text_color");
+            this.bnT = jSONObject.optString("bg_color_start");
+            this.bnU = jSONObject.optString("bg_color_end");
         }
 
-        public String Jf() {
-            return this.bky;
+        public String KD() {
+            return this.bnR;
         }
 
-        public String Jg() {
-            return this.bkz;
+        public String KE() {
+            return this.bnS;
         }
 
-        public String Jh() {
-            return this.bkA;
+        public String KF() {
+            return this.bnT;
         }
 
-        public String Ji() {
-            return this.bkB;
+        public String KG() {
+            return this.bnU;
         }
     }
 }

@@ -1,224 +1,191 @@
 package com.baidu.tieba.passaccount.a;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.l;
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.RegisterUserFaceIDCallback;
-import com.baidu.sapi2.callback.SapiCallback;
-import com.baidu.sapi2.callback.VerifyUserFaceIDCallback;
-import com.baidu.sapi2.dto.FaceBaseDTO;
-import com.baidu.sapi2.dto.FaceIDRegDTO;
-import com.baidu.sapi2.dto.FaceIDVerifyDTO;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
-import com.baidu.sapi2.result.RealNameFaceIDResult;
-import com.baidu.sapi2.result.SapiResult;
-import com.baidu.sapi2.result.UnRealNameFaceIDResult;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
-import java.util.HashMap;
-/* loaded from: classes7.dex */
-public class c {
-    private static volatile c lyj;
-    private Activity activity;
-    private a lyk;
+import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.sapi2.shell.listener.WebAuthListener;
+import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.passaccount.app.LoginDialogActivity;
+import com.google.gson.Gson;
+/* loaded from: classes8.dex */
+public class c implements View.OnClickListener, a {
+    private TextView hXS;
+    private View lGA;
+    private View lGB;
+    private View lGC;
+    private View lGD;
+    private final ShareStorage.StorageModel lGE;
+    private LoginDialogActivity lGg;
+    private View lGh;
+    private View lGi;
+    private View lGj;
+    private ImageView lGk;
+    private TextView lGl;
+    private TextView lGm;
+    private TextView lGo;
+    private View lGx;
+    private TbImageView lGy;
+    private TextView lGz;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void dhG();
-
-        void h(boolean z, boolean z2, String str);
-
-        void onFail();
-
-        void y(boolean z, String str);
+    public c(@NonNull String str) {
+        this.lGE = (ShareStorage.StorageModel) new Gson().fromJson(str, (Class<Object>) ShareStorage.StorageModel.class);
     }
 
-    public static c dhY() {
-        if (lyj == null) {
-            synchronized (c.class) {
-                if (lyj == null) {
-                    lyj = new c();
-                }
-            }
-        }
-        return lyj;
+    @Override // com.baidu.tieba.passaccount.a.a
+    public void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup) {
+        this.lGg = loginDialogActivity;
+        View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.share_login_dialog_activity_layout, viewGroup, true);
+        this.lGh = inflate.findViewById(R.id.dialog_background);
+        this.lGi = inflate.findViewById(R.id.dialog_layout);
+        this.lGj = inflate.findViewById(R.id.close_btn_layout);
+        this.lGk = (ImageView) inflate.findViewById(R.id.close_btn_view);
+        this.lGl = (TextView) inflate.findViewById(R.id.dialog_title);
+        this.lGm = (TextView) inflate.findViewById(R.id.dialog_subtitle);
+        this.lGx = inflate.findViewById(R.id.user_info_layout);
+        this.lGy = (TbImageView) inflate.findViewById(R.id.user_avatar);
+        this.hXS = (TextView) inflate.findViewById(R.id.user_name);
+        this.lGz = (TextView) inflate.findViewById(R.id.user_subtitle);
+        this.lGo = (TextView) inflate.findViewById(R.id.login_btn);
+        this.lGA = inflate.findViewById(R.id.qq_login_btn);
+        this.lGB = inflate.findViewById(R.id.wechat_login_btn);
+        this.lGC = inflate.findViewById(R.id.weibo_login_btn);
+        this.lGD = inflate.findViewById(R.id.more_login_btn);
+        this.lGh.setOnClickListener(this);
+        this.lGj.setOnClickListener(this);
+        this.lGk.setOnClickListener(this);
+        this.lGi.setOnClickListener(this);
+        this.lGy.setIsRound(true);
+        this.lGy.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
+        this.lGo.setOnClickListener(this);
+        this.lGA.setOnClickListener(this);
+        this.lGB.setOnClickListener(this);
+        this.lGC.setOnClickListener(this);
+        this.lGD.setOnClickListener(this);
+        initData();
     }
 
-    public void a(a aVar) {
-        this.lyk = aVar;
-    }
-
-    public void a(Activity activity, a aVar) {
-        this.activity = activity;
-        this.lyk = aVar;
-        dhZ();
-    }
-
-    private void dhZ() {
-        final SapiAccount session = SapiAccountManager.getInstance().getSession();
-        if (session != null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("scene", FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE);
-            SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new SapiCallback<CheckUserFaceIdResult>() { // from class: com.baidu.tieba.passaccount.a.c.1
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                /* renamed from: a */
-                public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
-                    if (checkUserFaceIdResult.status == 1) {
-                        if (!TextUtils.isEmpty(checkUserFaceIdResult.livingUname)) {
-                            BdLog.e("非实名人脸验证流程");
-                            c.this.a(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, checkUserFaceIdResult.livingUname, session.bduss);
-                            return;
-                        }
-                        BdLog.e("实名人脸验证流程");
-                        c.this.a(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, "", session.bduss);
-                    } else if (checkUserFaceIdResult.status == 2) {
-                        BdLog.e("人脸注册流程");
-                        c.this.a(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, checkUserFaceIdResult.authsid, checkUserFaceIdResult.livingUname, checkUserFaceIdResult.authWidgetURL);
-                    } else if (checkUserFaceIdResult.status == 3) {
-                        BdLog.e("人脸验证不可用");
-                        l.showToast(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
-                        if (c.this.lyk != null) {
-                            c.this.lyk.dhG();
-                        }
-                    } else {
-                        BdLog.e("人脸验证不可用");
-                        l.showToast(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
-                        if (c.this.lyk != null) {
-                            c.this.lyk.dhG();
-                        }
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                /* renamed from: b */
-                public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
-                    if (checkUserFaceIdResult != null) {
-                        l.showToast(TbadkCoreApplication.getInst(), checkUserFaceIdResult.getResultMsg());
-                    }
-                    if (c.this.lyk != null) {
-                        c.this.lyk.onFail();
-                    }
-                }
-
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onStart() {
-                }
-
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFinish() {
-                }
-            }, session.bduss, hashMap);
+    private void initData() {
+        if (this.lGE != null) {
+            this.lGy.startLoad(this.lGE.url, 10, false);
+            this.hXS.setText(this.lGE.displayname);
+            this.lGz.setText(this.lGg.getResources().getString(R.string.share_login_dialog_subtitle, this.lGE.app));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(final boolean z, final boolean z2, String str, String str2, String str3) {
-        FaceIDVerifyDTO faceIDVerifyDTO = new FaceIDVerifyDTO();
-        faceIDVerifyDTO.livingUname = str2;
-        faceIDVerifyDTO.businessSence = str;
-        faceIDVerifyDTO.bduss = str3;
-        faceIDVerifyDTO.showGuidePage = false;
-        PassportSDK.getInstance().verifyUserFaceId(this.activity, new VerifyUserFaceIDCallback() { // from class: com.baidu.tieba.passaccount.a.c.2
-            @Override // com.baidu.sapi2.callback.FaceIDCallback
-            public void onSuccess(SapiResult sapiResult) {
-                if (sapiResult instanceof RealNameFaceIDResult) {
-                    RealNameFaceIDResult realNameFaceIDResult = (RealNameFaceIDResult) sapiResult;
-                    BdLog.d("实名人脸验证成功,callBackKey:" + realNameFaceIDResult.callBackKey + ",authSid:" + realNameFaceIDResult.authSid);
-                    l.showToast(TbadkCoreApplication.getInst(), "刷脸验证成功");
-                    if (c.this.lyk != null) {
-                        c.this.lyk.h(true, true, realNameFaceIDResult.callBackKey);
-                    }
-                    if (z) {
-                        c.this.B(z2, realNameFaceIDResult.callBackKey);
-                    }
-                } else if (sapiResult instanceof UnRealNameFaceIDResult) {
-                    BdLog.d("非实名人脸验证成功 callBackKey" + ((UnRealNameFaceIDResult) sapiResult).registerResult);
-                    l.showToast(TbadkCoreApplication.getInst(), "刷脸验证成功");
-                    if (c.this.lyk != null) {
-                        c.this.lyk.h(false, true, ((UnRealNameFaceIDResult) sapiResult).callBackKey);
-                    }
-                    if (z) {
-                        c.this.B(z2, ((UnRealNameFaceIDResult) sapiResult).callBackKey);
-                    }
-                }
-            }
-
-            @Override // com.baidu.sapi2.callback.FaceIDCallback
-            public void onFailure(SapiResult sapiResult) {
-                if (sapiResult != null && sapiResult.getResultCode() != -204 && !at.equals("用户取消操作", sapiResult.getResultMsg())) {
-                    l.showToast(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
-                }
-                if (c.this.lyk != null) {
-                    c.this.lyk.h(sapiResult instanceof RealNameFaceIDResult, false, null);
-                }
-            }
-        }, faceIDVerifyDTO);
+    @Override // com.baidu.tieba.passaccount.a.a
+    public void rx(int i) {
+        ap.setBackgroundResource(this.lGi, R.drawable.nav_bg_corner_shape, i);
+        SvgManager.bsR().a(this.lGk, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGl).nY(R.color.CAM_X0105).nZ(R.dimen.T_X05).oa(R.string.F_X02);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGm).nY(R.color.CAM_X0108).nZ(R.dimen.T_X08).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGx).og(R.string.J_X05).setBackGroundColor(R.color.CAM_X0204);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.hXS).nY(R.color.CAM_X0105).nZ(R.dimen.T_X05).oa(R.string.F_X02);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGz).nY(R.color.CAM_X0108).nZ(R.dimen.T_X08).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGo).nY(R.color.CAM_X0101).nZ(R.dimen.T_X05).oa(R.string.F_X01).og(R.string.J_X01).setBackGroundColor(R.color.CAM_X0302);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(final boolean z, final boolean z2, String str, String str2, String str3, String str4) {
-        FaceIDRegDTO faceIDRegDTO = new FaceIDRegDTO();
-        faceIDRegDTO.authsid = str2;
-        faceIDRegDTO.livingUname = str3;
-        faceIDRegDTO.businessSence = str;
-        faceIDRegDTO.authWidgetURL = str4;
-        faceIDRegDTO.showGuidePage = true;
-        PassportSDK.getInstance().registerUserFaceID(this.activity, new RegisterUserFaceIDCallback() { // from class: com.baidu.tieba.passaccount.a.c.3
-            @Override // com.baidu.sapi2.callback.FaceIDCallback
-            public void onSuccess(SapiResult sapiResult) {
-                if (sapiResult instanceof UnRealNameFaceIDResult) {
-                    BdLog.d("人脸注册结果" + ((UnRealNameFaceIDResult) sapiResult).registerResult);
-                    l.showToast(TbadkCoreApplication.getInst(), "刷脸注册成功");
-                    if (c.this.lyk != null) {
-                        c.this.lyk.y(true, ((UnRealNameFaceIDResult) sapiResult).callBackKey);
-                    }
-                    if (z) {
-                        c.this.B(z2, ((UnRealNameFaceIDResult) sapiResult).callBackKey);
-                    }
-                }
-            }
-
-            @Override // com.baidu.sapi2.callback.FaceIDCallback
-            public void onFailure(SapiResult sapiResult) {
-                if (sapiResult != null && sapiResult.getResultCode() != -204 && !at.equals("用户取消操作", sapiResult.getResultMsg())) {
-                    l.showToast(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
-                }
-                if (c.this.lyk != null) {
-                    c.this.lyk.y(false, null);
-                }
-            }
-        }, faceIDRegDTO);
+    @Override // com.baidu.tieba.passaccount.a.a
+    public Intent bEJ() {
+        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void B(final boolean z, String str) {
-        SapiAccountManager.getInstance().getAccountService().faceLoginSwitch(new SapiCallback<SapiResult>() { // from class: com.baidu.tieba.passaccount.a.c.4
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onSuccess(SapiResult sapiResult) {
-                BdLog.d("faceLginSwitch onSuccess()" + sapiResult.getResultCode());
-                if (z) {
+    @Override // com.baidu.tieba.passaccount.a.a
+    public void onActivityResult(int i, int i2, Intent intent) {
+        PassportSDK.getInstance().onActivityResult(i, i2, intent);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.dialog_background || id == R.id.close_btn_layout || id == R.id.close_btn_view) {
+            djN();
+        } else if (id == R.id.login_btn) {
+            login();
+        } else if (id == R.id.qq_login_btn) {
+            djO();
+        } else if (id == R.id.wechat_login_btn) {
+            djP();
+        } else if (id == R.id.weibo_login_btn) {
+            djQ();
+        } else if (id == R.id.more_login_btn) {
+            djR();
+        }
+    }
+
+    private void login() {
+        if (this.lGE != null) {
+            PassportSDK.getInstance().invokeV2ShareLogin(this.lGg, new WebAuthListener() { // from class: com.baidu.tieba.passaccount.a.c.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onSuccess(WebAuthResult webAuthResult) {
+                    c.this.lGg.djF();
+                    c.this.lGg.OW("hutongdenglu");
                 }
-            }
 
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onFailure(SapiResult sapiResult) {
-                if (z) {
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onFailure(WebAuthResult webAuthResult) {
+                    c.this.lGg.showToast(String.format(c.this.lGg.getString(R.string.share_login_fail), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
                 }
+            }, this.lGE);
+        }
+    }
+
+    private void djO() {
+        b(SocialType.QQ_SSO);
+    }
+
+    private void djP() {
+        b(SocialType.WEIXIN);
+    }
+
+    private void djQ() {
+        b(SocialType.SINA_WEIBO_SSO);
+    }
+
+    private void b(final SocialType socialType) {
+        PassportSDK.getInstance().loadThirdPartyLogin(new WebAuthListener() { // from class: com.baidu.tieba.passaccount.a.c.2
+            @Override // com.baidu.sapi2.shell.listener.WebAuthListener
+            public void beforeSuccess(SapiAccount sapiAccount) {
+                c.this.lGg.showLoading();
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onStart() {
+            public void onSuccess(WebAuthResult webAuthResult) {
+                c.this.lGg.djF();
+                c.this.lGg.OW(socialType.name().toLowerCase());
             }
 
+            /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onFinish() {
+            public void onFailure(WebAuthResult webAuthResult) {
+                c.this.lGg.closeLoadingDialog();
+                c.this.lGg.showToast(String.format(c.this.lGg.getString(R.string.third_login_fail), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
             }
-        }, SapiAccountManager.getInstance().getSession().bduss, !z, str);
+        }, socialType);
+    }
+
+    private void djR() {
+        this.lGg.finish();
+        new LoginActivityConfig((Context) this.lGg, true).start();
+    }
+
+    private void djN() {
+        this.lGg.finish();
     }
 }

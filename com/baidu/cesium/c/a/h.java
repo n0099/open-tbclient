@@ -1,20 +1,20 @@
 package com.baidu.cesium.c.a;
 
 import javax.crypto.ShortBufferException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class h implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1642a;
+    private int f1640a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(int i) {
-        this.f1642a = i;
+        this.f1640a = i;
     }
 
     @Override // com.baidu.cesium.c.a.i
     public int a(int i) {
-        return this.f1642a - (i % this.f1642a);
+        return this.f1640a - (i % this.f1640a);
     }
 
     @Override // com.baidu.cesium.c.a.i
@@ -39,7 +39,7 @@ final class h implements i {
         }
         int i4 = bArr[(i + i2) - 1];
         int i5 = i4 & 255;
-        if (i5 < 1 || i5 > this.f1642a || (i3 = (i + i2) - (i4 & 255)) < i) {
+        if (i5 < 1 || i5 > this.f1640a || (i3 = (i + i2) - (i4 & 255)) < i) {
             return -1;
         }
         for (int i6 = 0; i6 < (i4 & 255); i6++) {

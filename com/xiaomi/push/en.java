@@ -6,7 +6,7 @@ import android.content.Context;
 public final class en implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f13992a;
+    final /* synthetic */ int f13994a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ Context f377a;
@@ -15,18 +15,18 @@ public final class en implements Runnable {
     final /* synthetic */ String f378a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ String f13993b;
+    final /* synthetic */ String f13995b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public en(Context context, String str, int i, String str2) {
         this.f377a = context;
         this.f378a = str;
-        this.f13992a = i;
-        this.f13993b = str2;
+        this.f13994a = i;
+        this.f13995b = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        em.c(this.f377a, this.f378a, this.f13992a, this.f13993b);
+        em.c(this.f377a, this.f378a, this.f13994a, this.f13995b);
     }
 }

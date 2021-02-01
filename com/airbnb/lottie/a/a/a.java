@@ -14,7 +14,7 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a implements d, j, a.InterfaceC0007a {
     private final com.airbnb.lottie.f BH;
     private final com.airbnb.lottie.model.layer.a Ds;
@@ -41,17 +41,17 @@ public abstract class a implements d, j, a.InterfaceC0007a {
         this.paint.setStrokeCap(cap);
         this.paint.setStrokeJoin(join);
         this.paint.setStrokeMiter(f);
-        this.Dw = dVar.jc();
-        this.Dv = bVar.jc();
+        this.Dw = dVar.jb();
+        this.Dv = bVar.jb();
         if (bVar2 == null) {
             this.Dy = null;
         } else {
-            this.Dy = bVar2.jc();
+            this.Dy = bVar2.jb();
         }
         this.Dx = new ArrayList(list.size());
         this.Du = new float[list.size()];
         for (int i = 0; i < list.size(); i++) {
-            this.Dx.add(list.get(i).jc());
+            this.Dx.add(list.get(i).jb());
         }
         aVar.a(this.Dw);
         aVar.a(this.Dv);
@@ -72,7 +72,7 @@ public abstract class a implements d, j, a.InterfaceC0007a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
-    public void is() {
+    public void ir() {
         this.BH.invalidateSelf();
     }
 
@@ -84,7 +84,7 @@ public abstract class a implements d, j, a.InterfaceC0007a {
         while (size >= 0) {
             b bVar = list.get(size);
             size--;
-            rVar = ((bVar instanceof r) && ((r) bVar).iC() == ShapeTrimPath.Type.Individually) ? (r) bVar : rVar;
+            rVar = ((bVar instanceof r) && ((r) bVar).iB() == ShapeTrimPath.Type.Individually) ? (r) bVar : rVar;
         }
         if (rVar != null) {
             rVar.a(this);
@@ -93,7 +93,7 @@ public abstract class a implements d, j, a.InterfaceC0007a {
         C0006a c0006a2 = null;
         while (size2 >= 0) {
             b bVar2 = list2.get(size2);
-            if ((bVar2 instanceof r) && ((r) bVar2).iC() == ShapeTrimPath.Type.Individually) {
+            if ((bVar2 instanceof r) && ((r) bVar2).iB() == ShapeTrimPath.Type.Individually) {
                 if (c0006a2 != null) {
                     this.Dt.add(c0006a2);
                 }
@@ -135,7 +135,7 @@ public abstract class a implements d, j, a.InterfaceC0007a {
                 com.airbnb.lottie.c.beginSection("StrokeContent#buildPath");
                 this.path.reset();
                 for (int size = c0006a.DA.size() - 1; size >= 0; size--) {
-                    this.path.addPath(((l) c0006a.DA.get(size)).iv(), matrix);
+                    this.path.addPath(((l) c0006a.DA.get(size)).iu(), matrix);
                 }
                 com.airbnb.lottie.c.bb("StrokeContent#buildPath");
                 com.airbnb.lottie.c.beginSection("StrokeContent#drawPath");
@@ -155,7 +155,7 @@ public abstract class a implements d, j, a.InterfaceC0007a {
         }
         this.path.reset();
         for (int size = c0006a.DA.size() - 1; size >= 0; size--) {
-            this.path.addPath(((l) c0006a.DA.get(size)).iv(), matrix);
+            this.path.addPath(((l) c0006a.DA.get(size)).iu(), matrix);
         }
         this.Dq.setPath(this.path, false);
         float length = this.Dq.getLength();
@@ -166,13 +166,13 @@ public abstract class a implements d, j, a.InterfaceC0007a {
             }
             length = this.Dq.getLength() + f;
         }
-        float floatValue = (c0006a.DC.iF().getValue().floatValue() * f) / 360.0f;
-        float floatValue2 = ((c0006a.DC.iD().getValue().floatValue() * f) / 100.0f) + floatValue;
-        float floatValue3 = ((c0006a.DC.iE().getValue().floatValue() * f) / 100.0f) + floatValue;
+        float floatValue = (c0006a.DC.iE().getValue().floatValue() * f) / 360.0f;
+        float floatValue2 = ((c0006a.DC.iC().getValue().floatValue() * f) / 100.0f) + floatValue;
+        float floatValue3 = ((c0006a.DC.iD().getValue().floatValue() * f) / 100.0f) + floatValue;
         int size2 = c0006a.DA.size() - 1;
         float f2 = 0.0f;
         while (size2 >= 0) {
-            this.Dr.set(((l) c0006a.DA.get(size2)).iv());
+            this.Dr.set(((l) c0006a.DA.get(size2)).iu());
             this.Dr.transform(matrix);
             this.Dq.setPath(this.Dr, false);
             float length2 = this.Dq.getLength();
@@ -200,7 +200,7 @@ public abstract class a implements d, j, a.InterfaceC0007a {
         for (int i = 0; i < this.Dt.size(); i++) {
             C0006a c0006a = this.Dt.get(i);
             for (int i2 = 0; i2 < c0006a.DA.size(); i2++) {
-                this.path.addPath(((l) c0006a.DA.get(i2)).iv(), matrix);
+                this.path.addPath(((l) c0006a.DA.get(i2)).iu(), matrix);
             }
         }
         this.path.computeBounds(this.rect, false);
@@ -265,7 +265,7 @@ public abstract class a implements d, j, a.InterfaceC0007a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.airbnb.lottie.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class C0006a {
         private final List<l> DA;
         @Nullable

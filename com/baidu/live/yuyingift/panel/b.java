@@ -24,40 +24,40 @@ import com.baidu.live.yuyingift.container.AlaGiftTabView;
 import com.baidu.live.yuyingift.panel.a;
 import com.baidu.live.yuyingift.panel.e;
 import com.baidu.live.yuyingift.widget.wheatlist.GiftPanelSelectMicrophoneSendView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class b extends LazyLoadFragment {
-    protected boolean aXV;
-    protected com.baidu.live.yuyingift.a.d bWc;
-    private AlaGiftTabView.a bWd;
-    public AlaGiftTabView bWl;
-    protected e.a bWm;
-    protected a.InterfaceC0237a bWn;
-    private int bdA;
+    protected boolean bbc;
+    private int bgK;
+    protected com.baidu.live.yuyingift.a.d cae;
+    private AlaGiftTabView.a caf;
+    public AlaGiftTabView can;
+    protected e.a cao;
+    protected a.InterfaceC0238a cap;
     public TbPageContext mPageContext;
-    protected int bWo = 0;
-    protected long bWp = 0;
-    private AlaGiftTabView.e bUR = new AlaGiftTabView.e() { // from class: com.baidu.live.yuyingift.panel.b.3
+    protected int caq = 0;
+    protected long car = 0;
+    private AlaGiftTabView.e bYT = new AlaGiftTabView.e() { // from class: com.baidu.live.yuyingift.panel.b.3
         @Override // com.baidu.live.yuyingift.container.AlaGiftTabView.e
-        public void Fm() {
-            b.this.GM();
+        public void GC() {
+            b.this.Ic();
         }
     };
 
-    protected abstract void GM();
+    protected abstract void Ic();
 
-    protected abstract boolean Xp();
+    protected abstract boolean Zf();
 
     protected abstract boolean l(long j, int i);
 
-    public static b a(a.InterfaceC0237a interfaceC0237a, int i) {
+    public static b a(a.InterfaceC0238a interfaceC0238a, int i) {
         switch (i) {
             case 0:
                 c cVar = new c();
-                cVar.bWn = interfaceC0237a;
+                cVar.cap = interfaceC0238a;
                 return cVar;
             case 1:
                 d dVar = new d();
-                dVar.bWn = interfaceC0237a;
+                dVar.cap = interfaceC0238a;
                 return dVar;
             default:
                 return null;
@@ -69,22 +69,22 @@ public abstract class b extends LazyLoadFragment {
     }
 
     public void a(e.a aVar) {
-        this.bWm = aVar;
+        this.cao = aVar;
     }
 
     public void b(AlaGiftTabView.a aVar) {
-        this.bWd = aVar;
+        this.caf = aVar;
     }
 
     public void a(com.baidu.live.yuyingift.a.d dVar) {
-        this.bWc = dVar;
+        this.cae = dVar;
     }
 
-    public void cS(int i) {
-        if (this.bWl != null) {
-            this.bWl.cS(i);
+    public void cX(int i) {
+        if (this.can != null) {
+            this.can.cX(i);
         } else {
-            this.bdA = i;
+            this.bgK = i;
         }
     }
 
@@ -95,44 +95,44 @@ public abstract class b extends LazyLoadFragment {
 
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected View genRootView() {
-        this.bWl = new AlaGiftTabView(getPageContext(), GI(), GK(), this.bWc.otherParams);
-        this.bWl.a(this.bWd);
-        if (this.bdA != 0) {
-            this.bWl.cS(this.bdA);
+        this.can = new AlaGiftTabView(getPageContext(), HY(), Ia(), this.cae.otherParams);
+        this.can.a(this.caf);
+        if (this.bgK != 0) {
+            this.can.cX(this.bgK);
         }
-        this.bWl.au(this.bWc.mLiveId, this.bWc.mRoomId);
-        this.bWl.A(this.bWc.aYD, this.bWc.aYE);
-        this.bWl.aN(TbadkCoreApplication.getInst().currentAccountTdouNum);
-        this.bWl.aO(TbadkCoreApplication.getInst().currentAccountFlowerNum);
-        this.bWl.a(this.bUR);
-        this.bWl.bA(this.bWc.aWz);
-        this.bWl.db(this.bWc.aWx);
-        this.aXV = this.bWc.aXV;
-        this.bWl.bI(this.bWc.aXV);
-        this.bWl.b(this.bWc.isNewUser, this.bWc.mLiveId, this.bWc.mRoomId, this.bWc.bac);
-        this.bWl.bf(this.bWc.bag);
-        this.bWl.cm(this.bWc.aYF);
-        this.bWl.bK(this.bWc.aYR);
-        this.bWl.cT(this.bWc.bah);
-        this.bWl.bh(this.bWc.aWF);
-        this.bWl.bL(this.bWc.baj);
-        this.bWl.a(new AlaGiftTabView.b() { // from class: com.baidu.live.yuyingift.panel.b.1
+        this.can.au(this.cae.mLiveId, this.cae.mRoomId);
+        this.can.A(this.cae.bbK, this.cae.bbL);
+        this.can.aQ(TbadkCoreApplication.getInst().currentAccountTdouNum);
+        this.can.aR(TbadkCoreApplication.getInst().currentAccountFlowerNum);
+        this.can.a(this.bYT);
+        this.can.bF(this.cae.aZF);
+        this.can.dg(this.cae.aZD);
+        this.bbc = this.cae.bbc;
+        this.can.bN(this.cae.bbc);
+        this.can.b(this.cae.isNewUser, this.cae.mLiveId, this.cae.mRoomId, this.cae.bdj);
+        this.can.bh(this.cae.bdn);
+        this.can.cp(this.cae.bbM);
+        this.can.bP(this.cae.bbY);
+        this.can.cY(this.cae.bdo);
+        this.can.bj(this.cae.aZL);
+        this.can.bQ(this.cae.bdq);
+        this.can.a(new AlaGiftTabView.b() { // from class: com.baidu.live.yuyingift.panel.b.1
             @Override // com.baidu.live.yuyingift.container.AlaGiftTabView.b
             public void j(g gVar) {
-                if (gVar != null && b.this.bWc != null && b.this.Xn() > 0) {
-                    com.baidu.live.yuyingift.b.b.Xh().a(b.this.bWp, b.this.bWo + 1, gVar.CC(), b.this.bWc.mLiveId, s.ak(b.this.Xm().bXq));
-                    b.this.bWp = 0L;
-                    b.this.bWo = 0;
+                if (gVar != null && b.this.cae != null && b.this.Zd() > 0) {
+                    com.baidu.live.yuyingift.b.b.YX().a(b.this.car, b.this.caq + 1, gVar.DR(), b.this.cae.mLiveId, s.al(b.this.Zc().cbt));
+                    b.this.car = 0L;
+                    b.this.caq = 0;
                 }
             }
         });
-        return this.bWl.getRootView();
+        return this.can.getRootView();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     public void onInflate(View view, Bundle bundle) {
-        this.bWl.bH(this.mVisible);
+        this.can.bM(this.mVisible);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -143,7 +143,7 @@ public abstract class b extends LazyLoadFragment {
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     public void onVisibilityChanged(boolean z) {
         super.onVisibilityChanged(z);
-        this.bWl.onVisibilityChanged(z);
+        this.can.onVisibilityChanged(z);
     }
 
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment
@@ -154,16 +154,16 @@ public abstract class b extends LazyLoadFragment {
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment, com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroyView() {
         super.onDestroyView();
-        if (this.bWl != null) {
-            this.bWl.onDestroy();
+        if (this.can != null) {
+            this.can.onDestroy();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment, com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroy() {
         super.onDestroy();
-        this.bWd = null;
-        this.bWm = null;
+        this.caf = null;
+        this.cao = null;
     }
 
     public TbPageContext getPageContext() {
@@ -179,8 +179,8 @@ public abstract class b extends LazyLoadFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void GH() {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(getPageContext().getPageActivity(), 0L, this.bWc.otherParams, true, TbadkCoreApplication.getInst().isHaokan() ? "giving" : UbcStatConstant.ContentType.UBC_TYPE_IM_SEND, true)));
+    public void HX() {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(getPageContext().getPageActivity(), 0L, this.cae.otherParams, true, TbadkCoreApplication.getInst().isHaokan() ? "giving" : UbcStatConstant.ContentType.UBC_TYPE_IM_SEND, true)));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -188,47 +188,47 @@ public abstract class b extends LazyLoadFragment {
         this.mPageContext.getPageActivity().finish();
     }
 
-    private View.OnClickListener GI() {
+    private View.OnClickListener HY() {
         return new View.OnClickListener() { // from class: com.baidu.live.yuyingift.panel.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
                 String str2;
                 if (view != null) {
-                    BdUtilHelper.hideSoftKeyPad(TbadkCoreApplication.getInst(), b.this.bWl.aXZ);
+                    BdUtilHelper.hideSoftKeyPad(TbadkCoreApplication.getInst(), b.this.can.bbg);
                     if (view.getId() == a.f.donate) {
-                        b.this.Xo();
-                    } else if (view.getId() == a.f.combo_btn && b.this.GJ()) {
-                        if (!b.this.a(b.this.Xm())) {
-                            b.this.bWl.WZ();
+                        b.this.Ze();
+                    } else if (view.getId() == a.f.combo_btn && b.this.HZ()) {
+                        if (!b.this.a(b.this.Zc())) {
+                            b.this.can.YP();
                             return;
                         }
-                        b.this.bWl.EA();
-                        b.this.bWo++;
-                        if (b.this.Xp()) {
-                            b.this.l(b.this.bWp, b.this.bWo);
+                        b.this.can.FQ();
+                        b.this.caq++;
+                        if (b.this.Zf()) {
+                            b.this.l(b.this.car, b.this.caq);
                         }
-                        if (b.this.bWd != null) {
-                            b.this.bWd.WR();
+                        if (b.this.caf != null) {
+                            b.this.caf.YH();
                         }
-                    } else if ((view.getId() == a.f.current_money || view.getId() == a.f.current_recharge) && b.this.GJ()) {
-                        if (b.this.bWc.isNewUser && view.getId() == a.f.current_recharge && !TbadkCoreApplication.getInst().isMobileBaidu() && com.baidu.live.af.a.OJ().OO()) {
-                            String str3 = com.baidu.live.af.a.OJ().bxp.aMO.aOr.aOB;
+                    } else if ((view.getId() == a.f.current_money || view.getId() == a.f.current_recharge) && b.this.HZ()) {
+                        if (b.this.cae.isNewUser && view.getId() == a.f.current_recharge && !TbadkCoreApplication.getInst().isMobileBaidu() && com.baidu.live.ae.a.Qj().Qp()) {
+                            String str3 = com.baidu.live.ae.a.Qj().bAS.aPM.aRu.aRD;
                             if (str3.contains("?")) {
-                                str2 = str3 + "&liveId=" + b.this.bWc.mLiveId;
+                                str2 = str3 + "&liveId=" + b.this.cae.mLiveId;
                             } else {
-                                str2 = str3 + "?liveId=" + b.this.bWc.mLiveId;
+                                str2 = str3 + "?liveId=" + b.this.cae.mLiveId;
                             }
                             BrowserHelper.startInternalWebActivity(b.this.getPageContext().getPageActivity(), str2);
-                            LogManager.getFirstChargeLogger().doClickLiveFirstChargePanelEntryLog(b.this.bWc.mLiveId, b.this.bWc.mRoomId, b.this.bWc.bac, b.this.bWc.otherParams);
+                            LogManager.getFirstChargeLogger().doClickLiveFirstChargePanelEntryLog(b.this.cae.mLiveId, b.this.cae.mRoomId, b.this.cae.bdj, b.this.cae.otherParams);
                             b.this.closeActivity();
                             return;
                         }
                         String str4 = "";
                         if (view.getId() == a.f.current_recharge) {
                             str4 = TbadkCoreApplication.getInst().isHaokan() ? "gift_one" : "recharge";
-                            if (b.this.bWd != null) {
-                                b.this.bWd.WU();
+                            if (b.this.caf != null) {
+                                b.this.caf.YK();
                                 str = str4;
                             }
                             str = str4;
@@ -238,8 +238,8 @@ public abstract class b extends LazyLoadFragment {
                             }
                             str = str4;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(b.this.getPageContext().getPageActivity(), 0L, b.this.bWc.otherParams, true, str, false)));
-                    } else if (view.getId() == a.f.current_flower && b.this.GJ() && MessageManager.getInstance().findTask(2913219) != null) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(b.this.getPageContext().getPageActivity(), 0L, b.this.cae.otherParams, true, str, false)));
+                    } else if (view.getId() == a.f.current_flower && b.this.HZ() && MessageManager.getInstance().findTask(2913219) != null) {
                         b.this.closeActivity();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913220));
                     }
@@ -249,59 +249,59 @@ public abstract class b extends LazyLoadFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public GiftPanelSelectMicrophoneSendView.d Xm() {
-        if (this.bWn == null) {
+    public GiftPanelSelectMicrophoneSendView.d Zc() {
+        if (this.cap == null) {
             return null;
         }
-        return this.bWn.WM();
+        return this.cap.YC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int Xn() {
-        GiftPanelSelectMicrophoneSendView.d Xm = Xm();
-        if (Xm == null || Xm.bXq == null) {
+    public int Zd() {
+        GiftPanelSelectMicrophoneSendView.d Zc = Zc();
+        if (Zc == null || Zc.cbt == null) {
             return 0;
         }
-        return Xm.bXq.size();
+        return Zc.cbt.size();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xo() {
-        if (this.bWd != null) {
-            this.bWd.WP();
+    public void Ze() {
+        if (this.caf != null) {
+            this.caf.YF();
         }
-        if (GJ() && Xp() && a(Xm())) {
-            if (this.bWl.Fh().CF()) {
-                this.bWo = 0;
-                this.bWp = System.currentTimeMillis();
+        if (HZ() && Zf()) {
+            if (this.can.Gx().DV()) {
+                this.caq = 0;
+                this.car = System.currentTimeMillis();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501075, true));
             } else {
-                this.bWp = 0L;
-                this.bWo = 0;
+                this.car = 0L;
+                this.caq = 0;
             }
-            if (l(this.bWp, this.bWo) && this.bWp != 0) {
-                this.bWl.EB();
-                this.bWl.bQ(false);
-                if (this.bWd != null) {
-                    this.bWd.WQ();
+            if (l(this.car, this.caq) && this.car != 0) {
+                this.can.FR();
+                this.can.bV(false);
+                if (this.caf != null) {
+                    this.caf.YG();
                 }
             }
         }
     }
 
-    public void WX() {
-        if (this.bWl != null) {
-            this.bWl.WZ();
+    public void YN() {
+        if (this.can != null) {
+            this.can.YP();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(GiftPanelSelectMicrophoneSendView.d dVar) {
         if (dVar == null) {
             this.mPageContext.showToast(a.h.yuyin_ala_gift_hint_notchoose_wheats);
             return false;
-        } else if (dVar.bXq == null || dVar.bXq.size() == 0) {
-            if (dVar.bXp != null && dVar.bXp.length > 0) {
+        } else if (dVar.cbt == null || dVar.cbt.size() == 0) {
+            if (dVar.cbr != null && dVar.cbr.length > 0) {
                 this.mPageContext.showToast(a.h.yuyin_ala_gift_hint_wheat_offline);
                 return false;
             }
@@ -313,7 +313,7 @@ public abstract class b extends LazyLoadFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean GJ() {
+    public boolean HZ() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
@@ -321,7 +321,7 @@ public abstract class b extends LazyLoadFragment {
         return false;
     }
 
-    private boolean GK() {
-        return ("ala_tieba_android_consume".equals(this.bWc.bae) || StringUtils.isNull(this.bWc.bae) || this.bWc.bae.equals(com.baidu.live.yuyingift.b.b.Xh().DZ())) ? false : true;
+    private boolean Ia() {
+        return ("ala_tieba_android_consume".equals(this.cae.bdl) || StringUtils.isNull(this.cae.bdl) || this.cae.bdl.equals(com.baidu.live.yuyingift.b.b.YX().Fp())) ? false : true;
     }
 }

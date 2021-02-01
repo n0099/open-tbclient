@@ -8,7 +8,7 @@ import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class c implements d {
     public static List<Message> a(Context context, Intent intent) {
         int i;

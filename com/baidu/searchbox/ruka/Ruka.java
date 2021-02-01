@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Ruka {
     private static final int DEFAULT_BLOCK_THRESHOLD = 2000;
     private static long sProcessLaunchTime = System.currentTimeMillis();

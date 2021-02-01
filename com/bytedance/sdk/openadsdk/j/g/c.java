@@ -3,15 +3,15 @@ package com.bytedance.sdk.openadsdk.j.g;
 import android.content.Context;
 import com.bytedance.sdk.openadsdk.core.p;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
     private static c e;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7291a;
+    private Context f7293a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Object f7292b;
+    private Object f7294b;
     private Method c;
     private Method d;
 
@@ -27,16 +27,16 @@ public class c {
     }
 
     private c() {
-        this.f7291a = null;
-        this.f7292b = null;
+        this.f7293a = null;
+        this.f7294b = null;
         this.c = null;
         this.d = null;
-        this.f7291a = p.a();
-        if (this.f7291a != null) {
-            this.f7292b = this.f7291a.getSystemService("storage");
+        this.f7293a = p.a();
+        if (this.f7293a != null) {
+            this.f7294b = this.f7293a.getSystemService("storage");
             try {
-                this.c = this.f7292b.getClass().getMethod("getVolumeList", new Class[0]);
-                this.d = this.f7292b.getClass().getMethod("getVolumeState", String.class);
+                this.c = this.f7294b.getClass().getMethod("getVolumeList", new Class[0]);
+                this.d = this.f7294b.getClass().getMethod("getVolumeState", String.class);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -45,11 +45,11 @@ public class c {
 
     public boolean b() {
         Object[] objArr;
-        if (this.f7292b == null || this.c == null || this.d == null) {
+        if (this.f7294b == null || this.c == null || this.d == null) {
             return false;
         }
         try {
-            objArr = (Object[]) this.c.invoke(this.f7292b, new Object[0]);
+            objArr = (Object[]) this.c.invoke(this.f7294b, new Object[0]);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -62,7 +62,7 @@ public class c {
             return false;
         }
         for (Object obj : objArr) {
-            if (((Boolean) method2.invoke(obj, new Object[0])).booleanValue() && this.d.invoke(this.f7292b, (String) method.invoke(obj, new Object[0])).equals("mounted")) {
+            if (((Boolean) method2.invoke(obj, new Object[0])).booleanValue() && this.d.invoke(this.f7294b, (String) method.invoke(obj, new Object[0])).equals("mounted")) {
                 return true;
             }
         }

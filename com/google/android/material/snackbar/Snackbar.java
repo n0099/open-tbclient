@@ -23,7 +23,7 @@ import com.google.android.material.R;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public static final int LENGTH_INDEFINITE = -2;
     public static final int LENGTH_LONG = 0;
@@ -37,11 +37,11 @@ public final class Snackbar extends BaseTransientBottomBar<Snackbar> {
     @IntRange(from = 1)
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public @interface Duration {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class Callback extends BaseTransientBottomBar.BaseCallback<Snackbar> {
         public static final int DISMISS_EVENT_ACTION = 1;
         public static final int DISMISS_EVENT_CONSECUTIVE = 4;
@@ -204,7 +204,7 @@ public final class Snackbar extends BaseTransientBottomBar<Snackbar> {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static final class SnackbarLayout extends BaseTransientBottomBar.SnackbarBaseLayout {
         public SnackbarLayout(Context context) {
             super(context);

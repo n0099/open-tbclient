@@ -16,7 +16,7 @@ import com.fun.ad.v0;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class GDTNativeUnifiedImg3View extends v0 {
     public LinearLayout d;
     public ImageView e;
@@ -47,9 +47,9 @@ public class GDTNativeUnifiedImg3View extends v0 {
     public void a(Activity activity, au.a aVar, NativeUnifiedADData nativeUnifiedADData, ah ahVar) {
         super.a(activity, aVar, nativeUnifiedADData, ahVar);
         m.a("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight());
-        ap.a.pFl.a(getContext(), nativeUnifiedADData.getImgList().get(0), this.e);
-        ap.a.pFl.a(getContext(), nativeUnifiedADData.getImgList().get(1), this.f);
-        ap.a.pFl.a(getContext(), nativeUnifiedADData.getImgList().get(2), this.g);
+        ap.a.pPq.a(getContext(), nativeUnifiedADData.getImgList().get(0), this.e);
+        ap.a.pPq.a(getContext(), nativeUnifiedADData.getImgList().get(1), this.f);
+        ap.a.pPq.a(getContext(), nativeUnifiedADData.getImgList().get(2), this.g);
     }
 
     @Override // com.fun.ad.v0, android.view.View

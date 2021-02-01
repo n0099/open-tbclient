@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f6578a;
+    String f6580a;
 
     /* renamed from: b  reason: collision with root package name */
-    HashMap<String, d> f6579b = new HashMap<>();
+    HashMap<String, d> f6581b = new HashMap<>();
 
     private c() {
     }
@@ -40,15 +40,15 @@ public class c {
     }
 
     public String a() {
-        return this.f6578a;
+        return this.f6580a;
     }
 
     public void a(String str) {
-        this.f6578a = str;
+        this.f6580a = str;
     }
 
     public HashMap<String, d> b() {
-        return this.f6579b;
+        return this.f6581b;
     }
 
     public JSONObject c() {

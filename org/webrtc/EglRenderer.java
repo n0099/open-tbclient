@@ -9,16 +9,16 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.view.Surface;
-import androidx.annotation.Nullable;
 import java.nio.ByteBuffer;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class EglRenderer implements VideoSink {
     private static final long LOG_INTERVAL_SEC = 4;
     private static final String TAG = "EglRenderer";
@@ -31,8 +31,7 @@ public class EglRenderer implements VideoSink {
     private int framesRendered;
     private float layoutAspectRatio;
     private long minRenderPeriodNs;
-    private boolean mirrorHorizontally;
-    private boolean mirrorVertically;
+    private boolean mirror;
     protected final String name;
     private long nextFrameTimeNs;
     @Nullable
@@ -67,7 +66,7 @@ public class EglRenderer implements VideoSink {
     private final EglSurfaceCreation eglSurfaceCreationRunnable = new EglSurfaceCreation();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class EglSurfaceCreation implements Runnable {
         private Object surface;
 
@@ -98,13 +97,13 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface FrameListener {
         void onFrame(Bitmap bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class FrameListenerAndParams {
         public final boolean applyFpsReduction;
         public final RendererCommon.GlDrawer drawer;
@@ -120,7 +119,7 @@ public class EglRenderer implements VideoSink {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class HandlerWithExceptionCallback extends Handler {
         private final Runnable exceptionCallback;
 
@@ -189,7 +188,6 @@ public class EglRenderer implements VideoSink {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void lambda$release$1(EglRenderer eglRenderer, CountDownLatch countDownLatch) {
-        GLES20.glUseProgram(0);
         if (eglRenderer.drawer != null) {
             eglRenderer.drawer.release();
             eglRenderer.drawer = null;
@@ -251,17 +249,15 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    private void logW(String str) {
-        Logging.w(TAG, this.name + str);
-    }
-
     private void notifyCallbacks(VideoFrame videoFrame, boolean z) {
         if (this.frameListeners.isEmpty()) {
             return;
         }
         this.drawMatrix.reset();
         this.drawMatrix.preTranslate(0.5f, 0.5f);
-        this.drawMatrix.preScale(this.mirrorHorizontally ? -1.0f : 1.0f, this.mirrorVertically ? -1.0f : 1.0f);
+        if (this.mirror) {
+            this.drawMatrix.preScale(-1.0f, 1.0f);
+        }
         this.drawMatrix.preScale(1.0f, -1.0f);
         this.drawMatrix.preTranslate(-0.5f, -0.5f);
         Iterator<FrameListenerAndParams> it = this.frameListeners.iterator();
@@ -347,7 +343,9 @@ public class EglRenderer implements VideoSink {
             }
             this.drawMatrix.reset();
             this.drawMatrix.preTranslate(0.5f, 0.5f);
-            this.drawMatrix.preScale(this.mirrorHorizontally ? -1.0f : 1.0f, this.mirrorVertically ? -1.0f : 1.0f);
+            if (this.mirror) {
+                this.drawMatrix.preScale(-1.0f, 1.0f);
+            }
             this.drawMatrix.preScale(f3, f2);
             this.drawMatrix.preTranslate(-0.5f, -0.5f);
             if (z) {
@@ -507,9 +505,9 @@ public class EglRenderer implements VideoSink {
             if (thread != null) {
                 StackTraceElement[] stackTrace = thread.getStackTrace();
                 if (stackTrace.length > 0) {
-                    logW("EglRenderer stack trace:");
+                    logD("EglRenderer stack trace:");
                     for (StackTraceElement stackTraceElement : stackTrace) {
-                        logW(stackTraceElement.toString());
+                        logD(stackTraceElement.toString());
                     }
                 }
             }
@@ -609,16 +607,9 @@ public class EglRenderer implements VideoSink {
     }
 
     public void setMirror(boolean z) {
-        logD("setMirrorHorizontally: " + z);
+        logD("setMirror: " + z);
         synchronized (this.layoutLock) {
-            this.mirrorHorizontally = z;
-        }
-    }
-
-    public void setMirrorVertically(boolean z) {
-        logD("setMirrorVertically: " + z);
-        synchronized (this.layoutLock) {
-            this.mirrorVertically = z;
+            this.mirror = z;
         }
     }
 }

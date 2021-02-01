@@ -3,7 +3,7 @@ package rx.internal.util.atomic;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class c<E> extends a<E> {
     private static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     final AtomicLong consumerIndex;
@@ -33,7 +33,7 @@ public final class c<E> extends a<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<E> atomicReferenceArray = this.qti;
+        AtomicReferenceArray<E> atomicReferenceArray = this.qDl;
         int i = this.mask;
         long j = this.producerIndex.get();
         int calcElementOffset = calcElementOffset(j, i);
@@ -54,7 +54,7 @@ public final class c<E> extends a<E> {
     public E poll() {
         long j = this.consumerIndex.get();
         int calcElementOffset = calcElementOffset(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.qti;
+        AtomicReferenceArray<E> atomicReferenceArray = this.qDl;
         E b2 = b(atomicReferenceArray, calcElementOffset);
         if (b2 == null) {
             return null;
@@ -71,20 +71,20 @@ public final class c<E> extends a<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eIf = eIf();
+        long eKv = eKv();
         while (true) {
-            long eIe = eIe();
-            long eIf2 = eIf();
-            if (eIf == eIf2) {
-                return (int) (eIe - eIf2);
+            long eKu = eKu();
+            long eKv2 = eKv();
+            if (eKv == eKv2) {
+                return (int) (eKu - eKv2);
             }
-            eIf = eIf2;
+            eKv = eKv2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return eIe() == eIf();
+        return eKu() == eKv();
     }
 
     private void soProducerIndex(long j) {
@@ -95,11 +95,11 @@ public final class c<E> extends a<E> {
         this.consumerIndex.lazySet(j);
     }
 
-    private long eIf() {
+    private long eKv() {
         return this.consumerIndex.get();
     }
 
-    private long eIe() {
+    private long eKu() {
         return this.producerIndex.get();
     }
 }

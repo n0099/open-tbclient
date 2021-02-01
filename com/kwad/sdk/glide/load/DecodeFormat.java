@@ -1,5 +1,5 @@
 package com.kwad.sdk.glide.load;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public enum DecodeFormat {
     PREFER_ARGB_8888,
     PREFER_RGB_565;

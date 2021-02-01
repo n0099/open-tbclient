@@ -5,11 +5,11 @@ import com.kwad.sdk.contentalliance.b.b;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayTouchViewPager;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.contentalliance.home.viewpager.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends c {
 
     /* renamed from: b  reason: collision with root package name */
-    private int f8762b;
+    private int f8764b;
     private int c;
     private SlidePlayViewPager d;
 
@@ -17,7 +17,7 @@ public class b extends c {
     @Override // com.kwad.sdk.contentalliance.home.viewpager.c, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.f8766a.c;
+        this.d = this.f8768a.c;
         this.d.a(new ViewPager.OnPageChangeListener() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.b.1
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
@@ -39,11 +39,11 @@ public class b extends c {
         this.d.setOnPageScrollEndListener(new b.f() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.b.2
             @Override // com.kwad.sdk.contentalliance.b.b.f
             public void a() {
-                int currentItem = b.this.f8766a.c.getCurrentItem();
-                if (b.this.f8762b == currentItem) {
+                int currentItem = b.this.f8768a.c.getCurrentItem();
+                if (b.this.f8764b == currentItem) {
                     return;
                 }
-                b.this.f8762b = currentItem;
+                b.this.f8764b = currentItem;
                 if (b.this.d.getAdapter() != null) {
                     b.this.d.getAdapter().a(currentItem, true);
                 }

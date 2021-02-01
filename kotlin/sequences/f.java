@@ -11,7 +11,7 @@ import kotlin.jvm.internal.p;
 import kotlin.text.l;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f extends e {
     public static final <T> kotlin.sequences.c<T> a(kotlin.sequences.c<? extends T> cVar, kotlin.jvm.a.b<? super T, Boolean> bVar) {
         p.o(cVar, "$receiver");
@@ -51,9 +51,9 @@ public class f extends e {
     }
 
     @kotlin.e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Object qjW;
+        final /* synthetic */ Object qua;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
@@ -65,39 +65,39 @@ public class f extends e {
     }
 
     @kotlin.e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b implements kotlin.sequences.c<T> {
-        final /* synthetic */ Object[] qjX;
+        final /* synthetic */ Object[] qub;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.S(this.qjX))).iterator();
+            return kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.S(this.qub))).iterator();
         }
     }
 
     @kotlin.e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class c implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable qjY;
+        final /* synthetic */ Iterable quc;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            Collection c = n.c(this.qjY);
+            Collection c = n.c(this.quc);
             return c.isEmpty() ? this.receiver$0.iterator() : kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$3$iterator$1(c)).iterator();
         }
     }
 
     @kotlin.e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class d implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c qjZ;
+        final /* synthetic */ kotlin.sequences.c qud;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            HashSet a2 = kotlin.sequences.d.a(this.qjZ);
+            HashSet a2 = kotlin.sequences.d.a(this.qud);
             return a2.isEmpty() ? this.receiver$0.iterator() : kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$4$iterator$1(a2)).iterator();
         }
     }

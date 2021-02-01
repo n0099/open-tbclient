@@ -3,7 +3,7 @@ package com.facebook.drawee.d;
 import android.net.Uri;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface d {
     d V(Uri uri);
 
@@ -13,5 +13,5 @@ public interface d {
 
     d c(@Nullable a aVar);
 
-    a erN();
+    a euf();
 }

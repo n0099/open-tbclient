@@ -5,11 +5,11 @@ import com.bytedance.sdk.openadsdk.core.m;
 import com.bytedance.sdk.openadsdk.core.v;
 import com.bytedance.sdk.openadsdk.multipro.b;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTAdManagerFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final TTAdManager f6084a = new v();
+    private static final TTAdManager f6086a = new v();
 
     private TTAdManagerFactory() {
     }
@@ -23,11 +23,11 @@ public class TTAdManagerFactory {
             b.a();
         }
         m.a(context);
-        return f6084a;
+        return f6086a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static TTAdManager a() {
-        return f6084a;
+        return f6086a;
     }
 }

@@ -7,14 +7,14 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.live.slide.LiveSlidHomeParam;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f8742a;
+    public com.kwad.sdk.core.i.a f8744a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsContentPage.PageListener f8743b;
+    public KsContentPage.PageListener f8745b;
     public KsContentPage.VideoListener c;
     @Nullable
     public LiveSlidHomeParam d;
@@ -28,9 +28,9 @@ public class h {
     public boolean j = false;
 
     public void a() {
-        if (this.f8742a != null) {
-            this.f8742a.b();
-            this.f8742a.f();
+        if (this.f8744a != null) {
+            this.f8744a.b();
+            this.f8744a.f();
         }
         if (this.e != null) {
             this.e.clear();

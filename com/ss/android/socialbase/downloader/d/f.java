@@ -5,11 +5,11 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface f extends IInterface {
     int a(long j) throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements f {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IChunkCntAidlCalculator");
@@ -23,7 +23,7 @@ public interface f extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                 return (f) queryLocalInterface;
             }
-            return new C1234a(iBinder);
+            return new C1238a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -49,19 +49,19 @@ public interface f extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.d.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C1234a implements f {
+        /* loaded from: classes6.dex */
+        private static class C1238a implements f {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13110a;
+            private IBinder f13112a;
 
-            C1234a(IBinder iBinder) {
-                this.f13110a = iBinder;
+            C1238a(IBinder iBinder) {
+                this.f13112a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13110a;
+                return this.f13112a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.f
@@ -71,7 +71,7 @@ public interface f extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IChunkCntAidlCalculator");
                     obtain.writeLong(j);
-                    this.f13110a.transact(1, obtain, obtain2, 0);
+                    this.f13112a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {

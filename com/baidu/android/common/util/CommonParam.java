@@ -2,7 +2,7 @@ package com.baidu.android.common.util;
 
 import android.content.Context;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CommonParam {
 
     /* renamed from: a  reason: collision with root package name */

@@ -3,7 +3,7 @@ package a.a.a.c.a;
 import android.content.Context;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements b {
     @Override // a.a.a.c.a.b
     public void a(Context context, File file) {

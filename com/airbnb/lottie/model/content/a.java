@@ -2,7 +2,7 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.PointF;
 import com.airbnb.lottie.model.a.m;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements b {
     private final com.airbnb.lottie.model.a.f FC;
     private final boolean FD;
@@ -25,11 +25,11 @@ public class a implements b {
         return this.name;
     }
 
-    public m<PointF, PointF> jf() {
+    public m<PointF, PointF> je() {
         return this.Fw;
     }
 
-    public com.airbnb.lottie.model.a.f jm() {
+    public com.airbnb.lottie.model.a.f jl() {
         return this.FC;
     }
 

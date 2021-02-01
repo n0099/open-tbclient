@@ -2,11 +2,11 @@ package org.webrtc;
 
 import android.content.Context;
 import android.os.Build;
-import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.Nullable;
 import org.webrtc.NetworkMonitorAutoDetect;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NetworkMonitor {
     private static final String TAG = "NetworkMonitor";
     @Nullable
@@ -18,7 +18,7 @@ public class NetworkMonitor {
     private int numObservers;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class InstanceHolder {
         static final NetworkMonitor instance = new NetworkMonitor();
 
@@ -26,7 +26,7 @@ public class NetworkMonitor {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface NetworkObserver {
         void onConnectionTypeChanged(NetworkMonitorAutoDetect.ConnectionType connectionType);
     }

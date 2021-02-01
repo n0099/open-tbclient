@@ -1,44 +1,45 @@
 package com.baidu.mobads.production.h;
 
-import android.app.Activity;
 import android.content.Context;
-import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.AdSize;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
-import com.baidu.mobads.interfaces.IXAdProd;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.production.b.e;
 import com.baidu.mobads.vo.d;
-import com.tencent.connect.common.Constants;
-import java.util.HashMap;
-/* loaded from: classes14.dex */
-public class a extends d {
+/* loaded from: classes5.dex */
+public class a extends e {
+    private com.baidu.mobads.production.g.a z;
 
-    /* renamed from: a  reason: collision with root package name */
-    protected IXAdProd f3454a;
-
-    public a(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, IXAdProd iXAdProd) {
-        super(context, activity, slotType);
-        this.f3525b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
-        this.f3454a = iXAdProd;
+    public a(Context context, String str) {
+        super(context);
+        setId(str);
+        setActivity(context);
+        setAdSlotBase(null);
+        this.o = IXAdConstants4PDK.SlotType.SLOT_TYPE_PREROLL;
+        this.z = new com.baidu.mobads.production.g.a(getApplicationContext(), getActivity(), IXAdConstants4PDK.SlotType.SLOT_TYPE_PREROLL, this);
+        this.z.f(AdSize.PrerollVideoNative.getValue());
+        this.z.d(str);
     }
 
-    @Override // com.baidu.mobads.vo.d
-    protected HashMap<String, String> a() {
-        HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "video/mp4,image/jpg,image/gif,image/png");
-        hashMap.put("prod", "video");
-        hashMap.put(IXAdRequestInfo.FET, "ANTI,HTML,MSSP,VIDEO,NMON");
-        hashMap.put("at", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
-        hashMap.put("n", "1");
-        if (this.f3454a.getProdBase() == null && getApt() != AdSize.PrerollVideoNative.getValue()) {
-            hashMap.put(IXAdRequestInfo.QUERY_WIDTH, "640");
-            hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, "480");
+    @Override // com.baidu.mobads.production.b.e, com.baidu.mobads.production.a
+    public void a(RequestParameters requestParameters) {
+        int width = requestParameters.getWidth();
+        int height = requestParameters.getHeight();
+        if (width > 0 && height > 0) {
+            this.z.d(width);
+            this.z.e(height);
         }
-        return hashMap;
     }
 
-    @Override // com.baidu.mobads.vo.d
-    public String b() {
-        return super.b();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.mobads.production.b.e, com.baidu.mobads.interfaces.IXAdProd
+    /* renamed from: b */
+    public d getAdRequestInfo() {
+        return this.z;
+    }
+
+    @Override // com.baidu.mobads.production.b.e, com.baidu.mobads.interfaces.IXAdProd
+    public void request() {
+        super.a(this.z);
     }
 }

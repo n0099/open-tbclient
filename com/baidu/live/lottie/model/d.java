@@ -4,7 +4,7 @@ import androidx.annotation.RestrictTo;
 import com.baidu.live.lottie.model.content.j;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     private final double Fc;
     private final char Fk;
@@ -26,7 +26,7 @@ public class d {
         this.fontFamily = str2;
     }
 
-    public List<j> iY() {
+    public List<j> iX() {
         return this.shapes;
     }
 

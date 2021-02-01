@@ -6,17 +6,17 @@ import androidx.annotation.Nullable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e implements a {
-    private Set<String> cXr;
+    private Set<String> cZD;
 
     public e(@Nullable Set<String> set) {
-        this.cXr = set;
+        this.cZD = set;
     }
 
     @Override // com.baidu.swan.apps.env.a.a
     @Nullable
-    public List<String> aL(@Nullable List<String> list) {
+    public List<String> aG(@Nullable List<String> list) {
         if (list == null || list.size() == 0) {
             return null;
         }
@@ -29,7 +29,7 @@ public class e implements a {
                         Log.d("IDiskCleanStrategy", "过滤「智能小程序」");
                     }
                     it.remove();
-                } else if (this.cXr != null && this.cXr.contains(next)) {
+                } else if (this.cZD != null && this.cZD.contains(next)) {
                     if (DEBUG) {
                         Log.d("IDiskCleanStrategy", "过滤指定id: " + next);
                     }

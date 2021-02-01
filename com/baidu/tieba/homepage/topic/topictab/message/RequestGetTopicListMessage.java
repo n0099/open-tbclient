@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.topic.topictab.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.CommonReq;
 import tbclient.NewTopicList.DataReq;
 import tbclient.NewTopicList.NewTopicListReqIdl;
@@ -11,14 +11,14 @@ public class RequestGetTopicListMessage extends NetMessage {
     private String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f5335common;
+    private CommonReq f5337common;
 
     public RequestGetTopicListMessage() {
         super(CmdConfigHttp.CMD_TOPIC_LIST, 309628);
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f5335common = commonReq;
+        this.f5337common = commonReq;
     }
 
     public void setCallFrom(String str) {
@@ -28,10 +28,10 @@ public class RequestGetTopicListMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f14636common = this.f5335common;
+        builder.f14646common = this.f5337common;
         builder.call_from = this.callFrom;
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         NewTopicListReqIdl.Builder builder2 = new NewTopicListReqIdl.Builder();
         builder2.data = builder.build(false);

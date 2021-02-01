@@ -1,12 +1,12 @@
 package com.baidu.minivideo.arface.b;
 
 import com.baidu.tieba.ala.alaar.sticker.download.exception.DownloadException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static com.baidu.minivideo.arface.a.b cfY = new com.baidu.minivideo.arface.a.b() { // from class: com.baidu.minivideo.arface.b.a.1
+    private static com.baidu.minivideo.arface.a.b cki = new com.baidu.minivideo.arface.a.b() { // from class: com.baidu.minivideo.arface.b.a.1
         @Override // com.baidu.minivideo.arface.a.b
         public void a(String str, String str2, String str3, final com.baidu.minivideo.arface.a.a aVar) {
-            com.baidu.tieba.ala.alaar.sticker.download.b.bPf().a(str, str2, str3, new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.minivideo.arface.b.a.1.1
+            com.baidu.tieba.ala.alaar.sticker.download.b.bPJ().a(str, str2, str3, new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.minivideo.arface.b.a.1.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     if (aVar != null) {
@@ -72,6 +72,6 @@ public class a {
     };
 
     public static void init() {
-        com.baidu.minivideo.arface.b.a(cfY);
+        com.baidu.minivideo.arface.b.a(cki);
     }
 }

@@ -16,54 +16,54 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f11066b;
+    private Context f11068b;
     private HodorDebugInfoView c;
     private AtomicBoolean d = new AtomicBoolean(false);
     private final Object e = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    private d f11065a = i.a().t();
+    private d f11067a = i.a().t();
     private Map<String, g> f = new LinkedHashMap(200);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends AwesomeCacheCallback {
 
         /* renamed from: b  reason: collision with root package name */
-        private com.kwai.video.ksvodplayerkit.d.b f11068b;
+        private com.kwai.video.ksvodplayerkit.d.b f11070b;
 
         a(com.kwai.video.ksvodplayerkit.d.b bVar) {
-            this.f11068b = bVar;
+            this.f11070b = bVar;
         }
 
         @Override // com.kwai.video.cache.AwesomeCacheCallback
         public void onDownloadFinish(AcCallBackInfo acCallBackInfo) {
-            if (this.f11068b == null) {
+            if (this.f11070b == null) {
                 return;
             }
             switch (acCallBackInfo.stopReason) {
                 case 1:
                 case 2:
-                    com.kwai.video.ksvodplayerkit.a.b.b("KSVodPrefetcher", this.f11068b.g + ", stopReason:" + AcCallBackInfo.stopReasonToString(acCallBackInfo.stopReason) + ", taskState:" + acCallBackInfo.getTaskStateString());
-                    c.this.a(acCallBackInfo, this.f11068b);
+                    com.kwai.video.ksvodplayerkit.a.b.b("KSVodPrefetcher", this.f11070b.g + ", stopReason:" + AcCallBackInfo.stopReasonToString(acCallBackInfo.stopReason) + ", taskState:" + acCallBackInfo.getTaskStateString());
+                    c.this.a(acCallBackInfo, this.f11070b);
                     return;
                 default:
                     if (acCallBackInfo.stopReason == 3) {
-                        if (!com.kwai.video.ksvodplayerkit.c.a.a(c.this.f11066b)) {
-                            com.kwai.video.ksvodplayerkit.a.b.b("KSVodPrefetcher", this.f11068b.g + ", stopReason:" + AcCallBackInfo.stopReasonToString(acCallBackInfo.stopReason) + ", taskState:" + acCallBackInfo.getTaskStateString());
-                            c.this.a(acCallBackInfo, this.f11068b);
+                        if (!com.kwai.video.ksvodplayerkit.c.a.a(c.this.f11068b)) {
+                            com.kwai.video.ksvodplayerkit.a.b.b("KSVodPrefetcher", this.f11070b.g + ", stopReason:" + AcCallBackInfo.stopReasonToString(acCallBackInfo.stopReason) + ", taskState:" + acCallBackInfo.getTaskStateString());
+                            c.this.a(acCallBackInfo, this.f11070b);
                             return;
                         }
-                        if (c.this.a(this.f11068b.a(), this.f11068b) >= 0) {
+                        if (c.this.a(this.f11070b.a(), this.f11070b) >= 0) {
                             com.kwai.video.ksvodplayerkit.a.b.e("KSVodPrefetcher", "onDownloadFinish stop_reason:" + acCallBackInfo.stopReason + ", switch next url success!");
                             return;
                         }
-                        com.kwai.video.ksvodplayerkit.a.b.b("KSVodPrefetcher", this.f11068b.g + ", stopReason:" + AcCallBackInfo.stopReasonToString(acCallBackInfo.stopReason) + ", taskState:" + acCallBackInfo.getTaskStateString());
-                        c.this.a(acCallBackInfo, this.f11068b);
+                        com.kwai.video.ksvodplayerkit.a.b.b("KSVodPrefetcher", this.f11070b.g + ", stopReason:" + AcCallBackInfo.stopReasonToString(acCallBackInfo.stopReason) + ", taskState:" + acCallBackInfo.getTaskStateString());
+                        c.this.a(acCallBackInfo, this.f11070b);
                         com.kwai.video.ksvodplayerkit.a.b.e("KSVodPrefetcher", "onDownloadFinish stop_reason:" + acCallBackInfo.stopReason + ", switch next url failed!");
                         return;
                     }
@@ -73,18 +73,18 @@ public class c {
 
         @Override // com.kwai.video.cache.AwesomeCacheCallback
         public void onSessionProgress(AcCallBackInfo acCallBackInfo) {
-            if (acCallBackInfo == null || this.f11068b == null) {
+            if (acCallBackInfo == null || this.f11070b == null) {
                 return;
             }
-            com.kwai.video.ksvodplayerkit.a.b.b("KSVodPrefetcher", this.f11068b.g + ", stopReason:" + AcCallBackInfo.stopReasonToString(acCallBackInfo.stopReason) + ", taskState:" + acCallBackInfo.getTaskStateString());
+            com.kwai.video.ksvodplayerkit.a.b.b("KSVodPrefetcher", this.f11070b.g + ", stopReason:" + AcCallBackInfo.stopReasonToString(acCallBackInfo.stopReason) + ", taskState:" + acCallBackInfo.getTaskStateString());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static c f11069a = new c();
+        private static c f11071a = new c();
     }
 
     protected c() {
@@ -112,8 +112,8 @@ public class c {
             com.kwai.video.ksvodplayerkit.a.b.b("KSVodPrefetcher", "submit task：" + bVar.g + ", priority：" + bVar.c());
             abstractHodorPreloadTask.setAwesomeCacheCallback(new a(bVar));
             abstractHodorPreloadTask.setPriority(bVar.c());
-            abstractHodorPreloadTask.setMaxSpeedKbps(this.f11065a.j);
-            abstractHodorPreloadTask.setOnlyPreloadUnderSpeedKbps(this.f11065a.c);
+            abstractHodorPreloadTask.setMaxSpeedKbps(this.f11067a.j);
+            abstractHodorPreloadTask.setOnlyPreloadUnderSpeedKbps(this.f11067a.c);
             abstractHodorPreloadTask.setBizType("KSVodPrefetcher");
             abstractHodorPreloadTask.setGroupName("KSDownloaderKit");
             abstractHodorPreloadTask.submit();
@@ -124,7 +124,7 @@ public class c {
     }
 
     public static c a() {
-        return b.f11069a;
+        return b.f11071a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -173,16 +173,16 @@ public class c {
     }
 
     private long c() {
-        return com.kwai.video.ksvodplayerkit.c.a.d(this.f11066b) == 1 ? this.f11065a.d : this.f11065a.e;
+        return com.kwai.video.ksvodplayerkit.c.a.d(this.f11068b) == 1 ? this.f11067a.d : this.f11067a.e;
     }
 
     private long d() {
-        return com.kwai.video.ksvodplayerkit.c.a.d(this.f11066b) == 1 ? this.f11065a.f : this.f11065a.g;
+        return com.kwai.video.ksvodplayerkit.c.a.d(this.f11068b) == 1 ? this.f11067a.f : this.f11067a.g;
     }
 
     public int a(com.kwai.video.ksvodplayerkit.d.b bVar) {
         if (bVar instanceof com.kwai.video.ksvodplayerkit.d.a) {
-            ((com.kwai.video.ksvodplayerkit.d.a) bVar).a(this.f11066b);
+            ((com.kwai.video.ksvodplayerkit.d.a) bVar).a(this.f11068b);
         }
         if (this.c != null && i.a().m()) {
             this.c.setVisibility(0);
@@ -207,11 +207,11 @@ public class c {
         if (this.d.get()) {
             return;
         }
-        this.f11066b = context;
-        HodorConfig.setPreloadV3VodBufferLowRatio(this.f11065a.h);
-        HodorConfig.setPreloadV3VodCacheKbThresholdWhenPrepare(this.f11065a.k);
-        HodorConfig.setPreloadV3VodPausePreloadMaxCountDueToBufferLow(this.f11065a.i);
-        b(this.f11066b);
+        this.f11068b = context;
+        HodorConfig.setPreloadV3VodBufferLowRatio(this.f11067a.h);
+        HodorConfig.setPreloadV3VodCacheKbThresholdWhenPrepare(this.f11067a.k);
+        HodorConfig.setPreloadV3VodPausePreloadMaxCountDueToBufferLow(this.f11067a.i);
+        b(this.f11068b);
         this.d.set(true);
     }
 

@@ -3,18 +3,18 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes2.dex */
 public class a {
-    private static a jVa = new a();
+    private static a kcB = new a();
     private long creatTime = 0;
-    private SparseArray<Long> jVb = new SparseArray<>();
-    private SparseArray<Long> jVc = new SparseArray<>();
-    private SparseArray<Long> jVd = new SparseArray<>();
-    private SparseArray<Long> jVe = new SparseArray<>();
+    private SparseArray<Long> kcC = new SparseArray<>();
+    private SparseArray<Long> kcD = new SparseArray<>();
+    private SparseArray<Long> kcE = new SparseArray<>();
+    private SparseArray<Long> kcF = new SparseArray<>();
 
     private a() {
     }
 
-    public static a cNr() {
-        return jVa;
+    public static a cPn() {
+        return kcB;
     }
 
     public long getCreateTime() {
@@ -25,8 +25,32 @@ public class a {
         this.creatTime = j;
     }
 
-    public long Bi(int i) {
-        Long l = this.jVc.get(i);
+    public long By(int i) {
+        Long l = this.kcD.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void B(long j, int i) {
+        this.kcD.put(i, Long.valueOf(j));
+    }
+
+    public long Bz(int i) {
+        Long l = this.kcC.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void C(long j, int i) {
+        this.kcC.put(i, Long.valueOf(j));
+    }
+
+    public long BA(int i) {
+        Long l = this.kcE.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +58,11 @@ public class a {
     }
 
     public void D(long j, int i) {
-        this.jVc.put(i, Long.valueOf(j));
+        this.kcE.put(i, Long.valueOf(j));
     }
 
-    public long Bj(int i) {
-        Long l = this.jVb.get(i);
+    public long BB(int i) {
+        Long l = this.kcF.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,30 +70,6 @@ public class a {
     }
 
     public void E(long j, int i) {
-        this.jVb.put(i, Long.valueOf(j));
-    }
-
-    public long Bk(int i) {
-        Long l = this.jVd.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void F(long j, int i) {
-        this.jVd.put(i, Long.valueOf(j));
-    }
-
-    public long Bl(int i) {
-        Long l = this.jVe.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void G(long j, int i) {
-        this.jVe.put(i, Long.valueOf(j));
+        this.kcF.put(i, Long.valueOf(j));
     }
 }

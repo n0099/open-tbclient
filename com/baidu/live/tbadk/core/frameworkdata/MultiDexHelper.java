@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MultiDexHelper {
     private static final String EXTRACTED_NAME_EXT = ".classes";
     private static final String EXTRACTED_SUFFIX = ".zip";
@@ -33,7 +33,7 @@ public class MultiDexHelper {
         String str = file.getName() + EXTRACTED_NAME_EXT;
         int i = getMultiDexPreferences(context).getInt(KEY_DEX_NUMBER, 1);
         for (int i2 = 2; i2 <= i; i2++) {
-            File file3 = new File(file2, str + i2 + EXTRACTED_SUFFIX);
+            File file3 = new File(file2, str + i2 + ".zip");
             if (file3.isFile()) {
                 arrayList.add(file3.getAbsolutePath());
             } else {
@@ -48,7 +48,7 @@ public class MultiDexHelper {
         ArrayList arrayList = new ArrayList();
         for (String str : getSourcePaths(context)) {
             try {
-                if (str.endsWith(EXTRACTED_SUFFIX)) {
+                if (str.endsWith(".zip")) {
                     dexFile = DexFile.loadDex(str, str + ".tmp", 0);
                 } else {
                     dexFile = new DexFile(str);
@@ -68,7 +68,7 @@ public class MultiDexHelper {
         DexFile dexFile;
         for (String str : getSourcePaths(context)) {
             try {
-                if (str.endsWith(EXTRACTED_SUFFIX)) {
+                if (str.endsWith(".zip")) {
                     dexFile = DexFile.loadDex(str, str + ".tmp", 0);
                 } else {
                     dexFile = new DexFile(str);

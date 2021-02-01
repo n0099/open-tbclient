@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework.message;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
     private int mRetry;
     public long sequenceID;

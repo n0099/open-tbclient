@@ -12,11 +12,11 @@ import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4484b = b.class.getSimpleName();
+    private static final String f4487b = b.class.getSimpleName();
     private String c;
 
     private LatLng a(JSONObject jSONObject) {
@@ -66,7 +66,7 @@ public class b extends com.baidu.platform.base.d {
             return true;
         } catch (JSONException e) {
             geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-            Log.e(f4484b, "Parse GeoCodeResult catch JSONException", e);
+            Log.e(f4487b, "Parse GeoCodeResult catch JSONException", e);
             return true;
         }
     }
@@ -125,7 +125,7 @@ public class b extends com.baidu.platform.base.d {
                     geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                 }
             } catch (JSONException e) {
-                Log.e(f4484b, "JSONException caught", e);
+                Log.e(f4487b, "JSONException caught", e);
                 geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             }
         }

@@ -3,14 +3,14 @@ package com.bun.miitmdid.supplier.h.a;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5755a;
+    private Context f5757a;
 
     public a(Context context) {
-        this.f5755a = context;
+        this.f5757a = context;
     }
 
     public String a(int i, String str) {
@@ -29,7 +29,7 @@ public class a {
                 parse = null;
                 break;
         }
-        Cursor query = this.f5755a.getContentResolver().query(parse, null, null, null, null);
+        Cursor query = this.f5757a.getContentResolver().query(parse, null, null, null, null);
         if (query != null) {
             r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
             query.close();

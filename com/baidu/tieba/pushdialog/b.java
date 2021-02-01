@@ -5,14 +5,14 @@ import android.content.pm.PackageManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public static boolean dzR() {
+    public static boolean dCb() {
         String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
         return !StringUtils.isNull(systemProperty) && com.baidu.adp.lib.f.b.toInt(systemProperty.replace("V", ""), 0) >= 9;
     }
 
-    public static boolean dzS() {
+    public static boolean dCc() {
         PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
         try {
             if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {

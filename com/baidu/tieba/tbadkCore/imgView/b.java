@@ -6,14 +6,13 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 /* loaded from: classes.dex */
 public class b {
     public Bitmap bm;
     private Context mContext;
-    public Bundle npi;
-    public boolean npj;
-    public boolean npk;
+    public Bundle nyR;
+    public boolean nyS;
+    public boolean nyT;
     public Rect rect;
     private Rect src = new Rect();
 
@@ -22,8 +21,8 @@ public class b {
     }
 
     public void draw(Canvas canvas) {
-        DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
-        this.src.set(0, 0, this.bm.getScaledWidth(displayMetrics), this.bm.getScaledHeight(displayMetrics));
+        this.mContext.getResources().getDisplayMetrics();
+        this.src.set(0, 0, this.bm.getWidth(), this.bm.getHeight());
         canvas.drawBitmap(this.bm, this.src, this.rect, (Paint) null);
     }
 }

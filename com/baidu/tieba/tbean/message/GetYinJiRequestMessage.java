@@ -2,10 +2,10 @@ package com.baidu.tieba.tbean.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetIconList.GetIconListReqIdl;
 import tbclient.GetIconList.ReqData;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetYinJiRequestMessage extends NetMessage {
     private String st_type;
 
@@ -27,7 +27,7 @@ public class GetYinJiRequestMessage extends NetMessage {
         ReqData.Builder builder = new ReqData.Builder();
         builder.st_type = getSt_type();
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetIconListReqIdl.Builder builder2 = new GetIconListReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -4,43 +4,43 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final String dnD;
-    private long dnE;
-    private long dnF;
+    private final String dpQ;
+    private long dpR;
+    private long dpS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.dnD = str;
+        this.dpQ = str;
         if (DEBUG) {
             Log.d("Model", "new model, scope id - " + str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cw(long j) {
-        this.dnE = j;
+    public void cC(long j) {
+        this.dpR = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cx(long j) {
-        this.dnF = j;
+    public void cD(long j) {
+        this.dpS = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aDa() {
-        return this.dnE;
+    public long aDw() {
+        return this.dpR;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("scope_id", this.dnD);
-            jSONObject.put("begin_ts", this.dnE);
-            jSONObject.put("end_ts", this.dnF);
+            jSONObject.put("scope_id", this.dpQ);
+            jSONObject.put("begin_ts", this.dpR);
+            jSONObject.put("end_ts", this.dpS);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

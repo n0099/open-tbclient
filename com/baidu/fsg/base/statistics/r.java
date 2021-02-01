@@ -11,7 +11,7 @@ import java.util.Map;
 class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1962a = "logsender";
+    private static final String f1960a = "logsender";
 
     /* loaded from: classes5.dex */
     interface a {
@@ -76,7 +76,7 @@ class r {
             e = e3;
             httpURLConnection3 = httpURLConnection2;
             e.printStackTrace();
-            LogUtil.d(f1962a, e.toString());
+            LogUtil.d(f1960a, e.toString());
             aVar.b();
             if (httpURLConnection3 != null) {
                 httpURLConnection3.disconnect();

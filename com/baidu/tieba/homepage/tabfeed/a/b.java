@@ -16,26 +16,26 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.at;
-import com.baidu.tbadk.core.data.br;
+import com.baidu.tbadk.core.data.av;
+import com.baidu.tbadk.core.data.bt;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class b extends com.baidu.adp.widget.ListView.a<br, ThreadCardViewHolder<br>> implements com.baidu.tieba.a.f {
-    private String air;
-    private com.baidu.tbadk.h.f ajB;
-    private s amu;
-    public BdUniqueId fEN;
-    private NEGFeedBackView.a hjg;
+public class b extends com.baidu.adp.widget.ListView.a<bt, ThreadCardViewHolder<bt>> implements com.baidu.tieba.a.f {
+    private String aif;
+    private com.baidu.tbadk.h.f ajq;
+    private s amk;
+    public BdUniqueId fGZ;
+    private NEGFeedBackView.a hnt;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ajB = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.1
+        this.ajq = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, MetaData metaData, int i, long j) {
@@ -52,24 +52,24 @@ public class b extends com.baidu.adp.widget.ListView.a<br, ThreadCardViewHolder<
                 }
             }
         };
-        this.hjg = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
+        this.hnt = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-            public void onNEGFeedbackWindowShow(at atVar) {
+            public void onNEGFeedbackWindowShow(av avVar) {
             }
 
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-            public void onCheckedChanged(at atVar, CompoundButton compoundButton, boolean z) {
+            public void onCheckedChanged(av avVar, CompoundButton compoundButton, boolean z) {
             }
 
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-            public void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, at atVar) {
-                if (arrayList != null && atVar != null) {
+            public void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, av avVar) {
+                if (arrayList != null && avVar != null) {
                     CustomMessage customMessage = new CustomMessage(2921425, b.this.mPageContext.getUniqueId());
                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921425);
                     customResponsedMessage.setOrginalMessage(customMessage);
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     new a().execute(new Integer[0]);
-                    TiebaStatic.log(new aq("c13572"));
+                    TiebaStatic.log(new ar("c13572"));
                 }
             }
         };
@@ -77,7 +77,7 @@ public class b extends com.baidu.adp.widget.ListView.a<br, ThreadCardViewHolder<
     }
 
     public void a(s sVar) {
-        this.amu = sVar;
+        this.amk = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,37 +86,37 @@ public class b extends com.baidu.adp.widget.ListView.a<br, ThreadCardViewHolder<
     /* renamed from: bd */
     public ThreadCardViewHolder e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        com.baidu.tieba.homepage.concern.view.a aVar2 = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext, this.fEN);
-        aVar2.setOnItemCoverListener(this.ajB);
+        com.baidu.tieba.homepage.concern.view.a aVar2 = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext, this.fGZ);
+        aVar2.setOnItemCoverListener(this.ajq);
         aVar.c(aVar2);
-        aVar.tl().bz(0);
-        aVar.tl().bB(0);
-        aVar.tl().bA(0);
-        aVar.tl().bx(0);
-        ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amu));
-        threadCardViewHolder.setPageId(this.fEN);
+        aVar.ti().bz(0);
+        aVar.ti().bB(0);
+        aVar.ti().bA(0);
+        aVar.ti().bx(0);
+        ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amk));
+        threadCardViewHolder.setPageId(this.fGZ);
         return threadCardViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, br brVar, ThreadCardViewHolder<br> threadCardViewHolder) {
-        if (brVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, bt btVar, ThreadCardViewHolder<bt> threadCardViewHolder) {
+        if (btVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null) {
             return null;
         }
-        threadCardViewHolder.tm().setPosition(i);
-        if (threadCardViewHolder.tm() instanceof com.baidu.tieba.a.e) {
-            threadCardViewHolder.tm().setPage(this.air);
+        threadCardViewHolder.tj().setPosition(i);
+        if (threadCardViewHolder.tj() instanceof com.baidu.tieba.a.e) {
+            threadCardViewHolder.tj().setPage(this.aif);
         }
-        threadCardViewHolder.b((ThreadCardViewHolder<br>) brVar);
-        threadCardViewHolder.tm().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        threadCardViewHolder.b((ThreadCardViewHolder<bt>) btVar);
+        threadCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return threadCardViewHolder.getView();
     }
 
     /* loaded from: classes2.dex */
     private class a extends BdAsyncTask<Integer, Integer, String> {
-        private z mNetwork;
+        private aa mNetwork;
 
         private a() {
             this.mNetwork = null;
@@ -127,11 +127,11 @@ public class b extends com.baidu.adp.widget.ListView.a<br, ThreadCardViewHolder<
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Integer... numArr) {
             try {
-                this.mNetwork = new z();
+                this.mNetwork = new aa();
                 this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
                 this.mNetwork.addPostData("dislike_from", "concernpage");
                 this.mNetwork.addPostData("dislike_type", "1");
-                this.mNetwork.brX().bsG().mIsNeedTbs = true;
+                this.mNetwork.bsr().bta().mIsNeedTbs = true;
                 return this.mNetwork.postNetData();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -157,7 +157,7 @@ public class b extends com.baidu.adp.widget.ListView.a<br, ThreadCardViewHolder<
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ea(String str) {
-        this.air = str;
+    public void Ey(String str) {
+        this.aif = str;
     }
 }

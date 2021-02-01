@@ -3,9 +3,9 @@ package com.baidu.live.personmanager;
 import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
-    public static String x(int i, String str) {
+    public static String B(int i, String str) {
         String str2;
         String str3;
         String str4 = null;
@@ -38,7 +38,7 @@ public class f {
         return null;
     }
 
-    public static String bc(long j) {
+    public static String bg(long j) {
         return j / 10000 > 0 ? i(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 

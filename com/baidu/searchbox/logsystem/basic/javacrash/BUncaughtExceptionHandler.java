@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler {
     private static final String TAG = "BaseUncaughtException";
     private Context mContext;

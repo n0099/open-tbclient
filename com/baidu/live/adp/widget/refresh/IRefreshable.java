@@ -2,10 +2,10 @@ package com.baidu.live.adp.widget.refresh;
 
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IRefreshable {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OnRefreshListener {
         void onPreRefresh();
 
@@ -16,7 +16,7 @@ public interface IRefreshable {
         void onStateChanged(State state);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum State {
         idle,
         pulling_no_refresh,

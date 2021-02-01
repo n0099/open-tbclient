@@ -2,7 +2,7 @@ package com.baidu.tieba.payment.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PayVcodeInfoData extends OrmObject implements Serializable {
     private static final long serialVersionUID = -8287150497543582408L;
     private String captcha_code_type;

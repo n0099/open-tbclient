@@ -3,37 +3,37 @@ package com.baidu.live.videochat.d;
 import android.content.Context;
 import android.view.View;
 import com.baidu.ala.recorder.AlaLiveRecorder;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    View Lu();
+    View MS();
 
-    int Ro();
+    int SV();
 
-    void TS();
+    void VA();
 
-    void TT();
+    void VB();
 
-    void UO();
+    String WA();
 
-    com.baidu.live.alablmsdk.module.c UP();
+    void Wx();
 
-    JSONObject UQ();
+    com.baidu.live.alablmsdk.module.c Wy();
 
-    String UR();
+    JSONObject Wz();
 
     void a(AlaLiveRecorder alaLiveRecorder);
 
     void a(f fVar);
 
-    void aj(JSONObject jSONObject);
+    void al(JSONObject jSONObject);
 
-    void ak(JSONObject jSONObject);
+    void am(JSONObject jSONObject);
 
     boolean b(com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject);
 
-    void dr(boolean z);
+    void dz(boolean z);
 
     void init(Context context);
 
@@ -41,5 +41,5 @@ public interface a {
 
     void setMute(boolean z);
 
-    void t(x xVar);
+    void t(ab abVar);
 }

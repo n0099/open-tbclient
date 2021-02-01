@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import com.baidu.mobads.AppActivity;
 import com.baidu.mobads.command.XAdCommandExtraInfo;
 import com.baidu.mobads.command.XAdLandingPageExtraInfo;
 import com.baidu.mobads.vo.XAdInstanceInfo;
@@ -24,43 +26,40 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import dalvik.system.DexClassLoader;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class AppActivityImp {
     public static final String EXTRA_AD_INSTANCE_INFO = "EXTRA_DATA_STRING_AD";
     public static final String EXTRA_COMMAND_EXTRA_INFO = "EXTRA_DATA_STRING_COM";
     public static final String EXTRA_DATA = "EXTRA_DATA";
     public static final String EXTRA_LANDINGPAGE_EXTRA_INFO = "EXTRA_DATA_STRING";
+    public static final String EXTRA_LP_FLAG = "EXTRA_LP_FLAG";
+    public static final String EXTRA_LP_THEME = "theme";
     private static Class<?> d;
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f3272a;
+    private Activity f3269a;
     private Object c;
     private Method[] e = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f3271b = false;
-    private static AtomicBoolean f = new AtomicBoolean(false);
+    private static boolean f3268b = false;
+    private static AppActivity.ActionBarColorTheme f = AppActivity.ActionBarColorTheme.ACTION_BAR_WHITE_THEME;
 
     public AppActivityImp(Activity activity) {
-        this.f3272a = activity;
+        this.f3269a = activity;
     }
 
     public AppActivityImp() {
     }
 
     public void setActivity(Activity activity) {
-        this.f3272a = activity;
+        this.f3269a = activity;
     }
 
     public static void canLpShowWhenLocked(boolean z) {
-        f3271b = z;
-    }
-
-    public static boolean isAppActivityOpening() {
-        return f.get();
+        f3268b = z;
     }
 
     private Method a(String str) {
@@ -79,7 +78,7 @@ public class AppActivityImp {
 
     public void invokeRemoteStatic(String str, Object... objArr) {
         try {
-            com.baidu.mobads.utils.m a2 = com.baidu.mobads.utils.m.a();
+            com.baidu.mobads.utils.q a2 = com.baidu.mobads.utils.q.a();
             Object[] objArr2 = new Object[3];
             objArr2[0] = str;
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
@@ -94,13 +93,13 @@ public class AppActivityImp {
                 }
             }
         } catch (Exception e) {
-            com.baidu.mobads.utils.m.a().d(e);
+            com.baidu.mobads.utils.q.a().d(e);
         }
     }
 
     private void a(String str, Object... objArr) {
         try {
-            com.baidu.mobads.utils.m a2 = com.baidu.mobads.utils.m.a();
+            com.baidu.mobads.utils.q a2 = com.baidu.mobads.utils.q.a();
             Object[] objArr2 = new Object[3];
             objArr2[0] = str;
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
@@ -115,13 +114,13 @@ public class AppActivityImp {
                 }
             }
         } catch (Exception e) {
-            com.baidu.mobads.utils.m.a().d(e);
+            com.baidu.mobads.utils.q.a().d(e);
         }
     }
 
     private boolean b(String str, Object... objArr) {
         try {
-            com.baidu.mobads.utils.m a2 = com.baidu.mobads.utils.m.a();
+            com.baidu.mobads.utils.q a2 = com.baidu.mobads.utils.q.a();
             Object[] objArr2 = new Object[3];
             objArr2[0] = str;
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
@@ -135,14 +134,14 @@ public class AppActivityImp {
                 return ((Boolean) a3.invoke(this.c, objArr)).booleanValue();
             }
         } catch (Exception e) {
-            com.baidu.mobads.utils.m.a().d(e);
+            com.baidu.mobads.utils.q.a().d(e);
         }
         return false;
     }
 
     private Object c(String str, Object... objArr) {
         try {
-            com.baidu.mobads.utils.m a2 = com.baidu.mobads.utils.m.a();
+            com.baidu.mobads.utils.q a2 = com.baidu.mobads.utils.q.a();
             Object[] objArr2 = new Object[3];
             objArr2[0] = str;
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
@@ -156,7 +155,7 @@ public class AppActivityImp {
                 return a3.invoke(this.c, objArr);
             }
         } catch (Exception e) {
-            com.baidu.mobads.utils.m.a().d(e);
+            com.baidu.mobads.utils.q.a().d(e);
         }
         return null;
     }
@@ -204,16 +203,44 @@ public class AppActivityImp {
         a("onContextMenuClosed", menu);
     }
 
+    private void a(Bundle bundle) {
+        try {
+            DexClassLoader d2 = com.baidu.mobads.g.b.d();
+            if (d2 != null) {
+                d = Class.forName("com.baidu.mobads.container.landingpage.AppPriActivity", true, d2);
+            } else {
+                d = loadLocalApk("com.baidu.mobads.container.landingpage.AppPriActivity");
+            }
+            this.e = d.getDeclaredMethods();
+            this.c = d.getConstructor(Activity.class).newInstance(this.f3269a);
+        } catch (Exception e) {
+            com.baidu.mobads.utils.q.a().d(e);
+        }
+        a(MissionEvent.MESSAGE_CREATE, bundle);
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     public void onCreate(Bundle bundle) {
         try {
-            f.set(true);
-            Intent intent = this.f3272a.getIntent();
-            if (AppActivity.isAnti() && intent.getParcelableExtra(EXTRA_DATA) == null) {
+            Intent intent = this.f3269a.getIntent();
+            if (intent != null) {
+                if (!TextUtils.isEmpty(intent.getStringExtra("privacy_link"))) {
+                    a(bundle);
+                    return;
+                }
+                intent.setExtrasClassLoader(getClass().getClassLoader());
+                a(AppActivity.ActionBarColorTheme.class, f, this.f3269a.getIntent().getStringExtra(EXTRA_LP_THEME));
+                f3268b = intent.getBooleanExtra("showWhenLocked", true);
+            }
+            com.baidu.mobads.utils.f fVar = new com.baidu.mobads.utils.f();
+            if (intent != null) {
+                intent.putExtra("multiProcess", fVar.webviewMultiProcess(this.f3269a));
+            }
+            if (AppActivity.isAnti() && intent != null && intent.getParcelableExtra(EXTRA_DATA) == null) {
                 XAdLandingPageExtraInfo xAdLandingPageExtraInfo = new XAdLandingPageExtraInfo((String) null, new XAdInstanceInfo(new JSONObject()));
-                a(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.f3272a.getIntent().getStringExtra(EXTRA_LANDINGPAGE_EXTRA_INFO));
-                a(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.f3272a.getIntent().getStringExtra(EXTRA_COMMAND_EXTRA_INFO));
-                a(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo(), this.f3272a.getIntent().getStringExtra(EXTRA_AD_INSTANCE_INFO));
+                a(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.f3269a.getIntent().getStringExtra(EXTRA_LANDINGPAGE_EXTRA_INFO));
+                a(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.f3269a.getIntent().getStringExtra(EXTRA_COMMAND_EXTRA_INFO));
+                a(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo(), this.f3269a.getIntent().getStringExtra(EXTRA_AD_INSTANCE_INFO));
                 intent.putExtra(EXTRA_DATA, xAdLandingPageExtraInfo);
             }
             DexClassLoader d2 = com.baidu.mobads.g.b.d();
@@ -223,24 +250,25 @@ public class AppActivityImp {
                 d = loadLocalApk("com.baidu.mobads.container.landingpage.App2Activity");
             }
             this.e = d.getDeclaredMethods();
-            this.c = d.getConstructor(Activity.class).newInstance(this.f3272a);
-            invokeRemoteStatic("canLpShowWhenLocked", Boolean.valueOf(f3271b));
-            com.baidu.mobads.utils.m.a().d("com.baidu.mobads.container.landingpage.App2Activity", d, this.c);
+            this.c = d.getConstructor(Activity.class).newInstance(this.f3269a);
+            invokeRemoteStatic("canLpShowWhenLocked", Boolean.valueOf(f3268b));
+            invokeRemoteStatic("setActionBarColor", Integer.valueOf(f.closeColor), Integer.valueOf(f.titleColor), Integer.valueOf(f.progressColor), Integer.valueOf(f.backgroundColor));
+            com.baidu.mobads.utils.q.a().d("com.baidu.mobads.container.landingpage.App2Activity", d, this.c);
         } catch (Exception e) {
-            com.baidu.mobads.utils.m.a().e(e);
+            com.baidu.mobads.utils.q.a().d(e);
         }
         a(MissionEvent.MESSAGE_CREATE, bundle);
     }
 
     public Class<?> loadLocalApk(String str) {
         Class<?> cls = null;
-        com.baidu.mobads.utils.m a2 = com.baidu.mobads.utils.m.a();
+        com.baidu.mobads.utils.q a2 = com.baidu.mobads.utils.q.a();
         try {
-            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.f3272a), this.f3272a.getFilesDir().getAbsolutePath(), null, getClass().getClassLoader()));
+            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.f3269a), this.f3269a.getFilesDir().getAbsolutePath(), null, getClass().getClassLoader()));
         } catch (Exception e) {
-            a2.e(e);
+            a2.d(e);
         }
-        a2.i("jar.path=, clz=" + cls);
+        a2.d("jar.path=, clz=" + cls);
         return cls;
     }
 
@@ -272,7 +300,6 @@ public class AppActivityImp {
         try {
             return (View) c("onCreatePanelView", Integer.valueOf(i));
         } catch (Exception e) {
-            e.printStackTrace();
             return null;
         }
     }
@@ -285,14 +312,17 @@ public class AppActivityImp {
         try {
             return (View) c("onCreateView", str, context, attributeSet);
         } catch (Exception e) {
-            e.printStackTrace();
             return null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onDestroy() {
-        f.set(false);
+        if (this.f3269a != null) {
+            Intent intent = new Intent();
+            intent.setAction("lp_close");
+            this.f3269a.sendBroadcast(intent);
+        }
         a(MissionEvent.MESSAGE_DESTROY, new Object[0]);
     }
 
@@ -446,13 +476,13 @@ public class AppActivityImp {
                         jSONObject.put(str, field.get(obj));
                     }
                 } catch (Exception e) {
-                    com.baidu.mobads.utils.m.a().e("" + str);
-                    com.baidu.mobads.utils.m.a().e(e);
+                    com.baidu.mobads.utils.q.a().d("" + str);
+                    com.baidu.mobads.utils.q.a().d(e);
                 }
             }
             return jSONObject.toString();
         } catch (Exception e2) {
-            com.baidu.mobads.utils.m.a().e(e2);
+            com.baidu.mobads.utils.q.a().d(e2);
             return "";
         }
     }
@@ -471,12 +501,12 @@ public class AppActivityImp {
                         field.set(obj, jSONObject.get(str2));
                     }
                 } catch (Exception e) {
-                    com.baidu.mobads.utils.m.a().e("" + str2);
-                    com.baidu.mobads.utils.m.a().e(e);
+                    com.baidu.mobads.utils.q.a().d("" + str2);
+                    com.baidu.mobads.utils.q.a().d(e);
                 }
             }
         } catch (Exception e2) {
-            com.baidu.mobads.utils.m.a().e(e2);
+            com.baidu.mobads.utils.q.a().d(e2);
         }
     }
 

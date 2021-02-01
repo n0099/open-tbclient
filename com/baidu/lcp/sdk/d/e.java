@@ -102,7 +102,7 @@ public class e {
         return readIntData(context, "protocols_size", 1);
     }
 
-    public static void j(Context context, boolean z) {
+    public static void k(Context context, boolean z) {
         writeBooleanData(context, "bddns_enable", z);
     }
 
@@ -110,7 +110,7 @@ public class e {
         return readBooleanData(context, "bddns_enable", false);
     }
 
-    public static void k(Context context, boolean z) {
+    public static void l(Context context, boolean z) {
         writeBooleanData(context, "small_flow", z);
     }
 
@@ -142,7 +142,7 @@ public class e {
         writeIntData(context, "conn_type", i);
     }
 
-    public static void l(Context context, boolean z) {
+    public static void m(Context context, boolean z) {
         writeBooleanData(context, "lcp_debug", z);
     }
 

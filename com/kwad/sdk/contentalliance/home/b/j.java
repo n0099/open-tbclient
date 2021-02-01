@@ -3,11 +3,11 @@ package com.kwad.sdk.contentalliance.home.b;
 import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.contentalliance.refreshview.KsAdHotRefreshView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    private KsAdHotRefreshView f8700b;
+    private KsAdHotRefreshView f8702b;
     private SlidePlayViewPager c;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -15,8 +15,8 @@ public class j extends com.kwad.sdk.contentalliance.home.e {
     public void a() {
         super.a();
         com.kwad.sdk.core.d.a.b("HomeViewPagerPresenter", "onBind");
-        this.c = this.f8734a.c;
-        this.c.a(this.f8734a, this.f8700b);
+        this.c = this.f8736a.c;
+        this.c.a(this.f8736a, this.f8702b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,7 +31,7 @@ public class j extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8700b = (KsAdHotRefreshView) b(R.id.ksad_refresh_layout);
-        this.f8700b.setRefreshInitialOffset(0.0f);
+        this.f8702b = (KsAdHotRefreshView) b(R.id.ksad_refresh_layout);
+        this.f8702b.setRefreshInitialOffset(0.0f);
     }
 }

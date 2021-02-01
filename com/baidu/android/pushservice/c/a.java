@@ -13,7 +13,7 @@ import android.util.Pair;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
@@ -24,7 +24,7 @@ public class a {
     private static int c = 200;
 
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum EnumC0039a {
         alarmMsgInfoId,
         msgId,
@@ -35,7 +35,7 @@ public class a {
         isAlarm
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum b {
         appInfoId,
         appid,
@@ -48,7 +48,7 @@ public class a {
         intergratedPushVersion
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum c {
         actionId,
         actionName,
@@ -68,7 +68,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class d implements DatabaseErrorHandler {
         private d() {
         }
@@ -118,7 +118,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class e extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
@@ -174,7 +174,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum f {
         belongTo,
         downloadUrl,
@@ -188,14 +188,14 @@ public class a {
         timeStamp
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum g {
         MsgInfoId,
         msgId,
         timeStamp
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum h {
         pkgName,
         startHour,
@@ -204,7 +204,7 @@ public class a {
         endMinute
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum i {
         info_id,
         packageName,

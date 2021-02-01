@@ -1,64 +1,108 @@
 package com.baidu.tieba.ala.liveroom.t;
 
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.browser.BrowserHelper;
-import com.baidu.tieba.ala.liveroom.j.g;
-/* loaded from: classes10.dex */
-public class b {
-    private ViewGroup bNl;
-    private String gej;
-    protected c hJb;
-    protected TbPageContext mTbPageContext;
-    private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.t.b.1
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            BrowserHelper.startInternalWebActivity(b.this.mTbPageContext.getPageActivity(), b.this.gej);
-        }
-    };
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.x.c;
+/* loaded from: classes11.dex */
+public class b extends com.baidu.tieba.ala.liveroom.a {
+    private int aKa;
+    private String bdj;
+    private long gpB;
+    private c hNC;
+    private long hND;
+    private String hNE;
+    private boolean mIsHost;
+    private String mPortrait;
+    public String otherParams;
 
     public b(TbPageContext tbPageContext) {
-        this.mTbPageContext = tbPageContext;
+        super(tbPageContext);
     }
 
-    private TbPageContext getPageContext() {
-        return this.mTbPageContext;
+    public void a(int i, long j, String str, boolean z, String str2, String str3, String str4, long j2) {
+        this.aKa = i;
+        this.hND = j;
+        this.hNE = str;
+        this.mIsHost = z;
+        this.mPortrait = str2;
+        this.bdj = str4;
+        this.gpB = j2;
+        this.otherParams = str3;
     }
 
-    protected boolean b(ViewGroup viewGroup, String str) {
-        if (viewGroup == null) {
-            return false;
+    public void setCanVisible(boolean z) {
+        if (this.hNC != null) {
+            this.hNC.setCanVisible(z);
         }
-        this.gej = str;
-        if (this.hJb == null) {
-            this.hJb = new c(getPageContext(), this.onClickListener);
-        }
-        if (this.bNl != null && this.bNl.indexOfChild(this.hJb.getView()) > 0) {
-            this.bNl.removeView(this.hJb.getView());
-        }
-        this.bNl = viewGroup;
-        this.hJb.getView().setId(a.f.privilege_manager_id);
-        this.hJb.getView().setVisibility(0);
-        return true;
     }
 
-    public void c(ViewGroup viewGroup, String str) {
-        if (b(viewGroup, str)) {
+    @Override // com.baidu.tieba.ala.liveroom.a
+    public void aF(ViewGroup viewGroup) {
+        aO(viewGroup);
+        if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRankHourUnabled()) {
+            setCanVisible(true);
+        }
+    }
+
+    private void aO(ViewGroup viewGroup) {
+        if (this.hNC == null) {
+            com.baidu.live.x.a aVar = new com.baidu.live.x.a(getPageContext().getPageActivity(), this.aKa, this.hND, this.mIsHost, this.mPortrait, this.otherParams, this.bdj, this.gpB);
+            aVar.userName = this.hNE;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913036, c.class, aVar);
+            if (runTask != null && runTask.getData() != null) {
+                this.hNC = (c) runTask.getData();
+            }
+        }
+        aN(viewGroup);
+    }
+
+    private void aN(ViewGroup viewGroup) {
+        if (this.hNC != null && viewGroup != null && this.hNC.Px() != null && viewGroup.indexOfChild(this.hNC.Px()) < 0) {
+            this.hNC.Px().setId(a.f.ala_liveroom_ranklist);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(12);
-            layoutParams.setMargins(getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds18), 0, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds180), 0);
-            layoutParams.bottomMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_tbds130) + getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds18);
-            viewGroup.addView(this.hJb.getView(), layoutParams);
+            layoutParams.addRule(1, a.f.ala_rank_level_entry);
+            layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
+            layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds20);
+            layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
+            viewGroup.addView(this.hNC.Px(), layoutParams);
+            this.hNC.setCanVisible(false);
         }
     }
 
-    public void cjl() {
-        if (this.bNl != null && this.bNl.indexOfChild(this.hJb.getView()) > 0) {
-            this.bNl.removeView(this.hJb.getView());
-            g.vp(2913128);
+    @Override // com.baidu.tieba.ala.liveroom.a
+    public void Ar() {
+        super.Ar();
+        if (this.hNC != null && this.hNC.Px() != null && this.hNC.Px().getParent() != null) {
+            ((ViewGroup) this.hNC.Px().getParent()).removeView(this.hNC.Px());
+        }
+        if (this.hNC != null) {
+            this.hNC.destory();
+            this.hNC = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.ala.liveroom.a
+    public void onDestroy() {
+        if (this.hNC != null) {
+            this.hNC.destory();
+            this.hNC = null;
+        }
+    }
+
+    public void ckl() {
+        if (this.hNC != null) {
+            this.hNC.PA();
+        }
+    }
+
+    public void ckm() {
+        if (this.hNC != null) {
+            this.hNC.PB();
         }
     }
 }

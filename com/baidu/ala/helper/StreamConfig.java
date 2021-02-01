@@ -5,11 +5,11 @@ import android.media.AudioManager;
 import android.os.Build;
 import com.baidu.ala.adp.lib.util.BdLog;
 import java.util.Arrays;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class StreamConfig {
     public static final int AUDIO_IO_CXX = 2;
     public static final int AUDIO_IO_JAVA = 1;
-    private static final boolean FORCE_JAVA_CAP = true;
+    private static final boolean FORCE_JAVA_CAP = false;
     private static final boolean FORCE_OEPN_SL_ES = false;
     public static final int STREAM_CLOUD_RTC_MODE = 3;
     public static final int STREAM_COMMON_MODE = 1;
@@ -21,7 +21,7 @@ public class StreamConfig {
     private static final String[] BLACKLISTED_OPEN_SL_ES_MODELS = {"vivo X9", "Redmi Note 8 Pro", "vivo X21", "PCDM10"};
     private static final String[] WHITELISTED_OPEN_SL_ES_MODELS = {"MI 5s Plus", "MI 8", "MIX 2", "MI 6", "DUB-AL20", "V1821A", "VKY-AL00", "VOG-AL00", "PACM00", "PBEM00", "OPPO R11", "OPPO R11s", "OPPO R11 Plus", "OPPO R9sk", "OPPO R9tm", "OPPO R9m", "vivo X21i A", "vivo X20A", "V1809A"};
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class Audio {
         public static final int AUDIO_FORMAT_BIT = 2;
         public static final int AUDIO_FORMAT_CHANNELS_NB1 = 1;
@@ -40,7 +40,7 @@ public class StreamConfig {
         public static final int AUDIO_SAMPLE_FMT_U8 = 0;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class Video {
         public static final int CAMERA_FACING_DEFAULT = 1;
     }
@@ -67,9 +67,15 @@ public class StreamConfig {
                             }
                         }
                         boolean isOpenSLESSupported = isOpenSLESSupported(context);
-                        deviceIsBlackListForOpenSLES();
-                        OUTPUT_SAMPLE_RATE = Audio.AUDIO_RTC_FREQUENCY_48K;
-                        AUDIO_IO_MODE = 1;
+                        if (!deviceIsBlackListForOpenSLES() && isOpenSLESSupported && OUTPUT_SAMPLE_RATE == 48000) {
+                            AUDIO_IO_MODE = 2;
+                        } else {
+                            AUDIO_IO_MODE = 1;
+                            OUTPUT_SAMPLE_RATE = 48000;
+                            if (deviceIsWhiteListForOpenSLES()) {
+                                AUDIO_IO_MODE = 2;
+                            }
+                        }
                         BdLog.e("LIVE_SDK_JNI|audio init config enable OpenSLES? :" + isOpenSLESSupported + "|sampleRate=" + OUTPUT_SAMPLE_RATE + "|frames buffer=" + OUTPUT_FRAMES_PER_BUFFER + "|audio io mode=" + AUDIO_IO_MODE);
                         i = 0;
                     } catch (Exception e) {

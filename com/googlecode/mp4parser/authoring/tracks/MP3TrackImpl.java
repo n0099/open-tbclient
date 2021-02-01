@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
@@ -23,7 +22,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MP3TrackImpl extends AbstractTrack {
     private static final int ES_OBJECT_TYPE_INDICATION = 107;
     private static final int ES_STREAM_TYPE = 5;
@@ -38,8 +37,8 @@ public class MP3TrackImpl extends AbstractTrack {
     SampleDescriptionBox sampleDescriptionBox;
     private List<Sample> samples;
     TrackMetaData trackMetaData;
-    private static final int[] SAMPLE_RATE = {44100, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K};
-    private static final int[] BIT_RATE = {0, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 40000, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 56000, AudioEncoderCore.EncodeConfig.BIT_RATE, 80000, 96000, 112000, 128000, 160000, 192000, 224000, 256000, 320000};
+    private static final int[] SAMPLE_RATE = {44100, 48000, 32000};
+    private static final int[] BIT_RATE = {0, 32000, 40000, 48000, 56000, AudioEncoderCore.EncodeConfig.BIT_RATE, 80000, 96000, 112000, 128000, 160000, 192000, 224000, 256000, 320000};
 
     public MP3TrackImpl(DataSource dataSource, String str) throws IOException {
         this.trackMetaData = new TrackMetaData();
@@ -142,23 +141,23 @@ public class MP3TrackImpl extends AbstractTrack {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a {
         int bitRate;
         int channelCount;
         int layer;
-        int pML;
-        int pMM;
-        int pMN;
-        int pNb;
-        int pNc;
+        int pWQ;
+        int pWR;
+        int pWS;
+        int pXf;
+        int pXg;
         int padding;
         int sampleRate;
 
         a() {
         }
 
-        int ezT() {
+        int eCl() {
             return ((this.bitRate * 144) / this.sampleRate) + this.padding;
         }
     }
@@ -173,7 +172,7 @@ public class MP3TrackImpl extends AbstractTrack {
                     aVar = readMP3Header;
                 }
                 dataSource.position(position);
-                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.ezT());
+                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.eCl());
                 dataSource.read(allocate);
                 allocate.rewind();
                 this.samples.add(new SampleImpl(allocate));
@@ -195,29 +194,29 @@ public class MP3TrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(11) != 2047) {
             throw new IOException("Expected Start Word 0x7ff");
         }
-        aVar.pMM = bitReaderBuffer.readBits(2);
-        if (aVar.pMM != 3) {
+        aVar.pWR = bitReaderBuffer.readBits(2);
+        if (aVar.pWR != 3) {
             throw new IOException("Expected MPEG Version 1 (ISO/IEC 11172-3)");
         }
         aVar.layer = bitReaderBuffer.readBits(2);
         if (aVar.layer != 1) {
             throw new IOException("Expected Layer III");
         }
-        aVar.pMN = bitReaderBuffer.readBits(1);
-        aVar.pNb = bitReaderBuffer.readBits(4);
-        aVar.bitRate = BIT_RATE[aVar.pNb];
+        aVar.pWS = bitReaderBuffer.readBits(1);
+        aVar.pXf = bitReaderBuffer.readBits(4);
+        aVar.bitRate = BIT_RATE[aVar.pXf];
         if (aVar.bitRate == 0) {
             throw new IOException("Unexpected (free/bad) bit rate");
         }
-        aVar.pML = bitReaderBuffer.readBits(2);
-        aVar.sampleRate = SAMPLE_RATE[aVar.pML];
+        aVar.pWQ = bitReaderBuffer.readBits(2);
+        aVar.sampleRate = SAMPLE_RATE[aVar.pWQ];
         if (aVar.sampleRate == 0) {
             throw new IOException("Unexpected (reserved) sample rate frequency");
         }
         aVar.padding = bitReaderBuffer.readBits(1);
         bitReaderBuffer.readBits(1);
-        aVar.pNc = bitReaderBuffer.readBits(2);
-        aVar.channelCount = aVar.pNc == 3 ? 1 : 2;
+        aVar.pXg = bitReaderBuffer.readBits(2);
+        aVar.channelCount = aVar.pXg == 3 ? 1 : 2;
         return aVar;
     }
 

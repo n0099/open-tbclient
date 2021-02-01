@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdvanceSetting implements Parcelable {
     public static final String ADVANCE_SETTING = "as";
     public static final String CLEAR_NOTIFICATION = "cn";
@@ -67,8 +67,8 @@ public class AdvanceSetting implements Parcelable {
         AdvanceSetting advanceSetting = new AdvanceSetting();
         if (jSONObject != null) {
             try {
-                if (!jSONObject.isNull(NETWORK_TYPE)) {
-                    advanceSetting.setNetWorkType(jSONObject.getInt(NETWORK_TYPE));
+                if (!jSONObject.isNull("it")) {
+                    advanceSetting.setNetWorkType(jSONObject.getInt("it"));
                 }
                 if (!jSONObject.isNull("nt")) {
                     advanceSetting.setNotifyType(NotifyType.parse(jSONObject.getJSONObject("nt")));

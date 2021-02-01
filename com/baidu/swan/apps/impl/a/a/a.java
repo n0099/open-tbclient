@@ -4,24 +4,24 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.r.d;
 import com.baidu.swan.apps.storage.b;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public static File daQ = d.awo();
-    public static String daR = "swan_core";
-    public static String daS = "extension_core";
-    public static String daT = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
-    public static String daU = "cloneFolder_";
-    public static String daV = daT + File.separator + daU;
-    public static String daW = "clone_pkg_folder";
-    public static String daX = "clone_core_folder";
-    public static String daY = "clone_dynamic_lib_folder";
-    public static String daZ = "clone_sp_folder";
-    public static String dba = "clone_db_folder";
-    public static String dbb = "cloneZip.zip";
-    public static String dbc = "clone_zipFiles";
+    public static File ddc = d.awM();
+    public static String ddd = "swan_core";
+    public static String dde = "extension_core";
+    public static String ddf = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+    public static String ddg = "cloneFolder_";
+    public static String ddh = ddf + File.separator + ddg;
+    public static String ddi = "clone_pkg_folder";
+    public static String ddj = "clone_core_folder";
+    public static String ddk = "clone_dynamic_lib_folder";
+    public static String ddl = "clone_sp_folder";
+    public static String ddm = "clone_db_folder";
+    public static String ddn = "cloneZip.zip";
+    public static String ddo = "clone_zipFiles";
 
-    public static File avx() {
-        File file = new File(b.aLw());
+    public static File avV() {
+        File file = new File(b.aLP());
         if (com.baidu.swan.c.d.ensureDirectoryExist(file)) {
             return file;
         }

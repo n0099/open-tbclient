@@ -7,29 +7,29 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class j implements h {
     private final Map<String, List<i>> c;
     private volatile Map<String, String> d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f10089a = b();
+        private static final String f10091a = b();
 
         /* renamed from: b  reason: collision with root package name */
-        private static final Map<String, List<i>> f10090b;
+        private static final Map<String, List<i>> f10092b;
         private boolean c = true;
-        private Map<String, List<i>> d = f10090b;
+        private Map<String, List<i>> d = f10092b;
         private boolean e = true;
 
         static {
             HashMap hashMap = new HashMap(2);
-            if (!TextUtils.isEmpty(f10089a)) {
-                hashMap.put("User-Agent", Collections.singletonList(new b(f10089a)));
+            if (!TextUtils.isEmpty(f10091a)) {
+                hashMap.put("User-Agent", Collections.singletonList(new b(f10091a)));
             }
-            f10090b = Collections.unmodifiableMap(hashMap);
+            f10092b = Collections.unmodifiableMap(hashMap);
         }
 
         @VisibleForTesting
@@ -57,35 +57,35 @@ public final class j implements h {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     static final class b implements i {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f10091a;
+        private final String f10093a;
 
         b(@NonNull String str) {
-            this.f10091a = str;
+            this.f10093a = str;
         }
 
         @Override // com.kwad.sdk.glide.load.b.i
         public String a() {
-            return this.f10091a;
+            return this.f10093a;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof b) {
-                return this.f10091a.equals(((b) obj).f10091a);
+                return this.f10093a.equals(((b) obj).f10093a);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f10091a.hashCode();
+            return this.f10093a.hashCode();
         }
 
         public String toString() {
-            return "StringHeaderFactory{value='" + this.f10091a + "'}";
+            return "StringHeaderFactory{value='" + this.f10093a + "'}";
         }
     }
 

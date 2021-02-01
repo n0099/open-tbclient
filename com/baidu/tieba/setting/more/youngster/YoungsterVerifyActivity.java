@@ -17,22 +17,22 @@ import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.atomData.YoungsterVerifyActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.setting.more.youngster.model.YoungsterVerifyModel;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class YoungsterVerifyActivity extends TbWebViewActivity {
     private int from;
-    private YoungsterVerifyModel mZd;
+    private YoungsterVerifyModel niM;
 
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (this.mView != null) {
-            this.mView.bkj();
+            this.mView.bkB();
         }
         if (this.mWebView != null) {
             this.mWebView.setWebViewClient(new a());
         }
         TbSingleton.getInstance().setCanWebViewActivityShowProgress(false);
-        this.mZd = new YoungsterVerifyModel(getPageContext(), new YoungsterVerifyModel.a() { // from class: com.baidu.tieba.setting.more.youngster.YoungsterVerifyActivity.1
+        this.niM = new YoungsterVerifyModel(getPageContext(), new YoungsterVerifyModel.a() { // from class: com.baidu.tieba.setting.more.youngster.YoungsterVerifyActivity.1
             @Override // com.baidu.tieba.setting.more.youngster.model.YoungsterVerifyModel.a
             public void onSuccess() {
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(YoungsterVerifyActivity.this.getPageContext().getPageActivity());
@@ -58,11 +58,11 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.mView != null) {
-            this.mView.bkj();
+            this.mView.bkB();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     protected class a extends TbWebViewActivity.b {
         protected a() {
             super();
@@ -84,7 +84,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
             if (StringUtils.isNull(str) || !str.contains(TbConfig.URL_YOUNGSTER_VERIFY_AUTHID)) {
                 return super.shouldOverrideUrlLoading(webView, str);
             }
-            YoungsterVerifyActivity.this.mZd.Rq(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
+            YoungsterVerifyActivity.this.niM.Sn(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
             return true;
         }
     }

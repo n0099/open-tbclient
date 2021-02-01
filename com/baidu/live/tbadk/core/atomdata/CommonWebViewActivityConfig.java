@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CommonWebViewActivityConfig extends IntentConfig {
     public static final String CERT_RETRY = "retry";
     public static final String TAG_TITLE = "tag_title";

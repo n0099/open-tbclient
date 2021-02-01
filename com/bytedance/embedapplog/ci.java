@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ci extends ch {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ci() {

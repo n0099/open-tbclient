@@ -16,85 +16,85 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private ImageView bzA;
-    private ImageView bzB;
-    private InterfaceC0199a bzC;
-    private int bzD;
-    private long bzE;
-    private long bzF;
-    private boolean bzG;
-    private boolean bzH;
-    private FrameLayout bzq;
-    private FrameLayout bzr;
-    private FrameLayout bzs;
-    private LinearLayout bzt;
-    private LinearLayout bzu;
-    private LinearLayout bzv;
-    private TextView bzw;
-    private TextView bzx;
-    private TextView bzy;
-    private TextView bzz;
+    private FrameLayout bCW;
+    private FrameLayout bCX;
+    private FrameLayout bCY;
+    private LinearLayout bCZ;
+    private LinearLayout bDa;
+    private LinearLayout bDb;
+    private TextView bDc;
+    private TextView bDd;
+    private TextView bDe;
+    private TextView bDf;
+    private ImageView bDg;
+    private ImageView bDh;
+    private InterfaceC0201a bDi;
+    private int bDj;
+    private long bDk;
+    private long bDl;
+    private boolean bDm;
+    private boolean bDn;
     private ViewGroup rootView;
 
     /* renamed from: com.baidu.live.talentshow.components.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0199a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0201a {
         void a(View view, int i, long j);
 
         void b(View view, boolean z);
     }
 
-    public a(Activity activity, InterfaceC0199a interfaceC0199a) {
+    public a(Activity activity, InterfaceC0201a interfaceC0201a) {
         if (activity != null) {
-            this.bzC = interfaceC0199a;
+            this.bDi = interfaceC0201a;
             this.rootView = (ViewGroup) LayoutInflater.from(activity).inflate(a.g.layout_live_talent_show_player, (ViewGroup) null);
-            this.bzq = (FrameLayout) this.rootView.findViewById(a.f.live_talent_show_player_master);
-            this.bzr = (FrameLayout) this.rootView.findViewById(a.f.live_talent_show_player_left_layout);
-            this.bzs = (FrameLayout) this.rootView.findViewById(a.f.live_talent_show_player_right_layout);
-            this.bzt = (LinearLayout) this.rootView.findViewById(a.f.layout_talent_player_layout);
-            this.bzu = (LinearLayout) this.rootView.findViewById(a.f.live_talent_show_def_left_layout);
-            this.bzv = (LinearLayout) this.rootView.findViewById(a.f.live_talent_show_def_right_layout);
-            this.bzw = (TextView) this.rootView.findViewById(a.f.live_talent_show_hangup_left);
-            this.bzx = (TextView) this.rootView.findViewById(a.f.live_talent_show_hangup_right);
-            this.bzy = (TextView) this.rootView.findViewById(a.f.live_talent_show_hangup_hint_left);
-            this.bzz = (TextView) this.rootView.findViewById(a.f.live_talent_show_hangup_hint_right);
-            this.bzA = (ImageView) this.rootView.findViewById(a.f.live_talent_show_chat_mute_left);
-            this.bzB = (ImageView) this.rootView.findViewById(a.f.live_talent_show_chat_mute_right);
-            this.bzw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.b.a.1
+            this.bCW = (FrameLayout) this.rootView.findViewById(a.f.live_talent_show_player_master);
+            this.bCX = (FrameLayout) this.rootView.findViewById(a.f.live_talent_show_player_left_layout);
+            this.bCY = (FrameLayout) this.rootView.findViewById(a.f.live_talent_show_player_right_layout);
+            this.bCZ = (LinearLayout) this.rootView.findViewById(a.f.layout_talent_player_layout);
+            this.bDa = (LinearLayout) this.rootView.findViewById(a.f.live_talent_show_def_left_layout);
+            this.bDb = (LinearLayout) this.rootView.findViewById(a.f.live_talent_show_def_right_layout);
+            this.bDc = (TextView) this.rootView.findViewById(a.f.live_talent_show_hangup_left);
+            this.bDd = (TextView) this.rootView.findViewById(a.f.live_talent_show_hangup_right);
+            this.bDe = (TextView) this.rootView.findViewById(a.f.live_talent_show_hangup_hint_left);
+            this.bDf = (TextView) this.rootView.findViewById(a.f.live_talent_show_hangup_hint_right);
+            this.bDg = (ImageView) this.rootView.findViewById(a.f.live_talent_show_chat_mute_left);
+            this.bDh = (ImageView) this.rootView.findViewById(a.f.live_talent_show_chat_mute_right);
+            this.bDc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.b.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.bzC != null) {
-                        a.this.bzC.a(view, 1, a.this.bzE);
+                    if (a.this.bDi != null) {
+                        a.this.bDi.a(view, 1, a.this.bDk);
                     }
                 }
             });
-            this.bzx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.b.a.2
+            this.bDd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.b.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.bzC != null) {
-                        a.this.bzC.a(view, 2, a.this.bzF);
+                    if (a.this.bDi != null) {
+                        a.this.bDi.a(view, 2, a.this.bDl);
                     }
                 }
             });
-            this.bzA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.b.a.3
+            this.bDg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.b.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.bzC != null) {
-                        a.this.bzG = !a.this.bzG;
-                        a.this.bzA.setImageResource(a.this.bzG ? a.e.live_show_video_chat_mute : a.e.live_show_video_chat_voice);
-                        a.this.bzC.b(view, a.this.bzG);
+                    if (a.this.bDi != null) {
+                        a.this.bDm = !a.this.bDm;
+                        a.this.bDg.setImageResource(a.this.bDm ? a.e.live_show_video_chat_mute : a.e.live_show_video_chat_voice);
+                        a.this.bDi.b(view, a.this.bDm);
                     }
                 }
             });
-            this.bzB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.b.a.4
+            this.bDh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.b.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.bzC != null) {
-                        a.this.bzH = !a.this.bzH;
-                        a.this.bzB.setImageResource(a.this.bzH ? a.e.live_show_video_chat_mute : a.e.live_show_video_chat_voice);
-                        a.this.bzC.b(view, a.this.bzH);
+                    if (a.this.bDi != null) {
+                        a.this.bDn = !a.this.bDn;
+                        a.this.bDh.setImageResource(a.this.bDn ? a.e.live_show_video_chat_mute : a.e.live_show_video_chat_voice);
+                        a.this.bDi.b(view, a.this.bDn);
                     }
                 }
             });
@@ -115,13 +115,13 @@ public class a {
 
     public void a(int i, long j, boolean z, boolean z2) {
         if (i == 1) {
-            this.bzE = j;
-            this.bzw.setVisibility(z ? 0 : 8);
-            this.bzy.setText(z2 ? a.h.live_chat_connecting : a.h.live_chat_waiting_user);
+            this.bDk = j;
+            this.bDc.setVisibility(z ? 0 : 8);
+            this.bDe.setText(z2 ? a.h.live_chat_connecting : a.h.live_chat_waiting_user);
         } else if (i == 2) {
-            this.bzF = j;
-            this.bzx.setVisibility(z ? 0 : 8);
-            this.bzz.setText(z2 ? a.h.live_chat_connecting : a.h.live_chat_waiting_user);
+            this.bDl = j;
+            this.bDd.setVisibility(z ? 0 : 8);
+            this.bDf.setText(z2 ? a.h.live_chat_connecting : a.h.live_chat_waiting_user);
         }
     }
 
@@ -129,88 +129,88 @@ public class a {
         if (this.rootView.getParent() != null) {
             ((ViewGroup) this.rootView.getParent()).removeView(this.rootView);
         }
-        Qk();
-        Ql();
-        Qm();
+        RU();
+        RV();
+        RW();
     }
 
     private void s(Activity activity) {
         RelativeLayout.LayoutParams layoutParams;
         RelativeLayout.LayoutParams layoutParams2;
         int realScreenWidth = ScreenHelper.getRealScreenWidth(activity);
-        if (this.bzt.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            layoutParams = (RelativeLayout.LayoutParams) this.bzt.getLayoutParams();
+        if (this.bCZ.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            layoutParams = (RelativeLayout.LayoutParams) this.bCZ.getLayoutParams();
         } else {
             layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         }
         layoutParams.height = (int) ((realScreenWidth / 6.0f) * 4.0f);
         layoutParams.topMargin = (int) (UtilHelper.getStatusBarHeight() + activity.getResources().getDimension(a.d.sdk_ds264));
-        this.bzt.setLayoutParams(layoutParams);
-        if (this.bzq.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            layoutParams2 = (RelativeLayout.LayoutParams) this.bzq.getLayoutParams();
+        this.bCZ.setLayoutParams(layoutParams);
+        if (this.bCW.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            layoutParams2 = (RelativeLayout.LayoutParams) this.bCW.getLayoutParams();
         } else {
             layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
         }
-        this.bzD = (int) (realScreenWidth * 0.26f);
-        int i = this.bzD;
+        this.bDj = (int) (realScreenWidth * 0.26f);
+        int i = this.bDj;
         layoutParams2.height = i;
         layoutParams2.width = i;
-        layoutParams2.topMargin = (-this.bzD) / 2;
-        this.bzq.setLayoutParams(layoutParams2);
+        layoutParams2.topMargin = (-this.bDj) / 2;
+        this.bCW.setLayoutParams(layoutParams2);
     }
 
-    public void Qk() {
-        this.bzE = 0L;
-        this.bzG = false;
-        this.bzr.removeAllViews();
-        this.bzA.setVisibility(8);
-        this.bzw.setVisibility(8);
-        this.bzr.setVisibility(8);
-        this.bzu.setVisibility(0);
-        this.bzy.setText(a.h.live_chat_waiting_user);
-        this.bzA.setImageResource(a.e.live_show_video_chat_voice);
+    public void RU() {
+        this.bDk = 0L;
+        this.bDm = false;
+        this.bCX.removeAllViews();
+        this.bDg.setVisibility(8);
+        this.bDc.setVisibility(8);
+        this.bCX.setVisibility(8);
+        this.bDa.setVisibility(0);
+        this.bDe.setText(a.h.live_chat_waiting_user);
+        this.bDg.setImageResource(a.e.live_show_video_chat_voice);
     }
 
-    public void Ql() {
-        this.bzF = 0L;
-        this.bzH = false;
-        this.bzs.removeAllViews();
-        this.bzB.setVisibility(8);
-        this.bzx.setVisibility(8);
-        this.bzs.setVisibility(8);
-        this.bzv.setVisibility(0);
-        this.bzz.setText(a.h.live_chat_waiting_user);
-        this.bzB.setImageResource(a.e.live_show_video_chat_voice);
+    public void RV() {
+        this.bDl = 0L;
+        this.bDn = false;
+        this.bCY.removeAllViews();
+        this.bDh.setVisibility(8);
+        this.bDd.setVisibility(8);
+        this.bCY.setVisibility(8);
+        this.bDb.setVisibility(0);
+        this.bDf.setText(a.h.live_chat_waiting_user);
+        this.bDh.setImageResource(a.e.live_show_video_chat_voice);
     }
 
-    public void Qm() {
-        this.bzq.removeAllViews();
+    public void RW() {
+        this.bCW.removeAllViews();
     }
 
     public void a(View view, boolean z, long j, boolean z2) {
-        a(this.bzr, view);
-        this.bzu.setVisibility(8);
-        this.bzr.setVisibility(0);
-        this.bzw.setVisibility(z ? 0 : 8);
-        this.bzA.setVisibility(z2 ? 0 : 8);
-        this.bzE = j;
+        a(this.bCX, view);
+        this.bDa.setVisibility(8);
+        this.bCX.setVisibility(0);
+        this.bDc.setVisibility(z ? 0 : 8);
+        this.bDg.setVisibility(z2 ? 0 : 8);
+        this.bDk = j;
     }
 
     public void b(View view, boolean z, long j, boolean z2) {
-        a(this.bzs, view);
-        this.bzv.setVisibility(8);
-        this.bzs.setVisibility(0);
-        this.bzx.setVisibility(z ? 0 : 8);
-        this.bzB.setVisibility(z2 ? 0 : 8);
-        this.bzF = j;
+        a(this.bCY, view);
+        this.bDb.setVisibility(8);
+        this.bCY.setVisibility(0);
+        this.bDd.setVisibility(z ? 0 : 8);
+        this.bDh.setVisibility(z2 ? 0 : 8);
+        this.bDl = j;
     }
 
     public void aa(View view) {
-        int i = this.bzD / 2;
+        int i = this.bDj / 2;
         if (Build.VERSION.SDK_INT >= 21) {
             n(view, i);
         }
-        a(this.bzq, view);
+        a(this.bCW, view);
     }
 
     private void a(ViewGroup viewGroup, View view) {

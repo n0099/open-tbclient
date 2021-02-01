@@ -16,7 +16,7 @@ import com.kwad.sdk.feed.widget.base.RatioFrameLayout;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.widget.KsLogoView;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickListener {
     private TextView f;
     private RoundAngleImageView g;
@@ -40,7 +40,7 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
-                i.this.k.setText(com.kwad.sdk.core.response.b.a.w(i.this.f9861b));
+                i.this.k.setText(com.kwad.sdk.core.response.b.a.w(i.this.f9863b));
                 i.this.k.setVisibility(0);
                 i.this.j.setVisibility(8);
             }
@@ -49,12 +49,12 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
             public void onDownloadFinished() {
                 i.this.k.setVisibility(8);
                 i.this.j.setVisibility(0);
-                i.this.j.a(com.kwad.sdk.core.response.b.a.a(i.this.f9860a), i.this.j.getMax());
+                i.this.j.a(com.kwad.sdk.core.response.b.a.a(i.this.f9862a), i.this.j.getMax());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
-                i.this.k.setText(com.kwad.sdk.core.response.b.a.w(i.this.f9861b));
+                i.this.k.setText(com.kwad.sdk.core.response.b.a.w(i.this.f9863b));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -75,27 +75,27 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     private void f() {
         this.k = (TextView) findViewById(R.id.ksad_app_download_before);
-        this.k.setText(com.kwad.sdk.core.response.b.a.w(this.f9861b));
+        this.k.setText(com.kwad.sdk.core.response.b.a.w(this.f9863b));
         this.k.setVisibility(0);
         this.k.setOnClickListener(this);
-        this.m.a(this.f9860a);
+        this.m.a(this.f9862a);
         this.j = (TextProgressBar) findViewById(R.id.ksad_app_download_btn);
         this.j.setTextDimen(ao.a(getContext(), 11.0f));
         this.j.a(-1, -45056);
         this.j.setVisibility(8);
         this.l.setOnClickListener(this);
-        if (com.kwad.sdk.core.response.b.a.y(this.f9861b)) {
-            this.i = new com.kwad.sdk.core.download.b.b(this.f9860a, null, this.n);
+        if (com.kwad.sdk.core.response.b.a.y(this.f9863b)) {
+            this.i = new com.kwad.sdk.core.download.b.b(this.f9862a, null, this.n);
         }
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void a(@NonNull AdTemplate adTemplate) {
         super.a(adTemplate);
-        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f9861b));
-        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f9861b);
+        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f9863b));
+        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f9863b);
         if (I.size() >= 1) {
-            KSImageLoader.loadFeeImage(this.g, I.get(0), this.f9860a);
+            KSImageLoader.loadFeeImage(this.g, I.get(0), this.f9862a);
         } else {
             com.kwad.sdk.core.d.a.d("FeedTextRightImageView", "getImageUrlList size less than one");
         }
@@ -127,8 +127,8 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
             return;
         }
         com.kwad.sdk.core.download.b.b.a(this.i, view == this.l);
-        com.kwad.sdk.core.download.b.a.a(ao.a(this), this.f9860a, new a.InterfaceC1088a() { // from class: com.kwad.sdk.feed.widget.i.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
+        com.kwad.sdk.core.download.b.a.a(ao.a(this), this.f9862a, new a.InterfaceC1092a() { // from class: com.kwad.sdk.feed.widget.i.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
             public void a() {
                 i.this.k();
             }

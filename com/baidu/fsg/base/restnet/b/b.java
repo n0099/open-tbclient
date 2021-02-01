@@ -28,10 +28,10 @@ import javax.net.ssl.HttpsURLConnection;
 public class b implements com.baidu.fsg.base.restnet.rest.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1894a = "appcache";
+    private static final String f1892a = "appcache";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f1895b = 2;
+    private static final int f1893b = 2;
     private Context c;
     private String d;
     private e e;

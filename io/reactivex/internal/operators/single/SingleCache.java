@@ -8,8 +8,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class SingleCache<T> extends w<T> implements y<T> {
-    static final CacheDisposable[] qfY = new CacheDisposable[0];
-    static final CacheDisposable[] qfZ = new CacheDisposable[0];
+    static final CacheDisposable[] qqc = new CacheDisposable[0];
+    static final CacheDisposable[] qqd = new CacheDisposable[0];
     Throwable error;
     final AtomicReference<CacheDisposable<T>[]> observers;
     final aa<? extends T> source;
@@ -44,7 +44,7 @@ public final class SingleCache<T> extends w<T> implements y<T> {
         CacheDisposable<T>[] cacheDisposableArr2;
         do {
             cacheDisposableArr = this.observers.get();
-            if (cacheDisposableArr == qfZ) {
+            if (cacheDisposableArr == qqd) {
                 return false;
             }
             int length = cacheDisposableArr.length;
@@ -76,7 +76,7 @@ public final class SingleCache<T> extends w<T> implements y<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        cacheDisposableArr2 = qfY;
+                        cacheDisposableArr2 = qqc;
                     } else {
                         cacheDisposableArr2 = new CacheDisposable[length - 1];
                         System.arraycopy(cacheDisposableArr, 0, cacheDisposableArr2, 0, i);
@@ -99,7 +99,7 @@ public final class SingleCache<T> extends w<T> implements y<T> {
     public void onSuccess(T t) {
         CacheDisposable<T>[] andSet;
         this.value = t;
-        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qfZ)) {
+        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qqd)) {
             if (!cacheDisposable.isDisposed()) {
                 cacheDisposable.actual.onSuccess(t);
             }
@@ -110,7 +110,7 @@ public final class SingleCache<T> extends w<T> implements y<T> {
     public void onError(Throwable th) {
         CacheDisposable<T>[] andSet;
         this.error = th;
-        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qfZ)) {
+        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qqd)) {
             if (!cacheDisposable.isDisposed()) {
                 cacheDisposable.actual.onError(th);
             }

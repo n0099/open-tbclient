@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13855a;
+    private int f13857a;
 
     /* renamed from: a  reason: collision with other field name */
     private Handler f178a;
@@ -23,7 +23,7 @@ public class al {
     private volatile boolean f181a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final boolean f13856b;
+    private final boolean f13858b;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
@@ -55,7 +55,7 @@ public class al {
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            long j = al.this.f13855a > 0 ? al.this.f13855a : Long.MAX_VALUE;
+            long j = al.this.f13857a > 0 ? al.this.f13857a : Long.MAX_VALUE;
             while (!al.this.f181a) {
                 try {
                     b poll = this.f182a.poll(j, TimeUnit.SECONDS);
@@ -64,7 +64,7 @@ public class al {
                         a(0, poll);
                         poll.b();
                         a(1, poll);
-                    } else if (al.this.f13855a > 0) {
+                    } else if (al.this.f13857a > 0) {
                         al.this.a();
                     }
                 } catch (InterruptedException e) {
@@ -97,10 +97,10 @@ public class al {
     public al(boolean z, int i) {
         this.f178a = null;
         this.f181a = false;
-        this.f13855a = 0;
+        this.f13857a = 0;
         this.f178a = new am(this, Looper.getMainLooper());
-        this.f13856b = z;
-        this.f13855a = i;
+        this.f13858b = z;
+        this.f13857a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +112,7 @@ public class al {
     public synchronized void a(b bVar) {
         if (this.f179a == null) {
             this.f179a = new a();
-            this.f179a.setDaemon(this.f13856b);
+            this.f179a.setDaemon(this.f13858b);
             this.f181a = false;
             this.f179a.start();
         }

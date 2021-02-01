@@ -3,7 +3,7 @@ package com.baidu.tieba.live.tbean;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.CharacterStyle;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BuyTBeanStringUlti {
     public static String formatTBeanNum(int i) {
         float f;

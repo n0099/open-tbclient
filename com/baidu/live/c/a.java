@@ -1,10 +1,10 @@
 package com.baidu.live.c;
 
 import android.view.ViewGroup;
-import com.baidu.live.data.x;
-/* loaded from: classes10.dex */
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
 public interface a {
-    void b(ViewGroup viewGroup, x xVar);
+    void b(ViewGroup viewGroup, ab abVar);
 
     void onDestroy();
 
@@ -12,5 +12,5 @@ public interface a {
 
     void setCanVisible(boolean z);
 
-    void xk();
+    void xh();
 }

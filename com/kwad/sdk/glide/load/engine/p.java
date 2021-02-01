@@ -2,17 +2,17 @@ package com.kwad.sdk.glide.load.engine;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<com.kwad.sdk.glide.load.c, j<?>> f10242a = new HashMap();
+    private final Map<com.kwad.sdk.glide.load.c, j<?>> f10244a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<com.kwad.sdk.glide.load.c, j<?>> f10243b = new HashMap();
+    private final Map<com.kwad.sdk.glide.load.c, j<?>> f10245b = new HashMap();
 
     private Map<com.kwad.sdk.glide.load.c, j<?>> a(boolean z) {
-        return z ? this.f10243b : this.f10242a;
+        return z ? this.f10245b : this.f10244a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

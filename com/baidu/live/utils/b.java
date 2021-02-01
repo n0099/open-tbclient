@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.util.WebviewHelper;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static String a(int i, String str, boolean z, String str2, String str3, String str4, String str5, String str6) {
         String str7;

@@ -2,10 +2,10 @@ package com.baidu.tieba.gift.send;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.SendFreeGift.DataReq;
 import tbclient.SendFreeGift.SendFreeGiftReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SendFreeGiftRequest extends NetMessage {
     private int giftId;
     private long postId;
@@ -30,7 +30,7 @@ public class SendFreeGiftRequest extends NetMessage {
         builder.post_id = Long.valueOf(this.postId);
         builder.num = Integer.valueOf(this.sendCount);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         SendFreeGiftReqIdl.Builder builder2 = new SendFreeGiftReqIdl.Builder();
         builder2.data = builder.build(false);

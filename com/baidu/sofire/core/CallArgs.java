@@ -2,7 +2,7 @@ package com.baidu.sofire.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class CallArgs implements Parcelable {
     public static final Parcelable.Creator<CallArgs> CREATOR = new Parcelable.Creator<CallArgs>() { // from class: com.baidu.sofire.core.CallArgs.1
         /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
@@ -19,10 +19,10 @@ public class CallArgs implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f5203a;
+    public int f5205a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5204b;
+    public int f5206b;
     public String c;
     public Object[] d;
     public Object[] e;
@@ -32,8 +32,8 @@ public class CallArgs implements Parcelable {
     }
 
     protected CallArgs(Parcel parcel) {
-        this.f5203a = parcel.readInt();
-        this.f5204b = parcel.readInt();
+        this.f5205a = parcel.readInt();
+        this.f5206b = parcel.readInt();
         this.c = parcel.readString();
         this.e = parcel.readArray(CallArgs.class.getClassLoader());
         this.d = parcel.readArray(CallArgs.class.getClassLoader());
@@ -47,8 +47,8 @@ public class CallArgs implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f5203a);
-        parcel.writeInt(this.f5204b);
+        parcel.writeInt(this.f5205a);
+        parcel.writeInt(this.f5206b);
         parcel.writeString(this.c);
         parcel.writeArray(this.e);
         parcel.writeArray(this.d);

@@ -3,11 +3,11 @@ package com.kwad.sdk.glide.load.resource.bitmap;
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class o extends e {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final byte[] f10287b = "com.kwad.sdk.glide.load.resource.bitmap.FitCenter".getBytes(f10132a);
+    private static final byte[] f10289b = "com.kwad.sdk.glide.load.resource.bitmap.FitCenter".getBytes(f10134a);
 
     @Override // com.kwad.sdk.glide.load.resource.bitmap.e
     protected Bitmap a(@NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, @NonNull Bitmap bitmap, int i, int i2) {
@@ -16,7 +16,7 @@ public class o extends e {
 
     @Override // com.kwad.sdk.glide.load.c
     public void a(@NonNull MessageDigest messageDigest) {
-        messageDigest.update(f10287b);
+        messageDigest.update(f10289b);
     }
 
     @Override // com.kwad.sdk.glide.load.c

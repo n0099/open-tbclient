@@ -17,7 +17,6 @@ import androidx.annotation.VisibleForTesting;
 import com.baidu.mobstat.Config;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class TransformationUtils {
     private static final Lock BITMAP_DRAWABLE_LOCK;
     private static final Paint CIRCLE_CROP_BITMAP_PAINT;
@@ -151,7 +150,7 @@ public final class TransformationUtils {
                 return 90;
             case 7:
             case 8:
-                return SubsamplingScaleImageView.ORIENTATION_270;
+                return 270;
             default:
                 return 0;
         }
@@ -317,7 +316,7 @@ public final class TransformationUtils {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static final class NoLock implements Lock {
         NoLock() {
         }

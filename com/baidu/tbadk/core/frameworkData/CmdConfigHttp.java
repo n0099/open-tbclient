@@ -33,6 +33,7 @@ public class CmdConfigHttp {
     public static final int CMD_BUBBLE_LIST = 1003055;
     public static final int CMD_BUBBLE_SET = 1003056;
     public static final int CMD_CALL_FANS = 1003464;
+    public static final int CMD_CANCEL_FORBIDDEN_FORUM = 1003487;
     public static final int CMD_CANDIDATE_SEARCH = 1003435;
     public static final int CMD_CHANGE_FLOOR_AGREE = 1001604;
     public static final int CMD_CHANGE_PORTRAIT = 1003063;
@@ -110,6 +111,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_FACE_GROUP_INFO = 1003338;
     public static final int CMD_GET_FACE_MAKE_HOT_WORDS = 1003352;
     public static final int CMD_GET_FINE_PB = 1003006;
+    public static final int CMD_GET_FORBIDDEN_FORUM = 1003485;
     public static final int CMD_GET_FORUM_EMOTION_PACKAGE = 1003389;
     public static final int CMD_GET_FORUM_MANAGER_RIGHTS = 1003470;
     public static final int CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH = 1003319;
@@ -177,6 +179,7 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_SMART_APP = 1003420;
     public static final int CMD_INCREASE_FORUM_ACCESS_COUNT = 1003150;
     public static final int CMD_LCS_STATISTICS = 1003422;
+    public static final int CMD_LOW_FLOWS_PAGE = 1003486;
     public static final int CMD_MANGA_CHAPTER_ALL = 1003087;
     public static final int CMD_MANGA_CHAPTER_DETAIL = 1003086;
     public static final int CMD_MANGA_OFFLINE_RESOURCE = 1003091;

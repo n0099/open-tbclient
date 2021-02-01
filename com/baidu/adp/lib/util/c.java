@@ -2,6 +2,7 @@ package com.baidu.adp.lib.util;
 
 import androidx.core.view.MotionEventCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FilterOutputStream;
@@ -524,7 +525,7 @@ public class c {
                     }
                     this.position = 0;
                 }
-            } else if (this.decodabet[i & 127] > -5) {
+            } else if (this.decodabet[i & ThunderNetStateService.NetState.SYSNET_UNKNOWN] > -5) {
                 byte[] bArr2 = this.buffer;
                 int i3 = this.position;
                 this.position = i3 + 1;
@@ -533,7 +534,7 @@ public class c {
                     this.out.write(this.b4, 0, c.decode4to3(this.buffer, 0, this.b4, 0, this.options));
                     this.position = 0;
                 }
-            } else if (this.decodabet[i & 127] != -5) {
+            } else if (this.decodabet[i & ThunderNetStateService.NetState.SYSNET_UNKNOWN] != -5) {
                 throw new IOException("Invalid character in Base64 data.");
             }
         }

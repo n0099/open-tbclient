@@ -14,12 +14,12 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.util.ad;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.util.ag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends k<d, ManitoMemberItemViewHolder> {
     private View.OnClickListener mOnItemClickListener;
 
@@ -50,22 +50,22 @@ public class c extends k<d, ManitoMemberItemViewHolder> {
         super.a(i, view, viewGroup, (ViewGroup) dVar, (d) manitoMemberItemViewHolder);
         if (dVar != null && manitoMemberItemViewHolder != null) {
             if (manitoMemberItemViewHolder.mSkinType != this.mSkinType) {
-                ao.setBackgroundResource(manitoMemberItemViewHolder.getView(), R.drawable.frs_member_manito_bg);
-                ao.setViewTextColor(manitoMemberItemViewHolder.eli, R.color.CAM_X0106, 1);
-                ao.setViewTextColor(manitoMemberItemViewHolder.iWw, R.color.CAM_X0109, 1);
-                ao.setBackgroundColor(manitoMemberItemViewHolder.dividerLine, R.color.CAM_X0204);
-                ao.setViewTextColor(manitoMemberItemViewHolder.iWx, R.color.CAM_X0109, 1);
+                ap.setBackgroundResource(manitoMemberItemViewHolder.getView(), R.drawable.frs_member_manito_bg);
+                ap.setViewTextColor(manitoMemberItemViewHolder.enq, R.color.CAM_X0106, 1);
+                ap.setViewTextColor(manitoMemberItemViewHolder.jcd, R.color.CAM_X0109, 1);
+                ap.setBackgroundColor(manitoMemberItemViewHolder.dividerLine, R.color.CAM_X0204);
+                ap.setViewTextColor(manitoMemberItemViewHolder.jce, R.color.CAM_X0109, 1);
             }
-            manitoMemberItemViewHolder.iWv.startLoad(dVar.getHeadUrl(), 12, false);
-            manitoMemberItemViewHolder.eli.setText(ad.interceptString(dVar.getNameShow(), 16));
+            manitoMemberItemViewHolder.jcc.startLoad(dVar.getHeadUrl(), 12, false);
+            manitoMemberItemViewHolder.enq.setText(ag.interceptString(dVar.getNameShow(), 16));
             if (StringUtils.isNull(dVar.getIntro())) {
-                manitoMemberItemViewHolder.iWw.setText(R.string.god_intro_default);
+                manitoMemberItemViewHolder.jcd.setText(R.string.god_intro_default);
             } else {
-                manitoMemberItemViewHolder.iWw.setText(ad.interceptString(dVar.getIntro(), 30));
+                manitoMemberItemViewHolder.jcd.setText(ag.interceptString(dVar.getIntro(), 30));
             }
-            int color = ao.getColor(R.color.CAM_X0301);
-            String numberUniformFormat = at.numberUniformFormat(dVar.getFansNum());
-            manitoMemberItemViewHolder.iWx.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
+            int color = ap.getColor(R.color.CAM_X0301);
+            String numberUniformFormat = au.numberUniformFormat(dVar.getFansNum());
+            manitoMemberItemViewHolder.jce.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
             manitoMemberItemViewHolder.getView().setTag(dVar);
             manitoMemberItemViewHolder.getView().setOnClickListener(this.mOnItemClickListener);
             manitoMemberItemViewHolder.mSkinType = this.mSkinType;

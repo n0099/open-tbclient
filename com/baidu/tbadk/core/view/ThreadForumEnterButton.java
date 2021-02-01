@@ -15,18 +15,18 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadForumEnterButton extends RelativeLayout implements View.OnClickListener {
-    private static final int ahh = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - ((com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
-    private View.OnClickListener ake;
-    private bz eHK;
-    public final int fin;
-    private TextView fio;
+    private static final int agW = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - ((com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+    private View.OnClickListener ajT;
+    private cb eJQ;
+    public final int fkG;
+    private TextView fkH;
     private Context mContext;
     private int mFrom;
     private Drawable mIconDrawable;
@@ -35,7 +35,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context) {
         super(context);
-        this.fin = 0;
+        this.fkG = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -43,7 +43,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fin = 0;
+        this.fkG = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -53,67 +53,67 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         this.mContext = context;
         setOnClickListener(this);
         this.mView = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
-        this.fio = (TextView) this.mView.findViewById(R.id.forum_name_text);
-        this.fio.setCompoundDrawablePadding(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.M_W_X002));
+        this.fkH = (TextView) this.mView.findViewById(R.id.forum_name_text);
+        this.fkH.setCompoundDrawablePadding(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.M_W_X002));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eHK.getType() == bz.eOR) {
-            BdToast.b(this.mContext, this.mContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bqk();
-        } else if (!StringUtils.isNull(this.eHK.bnB())) {
-            view.setTag(this.eHK);
+        if (this.eJQ.getType() == cb.eRd) {
+            BdToast.b(this.mContext, this.mContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bqD();
+        } else if (!StringUtils.isNull(this.eJQ.bnU())) {
+            view.setTag(this.eJQ);
             if (this.mFrom == 0) {
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.eHK.bnB(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.eJQ.bnU(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
             } else if (this.mFrom == 1) {
             }
-            if (this.ake != null) {
-                this.ake.onClick(view);
+            if (this.ajT != null) {
+                this.ajT.onClick(view);
             }
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.ake = onClickListener;
+        this.ajT = onClickListener;
     }
 
     public void onChangeSkinType() {
         int skinType;
-        if (this.eHK != null && this.mSkinType != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+        if (this.eJQ != null && this.mSkinType != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             this.mSkinType = skinType;
-            com.baidu.tbadk.core.elementsMaven.c.bv(this.fio).nX(R.string.F_X01).nW(R.dimen.T_X09).nV(R.color.CAM_X0304).oh(R.string.A_X07).od(R.string.J_X01).og(R.dimen.L_X02).of(R.color.CAM_X0304);
-            this.mIconDrawable = WebPManager.a(R.drawable.icon_pure_ba12, ao.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.fkH).oa(R.string.F_X01).nZ(R.dimen.T_X09).nY(R.color.CAM_X0304).ol(R.string.A_X07).og(R.string.J_X01).ok(R.dimen.L_X02).oj(R.color.CAM_X0304);
+            this.mIconDrawable = WebPManager.a(R.drawable.icon_pure_ba12, ap.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
             if (this.mIconDrawable != null) {
                 int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.T_X09);
                 this.mIconDrawable.setBounds(0, 0, dimens, dimens);
             }
-            bun();
+            buH();
         }
     }
 
-    public void a(bz bzVar, int i) {
-        this.eHK = bzVar;
-        if (bzVar != null && i > 0) {
-            int paddingLeft = this.fio.getPaddingLeft();
-            String bnB = bzVar.bnB();
-            if (StringUtils.isNull(bnB)) {
+    public void a(cb cbVar, int i) {
+        this.eJQ = cbVar;
+        if (cbVar != null && i > 0) {
+            int paddingLeft = this.fkH.getPaddingLeft();
+            String bnU = cbVar.bnU();
+            if (StringUtils.isNull(bnU)) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            bun();
-            this.fio.setText(((Object) TextUtils.ellipsize(bnB, this.fio.getPaint(), (i - (paddingLeft * 2)) - this.fio.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
-            this.fio.setVisibility(0);
+            buH();
+            this.fkH.setText(((Object) TextUtils.ellipsize(bnU, this.fkH.getPaint(), (i - (paddingLeft * 2)) - this.fkH.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
+            this.fkH.setVisibility(0);
             onChangeSkinType();
             return;
         }
         setVisibility(8);
     }
 
-    private void bun() {
-        this.fio.setCompoundDrawables(this.mIconDrawable, null, null, null);
+    private void buH() {
+        this.fkH.setCompoundDrawables(this.mIconDrawable, null, null, null);
     }
 
     public void setFrom(int i) {

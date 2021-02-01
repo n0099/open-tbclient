@@ -12,7 +12,7 @@ import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k {
     public static int a(Reader reader, Writer writer) {
         long b2 = b(reader, writer);

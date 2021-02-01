@@ -4,30 +4,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private a ato;
+    private a ate;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, com.baidu.helios.ids.a> f2446b = new HashMap();
+    private Map<String, com.baidu.helios.ids.a> f2444b = new HashMap();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        List<com.baidu.helios.ids.a> vs();
+        List<com.baidu.helios.ids.a> vp();
     }
 
     public b(a aVar) {
-        this.ato = aVar;
-        for (com.baidu.helios.ids.a aVar2 : aVar.vs()) {
-            this.f2446b.put(aVar2.getName(), aVar2);
+        this.ate = aVar;
+        for (com.baidu.helios.ids.a aVar2 : aVar.vp()) {
+            this.f2444b.put(aVar2.getName(), aVar2);
         }
     }
 
     public com.baidu.helios.ids.a eb(String str) {
-        return this.f2446b.get(str);
+        return this.f2444b.get(str);
     }
 
-    public List<com.baidu.helios.ids.a> vr() {
-        return new ArrayList(this.f2446b.values());
+    public List<com.baidu.helios.ids.a> vo() {
+        return new ArrayList(this.f2444b.values());
     }
 }

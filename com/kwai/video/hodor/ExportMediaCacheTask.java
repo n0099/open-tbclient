@@ -12,7 +12,7 @@ import com.kwai.video.hodor.util.Timber;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ExportMediaCacheTask extends AbstractHodorTask {
     @AccessedByNative
     private final String mCacheKey;
@@ -45,14 +45,14 @@ public class ExportMediaCacheTask extends AbstractHodorTask {
     };
     private TaskInfo mTaskInfo = new TaskInfo();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface ExportMediaCacheTaskCallback {
         void onCdnReport(TaskInfo taskInfo);
 
         void onTaskStatusChanged(TaskInfo taskInfo);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class TaskInfo extends BaseTaskInfo {
         private String cacheFilePath = "";
         private boolean loadFromCache;

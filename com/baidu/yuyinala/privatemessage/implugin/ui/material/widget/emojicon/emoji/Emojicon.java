@@ -1,7 +1,7 @@
 package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji;
 
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Emojicon implements Serializable {
     private static final long serialVersionUID = 1;
     private String emoji;

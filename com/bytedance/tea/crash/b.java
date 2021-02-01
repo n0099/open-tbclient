@@ -6,32 +6,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<c, List<a>> f7618a = new HashMap();
+    private Map<c, List<a>> f7620a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, String> f7619b = new HashMap();
+    private Map<String, String> f7621b = new HashMap();
     private final List<e> c = new CopyOnWriteArrayList();
     private final List<e> d = new CopyOnWriteArrayList();
     private final List<e> e = new CopyOnWriteArrayList();
     private final List<e> f = new CopyOnWriteArrayList();
-    private f plq = null;
+    private f pvF = null;
 
     @Nullable
     public List<a> b(c cVar) {
-        return this.f7618a.get(cVar);
+        return this.f7620a.get(cVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Map<? extends String, ? extends String> map) {
-        this.f7619b.putAll(map);
+        this.f7621b.putAll(map);
     }
 
     public Map<String, String> a() {
-        return this.f7619b;
+        return this.f7621b;
     }
 
     @NonNull
@@ -46,11 +46,11 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(f fVar) {
-        this.plq = fVar;
+        this.pvF = fVar;
     }
 
     @Nullable
-    public f eoC() {
-        return this.plq;
+    public f eqU() {
+        return this.pvF;
     }
 }

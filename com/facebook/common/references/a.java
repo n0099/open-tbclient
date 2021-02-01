@@ -9,13 +9,13 @@ import java.util.Collection;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class a<T> implements Closeable, Cloneable {
-    private static Class<a> pnn = a.class;
-    private static final c<Closeable> poW = new c<Closeable>() { // from class: com.facebook.common.references.a.1
+    private static Class<a> pxC = a.class;
+    private static final c<Closeable> pzg = new c<Closeable>() { // from class: com.facebook.common.references.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.references.c
-        /* renamed from: g */
+        /* renamed from: f */
         public void release(Closeable closeable) {
             try {
                 com.facebook.common.internal.b.close(closeable, true);
@@ -24,24 +24,24 @@ public final class a<T> implements Closeable, Cloneable {
         }
     };
     @GuardedBy("this")
-    private boolean Rx = false;
-    private final SharedReference<T> poV;
+    private boolean Rv = false;
+    private final SharedReference<T> pzf;
 
     private a(SharedReference<T> sharedReference) {
-        this.poV = (SharedReference) g.checkNotNull(sharedReference);
-        sharedReference.eqt();
+        this.pzf = (SharedReference) g.checkNotNull(sharedReference);
+        sharedReference.esM();
     }
 
     private a(T t, c<T> cVar) {
-        this.poV = new SharedReference<>(t, cVar);
+        this.pzf = new SharedReference<>(t, cVar);
     }
 
     /* JADX WARN: Incorrect types in method signature: <T::Ljava/io/Closeable;>(TT;)Lcom/facebook/common/references/a<TT;>; */
-    public static a f(@PropagatesNullable Closeable closeable) {
+    public static a e(@PropagatesNullable Closeable closeable) {
         if (closeable == null) {
             return null;
         }
-        return new a(closeable, poW);
+        return new a(closeable, pzg);
     }
 
     public static <T> a<T> a(@PropagatesNullable T t, c<T> cVar) {
@@ -52,29 +52,29 @@ public final class a<T> implements Closeable, Cloneable {
     }
 
     public synchronized T get() {
-        g.checkState(!this.Rx);
-        return this.poV.get();
+        g.checkState(!this.Rv);
+        return this.pzf.get();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: eqq */
+    /* renamed from: esJ */
     public synchronized a<T> clone() {
         g.checkState(isValid());
-        return new a<>(this.poV);
+        return new a<>(this.pzf);
     }
 
     @Nullable
-    public synchronized a<T> eqr() {
+    public synchronized a<T> esK() {
         return isValid() ? clone() : null;
     }
 
     public synchronized boolean isValid() {
-        return !this.Rx;
+        return !this.Rv;
     }
 
-    public int eqs() {
+    public int esL() {
         if (isValid()) {
-            return System.identityHashCode(this.poV.get());
+            return System.identityHashCode(this.pzf.get());
         }
         return 0;
     }
@@ -82,9 +82,9 @@ public final class a<T> implements Closeable, Cloneable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (!this.Rx) {
-                this.Rx = true;
-                this.poV.equ();
+            if (!this.Rv) {
+                this.Rv = true;
+                this.pzf.esN();
             }
         }
     }
@@ -96,7 +96,7 @@ public final class a<T> implements Closeable, Cloneable {
     @Nullable
     public static <T> a<T> b(@Nullable a<T> aVar) {
         if (aVar != null) {
-            return aVar.eqr();
+            return aVar.esK();
         }
         return null;
     }
@@ -129,8 +129,8 @@ public final class a<T> implements Closeable, Cloneable {
     protected void finalize() throws Throwable {
         try {
             synchronized (this) {
-                if (!this.Rx) {
-                    com.facebook.common.c.a.c((Class<?>) pnn, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.poV)), this.poV.get().getClass().getName());
+                if (!this.Rv) {
+                    com.facebook.common.c.a.c((Class<?>) pxC, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.pzf)), this.pzf.get().getClass().getName());
                     close();
                 }
             }

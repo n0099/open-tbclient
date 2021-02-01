@@ -7,10 +7,9 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.widget.TbClipImageView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class HeadImageView extends TbClipImageView {
     private int bigHeadMargin;
     private int iconMargin;
@@ -61,11 +60,7 @@ public class HeadImageView extends TbClipImageView {
         setDrawBorder(true);
         setDefaultBgResource(this.mDefaultBgId);
         setDefaultResource(this.mDefaultId);
-        if (TbadkCoreApplication.getInst().isHaokan()) {
-            setDefaultErrorResource(a.e.sdk_icon_default_avatar100_hk);
-        } else {
-            setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
-        }
+        setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
     }
 
     public void setUrl(String str) {

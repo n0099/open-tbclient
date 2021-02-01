@@ -4,7 +4,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import kotlin.jvm.internal.FunctionReference;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<i, i> {
     public static final Regex$findAll$2 INSTANCE = new Regex$findAll$2();
 
@@ -31,6 +31,6 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
     @Override // kotlin.jvm.a.b
     public final i invoke(i iVar) {
         kotlin.jvm.internal.p.o(iVar, ZeusPerformanceTiming.KEY_BROWSER_STARTUP);
-        return iVar.eJp();
+        return iVar.eLF();
     }
 }

@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.core.widget.webview.a;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.down.request.db.DownloadDataConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static a a(String str) {
         a aVar = a.IMAGE;
@@ -27,7 +27,7 @@ public class e {
         return aVar;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         HTML("text/html"),
         CSS("text/css"),

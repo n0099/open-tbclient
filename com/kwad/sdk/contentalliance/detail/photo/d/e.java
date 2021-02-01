@@ -7,18 +7,18 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.contentalliance.detail.photo.d.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    b.a f8468a;
+    b.a f8470a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b f8469b;
+    private b f8471b;
     private d c;
     private a d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -27,7 +27,7 @@ public class e extends Dialog {
 
     public e(Context context, d dVar) {
         super(context);
-        this.f8468a = new b.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.e.1
+        this.f8470a = new b.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.e.1
             @Override // com.kwad.sdk.contentalliance.detail.photo.d.b.a
             public void a() {
                 e.this.dismiss();
@@ -58,10 +58,10 @@ public class e extends Dialog {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         requestWindowFeature(1);
-        this.f8469b = new b(getContext());
-        this.f8469b.a(this.c);
-        setContentView(this.f8469b);
-        this.f8469b.a(this.f8468a);
+        this.f8471b = new b(getContext());
+        this.f8471b.a(this.c);
+        setContentView(this.f8471b);
+        this.f8471b.a(this.f8470a);
         setCanceledOnTouchOutside(true);
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
         getWindow().setLayout(-1, -1);
@@ -70,8 +70,8 @@ public class e extends Dialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.f8469b.b(this.f8468a);
-        this.f8469b.a();
+        this.f8471b.b(this.f8470a);
+        this.f8471b.a();
     }
 
     @Override // android.app.Dialog

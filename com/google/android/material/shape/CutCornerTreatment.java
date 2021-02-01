@@ -2,7 +2,7 @@ package com.google.android.material.shape;
 
 import com.google.android.material.internal.Experimental;
 @Experimental("The shapes API is currently experimental and subject to change")
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class CutCornerTreatment extends CornerTreatment {
     private final float size;
 

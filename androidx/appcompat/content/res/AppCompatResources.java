@@ -17,7 +17,7 @@ import androidx.appcompat.widget.AppCompatDrawableManager;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ColorStateListInflaterCompat;
 import java.util.WeakHashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class AppCompatResources {
     private static final String LOG_TAG = "AppCompatResources";
     private static final ThreadLocal<TypedValue> TL_TYPED_VALUE = new ThreadLocal<>();
@@ -107,7 +107,7 @@ public final class AppCompatResources {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class ColorStateListCacheEntry {
         final Configuration configuration;
         final ColorStateList value;

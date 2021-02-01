@@ -8,43 +8,43 @@ import org.json.JSONObject;
 public class LivenessABTestUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LivenessABTestUtil f2303a;
+    private static LivenessABTestUtil f2301a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ABTestUtils f2304b;
+    private ABTestUtils f2302b;
 
     private LivenessABTestUtil() {
     }
 
     private LivenessABTestUtil(Context context) {
-        this.f2304b = new ABTestUtils(context);
+        this.f2302b = new ABTestUtils(context);
     }
 
     public static synchronized LivenessABTestUtil getInstance(Context context) {
         LivenessABTestUtil livenessABTestUtil;
         synchronized (LivenessABTestUtil.class) {
-            if (f2303a == null) {
-                f2303a = new LivenessABTestUtil(context);
+            if (f2301a == null) {
+                f2301a = new LivenessABTestUtil(context);
             }
-            livenessABTestUtil = f2303a;
+            livenessABTestUtil = f2301a;
         }
         return livenessABTestUtil;
     }
 
     public static synchronized void cleanInstance() {
         synchronized (LivenessABTestUtil.class) {
-            f2303a = null;
+            f2301a = null;
         }
     }
 
     public boolean isWhiteBgEnable() {
-        if (this.f2304b != null) {
-            return "1".equals(this.f2304b.getABTestValueString("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0"));
+        if (this.f2302b != null) {
+            return "1".equals(this.f2302b.getABTestValueString("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0"));
         }
         return false;
     }
 
     public JSONObject getLivenessBgStyleABTestContent() {
-        return this.f2304b != null ? this.f2304b.getABTestStatistics("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0") : new JSONObject();
+        return this.f2302b != null ? this.f2302b.getABTestStatistics("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0") : new JSONObject();
     }
 }

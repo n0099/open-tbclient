@@ -7,11 +7,11 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Logger f5844a = Logger.getLogger(l.class.getName());
+    static final Logger f5846a = Logger.getLogger(l.class.getName());
 
     private l() {
     }
@@ -34,17 +34,17 @@ public final class l {
         return new r() { // from class: com.bytedance.sdk.a.a.l.1
             @Override // com.bytedance.sdk.a.a.r
             public void a(c cVar, long j) throws IOException {
-                u.a(cVar.f5840b, 0L, j);
+                u.a(cVar.f5842b, 0L, j);
                 while (j > 0) {
                     t.this.g();
-                    o oVar = cVar.pdp;
-                    int min = (int) Math.min(j, oVar.c - oVar.f5849b);
-                    outputStream.write(oVar.f5848a, oVar.f5849b, min);
-                    oVar.f5849b += min;
+                    o oVar = cVar.pnC;
+                    int min = (int) Math.min(j, oVar.c - oVar.f5851b);
+                    outputStream.write(oVar.f5850a, oVar.f5851b, min);
+                    oVar.f5851b += min;
                     j -= min;
-                    cVar.f5840b -= min;
-                    if (oVar.f5849b == oVar.c) {
-                        cVar.pdp = oVar.emn();
+                    cVar.f5842b -= min;
+                    if (oVar.f5851b == oVar.c) {
+                        cVar.pnC = oVar.eoH();
                         p.b(oVar);
                     }
                 }
@@ -61,7 +61,7 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.r
-            public t elW() {
+            public t eoq() {
                 return t.this;
             }
 
@@ -82,7 +82,7 @@ public final class l {
         return h.a(a(socket.getOutputStream(), h));
     }
 
-    public static s s(InputStream inputStream) {
+    public static s p(InputStream inputStream) {
         return a(inputStream, new t());
     }
 
@@ -104,13 +104,13 @@ public final class l {
                 }
                 try {
                     t.this.g();
-                    o Ob = cVar.Ob(1);
-                    int read = inputStream.read(Ob.f5848a, Ob.c, (int) Math.min(j, 8192 - Ob.c));
+                    o Ow = cVar.Ow(1);
+                    int read = inputStream.read(Ow.f5850a, Ow.c, (int) Math.min(j, 8192 - Ow.c));
                     if (read == -1) {
                         return -1L;
                     }
-                    Ob.c += read;
-                    cVar.f5840b += read;
+                    Ow.c += read;
+                    cVar.f5842b += read;
                     return read;
                 } catch (AssertionError e) {
                     if (l.a(e)) {
@@ -126,7 +126,7 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.s
-            public t elW() {
+            public t eoq() {
                 return t.this;
             }
 
@@ -159,17 +159,17 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.a
-            protected void elU() {
+            protected void eoo() {
                 try {
                     socket.close();
                 } catch (AssertionError e) {
                     if (l.a(e)) {
-                        l.f5844a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e);
+                        l.f5846a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e);
                         return;
                     }
                     throw e;
                 } catch (Exception e2) {
-                    l.f5844a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e2);
+                    l.f5846a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e2);
                 }
             }
         };

@@ -85,13 +85,13 @@ public class BdExpandImageView extends ImageView {
         Bitmap bitmap;
         Drawable drawable = getDrawable();
         if (drawable != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
-            int scaledWidth = bitmap.getScaledWidth(this.dm);
-            int scaledHeight = (bitmap.getScaledHeight(this.dm) - this.drawableHeight) / 2;
-            this.src.set(0, scaledHeight, scaledWidth, this.drawableHeight + scaledHeight);
-            int width = getWidth();
-            float max = Math.max(width / scaledWidth, getHeight() / this.drawableHeight);
-            int i = (int) (scaledWidth * max);
-            int i2 = (i - width) / 2;
+            int width = bitmap.getWidth();
+            int height = (bitmap.getHeight() - this.drawableHeight) / 2;
+            this.src.set(0, height, width, this.drawableHeight + height);
+            int width2 = getWidth();
+            float max = Math.max(width2 / width, getHeight() / this.drawableHeight);
+            int i = (int) (width * max);
+            int i2 = (i - width2) / 2;
             this.dst.set(-i2, 0, i - (i2 * 2), (int) (max * this.drawableHeight));
             canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
         }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.b.c;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -13,10 +13,10 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public String blockUrl;
-        public c eZw;
         public String errorString;
-        public boolean fmi;
-        public BlockPopInfoData fqk;
+        public c fbL;
+        public boolean foB;
+        public BlockPopInfoData fsD;
         public boolean hasShownForbiddenAlert;
         public boolean isAttention;
         public boolean isSucc;
@@ -56,12 +56,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!at.isEmpty(optString) && !at.isEmpty(this.blockUrl) && !at.isEmpty(optString2) && !at.isEmpty(optString3)) {
-                    this.fqk = new BlockPopInfoData();
-                    this.fqk.block_info = optString;
-                    this.fqk.ahead_url = this.blockUrl;
-                    this.fqk.ahead_info = optString2;
-                    this.fqk.ok_info = optString3;
+                if (!au.isEmpty(optString) && !au.isEmpty(this.blockUrl) && !au.isEmpty(optString2) && !au.isEmpty(optString3)) {
+                    this.fsD = new BlockPopInfoData();
+                    this.fsD.block_info = optString;
+                    this.fsD.ahead_url = this.blockUrl;
+                    this.fsD.ahead_info = optString2;
+                    this.fsD.ok_info = optString3;
                 }
             }
         }

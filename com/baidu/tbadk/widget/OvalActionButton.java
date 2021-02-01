@@ -15,23 +15,23 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class OvalActionButton extends ImageView {
     private int color;
     private int endColor;
-    private PorterDuffXfermode fLH;
-    private PorterDuffXfermode fLI;
-    private boolean fLV;
-    private boolean fLW;
-    private boolean fLX;
-    private Paint fLY;
-    private float[] fLZ;
-    private float[] fMa;
-    private LinearGradient fMb;
-    private Drawable fMc;
-    private int fMd;
+    private PorterDuffXfermode fNV;
+    private PorterDuffXfermode fNW;
+    private boolean fOj;
+    private boolean fOk;
+    private boolean fOl;
+    private Paint fOm;
+    private float[] fOn;
+    private float[] fOo;
+    private LinearGradient fOp;
+    private Drawable fOq;
+    private int fOr;
     private int mHeight;
     private Drawable mIcon;
     private Paint mPaint;
@@ -50,51 +50,51 @@ public class OvalActionButton extends ImageView {
 
     public OvalActionButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fLV = true;
-        this.fLX = true;
-        this.fLZ = new float[4];
-        this.fMa = new float[4];
-        this.color = ao.getColor(R.color.CAM_X0306);
-        this.fLH = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-        this.fLI = new PorterDuffXfermode(PorterDuff.Mode.SRC);
+        this.fOj = true;
+        this.fOl = true;
+        this.fOn = new float[4];
+        this.fOo = new float[4];
+        this.color = ap.getColor(R.color.CAM_X0306);
+        this.fNV = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.fNW = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.mSkinType = 3;
         init();
     }
 
     private void init() {
-        bFL();
+        bGf();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(this.color);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setAntiAlias(true);
-        this.fLY = new Paint();
-        this.fLY.setColor(ao.getColor(R.color.CAM_X0101));
-        this.fLY.setStrokeCap(Paint.Cap.ROUND);
-        this.fLY.setAntiAlias(true);
+        this.fOm = new Paint();
+        this.fOm.setColor(ap.getColor(R.color.CAM_X0101));
+        this.fOm.setStrokeCap(Paint.Cap.ROUND);
+        this.fOm.setAntiAlias(true);
         setLayerType(1, null);
     }
 
-    private void bFL() {
+    private void bGf() {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType == 0) {
-            this.startColor = com.baidu.tieba.tbadkCore.c.rt("#00E1FF");
-            this.endColor = com.baidu.tieba.tbadkCore.c.rt("#00A2FF");
+            this.startColor = com.baidu.tieba.tbadkCore.c.rM("#00E1FF");
+            this.endColor = com.baidu.tieba.tbadkCore.c.rM("#00A2FF");
         } else if (this.mSkinType == 1) {
-            this.startColor = com.baidu.tieba.tbadkCore.c.rt("#00BBD4");
-            this.endColor = com.baidu.tieba.tbadkCore.c.rt("#0086D4");
+            this.startColor = com.baidu.tieba.tbadkCore.c.rM("#00BBD4");
+            this.endColor = com.baidu.tieba.tbadkCore.c.rM("#0086D4");
         } else if (this.mSkinType == 4) {
-            this.startColor = com.baidu.tieba.tbadkCore.c.rt("#2BE6FF");
-            this.endColor = com.baidu.tieba.tbadkCore.c.rt("#2BB1FF");
+            this.startColor = com.baidu.tieba.tbadkCore.c.rM("#2BE6FF");
+            this.endColor = com.baidu.tieba.tbadkCore.c.rM("#2BB1FF");
         }
     }
 
     public void setIsCircle(boolean z) {
-        this.fLW = z;
+        this.fOk = z;
     }
 
     public void setHasShadow(boolean z) {
-        this.fLX = z;
+        this.fOl = z;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -152,44 +152,44 @@ public class OvalActionButton extends ImageView {
                 this.mPath.cubicTo(f3 - f7, f5, f, f6 + f8, f, f6);
                 this.mPath.cubicTo(f, f6 - f8, f3 - f7, f4, f3, f4);
                 this.mPath.close();
-                if (this.fLV) {
-                    this.fMb = new LinearGradient(f, 0.0f, f2, 0.0f, new int[]{this.startColor, this.endColor}, (float[]) null, Shader.TileMode.CLAMP);
-                    this.fLV = false;
+                if (this.fOj) {
+                    this.fOp = new LinearGradient(f, 0.0f, f2, 0.0f, new int[]{this.startColor, this.endColor}, (float[]) null, Shader.TileMode.CLAMP);
+                    this.fOj = false;
                 }
-                if (this.fLX) {
-                    if (this.fLW) {
-                        this.mPaint.setShadowLayer(16.0f, 5.0f, 5.0f, com.baidu.tieba.tbadkCore.c.m(this.fMb == null ? this.color : this.endColor, 0.5f));
+                if (this.fOl) {
+                    if (this.fOk) {
+                        this.mPaint.setShadowLayer(16.0f, 5.0f, 5.0f, com.baidu.tieba.tbadkCore.c.l(this.fOp == null ? this.color : this.endColor, 0.5f));
                     } else {
                         float f9 = 0.054f * this.mWidth;
                         float f10 = this.mWidth * 0.0226f;
                         double radians = Math.toRadians(getRotation() - 45.0f);
-                        this.mPaint.setShadowLayer(f9, (float) (f10 * Math.cos(radians)), (-1.0f) * ((float) (Math.sin(radians) * f10)), com.baidu.tieba.tbadkCore.c.m(this.fMb == null ? this.color : this.endColor, 0.83f));
+                        this.mPaint.setShadowLayer(f9, (float) (f10 * Math.cos(radians)), (-1.0f) * ((float) (Math.sin(radians) * f10)), com.baidu.tieba.tbadkCore.c.l(this.fOp == null ? this.color : this.endColor, 0.83f));
                     }
                 }
-                if (this.fMb != null) {
-                    this.mPaint.setShader(this.fMb);
+                if (this.fOp != null) {
+                    this.mPaint.setShader(this.fOp);
                 } else {
                     this.mPaint.setColor(this.color);
                 }
                 float f11 = this.mWidth * 0.032f;
-                if (this.fLW) {
+                if (this.fOk) {
                     canvas.drawCircle(f3, f6, (this.mWidth / 2) - 20, this.mPaint);
                 } else {
                     canvas.drawPath(this.mPath, this.mPaint);
                 }
-                this.fLZ[0] = ((3.0f * f3) + f) / 4.0f;
-                this.fLZ[1] = ((3.0f * f6) + f4) / 4.0f;
-                this.fLZ[2] = ((3.0f * f3) + f2) / 4.0f;
-                this.fLZ[3] = ((3.0f * f6) + f5) / 4.0f;
-                this.fMa[0] = (f2 + (3.0f * f3)) / 4.0f;
-                this.fMa[1] = (f4 + (3.0f * f6)) / 4.0f;
-                this.fMa[2] = ((3.0f * f3) + f) / 4.0f;
-                this.fMa[3] = ((3.0f * f6) + f5) / 4.0f;
+                this.fOn[0] = ((3.0f * f3) + f) / 4.0f;
+                this.fOn[1] = ((3.0f * f6) + f4) / 4.0f;
+                this.fOn[2] = ((3.0f * f3) + f2) / 4.0f;
+                this.fOn[3] = ((3.0f * f6) + f5) / 4.0f;
+                this.fOo[0] = (f2 + (3.0f * f3)) / 4.0f;
+                this.fOo[1] = (f4 + (3.0f * f6)) / 4.0f;
+                this.fOo[2] = ((3.0f * f3) + f) / 4.0f;
+                this.fOo[3] = ((3.0f * f6) + f5) / 4.0f;
                 N(canvas);
                 O(canvas);
-                this.fLY.setStrokeWidth(f11);
-                canvas.drawLines(this.fLZ, this.fLY);
-                canvas.drawLines(this.fMa, this.fLY);
+                this.fOm.setStrokeWidth(f11);
+                canvas.drawLines(this.fOn, this.fOm);
+                canvas.drawLines(this.fOo, this.fOm);
             }
             if (saveCount2 >= 1 && saveCount2 <= canvas.getSaveCount()) {
                 canvas.restoreToCount(saveCount2);
@@ -210,12 +210,12 @@ public class OvalActionButton extends ImageView {
     }
 
     private void O(Canvas canvas) {
-        if (this.fMc != null) {
-            if (Build.VERSION.SDK_INT < 19 || this.fMc.getAlpha() > 0) {
+        if (this.fOq != null) {
+            if (Build.VERSION.SDK_INT < 19 || this.fOq.getAlpha() > 0) {
                 canvas.save();
                 canvas.rotate(-45.0f, canvas.getWidth() / 2, canvas.getHeight() / 2);
-                this.fMc.setBounds(((getWidth() / 2) - (this.fMc.getIntrinsicWidth() / 2)) + this.fMd, ((getHeight() / 2) - (this.fMc.getIntrinsicHeight() / 2)) + this.fMd, ((getWidth() / 2) + (this.fMc.getIntrinsicWidth() / 2)) - this.fMd, ((getHeight() / 2) + (this.fMc.getIntrinsicHeight() / 2)) - this.fMd);
-                this.fMc.draw(canvas);
+                this.fOq.setBounds(((getWidth() / 2) - (this.fOq.getIntrinsicWidth() / 2)) + this.fOr, ((getHeight() / 2) - (this.fOq.getIntrinsicHeight() / 2)) + this.fOr, ((getWidth() / 2) + (this.fOq.getIntrinsicWidth() / 2)) - this.fOr, ((getHeight() / 2) + (this.fOq.getIntrinsicHeight() / 2)) - this.fOr);
+                this.fOq.draw(canvas);
                 canvas.restore();
             }
         }
@@ -223,19 +223,19 @@ public class OvalActionButton extends ImageView {
 
     public void setIconFade(int i) {
         if (i > 0) {
-            this.mIcon = ao.getDrawable(i);
+            this.mIcon = ap.getDrawable(i);
             if (this.mIcon != null) {
                 this.mIcon.setAlpha(255);
             }
-            this.fLY.setAlpha(0);
+            this.fOm.setAlpha(0);
         } else {
             this.mIcon = null;
-            this.fLY.setAlpha(255);
+            this.fOm.setAlpha(255);
         }
         postInvalidate();
     }
 
-    public void bCD() {
+    public void bCV() {
         if (this.mIcon != null) {
             this.mIcon.setAlpha(255);
             postInvalidate();
@@ -244,7 +244,7 @@ public class OvalActionButton extends ImageView {
 
     public void setCrossFade(float f, boolean z) {
         float f2;
-        if (this.fMc != null) {
+        if (this.fOq != null) {
             if (f > 1.0f) {
                 f = 1.0f;
             }
@@ -258,13 +258,13 @@ public class OvalActionButton extends ImageView {
                 if (z) {
                     i = 255 - i;
                 }
-                this.fMc.setAlpha(i);
+                this.fOq.setAlpha(i);
                 this.mPaint.setAlpha(255 - i);
                 if (this.mIcon != null) {
                     this.mIcon.setAlpha(255 - i);
-                    this.fLY.setAlpha(0);
+                    this.fOm.setAlpha(0);
                 } else {
-                    this.fLY.setAlpha(255 - i);
+                    this.fOm.setAlpha(255 - i);
                 }
             }
             invalidate();
@@ -274,14 +274,14 @@ public class OvalActionButton extends ImageView {
     public void setEndIcon(int i, int i2, String str) {
         if (i > 0) {
             if ("webp".equals(str)) {
-                this.fMc = WebPManager.a(i, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
+                this.fOq = WebPManager.a(i, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             } else {
-                this.fMc = SvgManager.bsx().a(i, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+                this.fOq = SvgManager.bsR().a(i, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             }
         } else {
-            this.fMc = null;
+            this.fOq = null;
         }
-        this.fMd = i2;
+        this.fOr = i2;
     }
 
     @Override // android.view.View
@@ -291,22 +291,22 @@ public class OvalActionButton extends ImageView {
     }
 
     private void clear(Canvas canvas) {
-        this.mPaint.setXfermode(this.fLH);
+        this.mPaint.setXfermode(this.fNV);
         canvas.drawPaint(this.mPaint);
-        this.mPaint.setXfermode(this.fLI);
+        this.mPaint.setXfermode(this.fNW);
     }
 
     public void setStartAndEndColor(String str, String str2) {
-        this.startColor = com.baidu.tieba.tbadkCore.c.rt(str);
-        this.endColor = com.baidu.tieba.tbadkCore.c.rt(str2);
-        this.fLV = true;
+        this.startColor = com.baidu.tieba.tbadkCore.c.rM(str);
+        this.endColor = com.baidu.tieba.tbadkCore.c.rM(str2);
+        this.fOj = true;
         invalidate();
     }
 
     public void setStartAndEndColor(int i, int i2) {
         this.startColor = i;
         this.endColor = i2;
-        this.fLV = true;
+        this.fOj = true;
         invalidate();
     }
 
@@ -323,10 +323,10 @@ public class OvalActionButton extends ImageView {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            bFL();
-            this.color = ao.getColor(this.mSkinType, R.color.CAM_X0306);
-            this.fLY.setColor(ao.getColor(R.color.CAM_X0101));
-            this.fLV = true;
+            bGf();
+            this.color = ap.getColor(this.mSkinType, R.color.CAM_X0306);
+            this.fOm.setColor(ap.getColor(R.color.CAM_X0101));
+            this.fOj = true;
             invalidate();
         }
     }

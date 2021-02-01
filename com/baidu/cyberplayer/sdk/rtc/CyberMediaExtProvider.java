@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class CyberMediaExtProvider {
     public abstract CaptureManagerProvider createCaptureManagerProvider(Context context, int i, int i2, int i3, int i4, int i5);
 

@@ -12,14 +12,14 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private AtomicInteger f3888a;
+    private AtomicInteger f3891a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<String, Queue<n<?>>> f3889b;
+    private final Map<String, Queue<n<?>>> f3892b;
     private final Set<n<?>> c;
     private final PriorityBlockingQueue<n<?>> d;
     private final PriorityBlockingQueue<n<?>> e;
@@ -30,14 +30,14 @@ public class p {
     private c j;
     private List<a> k;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a<T> {
         void a(n<T> nVar);
     }
 
     public p(b bVar, i iVar, int i, r rVar) {
-        this.f3888a = new AtomicInteger();
-        this.f3889b = new HashMap();
+        this.f3891a = new AtomicInteger();
+        this.f3892b = new HashMap();
         this.c = new HashSet();
         this.d = new PriorityBlockingQueue<>();
         this.e = new PriorityBlockingQueue<>();
@@ -79,7 +79,7 @@ public class p {
     }
 
     public int c() {
-        return this.f3888a.incrementAndGet();
+        return this.f3891a.incrementAndGet();
     }
 
     public <T> n<T> a(n<T> nVar) {
@@ -92,20 +92,20 @@ public class p {
         if (!nVar.r()) {
             this.e.add(nVar);
         } else {
-            synchronized (this.f3889b) {
+            synchronized (this.f3892b) {
                 String e = nVar.e();
-                if (this.f3889b.containsKey(e)) {
-                    Queue<n<?>> queue = this.f3889b.get(e);
+                if (this.f3892b.containsKey(e)) {
+                    Queue<n<?>> queue = this.f3892b.get(e);
                     if (queue == null) {
                         queue = new LinkedList<>();
                     }
                     queue.add(nVar);
-                    this.f3889b.put(e, queue);
-                    if (w.f3895b) {
+                    this.f3892b.put(e, queue);
+                    if (w.f3898b) {
                         w.a("Request for cacheKey=%s is in flight, putting on hold.", e);
                     }
                 } else {
-                    this.f3889b.put(e, null);
+                    this.f3892b.put(e, null);
                     this.d.add(nVar);
                 }
             }
@@ -124,11 +124,11 @@ public class p {
             }
         }
         if (nVar.r()) {
-            synchronized (this.f3889b) {
+            synchronized (this.f3892b) {
                 String e = nVar.e();
-                Queue<n<?>> remove = this.f3889b.remove(e);
+                Queue<n<?>> remove = this.f3892b.remove(e);
                 if (remove != null) {
-                    if (w.f3895b) {
+                    if (w.f3898b) {
                         w.a("Releasing %d waiting requests for cacheKey=%s.", Integer.valueOf(remove.size()), e);
                     }
                     this.d.addAll(remove);

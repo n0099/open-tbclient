@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static WebResourceResponse a(InputStream inputStream, Map<String, String> map) {
         Map<String, String> hashMap;

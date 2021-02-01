@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCardVew> {
     public MsgPhotoLiveItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -27,17 +27,17 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgPhotoLiveCardVew cSH = msgViewHolder.cSH();
-        cSH.a(this.mPageContext, chatMessage, viewGroup);
-        cSH.a(this.krY);
-        cSH.setPosition(i);
+        MsgPhotoLiveCardVew cUF = msgViewHolder.cUF();
+        cUF.a(this.mPageContext, chatMessage, viewGroup);
+        cUF.a(this.kAf);
+        cUF.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> {
         public a(View view, MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
             super(view, msgPhotoLiveCardVew);

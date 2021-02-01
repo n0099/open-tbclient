@@ -1,23 +1,24 @@
 package com.baidu.live.m;
 
-import android.view.ViewGroup;
-import com.baidu.live.data.r;
-import com.baidu.live.data.x;
-/* loaded from: classes10.dex */
+import com.baidu.live.data.ab;
+import com.baidu.live.tbadk.TbPageContext;
+/* loaded from: classes11.dex */
 public interface a {
-    void HS();
+    void Mp();
 
-    void a(r rVar);
+    void c(TbPageContext tbPageContext);
 
-    void a(x xVar);
+    com.baidu.live.core.a.a cB(boolean z);
 
-    void bZ(boolean z);
+    void h(ab abVar);
 
-    void d(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+    void hj(String str);
 
-    void onDestroy();
+    void i(ab abVar);
 
-    void setCanVisible(boolean z);
+    void onPause();
 
-    void xk();
+    void onResume();
+
+    void release();
 }

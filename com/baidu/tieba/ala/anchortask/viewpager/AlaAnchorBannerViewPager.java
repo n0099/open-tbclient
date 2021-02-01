@@ -6,24 +6,24 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.live.tbadk.widget.SlideRatioViewPager;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaAnchorBannerViewPager extends SlideRatioViewPager {
-    private View.OnTouchListener bPd;
-    private boolean gJh;
+    private View.OnTouchListener bST;
+    private boolean gLN;
     private Handler mHandler;
     private SlideRatioViewPager.OnPageChangeListener mOnPageChangeListener;
     private Runnable mRunnable;
 
     public AlaAnchorBannerViewPager(Context context) {
         super(context);
-        this.gJh = false;
-        this.bPd = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorBannerViewPager.1
+        this.gLN = false;
+        this.bST = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                    AlaAnchorBannerViewPager.this.gJh = true;
+                    AlaAnchorBannerViewPager.this.gLN = true;
                 } else {
-                    AlaAnchorBannerViewPager.this.gJh = false;
+                    AlaAnchorBannerViewPager.this.gLN = false;
                 }
                 return false;
             }
@@ -40,16 +40,16 @@ public class AlaAnchorBannerViewPager extends SlideRatioViewPager {
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (i == 1) {
-                    AlaAnchorBannerViewPager.this.gJh = true;
+                    AlaAnchorBannerViewPager.this.gLN = true;
                 } else {
-                    AlaAnchorBannerViewPager.this.gJh = false;
+                    AlaAnchorBannerViewPager.this.gLN = false;
                 }
             }
         };
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorBannerViewPager.3
             @Override // java.lang.Runnable
             public void run() {
-                if (!AlaAnchorBannerViewPager.this.gJh && AlaAnchorBannerViewPager.this.getAdapter().getCount() > 3) {
+                if (!AlaAnchorBannerViewPager.this.gLN && AlaAnchorBannerViewPager.this.getAdapter().getCount() > 3) {
                     AlaAnchorBannerViewPager.this.setCurrentItem(AlaAnchorBannerViewPager.this.getCurrentItem() + 1, false);
                 }
                 AlaAnchorBannerViewPager.this.mHandler.postDelayed(AlaAnchorBannerViewPager.this.mRunnable, 10000L);
@@ -60,14 +60,14 @@ public class AlaAnchorBannerViewPager extends SlideRatioViewPager {
 
     public AlaAnchorBannerViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gJh = false;
-        this.bPd = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorBannerViewPager.1
+        this.gLN = false;
+        this.bST = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                    AlaAnchorBannerViewPager.this.gJh = true;
+                    AlaAnchorBannerViewPager.this.gLN = true;
                 } else {
-                    AlaAnchorBannerViewPager.this.gJh = false;
+                    AlaAnchorBannerViewPager.this.gLN = false;
                 }
                 return false;
             }
@@ -84,16 +84,16 @@ public class AlaAnchorBannerViewPager extends SlideRatioViewPager {
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (i == 1) {
-                    AlaAnchorBannerViewPager.this.gJh = true;
+                    AlaAnchorBannerViewPager.this.gLN = true;
                 } else {
-                    AlaAnchorBannerViewPager.this.gJh = false;
+                    AlaAnchorBannerViewPager.this.gLN = false;
                 }
             }
         };
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorBannerViewPager.3
             @Override // java.lang.Runnable
             public void run() {
-                if (!AlaAnchorBannerViewPager.this.gJh && AlaAnchorBannerViewPager.this.getAdapter().getCount() > 3) {
+                if (!AlaAnchorBannerViewPager.this.gLN && AlaAnchorBannerViewPager.this.getAdapter().getCount() > 3) {
                     AlaAnchorBannerViewPager.this.setCurrentItem(AlaAnchorBannerViewPager.this.getCurrentItem() + 1, false);
                 }
                 AlaAnchorBannerViewPager.this.mHandler.postDelayed(AlaAnchorBannerViewPager.this.mRunnable, 10000L);
@@ -105,7 +105,7 @@ public class AlaAnchorBannerViewPager extends SlideRatioViewPager {
     private void init(Context context) {
         this.mHandler = new Handler();
         addOnPageChangeListener(this.mOnPageChangeListener);
-        setOnTouchListener(this.bPd);
+        setOnTouchListener(this.bST);
     }
 
     @Override // android.view.ViewGroup, android.view.View

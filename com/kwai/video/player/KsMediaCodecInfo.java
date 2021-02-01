@@ -9,7 +9,7 @@ import com.tencent.connect.common.Constants;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KsMediaCodecInfo {
     public static final int RANK_ACCEPTABLE = 700;
     public static final int RANK_LAST_CHANCE = 600;

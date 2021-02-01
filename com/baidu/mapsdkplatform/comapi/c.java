@@ -7,14 +7,14 @@ import com.baidu.mapapi.JNIInitializer;
 import com.baidu.mapapi.common.EnvironmentUtilities;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3021a;
+    private static boolean f3019a;
 
     public static void a(Context context, boolean z, String str, String str2) {
-        if (f3021a) {
+        if (f3019a) {
             return;
         }
         if (context == null) {
@@ -31,7 +31,7 @@ public class c {
         if (a(str2)) {
             EnvironmentUtilities.setSDCardPath(str2);
         }
-        f3021a = true;
+        f3019a = true;
     }
 
     private static boolean a(String str) {

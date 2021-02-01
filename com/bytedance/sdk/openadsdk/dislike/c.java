@@ -23,21 +23,21 @@ import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.utils.ac;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f7037a;
+    private View f7039a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f7038b;
+    private ImageView f7040b;
     private EditText c;
     private TextView d;
     private TextView e;
     private l f;
     private a g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -54,8 +54,8 @@ public class c extends Dialog {
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f7037a = LayoutInflater.from(getContext()).inflate(ac.f(getContext(), "tt_dislike_comment_layout"), (ViewGroup) null);
-        setContentView(this.f7037a);
+        this.f7039a = LayoutInflater.from(getContext()).inflate(ac.f(getContext(), "tt_dislike_comment_layout"), (ViewGroup) null);
+        setContentView(this.f7039a);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
         a(getContext());
@@ -95,8 +95,8 @@ public class c extends Dialog {
                 }
             }
         });
-        this.f7038b = (ImageView) findViewById(ac.e(getContext(), "tt_comment_close"));
-        this.f7038b.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.2
+        this.f7040b = (ImageView) findViewById(ac.e(getContext(), "tt_comment_close"));
+        this.f7040b.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.dismiss();
@@ -132,7 +132,7 @@ public class c extends Dialog {
         super.show();
         InputMethodManager inputMethodManager = (InputMethodManager) this.c.getContext().getSystemService("input_method");
         if (inputMethodManager != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.f7037a.getWindowToken(), 0);
+            inputMethodManager.hideSoftInputFromWindow(this.f7039a.getWindowToken(), 0);
         }
         this.c.clearFocus();
         Window window = getWindow();
@@ -145,7 +145,7 @@ public class c extends Dialog {
     public void dismiss() {
         InputMethodManager inputMethodManager = (InputMethodManager) this.c.getContext().getSystemService("input_method");
         if (inputMethodManager != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.f7037a.getWindowToken(), 0);
+            inputMethodManager.hideSoftInputFromWindow(this.f7039a.getWindowToken(), 0);
         }
         super.dismiss();
     }

@@ -8,7 +8,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import androidx.fragment.app.Fragment;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ComponentDestroyer {
     private static final String TAG = "ComponentDestroyer";
 

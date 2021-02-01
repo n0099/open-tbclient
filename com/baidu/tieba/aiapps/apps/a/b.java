@@ -1,14 +1,14 @@
 package com.baidu.tieba.aiapps.apps.a;
 
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public String aSf;
+    public String aVj;
     public String bduss;
     public String displayName;
-    public String giT;
-    public Map<String, String> giU;
-    public String giV;
+    public String glA;
+    public Map<String, String> glB;
+    public String glC;
     public String openBduss;
     public String uid;
 }

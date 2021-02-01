@@ -7,14 +7,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a extends Dialog {
-    public String hAg;
-    public InterfaceC0920a olv;
+    public String hEq;
+    public InterfaceC0924a ovn;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0920a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0924a {
         void onConfirm();
     }
 
@@ -29,16 +29,16 @@ public abstract class a extends Dialog {
 
     public void init() {
         initView();
-        FP();
+        Hf();
     }
 
-    private void FP() {
+    private void Hf() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        ceR();
+        cfK();
     }
 
-    public void ceR() {
+    public void cfK() {
         show();
         Window window = getWindow();
         if (window != null) {
@@ -56,10 +56,10 @@ public abstract class a extends Dialog {
         }
     }
 
-    public void a(InterfaceC0920a interfaceC0920a) {
-        this.olv = interfaceC0920a;
+    public void a(InterfaceC0924a interfaceC0924a) {
+        this.ovn = interfaceC0924a;
     }
 
-    public void LB(int i) {
+    public void LW(int i) {
     }
 }

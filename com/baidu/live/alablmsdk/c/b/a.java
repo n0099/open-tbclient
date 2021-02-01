@@ -1,9 +1,5 @@
 package com.baidu.live.alablmsdk.c.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    void ce(int i);
-
-    void h(int i, String str);
-
-    void onRoomEventUpdate(int i, long j, String str);
+    void ai(String str, String str2);
 }

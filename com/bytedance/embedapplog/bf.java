@@ -5,9 +5,9 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import com.bytedance.embedapplog.bi;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 final class bf implements bi {
-    private aw<Boolean> pcx = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bf.1
+    private aw<Boolean> pmL = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bf.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
@@ -29,13 +29,13 @@ final class bf implements bi {
         if (context == null) {
             return false;
         }
-        return this.pcx.b(context).booleanValue();
+        return this.pmL.b(context).booleanValue();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [55=5, 56=4] */
     @Override // com.bytedance.embedapplog.bi
-    public bi.a hP(Context context) {
+    public bi.a hS(Context context) {
         Cursor cursor;
         try {
             cursor = context.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
@@ -44,7 +44,7 @@ final class bf implements bi {
             }
             try {
                 bi.a aVar = new bi.a();
-                aVar.f5801b = a(cursor);
+                aVar.f5803b = a(cursor);
                 if (cursor != null) {
                     cursor.close();
                     return aVar;

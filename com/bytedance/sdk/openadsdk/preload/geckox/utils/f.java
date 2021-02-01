@@ -5,14 +5,14 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f implements Executor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile f f7522a;
+    private static volatile f f7524a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ThreadPoolExecutor f7523b = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.utils.f.1
+    private ThreadPoolExecutor f7525b = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.utils.f.1
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
             Thread thread = new Thread(runnable);
@@ -23,22 +23,22 @@ public class f implements Executor {
     });
 
     private f() {
-        this.f7523b.allowCoreThreadTimeOut(true);
+        this.f7525b.allowCoreThreadTimeOut(true);
     }
 
     public static f a() {
-        if (f7522a == null) {
+        if (f7524a == null) {
             synchronized (f.class) {
-                if (f7522a == null) {
-                    f7522a = new f();
+                if (f7524a == null) {
+                    f7524a = new f();
                 }
             }
         }
-        return f7522a;
+        return f7524a;
     }
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        this.f7523b.execute(runnable);
+        this.f7525b.execute(runnable);
     }
 }

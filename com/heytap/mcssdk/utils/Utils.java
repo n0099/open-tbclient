@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Utils {
     private static final int SDK_INT_26 = 26;
 

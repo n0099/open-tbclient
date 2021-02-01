@@ -8,12 +8,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class c {
     private static final String n = c.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    protected com.meizu.cloud.pushsdk.c.b.c f11296b;
+    protected com.meizu.cloud.pushsdk.c.b.c f11298b;
     protected b c;
     protected com.meizu.cloud.pushsdk.c.e.a d;
     protected String e;
@@ -26,17 +26,17 @@ public abstract class c {
     protected TimeUnit l;
 
     /* renamed from: a  reason: collision with root package name */
-    protected final String f11295a = PushManager.TAG;
+    protected final String f11297a = PushManager.TAG;
     protected AtomicBoolean m = new AtomicBoolean(true);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        protected final com.meizu.cloud.pushsdk.c.b.c f11297a;
+        protected final com.meizu.cloud.pushsdk.c.b.c f11299a;
 
         /* renamed from: b  reason: collision with root package name */
-        protected final String f11298b;
+        protected final String f11300b;
         protected final String c;
         protected final Context d;
         protected b e = null;
@@ -51,8 +51,8 @@ public abstract class c {
         private Class<? extends c> n;
 
         public a(com.meizu.cloud.pushsdk.c.b.c cVar, String str, String str2, Context context, Class<? extends c> cls) {
-            this.f11297a = cVar;
-            this.f11298b = str;
+            this.f11299a = cVar;
+            this.f11300b = str;
             this.c = str2;
             this.d = context;
             this.n = cls;
@@ -80,10 +80,10 @@ public abstract class c {
     }
 
     public c(a aVar) {
-        this.f11296b = aVar.f11297a;
+        this.f11298b = aVar.f11299a;
         this.f = aVar.c;
         this.g = aVar.f;
-        this.e = aVar.f11298b;
+        this.e = aVar.f11300b;
         this.c = aVar.e;
         this.h = aVar.g;
         this.i = aVar.h;
@@ -122,7 +122,7 @@ public abstract class c {
             cVar.a("et", a(list).a());
         }
         com.meizu.cloud.pushsdk.c.f.c.c(n, "Adding new payload to event storage: %s", cVar);
-        this.f11296b.a(cVar, z);
+        this.f11298b.a(cVar, z);
     }
 
     public void a() {
@@ -142,6 +142,6 @@ public abstract class c {
     }
 
     public com.meizu.cloud.pushsdk.c.b.c b() {
-        return this.f11296b;
+        return this.f11298b;
     }
 }

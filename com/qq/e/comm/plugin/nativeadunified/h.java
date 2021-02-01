@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class h extends com.qq.e.comm.plugin.s.a {
     private int J;
     private List<String> K;

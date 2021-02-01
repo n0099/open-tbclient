@@ -24,20 +24,20 @@ import com.kwad.sdk.collector.AppStatusRules;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e {
     private int C;
     private int D;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f2602b;
+    private Context f2600b;
     private Location d;
     private GpsStatus g;
     private a h;
     private boolean i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static e f2601a = null;
+    private static e f2599a = null;
     private static int n = 0;
     private static int o = 0;
     private static int p = 0;
@@ -47,7 +47,7 @@ public class e {
     private static String F = "";
     private LocationManager c = null;
     private c e = null;
-    private C0244e f = null;
+    private C0245e f = null;
     private b j = null;
     private boolean k = false;
     private d l = null;
@@ -67,7 +67,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(24)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends GnssStatus.Callback {
         private a() {
         }
@@ -129,14 +129,14 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b implements GpsStatus.Listener {
 
         /* renamed from: b  reason: collision with root package name */
-        private long f2605b;
+        private long f2603b;
 
         private b() {
-            this.f2605b = 0L;
+            this.f2603b = 0L;
         }
 
         /* synthetic */ b(e eVar, f fVar) {
@@ -199,10 +199,10 @@ public class e {
                                 double unused4 = e.E = d / i3;
                             }
                             if (i4 > 0) {
-                                this.f2605b = System.currentTimeMillis();
+                                this.f2603b = System.currentTimeMillis();
                                 int unused5 = e.n = i4;
-                            } else if (System.currentTimeMillis() - this.f2605b > 100) {
-                                this.f2605b = System.currentTimeMillis();
+                            } else if (System.currentTimeMillis() - this.f2603b > 100) {
+                                this.f2603b = System.currentTimeMillis();
                                 int unused6 = e.n = i4;
                             }
                             long unused7 = e.q = System.currentTimeMillis();
@@ -217,7 +217,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class c implements LocationListener {
         private c() {
         }
@@ -266,7 +266,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class d implements GpsStatus.NmeaListener {
         private d() {
         }
@@ -285,24 +285,24 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.b.e$e  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0244e implements LocationListener {
+    /* loaded from: classes4.dex */
+    public class C0245e implements LocationListener {
 
         /* renamed from: b  reason: collision with root package name */
-        private long f2609b;
+        private long f2607b;
 
-        private C0244e() {
-            this.f2609b = 0L;
+        private C0245e() {
+            this.f2607b = 0L;
         }
 
-        /* synthetic */ C0244e(e eVar, f fVar) {
+        /* synthetic */ C0245e(e eVar, f fVar) {
             this();
         }
 
         @Override // android.location.LocationListener
         public void onLocationChanged(Location location) {
-            if (!e.this.t && location != null && location.getProvider() == "gps" && System.currentTimeMillis() - this.f2609b >= 10000 && w.a(location, false)) {
-                this.f2609b = System.currentTimeMillis();
+            if (!e.this.t && location != null && location.getProvider() == "gps" && System.currentTimeMillis() - this.f2607b >= 10000 && w.a(location, false)) {
+                this.f2607b = System.currentTimeMillis();
                 e.this.B.sendMessage(e.this.B.obtainMessage(4, location));
             }
         }
@@ -349,10 +349,10 @@ public class e {
     public static synchronized e a() {
         e eVar;
         synchronized (e.class) {
-            if (f2601a == null) {
-                f2601a = new e();
+            if (f2599a == null) {
+                f2599a = new e();
             }
-            eVar = f2601a;
+            eVar = f2599a;
         }
         return eVar;
     }
@@ -563,9 +563,9 @@ public class e {
 
     public synchronized void b() {
         if (com.baidu.location.f.isServing) {
-            this.f2602b = com.baidu.location.f.getServiceContext();
+            this.f2600b = com.baidu.location.f.getServiceContext();
             try {
-                this.c = (LocationManager) this.f2602b.getSystemService(Headers.LOCATION);
+                this.c = (LocationManager) this.f2600b.getSystemService(Headers.LOCATION);
                 if (this.i) {
                     this.h = new a(this, null);
                     this.c.registerGnssStatusCallback(this.h);
@@ -582,7 +582,7 @@ public class e {
                         this.c.addNmeaListener(this.l);
                     }
                 }
-                this.f = new C0244e(this, null);
+                this.f = new C0245e(this, null);
                 this.c.requestLocationUpdates("passive", 9000L, 0.0f, this.f);
             } catch (Exception e) {
             }
@@ -591,7 +591,7 @@ public class e {
     }
 
     public void c() {
-        Log.d(com.baidu.location.d.a.f2623a, "start gps...");
+        Log.d(com.baidu.location.d.a.f2621a, "start gps...");
         if (this.t) {
             return;
         }

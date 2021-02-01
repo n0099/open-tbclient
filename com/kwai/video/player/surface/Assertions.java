@@ -3,7 +3,7 @@ package com.kwai.video.player.surface;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class Assertions {
     public static final boolean ASSERTIONS_ENABLED = true;
 

@@ -11,117 +11,117 @@ import com.win.opensdk.w;
 public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13718a;
+    private int f13720a;
 
     /* renamed from: case  reason: not valid java name */
     private int f10case;
 
     /* renamed from: case  reason: not valid java name and collision with other field name */
     private String f11case;
-    private Context pYJ;
-    public ae<Info> pZP;
-    private al.a pZQ;
-    private boolean pZm;
+    private Context qiN;
+    public ae<Info> qjT;
+    private al.a qjU;
+    private boolean qjq;
 
     /* renamed from: java  reason: collision with other field name */
     private static final String f9java = ad.class.getSimpleName();
     private static int java = 100101;
-    private boolean pYM = false;
-    private Handler pZR = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ad.1
+    private boolean qiQ = false;
+    private Handler qjV = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ad.1
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             super.handleMessage(message);
             if (message.what == ad.java) {
-                ad.this.pZR.removeMessages(ad.java);
-                int iQ = az.iQ(ad.this.pYJ) * 1000;
-                w.a iK = w.iK(ad.this.pYJ);
+                ad.this.qjV.removeMessages(ad.java);
+                int iT = az.iT(ad.this.qiN) * 1000;
+                w.a iN = w.iN(ad.this.qiN);
                 x xVar = new x(null);
                 xVar.java = ad.this.f11case;
-                iK.a(xVar, iQ, 2002, 0).eGz();
+                iN.a(xVar, iT, 2002, 0).eIP();
                 ad.this.a(PBError.TIMEOUT);
             }
         }
     };
-    private ac pZO = new ac();
+    private ac qjS = new ac();
 
     public ad(Context context, String str, int i) {
-        this.f13718a = 5;
-        this.pYJ = context;
+        this.f13720a = 5;
+        this.qiN = context;
         this.f11case = str;
         this.f10case = i;
-        this.f13718a = az.iQ(context);
+        this.f13720a = az.iT(context);
     }
 
-    public final void eGz() {
+    public final void eIP() {
         b();
-        this.pZm = false;
-        if (!ax.bK(this.pYJ, this.f11case)) {
-            w.iK(this.pYJ).aaJ(this.f11case).eGz();
+        this.qjq = false;
+        if (!ax.bJ(this.qiN, this.f11case)) {
+            w.iN(this.qiN).abK(this.f11case).eIP();
             a(PBError.PID_INVALID);
             return;
         }
-        Info eGK = this.pZO.eGK();
-        if (eGK == null) {
+        Info eJa = this.qjS.eJa();
+        if (eJa == null) {
             a();
         } else {
-            a(eGK);
+            a(eJa);
         }
     }
 
-    public final void eGA() {
+    public final void eIQ() {
         try {
-            if (this.pZQ != null) {
-                this.pZQ.a(null);
+            if (this.qjU != null) {
+                this.qjU.a(null);
             }
-            if (this.pZR != null) {
-                this.pZR.removeCallbacksAndMessages(null);
+            if (this.qjV != null) {
+                this.qjV.removeCallbacksAndMessages(null);
             }
-            if (this.pZO != null) {
-                this.pZO.eGz();
+            if (this.qjS != null) {
+                this.qjS.eIP();
             }
-            if (this.pZP != null) {
-                this.pZP = null;
+            if (this.qjT != null) {
+                this.qjT = null;
             }
         } catch (Exception e) {
         }
     }
 
     private void a() {
-        if (this.pYM) {
+        if (this.qiQ) {
             a(PBError.LOAD_TOO_FREQUENTLY);
             return;
         }
-        this.pYM = true;
-        al.a aVar = new al.a(this.pYJ);
+        this.qiQ = true;
+        al.a aVar = new al.a(this.qiN);
         aVar.java = this.f11case;
-        this.pZQ = aVar.a(new r<bh>() { // from class: com.win.opensdk.ad.2
-            private long pZf = 0;
+        this.qjU = aVar.a(new r<bh>() { // from class: com.win.opensdk.ad.2
+            private long qjj = 0;
 
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
             @Override // com.win.opensdk.r
             public final /* synthetic */ void bH(bh bhVar) {
                 Info info;
                 bh bhVar2 = bhVar;
-                ad.this.pZR.removeMessages(ad.java);
-                ad.this.pYM = false;
-                int size = bhVar2.pZN.size();
-                long currentTimeMillis = System.currentTimeMillis() - this.pZf;
+                ad.this.qjV.removeMessages(ad.java);
+                ad.this.qiQ = false;
+                int size = bhVar2.qjR.size();
+                long currentTimeMillis = System.currentTimeMillis() - this.qjj;
                 if (size <= 0) {
                     info = null;
                 } else {
-                    info = bhVar2.pZN.get(0);
+                    info = bhVar2.qjR.get(0);
                 }
-                w.a iK = w.iK(ad.this.pYJ);
+                w.a iN = w.iN(ad.this.qiN);
                 x xVar = new x(info);
                 xVar.java = ad.this.f11case;
-                iK.a(xVar, currentTimeMillis, 200, size).eGz();
+                iN.a(xVar, currentTimeMillis, 200, size).eIP();
                 ad.a(ad.this, bhVar2);
-                if (ad.this.pZO == null || ad.this.pZO.java()) {
+                if (ad.this.qjS == null || ad.this.qjS.java()) {
                     ad.this.a(PBError.NO_FILL);
-                } else if (!ad.this.pZm) {
-                    Info eGK = ad.this.pZO.eGK();
-                    if (eGK != null) {
-                        ad.this.a(eGK);
+                } else if (!ad.this.qjq) {
+                    Info eJa = ad.this.qjS.eJa();
+                    if (eJa != null) {
+                        ad.this.a(eJa);
                     } else {
                         ad.this.a(PBError.NO_FILL);
                     }
@@ -129,45 +129,45 @@ public class ad {
             }
 
             @Override // com.win.opensdk.r
-            public final void eGz() {
-                this.pZf = System.currentTimeMillis();
-                ad.this.pZR.sendEmptyMessageDelayed(ad.java, ad.this.f13718a * 1000);
+            public final void eIP() {
+                this.qjj = System.currentTimeMillis();
+                ad.this.qjV.sendEmptyMessageDelayed(ad.java, ad.this.f13720a * 1000);
             }
 
             @Override // com.win.opensdk.r
-            public final void cd(int i, String str) {
-                long currentTimeMillis = System.currentTimeMillis() - this.pZf;
-                w.a iK = w.iK(ad.this.pYJ);
+            public final void ck(int i, String str) {
+                long currentTimeMillis = System.currentTimeMillis() - this.qjj;
+                w.a iN = w.iN(ad.this.qiN);
                 x xVar = new x(null);
                 xVar.java = ad.this.f11case;
-                iK.a(xVar, currentTimeMillis, i, 0).eGz();
-                ad.this.pZR.removeMessages(ad.java);
-                ad.this.pYM = false;
-                ad.this.a(ad.RI(i));
+                iN.a(xVar, currentTimeMillis, i, 0).eIP();
+                ad.this.qjV.removeMessages(ad.java);
+                ad.this.qiQ = false;
+                ad.this.a(ad.Sd(i));
             }
         });
         if (this.f10case == e.java) {
-            this.pZQ.eGA();
+            this.qjU.eIQ();
         } else if (this.f10case == e.f54case) {
-            this.pZQ.a();
-        } else if (this.f10case == e.f13745a) {
-            this.pZQ.eGz();
-        } else if (this.f10case == e.f13746b) {
-            this.pZQ.b();
+            this.qjU.a();
+        } else if (this.f10case == e.f13747a) {
+            this.qjU.eIP();
+        } else if (this.f10case == e.f13748b) {
+            this.qjU.b();
         } else if (this.f10case == e.c) {
-            this.pZQ.c();
+            this.qjU.c();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final PBError pBError) {
-        if (!this.pZm) {
-            this.pZm = true;
-            bb.D(new Runnable() { // from class: com.win.opensdk.ad.3
+        if (!this.qjq) {
+            this.qjq = true;
+            bb.C(new Runnable() { // from class: com.win.opensdk.ad.3
                 @Override // java.lang.Runnable
                 public final void run() {
-                    if (ad.this.pZP != null) {
-                        ad.this.pZP.b(pBError);
+                    if (ad.this.qjT != null) {
+                        ad.this.qjT.b(pBError);
                     }
                 }
             });
@@ -176,13 +176,13 @@ public class ad {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Info info) {
-        if (!this.pZm) {
-            this.pZm = true;
-            bb.D(new Runnable() { // from class: com.win.opensdk.ad.4
+        if (!this.qjq) {
+            this.qjq = true;
+            bb.C(new Runnable() { // from class: com.win.opensdk.ad.4
                 @Override // java.lang.Runnable
                 public final void run() {
-                    if (ad.this.pZP != null) {
-                        ad.this.pZP.bH(info);
+                    if (ad.this.qjT != null) {
+                        ad.this.qjT.bH(info);
                     }
                 }
             });
@@ -190,11 +190,11 @@ public class ad {
     }
 
     private void b() {
-        bb.D(new Runnable() { // from class: com.win.opensdk.ad.5
+        bb.C(new Runnable() { // from class: com.win.opensdk.ad.5
             @Override // java.lang.Runnable
             public final void run() {
-                if (ad.this.pZP != null) {
-                    ae unused = ad.this.pZP;
+                if (ad.this.qjT != null) {
+                    ae unused = ad.this.qjT;
                 }
             }
         });
@@ -203,15 +203,15 @@ public class ad {
     static /* synthetic */ void a(ad adVar, bh bhVar) {
         if (bhVar != null) {
             try {
-                if (bhVar.pZN != null && bhVar.pZN.size() > 0) {
-                    adVar.pZO.hg(bhVar.pZN);
+                if (bhVar.qjR != null && bhVar.qjR.size() > 0) {
+                    adVar.qjS.he(bhVar.qjR);
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    static /* synthetic */ PBError RI(int i) {
+    static /* synthetic */ PBError Sd(int i) {
         switch (i) {
             case 100:
             case 101:

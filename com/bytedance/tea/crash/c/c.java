@@ -1,31 +1,31 @@
 package com.bytedance.tea.crash.c;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7629a;
+    private String f7631a;
 
     /* renamed from: b  reason: collision with root package name */
-    private JSONObject f7630b;
+    private JSONObject f7632b;
     private String c;
     private boolean d;
 
     public String a() {
-        return this.f7629a;
+        return this.f7631a;
     }
 
     public void a(String str) {
-        this.f7629a = str;
+        this.f7631a = str;
     }
 
     public JSONObject b() {
-        return this.f7630b;
+        return this.f7632b;
     }
 
     public void a(JSONObject jSONObject) {
-        this.f7630b = jSONObject;
+        this.f7632b = jSONObject;
     }
 
     public void b(String str) {

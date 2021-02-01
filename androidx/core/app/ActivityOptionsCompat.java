@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.util.Pair;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class ActivityOptionsCompat {
     public static final String EXTRA_USAGE_TIME_REPORT = "android.activity.usage_time";
     public static final String EXTRA_USAGE_TIME_REPORT_PACKAGES = "android.usage_time_packages";
@@ -70,7 +70,7 @@ public class ActivityOptionsCompat {
     }
 
     @RequiresApi(16)
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     private static class ActivityOptionsCompatImpl extends ActivityOptionsCompat {
         private final ActivityOptions mActivityOptions;
 

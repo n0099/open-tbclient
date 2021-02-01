@@ -17,67 +17,67 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tbadk.widget.TbImageView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements View.OnClickListener {
-    private TextView bsX;
-    private TextView bsY;
-    private TbImageView bsZ;
-    private com.baidu.live.noble.data.b bsw;
+    private TextView bwB;
+    private TextView bwC;
+    private TbImageView bwD;
+    private com.baidu.live.noble.data.b bwa;
     private View mRootView;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.ala_noble_list_bottom_layout, (ViewGroup) null);
-        this.bsX = (TextView) this.mRootView.findViewById(a.f.noble_list_bottom_btn);
-        this.bsX.setOnClickListener(this);
-        this.bsY = (TextView) this.mRootView.findViewById(a.f.noble_list_bottom_sub_text);
-        this.bsZ = (TbImageView) this.mRootView.findViewById(a.f.noble_list_bottom_text_mark);
-        this.bsZ.setDefaultBgResource(0);
-        this.bsZ.setDefaultResource(0);
+        this.bwB = (TextView) this.mRootView.findViewById(a.f.noble_list_bottom_btn);
+        this.bwB.setOnClickListener(this);
+        this.bwC = (TextView) this.mRootView.findViewById(a.f.noble_list_bottom_sub_text);
+        this.bwD = (TbImageView) this.mRootView.findViewById(a.f.noble_list_bottom_text_mark);
+        this.bwD.setDefaultBgResource(0);
+        this.bwD.setDefaultResource(0);
     }
 
     public void b(com.baidu.live.noble.data.b bVar) {
-        if (bVar != null && bVar.bsE != null) {
-            this.bsw = bVar;
-            if (this.bsw.bsE.type_id == 1) {
-                this.bsY.setVisibility(0);
-                this.bsY.setText(this.bsw.bsE.text);
-                this.bsZ.setVisibility(0);
-                this.bsZ.startLoad(this.bsw.bsE.icon_url, 10, false);
-                this.bsX.setText(this.mTbPageContext.getResources().getString(a.h.noble_bottom_open_noble));
-            } else if (this.bsw.bsE.type_id == 2) {
-                this.bsY.setVisibility(0);
-                this.bsZ.setVisibility(0);
-                this.bsZ.startLoad(this.bsw.bsE.icon_url, 10, false);
-                this.bsX.setText(this.mTbPageContext.getResources().getString(a.h.noble_bottom_immediate_renewal));
-                Nz();
-            } else if (this.bsw.bsE.type_id == 3) {
-                this.bsY.setVisibility(0);
-                this.bsZ.setVisibility(0);
-                this.bsZ.startLoad(this.bsw.bsE.icon_url, 10, false);
-                this.bsX.setText(this.mTbPageContext.getResources().getString(a.h.noble_bottom_check_detail));
-                Nz();
-            } else if (this.bsw.bsE.type_id == 4) {
-                this.bsY.setVisibility(0);
-                this.bsZ.setVisibility(0);
-                this.bsZ.startLoad(this.bsw.bsE.icon_url, 10, false);
-                this.bsX.setText(this.mTbPageContext.getResources().getString(a.h.noble_bottom_renewal_discount));
-                this.bsY.setText(this.bsw.bsE.text);
+        if (bVar != null && bVar.bwi != null) {
+            this.bwa = bVar;
+            if (this.bwa.bwi.type_id == 1) {
+                this.bwC.setVisibility(0);
+                this.bwC.setText(this.bwa.bwi.text);
+                this.bwD.setVisibility(0);
+                this.bwD.startLoad(this.bwa.bwi.icon_url, 10, false);
+                this.bwB.setText(this.mTbPageContext.getResources().getString(a.h.noble_bottom_open_noble));
+            } else if (this.bwa.bwi.type_id == 2) {
+                this.bwC.setVisibility(0);
+                this.bwD.setVisibility(0);
+                this.bwD.startLoad(this.bwa.bwi.icon_url, 10, false);
+                this.bwB.setText(this.mTbPageContext.getResources().getString(a.h.noble_bottom_immediate_renewal));
+                OY();
+            } else if (this.bwa.bwi.type_id == 3) {
+                this.bwC.setVisibility(0);
+                this.bwD.setVisibility(0);
+                this.bwD.startLoad(this.bwa.bwi.icon_url, 10, false);
+                this.bwB.setText(this.mTbPageContext.getResources().getString(a.h.noble_bottom_check_detail));
+                OY();
+            } else if (this.bwa.bwi.type_id == 4) {
+                this.bwC.setVisibility(0);
+                this.bwD.setVisibility(0);
+                this.bwD.startLoad(this.bwa.bwi.icon_url, 10, false);
+                this.bwB.setText(this.mTbPageContext.getResources().getString(a.h.noble_bottom_renewal_discount));
+                this.bwC.setText(this.bwa.bwi.text);
             }
         }
     }
 
-    private void Nz() {
-        if (this.bsY != null && this.bsw != null && this.bsw.bsE != null) {
+    private void OY() {
+        if (this.bwC != null && this.bwa != null && this.bwa.bwi != null) {
             String string = this.mTbPageContext.getResources().getString(a.h.noble_bottom_main_content_msg);
             Object[] objArr = new Object[1];
-            objArr[0] = StringUtils.isNull(this.bsw.bsE.text) ? "" : this.bsw.bsE.text;
+            objArr[0] = StringUtils.isNull(this.bwa.bwi.text) ? "" : this.bwa.bwi.text;
             String format = String.format(string, objArr);
             String string2 = this.mTbPageContext.getResources().getString(a.h.noble_bottom_main_content_day);
             Object[] objArr2 = new Object[1];
-            objArr2[0] = StringUtils.isNull(this.bsw.bsE.bsH) ? "" : this.bsw.bsE.bsH;
-            this.bsY.setText(format + String.format(string2, objArr2));
+            objArr2[0] = StringUtils.isNull(this.bwa.bwi.bwl) ? "" : this.bwa.bwi.bwl;
+            this.bwC.setText(format + String.format(string2, objArr2));
         }
     }
 
@@ -87,25 +87,25 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bsX) {
-            NA();
+        if (view == this.bwB) {
+            OZ();
         }
     }
 
-    private void NA() {
+    private void OZ() {
         if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null) {
-            if (ViewHelper.checkUpIsLogin(this.mTbPageContext.getPageActivity()) && this.bsw != null && this.bsw.bsE != null && !StringUtils.isNull(this.bsw.bsE.buy_url)) {
+            if (ViewHelper.checkUpIsLogin(this.mTbPageContext.getPageActivity()) && this.bwa != null && this.bwa.bwi != null && !StringUtils.isNull(this.bwa.bwi.buy_url)) {
                 NobleDetailInfo nobleDetailInfo = new NobleDetailInfo();
-                if (this.bsw.bsF != null) {
-                    nobleDetailInfo.roleId = this.bsw.bsF.id;
+                if (this.bwa.bwj != null) {
+                    nobleDetailInfo.roleId = this.bwa.bwj.id;
                 }
-                nobleDetailInfo.url = this.bsw.bsE.buy_url;
+                nobleDetailInfo.url = this.bwa.bwi.buy_url;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913199, nobleDetailInfo));
             }
-            if (this.bsw != null) {
+            if (this.bwa != null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.putOpt("role_id", this.bsw.bsF.id);
+                    jSONObject.putOpt("role_id", this.bwa.bwj.id);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

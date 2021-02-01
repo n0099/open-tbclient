@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic.topictab.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.n;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.b.a;
 import com.baidu.tieba.homepage.topic.topictab.b.c;
@@ -31,7 +31,7 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
         if (newTopicListResIdl != null) {
             setError(newTopicListResIdl.error.errorno.intValue());
             setErrorString(newTopicListResIdl.error.usermsg);
-            if (getError() == 0 && newTopicListResIdl.data != null && !x.isEmpty(newTopicListResIdl.data.topic_list)) {
+            if (getError() == 0 && newTopicListResIdl.data != null && !y.isEmpty(newTopicListResIdl.data.topic_list)) {
                 this.mTopicDataList = new ArrayList();
                 int i2 = 1;
                 for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
@@ -41,13 +41,13 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.iGB = R.dimen.tbds1;
-                        cVar.eUh = R.color.CAM_X0203;
+                        cVar.iMk = R.dimen.tbds1;
+                        cVar.eWx = R.color.CAM_X0203;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) x.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).iGB = 0;
+                ((c) y.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).iMk = 0;
             }
         }
     }

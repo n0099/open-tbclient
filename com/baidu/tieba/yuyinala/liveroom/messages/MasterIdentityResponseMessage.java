@@ -2,18 +2,18 @@ package com.baidu.tieba.yuyinala.liveroom.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
-    private int hFq;
-    private String hFr;
-    private int hFs;
-    private int hFt;
-    private String hFu;
+    private int hJC;
+    private String hJD;
+    private int hJE;
+    private int hJF;
+    private String hJG;
 
     public MasterIdentityResponseMessage() {
         super(1031071);
-        this.hFs = 0;
-        this.hFt = 0;
+        this.hJE = 0;
+        this.hJF = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,24 +21,24 @@ public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getError() == 0) {
-                this.hFq = jSONObject.optInt("anchor_identity");
-                this.hFr = jSONObject.optString("anchor_proportion");
-                this.hFs = jSONObject.optInt("anchor_identity_status");
-                this.hFt = jSONObject.optInt("anchor_proportion_status");
-                this.hFu = jSONObject.optString("anchor_text");
+                this.hJC = jSONObject.optInt("anchor_identity");
+                this.hJD = jSONObject.optString("anchor_proportion");
+                this.hJE = jSONObject.optInt("anchor_identity_status");
+                this.hJF = jSONObject.optInt("anchor_proportion_status");
+                this.hJG = jSONObject.optString("anchor_text");
             }
         }
     }
 
-    public int chX() {
-        return this.hFs;
+    public int ciQ() {
+        return this.hJE;
     }
 
-    public int chY() {
-        return this.hFt;
+    public int ciR() {
+        return this.hJF;
     }
 
-    public String chZ() {
-        return this.hFu;
+    public String ciS() {
+        return this.hJG;
     }
 }

@@ -13,13 +13,13 @@ import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.square.IAlaSquareTabController;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.holder.SquareLiveCategoryViewHolder;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live.b.b, SquareLiveCategoryViewHolder> {
-    private IAlaSquareTabController gwk;
+    private IAlaSquareTabController gyU;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -29,7 +29,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: T */
+    /* renamed from: R */
     public SquareLiveCategoryViewHolder e(ViewGroup viewGroup) {
         return new SquareLiveCategoryViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.square_live_category_layout, viewGroup, false));
     }
@@ -47,19 +47,19 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         } else {
             findViewById.setVisibility(0);
         }
-        ao.setBackgroundColor(findViewById, R.color.CAM_X0205);
-        ao.setBackgroundColor(squareLiveCategoryViewHolder.mView, R.color.CAM_X0201);
-        ao.setViewTextColor(textView, R.color.CAM_X0106);
-        ao.setViewTextColor(textView2, R.color.CAM_X0109);
-        ao.setImageResource(imageView, R.drawable.icon_arrow_tab);
+        ap.setBackgroundColor(findViewById, R.color.CAM_X0205);
+        ap.setBackgroundColor(squareLiveCategoryViewHolder.mView, R.color.CAM_X0201);
+        ap.setViewTextColor(textView, R.color.CAM_X0106);
+        ap.setViewTextColor(textView2, R.color.CAM_X0109);
+        ap.setImageResource(imageView, R.drawable.icon_arrow_tab);
         textView.setText(!TextUtils.isEmpty(bVar.labelName) ? bVar.labelName : bVar.entryName);
         textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.gwk != null) {
-                    int tabIndex = a.this.gwk.getTabIndex(bVar.tabId);
+                if (a.this.gyU != null) {
+                    int tabIndex = a.this.gyU.getTabIndex(bVar.tabId);
                     if (tabIndex >= 0) {
-                        a.this.gwk.goToTab(tabIndex);
+                        a.this.gyU.goToTab(tabIndex);
                         return;
                     } else {
                         a.this.a(bVar);
@@ -74,10 +74,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.alasquare.live.b.b bVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.bitmapRatio, bVar.entryName, bVar.labelName, (bVar.gwx == null || !(bVar.gwx instanceof ArrayList)) ? null : (ArrayList) bVar.gwx)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.bitmapRatio, bVar.entryName, bVar.labelName, (bVar.gzh == null || !(bVar.gzh instanceof ArrayList)) ? null : (ArrayList) bVar.gzh)));
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.gwk = iAlaSquareTabController;
+        this.gyU = iAlaSquareTabController;
     }
 }

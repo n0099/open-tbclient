@@ -1,11 +1,11 @@
 package com.baidu.live.lottie;
 
 import android.app.Application;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private static Application boy;
+    private static Application brZ;
 
     public static Application getApp() {
-        return boy;
+        return brZ;
     }
 }

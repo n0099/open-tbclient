@@ -11,14 +11,14 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3764a;
+    private static String f3767a;
 
     /* renamed from: b  reason: collision with root package name */
-    private WeakReference<WebView> f3765b;
+    private WeakReference<WebView> f3768b;
     private WeakReference<Activity> c;
     private JSONObject d;
     private boolean e;
@@ -35,11 +35,11 @@ public class bl {
         if (bd.c().b()) {
             bd.c().a("setViewportTreeToNative " + str);
         }
-        f3764a = str;
+        f3767a = str;
     }
 
     public static String a(Activity activity, WebView webView, Rect rect) {
-        f3764a = "";
+        f3767a = "";
         b(activity, webView, rect);
         int i = 0;
         while (true) {
@@ -51,8 +51,8 @@ public class bl {
                 Thread.sleep(20L);
             } catch (Exception e) {
             }
-            if (!TextUtils.isEmpty(f3764a)) {
-                return f3764a;
+            if (!TextUtils.isEmpty(f3767a)) {
+                return f3767a;
             }
             i = i2;
         }
@@ -107,7 +107,7 @@ public class bl {
                 this.c = new WeakReference<>(activity);
             }
             if (webView != null) {
-                this.f3765b = new WeakReference<>(webView);
+                this.f3768b = new WeakReference<>(webView);
             }
             this.e = z;
             String a2 = a();
@@ -128,7 +128,7 @@ public class bl {
     }
 
     private boolean a(WebView webView, boolean z) {
-        return (this.f3765b == null || this.f3765b.get() != webView || this.e == z) ? false : true;
+        return (this.f3768b == null || this.f3768b.get() != webView || this.e == z) ? false : true;
     }
 
     private String a() {
@@ -153,7 +153,7 @@ public class bl {
         if (bh.c().b()) {
             bh.c().a("setEventToNative: " + str);
         }
-        if (this.c != null && (activity = this.c.get()) != null && this.f3765b != null && (webView = this.f3765b.get()) != null) {
+        if (this.c != null && (activity = this.c.get()) != null && this.f3768b != null && (webView = this.f3768b.get()) != null) {
             a(str, activity, webView);
         }
     }

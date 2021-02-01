@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public static Object h(Context context, boolean z) {
+    public static Object i(Context context, boolean z) {
         String valueOf = String.valueOf(System.currentTimeMillis());
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MANUFACTURER;

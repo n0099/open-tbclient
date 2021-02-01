@@ -48,9 +48,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import okhttp3.internal.http.StatusLine;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f implements c, d, am.a {
-    private WeakReference<c.InterfaceC1007c> C;
+    private WeakReference<c.InterfaceC1011c> C;
     private WeakReference<a> D;
     private int E;
     private int F;
@@ -58,7 +58,7 @@ public class f implements c, d, am.a {
     private int T;
 
     /* renamed from: b  reason: collision with root package name */
-    private h f6726b;
+    private h f6728b;
     private final WeakReference<ViewGroup> c;
     private com.bytedance.sdk.openadsdk.core.video.c.d g;
     private c.a h;
@@ -120,12 +120,12 @@ public class f implements c, d, am.a {
     private long N = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    Runnable f6725a = new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.f.6
+    Runnable f6727a = new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.f.6
         @Override // java.lang.Runnable
         public void run() {
-            if (f.this.f6726b != null) {
-                f.this.f6726b.a(f.this.r, f.this.n, false);
-                f.this.f6726b.w();
+            if (f.this.f6728b != null) {
+                f.this.f6728b.a(f.this.r, f.this.n, false);
+                f.this.f6728b.w();
                 f.this.d(true);
                 u.f("NativeVideoController", "出错后展示结果页、、、、、、、showAdCard");
             }
@@ -147,7 +147,7 @@ public class f implements c, d, am.a {
     };
     private boolean U = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(int i);
 
@@ -155,14 +155,14 @@ public class f implements c, d, am.a {
     }
 
     public void a(TTDrawFeedAd.DrawVideoListener drawVideoListener) {
-        if (this.f6726b != null) {
-            this.f6726b.a(drawVideoListener);
+        if (this.f6728b != null) {
+            this.f6728b.a(drawVideoListener);
         }
     }
 
     public void a(final NativeVideoTsView.b bVar) {
-        if (this.s && this.f6726b != null) {
-            this.f6726b.a(new NativeVideoTsView.b() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.f.1
+        if (this.s && this.f6728b != null) {
+            this.f6728b.a(new NativeVideoTsView.b() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.f.1
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.b
                 public void a(View view, int i) {
                     if (bVar != null) {
@@ -184,9 +184,9 @@ public class f implements c, d, am.a {
     private boolean z() {
         u.b("NativeVideoController", "retryCount=" + this.G);
         if (1 <= this.G) {
-            if (this.f6726b != null) {
-                this.f6726b.w();
-                this.f6726b.a(this.r, this.n, false);
+            if (this.f6728b != null) {
+                this.f6728b.w();
+                this.f6728b.a(this.r, this.n, false);
                 return false;
             }
             return false;
@@ -212,11 +212,11 @@ public class f implements c, d, am.a {
         }
         if (inflate != null) {
             if (this.s) {
-                this.f6726b = new h(context, inflate, true, noneOf, this.r, this, a());
+                this.f6728b = new h(context, inflate, true, noneOf, this.r, this, a());
             } else {
-                this.f6726b = new g(context, inflate, true, noneOf, this.r, this, false);
+                this.f6728b = new g(context, inflate, true, noneOf, this.r, this, false);
             }
-            this.f6726b.a(this);
+            this.f6728b.a(this);
         }
     }
 
@@ -322,12 +322,12 @@ public class f implements c, d, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
     public h u() {
-        return this.f6726b;
+        return this.f6728b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void a(c.InterfaceC1007c interfaceC1007c) {
-        this.C = new WeakReference<>(interfaceC1007c);
+    public void a(c.InterfaceC1011c interfaceC1011c) {
+        this.C = new WeakReference<>(interfaceC1011c);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
@@ -347,14 +347,14 @@ public class f implements c, d, am.a {
             this.i = j;
             this.j = this.j > this.i ? this.j : this.i;
         }
-        if (this.f6726b != null) {
-            this.f6726b.e();
+        if (this.f6728b != null) {
+            this.f6728b.e();
             if (this.M == 0) {
-                this.f6726b.d();
+                this.f6728b.d();
             }
-            this.f6726b.c(i, i2);
-            this.f6726b.c(this.c.get());
-            this.f6726b.a(i, i2);
+            this.f6728b.c(i, i2);
+            this.f6728b.c(this.c.get());
+            this.f6728b.a(i, i2);
         }
         if (this.g == null) {
             this.g = new com.bytedance.sdk.openadsdk.core.video.c.d(this.d);
@@ -389,8 +389,8 @@ public class f implements c, d, am.a {
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
     public void b(boolean z) {
         this.s = z;
-        if (this.f6726b != null) {
-            this.f6726b.c(z);
+        if (this.f6728b != null) {
+            this.f6728b.c(z);
         }
     }
 
@@ -461,12 +461,12 @@ public class f implements c, d, am.a {
         u.b("tag_video_play", "[video] NativeVideoController#playVideo has invoke !");
         if (this.g != null) {
             com.bytedance.sdk.openadsdk.core.video.a.a aVar = new com.bytedance.sdk.openadsdk.core.video.a.a();
-            aVar.f6687a = str;
+            aVar.f6689a = str;
             if (this.r != null) {
                 if (this.r.F() != null) {
                     aVar.d = this.r.F().k();
                 }
-                aVar.f6688b = String.valueOf(aj.d(this.r.W()));
+                aVar.f6690b = String.valueOf(aj.d(this.r.W()));
             }
             aVar.c = 0;
             this.g.a(aVar);
@@ -474,13 +474,13 @@ public class f implements c, d, am.a {
         }
         this.e = System.currentTimeMillis();
         if (!TextUtils.isEmpty(str)) {
-            this.f6726b.d(8);
-            this.f6726b.d(0);
+            this.f6728b.d(8);
+            this.f6728b.d(0);
             a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.f.2
                 @Override // java.lang.Runnable
                 public void run() {
                     f.this.e = System.currentTimeMillis();
-                    f.this.f6726b.c(0);
+                    f.this.f6728b.c(0);
                     if (f.this.g == null || f.this.i != 0) {
                         if (f.this.g != null) {
                             f.this.g.a(true, f.this.i, f.this.t ? false : true);
@@ -525,14 +525,14 @@ public class f implements c, d, am.a {
 
     private void b(int i) {
         this.M++;
-        if (C() && this.f6726b != null) {
-            this.f6726b.w();
+        if (C() && this.f6728b != null) {
+            this.f6728b.w();
             if (this.h != null) {
                 this.h.a(this.f, com.bytedance.sdk.openadsdk.core.video.d.a.a(this.i, this.k));
             }
             this.f = System.currentTimeMillis() - this.e;
             if (!aj.b(this.r) || this.M >= 2) {
-                this.f6726b.a(this.r, this.n, true);
+                this.f6728b.a(this.r, this.n, true);
             }
             if (!this.q) {
                 com.bytedance.sdk.openadsdk.c.d.a(this.n.get(), this.r, this.u, "feed_over", o(), 100, c());
@@ -543,7 +543,7 @@ public class f implements c, d, am.a {
                 this.j = j;
             }
             if (!this.s && this.Q) {
-                e(this.f6726b, null);
+                e(this.f6728b, null);
             }
             this.z = true;
             if (aj.b(this.r) && this.M < 2) {
@@ -558,7 +558,7 @@ public class f implements c, d, am.a {
 
     private void a(Runnable runnable) {
         if (runnable != null) {
-            if (this.f6726b.k() && this.m) {
+            if (this.f6728b.k() && this.m) {
                 runnable.run();
             } else {
                 b(runnable);
@@ -627,21 +627,21 @@ public class f implements c, d, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
     public void j() {
-        if (this.f6726b != null) {
-            this.f6726b.e();
+        if (this.f6728b != null) {
+            this.f6728b.e();
         }
-        if (this.f6726b != null) {
-            this.f6726b.u();
+        if (this.f6728b != null) {
+            this.f6728b.u();
         }
         E();
     }
 
     public void g(boolean z) {
-        if (this.f6726b != null) {
-            this.f6726b.e();
+        if (this.f6728b != null) {
+            this.f6728b.e();
         }
-        if (this.f6726b != null && z) {
-            this.f6726b.u();
+        if (this.f6728b != null && z) {
+            this.f6728b.u();
         }
         E();
     }
@@ -659,8 +659,8 @@ public class f implements c, d, am.a {
     public void d(long j) {
         this.i = j;
         this.j = this.j > this.i ? this.j : this.i;
-        if (this.f6726b != null) {
-            this.f6726b.e();
+        if (this.f6728b != null) {
+            this.f6728b.e();
         }
         if (this.g != null) {
             this.g.a(true, this.i, !this.t);
@@ -700,7 +700,7 @@ public class f implements c, d, am.a {
             this.g = null;
         }
         if (!aj.b(this.r) || this.M == 2) {
-            this.f6726b.a(this.r, this.n, true);
+            this.f6728b.a(this.r, this.n, true);
         }
         if (this.d != null) {
             this.d.removeCallbacks(this.L);
@@ -732,7 +732,7 @@ public class f implements c, d, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.utils.am.a
     public void a(Message message) {
-        if (this.f6726b != null && message != null && this.n != null && this.n.get() != null) {
+        if (this.f6728b != null && message != null && this.n != null && this.n.get() != null) {
             switch (message.what) {
                 case 108:
                     if ((message.obj instanceof Long) && ((Long) message.obj).longValue() > 0) {
@@ -760,12 +760,12 @@ public class f implements c, d, am.a {
                         u.f("NativeVideoController", "出错后 errorcode,extra、、、、、、、" + i + "," + i2);
                         if (c(i, i2)) {
                             u.f("NativeVideoController", "出错后展示结果页、、、、、、、");
-                            this.f6726b.a(this.r, this.n, false);
+                            this.f6728b.a(this.r, this.n, false);
                             d(true);
                             l();
                         }
-                        if (this.f6726b != null) {
-                            this.f6726b.w();
+                        if (this.f6728b != null) {
+                            this.f6728b.w();
                         }
                         if (this.h != null) {
                             this.h.b(this.f, com.bytedance.sdk.openadsdk.core.video.d.a.a(this.i, this.k));
@@ -779,14 +779,14 @@ public class f implements c, d, am.a {
                     return;
                 case 304:
                     int i3 = message.arg1;
-                    if (this.f6726b != null) {
+                    if (this.f6728b != null) {
                         if (i3 == 3 || i3 == 702) {
-                            this.f6726b.w();
-                            this.d.removeCallbacks(this.f6725a);
+                            this.f6728b.w();
+                            this.d.removeCallbacks(this.f6727a);
                             this.H = false;
                         } else if (i3 == 701) {
-                            this.f6726b.t();
-                            this.d.postDelayed(this.f6725a, 8000L);
+                            this.f6728b.t();
+                            this.d.postDelayed(this.f6727a, 8000L);
                             this.H = true;
                         }
                     }
@@ -794,7 +794,7 @@ public class f implements c, d, am.a {
                         if (this.s && this.D != null && this.D.get() != null) {
                             this.D.get().e();
                         }
-                        this.d.removeCallbacks(this.f6725a);
+                        this.d.removeCallbacks(this.f6727a);
                     }
                     if (this.o && i3 == 3) {
                         F();
@@ -811,14 +811,14 @@ public class f implements c, d, am.a {
                     if (!this.o) {
                         F();
                     }
-                    if (this.f6726b != null) {
-                        this.f6726b.w();
+                    if (this.f6728b != null) {
+                        this.f6728b.w();
                     }
-                    this.d.removeCallbacks(this.f6725a);
+                    this.d.removeCallbacks(this.f6727a);
                     return;
                 case ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA /* 306 */:
-                    if (this.f6726b != null) {
-                        this.f6726b.w();
+                    if (this.f6728b != null) {
+                        this.f6728b.w();
                         return;
                     }
                     return;
@@ -876,7 +876,7 @@ public class f implements c, d, am.a {
     private void G() {
         if (this.c.get() != null && !y.a(this.c.get(), 20, 0)) {
             u.f("NativeVideoController", "onStateError 出错后展示结果页、、、、、、、");
-            this.f6726b.a(this.r, this.n, false);
+            this.f6728b.a(this.r, this.n, false);
             d(true);
             l();
         }
@@ -943,10 +943,10 @@ public class f implements c, d, am.a {
     }
 
     private com.bytedance.sdk.openadsdk.core.video.renderview.b J() {
-        if (this.n == null || this.n.get() == null || this.n.get().getResources().getConfiguration().orientation != 1 || this.f6726b == null) {
+        if (this.n == null || this.n.get() == null || this.n.get().getResources().getConfiguration().orientation != 1 || this.f6728b == null) {
             return null;
         }
-        return this.f6726b.o();
+        return this.f6728b.o();
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
@@ -954,20 +954,20 @@ public class f implements c, d, am.a {
         if (this.g != null && C()) {
             if (this.g.g()) {
                 h();
-                this.f6726b.b(true, false);
-                this.f6726b.c();
+                this.f6728b.b(true, false);
+                this.f6728b.c();
             } else if (!this.g.i()) {
-                if (this.f6726b != null) {
-                    this.f6726b.c(this.c.get());
+                if (this.f6728b != null) {
+                    this.f6728b.c(this.c.get());
                 }
                 d(this.i);
-                if (this.f6726b != null) {
-                    this.f6726b.b(false, false);
+                if (this.f6728b != null) {
+                    this.f6728b.b(false, false);
                 }
             } else {
                 g(false);
-                if (this.f6726b != null) {
-                    this.f6726b.b(false, false);
+                if (this.f6728b != null) {
+                    this.f6728b.b(false, false);
                 }
             }
         }
@@ -986,8 +986,8 @@ public class f implements c, d, am.a {
         if (this.g != null) {
             B();
         }
-        if (this.f6726b != null) {
-            this.f6726b.c();
+        if (this.f6728b != null) {
+            this.f6728b.c();
         }
     }
 
@@ -1000,8 +1000,8 @@ public class f implements c, d, am.a {
             } else {
                 this.R = 0L;
             }
-            if (this.f6726b != null) {
-                this.f6726b.a(this.R);
+            if (this.f6728b != null) {
+                this.f6728b.a(this.R);
             }
         }
     }
@@ -1009,8 +1009,8 @@ public class f implements c, d, am.a {
     private void a(long j, long j2) {
         this.i = j;
         this.k = j2;
-        this.f6726b.a(j, j2);
-        this.f6726b.a(com.bytedance.sdk.openadsdk.core.video.d.a.a(j, j2));
+        this.f6728b.a(j, j2);
+        this.f6728b.a(com.bytedance.sdk.openadsdk.core.video.d.a.a(j, j2));
         try {
             if (this.h != null) {
                 this.h.a(j, j2);
@@ -1034,15 +1034,15 @@ public class f implements c, d, am.a {
             }
             if (this.Q) {
                 a(z ? 8 : 0);
-                if (this.f6726b != null) {
-                    this.f6726b.a(this.c.get());
-                    this.f6726b.b(false);
+                if (this.f6728b != null) {
+                    this.f6728b.a(this.c.get());
+                    this.f6728b.b(false);
                 }
             } else {
                 a(1);
-                if (this.f6726b != null) {
-                    this.f6726b.b(this.c.get());
-                    this.f6726b.b(false);
+                if (this.f6728b != null) {
+                    this.f6728b.b(this.c.get());
+                    this.f6728b.b(false);
                 }
             }
             e eVar = this.v != null ? this.v.get() : null;
@@ -1073,8 +1073,8 @@ public class f implements c, d, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
     public void c(b bVar, View view) {
-        if (this.f6726b != null) {
-            this.f6726b.g();
+        if (this.f6728b != null) {
+            this.f6728b.g();
         }
         a(true);
     }
@@ -1085,23 +1085,23 @@ public class f implements c, d, am.a {
             h();
         }
         if (z && !this.s && !e()) {
-            this.f6726b.b(!f(), false);
-            this.f6726b.a(z2, true, false);
+            this.f6728b.b(!f(), false);
+            this.f6728b.a(z2, true, false);
         }
         if (this.g != null && this.g.g()) {
-            this.f6726b.c();
-            this.f6726b.b();
+            this.f6728b.c();
+            this.f6728b.b();
             return;
         }
-        this.f6726b.c();
+        this.f6728b.c();
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
     public void d(b bVar, View view) {
         if (this.Q) {
             h(false);
-            if (this.f6726b != null) {
-                this.f6726b.b(this.c.get());
+            if (this.f6728b != null) {
+                this.f6728b.b(this.c.get());
             }
             a(1);
             return;
@@ -1125,9 +1125,9 @@ public class f implements c, d, am.a {
                 u.b("NativeVideoController", "context is not activity, not support this function.");
                 return;
             }
-            if (this.f6726b != null) {
-                this.f6726b.b(this.c.get());
-                this.f6726b.b(false);
+            if (this.f6728b != null) {
+                this.f6728b.b(this.c.get());
+                this.f6728b.b(false);
             }
             a(1);
             e eVar = this.v != null ? this.v.get() : null;
@@ -1204,16 +1204,16 @@ public class f implements c, d, am.a {
     }
 
     private boolean c(int i) {
-        return this.f6726b.b(i);
+        return this.f6728b.b(i);
     }
 
     private void L() {
-        if (this.f6726b != null) {
-            this.f6726b.c(0);
-            this.f6726b.a(false, false);
-            this.f6726b.b(false);
-            this.f6726b.b();
-            this.f6726b.d();
+        if (this.f6728b != null) {
+            this.f6728b.c(0);
+            this.f6728b.a(false, false);
+            this.f6728b.b(false);
+            this.f6728b.b();
+            this.f6728b.d();
         }
     }
 
@@ -1241,25 +1241,25 @@ public class f implements c, d, am.a {
         if (c == 0) {
             h();
             this.x = true;
-            if (this.f6726b != null) {
-                this.f6726b.a(this.r, this.n, false);
+            if (this.f6728b != null) {
+                this.f6728b.a(this.r, this.n, false);
             }
         }
         if (c != 4 && c != 0) {
-            if (this.f6726b != null) {
-                this.f6726b.e();
+            if (this.f6728b != null) {
+                this.f6728b.e();
             }
             h();
             this.x = true;
             this.y = false;
-            if (this.f6726b == null || this.r == null) {
+            if (this.f6728b == null || this.r == null) {
                 return true;
             }
-            return this.f6726b.a(i, this.r.F());
+            return this.f6728b.a(i, this.r.F());
         } else if (c == 4) {
             this.x = false;
-            if (this.f6726b != null) {
-                this.f6726b.q();
+            if (this.f6728b != null) {
+                this.f6728b.q();
                 return true;
             }
             return true;

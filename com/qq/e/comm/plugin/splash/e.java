@@ -6,18 +6,18 @@ import com.qq.e.comm.plugin.c.f;
 import com.qq.e.comm.plugin.w.a.d;
 import com.qq.e.comm.util.GDTLogger;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f12510a;
+    private b f12512a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.c.a.a f12511b;
+    private com.qq.e.comm.plugin.c.a.a f12513b;
 
     public e(b bVar, com.qq.e.comm.plugin.c.a.a aVar) {
-        this.f12510a = bVar;
-        this.f12511b = aVar;
+        this.f12512a = bVar;
+        this.f12513b = aVar;
     }
 
     private int a(int i) {
@@ -51,11 +51,11 @@ class e {
         if (fVar.a_() == 48) {
             i3 = 48;
         }
-        com.qq.e.comm.plugin.w.a.d.a(this.f12510a, a2, eVar, new d.b(i3, d.c.InnerBrowser).a(str).b(i2).c(i).b(z));
+        com.qq.e.comm.plugin.w.a.d.a(this.f12512a, a2, eVar, new d.b(i3, d.c.InnerBrowser).a(str).b(i2).c(i).b(z));
     }
 
     private void b(com.qq.e.comm.plugin.s.f fVar, String str, int i, boolean z, int i2) {
-        com.qq.e.comm.plugin.c.e.a(new f.a(fVar, this.f12510a).a(str).a(i).c(z).b(false).e(true).a(), this.f12511b);
+        com.qq.e.comm.plugin.c.e.a(new f.a(fVar, this.f12512a).a(str).a(i).c(z).b(false).e(true).a(), this.f12513b);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

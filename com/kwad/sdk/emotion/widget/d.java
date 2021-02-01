@@ -4,7 +4,7 @@ import android.text.Editable;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends e {
     public d(@NonNull TextView textView) {
         super(textView);
@@ -12,12 +12,12 @@ public class d extends e {
 
     @Override // com.kwad.sdk.emotion.widget.e
     public void a(Editable editable) {
-        TextView textView = this.f9766a.get();
+        TextView textView = this.f9768a.get();
         if (editable == null) {
             return;
         }
         int length = editable.length();
-        this.f9767b = true;
+        this.f9769b = true;
         try {
             a((CharSequence) editable);
         } catch (Throwable th) {
@@ -33,7 +33,7 @@ public class d extends e {
         } catch (Throwable th2) {
             th2.printStackTrace();
         }
-        this.f9767b = false;
+        this.f9769b = false;
     }
 
     @Override // com.kwad.sdk.emotion.widget.e

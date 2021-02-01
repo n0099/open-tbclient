@@ -10,33 +10,33 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.n;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, a> {
-    private boolean akY;
-    private BdUniqueId fEN;
-    private aa<com.baidu.tieba.card.data.k> iGf;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> jgX;
-    private com.baidu.adp.lib.d.b<TbImageView> jgY;
+    private boolean akO;
+    private BdUniqueId fGZ;
+    private ab<com.baidu.tieba.card.data.k> iLO;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> jmF;
+    private com.baidu.adp.lib.d.b<TbImageView> jmG;
     private TbPageContext<HotTopicActivity> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext<HotTopicActivity> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.akY = false;
-        this.jgX = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.hottopic.adapter.f.1
+        this.akO = false;
+        this.jmF = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.hottopic.adapter.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cDT */
+            /* renamed from: cFf */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(f.this.mPageContext.getPageActivity());
             }
@@ -62,14 +62,14 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.jgY = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.hottopic.adapter.f.2
+        this.jmG = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.hottopic.adapter.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bur */
+            /* renamed from: buL */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(f.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
-                tbImageView.setBorderColor(ao.getColor(R.color.common_color_10043));
+                tbImageView.setBorderColor(ap.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
                 return tbImageView;
             }
@@ -98,21 +98,21 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 return tbImageView;
             }
         }, 12, 0);
-        this.iGf = new aa<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.hottopic.adapter.f.3
+        this.iLO = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.hottopic.adapter.f.3
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (kVar != null && kVar.bkV() != null && !StringUtils.isNull(kVar.bkV().getTid()) && !StringUtils.isNull(kVar.crx())) {
+                if (kVar != null && kVar.bln() != null && !StringUtils.isNull(kVar.bln().getTid()) && !StringUtils.isNull(kVar.csJ())) {
                     String topicName = ((HotTopicActivity) f.this.mPageContext.getOrignalPage()).getTopicName();
-                    String cQT = ((HotTopicActivity) f.this.mPageContext.getOrignalPage()).cQT();
-                    bz bkV = kVar.bkV();
-                    bkV.ng(5);
-                    if ("c10814".equals(kVar.crx())) {
+                    String cSS = ((HotTopicActivity) f.this.mPageContext.getOrignalPage()).cSS();
+                    cb bln = kVar.bln();
+                    bln.nj(5);
+                    if ("c10814".equals(kVar.csJ())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new aq("c10814").dW("tid", bkV.getId()).dW("obj_name", topicName).dW("topic_id", cQT));
-                    } else if ("c10816".equals(kVar.crx())) {
+                        TiebaStatic.log(new ar("c10814").dR("tid", bln.getId()).dR("obj_name", topicName).dR("topic_id", cSS));
+                    } else if ("c10816".equals(kVar.csJ())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new aq("c10816").dW("post_id", bkV.getTid()).dW("obj_name", topicName).dW("topic_id", cQT));
+                        TiebaStatic.log(new ar("c10816").dR("post_id", bln.getTid()).dR("obj_name", topicName).dR("topic_id", cSS));
                     }
                     if (f.this.mPageContext != null && (f.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
                         ((HotTopicActivity) f.this.mPageContext.getOrignalPage()).t(kVar);
@@ -121,7 +121,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
         };
         this.mPageContext = tbPageContext;
-        this.fEN = tbPageContext.getUniqueId();
+        this.fGZ = tbPageContext.getUniqueId();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -130,14 +130,14 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* renamed from: cd */
     public a e(ViewGroup viewGroup) {
         n nVar = new n(this.mPageContext);
-        nVar.o(this.fEN);
-        nVar.setConstrainImagePool(this.jgY);
-        nVar.setConstrainLayoutPool(this.jgX);
-        nVar.pn(false);
-        nVar.setFromCDN(this.akY);
+        nVar.o(this.fGZ);
+        nVar.setConstrainImagePool(this.jmG);
+        nVar.setConstrainLayoutPool(this.jmF);
+        nVar.px(false);
+        nVar.setFromCDN(this.akO);
         nVar.currentPageType = 0;
-        if (nVar.hiT != null) {
-            nVar.hiT.fie = 0;
+        if (nVar.hng != null) {
+            nVar.hng.fkw = 0;
         }
         return new a(nVar);
     }
@@ -146,9 +146,9 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, a aVar) {
-        aVar.kkt.a(kVar);
-        aVar.kkt.c(this.iGf);
-        aVar.kkt.pm(!(getItem(i + 1) instanceof com.baidu.tieba.hottopic.data.n));
+        aVar.ksA.a(kVar);
+        aVar.ksA.c(this.iLO);
+        aVar.ksA.pw(!(getItem(i + 1) instanceof com.baidu.tieba.hottopic.data.n));
         if (this.mPageContext != null && (this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
             this.mPageContext.getOrignalPage().s(kVar);
         }
@@ -156,17 +156,17 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void setFromCDN(boolean z) {
-        this.akY = z;
+        this.akO = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends TypeAdapter.ViewHolder {
-        public n kkt;
+        public n ksA;
 
         public a(n nVar) {
             super(nVar.getView());
-            this.kkt = nVar;
+            this.ksA = nVar;
         }
     }
 }

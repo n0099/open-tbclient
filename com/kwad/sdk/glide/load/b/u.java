@@ -9,13 +9,13 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.b.n;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class u<Data> implements n<String, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final n<Uri, Data> f10121a;
+    private final n<Uri, Data> f10123a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements o<String, AssetFileDescriptor> {
         @Override // com.kwad.sdk.glide.load.b.o
         public n<String, AssetFileDescriptor> a(@NonNull r rVar) {
@@ -23,7 +23,7 @@ public class u<Data> implements n<String, Data> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements o<String, ParcelFileDescriptor> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
@@ -32,7 +32,7 @@ public class u<Data> implements n<String, Data> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class c implements o<String, InputStream> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
@@ -42,7 +42,7 @@ public class u<Data> implements n<String, Data> {
     }
 
     public u(n<Uri, Data> nVar) {
-        this.f10121a = nVar;
+        this.f10123a = nVar;
     }
 
     @Nullable
@@ -65,10 +65,10 @@ public class u<Data> implements n<String, Data> {
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull String str, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
         Uri b2 = b(str);
-        if (b2 == null || !this.f10121a.a(b2)) {
+        if (b2 == null || !this.f10123a.a(b2)) {
             return null;
         }
-        return this.f10121a.a(b2, i, i2, eVar);
+        return this.f10123a.a(b2, i, i2, eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

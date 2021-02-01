@@ -5,7 +5,7 @@ import com.kwad.sdk.core.diskcache.b.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.t;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static boolean a(@NonNull AdTemplate adTemplate) {
         if (b(adTemplate)) {
@@ -21,7 +21,7 @@ public class f {
         if (a4) {
             com.kwad.sdk.core.report.e.d(adTemplate, 1);
         } else {
-            com.kwad.sdk.core.report.e.b(adTemplate, 1, aVar.f9086a);
+            com.kwad.sdk.core.report.e.b(adTemplate, 1, aVar.f9088a);
         }
         return a4;
     }

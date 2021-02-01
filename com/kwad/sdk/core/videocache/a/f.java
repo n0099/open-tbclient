@@ -6,7 +6,7 @@ import com.kwad.sdk.core.videocache.l;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.HashMap;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f implements c {
     private String b(String str) {
         int lastIndexOf = str.lastIndexOf(46);

@@ -21,7 +21,7 @@ public class PkgDataClearedReceiver extends BroadcastReceiver {
         }
         try {
             Intent intent2 = new Intent(context, XMPushService.class);
-            intent2.setAction(ax.f14258b);
+            intent2.setAction(ax.f14260b);
             intent2.putExtra("data_cleared_pkg_name", encodedSchemeSpecificPart);
             bb.a(context).m584a(intent2);
         } catch (Exception e) {

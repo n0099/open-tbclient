@@ -20,7 +20,7 @@ import com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventDispatcher;
 import com.baidu.mobads.openad.interfaces.utils.IOAdTimer;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IXAdContainerContext extends IOAdEventDispatcher {
     IOAdTimer createOAdTimer(int i);
 

@@ -1,15 +1,31 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.LotteryTheme;
+import android.content.Context;
 /* loaded from: classes.dex */
 public class ar {
-    private String eMa;
-    private String mBgcolor;
+    private Context context;
+    private String eOj;
+    private String url = null;
 
-    public void a(LotteryTheme lotteryTheme) {
-        if (lotteryTheme != null) {
-            this.mBgcolor = lotteryTheme.bgcolor;
-            this.eMa = lotteryTheme.bgimage;
-        }
+    public ar(Context context, String str) {
+        this.eOj = null;
+        this.context = context;
+        this.eOj = str;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public String bmk() {
+        return this.eOj;
+    }
+
+    public Context getContext() {
+        return this.context;
     }
 }

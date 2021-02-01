@@ -7,36 +7,36 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private static boolean cKw;
+    private static boolean cMK;
 
-    public static void p(Context context, boolean z) {
-        final e aIr = e.aIr();
-        if (aIr != null) {
-            b.eV(z);
-            new g.a(context).f(context.getString(a.h.aiapps_debug_switch_title)).re(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.c.a()).gR(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
+    public static void q(Context context, boolean z) {
+        final e aIK = e.aIK();
+        if (aIK != null) {
+            b.eX(z);
+            new g.a(context).f(context.getString(a.h.aiapps_debug_switch_title)).rx(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.c.a()).gT(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    SwanAppActivity aIl = e.this.aIl();
-                    if (aIl != null && Build.VERSION.SDK_INT >= 21) {
-                        aIl.finishAndRemoveTask();
+                    SwanAppActivity aIE = e.this.aIE();
+                    if (aIE != null && Build.VERSION.SDK_INT >= 21) {
+                        aIE.finishAndRemoveTask();
                     }
                     System.exit(0);
                 }
-            }).aHE();
+            }).aHX();
         }
     }
 
-    public static void cF(Context context) {
-        p(context, !aln());
+    public static void cE(Context context) {
+        q(context, !alL());
     }
 
-    public static boolean aln() {
-        return cKw;
+    public static boolean alL() {
+        return cMK;
     }
 
-    public static void eU(boolean z) {
-        cKw = z;
+    public static void eW(boolean z) {
+        cMK = z;
     }
 }

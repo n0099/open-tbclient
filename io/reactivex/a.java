@@ -3,7 +3,7 @@ package io.reactivex;
 public abstract class a implements e {
     protected abstract void b(c cVar);
 
-    private static NullPointerException M(Throwable th) {
+    private static NullPointerException L(Throwable th) {
         NullPointerException nullPointerException = new NullPointerException("Actually not, but can't pass out an exception otherwise...");
         nullPointerException.initCause(th);
         return nullPointerException;
@@ -17,9 +17,9 @@ public abstract class a implements e {
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.O(th);
+            io.reactivex.exceptions.a.N(th);
             io.reactivex.d.a.onError(th);
-            throw M(th);
+            throw L(th);
         }
     }
 }

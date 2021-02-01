@@ -6,26 +6,26 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.subtablist.view.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.subtablist.b.b> {
-    private b gFG;
-    private b gFH;
+    private b gIq;
+    private b gIr;
 
     public d(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gFG = new b(getTbPageContext());
-        this.gFH = new b(getTbPageContext());
+        this.gIq = new b(getTbPageContext());
+        this.gIr = new b(getTbPageContext());
         ViewGroup viewGroup2 = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup2.addView(this.gFG.getView());
+        viewGroup2.addView(this.gIq.getView());
         viewGroup2.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds6), -1));
-        viewGroup2.addView(this.gFH.getView());
+        viewGroup2.addView(this.gIr.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gFG.onChangeSkinType(tbPageContext, i);
-        this.gFH.onChangeSkinType(tbPageContext, i);
+        this.gIq.onChangeSkinType(tbPageContext, i);
+        this.gIr.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -37,21 +37,21 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.subt
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar) {
         if (bVar != null) {
-            this.gFG.b(bVar.gyo);
-            this.gFH.b(bVar.gyp);
+            this.gIq.b(bVar.gAY);
+            this.gIr.b(bVar.gAZ);
         }
     }
 
     public void a(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, int i) {
         if (bVar != null) {
-            this.gFG.a(bVar.gyo, i);
-            this.gFH.a(bVar.gyp, i);
+            this.gIq.a(bVar.gAY, i);
+            this.gIr.a(bVar.gAZ, i);
         }
     }
 
     public void d(g gVar) {
-        this.gFG.c(gVar);
-        this.gFH.c(gVar);
+        this.gIq.c(gVar);
+        this.gIr.c(gVar);
     }
 
     @Override // android.view.View.OnClickListener

@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs.videomiddlepage;
 /* loaded from: classes.dex */
 public interface c {
-    void AF(int i);
+    void AP(int i);
 }

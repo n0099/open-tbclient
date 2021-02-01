@@ -7,14 +7,14 @@ import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f7327a = Runtime.getRuntime().availableProcessors();
+    private static final int f7329a = Runtime.getRuntime().availableProcessors();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f7328b;
+    private static final int f7330b;
     private static final int c;
     private static final int d;
     private static final PriorityBlockingQueue<Runnable> e;
@@ -23,9 +23,9 @@ public class e {
     private static final ArrayBlockingQueue<Runnable> h;
 
     static {
-        f7328b = (f7327a / 2) + 1 < 4 ? 4 : (f7327a / 2) + 1;
-        c = (f7327a / 2) + 1 < 4 ? 4 : (f7327a / 2) + 1;
-        d = (f7327a / 2) + 1 > 4 ? 4 : (f7327a / 2) + 1;
+        f7330b = (f7329a / 2) + 1 < 4 ? 4 : (f7329a / 2) + 1;
+        c = (f7329a / 2) + 1 < 4 ? 4 : (f7329a / 2) + 1;
+        d = (f7329a / 2) + 1 > 4 ? 4 : (f7329a / 2) + 1;
         e = new PriorityBlockingQueue<>();
         f = new PriorityBlockingQueue<>();
         g = new PriorityBlockingQueue<>();
@@ -33,7 +33,7 @@ public class e {
     }
 
     public static ThreadPoolExecutor a() {
-        return new ThreadPoolExecutor(2, f7328b, 5L, TimeUnit.SECONDS, e, new d(5, "tt-api-thread-"), f());
+        return new ThreadPoolExecutor(2, f7330b, 5L, TimeUnit.SECONDS, e, new d(5, "tt-api-thread-"), f());
     }
 
     public static ThreadPoolExecutor b() {

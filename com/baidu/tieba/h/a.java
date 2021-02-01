@@ -12,9 +12,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.tbadkCore.data.n;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,36 +23,36 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a jLH;
-    private final Map<String, List<bz>> jLG = new HashMap();
-    private b jLI = cLu();
+    private static a jSE;
+    private final Map<String, List<cb>> jSD = new HashMap();
+    private b jSF = cNi();
 
     /* renamed from: com.baidu.tieba.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0741a {
-        public n eRU;
-        public ViewGroup jLJ;
-        public List<View> jLK;
-        public List<View> jLL;
-        public ImageView jLM;
-        public ImageView jLN;
-        public TextView jLO;
-        public TextView jLP;
-        public FrameLayout jLQ;
-        public Button jLR;
+    public static class C0742a {
+        public n eUi;
+        public ViewGroup jSJ;
+        public List<View> jSK;
+        public List<View> jSL;
+        public ImageView jSM;
+        public ImageView jSN;
+        public TextView jSO;
+        public TextView jSP;
+        public FrameLayout jSQ;
+        public Button jSR;
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void KF(String str);
+        void Ls(String str);
 
         View a(Activity activity, String str, View view, c cVar);
 
         void a(Activity activity, String str, d dVar);
 
-        void a(C0741a c0741a);
+        void a(C0742a c0742a);
 
-        void a(C0741a c0741a, e eVar);
+        void a(C0742a c0742a, e eVar);
 
         void b(Activity activity, String str, d dVar);
 
@@ -109,7 +109,7 @@ public class a {
         }
     }
 
-    private b cLu() {
+    private b cNi() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921525, b.class);
         if (runTask != null) {
             return (b) runTask.getData();
@@ -120,89 +120,89 @@ public class a {
     private a() {
     }
 
-    public static a cLv() {
-        if (jLH == null) {
+    public static a cNj() {
+        if (jSE == null) {
             synchronized (a.class) {
-                if (jLH == null) {
-                    jLH = new a();
+                if (jSE == null) {
+                    jSE = new a();
                 }
             }
         }
-        return jLH;
+        return jSE;
     }
 
     public View g(Activity activity, String str) {
-        if (this.jLI != null) {
-            return this.jLI.g(activity, str);
+        if (this.jSF != null) {
+            return this.jSF.g(activity, str);
         }
         return null;
     }
 
     public boolean isAdReady(String str) {
-        return this.jLI != null && this.jLI.isAdReady(str);
+        return this.jSF != null && this.jSF.isAdReady(str);
     }
 
     public View a(Activity activity, String str, View view, c cVar) {
-        if (this.jLI != null) {
-            return this.jLI.a(activity, str, view, cVar);
+        if (this.jSF != null) {
+            return this.jSF.a(activity, str, view, cVar);
         }
         return null;
     }
 
     public void a(Activity activity, String str, d dVar) {
-        if (this.jLI != null) {
-            this.jLI.a(activity, str, dVar);
+        if (this.jSF != null) {
+            this.jSF.a(activity, str, dVar);
         }
     }
 
     public void destroyAd(String str) {
-        if (this.jLI != null) {
-            this.jLI.destroyAd(str);
+        if (this.jSF != null) {
+            this.jSF.destroyAd(str);
         }
     }
 
     public void b(Activity activity, String str, d dVar) {
-        if (this.jLI != null) {
-            this.jLI.b(activity, str, dVar);
+        if (this.jSF != null) {
+            this.jSF.b(activity, str, dVar);
         }
     }
 
-    public void KC(String str) {
-        if (this.jLI != null) {
-            this.jLI.KF(str);
+    public void Lp(String str) {
+        if (this.jSF != null) {
+            this.jSF.Ls(str);
         }
     }
 
-    public void a(C0741a c0741a, e eVar) {
-        if (this.jLI != null) {
-            this.jLI.a(c0741a, eVar);
+    public void a(C0742a c0742a, e eVar) {
+        if (this.jSF != null) {
+            this.jSF.a(c0742a, eVar);
         }
     }
 
-    public void a(C0741a c0741a) {
-        if (this.jLI != null) {
-            this.jLI.a(c0741a);
+    public void a(C0742a c0742a) {
+        if (this.jSF != null) {
+            this.jSF.a(c0742a);
         }
     }
 
-    public int cLw() {
-        return com.baidu.tbadk.coreExtra.data.e.bvM();
+    public int cNk() {
+        return com.baidu.tbadk.coreExtra.data.e.bwf();
     }
 
-    public int cLx() {
-        return com.baidu.tbadk.coreExtra.data.e.bvN();
+    public int cNl() {
+        return com.baidu.tbadk.coreExtra.data.e.bwg();
     }
 
     @Nullable
-    public List<bz> KD(String str) {
-        List<bz> list = this.jLG.get(str);
+    public List<cb> Lq(String str) {
+        List<cb> list = this.jSD.get(str);
         if (list != null) {
             ArrayList arrayList = new ArrayList(list.size());
-            String KE = KE(str);
-            for (bz bzVar : list) {
-                if (bzVar.eRU != null && !bzVar.eRU.isValid()) {
-                    arrayList.add(bzVar);
-                    TiebaStatic.log(new aq("c14088").an("obj_source", 6).dW("obj_type", KE).an("obj_locate", 1));
+            String Lr = Lr(str);
+            for (cb cbVar : list) {
+                if (cbVar.eUi != null && !cbVar.eUi.isValid()) {
+                    arrayList.add(cbVar);
+                    TiebaStatic.log(new ar("c14088").ap("obj_source", 6).dR("obj_type", Lr).ap("obj_locate", 1));
                 }
             }
             list.removeAll(arrayList);
@@ -210,27 +210,27 @@ public class a {
         return list;
     }
 
-    private String KE(String str) {
+    private String Lr(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
         char c2 = 65535;
         switch (str.hashCode()) {
-            case -1391279521:
-                if (str.equals("6051001536-500920287")) {
+            case 571407466:
+                if (str.equals("6051001643-679358748")) {
                     c2 = 2;
                     break;
                 }
                 break;
-            case -1052231573:
-                if (str.equals("6051001537-901554884")) {
-                    c2 = 0;
+            case 1009027920:
+                if (str.equals("6051001642-2027944992")) {
+                    c2 = 1;
                     break;
                 }
                 break;
-            case 1426113805:
-                if (str.equals("6051001535-87847998")) {
-                    c2 = 1;
+            case 1574990713:
+                if (str.equals("6051001641-1251655838")) {
+                    c2 = 0;
                     break;
                 }
                 break;
@@ -247,24 +247,43 @@ public class a {
         }
     }
 
-    public void A(String str, Object obj) {
-        List<bz> list = this.jLG.get(str);
+    public void y(String str, Object obj) {
+        List<cb> list = this.jSD.get(str);
         if (list != null && list.size() > 0) {
-            for (bz bzVar : list) {
-                if (bzVar != null && bzVar.eRU != null && bzVar.eRU.dKW() == obj) {
-                    list.remove(bzVar);
+            for (cb cbVar : list) {
+                if (cbVar != null && cbVar.eUi != null && cbVar.eUi.dNh() == obj) {
+                    list.remove(cbVar);
                     return;
                 }
             }
         }
     }
 
-    public void c(String str, bz bzVar) {
-        List<bz> list = this.jLG.get(str);
+    public void e(String str, cb cbVar) {
+        List<cb> list = this.jSD.get(str);
         if (list == null) {
             list = new LinkedList<>();
-            this.jLG.put(str, list);
+            this.jSD.put(str, list);
         }
-        list.add(bzVar);
+        list.add(cbVar);
+    }
+
+    public void b(Activity activity, String str, final String str2, final String str3) {
+        if (com.baidu.tbadk.a.d.biV()) {
+            List<cb> Lq = Lq(str);
+            if (Lq == null || Lq.size() < 2) {
+                b(activity, "6051001642-2027944992", new d() { // from class: com.baidu.tieba.h.a.1
+                    @Override // com.baidu.tieba.h.a.d
+                    public void bb(String str4, int i) {
+                        ar.Bd(str2).ap("obj_source", 6).dR("obj_type", str3).ap("obj_locate", 0).bsO();
+                    }
+
+                    @Override // com.baidu.tieba.h.a.d
+                    public void onError(String str4) {
+                        ar.Bd(str2).ap("obj_source", 6).dR("obj_type", str3).ap("obj_locate", 1).bsO();
+                    }
+                });
+            }
+        }
     }
 }

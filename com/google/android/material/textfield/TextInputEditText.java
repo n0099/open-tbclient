@@ -9,7 +9,7 @@ import android.view.inputmethod.InputConnection;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatEditText;
 import com.google.android.material.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class TextInputEditText extends AppCompatEditText {
     public TextInputEditText(Context context) {
         this(context, null);

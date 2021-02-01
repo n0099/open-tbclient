@@ -26,14 +26,14 @@ import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e implements TTSplashAd {
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f6428a;
+    public AtomicBoolean f6430a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f6429b;
+    public AtomicBoolean f6431b;
     private int c;
     private final Context d;
     private final l e;
@@ -67,8 +67,8 @@ public class e implements TTSplashAd {
         this.q = -1;
         this.v = new AtomicBoolean(false);
         this.w = new AtomicBoolean(false);
-        this.f6428a = new AtomicBoolean(false);
-        this.f6429b = new AtomicBoolean(false);
+        this.f6430a = new AtomicBoolean(false);
+        this.f6431b = new AtomicBoolean(false);
         this.d = context;
         this.e = lVar;
         this.n = lVar.ad();
@@ -88,8 +88,8 @@ public class e implements TTSplashAd {
         this.q = -1;
         this.v = new AtomicBoolean(false);
         this.w = new AtomicBoolean(false);
-        this.f6428a = new AtomicBoolean(false);
-        this.f6429b = new AtomicBoolean(false);
+        this.f6430a = new AtomicBoolean(false);
+        this.f6431b = new AtomicBoolean(false);
         this.d = context;
         this.e = lVar;
         this.n = lVar.ad();
@@ -198,7 +198,7 @@ public class e implements TTSplashAd {
                             TTCountdownView countDownView = e.this.f.getCountDownView();
                             if (countDownView != null) {
                                 countDownView.setCountdownListener(null);
-                                e.this.f6429b.set(true);
+                                e.this.f6431b.set(true);
                                 if (!e.this.p) {
                                     e.this.f.setVoiceViewImageResource(ac.d(e.this.d, "tt_splash_mute"));
                                     e.this.p = e.this.p ? false : true;
@@ -401,7 +401,7 @@ public class e implements TTSplashAd {
                 }
                 if (e.this.w.get()) {
                     hashMap.put("splash_show_type", 3);
-                    if (!e.this.f6428a.getAndSet(true) && e.this.r != null) {
+                    if (!e.this.f6430a.getAndSet(true) && e.this.r != null) {
                         ak.a(e.this.d, e.this.e, e.this.s, e.this.r.getWebView());
                     }
                 }
@@ -436,7 +436,7 @@ public class e implements TTSplashAd {
                             e.this.f();
                         }
                     });
-                    if (!e.this.f6429b.get()) {
+                    if (!e.this.f6431b.get()) {
                         countDownView.a();
                     }
                 }
@@ -467,7 +467,7 @@ public class e implements TTSplashAd {
                     TTCountdownView countDownView = e.this.f.getCountDownView();
                     if (countDownView != null) {
                         countDownView.setCountdownListener(null);
-                        e.this.f6429b.set(true);
+                        e.this.f6431b.set(true);
                         if (e.this.k != null && !e.this.p) {
                             e.this.f.setVoiceViewImageResource(ac.d(e.this.d, "tt_splash_mute"));
                             e.this.p = !e.this.p;

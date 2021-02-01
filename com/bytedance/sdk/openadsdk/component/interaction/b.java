@@ -25,15 +25,15 @@ import com.bytedance.sdk.openadsdk.i.e;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class b implements TTInteractionAd {
     private static boolean j;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f6288a;
+    private final Context f6290a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final l f6289b;
+    private final l f6291b;
     private Dialog c;
     private com.bytedance.sdk.openadsdk.dislike.b d;
     private TTInteractionAd.AdInteractionListener e;
@@ -44,34 +44,34 @@ class b implements TTInteractionAd {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, l lVar) {
-        this.f6288a = context;
-        this.f6289b = lVar;
+        this.f6290a = context;
+        this.f6291b = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(@NonNull com.bytedance.sdk.openadsdk.core.l lVar) {
         this.g = lVar;
-        d.a(this.f6289b);
+        d.a(this.f6291b);
         if (getInteractionType() == 4) {
-            this.f = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f6288a, this.f6289b, "interaction");
+            this.f = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f6290a, this.f6291b, "interaction");
         }
-        this.d = new com.bytedance.sdk.openadsdk.dislike.b(this.f6288a, this.f6289b);
+        this.d = new com.bytedance.sdk.openadsdk.dislike.b(this.f6290a, this.f6291b);
         a();
     }
 
     private void a() {
         if (this.c == null) {
-            this.c = new n(this.f6288a);
+            this.c = new n(this.f6290a);
             this.c.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.bytedance.sdk.openadsdk.component.interaction.b.1
                 @Override // android.content.DialogInterface.OnShowListener
                 public void onShow(DialogInterface dialogInterface) {
                     if (b.this.c.isShowing()) {
-                        d.a(b.this.f6288a, b.this.f6289b, "interaction", (Map<String, Object>) null);
+                        d.a(b.this.f6290a, b.this.f6291b, "interaction", (Map<String, Object>) null);
                         if (b.this.e != null) {
                             b.this.e.onAdShow();
                         }
-                        if (b.this.f6289b.ab()) {
-                            aj.a(b.this.f6289b, b.this.i);
+                        if (b.this.f6291b.ab()) {
+                            aj.a(b.this.f6291b, b.this.i);
                         }
                     }
                 }
@@ -96,7 +96,7 @@ class b implements TTInteractionAd {
                 @Override // com.bytedance.sdk.openadsdk.core.n.a
                 public void a(View view) {
                     b.this.d();
-                    d.a(b.this.f6288a, b.this.f6289b, "interaction");
+                    d.a(b.this.f6290a, b.this.f6291b, "interaction");
                     if (b.this.e != null) {
                         b.this.e.onAdDismiss();
                     }
@@ -114,7 +114,7 @@ class b implements TTInteractionAd {
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"ClickableViewAccessibility"})
     public void b() {
-        com.bytedance.sdk.openadsdk.core.a.a aVar = new com.bytedance.sdk.openadsdk.core.a.a(this.f6288a, this.f6289b, "interaction", 3);
+        com.bytedance.sdk.openadsdk.core.a.a aVar = new com.bytedance.sdk.openadsdk.core.a.a(this.f6290a, this.f6291b, "interaction", 3);
         aVar.a(this.i);
         aVar.b(this.h);
         aVar.a(this.f);
@@ -138,13 +138,13 @@ class b implements TTInteractionAd {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        int b2 = this.f6289b.M().get(0).b();
-        e.a(this.f6288a).g().a(this.f6289b.M().get(0).a(), new d.InterfaceC0993d() { // from class: com.bytedance.sdk.openadsdk.component.interaction.b.5
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0993d
+        int b2 = this.f6291b.M().get(0).b();
+        e.a(this.f6290a).g().a(this.f6291b.M().get(0).a(), new d.InterfaceC0997d() { // from class: com.bytedance.sdk.openadsdk.component.interaction.b.5
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
             public void a() {
             }
 
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0993d
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
             public void a(d.c cVar, boolean z) {
                 if (cVar == null || cVar.a() == null) {
                     if (b.this.g != null) {
@@ -159,7 +159,7 @@ class b implements TTInteractionAd {
                 }
             }
 
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0993d
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
             public void b() {
             }
 
@@ -197,16 +197,16 @@ class b implements TTInteractionAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTInteractionAd
     public int getInteractionType() {
-        if (this.f6289b == null) {
+        if (this.f6291b == null) {
             return -1;
         }
-        return this.f6289b.H();
+        return this.f6291b.H();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTInteractionAd
     public Map<String, Object> getMediaExtraInfo() {
-        if (this.f6289b != null) {
-            return this.f6289b.ae();
+        if (this.f6291b != null) {
+            return this.f6291b.ae();
         }
         return null;
     }

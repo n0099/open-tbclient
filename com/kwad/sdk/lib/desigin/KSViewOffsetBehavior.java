@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.annotation.Keep;
 import com.kwad.sdk.lib.desigin.KSCoordinatorLayout;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KSViewOffsetBehavior<V extends View> extends KSCoordinatorLayout.Behavior<V> {
     private int mTempLeftRightOffset;
     private int mTempTopBottomOffset;

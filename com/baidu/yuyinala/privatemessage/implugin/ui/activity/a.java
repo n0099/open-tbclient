@@ -1,4 +1,4 @@
 package com.baidu.yuyinala.privatemessage.implugin.ui.activity;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
 }

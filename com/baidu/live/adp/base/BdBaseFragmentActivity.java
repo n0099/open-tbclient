@@ -17,7 +17,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.newwidget.imageview.IRefresh;
 import com.baidu.live.adp.widget.listview.IPreLoadListView;
 import com.baidu.searchbox.live.base.LiveBaseActivity;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class BdBaseFragmentActivity<T> extends LiveBaseActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BdPageContextSupport<T>, IScrollable {
     private static final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;

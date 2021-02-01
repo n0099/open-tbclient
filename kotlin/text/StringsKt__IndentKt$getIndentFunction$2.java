@@ -2,7 +2,7 @@ package kotlin.text;
 
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class StringsKt__IndentKt$getIndentFunction$2 extends Lambda implements kotlin.jvm.a.b<String, String> {
     final /* synthetic */ String $indent;
 

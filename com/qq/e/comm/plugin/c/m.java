@@ -1,27 +1,26 @@
 package com.qq.e.comm.plugin.c;
 
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class m implements k {
 
     /* renamed from: com.qq.e.comm.plugin.c.m$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     class AnonymousClass1 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ com.qq.e.comm.plugin.c.a.a f11964a;
+        final /* synthetic */ com.qq.e.comm.plugin.c.a.a f11966a;
 
         AnonymousClass1(com.qq.e.comm.plugin.c.a.a aVar) {
-            this.f11964a = aVar;
+            this.f11966a = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f11964a.a();
+            this.f11966a.a();
         }
     }
 
@@ -39,6 +38,6 @@ class m implements k {
 
     @Override // com.qq.e.comm.plugin.c.k
     public boolean a(f fVar, com.qq.e.comm.plugin.c.a.a aVar) {
-        return gdtadv.getZresult(SubsamplingScaleImageView.ORIENTATION_270, 0, this, fVar, aVar);
+        return gdtadv.getZresult(270, 0, this, fVar, aVar);
     }
 }

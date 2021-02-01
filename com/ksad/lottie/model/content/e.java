@@ -3,14 +3,14 @@ package com.ksad.lottie.model.content;
 import androidx.annotation.Nullable;
 import com.ksad.lottie.model.content.ShapeStroke;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8071a;
+    private final String f8073a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final GradientType f8072b;
+    private final GradientType f8074b;
     private final com.ksad.lottie.model.a.c c;
     private final com.ksad.lottie.model.a.d d;
     private final com.ksad.lottie.model.a.f e;
@@ -24,8 +24,8 @@ public class e implements b {
     private final com.ksad.lottie.model.a.b l;
 
     public e(String str, GradientType gradientType, com.ksad.lottie.model.a.c cVar, com.ksad.lottie.model.a.d dVar, com.ksad.lottie.model.a.f fVar, com.ksad.lottie.model.a.f fVar2, com.ksad.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List<com.ksad.lottie.model.a.b> list, @Nullable com.ksad.lottie.model.a.b bVar2) {
-        this.f8071a = str;
-        this.f8072b = gradientType;
+        this.f8073a = str;
+        this.f8074b = gradientType;
         this.c = cVar;
         this.d = dVar;
         this.e = fVar;
@@ -44,11 +44,11 @@ public class e implements b {
     }
 
     public String a() {
-        return this.f8071a;
+        return this.f8073a;
     }
 
     public GradientType b() {
-        return this.f8072b;
+        return this.f8074b;
     }
 
     public com.ksad.lottie.model.a.c c() {

@@ -11,10 +11,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.view.ViewCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ActionBarContainer extends FrameLayout {
     private View mActionBarView;
     Drawable mBackground;
@@ -261,7 +260,7 @@ public class ActionBarContainer extends FrameLayout {
                 } else {
                     i3 = 0;
                 }
-                setMeasuredDimension(getMeasuredWidth(), Math.min(i3 + getMeasuredHeightWithMargins(this.mTabContainer), mode == Integer.MIN_VALUE ? View.MeasureSpec.getSize(i2) : ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED));
+                setMeasuredDimension(getMeasuredWidth(), Math.min(i3 + getMeasuredHeightWithMargins(this.mTabContainer), mode == Integer.MIN_VALUE ? View.MeasureSpec.getSize(i2) : Integer.MAX_VALUE));
             }
         }
     }

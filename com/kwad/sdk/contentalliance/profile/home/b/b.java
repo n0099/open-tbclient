@@ -6,14 +6,14 @@ import com.kwad.sdk.contentalliance.profile.home.c;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f8779a;
+    public c f8781a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SceneImpl f8780b;
+    public SceneImpl f8782b;
     public ViewPager c;
     public ProfileHomeParam d;
     public com.kwad.sdk.core.i.a e;

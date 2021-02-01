@@ -1,10 +1,10 @@
 package com.baidu.swan.pms.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public interface b {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void fA(boolean z);
+        void fC(boolean z);
     }
 
     void a(String str, a aVar);

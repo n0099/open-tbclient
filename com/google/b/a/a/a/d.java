@@ -1,9 +1,9 @@
 package com.google.b.a.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f7879a;
+    static final /* synthetic */ boolean f7881a;
     private boolean ac;
     private boolean ad;
     private long s;
@@ -11,60 +11,60 @@ public class d {
     private int y;
 
     /* renamed from: b  reason: collision with root package name */
-    private double[] f7880b = new double[16];
-    private c pLo = new c();
-    private c pLp = new c();
-    private c pLq = new c();
-    private c pLr = new c();
-    private c pLs = new c();
-    private c pLt = new c();
-    private c pLu = new c();
-    private c pLv = new c();
-    private c pLw = new c();
-    private g pLx = new g();
-    private g pLy = new g();
-    private g pLz = new g();
-    private g pLA = new g();
-    private g pLB = new g();
-    private g pLC = new g();
-    private g pLD = new g();
-    private final g pLE = new g();
+    private double[] f7882b = new double[16];
+    private c pVt = new c();
+    private c pVu = new c();
+    private c pVv = new c();
+    private c pVw = new c();
+    private c pVx = new c();
+    private c pVy = new c();
+    private c pVz = new c();
+    private c pVA = new c();
+    private c pVB = new c();
+    private g pVC = new g();
+    private g pVD = new g();
+    private g pVE = new g();
+    private g pVF = new g();
+    private g pVG = new g();
+    private g pVH = new g();
+    private g pVI = new g();
+    private final g pVJ = new g();
     private double u = 0.0d;
     private double v = 0.0d;
     private boolean x = false;
     private boolean z = true;
-    private c pLF = new c();
-    private c pLG = new c();
-    private g pLH = new g();
-    private c pLI = new c();
-    private c pLJ = new c();
-    private c pLK = new c();
-    private c pLL = new c();
-    private c pLM = new c();
-    private c pLN = new c();
-    private c pLO = new c();
-    private c pLP = new c();
-    private g pLQ = new g();
-    private g pLR = new g();
-    private g pLS = new g();
-    private g pLT = new g();
-    private g pLU = new g();
-    private g pLV = new g();
-    private g pLW = new g();
-    private g pLX = new g();
-    private c pLY = new c();
-    private c pLZ = new c();
-    private c pMa = new c();
-    private c pMb = new c();
-    private c pMc = new c();
-    private c pMd = new c();
-    private c pMe = new c();
-    private c pMf = new c();
-    private c pMg = new c();
-    private e pMh = new e();
+    private c pVK = new c();
+    private c pVL = new c();
+    private g pVM = new g();
+    private c pVN = new c();
+    private c pVO = new c();
+    private c pVP = new c();
+    private c pVQ = new c();
+    private c pVR = new c();
+    private c pVS = new c();
+    private c pVT = new c();
+    private c pVU = new c();
+    private g pVV = new g();
+    private g pVW = new g();
+    private g pVX = new g();
+    private g pVY = new g();
+    private g pVZ = new g();
+    private g pWa = new g();
+    private g pWb = new g();
+    private g pWc = new g();
+    private c pWd = new c();
+    private c pWe = new c();
+    private c pWf = new c();
+    private c pWg = new c();
+    private c pWh = new c();
+    private c pWi = new c();
+    private c pWj = new c();
+    private c pWk = new c();
+    private c pWl = new c();
+    private e pWm = new e();
 
     static {
-        f7879a = !d.class.desiredAssertionStatus();
+        f7881a = !d.class.desiredAssertionStatus();
     }
 
     public d() {
@@ -87,9 +87,9 @@ public class d {
     }
 
     private void a(c cVar, g gVar) {
-        c.a(cVar, this.pLC, this.pLz);
-        this.pMh.a(this.pLz, this.pLy, this.pMf);
-        this.pMh.a(this.pMf, gVar);
+        c.a(cVar, this.pVH, this.pVE);
+        this.pWm.a(this.pVE, this.pVD, this.pWk);
+        this.pWm.a(this.pWk, gVar);
     }
 
     private void b(double d) {
@@ -97,69 +97,69 @@ public class d {
         this.u = d;
         this.v = (abs * 0.5d) + (this.v * 0.5d);
         double min = Math.min(7.0d, ((this.v / 0.15d) * 6.25d) + 0.75d);
-        this.pLt.a(min * min);
+        this.pVy.a(min * min);
     }
 
     private void c() {
-        this.pLp.d(this.pMd);
-        c.b(this.pLq, this.pMd, this.pMe);
-        c.b(this.pLp, this.pMe, this.pLq);
-        this.pLp.b();
+        this.pVu.d(this.pWi);
+        c.b(this.pVv, this.pWi, this.pWj);
+        c.b(this.pVu, this.pWj, this.pVv);
+        this.pVu.b();
     }
 
     private double[] f(c cVar) {
         for (int i = 0; i < 3; i++) {
             for (int i2 = 0; i2 < 3; i2++) {
-                this.f7880b[(i2 * 4) + i] = cVar.a(i, i2);
+                this.f7882b[(i2 * 4) + i] = cVar.a(i, i2);
             }
         }
-        double[] dArr = this.f7880b;
-        double[] dArr2 = this.f7880b;
-        this.f7880b[11] = 0.0d;
+        double[] dArr = this.f7882b;
+        double[] dArr2 = this.f7882b;
+        this.f7882b[11] = 0.0d;
         dArr2[7] = 0.0d;
         dArr[3] = 0.0d;
-        double[] dArr3 = this.f7880b;
-        double[] dArr4 = this.f7880b;
-        this.f7880b[14] = 0.0d;
+        double[] dArr3 = this.f7882b;
+        double[] dArr4 = this.f7882b;
+        this.f7882b[14] = 0.0d;
         dArr4[13] = 0.0d;
         dArr3[12] = 0.0d;
-        this.f7880b[15] = 1.0d;
-        return this.f7880b;
+        this.f7882b[15] = 1.0d;
+        return this.f7882b;
     }
 
     public double[] K(double d) {
-        g gVar = this.pLH;
-        gVar.a(this.pLE);
+        g gVar = this.pVM;
+        gVar.a(this.pVJ);
         gVar.a(-d);
-        c cVar = this.pLF;
+        c cVar = this.pVK;
         f.a(gVar, cVar);
-        c cVar2 = this.pLG;
-        c.b(cVar, this.pLo, cVar2);
+        c cVar2 = this.pVL;
+        c.b(cVar, this.pVt, cVar2);
         return f(cVar2);
     }
 
     public synchronized void a() {
         this.s = 0L;
-        this.pLo.b();
-        this.pLp.b();
-        this.pLq.a();
-        this.pLq.a(25.0d);
-        this.pLr.a();
-        this.pLr.a(1.0d);
-        this.pLs.a();
-        this.pLs.a(0.0625d);
-        this.pLt.a();
-        this.pLt.a(0.5625d);
-        this.pLu.a();
-        this.pLv.a();
-        this.pLw.a();
-        this.pLx.a();
-        this.pLy.a();
-        this.pLz.a();
-        this.pLA.a();
-        this.pLB.a();
-        this.pLC.a(0.0d, 0.0d, 9.81d);
-        this.pLD.a(0.0d, 1.0d, 0.0d);
+        this.pVt.b();
+        this.pVu.b();
+        this.pVv.a();
+        this.pVv.a(25.0d);
+        this.pVw.a();
+        this.pVw.a(1.0d);
+        this.pVx.a();
+        this.pVx.a(0.0625d);
+        this.pVy.a();
+        this.pVy.a(0.5625d);
+        this.pVz.a();
+        this.pVA.a();
+        this.pVB.a();
+        this.pVC.a();
+        this.pVD.a();
+        this.pVE.a();
+        this.pVF.a();
+        this.pVG.a();
+        this.pVH.a(0.0d, 0.0d, 9.81d);
+        this.pVI.a(0.0d, 1.0d, 0.0d);
         this.ac = false;
         this.ad = false;
     }
@@ -172,56 +172,56 @@ public class d {
             } else {
                 a(f);
             }
-            this.pLA.a(gVar);
-            this.pLA.a(-f);
-            f.a(this.pLA, this.pLp);
-            this.pLJ.a(this.pLo);
-            c.b(this.pLp, this.pLo, this.pLJ);
-            this.pLo.a(this.pLJ);
+            this.pVF.a(gVar);
+            this.pVF.a(-f);
+            f.a(this.pVF, this.pVu);
+            this.pVO.a(this.pVt);
+            c.b(this.pVu, this.pVt, this.pVO);
+            this.pVt.a(this.pVO);
             c();
-            this.pLK.a(this.pLr);
-            this.pLK.b(f * f);
-            this.pLq.b(this.pLK);
+            this.pVP.a(this.pVw);
+            this.pVP.b(f * f);
+            this.pVv.b(this.pVP);
         }
         this.s = j;
-        this.pLE.a(gVar);
+        this.pVJ.a(gVar);
     }
 
     public synchronized void b(g gVar, long j) {
-        this.pLy.a(gVar);
-        b(this.pLy.c());
+        this.pVD.a(gVar);
+        b(this.pVD.c());
         if (this.ac) {
-            a(this.pLo, this.pLx);
+            a(this.pVt, this.pVC);
             for (int i = 0; i < 3; i++) {
-                g gVar2 = this.pLS;
+                g gVar2 = this.pVX;
                 gVar2.a();
                 gVar2.c(i, 1.0E-7d);
-                f.a(gVar2, this.pLL);
-                c.b(this.pLL, this.pLo, this.pLM);
-                a(this.pLM, this.pLQ);
-                g.b(this.pLx, this.pLQ, this.pLR);
-                this.pLR.a(1.0d / 1.0E-7d);
-                this.pLv.a(i, this.pLR);
+                f.a(gVar2, this.pVQ);
+                c.b(this.pVQ, this.pVt, this.pVR);
+                a(this.pVR, this.pVV);
+                g.b(this.pVC, this.pVV, this.pVW);
+                this.pVW.a(1.0d / 1.0E-7d);
+                this.pVA.a(i, this.pVW);
             }
-            this.pLv.d(this.pLN);
-            c.b(this.pLq, this.pLN, this.pLO);
-            c.b(this.pLv, this.pLO, this.pLP);
-            c.a(this.pLP, this.pLt, this.pLu);
-            this.pLu.e(this.pLN);
-            this.pLv.d(this.pLO);
-            c.b(this.pLO, this.pLN, this.pLP);
-            c.b(this.pLq, this.pLP, this.pLw);
-            c.a(this.pLw, this.pLx, this.pLB);
-            c.b(this.pLw, this.pLv, this.pLN);
-            this.pLO.b();
-            this.pLO.c(this.pLN);
-            c.b(this.pLO, this.pLq, this.pLN);
-            this.pLq.a(this.pLN);
-            f.a(this.pLB, this.pLp);
-            c.b(this.pLp, this.pLo, this.pLo);
+            this.pVA.d(this.pVS);
+            c.b(this.pVv, this.pVS, this.pVT);
+            c.b(this.pVA, this.pVT, this.pVU);
+            c.a(this.pVU, this.pVy, this.pVz);
+            this.pVz.e(this.pVS);
+            this.pVA.d(this.pVT);
+            c.b(this.pVT, this.pVS, this.pVU);
+            c.b(this.pVv, this.pVU, this.pVB);
+            c.a(this.pVB, this.pVC, this.pVG);
+            c.b(this.pVB, this.pVA, this.pVS);
+            this.pVT.b();
+            this.pVT.c(this.pVS);
+            c.b(this.pVT, this.pVv, this.pVS);
+            this.pVv.a(this.pVS);
+            f.a(this.pVG, this.pVu);
+            c.b(this.pVu, this.pVt, this.pVt);
             c();
         } else {
-            this.pMh.a(this.pLC, this.pLy, this.pLo);
+            this.pWm.a(this.pVH, this.pVD, this.pVt);
             this.ac = true;
         }
     }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class o implements d, i, j, l, a.InterfaceC0007a {
     private final com.airbnb.lottie.f BH;
     private final com.airbnb.lottie.model.layer.a Ds;
@@ -26,13 +26,13 @@ public class o implements d, i, j, l, a.InterfaceC0007a {
         this.BH = fVar;
         this.Ds = aVar;
         this.name = gVar.getName();
-        this.Ei = gVar.jJ().jc();
+        this.Ei = gVar.jI().jb();
         aVar.a(this.Ei);
         this.Ei.b(this);
-        this.Ej = gVar.jK().jc();
+        this.Ej = gVar.jJ().jb();
         aVar.a(this.Ej);
         this.Ej.b(this);
-        this.Ek = gVar.jL().jl();
+        this.Ek = gVar.jK().jk();
         this.Ek.a(aVar);
         this.Ek.a(this);
     }
@@ -63,14 +63,14 @@ public class o implements d, i, j, l, a.InterfaceC0007a {
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path iv() {
-        Path iv = this.El.iv();
+    public Path iu() {
+        Path iu = this.El.iu();
         this.path.reset();
         float floatValue = this.Ei.getValue().floatValue();
         float floatValue2 = this.Ej.getValue().floatValue();
         for (int i = ((int) floatValue) - 1; i >= 0; i--) {
             this.matrix.set(this.Ek.h(i + floatValue2));
-            this.path.addPath(iv, this.matrix);
+            this.path.addPath(iu, this.matrix);
         }
         return this.path;
     }
@@ -79,8 +79,8 @@ public class o implements d, i, j, l, a.InterfaceC0007a {
     public void c(Canvas canvas, Matrix matrix, int i) {
         float floatValue = this.Ei.getValue().floatValue();
         float floatValue2 = this.Ej.getValue().floatValue();
-        float floatValue3 = this.Ek.iR().getValue().floatValue() / 100.0f;
-        float floatValue4 = this.Ek.iS().getValue().floatValue() / 100.0f;
+        float floatValue3 = this.Ek.iQ().getValue().floatValue() / 100.0f;
+        float floatValue4 = this.Ek.iR().getValue().floatValue() / 100.0f;
         for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
             this.matrix.set(matrix);
             this.matrix.preConcat(this.Ek.h(i2 + floatValue2));
@@ -94,7 +94,7 @@ public class o implements d, i, j, l, a.InterfaceC0007a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
-    public void is() {
+    public void ir() {
         this.BH.invalidateSelf();
     }
 

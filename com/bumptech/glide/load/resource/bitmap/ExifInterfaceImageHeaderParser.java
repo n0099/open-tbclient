@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 @RequiresApi(27)
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     @Override // com.bumptech.glide.load.ImageHeaderParser
     @NonNull

@@ -3,7 +3,7 @@ package com.baidu.android.pushservice;
 import android.content.Context;
 import android.text.TextUtils;
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PushSettings {
 
     /* renamed from: a  reason: collision with root package name */

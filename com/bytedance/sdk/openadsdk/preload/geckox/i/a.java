@@ -10,19 +10,19 @@ import java.io.BufferedInputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected z f7491a = new z.a().d(10, TimeUnit.SECONDS).e(10, TimeUnit.SECONDS).c(d.a()).a(d.b()).f(10, TimeUnit.SECONDS).enZ();
+    protected z f7493a = new z.a().d(10, TimeUnit.SECONDS).e(10, TimeUnit.SECONDS).c(d.a()).a(d.b()).f(10, TimeUnit.SECONDS).eqs();
 
     /* renamed from: b  reason: collision with root package name */
-    protected z f7492b = new z.a().d(10, TimeUnit.SECONDS).e(30, TimeUnit.SECONDS).c(d.a()).a(d.b()).f(30, TimeUnit.SECONDS).enZ();
+    protected z f7494b = new z.a().d(10, TimeUnit.SECONDS).e(30, TimeUnit.SECONDS).c(d.a()).a(d.b()).f(30, TimeUnit.SECONDS).eqs();
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
     public c a(String str, String str2) throws Exception {
-        com.bytedance.sdk.a.b.b enq = this.f7491a.g(new ab.a().XN(str).a(ac.a(y.XM(AbstractBceClient.DEFAULT_CONTENT_TYPE), str2)).eoj()).enq();
-        return new c(a(enq.enl()), enq.c() == 200 ? enq.enm().e() : null, enq.c(), enq.d());
+        com.bytedance.sdk.a.b.b epJ = this.f7493a.g(new ab.a().YO(str).a(ac.a(y.YN(AbstractBceClient.DEFAULT_CONTENT_TYPE), str2)).eqB()).epJ();
+        return new c(a(epJ.epE()), epJ.c() == 200 ? epJ.epF().e() : null, epJ.c(), epJ.d());
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
@@ -30,9 +30,9 @@ public class a implements b {
         BufferedInputStream bufferedInputStream;
         int i = 0;
         try {
-            com.bytedance.sdk.a.b.b enq = this.f7492b.g(new ab.a().eog().XN(str).eoj()).enq();
-            i = enq.c();
-            bufferedInputStream = new BufferedInputStream(enq.enm().c());
+            com.bytedance.sdk.a.b.b epJ = this.f7494b.g(new ab.a().eqy().YO(str).eqB()).epJ();
+            i = epJ.c();
+            bufferedInputStream = new BufferedInputStream(epJ.epF().c());
             try {
                 try {
                     byte[] bArr = new byte[2048];

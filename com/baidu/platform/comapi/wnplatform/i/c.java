@@ -4,15 +4,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f4420a;
+    final /* synthetic */ b f4423a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f4420a = bVar;
+        this.f4423a = bVar;
     }
 
     @Override // android.os.Handler
@@ -30,23 +30,23 @@ public class c extends Handler {
             int i4 = message.arg2;
             if (i4 == 1 || i4 == 0) {
                 if (i3 != 0) {
-                    aVar = this.f4420a.f4418a;
+                    aVar = this.f4423a.f4421a;
                     if (aVar != null) {
-                        aVar2 = this.f4420a.f4418a;
+                        aVar2 = this.f4423a.f4421a;
                         aVar2.a(i3);
                         return;
                     }
                     return;
                 }
                 com.baidu.platform.comapi.wnplatform.model.b R = com.baidu.platform.comapi.walknavi.b.a().R();
-                b bVar = this.f4420a;
-                i = this.f4420a.f4419b;
+                b bVar = this.f4423a;
+                i = this.f4423a.f4422b;
                 a2 = bVar.a(i);
-                i2 = this.f4420a.f4419b;
+                i2 = this.f4423a.f4422b;
                 R.a(a2, i2);
-                aVar3 = this.f4420a.f4418a;
+                aVar3 = this.f4423a.f4421a;
                 if (aVar3 != null) {
-                    aVar4 = this.f4420a.f4418a;
+                    aVar4 = this.f4423a.f4421a;
                     aVar4.b();
                 }
             }

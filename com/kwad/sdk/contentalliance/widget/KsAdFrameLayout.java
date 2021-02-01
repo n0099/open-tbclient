@@ -8,11 +8,11 @@ import android.widget.FrameLayout;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KsAdFrameLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<GestureDetector> f9017a;
+    private final List<GestureDetector> f9019a;
 
     public KsAdFrameLayout(Context context) {
         this(context, null);
@@ -24,26 +24,26 @@ public class KsAdFrameLayout extends FrameLayout {
 
     public KsAdFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f9017a = new ArrayList();
+        this.f9019a = new ArrayList();
     }
 
     public void a(GestureDetector gestureDetector) {
-        if (gestureDetector == null || this.f9017a.contains(gestureDetector)) {
+        if (gestureDetector == null || this.f9019a.contains(gestureDetector)) {
             return;
         }
-        this.f9017a.add(gestureDetector);
+        this.f9019a.add(gestureDetector);
     }
 
     public void b(GestureDetector gestureDetector) {
         if (gestureDetector != null) {
-            this.f9017a.remove(gestureDetector);
+            this.f9019a.remove(gestureDetector);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        Iterator<GestureDetector> it = this.f9017a.iterator();
+        Iterator<GestureDetector> it = this.f9019a.iterator();
         while (true) {
             boolean z = dispatchTouchEvent;
             if (!it.hasNext()) {

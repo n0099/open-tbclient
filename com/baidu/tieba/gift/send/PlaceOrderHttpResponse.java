@@ -3,7 +3,7 @@ package com.baidu.tieba.gift.send;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.PlaceOrder.PlaceOrderResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
     private a orderInfo;
 

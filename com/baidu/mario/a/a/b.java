@@ -11,49 +11,49 @@ import com.baidu.mario.a.b.d;
 import com.baidu.mario.a.b.e;
 import com.baidu.mario.a.b.g;
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private e ccJ;
-    private HandlerThread cdh;
-    private Handler cdi;
-    private com.baidu.mario.gldraw2d.a cdj;
-    private g cdk;
-    private volatile boolean cdc = false;
-    private boolean cdl = false;
+    private e cgT;
+    private HandlerThread chr;
+    private Handler chs;
+    private com.baidu.mario.gldraw2d.a cht;
+    private g chu;
+    private volatile boolean chm = false;
+    private boolean chv = false;
 
     private void a(e eVar, c cVar) {
-        this.cdh = new HandlerThread("VideoRecorderThread");
-        this.cdh.start();
-        this.cdi = new HandlerC0256b(this.cdh.getLooper());
+        this.chr = new HandlerThread("VideoRecorderThread");
+        this.chr.start();
+        this.chs = new HandlerC0257b(this.chr.getLooper());
         if (Build.VERSION.SDK_INT >= 18) {
             try {
-                this.cdk = new g();
+                this.chu = new g();
             } catch (VerifyError e) {
                 Log.e(TAG, "initRecorder videorecorder verifyError");
-                if (this.cdk == null) {
+                if (this.chu == null) {
                     return;
                 }
             }
-            this.cdk.a(cVar);
-            this.ccJ = eVar;
+            this.chu.a(cVar);
+            this.cgT = eVar;
         }
         if (Build.HARDWARE.toLowerCase().startsWith("kirin")) {
-            this.cdl = true;
+            this.chv = true;
         } else {
-            this.cdl = false;
+            this.chv = false;
         }
     }
 
-    public long YV() {
-        if (this.cdk != null) {
-            return this.cdk.YV();
+    public long aaO() {
+        if (this.chu != null) {
+            return this.chu.aaO();
         }
         return 0L;
     }
 
     public boolean isRunning() {
-        return this.cdh != null && this.cdh.isAlive();
+        return this.chr != null && this.chr.isAlive();
     }
 
     public boolean a(ArrayList<com.baidu.mario.gldraw2d.params.c> arrayList, d dVar, e eVar, c cVar) {
@@ -62,34 +62,34 @@ public class b {
             return false;
         }
         a(eVar, cVar);
-        this.cdi.sendMessage(this.cdi.obtainMessage(1001, new a(arrayList, dVar)));
-        this.cdc = true;
+        this.chs.sendMessage(this.chs.obtainMessage(1001, new a(arrayList, dVar)));
+        this.chm = true;
         return true;
     }
 
     public void startRecording() {
-        if (this.cdi != null) {
-            this.cdi.sendMessage(this.cdi.obtainMessage(1002));
+        if (this.chs != null) {
+            this.chs.sendMessage(this.chs.obtainMessage(1002));
         }
     }
 
     public void l(ArrayList<com.baidu.mario.gldraw2d.params.c> arrayList) {
-        if (this.cdi != null) {
-            this.cdi.sendMessage(this.cdi.obtainMessage(1003, arrayList));
+        if (this.chs != null) {
+            this.chs.sendMessage(this.chs.obtainMessage(1003, arrayList));
         }
     }
 
-    public void bD(long j) {
+    public void bH(long j) {
         int i = (int) (j >> 32);
         int i2 = (int) j;
-        if (this.cdi != null && this.cdc) {
-            this.cdi.sendMessage(this.cdi.obtainMessage(1005, i, i2));
-            synchronized (this.cdj) {
+        if (this.chs != null && this.chm) {
+            this.chs.sendMessage(this.chs.obtainMessage(1005, i, i2));
+            synchronized (this.cht) {
                 try {
-                    if (this.cdl) {
-                        this.cdj.wait(12L);
+                    if (this.chv) {
+                        this.cht.wait(12L);
                     } else {
-                        this.cdj.wait(2L);
+                        this.cht.wait(2L);
                     }
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
@@ -98,33 +98,33 @@ public class b {
         }
     }
 
-    public void Zq() {
-        if (this.cdi != null && this.cdc) {
-            this.cdi.removeMessages(1005);
+    public void abi() {
+        if (this.chs != null && this.chm) {
+            this.chs.removeMessages(1005);
         }
     }
 
     public void stopRecording() {
-        if (this.cdi != null && this.cdc) {
-            this.cdc = false;
-            this.cdi.removeMessages(1005);
-            this.cdi.sendMessage(this.cdi.obtainMessage(1006));
+        if (this.chs != null && this.chm) {
+            this.chm = false;
+            this.chs.removeMessages(1005);
+            this.chs.sendMessage(this.chs.obtainMessage(1006));
         }
     }
 
-    public void Zl() {
-        if (this.cdi != null) {
-            this.cdi.removeCallbacksAndMessages(null);
-            this.cdi.sendMessage(this.cdi.obtainMessage(1007));
-            this.cdi.sendMessage(this.cdi.obtainMessage(1008));
+    public void abe() {
+        if (this.chs != null) {
+            this.chs.removeCallbacksAndMessages(null);
+            this.chs.sendMessage(this.chs.obtainMessage(1007));
+            this.chs.sendMessage(this.chs.obtainMessage(1008));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mario.a.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public class HandlerC0256b extends Handler {
-        public HandlerC0256b(Looper looper) {
+    /* loaded from: classes15.dex */
+    public class HandlerC0257b extends Handler {
+        public HandlerC0257b(Looper looper) {
             super(looper);
         }
 
@@ -133,10 +133,10 @@ public class b {
             switch (message.what) {
                 case 1001:
                     a aVar = (a) message.obj;
-                    b.this.a(aVar.ccS, aVar.ccj);
+                    b.this.a(aVar.chc, aVar.cgu);
                     return;
                 case 1002:
-                    b.this.Zm();
+                    b.this.abf();
                     return;
                 case 1003:
                     b.this.m((ArrayList) message.obj);
@@ -145,16 +145,16 @@ public class b {
                     b.this.d((com.baidu.mario.gldraw2d.c.c) message.obj);
                     return;
                 case 1005:
-                    b.this.bH((message.arg1 << 32) | (message.arg2 & 4294967295L));
+                    b.this.bL((message.arg1 << 32) | (message.arg2 & 4294967295L));
                     return;
                 case 1006:
-                    b.this.Zr();
+                    b.this.abj();
                     return;
                 case 1007:
-                    b.this.Zs();
+                    b.this.abk();
                     return;
                 case 1008:
-                    b.this.Zt();
+                    b.this.abl();
                     return;
                 default:
                     return;
@@ -164,82 +164,82 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ArrayList<com.baidu.mario.gldraw2d.params.c> arrayList, d dVar) {
-        if (Build.VERSION.SDK_INT >= 18 && this.cdk != null) {
-            this.cdk.a(dVar, this.ccJ);
-            if (this.cdj == null) {
-                this.cdj = new com.baidu.mario.gldraw2d.a(this.cdk.getInputSurface(), arrayList);
+        if (Build.VERSION.SDK_INT >= 18 && this.chu != null) {
+            this.chu.a(dVar, this.cgT);
+            if (this.cht == null) {
+                this.cht = new com.baidu.mario.gldraw2d.a(this.chu.getInputSurface(), arrayList);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zm() {
-        if (Build.VERSION.SDK_INT >= 18 && this.cdk != null) {
-            this.cdk.Zx();
+    public void abf() {
+        if (Build.VERSION.SDK_INT >= 18 && this.chu != null) {
+            this.chu.startEncoder();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m(ArrayList<com.baidu.mario.gldraw2d.params.c> arrayList) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.cdj.aA(arrayList);
+            this.cht.ax(arrayList);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.mario.gldraw2d.c.c cVar) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.cdj.a(cVar);
+            this.cht.a(cVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bH(long j) {
-        if (Build.VERSION.SDK_INT >= 18 && this.cdk != null) {
-            this.cdk.dR(false);
-            this.cdj.bD(j);
+    public void bL(long j) {
+        if (Build.VERSION.SDK_INT >= 18 && this.chu != null) {
+            this.chu.dZ(false);
+            this.cht.bH(j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zr() {
-        if (Build.VERSION.SDK_INT >= 18 && this.cdk != null) {
-            this.cdk.dR(true);
+    public void abj() {
+        if (Build.VERSION.SDK_INT >= 18 && this.chu != null) {
+            this.chu.dZ(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zs() {
-        if (Build.VERSION.SDK_INT >= 18 && this.cdk != null) {
-            this.cdk.Zw();
-            this.cdk.Zv();
-            this.cdk = null;
-            this.ccJ = null;
-            this.cdj.Yj();
-            this.cdj = null;
+    public void abk() {
+        if (Build.VERSION.SDK_INT >= 18 && this.chu != null) {
+            this.chu.stopEncoder();
+            this.chu.releaseEncoder();
+            this.chu = null;
+            this.cgT = null;
+            this.cht.aad();
+            this.cht = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zt() {
-        if (this.cdi != null) {
-            this.cdi.removeCallbacksAndMessages(null);
-            this.cdi = null;
+    public void abl() {
+        if (this.chs != null) {
+            this.chs.removeCallbacksAndMessages(null);
+            this.chs = null;
         }
-        if (this.cdh != null) {
-            this.cdh.quit();
-            this.cdh = null;
+        if (this.chr != null) {
+            this.chr.quit();
+            this.chr = null;
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     class a {
-        ArrayList<com.baidu.mario.gldraw2d.params.c> ccS;
-        d ccj;
+        d cgu;
+        ArrayList<com.baidu.mario.gldraw2d.params.c> chc;
 
         public a(ArrayList<com.baidu.mario.gldraw2d.params.c> arrayList, d dVar) {
-            this.ccS = arrayList;
-            this.ccj = dVar;
+            this.chc = arrayList;
+            this.cgu = dVar;
         }
     }
 }

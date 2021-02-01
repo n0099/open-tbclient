@@ -4,104 +4,104 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import java.io.File;
 @TargetApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     private Context mContext;
     private String mFilterName;
     private boolean mIsRunning = false;
     private String mSourcePath;
-    private String nAR;
-    private a nCC;
-    private f nCD;
-    private d nCE;
-    private e nCF;
-    private volatile boolean nCG;
-    private volatile boolean nCH;
-    private volatile boolean nCI;
+    private String nKB;
+    private a nMm;
+    private f nMn;
+    private d nMo;
+    private e nMp;
+    private volatile boolean nMq;
+    private volatile boolean nMr;
+    private volatile boolean nMs;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void Tk(String str);
+        void Uh(String str);
 
-        void bW(int i, String str);
+        void cd(int i, String str);
 
-        void bX(int i, String str);
+        void ce(int i, String str);
     }
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
         this.mSourcePath = str;
-        this.nAR = str2;
+        this.nKB = str2;
         this.mFilterName = str3;
     }
 
-    public void dQr() {
+    public void dSC() {
         if (!this.mIsRunning) {
             this.mIsRunning = true;
-            this.nCG = false;
-            this.nCH = false;
-            this.nCI = false;
+            this.nMq = false;
+            this.nMr = false;
+            this.nMs = false;
             try {
-                File file = new File(new File(this.nAR).getParent());
+                File file = new File(new File(this.nKB).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.nCC != null) {
-                    this.nCC.bW(222, com.baidu.tieba.l.a.p(e));
+                if (this.nMm != null) {
+                    this.nMm.cd(222, com.baidu.tieba.l.a.o(e));
                 }
             }
             try {
-                this.nCF = new e(this.nAR);
-                this.nCD = new f(this.mContext, this.mSourcePath, this.mFilterName, this.nCF, this.nCC) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.nMp = new e(this.nKB);
+                this.nMn = new f(this.mContext, this.mSourcePath, this.mFilterName, this.nMp, this.nMm) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
-                        b.this.nCG = true;
-                        b.this.dQt();
+                        b.this.nMq = true;
+                        b.this.dSE();
                     }
                 };
-                this.nCD.start();
-                this.nCE = new d(this.mContext, this.mSourcePath, this.nCF, this.nCC) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.nMn.start();
+                this.nMo = new d(this.mContext, this.mSourcePath, this.nMp, this.nMm) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
-                        b.this.nCH = true;
-                        b.this.dQt();
+                        b.this.nMr = true;
+                        b.this.dSE();
                     }
                 };
-                this.nCE.start();
+                this.nMo.start();
             } catch (Exception e2) {
             }
         }
     }
 
-    public void dQs() {
-        if (this.nCD != null) {
-            this.nCD.interrupt();
-            this.nCD = null;
+    public void dSD() {
+        if (this.nMn != null) {
+            this.nMn.interrupt();
+            this.nMn = null;
         }
-        if (this.nCE != null) {
-            this.nCE.interrupt();
-            this.nCE = null;
+        if (this.nMo != null) {
+            this.nMo.interrupt();
+            this.nMo = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dQt() {
-        if (this.nCG && this.nCH && !this.nCI) {
-            this.nCF.stop();
-            this.nCI = true;
-            dQu();
+    public void dSE() {
+        if (this.nMq && this.nMr && !this.nMs) {
+            this.nMp.stop();
+            this.nMs = true;
+            dSF();
         }
     }
 
-    private void dQu() {
-        if (this.nCC != null) {
-            File file = new File(this.nAR);
+    private void dSF() {
+        if (this.nMm != null) {
+            File file = new File(this.nKB);
             if (file.exists() && file.length() > 0) {
-                this.nCC.Tk(this.nAR);
+                this.nMm.Uh(this.nKB);
             } else {
-                this.nCC.bW(223, "Err empty outputFile");
+                this.nMm.cd(223, "Err empty outputFile");
             }
         }
         this.mIsRunning = false;
@@ -112,6 +112,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.nCC = aVar;
+        this.nMm = aVar;
     }
 }

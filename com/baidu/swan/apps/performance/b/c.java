@@ -1,60 +1,60 @@
 package com.baidu.swan.apps.performance.b;
 
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static boolean dps = mI("swan_get_swan_id_cache");
-    private static boolean dpt = mI("swan_update_async");
-    private static boolean dpu = com.baidu.swan.apps.t.a.awB().getSwitch("swan_update_async_merge_node", false);
-    private static boolean dpv = mI("swan_pre_app_launch");
-    private static boolean dpw = mI("swan_prevent_series_launch");
-    private static int dpx = com.baidu.swan.apps.t.a.awB().getSwitch("swan_prevent_series_launch_interval", 200);
-    private static boolean dpy = mI("swan_pre_class_loader");
-    private static boolean dpz = com.baidu.swan.apps.t.a.awB().agM();
-    private static boolean dpA = mI("swan_release_runtime_wait_master_finish");
+    private static boolean drD = na("swan_get_swan_id_cache");
+    private static boolean drE = na("swan_update_async");
+    private static boolean drF = com.baidu.swan.apps.t.a.awZ().getSwitch("swan_update_async_merge_node", false);
+    private static boolean drG = na("swan_pre_app_launch");
+    private static boolean drH = na("swan_prevent_series_launch");
+    private static int drI = com.baidu.swan.apps.t.a.awZ().getSwitch("swan_prevent_series_launch_interval", 200);
+    private static boolean drJ = na("swan_pre_class_loader");
+    private static boolean drK = com.baidu.swan.apps.t.a.awZ().ahk();
+    private static boolean drL = na("swan_release_runtime_wait_master_finish");
 
-    private static boolean mI(String str) {
-        int i = com.baidu.swan.apps.t.a.awB().getSwitch(str, 0);
+    private static boolean na(String str) {
+        int i = com.baidu.swan.apps.t.a.awZ().getSwitch(str, 0);
         if (DEBUG) {
             Log.d("SwanApiCostOpt", str + " value : " + i);
         }
         return i == 1;
     }
 
-    public static boolean aDX() {
-        return dps;
+    public static boolean aEs() {
+        return drD;
     }
 
-    public static boolean aDY() {
-        return dpt;
+    public static boolean aEt() {
+        return drE;
     }
 
-    public static boolean aDZ() {
-        return dpu;
+    public static boolean aEu() {
+        return drF;
     }
 
-    public static boolean aEa() {
-        return dpv;
+    public static boolean aEv() {
+        return drG;
     }
 
-    public static boolean aEb() {
-        return dpw;
+    public static boolean aEw() {
+        return drH;
     }
 
-    public static int aEc() {
-        return dpx;
+    public static int aEx() {
+        return drI;
     }
 
-    public static boolean aEd() {
-        return dpy;
+    public static boolean aEy() {
+        return drJ;
     }
 
-    public static boolean agM() {
-        return dpz;
+    public static boolean ahk() {
+        return drK;
     }
 
-    public static boolean aEe() {
-        return dpA;
+    public static boolean aEz() {
+        return drL;
     }
 }

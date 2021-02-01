@@ -1,6 +1,6 @@
 package com.baidu.swan.ubc;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class t {
-    public static void ys(String str) {
+    public static void yL(String str) {
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static com.airbnb.lottie.model.a.e a(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         ArrayList arrayList = new ArrayList();
@@ -19,7 +19,7 @@ public class a {
             jsonReader.endArray();
             r.m(arrayList);
         } else {
-            arrayList.add(new com.airbnb.lottie.e.a(p.l(jsonReader, com.airbnb.lottie.d.f.kA())));
+            arrayList.add(new com.airbnb.lottie.e.a(p.l(jsonReader, com.airbnb.lottie.d.f.kz())));
         }
         return new com.airbnb.lottie.model.a.e(arrayList);
     }

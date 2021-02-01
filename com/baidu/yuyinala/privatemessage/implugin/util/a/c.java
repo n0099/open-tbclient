@@ -4,13 +4,13 @@ import android.os.Environment;
 import android.util.Log;
 import com.baidu.yuyinala.privatemessage.implugin.util.d;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
 
     public static File getCacheDir() {
-        if (ekd()) {
-            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + d.oWO);
+        if (emv()) {
+            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + d.phb);
             if (file.exists() || file.mkdirs()) {
                 return file;
             }
@@ -20,7 +20,7 @@ public class c {
         return null;
     }
 
-    public static boolean ekd() {
+    public static boolean emv() {
         return "mounted".equals(Environment.getExternalStorageState());
     }
 }

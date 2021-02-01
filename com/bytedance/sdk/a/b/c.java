@@ -4,39 +4,39 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class c implements Closeable {
     public abstract long b();
 
-    public abstract y emT();
+    public abstract y epn();
 
-    public abstract com.bytedance.sdk.a.a.e emU();
+    public abstract com.bytedance.sdk.a.a.e epo();
 
     public final InputStream c() {
-        return emU().elZ();
+        return epo().eot();
     }
 
     public final String e() throws IOException {
-        com.bytedance.sdk.a.a.e emU = emU();
+        com.bytedance.sdk.a.a.e epo = epo();
         try {
-            return emU.b(com.bytedance.sdk.a.b.a.c.a(emU, enr()));
+            return epo.b(com.bytedance.sdk.a.b.a.c.a(epo, epK()));
         } finally {
-            com.bytedance.sdk.a.b.a.c.a(emU);
+            com.bytedance.sdk.a.b.a.c.a(epo);
         }
     }
 
-    private Charset enr() {
-        y emT = emT();
-        return emT != null ? emT.a(com.bytedance.sdk.a.b.a.c.peI) : com.bytedance.sdk.a.b.a.c.peI;
+    private Charset epK() {
+        y epn = epn();
+        return epn != null ? epn.a(com.bytedance.sdk.a.b.a.c.poY) : com.bytedance.sdk.a.b.a.c.poY;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.bytedance.sdk.a.b.a.c.a(emU());
+        com.bytedance.sdk.a.b.a.c.a(epo());
     }
 
     public static c a(y yVar, byte[] bArr) {
-        return a(yVar, bArr.length, new com.bytedance.sdk.a.a.c().ai(bArr));
+        return a(yVar, bArr.length, new com.bytedance.sdk.a.a.c().ah(bArr));
     }
 
     public static c a(final y yVar, final long j, final com.bytedance.sdk.a.a.e eVar) {
@@ -45,7 +45,7 @@ public abstract class c implements Closeable {
         }
         return new c() { // from class: com.bytedance.sdk.a.b.c.1
             @Override // com.bytedance.sdk.a.b.c
-            public y emT() {
+            public y epn() {
                 return y.this;
             }
 
@@ -55,7 +55,7 @@ public abstract class c implements Closeable {
             }
 
             @Override // com.bytedance.sdk.a.b.c
-            public com.bytedance.sdk.a.a.e emU() {
+            public com.bytedance.sdk.a.a.e epo() {
                 return eVar;
             }
         };

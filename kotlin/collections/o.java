@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o {
-    public static final <T> List<T> eIG() {
+    public static final <T> List<T> eKW() {
         return EmptyList.INSTANCE;
     }
 
@@ -22,18 +22,18 @@ public class o {
         return new kotlin.b.h(0, collection.size() - 1);
     }
 
-    public static final <T> int hi(List<? extends T> list) {
+    public static final <T> int hg(List<? extends T> list) {
         kotlin.jvm.internal.p.o(list, "$receiver");
         return list.size() - 1;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.List<? extends T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public static final <T> List<T> hj(List<? extends T> list) {
+    public static final <T> List<T> hh(List<? extends T> list) {
         kotlin.jvm.internal.p.o(list, "$receiver");
         switch (list.size()) {
             case 0:
-                return n.eIG();
+                return n.eKW();
             case 1:
                 return n.bS(list.get(0));
             default:

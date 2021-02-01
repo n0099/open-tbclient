@@ -8,7 +8,6 @@ import android.os.HandlerThread;
 import android.os.Message;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.http.Headers;
@@ -37,16 +36,16 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static g f13395a;
+    protected static g f13397a;
     protected HandlerThread e;
     protected Handler f;
 
     /* renamed from: b  reason: collision with root package name */
-    protected Random f13396b = new Random();
+    protected Random f13398b = new Random();
     protected List<Serializable> d = Collections.synchronizedList(new ArrayList());
     protected List<Serializable> c = Collections.synchronizedList(new ArrayList());
     protected Executor g = i.b();
@@ -55,10 +54,10 @@ public class g {
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f13395a == null) {
-                f13395a = new g();
+            if (f13397a == null) {
+                f13397a = new g();
             }
-            gVar = f13395a;
+            gVar = f13397a;
         }
         return gVar;
     }
@@ -115,7 +114,7 @@ public class g {
                             bundle2.putString("qq_ver", j.c(com.tencent.open.utils.e.a(), "com.tencent.mobileqq"));
                             bundle2.putString("qua", j.e(com.tencent.open.utils.e.a(), com.tencent.open.utils.e.b()));
                             bundle2.putString("packagename", com.tencent.open.utils.e.b());
-                            bundle2.putString(IXAdRequestInfo.APP_VERSION_NAME, j.d(com.tencent.open.utils.e.a(), com.tencent.open.utils.e.b()));
+                            bundle2.putString("app_ver", j.d(com.tencent.open.utils.e.a(), com.tencent.open.utils.e.b()));
                             if (bundle != null) {
                                 bundle2.putAll(bundle);
                             }
@@ -367,7 +366,7 @@ public class g {
         if (str.equals("report_cgi")) {
             try {
                 a2 = a(Integer.parseInt(str2));
-                if (this.f13396b.nextInt(100) >= a2) {
+                if (this.f13398b.nextInt(100) >= a2) {
                     z = false;
                 }
             } catch (Exception e) {
@@ -375,7 +374,7 @@ public class g {
             }
         } else if (str.equals("report_via")) {
             a2 = e.a(str2);
-            if (this.f13396b.nextInt(100) >= a2) {
+            if (this.f13398b.nextInt(100) >= a2) {
                 z = false;
             }
         } else {
@@ -429,7 +428,7 @@ public class g {
             com.tencent.open.a.f.b("openSDK_LOG.ReportManager", "-->prepareCgiData, the 0th cgireportitem is null.");
             return null;
         }
-        String str = bVar.f13389a.get("appid");
+        String str = bVar.f13391a.get("appid");
         List<Serializable> a2 = f.a().a("report_cgi");
         if (a2 != null) {
             this.c.addAll(a2);
@@ -447,16 +446,16 @@ public class g {
             bundle.putString("key", "apn,frequency,commandid,resultcode,tmcost,reqsize,rspsize,detail,touin,deviceinfo");
             for (int i = 0; i < this.c.size(); i++) {
                 b bVar2 = (b) this.c.get(i);
-                bundle.putString(i + "_1", bVar2.f13389a.get("apn"));
-                bundle.putString(i + "_2", bVar2.f13389a.get("frequency"));
-                bundle.putString(i + "_3", bVar2.f13389a.get("commandid"));
-                bundle.putString(i + "_4", bVar2.f13389a.get("resultCode"));
-                bundle.putString(i + "_5", bVar2.f13389a.get("timeCost"));
-                bundle.putString(i + "_6", bVar2.f13389a.get("reqSize"));
-                bundle.putString(i + "_7", bVar2.f13389a.get("rspSize"));
-                bundle.putString(i + "_8", bVar2.f13389a.get("detail"));
-                bundle.putString(i + "_9", bVar2.f13389a.get("uin"));
-                bundle.putString(i + "_10", c.e(com.tencent.open.utils.e.a()) + ETAG.ITEM_SEPARATOR + bVar2.f13389a.get("deviceInfo"));
+                bundle.putString(i + "_1", bVar2.f13391a.get("apn"));
+                bundle.putString(i + "_2", bVar2.f13391a.get("frequency"));
+                bundle.putString(i + "_3", bVar2.f13391a.get("commandid"));
+                bundle.putString(i + "_4", bVar2.f13391a.get("resultCode"));
+                bundle.putString(i + "_5", bVar2.f13391a.get("timeCost"));
+                bundle.putString(i + "_6", bVar2.f13391a.get("reqSize"));
+                bundle.putString(i + "_7", bVar2.f13391a.get("rspSize"));
+                bundle.putString(i + "_8", bVar2.f13391a.get("detail"));
+                bundle.putString(i + "_9", bVar2.f13391a.get("uin"));
+                bundle.putString(i + "_10", c.e(com.tencent.open.utils.e.a()) + ETAG.ITEM_SEPARATOR + bVar2.f13391a.get("deviceInfo"));
             }
             com.tencent.open.a.f.a("openSDK_LOG.ReportManager", "-->prepareCgiData, end. params: " + bundle.toString());
             return bundle;
@@ -480,9 +479,9 @@ public class g {
         while (it.hasNext()) {
             JSONObject jSONObject = new JSONObject();
             b bVar = (b) it.next();
-            for (String str : bVar.f13389a.keySet()) {
+            for (String str : bVar.f13391a.keySet()) {
                 try {
-                    String str2 = bVar.f13389a.get(str);
+                    String str2 = bVar.f13391a.get(str);
                     if (str2 == null) {
                         str2 = "";
                     }
@@ -542,11 +541,11 @@ public class g {
                                 try {
                                     openUrl2 = HttpUtils.openUrl2(com.tencent.open.utils.e.a(), "https://appsupport.qq.com/cgi-bin/appstage/mstats_batch_report", "POST", d);
                                     try {
-                                        i3 = j.d(openUrl2.f13446a).getInt(Constants.KEYS.RET);
+                                        i3 = j.d(openUrl2.f13448a).getInt(Constants.KEYS.RET);
                                     } catch (JSONException e) {
                                         i3 = -4;
                                     }
-                                    if (i3 == 0 || !TextUtils.isEmpty(openUrl2.f13446a)) {
+                                    if (i3 == 0 || !TextUtils.isEmpty(openUrl2.f13448a)) {
                                         z2 = true;
                                         i = a2;
                                     } else {
@@ -583,7 +582,7 @@ public class g {
                             i = i6;
                         }
                         try {
-                            j2 = openUrl2.f13447b;
+                            j2 = openUrl2.f13449b;
                             j3 = openUrl2.c;
                             j = elapsedRealtime;
                         } catch (SocketTimeoutException e10) {

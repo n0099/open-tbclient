@@ -5,15 +5,15 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class d extends com.baidu.swan.apps.process.a.b.c.c {
-    private com.baidu.swan.apps.adlanding.download.a.a dVN;
-    private SwanAppDownloadAction.SwanAppDownloadType dVO;
+    private com.baidu.swan.apps.adlanding.download.a.a dXU;
+    private SwanAppDownloadAction.SwanAppDownloadType dXV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.baidu.swan.apps.adlanding.download.a.a aVar, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType) {
-        this.dVN = aVar;
-        this.dVO = swanAppDownloadType;
+        this.dXU = aVar;
+        this.dXV = swanAppDownloadType;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,20 +24,20 @@ public class d extends com.baidu.swan.apps.process.a.b.c.c {
             int i = result.getInt("state", SwanAdDownloadState.NOT_START.value());
             int i2 = result.getInt("progress", 0);
             SwanAdDownloadState convert = SwanAdDownloadState.convert(i);
-            this.dVN.a(convert, i2);
-            this.dVN.b(convert, i2);
+            this.dXU.a(convert, i2);
+            this.dXU.b(convert, i2);
             String string = result.getString("packageName", "");
             if (!TextUtils.isEmpty(string)) {
-                this.dVN.jK(string);
+                this.dXU.kc(string);
             }
-            if (this.dVO == SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
-                this.dVN.eN(true);
+            if (this.dXV == SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
+                this.dXU.eP(true);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.a.b.c.a
-    public boolean aEY() {
+    public boolean aFt() {
         return false;
     }
 

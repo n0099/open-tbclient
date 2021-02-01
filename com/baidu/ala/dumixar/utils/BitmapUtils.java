@@ -6,13 +6,12 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.text.TextUtils;
 import android.util.Base64;
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class BitmapUtils {
     public static Bitmap cropBitmapLeft(Bitmap bitmap, int i, boolean z) {
         Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, i, bitmap.getHeight());
@@ -266,7 +265,7 @@ public class BitmapUtils {
         options.inJustDecodeBounds = true;
         if (str.contains(File.separator)) {
             BitmapFactory.decodeFile(str, options);
-            options.inSampleSize = calculateInSampleSize(options, 720, PlatformPlugin.DEFAULT_SYSTEM_UI);
+            options.inSampleSize = calculateInSampleSize(options, 720, 1280);
             options.inJustDecodeBounds = false;
             return BitmapFactory.decodeFile(str, options);
         }

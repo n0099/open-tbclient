@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
-    private a mZt;
-    private HttpMessageListener mZu = new HttpMessageListener(1001506, true) { // from class: com.baidu.tieba.setting.privacy.PrivacyMarkActivity.1
+    private a njc;
+    private HttpMessageListener njd = new HttpMessageListener(1001506, true) { // from class: com.baidu.tieba.setting.privacy.PrivacyMarkActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -25,9 +25,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                 int type = privacySettingMessage.getType();
                 if (httpResponsedMessage.getError() != 0 || httpResponsedMessage.hasError()) {
                     if (PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE.equals(operation)) {
-                        PrivacyMarkActivity.this.mZt.dGF();
+                        PrivacyMarkActivity.this.njc.dIQ();
                     } else if (PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE.equals(operation)) {
-                        PrivacyMarkActivity.this.mZt.dGG();
+                        PrivacyMarkActivity.this.njc.dIR();
                     }
                     if (httpResponsedMessage.getError() == -1 || !j.isNetWorkAvailable()) {
                         PrivacyMarkActivity.this.showToast(R.string.neterror);
@@ -37,7 +37,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                         return;
                     }
                 }
-                b.brx().putInt(operation + TbadkCoreApplication.getCurrentAccount(), type);
+                b.brQ().putInt(operation + TbadkCoreApplication.getCurrentAccount(), type);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921499, null));
             }
         }
@@ -56,15 +56,15 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         if (intExtra2 == 1 || intExtra2 == 3) {
             i = intExtra2;
         }
-        this.mZt = new a(getPageContext(), i | (intExtra << 2));
-        setContentView(this.mZt.getView());
-        registerListener(this.mZu);
+        this.njc = new a(getPageContext(), i | (intExtra << 2));
+        setContentView(this.njc.getView());
+        registerListener(this.njd);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mZt.onChangeSkinType();
+        this.njc.onChangeSkinType();
     }
 }

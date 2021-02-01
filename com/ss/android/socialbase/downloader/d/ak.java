@@ -5,11 +5,11 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface ak extends IInterface {
     long a(int i, int i2) throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements ak {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
@@ -23,7 +23,7 @@ public interface ak extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ak)) {
                 return (ak) queryLocalInterface;
             }
-            return new C1232a(iBinder);
+            return new C1236a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -49,19 +49,19 @@ public interface ak extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.d.ak$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C1232a implements ak {
+        /* loaded from: classes6.dex */
+        private static class C1236a implements ak {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13108a;
+            private IBinder f13110a;
 
-            C1232a(IBinder iBinder) {
-                this.f13108a = iBinder;
+            C1236a(IBinder iBinder) {
+                this.f13110a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13108a;
+                return this.f13110a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.ak
@@ -72,7 +72,7 @@ public interface ak extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    this.f13108a.transact(1, obtain, obtain2, 0);
+                    this.f13110a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readLong();
                 } finally {

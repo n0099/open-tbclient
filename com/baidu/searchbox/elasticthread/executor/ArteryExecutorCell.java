@@ -6,7 +6,7 @@ import com.baidu.searchbox.elasticthread.task.ElasticTask;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ArteryExecutorCell extends BaseExecutorCell {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ArteryExecutorCell(int i) {

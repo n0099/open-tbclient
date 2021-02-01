@@ -7,17 +7,17 @@ import android.util.AttributeSet;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
     private AlaInfoData alaInfo;
     private String fName;
-    private int fdA;
-    private int fdB;
-    private int fdy;
-    private int fdz;
+    private int ffN;
+    private int ffO;
+    private int ffP;
+    private int ffQ;
     private String fid;
     private int floor;
     private int height;
@@ -54,8 +54,8 @@ public class HeadImageView extends TbClipImageView {
         this.fName = null;
         this.mDefaultId = R.drawable.transparent_bg;
         this.mDefaultBgId = R.color.CAM_X0209;
-        this.fdy = R.drawable.ic_icon_mask_shen20_n;
-        this.fdz = 0;
+        this.ffN = R.drawable.ic_icon_mask_shen20_n;
+        this.ffO = 0;
         this.liveStatus = -1;
         init();
     }
@@ -68,7 +68,7 @@ public class HeadImageView extends TbClipImageView {
         setDefaultBgResource(this.mDefaultBgId);
         setDefaultResource(this.mDefaultId);
         setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
-        setBorderColor(ao.getColor(R.color.black_alpha8));
+        setBorderColor(ap.getColor(R.color.black_alpha8));
         setBorderSurroundContent(true);
         setConrers(15);
     }
@@ -160,19 +160,19 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setBjhAuthIconRes(int i) {
-        this.fdA = i;
+        this.ffP = i;
     }
 
     public void setBazhuIconRes(int i) {
-        this.fdz = i;
+        this.ffO = i;
     }
 
     public void setOfficialIconResId(int i) {
-        this.fdB = i;
+        this.ffQ = i;
     }
 
     public void setGodIconResId(int i) {
-        this.fdy = i;
+        this.ffN = i;
     }
 
     public void setGodIconWidth(int i) {
@@ -211,26 +211,26 @@ public class HeadImageView extends TbClipImageView {
 
     public void updateVIcon(Canvas canvas) {
         if (this.isShowV && this.mIconWidth > 0) {
-            if (this.fdB != 0) {
-                Drawable drawable = ao.getDrawable(this.fdB);
+            if (this.ffQ != 0) {
+                Drawable drawable = ap.getDrawable(this.ffQ);
                 if (drawable != null) {
                     drawable.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                     drawable.draw(canvas);
                 }
-            } else if (this.fdA != 0) {
-                Drawable bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.fdA);
+            } else if (this.ffP != 0) {
+                Drawable bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.ffP);
                 if (bjhBigVIconDrawable != null) {
                     bjhBigVIconDrawable.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                     bjhBigVIconDrawable.draw(canvas);
                 }
-            } else if (this.fdz != 0) {
-                Drawable drawable2 = ao.getDrawable(this.fdz);
+            } else if (this.ffO != 0) {
+                Drawable drawable2 = ap.getDrawable(this.ffO);
                 if (drawable2 != null) {
                     drawable2.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                     drawable2.draw(canvas);
                 }
             } else {
-                Drawable bjhBigVIconDrawable2 = UtilHelper.getBjhBigVIconDrawable(this.fdy);
+                Drawable bjhBigVIconDrawable2 = UtilHelper.getBjhBigVIconDrawable(this.ffN);
                 if (bjhBigVIconDrawable2 != null) {
                     bjhBigVIconDrawable2.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                     bjhBigVIconDrawable2.draw(canvas);

@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
     private boolean mHasTickMarkTint;
     private boolean mHasTickMarkTintMode;

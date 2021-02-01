@@ -5,7 +5,7 @@ import android.util.JsonReader;
 import android.util.JsonToken;
 import android.util.Log;
 import com.baidu.mobstat.Config;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static com.ksad.lottie.model.a.l a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
         com.ksad.lottie.model.a.e eVar;

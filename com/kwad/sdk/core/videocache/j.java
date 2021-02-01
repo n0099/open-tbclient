@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.videocache;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class j {
     public static <T> T a(T t) {
         if (t == null) {

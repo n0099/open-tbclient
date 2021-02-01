@@ -4,11 +4,12 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.util.DeviceId;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import com.xiaomi.mipush.sdk.Constants;
 import java.nio.ByteBuffer;
 import java.util.Random;
 import java.util.UUID;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class v {
     public static byte[] a(int i) {
         return new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)};
@@ -82,7 +83,7 @@ public final class v {
                 System.arraycopy(a(UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "")), 0, bArr, 0, 9);
             } else {
                 System.arraycopy(a(c.a(b3.replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""))), 0, bArr, 0, 8);
-                bArr[8] = (byte) new Random().nextInt(127);
+                bArr[8] = (byte) new Random().nextInt(ThunderNetStateService.NetState.SYSNET_UNKNOWN);
             }
             allocate.put(a3);
             allocate.put(a4);

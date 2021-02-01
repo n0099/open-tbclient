@@ -1,12 +1,12 @@
 package com.bytedance.sdk.openadsdk.core.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6599a;
+    public String f6601a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6600b;
+    public String f6602b;
     public String c;
     public String d;
     public String e;
@@ -19,12 +19,12 @@ public class m {
     }
 
     public m a(String str) {
-        this.f6599a = str;
+        this.f6601a = str;
         return this;
     }
 
     public m b(String str) {
-        this.f6600b = str;
+        this.f6602b = str;
         return this;
     }
 

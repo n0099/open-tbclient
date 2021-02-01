@@ -5,9 +5,9 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class h {
-    public static final int bKf = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds32);
+    public static final int bNP = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds32);
 
     public static int bl(Context context) {
         int bq = bq(context);
@@ -26,22 +26,22 @@ public class h {
     }
 
     public static int bn(Context context) {
-        return bq(context) + bKf;
+        return bq(context) + bNP;
     }
 
     public static int bo(Context context) {
-        return eW(BdUtilHelper.getScreenDimensions(context)[0] / 2);
+        return fa(BdUtilHelper.getScreenDimensions(context)[0] / 2);
     }
 
     public static int bp(Context context) {
         return BdUtilHelper.getScreenDimensions(context)[0] / 2;
     }
 
-    public static int eW(int i) {
+    public static int fa(int i) {
         return (i * 16) / 10;
     }
 
-    public static int o(Context context, boolean z) {
+    public static int p(Context context, boolean z) {
         return bo(context) + bm(context);
     }
 

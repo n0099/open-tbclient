@@ -6,17 +6,17 @@ import android.os.Looper;
 import com.baidu.crabsdk.CrabSDK;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class s extends FileObserver {
-    private String ard;
-    private JSONObject are;
+    private String aqT;
+    private JSONObject aqU;
     private Context mContext;
 
     public s(Context context, String str) {
         super(str, 8);
-        this.are = null;
+        this.aqU = null;
         this.mContext = context;
-        this.ard = str;
+        this.aqT = str;
     }
 
     @Override // android.os.FileObserver
@@ -28,7 +28,7 @@ public final class s extends FileObserver {
             com.baidu.crabsdk.c.a.w("file path is null!");
             return;
         }
-        com.baidu.crabsdk.c.a.ds("File name is: " + (this.ard + "/" + str));
+        com.baidu.crabsdk.c.a.ds("File name is: " + (this.aqT + "/" + str));
         if (str.endsWith(".ydg")) {
             com.baidu.crabsdk.c.a.ds("Delete .ydg file: " + i.deleteFile(str2));
             str = str.substring(4);
@@ -49,16 +49,16 @@ public final class s extends FileObserver {
             String c = com.baidu.crabsdk.b.s.c(dr);
             com.baidu.crabsdk.c.a.ds("Key stack is:\n" + c);
             try {
-                this.are = g.c(System.currentTimeMillis(), true);
-                this.are.put("javaLine", c);
-                this.are.put("errorTrace", b2);
+                this.aqU = g.c(System.currentTimeMillis(), true);
+                this.aqU.put("javaLine", c);
+                this.aqU.put("errorTrace", b2);
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.a("Wrap java stack info error!", e);
             }
         }
         if (str.endsWith(".dmp")) {
             com.baidu.crabsdk.c.a.ds("Dump file is created!");
-            if (this.are == null || (dx = com.baidu.crabsdk.c.d.dx(this.are.toString())) == null) {
+            if (this.aqU == null || (dx = com.baidu.crabsdk.c.d.dx(this.aqU.toString())) == null) {
                 return;
             }
             com.baidu.crabsdk.c.a.ds("Write .ldg file here!");

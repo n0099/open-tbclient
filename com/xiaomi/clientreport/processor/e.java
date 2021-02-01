@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.push.y;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.Closeable;
@@ -109,7 +110,7 @@ public class e {
                         file = new File(str + ".lock");
                         try {
                             y.m616a(file);
-                            randomAccessFile = new RandomAccessFile(file, "rw");
+                            randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                             try {
                                 fileLock = randomAccessFile.getChannel().lock();
                                 try {

@@ -1,5 +1,15 @@
 package com.baidu.live.v;
-/* loaded from: classes10.dex */
+
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
 public interface a {
-    void cC(boolean z);
+    void a(ab abVar);
+
+    void b(ab abVar, String str);
+
+    void hs(String str);
+
+    void onDestroy();
+
+    void xh();
 }

@@ -7,15 +7,15 @@ import androidx.annotation.UiThread;
 import com.bytedance.sdk.openadsdk.f.a.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    static v f7134a;
+    static v f7136a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    private final a f7135b;
+    private final a f7137b;
     @Nullable
     private final WebView c;
     @NonNull
@@ -36,7 +36,7 @@ public class q {
     @UiThread
     public q a(@NonNull String str, @Nullable String str2, @NonNull e<?, ?> eVar) {
         a();
-        this.f7135b.g.a(str, eVar);
+        this.f7137b.g.a(str, eVar);
         if (this.f != null) {
             this.f.a(str);
         }
@@ -51,7 +51,7 @@ public class q {
     @UiThread
     public q a(@NonNull String str, @Nullable String str2, @NonNull d.b bVar) {
         a();
-        this.f7135b.g.a(str, bVar);
+        this.f7137b.g.a(str, bVar);
         if (this.f != null) {
             this.f.a(str);
         }
@@ -62,17 +62,17 @@ public class q {
     public q(j jVar) {
         this.d = jVar;
         u uVar = null;
-        if (jVar.h && f7134a != null) {
-            uVar = f7134a.a(jVar.k);
+        if (jVar.h && f7136a != null) {
+            uVar = f7136a.a(jVar.k);
         }
-        if (jVar.f7128a != null) {
-            this.f7135b = new y();
-            this.f7135b.a(jVar, uVar);
+        if (jVar.f7130a != null) {
+            this.f7137b = new y();
+            this.f7137b.a(jVar, uVar);
         } else {
-            this.f7135b = jVar.f7129b;
-            this.f7135b.a(jVar, uVar);
+            this.f7137b = jVar.f7131b;
+            this.f7137b.a(jVar, uVar);
         }
-        this.c = jVar.f7128a;
+        this.c = jVar.f7130a;
         this.e.add(jVar.j);
         i.a(jVar.f);
         x.a(jVar.g);

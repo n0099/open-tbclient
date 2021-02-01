@@ -16,33 +16,33 @@ import android.widget.ImageView;
 import androidx.core.view.ViewCompat;
 import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class RoundedImageView extends ImageView {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final ImageView.ScaleType[] oUo;
+    private static final ImageView.ScaleType[] peB;
     private float borderWidth;
     private float cornerRadius;
     private Drawable mBackgroundDrawable;
     private Drawable mDrawable;
     private Paint mPaint;
     private ImageView.ScaleType mScaleType;
-    private ColorStateList oUp;
-    private boolean oUq;
-    private boolean oUr;
-    private int oUs;
+    private ColorStateList peC;
+    private boolean peD;
+    private boolean peE;
+    private int peF;
 
     static {
         $assertionsDisabled = !RoundedImageView.class.desiredAssertionStatus();
-        oUo = new ImageView.ScaleType[]{ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
+        peB = new ImageView.ScaleType[]{ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
     }
 
     public RoundedImageView(Context context) {
         super(context);
         this.cornerRadius = 90.0f;
         this.borderWidth = 0.0f;
-        this.oUp = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
-        this.oUq = false;
-        this.oUr = false;
+        this.peC = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
+        this.peD = false;
+        this.peE = false;
     }
 
     public RoundedImageView(Context context, AttributeSet attributeSet) {
@@ -53,13 +53,13 @@ public class RoundedImageView extends ImageView {
         super(context, attributeSet, i);
         this.cornerRadius = 90.0f;
         this.borderWidth = 0.0f;
-        this.oUp = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
-        this.oUq = false;
-        this.oUr = false;
+        this.peC = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
+        this.peD = false;
+        this.peE = false;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.RoundedImageView, i, 0);
         int i2 = obtainStyledAttributes.getInt(a.j.RoundedImageView_android_scaleType, -1);
         if (i2 >= 0) {
-            setScaleType(oUo[i2]);
+            setScaleType(peB[i2]);
         } else {
             setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
@@ -74,23 +74,23 @@ public class RoundedImageView extends ImageView {
         if (this.borderWidth < 0.0f) {
             this.borderWidth = 0.0f;
         }
-        this.oUp = obtainStyledAttributes.getColorStateList(a.j.RoundedImageView_border_color);
-        if (ThemeManager.ejW() == ThemeManager.ThemeMode.NIGHT) {
-            this.oUp = ColorStateList.valueOf(8351342);
-        } else if (this.oUp == null) {
-            this.oUp = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
+        this.peC = obtainStyledAttributes.getColorStateList(a.j.RoundedImageView_border_color);
+        if (ThemeManager.emo() == ThemeManager.ThemeMode.NIGHT) {
+            this.peC = ColorStateList.valueOf(8351342);
+        } else if (this.peC == null) {
+            this.peC = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
         }
-        this.oUr = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_mutate_background, false);
-        this.oUq = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_oval, false);
+        this.peE = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_mutate_background, false);
+        this.peD = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_oval, false);
         updateDrawableAttrs();
-        AA(true);
+        AT(true);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.ejW() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.emo() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawCircle(getWidth() / 2, getHeight() / 2, getWidth() / 2, this.mPaint);
         }
     }
@@ -128,14 +128,14 @@ public class RoundedImageView extends ImageView {
                     break;
             }
             updateDrawableAttrs();
-            AA(false);
+            AT(false);
             invalidate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.RoundedImageView$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 
@@ -173,7 +173,7 @@ public class RoundedImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
-        this.oUs = 0;
+        this.peF = 0;
         this.mDrawable = com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.fromDrawable(drawable);
         updateDrawableAttrs();
         super.setImageDrawable(this.mDrawable);
@@ -181,17 +181,17 @@ public class RoundedImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        this.oUs = 0;
-        this.mDrawable = com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.Y(bitmap);
+        this.peF = 0;
+        this.mDrawable = com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.X(bitmap);
         updateDrawableAttrs();
         super.setImageDrawable(this.mDrawable);
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
-        if (this.oUs != i) {
-            this.oUs = i;
-            this.mDrawable = eiZ();
+        if (this.peF != i) {
+            this.peF = i;
+            this.mDrawable = elt();
             updateDrawableAttrs();
             super.setImageDrawable(this.mDrawable);
         }
@@ -203,18 +203,18 @@ public class RoundedImageView extends ImageView {
         setImageDrawable(getDrawable());
     }
 
-    private Drawable eiZ() {
+    private Drawable elt() {
         Drawable drawable = null;
         Resources resources = getResources();
         if (resources == null) {
             return null;
         }
-        if (this.oUs != 0) {
+        if (this.peF != 0) {
             try {
-                drawable = resources.getDrawable(this.oUs);
+                drawable = resources.getDrawable(this.peF);
             } catch (Exception e) {
-                Log.w("RoundedImageView", "Unable to find resource: " + this.oUs, e);
-                this.oUs = 0;
+                Log.w("RoundedImageView", "Unable to find resource: " + this.peF, e);
+                this.peF = 0;
             }
         }
         return com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.fromDrawable(drawable);
@@ -224,8 +224,8 @@ public class RoundedImageView extends ImageView {
         p(this.mDrawable);
     }
 
-    private void AA(boolean z) {
-        if (this.oUr) {
+    private void AT(boolean z) {
+        if (this.peE) {
             if (z) {
                 this.mBackgroundDrawable = com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.fromDrawable(this.mBackgroundDrawable);
             }
@@ -236,7 +236,7 @@ public class RoundedImageView extends ImageView {
     private void p(Drawable drawable) {
         if (drawable != null) {
             if (drawable instanceof com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a) {
-                ((com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a) drawable).b(this.mScaleType).bu(this.cornerRadius).bv(this.borderWidth).b(this.oUp).Ay(this.oUq).Az(true);
+                ((com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a) drawable).b(this.mScaleType).bx(this.cornerRadius).by(this.borderWidth).b(this.peC).AR(this.peD).AS(true);
             } else if (drawable instanceof LayerDrawable) {
                 LayerDrawable layerDrawable = (LayerDrawable) drawable;
                 int numberOfLayers = layerDrawable.getNumberOfLayers();
@@ -251,7 +251,7 @@ public class RoundedImageView extends ImageView {
     @Deprecated
     public void setBackgroundDrawable(Drawable drawable) {
         this.mBackgroundDrawable = drawable;
-        AA(true);
+        AT(true);
         super.setBackgroundDrawable(this.mBackgroundDrawable);
     }
 
@@ -267,7 +267,7 @@ public class RoundedImageView extends ImageView {
         if (this.cornerRadius != f) {
             this.cornerRadius = f;
             updateDrawableAttrs();
-            AA(false);
+            AT(false);
         }
     }
 
@@ -283,23 +283,23 @@ public class RoundedImageView extends ImageView {
         if (this.borderWidth != f) {
             this.borderWidth = f;
             updateDrawableAttrs();
-            AA(false);
+            AT(false);
             invalidate();
         }
     }
 
     public ColorStateList getBorderColors() {
-        return this.oUp;
+        return this.peC;
     }
 
     public void setBorderColor(ColorStateList colorStateList) {
-        if (!this.oUp.equals(colorStateList)) {
+        if (!this.peC.equals(colorStateList)) {
             if (colorStateList == null) {
                 colorStateList = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
             }
-            this.oUp = colorStateList;
+            this.peC = colorStateList;
             updateDrawableAttrs();
-            AA(false);
+            AT(false);
             if (this.borderWidth > 0.0f) {
                 invalidate();
             }
@@ -307,16 +307,16 @@ public class RoundedImageView extends ImageView {
     }
 
     public void setOval(boolean z) {
-        this.oUq = z;
+        this.peD = z;
         updateDrawableAttrs();
-        AA(false);
+        AT(false);
         invalidate();
     }
 
     public void setMutateBackground(boolean z) {
-        if (this.oUr != z) {
-            this.oUr = z;
-            AA(true);
+        if (this.peE != z) {
+            this.peE = z;
+            AT(true);
             invalidate();
         }
     }

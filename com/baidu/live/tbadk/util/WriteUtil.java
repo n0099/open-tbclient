@@ -16,9 +16,8 @@ import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WriteUtil {
     private static final String TMP_IMAGE_NAME = "camera.jpg";
 
@@ -115,7 +114,7 @@ public class WriteUtil {
                 case 6:
                     return 90;
                 case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+                    return 270;
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

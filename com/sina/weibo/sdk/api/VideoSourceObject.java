@@ -3,7 +3,7 @@ package com.sina.weibo.sdk.api;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoSourceObject extends BaseMediaObject {
     public static final Parcelable.Creator<VideoSourceObject> CREATOR = new Parcelable.Creator<VideoSourceObject>() { // from class: com.sina.weibo.sdk.api.VideoSourceObject.1
         /* JADX DEBUG: Method merged with bridge method */

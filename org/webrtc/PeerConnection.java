@@ -1,13 +1,13 @@
 package org.webrtc;
 
-import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javax.annotation.Nullable;
 import org.webrtc.DataChannel;
 import org.webrtc.MediaStreamTrack;
 import org.webrtc.RtpTransceiver;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PeerConnection {
     private final List<MediaStream> localStreams;
     private final long nativePeerConnection;
@@ -15,7 +15,7 @@ public class PeerConnection {
     private List<RtpSender> senders;
     private List<RtpTransceiver> transceivers;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum AdapterType {
         UNKNOWN,
         ETHERNET,
@@ -25,26 +25,26 @@ public class PeerConnection {
         LOOPBACK
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum BundlePolicy {
         BALANCED,
         MAXBUNDLE,
         MAXCOMPAT
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum CandidateNetworkPolicy {
         ALL,
         LOW_COST
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum ContinualGatheringPolicy {
         GATHER_ONCE,
         GATHER_CONTINUALLY
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum IceConnectionState {
         NEW,
         CHECKING,
@@ -60,7 +60,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum IceGatheringState {
         NEW,
         GATHERING,
@@ -72,7 +72,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class IceServer {
         public final String hostname;
         public final String password;
@@ -84,7 +84,7 @@ public class PeerConnection {
         public final List<String> urls;
         public final String username;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class Builder {
             private String hostname;
             private String password;
@@ -242,7 +242,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum IceTransportsType {
         NONE,
         RELAY,
@@ -250,7 +250,7 @@ public class PeerConnection {
         ALL
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class IntervalRange {
         private final int max;
         private final int min;
@@ -271,13 +271,13 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum KeyType {
         RSA,
         ECDSA
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Observer {
         @CalledByNative("Observer")
         void onAddStream(MediaStream mediaStream);
@@ -319,7 +319,7 @@ public class PeerConnection {
         void onTrack(RtpTransceiver rtpTransceiver);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class Observer_CC {
         @CalledByNative("Observer")
         public static void $default$onConnectionChange(Observer observer, PeerConnectionState peerConnectionState) {
@@ -330,7 +330,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum PeerConnectionState {
         NEW,
         CONNECTING,
@@ -345,7 +345,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class RTCConfiguration {
         @Nullable
         public RtcCertificatePem certificate;
@@ -619,19 +619,19 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum RtcpMuxPolicy {
         NEGOTIATE,
         REQUIRE
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum SdpSemantics {
         PLAN_B,
         UNIFIED_PLAN
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum SignalingState {
         STABLE,
         HAVE_LOCAL_OFFER,
@@ -646,13 +646,13 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum TcpCandidatePolicy {
         ENABLED,
         DISABLED
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum TlsCertPolicy {
         TLS_CERT_POLICY_SECURE,
         TLS_CERT_POLICY_INSECURE_NO_CHECK

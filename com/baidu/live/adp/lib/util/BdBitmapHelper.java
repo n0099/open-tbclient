@@ -17,7 +17,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BdBitmapHelper {
     public static final int ROTATE_LEFT = 0;
     public static final int ROTATE_LEFT_RIGHT = 2;

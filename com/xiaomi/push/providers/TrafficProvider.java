@@ -17,11 +17,11 @@ public class TrafficProvider extends ContentProvider {
     public static final Uri f869a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final UriMatcher f14192a = new UriMatcher(-1);
+    private static final UriMatcher f14194a = new UriMatcher(-1);
 
     static {
-        f14192a.addURI("com.xiaomi.push.providers.TrafficProvider", "traffic", 1);
-        f14192a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
+        f14194a.addURI("com.xiaomi.push.providers.TrafficProvider", "traffic", 1);
+        f14194a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
     }
 
     @Override // android.content.ContentProvider
@@ -36,7 +36,7 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        switch (f14192a.match(uri)) {
+        switch (f14194a.match(uri)) {
             case 1:
                 return "vnd.android.cursor.dir/vnd.xiaomi.push.traffic";
             default:
@@ -59,7 +59,7 @@ public class TrafficProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         Cursor query;
         synchronized (a.f871a) {
-            switch (f14192a.match(uri)) {
+            switch (f14194a.match(uri)) {
                 case 1:
                     query = this.f870a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
                     break;
@@ -72,7 +72,7 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        switch (f14192a.match(uri)) {
+        switch (f14194a.match(uri)) {
             case 2:
                 if (contentValues == null || !contentValues.containsKey("imsi")) {
                     return 0;

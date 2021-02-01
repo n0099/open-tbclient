@@ -7,23 +7,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class bk extends SQLiteOpenHelper {
-    public static volatile bk pFE;
+    public static volatile bk pPJ;
 
     public bk(Context context) {
         super(context, "ad_log_report.db", (SQLiteDatabase.CursorFactory) null, 1);
     }
 
-    public static bk il(Context context) {
-        if (pFE == null) {
+    public static bk io(Context context) {
+        if (pPJ == null) {
             synchronized (bk.class) {
-                if (pFE == null) {
-                    pFE = new bk(context.getApplicationContext());
+                if (pPJ == null) {
+                    pPJ = new bk(context.getApplicationContext());
                 }
             }
         }
-        return pFE;
+        return pPJ;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x008f  */
@@ -69,8 +69,8 @@ public class bk extends SQLiteOpenHelper {
                     String string4 = cursor.getString(cursor.getColumnIndex("ad_aid"));
                     long j = cursor.getLong(cursor.getColumnIndex(IMConstants.MSG_ROW_ID));
                     bf bfVar = new bf();
-                    bfVar.f7766a = j;
-                    bfVar.f7767b = string;
+                    bfVar.f7768a = j;
+                    bfVar.f7769b = string;
                     bfVar.c = string2;
                     bfVar.d = string3;
                     bfVar.e = string4;

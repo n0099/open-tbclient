@@ -7,16 +7,16 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.editortools.emotiontool.a;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ac extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static ac iRI;
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> iRJ;
-    private final CustomMessageListener iRK = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.faceshop.ac.1
+    private static ac iXp;
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> iXq;
+    private final CustomMessageListener iXr = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.faceshop.ac.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -24,25 +24,25 @@ public class ac extends com.baidu.tbadk.editortools.emotiontool.a {
             new Thread(new Runnable() { // from class: com.baidu.tieba.faceshop.ac.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    ac.this.cyz();
+                    ac.this.czK();
                 }
             }).start();
         }
     };
 
     private ac() {
-        MessageManager.getInstance().registerListener(this.iRK);
+        MessageManager.getInstance().registerListener(this.iXr);
     }
 
-    public static ac cyy() {
-        if (iRI == null) {
+    public static ac czJ() {
+        if (iXp == null) {
             synchronized (ac.class) {
-                if (iRI == null) {
-                    iRI = new ac();
+                if (iXp == null) {
+                    iXp = new ac();
                 }
             }
         }
-        return iRI;
+        return iXp;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
@@ -51,23 +51,23 @@ public class ac extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void a(a.InterfaceC0576a interfaceC0576a) {
-        if (com.baidu.tbadk.core.util.n.checkSD()) {
-            if (this.iRJ == null || this.iRJ.isEmpty()) {
-                this.iRJ = new LinkedList<>();
+    public void a(a.InterfaceC0573a interfaceC0573a) {
+        if (com.baidu.tbadk.core.util.o.checkSD()) {
+            if (this.iXq == null || this.iXq.isEmpty()) {
+                this.iXq = new LinkedList<>();
                 z zVar = new z();
-                this.iRJ.add(zVar);
-                if (interfaceC0576a != null) {
-                    interfaceC0576a.a(zVar);
+                this.iXq.add(zVar);
+                if (interfaceC0573a != null) {
+                    interfaceC0573a.a(zVar);
                     return;
                 }
                 return;
             }
-            Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.iRJ.iterator();
+            Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.iXq.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-                if (interfaceC0576a != null) {
-                    interfaceC0576a.a(next);
+                if (interfaceC0573a != null) {
+                    interfaceC0573a.a(next);
                 }
             }
         }
@@ -76,14 +76,14 @@ public class ac extends com.baidu.tbadk.editortools.emotiontool.a {
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void register() {
         if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            List<CollectEmotionData> IU = i.cxt().IU(TbadkCoreApplication.getCurrentAccount());
-            if (IU == null || IU.size() == 0) {
+            List<CollectEmotionData> JF = i.cyE().JF(TbadkCoreApplication.getCurrentAccount());
+            if (JF == null || JF.size() == 0) {
                 CollectEmotionData collectEmotionData = new CollectEmotionData();
                 collectEmotionData.pid = "setting_icon";
                 collectEmotionData.orderId = 301;
                 collectEmotionData.sharpText = com.baidu.tbadk.imageManager.d.SETTING_SHARP_TEXT;
                 collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
-                i.cxt().a(collectEmotionData);
+                i.cyE().a(collectEmotionData);
                 EmotionGroupData emotionGroupData = new EmotionGroupData();
                 emotionGroupData.groupId = com.baidu.tbadk.imageManager.d.getCollectGroupId();
                 emotionGroupData.groupName = "用户收藏表情";
@@ -91,39 +91,39 @@ public class ac extends com.baidu.tbadk.editortools.emotiontool.a {
                 emotionGroupData.emotionsCount = 301;
                 emotionGroupData.status = 1;
                 emotionGroupData.downloadUrl = "";
-                i.cxt().a(TbadkCoreApplication.getCurrentAccount(), emotionGroupData);
-                i.cxt().a(emotionGroupData);
+                i.cyE().a(TbadkCoreApplication.getCurrentAccount(), emotionGroupData);
+                i.cyE().a(emotionGroupData);
                 return;
             }
-            int size = (IU == null || IU.size() == 0) ? 0 : IU.size() - 1;
-            aq aqVar = new aq("c12224");
-            aqVar.an("obj_param1", size);
-            aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(aqVar);
+            int size = (JF == null || JF.size() == 0) ? 0 : JF.size() - 1;
+            ar arVar = new ar("c12224");
+            arVar.ap("obj_param1", size);
+            arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(arVar);
         }
     }
 
-    public synchronized void cyz() {
-        if (this.iRJ != null) {
-            Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.iRJ.iterator();
+    public synchronized void czK() {
+        if (this.iXq != null) {
+            Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.iXq.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.editortools.emotiontool.c next = it.next();
                 if (next instanceof z) {
-                    ((z) next).KM();
+                    ((z) next).Mk();
                 }
             }
         }
     }
 
-    public boolean Jf(String str) {
-        if (this.iRJ == null) {
+    public boolean JQ(String str) {
+        if (this.iXq == null) {
             return false;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.iRJ.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.iXq.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (next instanceof z) {
-                return ((z) next).Jf(str);
+                return ((z) next).JQ(str);
             }
         }
         return false;

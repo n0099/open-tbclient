@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d extends BaseAdapter {
-    private List<e> aWX;
+    private List<e> bad;
     private Context mContext;
 
     public d(Context context) {
@@ -19,26 +19,26 @@ public class d extends BaseAdapter {
     }
 
     public void J(List<e> list) {
-        this.aWX = list;
+        this.bad = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aWX == null) {
+        if (this.bad == null) {
             return 1;
         }
-        return this.aWX.size() + 1;
+        return this.bad.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: AU */
+    /* renamed from: Bk */
     public e getItem(int i) {
-        if (this.aWX == null || i < 0 || i >= getCount() - 1) {
+        if (this.bad == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.aWX.get(i);
+        return this.bad.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,34 +62,34 @@ public class d extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.gift_num_item, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.aWY = (TextView) view.findViewById(R.id.text);
-            aVar2.bPy = view.findViewById(R.id.divider);
+            aVar2.bae = (TextView) view.findViewById(R.id.text);
+            aVar2.bTo = view.findViewById(R.id.divider);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        ao.setBackgroundResource(view, R.drawable.list_item_selector);
-        ao.setViewTextColor(aVar.aWY, R.color.CAM_X0105, 1);
-        ao.setBackgroundColor(aVar.bPy, R.color.CAM_X0204);
+        ap.setBackgroundResource(view, R.drawable.list_item_selector);
+        ap.setViewTextColor(aVar.bae, R.color.CAM_X0105, 1);
+        ap.setBackgroundColor(aVar.bTo, R.color.CAM_X0204);
         e item = getItem(i);
         if (getItemViewType(i) == 1) {
-            aVar.aWY.setText(R.string.custom_num);
-            aVar.bPy.setVisibility(4);
+            aVar.bae.setText(R.string.custom_num);
+            aVar.bTo.setVisibility(4);
         } else if (item != null) {
-            aVar.aWY.setText((item.getNumber() <= 0 ? 1 : item.getNumber()) + (item.getName() == null ? "" : item.getName()));
-            aVar.bPy.setVisibility(0);
+            aVar.bae.setText((item.getNumber() <= 0 ? 1 : item.getNumber()) + (item.getName() == null ? "" : item.getName()));
+            aVar.bTo.setVisibility(0);
         } else {
-            aVar.aWY.setText("");
-            aVar.bPy.setVisibility(0);
+            aVar.bae.setText("");
+            aVar.bTo.setVisibility(0);
         }
         return view;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     private class a {
-        public TextView aWY;
-        public View bPy;
+        public View bTo;
+        public TextView bae;
 
         private a() {
         }

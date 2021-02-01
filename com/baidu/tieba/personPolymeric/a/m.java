@@ -5,13 +5,13 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.m, CardViewHolder<com.baidu.tieba.personPolymeric.view.j>> {
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public m(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.m.msK);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.m.mBK);
         this.mPageContext = tbPageContext;
     }
 
@@ -27,8 +27,8 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.m mVar, CardViewHolder<com.baidu.tieba.personPolymeric.view.j> cardViewHolder) {
-        cardViewHolder.crP().a(mVar);
-        cardViewHolder.crP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.ctb().a(mVar);
+        cardViewHolder.ctb().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return cardViewHolder.getView();
     }
 }

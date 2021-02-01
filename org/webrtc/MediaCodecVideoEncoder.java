@@ -28,7 +28,7 @@ import org.webrtc.EglBase14;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MediaCodecVideoEncoder {
     private static final int BITRATE_ADJUSTMENT_FPS = 30;
     private static final double BITRATE_CORRECTION_MAX_SCALE = 4.0d;
@@ -118,7 +118,7 @@ public class MediaCodecVideoEncoder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.MediaCodecVideoEncoder$1CaughtException  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class C1CaughtException {
         Exception e;
 
@@ -126,14 +126,14 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum BitrateAdjustmentType {
         NO_ADJUSTMENT,
         FRAMERATE_ADJUSTMENT,
         DYNAMIC_ADJUSTMENT
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class EncoderProperties {
         public final BitrateAdjustmentType bitrateAdjustmentType;
         public final String codecName;
@@ -146,7 +146,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum H264Profile {
         CONSTRAINED_BASELINE(0),
         BASELINE(1),
@@ -166,7 +166,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class HwEncoderFactory implements VideoEncoderFactory {
         private final VideoCodecInfo[] supportedHardwareCodecs = getSupportedHardwareCodecs();
 
@@ -241,7 +241,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class MediaCodecProperties {
         public final BitrateAdjustmentType bitrateAdjustmentType;
         public final String codecPrefix;
@@ -254,12 +254,12 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface MediaCodecVideoEncoderErrorCallback {
         void onMediaCodecVideoEncoderCriticalError(int i);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     static class OutputBufferInfo {
         public final ByteBuffer buffer;
         public final int index;
@@ -294,7 +294,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum VideoCodecType {
         VIDEO_CODEC_UNKNOWN,
         VIDEO_CODEC_VP8,
@@ -358,6 +358,8 @@ public class MediaCodecVideoEncoder {
         MediaCodecInfo mediaCodecInfo;
         String str2;
         boolean z;
+        String str3;
+        boolean z2;
         BitrateAdjustmentType bitrateAdjustmentType;
         int[] iArr2;
         int[] iArr3;
@@ -381,55 +383,66 @@ public class MediaCodecVideoEncoder {
                 int i4 = 0;
                 while (true) {
                     if (i4 >= length) {
+                        str2 = null;
                         break;
                     } else if (supportedTypes[i4].equals(str)) {
-                        String name = mediaCodecInfo.getName();
-                        if (i * i2 >= 25364 || !name.startsWith("OMX.hisi.")) {
-                            str2 = name;
+                        str2 = mediaCodecInfo.getName();
+                        if (i * i2 < 25364 && str2.startsWith("OMX.hisi.")) {
+                            str2 = null;
+                        }
+                        if (str2 != null && str2.startsWith("OMX.IMG.TOPAZ")) {
+                            z = true;
+                            str3 = str2;
                         }
                     } else {
                         i4++;
                     }
                 }
-                str2 = null;
-                if (str2 != null) {
-                    Logging.v(TAG, "Found candidate encoder " + str2);
+                z = false;
+                str3 = str2;
+                if (str3 != null) {
+                    Logging.v(TAG, "Found candidate encoder " + str3);
                     BitrateAdjustmentType bitrateAdjustmentType2 = BitrateAdjustmentType.NO_ADJUSTMENT;
                     int length2 = mediaCodecPropertiesArr.length;
                     int i5 = 0;
                     while (true) {
                         if (i5 >= length2) {
-                            z = false;
+                            z2 = false;
                             bitrateAdjustmentType = bitrateAdjustmentType2;
                             break;
                         }
                         MediaCodecProperties mediaCodecProperties = mediaCodecPropertiesArr[i5];
-                        if (str2.startsWith(mediaCodecProperties.codecPrefix)) {
+                        if (str3.startsWith(mediaCodecProperties.codecPrefix)) {
                             if (Build.VERSION.SDK_INT < mediaCodecProperties.minSdk) {
-                                Logging.w(TAG, "Codec " + str2 + " is disabled due to SDK version " + Build.VERSION.SDK_INT);
+                                Logging.w(TAG, "Codec " + str3 + " is disabled due to SDK version " + Build.VERSION.SDK_INT);
                             } else {
                                 if (mediaCodecProperties.bitrateAdjustmentType != BitrateAdjustmentType.NO_ADJUSTMENT) {
                                     bitrateAdjustmentType2 = mediaCodecProperties.bitrateAdjustmentType;
-                                    Logging.w(TAG, "Codec " + str2 + " requires bitrate adjustment: " + bitrateAdjustmentType2);
+                                    Logging.w(TAG, "Codec " + str3 + " requires bitrate adjustment: " + bitrateAdjustmentType2);
                                 }
-                                z = true;
+                                z2 = true;
                                 bitrateAdjustmentType = bitrateAdjustmentType2;
                             }
                         }
                         i5++;
                     }
-                    if (z) {
+                    if (z2) {
                         try {
                             MediaCodecInfo.CodecCapabilities capabilitiesForType = mediaCodecInfo.getCapabilitiesForType(str);
                             for (int i6 : capabilitiesForType.colorFormats) {
                                 Logging.v(TAG, "   Color: 0x" + Integer.toHexString(i6));
                             }
                             for (int i7 : iArr) {
-                                for (int i8 : capabilitiesForType.colorFormats) {
-                                    if (i8 == i7) {
-                                        Logging.d(TAG, "Found target encoder for mime " + str + " : " + str2 + ". Color: 0x" + Integer.toHexString(i8) + ". Bitrate adjustment: " + bitrateAdjustmentType);
-                                        return new EncoderProperties(str2, i8, bitrateAdjustmentType);
+                                if (z && i7 == 19) {
+                                    Logging.d(TAG, "OMX.IMG.TOPAZ not support color formate 19");
+                                } else {
+                                    for (int i8 : capabilitiesForType.colorFormats) {
+                                        if (i8 == i7) {
+                                            Logging.d(TAG, "Found target encoder for mime " + str + " : " + str3 + ". Color: 0x" + Integer.toHexString(i8) + ". Bitrate adjustment: " + bitrateAdjustmentType);
+                                            return new EncoderProperties(str3, i8, bitrateAdjustmentType);
+                                        }
                                     }
+                                    continue;
                                 }
                             }
                             continue;

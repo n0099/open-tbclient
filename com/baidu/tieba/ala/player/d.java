@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.player;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface d {
-    Object z(String str, Object obj);
+    Object x(String str, Object obj);
 }

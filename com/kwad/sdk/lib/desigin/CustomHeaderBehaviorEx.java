@@ -14,7 +14,7 @@ import com.kwad.sdk.lib.desigin.CustomAppBarFlingConsumer;
 import com.kwad.sdk.lib.desigin.KSAppBarLayout;
 import com.kwad.sdk.lib.desigin.KSAppBarLayout.KSBehavior;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KSAppBarLayout.KSBehavior & CustomAppBarFlingConsumer> extends KSViewOffsetBehavior<V> {
     private static final int FLING_MAX_VELOCITY = 10000;
     private static final int INVALID_POINTER = -1;
@@ -31,7 +31,7 @@ public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KS
     private VelocityTracker mVelocityTracker;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class FlingRunnable implements Runnable {
         private int mLastScrollY;
         private final V mLayout;

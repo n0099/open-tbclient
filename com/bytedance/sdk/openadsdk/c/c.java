@@ -2,15 +2,15 @@ package com.bytedance.sdk.openadsdk.c;
 
 import androidx.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends b<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    private AtomicBoolean f6222a = new AtomicBoolean(false);
+    private AtomicBoolean f6224a = new AtomicBoolean(false);
 
     @Override // com.bytedance.sdk.openadsdk.c.b
     public void a() {
-        if (!this.f6222a.getAndSet(true)) {
+        if (!this.f6224a.getAndSet(true)) {
             com.bytedance.sdk.openadsdk.multipro.c.a.c();
         }
     }
@@ -22,7 +22,7 @@ public class c extends b<a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.c.b
     public void a(@NonNull a aVar) {
-        if (this.f6222a.get()) {
+        if (this.f6224a.get()) {
             com.bytedance.sdk.openadsdk.multipro.c.a.a(aVar.a());
         }
     }

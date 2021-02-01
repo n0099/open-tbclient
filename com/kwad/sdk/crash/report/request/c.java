@@ -7,7 +7,7 @@ import com.kwad.sdk.crash.report.ReportEvent;
 import com.kwad.sdk.crash.utils.d;
 import java.util.Calendar;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static ReportEvent a(@NonNull ExceptionMessage exceptionMessage) {
         ReportEvent reportEvent = new ReportEvent();

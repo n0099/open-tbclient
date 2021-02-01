@@ -15,7 +15,7 @@ import com.baidu.swan.apps.t.b.i;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SwanAppUtilsJavaScriptInterface {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_utils";
@@ -100,14 +100,14 @@ public class SwanAppUtilsJavaScriptInterface {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.t.a.awz().a(context, parseString, new i.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+        com.baidu.swan.apps.t.a.awX().a(context, parseString, new i.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void ayd() {
+            public void ayB() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void aye() {
+            public void ayC() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });

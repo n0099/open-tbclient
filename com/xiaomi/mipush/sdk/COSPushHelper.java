@@ -10,7 +10,7 @@ public class COSPushHelper {
     private static volatile boolean f103a = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f13786a = 0;
+    private static long f13788a = 0;
 
     public static void convertMessage(Intent intent) {
         h.a(intent);
@@ -19,8 +19,8 @@ public class COSPushHelper {
     public static void doInNetworkChange(Context context) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (getNeedRegister()) {
-            if (f13786a <= 0 || f13786a + 300000 <= elapsedRealtime) {
-                f13786a = elapsedRealtime;
+            if (f13788a <= 0 || f13788a + 300000 <= elapsedRealtime) {
+                f13788a = elapsedRealtime;
                 registerCOSAssemblePush(context);
             }
         }

@@ -5,13 +5,13 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class bj {
     public static String a(String str) {
         if (str == null) {
             return null;
         }
-        return Base64.encodeToString(a(str.getBytes(com.qq.e.comm.plugin.f.a.f11990a)), 2);
+        return Base64.encodeToString(a(str.getBytes(com.qq.e.comm.plugin.f.a.f11992a)), 2);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:32:0x004b A[Catch: Exception -> 0x004f, TRY_LEAVE, TryCatch #0 {Exception -> 0x004f, blocks: (B:30:0x0046, B:32:0x004b), top: B:41:0x0046 }] */

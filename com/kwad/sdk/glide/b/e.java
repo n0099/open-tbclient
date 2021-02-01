@@ -10,18 +10,18 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f9942a = e.class.getSimpleName();
+    private static final String f9944a = e.class.getSimpleName();
     @ColorInt
 
     /* renamed from: b  reason: collision with root package name */
-    private int[] f9943b;
+    private int[] f9945b;
     @ColorInt
     private final int[] c;
-    private final a.InterfaceC1116a d;
+    private final a.InterfaceC1120a d;
     private ByteBuffer e;
     private byte[] f;
     private short[] g;
@@ -43,15 +43,15 @@ public class e implements a {
     @NonNull
     private Bitmap.Config u;
 
-    public e(@NonNull a.InterfaceC1116a interfaceC1116a) {
+    public e(@NonNull a.InterfaceC1120a interfaceC1120a) {
         this.c = new int[256];
         this.u = Bitmap.Config.ARGB_8888;
-        this.d = interfaceC1116a;
+        this.d = interfaceC1120a;
         this.m = new c();
     }
 
-    public e(@NonNull a.InterfaceC1116a interfaceC1116a, c cVar, ByteBuffer byteBuffer, int i) {
-        this(interfaceC1116a);
+    public e(@NonNull a.InterfaceC1120a interfaceC1120a, c cVar, ByteBuffer byteBuffer, int i) {
+        this(interfaceC1120a);
         a(cVar, byteBuffer, i);
     }
 
@@ -69,7 +69,7 @@ public class e implements a {
         int i7 = 0;
         int i8 = 0;
         for (int i9 = i; i9 < this.q + i && i9 < this.j.length && i9 < i2; i9++) {
-            int i10 = this.f9943b[this.j[i9] & 255];
+            int i10 = this.f9945b[this.j[i9] & 255];
             if (i10 != 0) {
                 i8 += (i10 >> 24) & 255;
                 i7 += (i10 >> 16) & 255;
@@ -79,7 +79,7 @@ public class e implements a {
             }
         }
         for (int i11 = i + i3; i11 < i + i3 + this.q && i11 < this.j.length && i11 < i2; i11++) {
-            int i12 = this.f9943b[this.j[i11] & 255];
+            int i12 = this.f9945b[this.j[i11] & 255];
             if (i12 != 0) {
                 i8 += (i12 >> 24) & 255;
                 i7 += (i12 >> 16) & 255;
@@ -118,9 +118,9 @@ public class e implements a {
                     }
                 }
                 int i2 = bVar2.d / this.q;
-                int i3 = bVar2.f9937b / this.q;
+                int i3 = bVar2.f9939b / this.q;
                 int i4 = bVar2.c / this.q;
-                int i5 = (i3 * this.s) + (bVar2.f9936a / this.q);
+                int i5 = (i3 * this.s) + (bVar2.f9938a / this.q);
                 int i6 = i5 + (i2 * this.s);
                 while (i5 < i6) {
                     int i7 = i5 + i4;
@@ -153,13 +153,13 @@ public class e implements a {
     private void a(b bVar) {
         int[] iArr = this.k;
         int i = bVar.d;
-        int i2 = bVar.f9937b;
+        int i2 = bVar.f9939b;
         int i3 = bVar.c;
-        int i4 = bVar.f9936a;
+        int i4 = bVar.f9938a;
         boolean z = this.l == 0;
         int i5 = this.s;
         byte[] bArr = this.j;
-        int[] iArr2 = this.f9943b;
+        int[] iArr2 = this.f9945b;
         byte b2 = -1;
         for (int i6 = 0; i6 < i; i6++) {
             int i7 = (i6 + i2) * i5;
@@ -194,9 +194,9 @@ public class e implements a {
         int i4;
         int[] iArr = this.k;
         int i5 = bVar.d / this.q;
-        int i6 = bVar.f9937b / this.q;
+        int i6 = bVar.f9939b / this.q;
         int i7 = bVar.c / this.q;
-        int i8 = bVar.f9936a / this.q;
+        int i8 = bVar.f9938a / this.q;
         int i9 = 1;
         int i10 = 8;
         int i11 = 0;
@@ -205,7 +205,7 @@ public class e implements a {
         int i13 = this.s;
         int i14 = this.r;
         byte[] bArr = this.j;
-        int[] iArr2 = this.f9943b;
+        int[] iArr2 = this.f9945b;
         Boolean bool = this.t;
         int i15 = 0;
         while (i15 < i5) {
@@ -532,14 +532,14 @@ public class e implements a {
     public synchronized Bitmap h() {
         Bitmap bitmap;
         if (this.m.c <= 0 || this.l < 0) {
-            if (Log.isLoggable(f9942a, 3)) {
-                Log.d(f9942a, "Unable to decode frame, frameCount=" + this.m.c + ", framePointer=" + this.l);
+            if (Log.isLoggable(f9944a, 3)) {
+                Log.d(f9944a, "Unable to decode frame, frameCount=" + this.m.c + ", framePointer=" + this.l);
             }
             this.p = 1;
         }
         if (this.p == 1 || this.p == 2) {
-            if (Log.isLoggable(f9942a, 3)) {
-                Log.d(f9942a, "Unable to decode frame, status=" + this.p);
+            if (Log.isLoggable(f9944a, 3)) {
+                Log.d(f9944a, "Unable to decode frame, status=" + this.p);
             }
             bitmap = null;
         } else {
@@ -550,18 +550,18 @@ public class e implements a {
             b bVar = this.m.e.get(this.l);
             int i = this.l - 1;
             b bVar2 = i >= 0 ? this.m.e.get(i) : null;
-            this.f9943b = bVar.k != null ? bVar.k : this.m.f9938a;
-            if (this.f9943b == null) {
-                if (Log.isLoggable(f9942a, 3)) {
-                    Log.d(f9942a, "No valid color table found for frame #" + this.l);
+            this.f9945b = bVar.k != null ? bVar.k : this.m.f9940a;
+            if (this.f9945b == null) {
+                if (Log.isLoggable(f9944a, 3)) {
+                    Log.d(f9944a, "No valid color table found for frame #" + this.l);
                 }
                 this.p = 1;
                 bitmap = null;
             } else {
                 if (bVar.f) {
-                    System.arraycopy(this.f9943b, 0, this.c, 0, this.f9943b.length);
-                    this.f9943b = this.c;
-                    this.f9943b[bVar.h] = 0;
+                    System.arraycopy(this.f9945b, 0, this.c, 0, this.f9945b.length);
+                    this.f9945b = this.c;
+                    this.f9945b[bVar.h] = 0;
                 }
                 bitmap = a(bVar, bVar2);
             }

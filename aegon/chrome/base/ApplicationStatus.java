@@ -8,7 +8,7 @@ import androidx.annotation.MainThread;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ApplicationStatus {
     public static final Map<Activity, Object> sActivityInfo;
     public static final ObserverList<ApplicationStateListener> sApplicationStateListeners;
@@ -16,7 +16,7 @@ public class ApplicationStatus {
     public static int sCurrentApplicationState;
     public static ApplicationStateListener sNativeApplicationStateListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface ApplicationStateListener {
     }
 

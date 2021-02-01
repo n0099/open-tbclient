@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.d;
 import android.content.Context;
 import com.baidu.searchbox.dns.DnsHelper;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class g extends com.baidu.android.pushservice.g.c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -14,7 +14,7 @@ public class g extends com.baidu.android.pushservice.g.c {
     private String c;
     private List<String> d;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(List<String> list);
     }

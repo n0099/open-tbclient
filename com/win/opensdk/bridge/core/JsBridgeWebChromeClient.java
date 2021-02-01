@@ -9,7 +9,7 @@ public class JsBridgeWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public final boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         jsPromptResult.confirm();
-        JsCallJava.eGQ().f(webView, str2);
+        JsCallJava.eJg().f(webView, str2);
         return true;
     }
 

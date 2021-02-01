@@ -1,20 +1,20 @@
 package com.baidu.tieba.ala.liveroom.challenge.message;
 
-import com.baidu.live.data.ay;
 import com.baidu.live.data.bc;
-import com.baidu.live.data.be;
-import com.baidu.live.data.bf;
 import com.baidu.live.data.bg;
+import com.baidu.live.data.bi;
+import com.baidu.live.data.bj;
+import com.baidu.live.data.bk;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage {
-    private bc aLI;
-    private bg aLJ;
-    private bg aLK;
-    private ay hqX;
-    private be hqY;
-    private bf hqZ;
+    private bg aOF;
+    private bk aOG;
+    private bk aOH;
+    private bc hvh;
+    private bi hvi;
+    private bj hvj;
 
     public AlaGetChallengeInfoResponseMessage() {
         super(1021112);
@@ -27,70 +27,70 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && getError() == 0) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("challenge_info");
             if (optJSONObject2 != null) {
-                this.aLI = new bc();
-                this.aLI.parseJson(optJSONObject2);
+                this.aOF = new bg();
+                this.aOF.parseJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("anchor_info");
             if (optJSONObject3 != null) {
-                this.aLJ = new bg();
-                this.aLJ.parseJson(optJSONObject3);
+                this.aOG = new bk();
+                this.aOG.parseJson(optJSONObject3);
             }
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("rival_info");
             if (optJSONObject4 != null) {
-                this.aLK = new bg();
-                this.aLK.parseJson(optJSONObject4);
+                this.aOH = new bk();
+                this.aOH.parseJson(optJSONObject4);
             }
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("challenge_conf");
             if (optJSONObject5 != null) {
-                this.hqX = new ay();
-                this.hqX.parseJson(optJSONObject5);
+                this.hvh = new bc();
+                this.hvh.parseJson(optJSONObject5);
             }
             JSONObject optJSONObject6 = optJSONObject.optJSONObject("punish_info");
             if (optJSONObject6 != null) {
-                this.hqY = new be();
-                this.hqY.parseJson(optJSONObject6);
+                this.hvi = new bi();
+                this.hvi.parseJson(optJSONObject6);
             }
             JSONObject optJSONObject7 = optJSONObject.optJSONObject("punishStickerInfo");
             if (optJSONObject7 != null) {
-                this.hqZ = new bf();
-                this.hqZ.parseJson(optJSONObject7);
+                this.hvj = new bj();
+                this.hvj.parseJson(optJSONObject7);
             }
         }
     }
 
-    public void a(bc bcVar) {
-        this.aLI = bcVar;
-    }
-
     public void a(bg bgVar) {
-        this.aLJ = bgVar;
+        this.aOF = bgVar;
     }
 
-    public void b(bg bgVar) {
-        this.aLK = bgVar;
+    public void a(bk bkVar) {
+        this.aOG = bkVar;
     }
 
-    public bc cbW() {
-        return this.aLI;
+    public void b(bk bkVar) {
+        this.aOH = bkVar;
     }
 
-    public bg cbX() {
-        return this.aLJ;
+    public bg ccR() {
+        return this.aOF;
     }
 
-    public bg cbY() {
-        return this.aLK;
+    public bk ccS() {
+        return this.aOG;
     }
 
-    public ay cbZ() {
-        return this.hqX;
+    public bk ccT() {
+        return this.aOH;
     }
 
-    public be cca() {
-        return this.hqY;
+    public bc ccU() {
+        return this.hvh;
     }
 
-    public bf ccb() {
-        return this.hqZ;
+    public bi ccV() {
+        return this.hvi;
+    }
+
+    public bj ccW() {
+        return this.hvj;
     }
 }

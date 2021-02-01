@@ -3,7 +3,7 @@ package com.baidu.tieba.newfaceshop.facemake;
 import com.baidu.tieba.face.data.FaceData;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FaceGroupDraft implements Serializable {
     private String mFailMsg;
     private int mForumId;

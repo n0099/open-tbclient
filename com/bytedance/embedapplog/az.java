@@ -7,7 +7,7 @@ import com.bytedance.embedapplog.a;
 import com.bytedance.embedapplog.bi;
 import com.bytedance.embedapplog.bp;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class az extends ax<a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public az() {
@@ -15,19 +15,19 @@ public final class az extends ax<a> {
     }
 
     @Override // com.bytedance.embedapplog.ax, com.bytedance.embedapplog.bi
-    public bi.a hP(Context context) {
+    public bi.a hS(Context context) {
         a(context, context.getPackageName());
-        return super.hP(context);
+        return super.hS(context);
     }
 
     @Override // com.bytedance.embedapplog.ax
-    protected bp.b<a, String> elz() {
+    protected bp.b<a, String> enS() {
         return new bp.b<a, String>() { // from class: com.bytedance.embedapplog.az.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b
             /* renamed from: a */
             public a e(IBinder iBinder) {
-                return a.AbstractBinderC0981a.a(iBinder);
+                return a.AbstractBinderC0985a.a(iBinder);
             }
 
             /* JADX DEBUG: Method merged with bridge method */

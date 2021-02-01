@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.holder.CardViewHolder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsearch.b.a, CardViewHolder<com.baidu.tieba.forumsearch.c.c>> {
     private TbPageContext mPageContext;
 

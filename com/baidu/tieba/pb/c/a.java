@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.s.c;
 import com.baidu.tieba.tbadkCore.data.PostData;
@@ -21,9 +21,9 @@ public class a {
 
     public static void a(BdUniqueId bdUniqueId, f fVar, PostData postData, String str, String str2, int i, int i2) {
         if (bdUniqueId != null && fVar != null) {
-            aq aqVar = new aq("common_exp");
-            a(aqVar, fVar, postData, i, i2, false, str);
-            c.dKg().a(bdUniqueId, str2, aqVar);
+            ar arVar = new ar("common_exp");
+            a(arVar, fVar, postData, i, i2, false, str);
+            c.dMr().a(bdUniqueId, str2, arVar);
         }
     }
 
@@ -37,100 +37,100 @@ public class a {
 
     public static void a(f fVar, PostData postData, String str, int i, int i2) {
         if (fVar != null) {
-            aq aqVar = new aq("common_click");
-            a(aqVar, fVar, postData, i, i2, false, str);
-            TiebaStatic.log(aqVar);
+            ar arVar = new ar("common_click");
+            a(arVar, fVar, postData, i, i2, false, str);
+            TiebaStatic.log(arVar);
         }
     }
 
     public static void a(f fVar, PostData postData, int i, int i2, int i3) {
         if (fVar != null) {
-            aq aqVar = new aq("common_click");
+            ar arVar = new ar("common_click");
             String str = null;
             if (postData != null) {
                 str = postData.getId();
             }
-            a(aqVar, fVar, postData, i, i2, false, str);
-            aqVar.an("obj_locate", i3);
-            TiebaStatic.log(aqVar);
+            a(arVar, fVar, postData, i, i2, false, str);
+            arVar.ap("obj_locate", i3);
+            TiebaStatic.log(arVar);
         }
     }
 
-    public static aq b(f fVar, PostData postData, int i, int i2, int i3) {
+    public static ar b(f fVar, PostData postData, int i, int i2, int i3) {
         if (fVar == null) {
             return null;
         }
-        aq aqVar = new aq("common_click");
-        a(aqVar, fVar, postData, i, i2, false, postData != null ? postData.getId() : null);
-        aqVar.an("obj_locate", i3);
-        return aqVar;
+        ar arVar = new ar("common_click");
+        a(arVar, fVar, postData, i, i2, false, postData != null ? postData.getId() : null);
+        arVar.ap("obj_locate", i3);
+        return arVar;
     }
 
-    private static aq a(aq aqVar, f fVar, PostData postData, int i, int i2, boolean z, String str) {
+    private static ar a(ar arVar, f fVar, PostData postData, int i, int i2, boolean z, String str) {
         int i3 = 1;
         if (fVar != null) {
-            aqVar.dW("page_type", PageStayDurationConstants.PageName.PB).an("obj_floor", i).an("obj_isad", z ? 1 : 0).dW("fid", fVar.getForumId() + "").dW("tid", fVar.getThreadId() + "").dW("obj_id", str + "").an("post_type", i2);
+            arVar.dR("page_type", PageStayDurationConstants.PageName.PB).ap("obj_floor", i).ap("obj_isad", z ? 1 : 0).dR("fid", fVar.getForumId() + "").dR("tid", fVar.getThreadId() + "").dR("obj_id", str + "").ap("post_type", i2);
             if (postData != null) {
-                aqVar.dW("pid", postData.getId() + "");
+                arVar.dR("pid", postData.getId() + "");
             }
-            if (fVar.diN() != null) {
-                aqVar.an("thread_type", fVar.diN().threadType);
-                BaijiahaoData baijiahaoData = fVar.diN().getBaijiahaoData();
+            if (fVar.dkZ() != null) {
+                arVar.ap("thread_type", fVar.dkZ().threadType);
+                BaijiahaoData baijiahaoData = fVar.dkZ().getBaijiahaoData();
                 if (baijiahaoData != null) {
-                    aqVar.dW("ugc_nid", baijiahaoData.oriUgcNid);
-                    aqVar.dW("ugc_vid", baijiahaoData.oriUgcVid);
-                    aqVar.an("ori_ugc_type", baijiahaoData.oriUgcType);
+                    arVar.dR("ugc_nid", baijiahaoData.oriUgcNid);
+                    arVar.dR("ugc_vid", baijiahaoData.oriUgcVid);
+                    arVar.ap("ori_ugc_type", baijiahaoData.oriUgcType);
                 }
             }
-            if (fVar.diN().bpJ()) {
-                aqVar.an("gua_type", 1);
-            } else if (postData.bpE() != null) {
-                aqVar.an("gua_type", 2);
+            if (fVar.dkZ().bqb()) {
+                arVar.ap("gua_type", 1);
+            } else if (postData.bpW() != null) {
+                arVar.ap("gua_type", 2);
             } else {
-                aqVar.an("gua_type", 0);
+                arVar.ap("gua_type", 0);
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-                aqVar.dW("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().foc);
+                arVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fqv);
             }
-            if (!fVar.djq()) {
-                if (fVar.lBm != 2) {
-                    i3 = fVar.lBm == 1 ? 3 : 2;
+            if (!fVar.dlC()) {
+                if (fVar.lJZ != 2) {
+                    i3 = fVar.lJZ == 1 ? 3 : 2;
                 }
-                aqVar.an("list_order", i3);
+                arVar.ap("list_order", i3);
             }
         }
-        return aqVar;
+        return arVar;
     }
 
     public static void a(com.baidu.tbadk.core.data.a aVar, int i) {
-        if (aVar != null && aVar.bkV() != null) {
-            aq aqVar = new aq("c13992");
-            if (aVar.bkV().bpo() != null) {
-                aqVar.an("obj_type", Pk(aVar.bkV().bpo().eNB));
+        if (aVar != null && aVar.bln() != null) {
+            ar arVar = new ar("c13992");
+            if (aVar.bln().bpG() != null) {
+                arVar.ap("obj_type", Qb(aVar.bln().bpG().ePN));
             }
-            aqVar.an("obj_locate", aVar.bkV().eKn);
-            aqVar.dW("tid", aVar.bkV().getTid());
-            aqVar.w("fid", aVar.bkV().getFid());
-            aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
-            aqVar.an("obj_source", i);
-            TiebaStatic.log(aqVar);
+            arVar.ap("obj_locate", aVar.bln().eMz);
+            arVar.dR("tid", aVar.bln().getTid());
+            arVar.v("fid", aVar.bln().getFid());
+            arVar.v("uid", TbadkCoreApplication.getCurrentAccountId());
+            arVar.ap("obj_source", i);
+            TiebaStatic.log(arVar);
         }
     }
 
     public static void i(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.bkV() != null) {
-            aq aqVar = new aq("c14020");
-            if (aVar.bkV().bpo() != null) {
-                aqVar.an("obj_type", Pk(aVar.bkV().bpo().eNB));
+        if (aVar != null && aVar.bln() != null) {
+            ar arVar = new ar("c14020");
+            if (aVar.bln().bpG() != null) {
+                arVar.ap("obj_type", Qb(aVar.bln().bpG().ePN));
             }
-            aqVar.dW("tid", aVar.bkV().getTid());
-            aqVar.w("fid", aVar.bkV().getFid());
-            aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(aqVar);
+            arVar.dR("tid", aVar.bln().getTid());
+            arVar.v("fid", aVar.bln().getFid());
+            arVar.v("uid", TbadkCoreApplication.getCurrentAccountId());
+            TiebaStatic.log(arVar);
         }
     }
 
-    private static int Pk(String str) {
+    private static int Qb(String str) {
         if ("游戏".equals(str)) {
             return 1;
         }

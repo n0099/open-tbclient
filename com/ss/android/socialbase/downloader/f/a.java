@@ -2,23 +2,23 @@ package com.ss.android.socialbase.downloader.f;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f13147a = 4;
-    private static AbstractC1246a pVM;
+    private static int f13149a = 4;
+    private static AbstractC1250a qfQ;
 
     public static void a(int i) {
-        f13147a = i;
+        f13149a = i;
     }
 
     public static boolean a() {
-        return f13147a <= 3;
+        return f13149a <= 3;
     }
 
     public static void a(String str, String str2) {
-        if (str2 != null && f13147a <= 2) {
+        if (str2 != null && f13149a <= 2) {
             Log.v(str, str2);
         }
     }
@@ -32,58 +32,58 @@ public class a {
     }
 
     public static void b(String str, String str2) {
-        if (str2 != null && f13147a <= 3) {
+        if (str2 != null && f13149a <= 3) {
             Log.d(b(str), str2);
         }
     }
 
     public static void c(String str, String str2) {
         if (str2 != null) {
-            if (f13147a <= 4) {
+            if (f13149a <= 4) {
                 Log.i(b(str), str2);
             }
-            if (pVM != null) {
-                pVM.a(b(str), str2);
+            if (qfQ != null) {
+                qfQ.a(b(str), str2);
             }
         }
     }
 
     public static void d(String str, String str2) {
         if (str2 != null) {
-            if (f13147a <= 5) {
+            if (f13149a <= 5) {
                 Log.w(b(str), str2);
             }
-            if (pVM != null) {
-                pVM.c(b(str), str2);
+            if (qfQ != null) {
+                qfQ.c(b(str), str2);
             }
         }
     }
 
     public static void e(String str, String str2) {
         if (str2 != null) {
-            if (f13147a <= 6) {
+            if (f13149a <= 6) {
                 Log.e(b(str), str2);
             }
-            if (pVM != null) {
-                pVM.b(b(str), str2);
+            if (qfQ != null) {
+                qfQ.b(b(str), str2);
             }
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
         if (str2 != null || th != null) {
-            if (f13147a <= 6) {
+            if (f13149a <= 6) {
                 Log.e(b(str), str2, th);
             }
-            if (pVM != null) {
-                pVM.a(b(str), str2, th);
+            if (qfQ != null) {
+                qfQ.a(b(str), str2, th);
             }
         }
     }
 
     /* renamed from: com.ss.android.socialbase.downloader.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static abstract class AbstractC1246a {
+    /* loaded from: classes6.dex */
+    public static abstract class AbstractC1250a {
         public void a(String str, String str2) {
         }
 

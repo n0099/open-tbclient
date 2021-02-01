@@ -4,7 +4,7 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import androidx.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class o {
     private final a<PointF, PointF> EH;
     private final a<?, PointF> EI;
@@ -18,18 +18,18 @@ public class o {
     private final Matrix matrix = new Matrix();
 
     public o(com.airbnb.lottie.model.a.l lVar) {
-        this.EH = lVar.je().jc();
-        this.EI = lVar.jf().jc();
-        this.EJ = lVar.jg().jc();
-        this.EK = lVar.jh().jc();
-        this.EL = lVar.ji().jc();
-        if (lVar.jj() != null) {
-            this.EM = lVar.jj().jc();
+        this.EH = lVar.jd().jb();
+        this.EI = lVar.je().jb();
+        this.EJ = lVar.jf().jb();
+        this.EK = lVar.jg().jb();
+        this.EL = lVar.jh().jb();
+        if (lVar.ji() != null) {
+            this.EM = lVar.ji().jb();
         } else {
             this.EM = null;
         }
-        if (lVar.jk() != null) {
-            this.EN = lVar.jk().jc();
+        if (lVar.jj() != null) {
+            this.EN = lVar.jj().jb();
         } else {
             this.EN = null;
         }
@@ -77,17 +77,17 @@ public class o {
         }
     }
 
-    public a<?, Integer> iQ() {
+    public a<?, Integer> iP() {
         return this.EL;
     }
 
     @Nullable
-    public a<?, Float> iR() {
+    public a<?, Float> iQ() {
         return this.EM;
     }
 
     @Nullable
-    public a<?, Float> iS() {
+    public a<?, Float> iR() {
         return this.EN;
     }
 

@@ -7,11 +7,11 @@ import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class a<E> extends v<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f6868a = new w() { // from class: com.bytedance.sdk.openadsdk.d.b.a.a.1
+    public static final w f6870a = new w() { // from class: com.bytedance.sdk.openadsdk.d.b.a.a.1
         @Override // com.bytedance.sdk.openadsdk.d.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.d.f fVar, com.bytedance.sdk.openadsdk.d.c.a<T> aVar) {
             Type b2 = aVar.b();
@@ -24,12 +24,12 @@ public final class a<E> extends v<Object> {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private final Class<E> f6869b;
+    private final Class<E> f6871b;
     private final v<E> c;
 
     public a(com.bytedance.sdk.openadsdk.d.f fVar, v<E> vVar, Class<E> cls) {
         this.c = new m(fVar, vVar, cls);
-        this.f6869b = cls;
+        this.f6871b = cls;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.v
@@ -45,7 +45,7 @@ public final class a<E> extends v<Object> {
         }
         aVar.b();
         int size = arrayList.size();
-        Object newInstance = Array.newInstance((Class<?>) this.f6869b, size);
+        Object newInstance = Array.newInstance((Class<?>) this.f6871b, size);
         for (int i = 0; i < size; i++) {
             Array.set(newInstance, i, arrayList.get(i));
         }

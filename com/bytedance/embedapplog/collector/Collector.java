@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.bytedance.embedapplog.au;
 import com.bytedance.embedapplog.bx;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Collector extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {

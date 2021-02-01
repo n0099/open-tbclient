@@ -1,7 +1,7 @@
 package com.baidu.yuyinala.privatemessage.implugin.common;
 
 import com.baidu.android.imsdk.pubaccount.PaInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ChatInfo {
     public static String displayname;
     public static long mAppid;
@@ -10,24 +10,24 @@ public class ChatInfo {
     public static PaInfo mPainfo;
     public static long mUid;
     public static String nickname;
-    public static String oPh;
-    public static long oPi;
-    public static String oPj;
-    public static String oPk;
-    public static int oPl;
-    public static String oPn;
-    public static String oPo;
-    public static int oPp;
-    public static int oPq;
-    public static ChatCategory oPg = ChatCategory.C2C;
-    public static int oPm = -1;
+    public static int oZA;
+    public static String oZr;
+    public static long oZs;
+    public static String oZt;
+    public static String oZu;
+    public static int oZv;
+    public static String oZx;
+    public static String oZy;
+    public static int oZz;
+    public static ChatCategory oZq = ChatCategory.C2C;
+    public static int oZw = -1;
     public static int vip = 0;
-    public static boolean oPr = false;
-    public static boolean oPs = true;
+    public static boolean oZB = false;
+    public static boolean oZC = true;
     public static int mStatus = 3;
-    public static String oPt = "ugc";
+    public static String oZD = "ugc";
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum ChatCategory {
         C2C,
         GROUP,

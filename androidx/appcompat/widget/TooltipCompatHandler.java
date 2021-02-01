@@ -7,11 +7,10 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityManager;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewConfigurationCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 class TooltipCompatHandler implements View.OnAttachStateChangeListener, View.OnHoverListener, View.OnLongClickListener {
     private static final long HOVER_HIDE_TIMEOUT_MS = 15000;
     private static final long HOVER_HIDE_TIMEOUT_SHORT_MS = 3000;
@@ -175,7 +174,7 @@ class TooltipCompatHandler implements View.OnAttachStateChangeListener, View.OnH
     }
 
     private void clearAnchorPos() {
-        this.mAnchorX = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.mAnchorY = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.mAnchorX = Integer.MAX_VALUE;
+        this.mAnchorY = Integer.MAX_VALUE;
     }
 }

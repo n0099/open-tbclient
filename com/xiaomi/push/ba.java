@@ -9,35 +9,35 @@ import java.util.Map;
 public class ba {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<Class<?>, Class<?>> f13875a = new HashMap();
+    private static final Map<Class<?>, Class<?>> f13877a = new HashMap();
 
     /* loaded from: classes6.dex */
     public static class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f13876a;
+        public final Class<? extends T> f13878a;
 
         /* renamed from: a  reason: collision with other field name */
         public final T f199a;
     }
 
     static {
-        f13875a.put(Boolean.class, Boolean.TYPE);
-        f13875a.put(Byte.class, Byte.TYPE);
-        f13875a.put(Character.class, Character.TYPE);
-        f13875a.put(Short.class, Short.TYPE);
-        f13875a.put(Integer.class, Integer.TYPE);
-        f13875a.put(Float.class, Float.TYPE);
-        f13875a.put(Long.class, Long.TYPE);
-        f13875a.put(Double.class, Double.TYPE);
-        f13875a.put(Boolean.TYPE, Boolean.TYPE);
-        f13875a.put(Byte.TYPE, Byte.TYPE);
-        f13875a.put(Character.TYPE, Character.TYPE);
-        f13875a.put(Short.TYPE, Short.TYPE);
-        f13875a.put(Integer.TYPE, Integer.TYPE);
-        f13875a.put(Float.TYPE, Float.TYPE);
-        f13875a.put(Long.TYPE, Long.TYPE);
-        f13875a.put(Double.TYPE, Double.TYPE);
+        f13877a.put(Boolean.class, Boolean.TYPE);
+        f13877a.put(Byte.class, Byte.TYPE);
+        f13877a.put(Character.class, Character.TYPE);
+        f13877a.put(Short.class, Short.TYPE);
+        f13877a.put(Integer.class, Integer.TYPE);
+        f13877a.put(Float.class, Float.TYPE);
+        f13877a.put(Long.class, Long.TYPE);
+        f13877a.put(Double.class, Double.TYPE);
+        f13877a.put(Boolean.TYPE, Boolean.TYPE);
+        f13877a.put(Byte.TYPE, Byte.TYPE);
+        f13877a.put(Character.TYPE, Character.TYPE);
+        f13877a.put(Short.TYPE, Short.TYPE);
+        f13877a.put(Integer.TYPE, Integer.TYPE);
+        f13877a.put(Float.TYPE, Float.TYPE);
+        f13877a.put(Long.TYPE, Long.TYPE);
+        f13877a.put(Double.TYPE, Double.TYPE);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x000c */
@@ -160,7 +160,7 @@ public class ba {
             return false;
         } else {
             for (int i = 0; i < clsArr.length; i++) {
-                if (clsArr2[i] != null && !clsArr[i].isAssignableFrom(clsArr2[i]) && (!f13875a.containsKey(clsArr[i]) || !f13875a.get(clsArr[i]).equals(f13875a.get(clsArr2[i])))) {
+                if (clsArr2[i] != null && !clsArr[i].isAssignableFrom(clsArr2[i]) && (!f13877a.containsKey(clsArr[i]) || !f13877a.get(clsArr[i]).equals(f13877a.get(clsArr2[i])))) {
                     return false;
                 }
             }
@@ -183,7 +183,7 @@ public class ba {
             if (obj == null || !(obj instanceof a)) {
                 clsArr[i2] = obj == null ? null : obj.getClass();
             } else {
-                clsArr[i2] = ((a) obj).f13876a;
+                clsArr[i2] = ((a) obj).f13878a;
             }
             i = i2 + 1;
         }

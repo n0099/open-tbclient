@@ -18,19 +18,19 @@ import com.baidu.swan.apps.scheme.j;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g extends aa {
-    private int dRJ;
+    private int dTP;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void co(JSONObject jSONObject);
+        void cl(JSONObject jSONObject);
     }
 
     public g(j jVar) {
         super(jVar, "/swanAPI/privateGetUserInfo");
-        this.dRJ = -1;
+        this.dTP = -1;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -59,26 +59,26 @@ public class g extends aa {
     }
 
     private void a(Context context, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar, final String str) throws JSONException {
-        String dX = com.baidu.swan.bdprivate.a.a.dX(context);
-        if (TextUtils.isEmpty(com.baidu.swan.bdprivate.a.a.dW(context)) || TextUtils.isEmpty(dX)) {
+        String dW = com.baidu.swan.bdprivate.a.a.dW(context);
+        if (TextUtils.isEmpty(com.baidu.swan.bdprivate.a.a.dV(context)) || TextUtils.isEmpty(dW)) {
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(10003).toString());
             return;
         }
         final JSONObject jSONObject = new JSONObject();
-        com.baidu.swan.bdprivate.a.aa eg = com.baidu.swan.bdprivate.a.a.eg(context);
-        jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, eg.displayName);
-        jSONObject.put("portrait", eg.aSf);
-        if (this.dRJ != -1) {
+        com.baidu.swan.bdprivate.a.aa ef = com.baidu.swan.bdprivate.a.a.ef(context);
+        jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, ef.displayName);
+        jSONObject.put("portrait", ef.aVj);
+        if (this.dTP != -1) {
             a(callbackHandler, str, jSONObject);
         } else {
             a(new a() { // from class: com.baidu.swan.bdprivate.extensions.a.g.1
                 @Override // com.baidu.swan.bdprivate.extensions.a.g.a
-                public void co(JSONObject jSONObject2) {
+                public void cl(JSONObject jSONObject2) {
                     if (jSONObject2 == null) {
                         g.this.a(callbackHandler, str, jSONObject);
                         return;
                     }
-                    g.this.dRJ = g.this.cn(jSONObject2);
+                    g.this.dTP = g.this.ck(jSONObject2);
                     g.this.a(callbackHandler, str, jSONObject);
                 }
             });
@@ -87,9 +87,9 @@ public class g extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        if (this.dRJ != -1) {
+        if (this.dTP != -1) {
             try {
-                jSONObject.put("gender", String.valueOf(this.dRJ));
+                jSONObject.put("gender", String.valueOf(this.dTP));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -98,7 +98,7 @@ public class g extends aa {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int cn(JSONObject jSONObject) {
+    public int ck(JSONObject jSONObject) {
         JSONObject jSONObject2;
         JSONObject jSONObject3;
         JSONObject jSONObject4;
@@ -132,22 +132,22 @@ public class g extends aa {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.i.c.processCommonParams(com.baidu.swan.apps.i.a.ala()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.t.a.awX().aia())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.bdprivate.extensions.a.g.2
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.i.c.processCommonParams(com.baidu.swan.apps.i.a.aly()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.t.a.axv().aiy())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.bdprivate.extensions.a.g.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
-                /* renamed from: S */
+                /* renamed from: U */
                 public void onSuccess(String str, int i) {
                     try {
-                        aVar.co(new JSONObject(str));
+                        aVar.cl(new JSONObject(str));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
-                        aVar.co(null);
+                        aVar.cl(null);
                     }
                 }
 
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onFail(Exception exc) {
-                    aVar.co(null);
+                    aVar.cl(null);
                 }
             });
         }

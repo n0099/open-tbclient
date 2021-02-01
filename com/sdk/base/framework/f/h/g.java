@@ -1,11 +1,11 @@
 package com.sdk.base.framework.f.h;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public abstract class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f12848a = new g("CMCC", 0) { // from class: com.sdk.base.framework.f.h.h
+    public static final g f12850a = new g("CMCC", 0) { // from class: com.sdk.base.framework.f.h.h
         @Override // com.sdk.base.framework.f.h.g
         public final String a() {
             return "CMCC";
@@ -18,7 +18,7 @@ public abstract class g {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f12849b = new g("CUCC", 1) { // from class: com.sdk.base.framework.f.h.i
+    public static final g f12851b = new g("CUCC", 1) { // from class: com.sdk.base.framework.f.h.i
         @Override // com.sdk.base.framework.f.h.g
         public final String a() {
             return "CUCC";
@@ -42,7 +42,7 @@ public abstract class g {
     };
 
     static {
-        g[] gVarArr = {f12848a, f12849b, c};
+        g[] gVarArr = {f12850a, f12851b, c};
     }
 
     private g(String str, int i) {

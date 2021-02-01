@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.FinishMemberTask.FinishMemberTaskResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FinishMemberTaskSocketMessage extends SocketResponsedMessage {
     private int status;
 

@@ -28,7 +28,6 @@ import android.widget.ScrollView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.NestedScrollingChild2;
 import androidx.core.view.NestedScrollingChildHelper;
@@ -40,7 +39,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class NestedScrollView extends FrameLayout implements NestedScrollingChild2, NestedScrollingParent2, ScrollingView {
     static final int ANIMATED_SCROLL_GAP = 250;
     private static final int INVALID_POINTER = -1;
@@ -75,7 +74,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     private static final AccessibilityDelegate ACCESSIBILITY_DELEGATE = new AccessibilityDelegate();
     private static final int[] SCROLLVIEW_STYLEABLE = {16843130};
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public interface OnScrollChangeListener {
         void onScrollChange(NestedScrollView nestedScrollView, int i, int i2, int i3, int i4);
     }
@@ -1202,7 +1201,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     public void fling(int i) {
         if (getChildCount() > 0) {
             startNestedScroll(2, 1);
-            this.mScroller.fling(getScrollX(), getScrollY(), 0, i, 0, 0, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, 0);
+            this.mScroller.fling(getScrollX(), getScrollY(), 0, i, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, 0);
             this.mLastScrollerY = getScrollY();
             ViewCompat.postInvalidateOnAnimation(this);
         }
@@ -1341,7 +1340,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: androidx.core.widget.NestedScrollView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1380,7 +1379,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     static class AccessibilityDelegate extends AccessibilityDelegateCompat {
         AccessibilityDelegate() {
         }

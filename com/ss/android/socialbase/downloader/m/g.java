@@ -4,11 +4,11 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.Config;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f13240a;
+    public static String f13242a;
     public static String c;
     private static String e;
     private static String f;
@@ -16,7 +16,7 @@ public class g {
     private static String d = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f13241b = "";
+    public static String f13243b = "";
 
     public static boolean a() {
         return a(RomUtils.ROM_EMUI);
@@ -32,7 +32,7 @@ public class g {
 
     public static boolean d() {
         l();
-        return a(f13240a);
+        return a(f13242a);
     }
 
     public static boolean e() {
@@ -61,10 +61,10 @@ public class g {
     }
 
     private static void l() {
-        if (TextUtils.isEmpty(f13240a)) {
-            f13240a = com.ss.android.socialbase.downloader.b.e.f13073b;
+        if (TextUtils.isEmpty(f13242a)) {
+            f13242a = com.ss.android.socialbase.downloader.b.e.f13075b;
             d = "ro.build.version." + com.ss.android.socialbase.downloader.b.e.c + Config.ROM;
-            f13241b = "com." + com.ss.android.socialbase.downloader.b.e.c + ".market";
+            f13243b = "com." + com.ss.android.socialbase.downloader.b.e.c + ".market";
         }
     }
 
@@ -88,8 +88,8 @@ public class g {
                 String b4 = b(d);
                 f = b4;
                 if (!TextUtils.isEmpty(b4)) {
-                    e = f13240a;
-                    c = f13241b;
+                    e = f13242a;
+                    c = f13243b;
                 } else {
                     String b5 = b("ro.vivo.os.version");
                     f = b5;

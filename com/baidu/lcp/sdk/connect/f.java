@@ -29,122 +29,122 @@ import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 public final class f extends Observable {
-    private static volatile com.baidu.lcp.sdk.client.b auz = new com.baidu.lcp.sdk.client.b();
-    private static volatile f avz = null;
-    private long avA;
-    private C0153f avn;
-    private e avo;
-    private com.baidu.lcp.sdk.connect.d avr;
-    private c avu;
-    private long avv;
+    private static volatile com.baidu.lcp.sdk.client.b auo = new com.baidu.lcp.sdk.client.b();
+    private static volatile f avo = null;
+    private C0153f avc;
+    private e avd;
+    private com.baidu.lcp.sdk.connect.d avg;
+    private c avj;
+    private long avk;
+    private long avp;
     private Context context;
-    private final Map<Integer, Boolean> avf = new TreeMap();
+    private final Map<Integer, Boolean> auU = new TreeMap();
     private AtomicInteger mConnectId = new AtomicInteger(0);
-    private int avg = 0;
-    private boolean avh = false;
-    private volatile LinkedList<com.baidu.lcp.sdk.connect.b> avi = new LinkedList<>();
-    private final HashMap<Long, com.baidu.lcp.sdk.connect.b> avj = new LinkedHashMap();
+    private int auV = 0;
+    private boolean auW = false;
+    private volatile LinkedList<com.baidu.lcp.sdk.connect.b> auX = new LinkedList<>();
+    private final HashMap<Long, com.baidu.lcp.sdk.connect.b> auY = new LinkedHashMap();
     private final Object mOutputSync = new Object();
     private final Object mSync = new Object();
-    private com.baidu.lcp.sdk.pb.f avk = new com.baidu.lcp.sdk.pb.f();
-    private Map<Long, com.baidu.lcp.sdk.client.bean.b> avl = new LinkedHashMap();
-    private Map<Long, com.baidu.lcp.sdk.client.bean.b> avm = new LinkedHashMap();
-    private d avp = new d();
+    private com.baidu.lcp.sdk.pb.f auZ = new com.baidu.lcp.sdk.pb.f();
+    private Map<Long, com.baidu.lcp.sdk.client.bean.b> ava = new LinkedHashMap();
+    private Map<Long, com.baidu.lcp.sdk.client.bean.b> avb = new LinkedHashMap();
+    private d ave = new d();
     private boolean mClose = false;
-    private AtomicInteger avq = new AtomicInteger(0);
+    private AtomicInteger avf = new AtomicInteger(0);
     private int mDelayTimes = -1;
-    private g avs = new g();
-    public String avw = "";
-    public String avx = "";
-    public String avy = "";
-    private Runnable avB = new Runnable() { // from class: com.baidu.lcp.sdk.connect.f.2
+    private g avh = new g();
+    public String avl = "";
+    public String avm = "";
+    public String avn = "";
+    private Runnable avq = new Runnable() { // from class: com.baidu.lcp.sdk.connect.f.2
         @Override // java.lang.Runnable
         public void run() {
-            f.this.vP();
+            f.this.vM();
         }
     };
-    private Runnable avC = new Runnable() { // from class: com.baidu.lcp.sdk.connect.f.3
+    private Runnable avr = new Runnable() { // from class: com.baidu.lcp.sdk.connect.f.3
         @Override // java.lang.Runnable
         public void run() {
-            f.this.b(f.this.avk.f(f.this.context, 1L));
+            f.this.b(f.this.auZ.f(f.this.context, 1L));
         }
     };
-    private HandlerThread avt = new HandlerThread("LCP HandlerThread");
+    private HandlerThread avi = new HandlerThread("LCP HandlerThread");
 
     private f(Context context) {
         this.context = context;
-        this.avt.start();
-        this.avu = new c(this.avt.getLooper());
+        this.avi.start();
+        this.avj = new c(this.avi.getLooper());
     }
 
     public static synchronized f aE(Context context) {
         f fVar;
         synchronized (f.class) {
-            if (avz == null) {
-                avz = new f(context.getApplicationContext());
+            if (avo == null) {
+                avo = new f(context.getApplicationContext());
             }
-            fVar = avz;
+            fVar = avo;
         }
         return fVar;
     }
 
-    public void vM() {
+    public void vJ() {
         if (com.baidu.lcp.sdk.d.e.aA(this.context)) {
-            vN();
-            vP();
+            vK();
+            vM();
         }
     }
 
-    private void vN() {
-        this.avg = 0;
-        this.avq.set(0);
-        com.baidu.lcp.sdk.connect.a.vG();
+    private void vK() {
+        this.auV = 0;
+        this.avf.set(0);
+        com.baidu.lcp.sdk.connect.a.vD();
     }
 
-    private synchronized void vO() {
-        this.avA = System.currentTimeMillis();
-        if (!this.avx.isEmpty() && !this.avy.isEmpty() && com.baidu.lcp.sdk.connect.a.vH()) {
+    private synchronized void vL() {
+        this.avp = System.currentTimeMillis();
+        if (!this.avm.isEmpty() && !this.avn.isEmpty() && com.baidu.lcp.sdk.connect.a.vE()) {
             com.baidu.lcp.sdk.a.d.writeLoginFlag(this.context, "10N_2", "connecting");
-            ad(this.avx, this.avy);
+            ab(this.avm, this.avn);
         } else {
             com.baidu.lcp.sdk.a.d.writeLoginFlag(this.context, "10N_1", "connecting");
-            com.baidu.lcp.sdk.d.d.w("SocketTransceiver", "protocolOption  thread :" + Thread.activeCount() + ", cur :" + Thread.currentThread() + "， protocol count :" + this.avg);
-            String[] split = com.baidu.lcp.sdk.d.e.k(this.context, this.avg).split(":");
+            com.baidu.lcp.sdk.d.d.w("SocketTransceiver", "protocolOption  thread :" + Thread.activeCount() + ", cur :" + Thread.currentThread() + "， protocol count :" + this.auV);
+            String[] split = com.baidu.lcp.sdk.d.e.k(this.context, this.auV).split(":");
             if (split.length >= 3) {
                 String str = TextUtils.isEmpty(split[0]) ? "tcp" : split[0];
                 String str2 = split[1];
                 String str3 = split[2];
-                if (this.avg >= com.baidu.lcp.sdk.d.e.aL(this.context)) {
-                    this.avg = 0;
+                if (this.auV >= com.baidu.lcp.sdk.d.e.aL(this.context)) {
+                    this.auV = 0;
                     com.baidu.lcp.sdk.a.d.writeLoginFlag(this.context, "10N_1", "connect failed, connectip:" + str2 + ", port:" + str3 + ", protocolType:" + str);
                     com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "protocolOption failed, connectip:" + str2 + ", port:" + str3 + ", protocolType:" + str);
-                    this.avr = new com.baidu.lcp.sdk.connect.g(this.context, "tls");
-                    this.avx = "lcs.baidu.com";
-                    this.avy = "443";
-                    ad("lcs.baidu.com", "443");
+                    this.avg = new com.baidu.lcp.sdk.connect.g(this.context, "tls");
+                    this.avm = "lcs.baidu.com";
+                    this.avn = "443";
+                    ab("lcs.baidu.com", "443");
                 } else {
-                    if ("quic".equals(str) && !(this.avr instanceof QuicMessageHandler)) {
-                        this.avr = new QuicMessageHandler(this.context);
-                    } else if ("tcp".equals(str) || ("tls".equals(str) && !(this.avr instanceof com.baidu.lcp.sdk.connect.g))) {
-                        this.avr = new com.baidu.lcp.sdk.connect.g(this.context, str);
+                    if ("quic".equals(str) && !(this.avg instanceof QuicMessageHandler)) {
+                        this.avg = new QuicMessageHandler(this.context);
+                    } else if ("tcp".equals(str) || ("tls".equals(str) && !(this.avg instanceof com.baidu.lcp.sdk.connect.g))) {
+                        this.avg = new com.baidu.lcp.sdk.connect.g(this.context, str);
                     }
-                    this.avg++;
-                    if (this.avr != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                    this.auV++;
+                    if (this.avg != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
                         com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "type :" + str + ", host :" + str2 + ", port :" + str3);
-                        this.avx = str2;
-                        this.avy = str3;
-                        ad(str2, str3);
+                        this.avm = str2;
+                        this.avn = str3;
+                        ab(str2, str3);
                     } else {
-                        this.avx = "";
-                        this.avy = "";
-                        vO();
+                        this.avm = "";
+                        this.avn = "";
+                        vL();
                     }
                 }
             }
         }
     }
 
-    private synchronized void ad(final String str, final String str2) {
+    private synchronized void ab(final String str, final String str2) {
         com.baidu.lcp.sdk.a.d.writeLoginFlag(this.context, "10Y", "DNS begin");
         com.baidu.lcp.sdk.connect.a.aB(this.context).a(str, new a.d() { // from class: com.baidu.lcp.sdk.connect.f.1
             @Override // com.baidu.lcp.sdk.connect.a.d
@@ -153,8 +153,8 @@ public final class f extends Observable {
                 if (TextUtils.isEmpty(str4)) {
                     str4 = str;
                 }
-                f.this.avw = str4;
-                com.baidu.lcp.sdk.a.d.writeLoginFlag(f.this.context, "14N_0", "socketConnect :" + f.this.avw);
+                f.this.avl = str4;
+                com.baidu.lcp.sdk.a.d.writeLoginFlag(f.this.context, "14N_0", "socketConnect :" + f.this.avl);
                 if (i == 0) {
                     com.baidu.lcp.sdk.c.a.aF(f.this.context).submitForNetWork(new a(str4, str2, Integer.valueOf(f.this.mConnectId.incrementAndGet())));
                 }
@@ -163,18 +163,18 @@ public final class f extends Observable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void vP() {
+    public synchronized void vM() {
         if (!RequsetNetworkUtils.isConnected(this.context)) {
-            vN();
-        } else if (auz.state == 0 || auz.state == -2) {
-            com.baidu.lcp.sdk.d.d.i("SocketTransceiver", "connectImpl connect state:" + auz.state);
-            com.baidu.lcp.sdk.a.d.writeLoginFlag(this.context, "17N_2", "connectState is " + auz.state);
+            vK();
+        } else if (auo.state == 0 || auo.state == -2) {
+            com.baidu.lcp.sdk.d.d.i("SocketTransceiver", "connectImpl connect state:" + auo.state);
+            com.baidu.lcp.sdk.a.d.writeLoginFlag(this.context, "17N_2", "connectState is " + auo.state);
         } else {
             com.baidu.lcp.sdk.a.d.writeLoginFlag(this.context, "10N_0", "connect begin");
-            this.avu.removeCallbacks(this.avB);
-            this.avu.removeCallbacks(this.avC);
-            this.avu.removeCallbacks(this.avp);
-            vO();
+            this.avj.removeCallbacks(this.avq);
+            this.avj.removeCallbacks(this.avr);
+            this.avj.removeCallbacks(this.ave);
+            vL();
         }
     }
 
@@ -183,34 +183,34 @@ public final class f extends Observable {
             com.baidu.lcp.sdk.connect.b bVar2 = new com.baidu.lcp.sdk.connect.b();
             bVar2.serviceId = bLCPRequest.serviceId;
             bVar2.methodId = bLCPRequest.methodId;
-            bVar2.auU = bLCPRequest.auG;
+            bVar2.auJ = bLCPRequest.auv;
             if (bLCPRequest.msgId < 0) {
                 bVar2.msgId = System.currentTimeMillis();
             } else {
                 bVar2.msgId = bLCPRequest.msgId;
             }
-            switch (bLCPRequest.auH) {
+            switch (bLCPRequest.auw) {
                 case TIMEOUT_20s:
-                    bVar2.auV = 20000L;
+                    bVar2.auK = 20000L;
                     break;
                 case TIMEOUT_30s:
-                    bVar2.auV = 30000L;
+                    bVar2.auK = 30000L;
                     break;
                 case TIMEOUT_50s:
-                    bVar2.auV = 50000L;
+                    bVar2.auK = 50000L;
                     break;
                 default:
-                    bVar2.auV = 5000L;
+                    bVar2.auK = 5000L;
                     break;
             }
             if (bLCPRequest instanceof com.baidu.lcp.sdk.client.bean.a) {
                 bVar2.msgId = (bVar2.serviceId * 10000) + bVar2.methodId;
                 a(bVar2.serviceId, bVar2.methodId, bVar2.msgId, true, bVar);
             } else if (bLCPRequest instanceof com.baidu.lcp.sdk.client.bean.c) {
-                b(this.avk.a(bVar2, false));
+                b(this.auZ.a(bVar2, false));
             } else {
                 a(bVar2.serviceId, bVar2.methodId, bVar2.msgId, false, bVar);
-                b(this.avk.a(bVar2, true));
+                b(this.auZ.a(bVar2, true));
             }
         }
     }
@@ -219,53 +219,53 @@ public final class f extends Observable {
         Long valueOf = Long.valueOf(j3);
         if (z) {
             if (bVar != null) {
-                this.avm.put(valueOf, bVar);
+                this.avb.put(valueOf, bVar);
             }
         } else {
-            this.avl.put(valueOf, bVar);
+            this.ava.put(valueOf, bVar);
         }
-        com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "isNotify:" + z + ", methodId:" + j2 + ", invoke keys :" + this.avl.keySet().toString() + ", notify keys :" + this.avm.keySet().toString());
+        com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "isNotify:" + z + ", methodId:" + j2 + ", invoke keys :" + this.ava.keySet().toString() + ", notify keys :" + this.avb.keySet().toString());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(com.baidu.lcp.sdk.connect.b bVar) {
         try {
-            synchronized (this.avi) {
+            synchronized (this.auX) {
                 boolean z = false;
-                Iterator<com.baidu.lcp.sdk.connect.b> it = this.avi.iterator();
+                Iterator<com.baidu.lcp.sdk.connect.b> it = this.auX.iterator();
                 while (it.hasNext()) {
                     com.baidu.lcp.sdk.connect.b next = it.next();
                     com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "sendMessage queue :" + next.msgId);
-                    z = next.ava ? true : z;
+                    z = next.auP ? true : z;
                 }
-                if (bVar.ava) {
-                    if (z || auz.state != -1) {
-                        com.baidu.lcp.sdk.d.d.e("SocketTransceiver", "sendMessage cur methodId :1, state :" + auz.state);
+                if (bVar.auP) {
+                    if (z || auo.state != -1) {
+                        com.baidu.lcp.sdk.d.d.e("SocketTransceiver", "sendMessage cur methodId :1, state :" + auo.state);
                     } else {
-                        this.avi.addFirst(bVar);
-                        this.avi.notifyAll();
+                        this.auX.addFirst(bVar);
+                        this.auX.notifyAll();
                         com.baidu.lcp.sdk.a.d.writeLoginFlag(this.context, "16Y_2", "send Logig msg");
                     }
-                } else if (auz.state == -1) {
-                    if (vR()) {
-                        if (this.avi.size() <= 0 || !z) {
-                            this.avi.addFirst(this.avk.f(this.context, 1L));
-                            this.avi.notifyAll();
+                } else if (auo.state == -1) {
+                    if (vO()) {
+                        if (this.auX.size() <= 0 || !z) {
+                            this.auX.addFirst(this.auZ.f(this.context, 1L));
+                            this.auX.notifyAll();
                             com.baidu.lcp.sdk.a.d.writeLoginFlag(this.context, "16Y_3", "heart rate and send Logig msg");
                         }
                         if (!bVar.isHeartbeat) {
-                            this.avi.add(bVar);
-                            this.avi.notifyAll();
+                            this.auX.add(bVar);
+                            this.auX.notifyAll();
                         }
                     } else {
                         if (bVar.isHeartbeat) {
-                            vO();
+                            vL();
                         }
-                        this.avi.add(bVar);
+                        this.auX.add(bVar);
                     }
                 } else {
-                    this.avi.add(bVar);
-                    this.avi.notifyAll();
+                    this.auX.add(bVar);
+                    this.auX.notifyAll();
                 }
             }
         } catch (Exception e2) {
@@ -291,48 +291,48 @@ public final class f extends Observable {
     private void a(com.baidu.lcp.sdk.connect.b bVar, String str) {
         long j = AppStatusRules.DEFAULT_GRANULARITY;
         if (bVar.errorCode == 0) {
-            if (bVar.auY > 0) {
-                j = bVar.auY;
+            if (bVar.auN > 0) {
+                j = bVar.auN;
             }
             if (bVar.methodId == 1) {
                 a(j, true, str);
             } else if (bVar.methodId == 2) {
-                af("LCP logout:", str);
-                auz.state = bVar.auZ;
+                ac("LCP logout:", str);
+                auo.state = bVar.auO;
                 setChanged();
-                notifyObservers(auz);
-                vQ();
+                notifyObservers(auo);
+                vN();
             } else if (bVar.methodId == 3) {
-                this.avp.aa(j);
+                this.ave.aa(j);
             }
         } else if (String.valueOf(bVar.errorCode).startsWith("30") || bVar.errorCode == 1011) {
             com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "login error, then request token, error :" + bVar.errorCode);
-            af("errorCode:" + String.valueOf(bVar.errorCode), str);
+            ac("errorCode:" + String.valueOf(bVar.errorCode), str);
             com.baidu.lcp.sdk.d.e.D(this.context, "");
-            com.baidu.lcp.sdk.client.c.vD().vF();
+            com.baidu.lcp.sdk.client.c.vA().vC();
         } else if (bVar.errorCode == 1012) {
             com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "login error :" + bVar.errorCode);
         } else if (bVar.errorCode == 1013) {
             a(AppStatusRules.DEFAULT_GRANULARITY, false, str);
         } else {
-            auz.state = -1;
+            auo.state = -1;
             setChanged();
-            notifyObservers(auz);
-            vQ();
+            notifyObservers(auo);
+            vN();
             aT(true);
         }
     }
 
     private void a(long j, boolean z, String str) {
         try {
-            this.avq.set(0);
-            auz.state = 0;
+            this.avf.set(0);
+            auo.state = 0;
             setChanged();
-            notifyObservers(auz);
-            vQ();
+            notifyObservers(auo);
+            vN();
             if (z) {
-                this.avu.setHost(str);
-                this.avu.postDelayed(this.avp, j);
+                this.avj.setHost(str);
+                this.avj.postDelayed(this.ave, j);
                 com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "ping every 1分钟 ");
                 com.baidu.lcp.sdk.a.d.writeLoginFlag(this.context, "17Y", "login success");
                 new a.b(this.context).ef("login ok").eg(OneKeyLoginSdkCall.k).W(System.currentTimeMillis()).X(System.currentTimeMillis()).Y(0L).eh("").Z(501111L).build();
@@ -342,9 +342,9 @@ public final class f extends Observable {
         }
     }
 
-    public void vQ() {
+    public void vN() {
         Intent intent = new Intent();
-        intent.putExtra("com.baidu.lcp.sdk.connect.state", auz.state);
+        intent.putExtra("com.baidu.lcp.sdk.connect.state", auo.state);
         intent.setAction("com.baidu.lcp.sdk.broadcast");
         LocalBroadcastManager.getInstance(this.context).sendBroadcast(intent);
     }
@@ -352,9 +352,9 @@ public final class f extends Observable {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(long j, String str) {
         try {
-            if (this.avj.size() > 0 && this.avj.containsKey(Long.valueOf(j))) {
-                com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "handle msg timeout!!! " + this.avj.get(Long.valueOf(j)).toString());
-                com.baidu.lcp.sdk.connect.b remove = this.avj.remove(Long.valueOf(j));
+            if (this.auY.size() > 0 && this.auY.containsKey(Long.valueOf(j))) {
+                com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "handle msg timeout!!! " + this.auY.get(Long.valueOf(j)).toString());
+                com.baidu.lcp.sdk.connect.b remove = this.auY.remove(Long.valueOf(j));
                 if (remove != null) {
                     remove.errorCode = 8004;
                     remove.errorMsg = "socket timeout";
@@ -369,9 +369,9 @@ public final class f extends Observable {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(long j, String str, String str2) {
         try {
-            if (this.avj.size() > 0 && this.avj.containsKey(Long.valueOf(j))) {
-                com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "handle msg exception!!! " + this.avj.get(Long.valueOf(j)).toString());
-                com.baidu.lcp.sdk.connect.b remove = this.avj.remove(Long.valueOf(j));
+            if (this.auY.size() > 0 && this.auY.containsKey(Long.valueOf(j))) {
+                com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "handle msg exception!!! " + this.auY.get(Long.valueOf(j)).toString());
+                com.baidu.lcp.sdk.connect.b remove = this.auY.remove(Long.valueOf(j));
                 if (remove != null) {
                     remove.errorCode = 8005;
                     remove.errorMsg = "socket exception :" + str;
@@ -386,9 +386,9 @@ public final class f extends Observable {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(long j, String str) {
         try {
-            if (this.avj.size() > 0 && this.avj.containsKey(Long.valueOf(j))) {
-                com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "handle msg socket stoped!!! " + this.avj.get(Long.valueOf(j)).toString());
-                com.baidu.lcp.sdk.connect.b remove = this.avj.remove(Long.valueOf(j));
+            if (this.auY.size() > 0 && this.auY.containsKey(Long.valueOf(j))) {
+                com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "handle msg socket stoped!!! " + this.auY.get(Long.valueOf(j)).toString());
+                com.baidu.lcp.sdk.connect.b remove = this.auY.remove(Long.valueOf(j));
                 if (remove != null) {
                     remove.errorCode = 8006;
                     remove.errorMsg = "socket stopped :";
@@ -403,19 +403,19 @@ public final class f extends Observable {
     private synchronized void c(com.baidu.lcp.sdk.connect.b bVar) {
         com.baidu.lcp.sdk.client.bean.b remove;
         try {
-            Long valueOf = Long.valueOf(!bVar.auW ? bVar.msgId : (bVar.serviceId * 10000) + bVar.methodId);
-            com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "onBLCPResponse key:" + valueOf + ", msgId :" + bVar.msgId + ", invoke keys :" + this.avl.keySet().toString() + ", notify keys :" + this.avm.keySet().toString());
-            if (this.avm.size() > 0 && this.avm.containsKey(valueOf)) {
-                remove = this.avm.get(valueOf);
+            Long valueOf = Long.valueOf(!bVar.auL ? bVar.msgId : (bVar.serviceId * 10000) + bVar.methodId);
+            com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "onBLCPResponse key:" + valueOf + ", msgId :" + bVar.msgId + ", invoke keys :" + this.ava.keySet().toString() + ", notify keys :" + this.avb.keySet().toString());
+            if (this.avb.size() > 0 && this.avb.containsKey(valueOf)) {
+                remove = this.avb.get(valueOf);
             } else {
-                remove = (this.avl.size() <= 0 || !this.avl.containsKey(valueOf)) ? null : this.avl.remove(valueOf);
+                remove = (this.ava.size() <= 0 || !this.ava.containsKey(valueOf)) ? null : this.ava.remove(valueOf);
             }
             if (remove != null) {
-                com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "onBLCPResponse methodId :" + bVar.methodId + ", serviceId :" + bVar.serviceId + ", error :" + bVar.errorCode + ", msgId :" + bVar.msgId + ", errMsg :" + bVar.errorMsg + ", invoke keys :" + this.avl.keySet().toString());
-                remove.onResponse(bVar.errorCode, bVar.errorMsg, bVar.serviceId, bVar.methodId, bVar.msgId, bVar.auX);
+                com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "onBLCPResponse methodId :" + bVar.methodId + ", serviceId :" + bVar.serviceId + ", error :" + bVar.errorCode + ", msgId :" + bVar.msgId + ", errMsg :" + bVar.errorMsg + ", invoke keys :" + this.ava.keySet().toString());
+                remove.onResponse(bVar.errorCode, bVar.errorMsg, bVar.serviceId, bVar.methodId, bVar.msgId, bVar.auM);
                 if (bVar.errorCode == 1011) {
                     com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "onBLCPResponse errorCode :" + bVar.errorCode + ", and will send lcm login msg .");
-                    b(this.avk.f(this.context, 1L));
+                    b(this.auZ.f(this.context, 1L));
                 }
             }
         } catch (Exception e2) {
@@ -455,128 +455,128 @@ public final class f extends Observable {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class d implements Runnable {
-        private long auY;
+        private long auN;
 
         private d() {
-            this.auY = AppStatusRules.DEFAULT_GRANULARITY;
+            this.auN = AppStatusRules.DEFAULT_GRANULARITY;
         }
 
         public void aa(long j) {
-            this.auY = j;
+            this.auN = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            f.this.avu.removeCallbacks(f.this.avp);
+            f.this.avj.removeCallbacks(f.this.ave);
             if (com.baidu.lcp.sdk.d.e.aA(f.this.context)) {
-                f.this.avu.postDelayed(f.this.avp, this.auY);
-                f.this.b(f.this.avk.f(f.this.context, 3L));
+                f.this.avj.postDelayed(f.this.ave, this.auN);
+                f.this.b(f.this.auZ.f(f.this.context, 3L));
             }
         }
     }
 
     /* loaded from: classes3.dex */
     private class b implements Runnable {
-        Integer avH;
-        boolean avJ = false;
+        Integer avw;
+        boolean avy = false;
         String host;
 
         b(Integer num, String str) {
-            this.avH = num;
+            this.avw = num;
             this.host = str;
         }
 
-        void vT() {
-            this.avJ = true;
+        void vQ() {
+            this.avy = true;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            synchronized (f.this.avf) {
-                if (!this.avJ && f.auz.state != 0) {
-                    f.this.avf.put(this.avH, true);
-                    com.baidu.lcp.sdk.a.d.writeLoginFlag(f.this.context, "14N_1", "socketConnect_timeout :" + f.this.avw);
+            synchronized (f.this.auU) {
+                if (!this.avy && f.auo.state != 0) {
+                    f.this.auU.put(this.avw, true);
+                    com.baidu.lcp.sdk.a.d.writeLoginFlag(f.this.context, "14N_1", "socketConnect_timeout :" + f.this.avl);
                     f.this.d(401214, "time out", this.host);
-                    f.this.ag("time out:", this.host);
+                    f.this.ad("time out:", this.host);
                     return;
                 }
                 com.baidu.lcp.sdk.d.d.e("SocketTransceiver", "ConnectTimeOutTask has stoped");
-                f.this.avu.removeCallbacks(this);
+                f.this.avj.removeCallbacks(this);
             }
         }
     }
 
     /* loaded from: classes3.dex */
     final class a implements Runnable {
-        private String avG;
-        private Integer avH;
+        private String avv;
+        private Integer avw;
         private String host;
 
         public a(String str, String str2, Integer num) {
             this.host = str;
-            this.avG = str2;
-            this.avH = num;
+            this.avv = str2;
+            this.avw = num;
         }
 
         @Override // java.lang.Runnable
         public synchronized void run() {
             try {
-                if (!f.this.vR()) {
-                    if (f.this.avo != null && f.this.avo.isAlive()) {
-                        f.this.avo.interrupt();
+                if (!f.this.vO()) {
+                    if (f.this.avd != null && f.this.avd.isAlive()) {
+                        f.this.avd.interrupt();
                         com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "readThread interrupt");
                     }
-                    if (f.this.avn != null && f.this.avn.isAlive()) {
-                        f.this.avn.interrupt();
+                    if (f.this.avc != null && f.this.avc.isAlive()) {
+                        f.this.avc.interrupt();
                         com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "sendThread interrupt");
                     }
-                    b bVar = new b(this.avH, this.host);
-                    f.this.avu.setHost(this.host);
-                    f.this.avu.postDelayed(bVar, 5000L);
+                    b bVar = new b(this.avw, this.host);
+                    f.this.avj.setHost(this.host);
+                    f.this.avj.postDelayed(bVar, 5000L);
                     try {
-                        com.baidu.lcp.sdk.a.d.writeLoginFlag(f.this.context, "14N", "socketConnect :" + f.this.avw);
-                        com.baidu.lcp.sdk.connect.e y = f.this.avr.y(this.host, Integer.valueOf(this.avG).intValue());
-                        if (f.this.vR()) {
+                        com.baidu.lcp.sdk.a.d.writeLoginFlag(f.this.context, "14N", "socketConnect :" + f.this.avl);
+                        com.baidu.lcp.sdk.connect.e y = f.this.avg.y(this.host, Integer.valueOf(this.avv).intValue());
+                        if (f.this.vO()) {
                             com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "socketConnect after, but socket has created ok.");
                             f.this.b(y);
-                        } else if (!y.ave.booleanValue()) {
+                        } else if (!y.auT.booleanValue()) {
                             com.baidu.lcp.sdk.a.d.writeLoginFlag(f.this.context, "15N", "connect env error");
                             f.this.d(401213, "connect env error", this.host);
-                            f.this.avu.removeCallbacks(bVar);
-                            f.this.af("connect env error:", this.host);
+                            f.this.avj.removeCallbacks(bVar);
+                            f.this.ac("connect env error:", this.host);
                         } else {
-                            synchronized (f.this.avf) {
+                            synchronized (f.this.auU) {
                                 com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "socketNeedCloseMap remove connectTimeoutTask");
-                                f.this.avu.removeCallbacks(bVar);
-                                bVar.vT();
-                                if (!f.this.vR()) {
-                                    if (f.this.avf.get(this.avH) == null) {
+                                f.this.avj.removeCallbacks(bVar);
+                                bVar.vQ();
+                                if (!f.this.vO()) {
+                                    if (f.this.auU.get(this.avw) == null) {
                                         com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "socketNeedCloseMap setCurrentSocketState");
-                                        f.this.avr.a(y);
+                                        f.this.avg.a(y);
                                     }
-                                    com.baidu.lcp.sdk.d.e.m(f.this.context, f.this.avq.get() == 0 ? 1 : 2);
+                                    com.baidu.lcp.sdk.d.e.m(f.this.context, f.this.avf.get() == 0 ? 1 : 2);
                                     com.baidu.lcp.sdk.d.d.i("SocketTransceiver", "create Socket ok");
                                     f.this.d(401211, "connect ok", this.host);
                                     com.baidu.lcp.sdk.a.d.writeLoginFlag(f.this.context, "16Y", "connect ok");
                                     com.baidu.lcp.sdk.connect.a.C(f.this.context, this.host);
-                                    f.this.b(f.this.avk.f(f.this.context, 1L));
-                                    f.this.avv = SystemClock.currentThreadTimeMillis();
+                                    f.this.b(f.this.auZ.f(f.this.context, 1L));
+                                    f.this.avk = SystemClock.currentThreadTimeMillis();
                                     if (com.baidu.lcp.sdk.d.b.aI(f.this.context) != 0) {
                                         com.baidu.lcp.sdk.c.a.aF(f.this.context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.connect.f.a.1
                                             @Override // java.lang.Runnable
                                             public void run() {
                                                 com.baidu.lcp.sdk.d.c.aJ(f.this.context);
-                                                com.baidu.lcp.sdk.d.c.write("lcp connect:" + (System.currentTimeMillis() - f.this.avA));
+                                                com.baidu.lcp.sdk.d.c.write("lcp connect:" + (System.currentTimeMillis() - f.this.avp));
                                             }
                                         });
                                     }
-                                    com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "connectImpl time:" + f.this.avv);
-                                    f.auz.state = -2;
+                                    com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "connectImpl time:" + f.this.avk);
+                                    f.auo.state = -2;
                                     f.this.mClose = false;
-                                    f.this.avn = new C0153f(this.host);
-                                    f.this.avn.start();
-                                    f.this.avo = new e(this.host);
-                                    f.this.avo.start();
+                                    f.this.avc = new C0153f(this.host);
+                                    f.this.avc.start();
+                                    f.this.avd = new e(this.host);
+                                    f.this.avd.start();
                                 } else {
                                     com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "socketNeedCloseMap but socket has created ok.");
                                     f.this.b(y);
@@ -596,16 +596,16 @@ public final class f extends Observable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean vR() {
-        return (this.avr == null || this.avr.vL() == null || this.avr.vL().socket == null || !this.avr.vL().socket.isConnected()) ? false : true;
+    public boolean vO() {
+        return (this.avg == null || this.avg.vI() == null || this.avg.vI().socket == null || !this.avg.vI().socket.isConnected()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.lcp.sdk.connect.e eVar) {
-        if (eVar != null && eVar.avd.booleanValue()) {
+        if (eVar != null && eVar.auS.booleanValue()) {
             try {
                 if (eVar.socket != null) {
-                    if (eVar.socket.hashCode() == this.avr.vL().socket.hashCode()) {
+                    if (eVar.socket.hashCode() == this.avg.vI().socket.hashCode()) {
                         com.baidu.lcp.sdk.d.d.v("SocketTransceiver", "closeExistedConnection  state.socket.hashCode() is same to cur socket!!!");
                         return;
                     }
@@ -629,16 +629,16 @@ public final class f extends Observable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(int i, String str, String str2) {
-        this.avw += ":" + com.baidu.lcp.sdk.connect.a.vI() + ":" + RequsetNetworkUtils.getNetInfo(this.context);
-        com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "connectTrack ext:" + this.avw + ", retry :" + this.avq.get() + ", reason :" + str);
+        this.avl += ":" + com.baidu.lcp.sdk.connect.a.vF() + ":" + RequsetNetworkUtils.getNetInfo(this.context);
+        com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "connectTrack ext:" + this.avl + ", retry :" + this.avf.get() + ", reason :" + str);
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        new a.C0149a(this.context).S(this.avv).T(System.currentTimeMillis()).V(i).ed(str).ee(str2).U(this.avq.get()).build();
-        if (com.baidu.lcp.sdk.a.d.i(this.context, 401216) && this.avq.get() >= 5 && i != 401211) {
-            com.baidu.lcp.sdk.a.b.a(this.context, IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(this.avv).setStopTime(System.currentTimeMillis()).setAliasId(401216L).setReason(str).setExt(str2).setRetryCount(this.avq.get()).build()).build());
+        new a.C0149a(this.context).S(this.avk).T(System.currentTimeMillis()).V(i).ed(str).ee(str2).U(this.avf.get()).build();
+        if (com.baidu.lcp.sdk.a.d.i(this.context, 401216) && this.avf.get() >= 5 && i != 401211) {
+            com.baidu.lcp.sdk.a.b.a(this.context, IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(this.avk).setStopTime(System.currentTimeMillis()).setAliasId(401216L).setReason(str).setExt(str2).setRetryCount(this.avf.get()).build()).build());
         }
-        this.avw = "";
+        this.avl = "";
     }
 
     /* loaded from: classes3.dex */
@@ -656,13 +656,13 @@ public final class f extends Observable {
             while (!f.this.mClose) {
                 try {
                     try {
-                        com.baidu.lcp.sdk.connect.b h = f.this.avk.h(f.this.avr.vK());
+                        com.baidu.lcp.sdk.connect.b h = f.this.auZ.h(f.this.avg.vH());
                         if (h != null && h.msgId > 0) {
-                            f.this.avu.removeCallbacks(f.this.avs);
-                            h.avb = false;
+                            f.this.avj.removeCallbacks(f.this.avh);
+                            h.auQ = false;
                             com.baidu.lcp.sdk.d.d.i("SocketTransceiver", "ReadThread :" + h.toString());
                             if (!h.isHeartbeat) {
-                                if (h.ava) {
+                                if (h.auP) {
                                     com.baidu.lcp.sdk.a.d.writeLoginFlag(f.this.context, "17N_1", "Read LoginMsg Response");
                                 }
                                 if (h.methodId == 1 && h.serviceId == 4) {
@@ -673,25 +673,25 @@ public final class f extends Observable {
                                 }
                                 synchronized (f.this.mSync) {
                                     com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "ReadThread handleResponseMessage...");
-                                    bVar = (com.baidu.lcp.sdk.connect.b) f.this.avj.remove(Long.valueOf(h.msgId));
+                                    bVar = (com.baidu.lcp.sdk.connect.b) f.this.auY.remove(Long.valueOf(h.msgId));
                                 }
                                 f.this.a(h, bVar, this.host);
                             }
                             synchronized (f.this.mSync) {
-                                if (f.this.avj.size() != 0) {
+                                if (f.this.auY.size() != 0) {
                                     com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "ReadThread socketTimeoutRunnable ...");
-                                    f.this.avs.setMsgId(h.msgId);
-                                    f.this.avs.setHost(this.host);
-                                    f.this.avu.setHost(this.host);
-                                    f.this.avu.postDelayed(f.this.avs, h.auV);
+                                    f.this.avh.setMsgId(h.msgId);
+                                    f.this.avh.setHost(this.host);
+                                    f.this.avj.setHost(this.host);
+                                    f.this.avj.postDelayed(f.this.avh, h.auK);
                                 }
                             }
                         }
                     } catch (Exception e) {
                         if (!f.this.mClose) {
                             com.baidu.lcp.sdk.d.d.e("SocketTransceiver", "ReadThread exception: " + e, e);
-                            f.this.avh = false;
-                            f.this.ag("ReadThread exception: " + e, this.host);
+                            f.this.auW = false;
+                            f.this.ad("ReadThread exception: " + e, this.host);
                             return;
                         }
                         return;
@@ -699,8 +699,8 @@ public final class f extends Observable {
                 } catch (Exception e2) {
                     if (!f.this.mClose) {
                         com.baidu.lcp.sdk.d.d.e("SocketTransceiver", "onStartCommand", e2);
-                        f.this.avh = false;
-                        f.this.ag("onStartCommand:" + e2, this.host);
+                        f.this.auW = false;
+                        f.this.ad("onStartCommand:" + e2, this.host);
                         return;
                     }
                     return;
@@ -725,16 +725,16 @@ public final class f extends Observable {
                 try {
                     com.baidu.lcp.sdk.connect.b bVar = null;
                     try {
-                        synchronized (f.this.avi) {
-                            if (f.this.avi.size() == 0) {
-                                f.this.avi.wait();
+                        synchronized (f.this.auX) {
+                            if (f.this.auX.size() == 0) {
+                                f.this.auX.wait();
                             } else {
-                                bVar = (com.baidu.lcp.sdk.connect.b) f.this.avi.removeFirst();
+                                bVar = (com.baidu.lcp.sdk.connect.b) f.this.auX.removeFirst();
                             }
                         }
                     } catch (InterruptedException e) {
                         com.baidu.lcp.sdk.d.d.e("SocketTransceiver", "SendThread wait exception: " + e);
-                        f.this.ag("SendThread wait exception: " + e, this.host);
+                        f.this.ad("SendThread wait exception: " + e, this.host);
                     }
                     if (bVar != null) {
                         try {
@@ -742,21 +742,21 @@ public final class f extends Observable {
                                 f.this.c(bVar.msgId, this.host);
                                 return;
                             }
-                            bVar.avb = true;
-                            bVar.auZ = f.auz.state;
+                            bVar.auQ = true;
+                            bVar.auO = f.auo.state;
                             if (bVar.needReplay) {
                                 synchronized (f.this.mSync) {
-                                    if (f.this.avj.isEmpty()) {
-                                        f.this.avu.removeCallbacks(f.this.avs);
-                                        f.this.avs.setMsgId(bVar.msgId);
-                                        f.this.avs.setHost(this.host);
-                                        f.this.avu.setHost(this.host);
-                                        f.this.avu.postDelayed(f.this.avs, 5000L);
+                                    if (f.this.auY.isEmpty()) {
+                                        f.this.avj.removeCallbacks(f.this.avh);
+                                        f.this.avh.setMsgId(bVar.msgId);
+                                        f.this.avh.setHost(this.host);
+                                        f.this.avj.setHost(this.host);
+                                        f.this.avj.postDelayed(f.this.avh, 5000L);
                                     }
                                 }
                             }
                             com.baidu.lcp.sdk.d.d.v("SocketTransceiver", "SendThread :" + bVar.toString());
-                            if (bVar.ava) {
+                            if (bVar.auP) {
                                 com.baidu.lcp.sdk.a.d.writeLoginFlag(f.this.context, "17N", "Send LoginMsg request");
                             }
                             if (bVar.methodId == 1 && bVar.serviceId == 4) {
@@ -766,23 +766,23 @@ public final class f extends Observable {
                                 com.baidu.lcp.sdk.d.a.a(f.this.context, 50L, UbcStatConstant.ContentType.UBC_TYPE_IM_SEND, bVar.msgId + "");
                             }
                             synchronized (f.this.mOutputSync) {
-                                f.this.avr.a(bVar);
+                                f.this.avg.a(bVar);
                             }
                             if (!bVar.isHeartbeat && bVar.needReplay) {
                                 synchronized (f.this.mSync) {
-                                    f.this.avj.put(Long.valueOf(bVar.msgId), bVar);
+                                    f.this.auY.put(Long.valueOf(bVar.msgId), bVar);
                                 }
                             }
                         } catch (Exception e2) {
                             com.baidu.lcp.sdk.d.d.e("SocketTransceiver", "SendThread sendMessage Exception:", e2);
                             f.this.c(bVar.msgId, e2.toString(), this.host);
-                            f.this.ag("SendThread sendMessage Exception:" + e2, this.host);
+                            f.this.ad("SendThread sendMessage Exception:" + e2, this.host);
                             return;
                         }
                     }
                 } catch (Exception e3) {
                     com.baidu.lcp.sdk.d.d.e("SocketTransceiver", "SendThread Exception:", e3);
-                    f.this.ag("SendThread Exception:" + e3, this.host);
+                    f.this.ad("SendThread Exception:" + e3, this.host);
                     return;
                 }
             }
@@ -792,18 +792,18 @@ public final class f extends Observable {
     private void ej(String str) {
         try {
             com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "fatalAllMessage begin ");
-            synchronized (this.avi) {
-                while (this.avi.size() > 0) {
-                    b(this.avi.removeFirst(), str);
+            synchronized (this.auX) {
+                while (this.auX.size() > 0) {
+                    b(this.auX.removeFirst(), str);
                 }
                 com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "fatalAllMessage sendQueue end ");
             }
             synchronized (this.mSync) {
                 com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "fatalAllMessage mSync begin");
-                for (Long l : this.avj.keySet()) {
-                    b(this.avj.get(l), str);
+                for (Long l : this.auY.keySet()) {
+                    b(this.auY.get(l), str);
                 }
-                this.avj.clear();
+                this.auY.clear();
                 com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "fatalAllMessage mSync end");
             }
         } catch (Exception e2) {
@@ -818,32 +818,32 @@ public final class f extends Observable {
         }
     }
 
-    public synchronized void af(String str, String str2) {
+    public synchronized void ac(String str, String str2) {
         if (com.baidu.lcp.sdk.d.e.aA(this.context)) {
             com.baidu.lcp.sdk.d.d.i("SocketTransceiver", "---socketDisconnect---");
             this.mClose = true;
-            this.avh = true;
+            this.auW = true;
             ej(str2);
-            vN();
-            this.avu.removeCallbacks(this.avB);
-            this.avu.removeCallbacks(this.avC);
-            this.avu.removeCallbacks(this.avp);
+            vK();
+            this.avj.removeCallbacks(this.avq);
+            this.avj.removeCallbacks(this.avr);
+            this.avj.removeCallbacks(this.ave);
             com.baidu.lcp.sdk.connect.a.e(this.context, null, false);
-            ah(str, str2);
+            af(str, str2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void ag(String str, String str2) {
-        com.baidu.lcp.sdk.d.d.i("SocketTransceiver", "disconnectedByLcp, destroyConnection = " + this.avh + ", net :" + RequsetNetworkUtils.isConnected(this.context) + ", isSmallFlow :" + com.baidu.lcp.sdk.d.e.aA(this.context));
+    public synchronized void ad(String str, String str2) {
+        com.baidu.lcp.sdk.d.d.i("SocketTransceiver", "disconnectedByLcp, destroyConnection = " + this.auW + ", net :" + RequsetNetworkUtils.isConnected(this.context) + ", isSmallFlow :" + com.baidu.lcp.sdk.d.e.aA(this.context));
         if (com.baidu.lcp.sdk.d.e.aA(this.context)) {
             ej(str2);
-            if (this.avh) {
-                vN();
+            if (this.auW) {
+                vK();
             } else {
-                ah(str, str2);
+                af(str, str2);
                 if (!RequsetNetworkUtils.isConnected(this.context)) {
-                    vN();
+                    vK();
                 } else {
                     aT(false);
                 }
@@ -853,13 +853,13 @@ public final class f extends Observable {
 
     private void aT(boolean z) {
         try {
-            this.avq.incrementAndGet();
-            if (this.avq.get() <= 10 && auz.state == -1) {
-                long bP = bP(this.avq.get());
-                this.avu.removeCallbacks(this.avp);
-                this.avu.removeCallbacks(z ? this.avB : this.avC);
-                this.avu.postDelayed(z ? this.avC : this.avB, bP);
-                com.baidu.lcp.sdk.d.d.i("SocketTransceiver", "Schedule retry " + (z ? OneKeyLoginSdkCall.k : "connect") + " -- retry times: " + this.avq.get() + " time delay: " + bP);
+            this.avf.incrementAndGet();
+            if (this.avf.get() <= 10 && auo.state == -1) {
+                long bP = bP(this.avf.get());
+                this.avj.removeCallbacks(this.ave);
+                this.avj.removeCallbacks(z ? this.avq : this.avr);
+                this.avj.postDelayed(z ? this.avr : this.avq, bP);
+                com.baidu.lcp.sdk.d.d.i("SocketTransceiver", "Schedule retry " + (z ? OneKeyLoginSdkCall.k : "connect") + " -- retry times: " + this.avf.get() + " time delay: " + bP);
             }
         } catch (Exception e2) {
             com.baidu.lcp.sdk.d.d.e("SocketTransceiver", "retry Exception", e2);
@@ -873,26 +873,26 @@ public final class f extends Observable {
         return IMConnection.RETRY_DELAY_TIMES;
     }
 
-    private synchronized void ah(String str, String str2) {
+    private synchronized void af(String str, String str2) {
         if (com.baidu.lcp.sdk.d.e.aA(this.context)) {
             com.baidu.lcp.sdk.d.d.i("SocketTransceiver", "destroy");
             d(401212, "connect stop, " + str, str2);
-            auz.state = -1;
+            auo.state = -1;
             setChanged();
-            notifyObservers(auz);
-            vQ();
-            this.avu.removeCallbacks(this.avs);
+            notifyObservers(auo);
+            vN();
+            this.avj.removeCallbacks(this.avh);
             this.mClose = true;
-            if (this.avr != null) {
-                synchronized (this.avi) {
-                    this.avi.notifyAll();
+            if (this.avg != null) {
+                synchronized (this.auX) {
+                    this.auX.notifyAll();
                     com.baidu.lcp.sdk.d.d.i("SocketTransceiver", "destroy notifyAll");
                 }
                 try {
-                    this.avr.socketClose();
+                    this.avg.socketClose();
                     com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "destroy socketClose ok");
                 } catch (Exception e2) {
-                    this.avr.a((com.baidu.lcp.sdk.connect.e) null);
+                    this.avg.a((com.baidu.lcp.sdk.connect.e) null);
                     com.baidu.lcp.sdk.d.d.e("SocketTransceiver", "Exception destroy:", e2);
                 }
             }
@@ -919,12 +919,12 @@ public final class f extends Observable {
         @Override // java.lang.Runnable
         public void run() {
             f.this.b(this.msgId, this.host);
-            f.this.ag("read and write thread timeout:", this.host);
+            f.this.ad("read and write thread timeout:", this.host);
         }
     }
 
     public void pingRequest() {
         com.baidu.lcp.sdk.d.d.d("SocketTransceiver", "customPingRunnable send PingRequest ");
-        b(this.avk.f(this.context, 3L));
+        b(this.auZ.f(this.context, 3L));
     }
 }

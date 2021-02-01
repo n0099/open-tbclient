@@ -14,28 +14,28 @@ import com.win.opensdk.v;
 import com.win.opensdk.w;
 /* loaded from: classes3.dex */
 public class PProvider extends ContentProvider {
-    private Context pYJ;
+    private Context qiN;
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
         long currentTimeMillis = System.currentTimeMillis();
-        this.pYJ = getContext();
-        if (this.pYJ != null) {
-            eGz();
+        this.qiN = getContext();
+        if (this.qiN != null) {
+            eIP();
         } else {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.win.opensdk.top.PProvider.1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    PProvider.this.pYJ = PProvider.this.getContext();
-                    if (PProvider.this.pYJ != null) {
-                        PProvider.this.eGz();
+                    PProvider.this.qiN = PProvider.this.getContext();
+                    if (PProvider.this.qiN != null) {
+                        PProvider.this.eIP();
                     }
                 }
             });
         }
         try {
-            if (az.iS(getContext())) {
-                w.iK(this.pYJ).js(System.currentTimeMillis() - currentTimeMillis).eGz();
+            if (az.iV(getContext())) {
+                w.iN(this.qiN).jv(System.currentTimeMillis() - currentTimeMillis).eIP();
                 return true;
             }
             return true;
@@ -46,9 +46,9 @@ public class PProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eGz() {
-        if (az.d(this.pYJ) == 0) {
-            v.iI(this.pYJ);
+    public void eIP() {
+        if (az.d(this.qiN) == 0) {
+            v.iL(this.qiN);
         }
     }
 

@@ -2,8 +2,8 @@ package com.baidu.tieba.homepage.hotTopic.tab;
 
 import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.hotTopic.tab.b.e;
 /* loaded from: classes2.dex */
@@ -11,64 +11,64 @@ public class a {
     public static void a(View view, Object obj, int i, String str) {
         if (obj instanceof com.baidu.tieba.homepage.hotTopic.tab.b.c) {
             com.baidu.tieba.homepage.hotTopic.tab.b.c cVar = (com.baidu.tieba.homepage.hotTopic.tab.b.c) obj;
-            if (cVar.jZc) {
-                aq aqVar = new aq("c13736");
-                aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-                aqVar.bsu();
+            if (cVar.kgF) {
+                ar arVar = new ar("c13736");
+                arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+                arVar.bsO();
                 return;
             }
-            aq aqVar2 = new aq("c13735");
-            aqVar2.an("obj_locate", i);
-            aqVar2.w("topic_id", cVar.topicId);
-            aqVar2.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar2.bsu();
+            ar arVar2 = new ar("c13735");
+            arVar2.ap("obj_locate", i);
+            arVar2.v("topic_id", cVar.topicId);
+            arVar2.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            arVar2.bsO();
         } else if (obj instanceof e) {
-            bz bzVar = ((e) obj).eHK;
-            aq aqVar3 = new aq("c13738");
-            aqVar3.dW("obj_type", str);
-            aqVar3.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            if (bzVar != null) {
-                aqVar3.dW("tid", bzVar.getTid());
-                aqVar3.w("fid", bzVar.getFid());
+            cb cbVar = ((e) obj).eJQ;
+            ar arVar3 = new ar("c13738");
+            arVar3.dR("obj_type", str);
+            arVar3.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            if (cbVar != null) {
+                arVar3.dR("tid", cbVar.getTid());
+                arVar3.v("fid", cbVar.getFid());
             }
-            aqVar3.bsu();
-        } else if ((obj instanceof com.baidu.tbadk.core.data.a) && dh(view)) {
-            bz bkV = ((com.baidu.tbadk.core.data.a) obj).bkV();
-            aq aqVar4 = new aq("c13738");
-            aqVar4.dW("obj_type", str);
-            aqVar4.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            if (bkV != null) {
-                aqVar4.dW("tid", bkV.getTid());
-                aqVar4.w("fid", bkV.getFid());
+            arVar3.bsO();
+        } else if ((obj instanceof com.baidu.tbadk.core.data.a) && df(view)) {
+            cb bln = ((com.baidu.tbadk.core.data.a) obj).bln();
+            ar arVar4 = new ar("c13738");
+            arVar4.dR("obj_type", str);
+            arVar4.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            if (bln != null) {
+                arVar4.dR("tid", bln.getTid());
+                arVar4.v("fid", bln.getFid());
             }
-            aqVar4.bsu();
+            arVar4.bsO();
         }
     }
 
-    private static boolean dh(View view) {
+    private static boolean df(View view) {
         int id = view.getId();
         return id == R.id.thread_card_root || id == R.id.thread_info_commont_container;
     }
 
     public static void a(View view, Object obj, String str) {
         if (obj instanceof e) {
-            bz bzVar = ((e) obj).eHK;
-            aq aqVar = new aq("c13825");
-            aqVar.dW("obj_type", str);
-            aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            if (bzVar != null) {
-                aqVar.dW("tid", bzVar.getTid());
+            cb cbVar = ((e) obj).eJQ;
+            ar arVar = new ar("c13825");
+            arVar.dR("obj_type", str);
+            arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            if (cbVar != null) {
+                arVar.dR("tid", cbVar.getTid());
             }
-            aqVar.bsu();
+            arVar.bsO();
         } else if (obj instanceof com.baidu.tbadk.core.data.a) {
-            bz bkV = ((com.baidu.tbadk.core.data.a) obj).bkV();
-            aq aqVar2 = new aq("c13825");
-            aqVar2.dW("obj_type", str);
-            aqVar2.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            if (bkV != null) {
-                aqVar2.dW("tid", bkV.getTid());
+            cb bln = ((com.baidu.tbadk.core.data.a) obj).bln();
+            ar arVar2 = new ar("c13825");
+            arVar2.dR("obj_type", str);
+            arVar2.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            if (bln != null) {
+                arVar2.dR("tid", bln.getTid());
             }
-            aqVar2.bsu();
+            arVar2.bsO();
         }
     }
 }

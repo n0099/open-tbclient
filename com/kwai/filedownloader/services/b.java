@@ -1,7 +1,7 @@
 package com.kwai.filedownloader.services;
 
 import com.kwai.filedownloader.f.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b implements c.d {
     @Override // com.kwai.filedownloader.f.c.d
     public int a(int i, String str, String str2, boolean z) {

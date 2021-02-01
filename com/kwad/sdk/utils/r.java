@@ -3,7 +3,7 @@ package com.kwad.sdk.utils;
 import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class r {
     @NonNull
     public static <T> List<List<T>> a(List<T> list, int i) {

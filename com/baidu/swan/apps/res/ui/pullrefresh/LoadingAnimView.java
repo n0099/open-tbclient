@@ -12,11 +12,11 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ao.ah;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LoadingAnimView extends View {
-    private ValueAnimator duB;
-    private float dwe;
-    private Camera dwf;
+    private ValueAnimator dwJ;
+    private float dyl;
+    private Camera dym;
     private Bitmap mBitmap;
     private Canvas mCanvas;
     private Matrix mMatrix;
@@ -24,60 +24,60 @@ public class LoadingAnimView extends View {
 
     public LoadingAnimView(Context context) {
         super(context);
-        this.dwe = 0.0f;
+        this.dyl = 0.0f;
         init();
     }
 
     public LoadingAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dwe = 0.0f;
+        this.dyl = 0.0f;
         init();
     }
 
     public LoadingAnimView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dwe = 0.0f;
+        this.dyl = 0.0f;
         init();
     }
 
     public void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.dwf = new Camera();
+        this.dym = new Camera();
         this.mMatrix = new Matrix();
         startAnim();
     }
 
     public void startAnim() {
-        if (this.duB != null) {
-            aGP();
+        if (this.dwJ != null) {
+            aHi();
         }
-        this.duB = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.duB.setDuration(750L);
-        this.duB.setRepeatCount(20);
-        this.duB.setRepeatMode(1);
-        this.duB.setInterpolator(new LinearInterpolator());
-        this.duB.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.LoadingAnimView.1
+        this.dwJ = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.dwJ.setDuration(750L);
+        this.dwJ.setRepeatCount(20);
+        this.dwJ.setRepeatMode(1);
+        this.dwJ.setInterpolator(new LinearInterpolator());
+        this.dwJ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.LoadingAnimView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 0.4f) {
-                    LoadingAnimView.this.dwe = (floatValue / 0.4f) * 0.25f;
+                    LoadingAnimView.this.dyl = (floatValue / 0.4f) * 0.25f;
                 } else if (floatValue < 0.6f) {
-                    LoadingAnimView.this.dwe = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
+                    LoadingAnimView.this.dyl = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
                 } else {
-                    LoadingAnimView.this.dwe = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
+                    LoadingAnimView.this.dyl = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
                 }
                 LoadingAnimView.this.postInvalidate();
             }
         });
-        if (!this.duB.isRunning()) {
-            this.duB.start();
+        if (!this.dwJ.isRunning()) {
+            this.dwJ.start();
         }
     }
 
     public void stopAnim() {
-        aGP();
+        aHi();
         clearAnimation();
     }
 
@@ -91,14 +91,14 @@ public class LoadingAnimView extends View {
             this.mBitmap.eraseColor(0);
             this.mPaint.setStyle(Paint.Style.FILL);
             this.mPaint.setColor(getResources().getColor(a.c.aiapps_pull_load_footer_image_color));
-            this.mPaint.setAlpha((int) (255.0d * (((1.0d - (2.0d * Math.abs(this.dwe - 0.5d))) * 0.3d) + 0.3d)));
+            this.mPaint.setAlpha((int) (255.0d * (((1.0d - (2.0d * Math.abs(this.dyl - 0.5d))) * 0.3d) + 0.3d)));
             this.mCanvas.drawCircle(measuredWidth / 2.0f, measuredHeight / 2.0f, dip2px, this.mPaint);
             this.mMatrix.reset();
-            this.dwf.save();
-            this.dwf.setLocation(0.0f, 0.0f, -100.0f);
-            this.dwf.rotateY(this.dwe * 360.0f);
-            this.dwf.getMatrix(this.mMatrix);
-            this.dwf.restore();
+            this.dym.save();
+            this.dym.setLocation(0.0f, 0.0f, -100.0f);
+            this.dym.rotateY(this.dyl * 360.0f);
+            this.dym.getMatrix(this.mMatrix);
+            this.dym.restore();
             this.mMatrix.preTranslate((-measuredWidth) / 2.0f, (-measuredHeight) / 2.0f);
             this.mMatrix.postTranslate(measuredWidth / 2.0f, measuredHeight / 2.0f);
             canvas.drawBitmap(this.mBitmap, this.mMatrix, null);
@@ -112,13 +112,13 @@ public class LoadingAnimView extends View {
         this.mCanvas = new Canvas(this.mBitmap);
     }
 
-    private void aGP() {
-        if (this.duB != null) {
-            this.duB.setRepeatCount(0);
-            this.duB.removeAllUpdateListeners();
-            this.duB.removeAllListeners();
-            this.duB.end();
-            this.duB.cancel();
+    private void aHi() {
+        if (this.dwJ != null) {
+            this.dwJ.setRepeatCount(0);
+            this.dwJ.removeAllUpdateListeners();
+            this.dwJ.removeAllListeners();
+            this.dwJ.end();
+            this.dwJ.cancel();
         }
     }
 }

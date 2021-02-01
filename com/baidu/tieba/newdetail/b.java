@@ -1,47 +1,47 @@
 package com.baidu.tieba.newdetail;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.util.aq;
-/* loaded from: classes7.dex */
+import com.baidu.tbadk.core.data.bn;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.ar;
+/* loaded from: classes8.dex */
 public class b {
     public static void c(String str, Object obj, int i) {
-        if (obj instanceof bl) {
-            aq aqVar = new aq(str);
-            aqVar.w("fid", ((bl) obj).getForumId());
-            aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.bsu();
+        if (obj instanceof bn) {
+            ar arVar = new ar(str);
+            arVar.v("fid", ((bn) obj).getForumId());
+            arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            arVar.bsO();
         } else if (obj instanceof com.baidu.tieba.newdetail.a.b) {
             com.baidu.tieba.newdetail.a.b bVar = (com.baidu.tieba.newdetail.a.b) obj;
-            aq aqVar2 = new aq(str);
-            if (bVar.eHK != null) {
-                aqVar2.dW("tid", bVar.eHK.getTid());
+            ar arVar2 = new ar(str);
+            if (bVar.eJQ != null) {
+                arVar2.dR("tid", bVar.eJQ.getTid());
             }
-            aqVar2.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar2.bsu();
+            arVar2.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            arVar2.bsO();
         }
     }
 
     public static void a(com.baidu.tieba.newdetail.adapter.a.a aVar, com.baidu.tbadk.core.data.a aVar2) {
-        if (aVar2 != null && aVar2.bkV() != null) {
-            bz bkV = aVar2.bkV();
-            aq aqVar = new aq(aVar.dgc() ? "c13823" : "c13822");
-            aqVar.dW("tid", bkV.getTid());
-            aqVar.w("fid", bkV.getFid());
-            aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.bsu();
+        if (aVar2 != null && aVar2.bln() != null) {
+            cb bln = aVar2.bln();
+            ar arVar = new ar(aVar.did() ? "c13823" : "c13822");
+            arVar.dR("tid", bln.getTid());
+            arVar.v("fid", bln.getFid());
+            arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            arVar.bsO();
         }
     }
 
     public static void b(com.baidu.tieba.newdetail.adapter.a.a aVar, com.baidu.tbadk.core.data.a aVar2) {
-        if (aVar2 != null && aVar2.bkV() != null) {
-            bz bkV = aVar2.bkV();
-            aq aqVar = new aq(aVar.dgc() ? "c13824" : "c13821");
-            aqVar.dW("tid", bkV.getTid());
-            aqVar.w("fid", bkV.getFid());
-            aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.bsu();
+        if (aVar2 != null && aVar2.bln() != null) {
+            cb bln = aVar2.bln();
+            ar arVar = new ar(aVar.did() ? "c13824" : "c13821");
+            arVar.dR("tid", bln.getTid());
+            arVar.v("fid", bln.getFid());
+            arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            arVar.bsO();
         }
     }
 }

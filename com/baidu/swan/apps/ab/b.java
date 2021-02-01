@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.ab;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface b {
-    void ai(int i, String str);
+    void am(int i, String str);
 
-    void jC(String str);
+    void jU(String str);
 }

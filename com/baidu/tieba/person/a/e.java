@@ -8,45 +8,45 @@ import com.baidu.tbadk.data.o;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
-    private List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
     private TbPageContext mTbPageContext;
-    private HTypeListView mjg;
-    private c mjh;
-    private b mji;
-    private a mjj;
+    private HTypeListView msi;
+    private c msj;
+    private b msk;
+    private a msl;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.mjg = hTypeListView;
-        IY();
+        this.msi = hTypeListView;
+        Kw();
     }
 
-    private void IY() {
-        this.mjh = new c(this.mTbPageContext, o.agN);
-        this.mji = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.mjr);
-        this.mjj = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.miU);
-        this.bjZ.add(this.mjh);
-        this.bjZ.add(this.mji);
-        this.bjZ.add(this.mjj);
-        this.mjg.addAdapters(this.bjZ);
+    private void Kw() {
+        this.msj = new c(this.mTbPageContext, o.agC);
+        this.msk = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.mst);
+        this.msl = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.mrV);
+        this.bns.add(this.msj);
+        this.bns.add(this.msk);
+        this.bns.add(this.msl);
+        this.msi.addAdapters(this.bns);
     }
 
     public void setDatas(List<n> list) {
-        if (this.mjg != null) {
-            this.mjg.setData(list);
+        if (this.msi != null) {
+            this.msi.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.mjg != null && (this.mjg.getAdapter() instanceof TypeAdapter)) {
-            ((TypeAdapter) this.mjg.getAdapter()).notifyDataSetChanged();
+        if (this.msi != null && (this.msi.getAdapter() instanceof TypeAdapter)) {
+            ((TypeAdapter) this.msi.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.mjh.H(onClickListener);
-        this.mji.H(onClickListener);
+        this.msj.H(onClickListener);
+        this.msk.H(onClickListener);
     }
 }

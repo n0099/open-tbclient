@@ -11,14 +11,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final long DEFAULT_GRANULARITY = 60000;
     public static final long DEFAULT_START_TIME = 86400000;
     private static final long serialVersionUID = 3026909056348431027L;
     private AppStatusInfo data = new AppStatusInfo();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AppStatusInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = -2403646317801179050L;
         private Strategy strategy = new Strategy();
@@ -69,7 +69,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Strategy implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = -1387498537762043285L;
         private long historyGranularity = AppStatusRules.DEFAULT_GRANULARITY;
@@ -122,7 +122,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Target implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = -4726982809581153390L;
         private String packageName;

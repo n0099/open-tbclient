@@ -2,14 +2,14 @@ package com.baidu.swan.game.ad.d;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class a {
-    private static final byte[] dXF = {48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, 117, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, 95, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
-    private static final byte[] dXG = new byte[128];
+    private static final byte[] dZL = {48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, 117, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, 95, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
+    private static final byte[] dZM = new byte[128];
 
     static {
-        for (int i = 0; i < dXF.length; i++) {
-            dXG[dXF[i]] = (byte) i;
+        for (int i = 0; i < dZL.length; i++) {
+            dZM[dZL[i]] = (byte) i;
         }
     }
 
@@ -27,10 +27,10 @@ public class a {
         while (true) {
             int i3 = i;
             if (i3 < bytes.length) {
-                bArr[i2] = dXF[(bytes[i3] & 252) >> 2];
-                bArr[i2 + 1] = dXF[((bytes[i3] & 3) << 4) + ((bytes[i3 + 1] & 240) >> 4)];
-                bArr[i2 + 2] = dXF[((bytes[i3 + 1] & 15) << 2) + ((bytes[i3 + 2] & 192) >> 6)];
-                bArr[i2 + 3] = dXF[bytes[i3 + 2] & 63];
+                bArr[i2] = dZL[(bytes[i3] & 252) >> 2];
+                bArr[i2 + 1] = dZL[((bytes[i3] & 3) << 4) + ((bytes[i3 + 1] & 240) >> 4)];
+                bArr[i2 + 2] = dZL[((bytes[i3 + 1] & 15) << 2) + ((bytes[i3 + 2] & 192) >> 6)];
+                bArr[i2 + 3] = dZL[bytes[i3 + 2] & 63];
                 i = i3 + 3;
                 i2 += 4;
             } else {

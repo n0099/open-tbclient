@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends BaseAdapter {
     private List<com.baidu.tieba.ala.liveroom.challenge.a.b> dataList;
-    public String hqJ;
+    public String huT;
     private Context mContext;
 
     public b(Context context, List<com.baidu.tieba.ala.liveroom.challenge.a.b> list) {
@@ -49,7 +49,7 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.layout_item_mvp_choose_punish, (ViewGroup) null);
             a aVar2 = new a(view);
-            aVar2.hqK.setDefaultBgResource(a.e.sdk_shape_transparent);
+            aVar2.huU.setDefaultBgResource(a.e.sdk_shape_transparent);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -57,29 +57,29 @@ public class b extends BaseAdapter {
         }
         com.baidu.tieba.ala.liveroom.challenge.a.b bVar = (com.baidu.tieba.ala.liveroom.challenge.a.b) getItem(i);
         if (bVar != null) {
-            aVar.hqK.startLoad(bVar.bgurl, 10, false);
-            if (TextUtils.equals(this.hqJ, bVar.id)) {
-                aVar.hqL.setImageResource(a.e.icon_mvp_choose_punish_check);
+            aVar.huU.startLoad(bVar.bgurl, 10, false);
+            if (TextUtils.equals(this.huT, bVar.id)) {
+                aVar.huV.setImageResource(a.e.icon_mvp_choose_punish_check);
             } else {
-                aVar.hqL.setImageResource(a.e.icon_mvp_choose_punish_not_check);
+                aVar.huV.setImageResource(a.e.icon_mvp_choose_punish_not_check);
             }
-            aVar.hqM.setText(bVar.name);
+            aVar.huW.setText(bVar.name);
         }
         return view;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        public TbImageView hqK;
-        public ImageView hqL;
-        public TextView hqM;
+        public TbImageView huU;
+        public ImageView huV;
+        public TextView huW;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.hqK = (TbImageView) view.findViewById(a.f.sticker_imageView);
-            this.hqL = (ImageView) view.findViewById(a.f.check_imageView);
-            this.hqM = (TextView) view.findViewById(a.f.stickerName_textView);
+            this.huU = (TbImageView) view.findViewById(a.f.sticker_imageView);
+            this.huV = (ImageView) view.findViewById(a.f.check_imageView);
+            this.huW = (TextView) view.findViewById(a.f.stickerName_textView);
         }
     }
 }

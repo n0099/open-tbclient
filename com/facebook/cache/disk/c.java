@@ -20,22 +20,22 @@ public interface c {
 
         com.facebook.a.a aZ(Object obj) throws IOException;
 
-        boolean epB();
+        boolean erU();
     }
 
-    b F(String str, Object obj) throws IOException;
+    b E(String str, Object obj) throws IOException;
 
-    com.facebook.a.a G(String str, Object obj) throws IOException;
+    com.facebook.a.a F(String str, Object obj) throws IOException;
 
-    boolean H(String str, Object obj) throws IOException;
+    boolean G(String str, Object obj) throws IOException;
 
-    long Yc(String str) throws IOException;
+    long Zd(String str) throws IOException;
 
     long a(a aVar) throws IOException;
 
-    void epx();
+    void erQ();
 
-    Collection<a> epy() throws IOException;
+    Collection<a> erR() throws IOException;
 
     boolean isExternal();
 }

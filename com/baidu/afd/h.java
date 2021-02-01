@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface h {
+    int qN();
+
+    int qO();
+
     int qP();
 
-    int qQ();
-
-    int qR();
-
-    Map<String, String> qS();
+    Map<String, String> qQ();
 
     void u(HashMap hashMap);
 }

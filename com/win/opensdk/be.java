@@ -21,14 +21,14 @@ import org.json.JSONException;
 public final class be {
     public static String java;
 
-    public static boolean aaD(String str) {
+    public static boolean abE(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return str.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str.startsWith("https");
     }
 
-    public static String iP(Context context) {
+    public static String iS(Context context) {
         if (context == null) {
             return null;
         }
@@ -71,7 +71,7 @@ public final class be {
         return linkedList;
     }
 
-    private static List<String> iW(Context context) {
+    private static List<String> iZ(Context context) {
         ArrayList arrayList = new ArrayList();
         String m67d = az.m67d(context);
         if (!TextUtils.isEmpty(m67d)) {
@@ -97,7 +97,7 @@ public final class be {
         } else if (bf.aj(uri)) {
             intent.setPackage("com.android.vending");
         } else {
-            intent = bs.aaN(uri.toString());
+            intent = bs.abO(uri.toString());
             intent.addFlags(268435456);
         }
         context.startActivity(intent);
@@ -139,9 +139,9 @@ public final class be {
         if (n.size() == 1) {
             return n.get(0);
         }
-        List<String> iW = iW(context);
-        if (iW.size() > 0) {
-            Iterator<String> it = iW.iterator();
+        List<String> iZ = iZ(context);
+        if (iZ.size() > 0) {
+            Iterator<String> it = iZ.iterator();
             while (it.hasNext()) {
                 str = it.next();
                 if (n.contains(str)) {

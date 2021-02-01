@@ -2,23 +2,22 @@ package com.faceunity.a;
 
 import android.media.AudioRecord;
 import androidx.annotation.NonNull;
-import com.baidu.ala.helper.StreamConfig;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private static b pDF;
+    private static b pNN;
     private AudioRecord mAudioRecord;
-    private boolean pDG;
-    private static final int[] pDD = {1, 0, 5, 7, 6};
-    public static int SAMPLE_RATE = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+    private boolean pNO;
+    private static final int[] pNL = {1, 0, 5, 7, 6};
+    public static int SAMPLE_RATE = 48000;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int pDE = 24;
+    public static int pNM = 24;
 
     public b() {
         int minBufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, 16, 2);
-        int i = SAMPLES_PER_FRAME * pDE;
+        int i = SAMPLES_PER_FRAME * pNM;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : pDD) {
+        for (int i2 : pNL) {
             try {
                 this.mAudioRecord = new AudioRecord(i2, SAMPLE_RATE, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
@@ -31,8 +30,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.pDG) {
-            this.pDG = true;
+        if (!this.pNO) {
+            this.pNO = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -49,11 +48,11 @@ public class b {
 
     public void startRecording() {
         if (this.mAudioRecord != null) {
-            if (pDF != null && !pDF.ZP()) {
-                pDF.release();
+            if (pNN != null && !pNN.isReleased()) {
+                pNN.release();
             }
             this.mAudioRecord.startRecording();
-            pDF = this;
+            pNN = this;
         }
     }
 
@@ -63,11 +62,11 @@ public class b {
         }
     }
 
-    public boolean ZP() {
-        return this.pDG;
+    public boolean isReleased() {
+        return this.pNO;
     }
 
-    public AudioRecord exT() {
+    public AudioRecord eAl() {
         return this.mAudioRecord;
     }
 }

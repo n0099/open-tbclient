@@ -5,7 +5,7 @@ import android.util.Pair;
 import com.bytedance.sdk.openadsdk.preload.a.k;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
     private int d = 0;
 

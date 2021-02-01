@@ -9,7 +9,7 @@ import tbclient.GetIconList.GetIconListResIdl;
 import tbclient.GetIconList.IconInfo;
 import tbclient.GetIconList.Setting;
 import tbclient.GetIconList.UserInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetYinJiResponseMessage extends SocketResponsedMessage implements a {
     private List<Custom> customList;
     private List<IconInfo> iconInfoList;

@@ -6,31 +6,31 @@ import java.nio.ByteBuffer;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class as {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13490b = "GBK";
+    public String f13492b = "GBK";
 
     /* renamed from: a  reason: collision with root package name */
-    public ByteBuffer f13489a = ByteBuffer.allocate(128);
+    public ByteBuffer f13491a = ByteBuffer.allocate(128);
 
     public void a(byte b2, int i) {
         if (i < 15) {
-            this.f13489a.put((byte) ((i << 4) | b2));
+            this.f13491a.put((byte) ((i << 4) | b2));
         } else if (i >= 256) {
             throw new ai(ab.a("tag is too large: ", i));
         } else {
-            this.f13489a.put((byte) (b2 | 240));
-            this.f13489a.put((byte) i);
+            this.f13491a.put((byte) (b2 | 240));
+            this.f13491a.put((byte) i);
         }
     }
 
     public void a(int i) {
-        if (this.f13489a.remaining() < i) {
-            ByteBuffer allocate = ByteBuffer.allocate((this.f13489a.capacity() + i) * 2);
-            allocate.put(this.f13489a.array(), 0, this.f13489a.position());
-            this.f13489a = allocate;
+        if (this.f13491a.remaining() < i) {
+            ByteBuffer allocate = ByteBuffer.allocate((this.f13491a.capacity() + i) * 2);
+            allocate.put(this.f13491a.array(), 0, this.f13491a.position());
+            this.f13491a = allocate;
         }
     }
 
@@ -41,7 +41,7 @@ public class as {
             return;
         }
         a((byte) 2, i2);
-        this.f13489a.putInt(i);
+        this.f13491a.putInt(i);
     }
 
     public void a(long j, int i) {
@@ -51,7 +51,7 @@ public class as {
             return;
         }
         a((byte) 3, i);
-        this.f13489a.putLong(j);
+        this.f13491a.putLong(j);
     }
 
     public void a(bf bfVar, int i) {
@@ -77,12 +77,12 @@ public class as {
             float floatValue = ((Float) obj).floatValue();
             a(6);
             a((byte) 4, i);
-            this.f13489a.putFloat(floatValue);
+            this.f13491a.putFloat(floatValue);
         } else if (obj instanceof Double) {
             double doubleValue = ((Double) obj).doubleValue();
             a(10);
             a((byte) 5, i);
-            this.f13489a.putDouble(doubleValue);
+            this.f13491a.putDouble(doubleValue);
         } else if (obj instanceof String) {
             a((String) obj, i);
         } else if (obj instanceof Map) {
@@ -97,7 +97,7 @@ public class as {
             a((byte) 13, i);
             a((byte) 0, 0);
             a(bArr.length, 0);
-            this.f13489a.put(bArr);
+            this.f13491a.put(bArr);
         } else if (obj instanceof boolean[]) {
             boolean[] zArr = (boolean[]) obj;
             a(8);
@@ -138,7 +138,7 @@ public class as {
             for (float f : fArr) {
                 a(6);
                 a((byte) 4, 0);
-                this.f13489a.putFloat(f);
+                this.f13491a.putFloat(f);
             }
         } else if (obj instanceof double[]) {
             double[] dArr = (double[]) obj;
@@ -148,7 +148,7 @@ public class as {
             for (double d : dArr) {
                 a(10);
                 a((byte) 5, 0);
-                this.f13489a.putDouble(d);
+                this.f13491a.putDouble(d);
             }
         } else if (!obj.getClass().isArray()) {
             if (!(obj instanceof Collection)) {
@@ -169,20 +169,20 @@ public class as {
     public void a(String str, int i) {
         byte[] bytes;
         try {
-            bytes = str.getBytes(this.f13490b);
+            bytes = str.getBytes(this.f13492b);
         } catch (UnsupportedEncodingException e) {
             bytes = str.getBytes();
         }
         a(bytes.length + 10);
         if (bytes.length > 255) {
             a((byte) 7, i);
-            this.f13489a.putInt(bytes.length);
-            this.f13489a.put(bytes);
+            this.f13491a.putInt(bytes.length);
+            this.f13491a.put(bytes);
             return;
         }
         a((byte) 6, i);
-        this.f13489a.put((byte) bytes.length);
-        this.f13489a.put(bytes);
+        this.f13491a.put((byte) bytes.length);
+        this.f13491a.put(bytes);
     }
 
     public <T> void a(Collection<T> collection, int i) {
@@ -215,7 +215,7 @@ public class as {
             return;
         }
         a((byte) 1, i);
-        this.f13489a.putShort(s);
+        this.f13491a.putShort(s);
     }
 
     public void a(boolean z, int i) {
@@ -229,6 +229,6 @@ public class as {
             return;
         }
         a((byte) 0, i);
-        this.f13489a.put(b2);
+        this.f13491a.put(b2);
     }
 }

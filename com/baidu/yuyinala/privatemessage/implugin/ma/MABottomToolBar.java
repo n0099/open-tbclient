@@ -1,13 +1,13 @@
 package com.baidu.yuyinala.privatemessage.implugin.ma;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MABottomToolBar {
-    private CommonMenuType oPH;
-    private CommonToolBarType oPI;
-    private a oPJ;
-    private b oPK;
+    private CommonMenuType oZR;
+    private CommonToolBarType oZS;
+    private a oZT;
+    private b oZU;
 
     @Deprecated
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum CommonMenuType {
         MENU_STYLE_AD_IMMERSIVE_LANDING_PAGE,
         MENU_STYLE_NO,
@@ -15,7 +15,7 @@ public class MABottomToolBar {
         MENU_STYLE_NS_NA
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum CommonToolBarType {
         TOOL_BAR_STYLE_AD_IMMERSIVE_LANDING_PAGE,
         TOOL_BAR_STYLE_NEWS,
@@ -24,21 +24,21 @@ public class MABottomToolBar {
     }
 
     @Deprecated
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
     }
 
     @Deprecated
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("mCommonToolBarType = " + this.oPI + "\n");
-        sb.append("mCommonMenuType = " + this.oPH + "\n");
-        sb.append("mOnCommonToolBarClickListener = " + this.oPJ + "\n");
-        sb.append("mOnCommonToolMenuClickListener = " + this.oPK);
+        sb.append("mCommonToolBarType = " + this.oZS + "\n");
+        sb.append("mCommonMenuType = " + this.oZR + "\n");
+        sb.append("mOnCommonToolBarClickListener = " + this.oZT + "\n");
+        sb.append("mOnCommonToolMenuClickListener = " + this.oZU);
         return sb.toString();
     }
 }

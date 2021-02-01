@@ -6,16 +6,16 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.swan.apps.ab.c;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "RequestPermissionHelper";
 
     public static void a(@NonNull String str, @NonNull String[] strArr, @NonNull int i, @NonNull Context context, @NonNull b bVar) {
         if (context == null || !(context instanceof Activity)) {
-            bVar.ai(2, "context should be activity ref");
+            bVar.am(2, "context should be activity ref");
         } else if (com.baidu.swan.uuid.b.c.hasPermission(context, str)) {
-            bVar.jC("permission has already granted");
+            bVar.jU("permission has already granted");
         } else {
             a(context, strArr, i, bVar);
         }
@@ -31,13 +31,13 @@ public class a {
         if (arrayList.size() > 0) {
             a(context, (String[]) arrayList.toArray(new String[0]), i, bVar);
         } else {
-            bVar.jC("permission has already granted");
+            bVar.jU("permission has already granted");
         }
     }
 
     public static void a(Context context, String[] strArr, final int i, @NonNull final b bVar) {
         if (context == null || !(context instanceof SwanAppBaseActivity)) {
-            bVar.ai(2, "method should be called after setActivityRef");
+            bVar.am(2, "method should be called after setActivityRef");
             if (DEBUG) {
                 throw new IllegalStateException("this method should be called after setActivityRef");
             }
@@ -49,18 +49,18 @@ public class a {
                 if (i2 != i) {
                     b bVar2 = bVar;
                     b bVar3 = bVar;
-                    bVar2.ai(2, "request permission fail");
+                    bVar2.am(2, "request permission fail");
                     return;
                 }
                 for (int i3 : iArr) {
                     if (i3 == -1) {
                         b bVar4 = bVar;
                         b bVar5 = bVar;
-                        bVar4.ai(1, "user denied");
+                        bVar4.am(1, "user denied");
                         return;
                     }
                 }
-                bVar.jC("permission granted successful");
+                bVar.jU("permission granted successful");
             }
         });
     }

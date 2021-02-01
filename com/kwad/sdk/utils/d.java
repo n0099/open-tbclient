@@ -5,9 +5,8 @@ import android.content.Context;
 import android.os.Build;
 import android.view.Window;
 import androidx.annotation.NonNull;
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static void a(@NonNull Activity activity, int i, boolean z) {
         a(activity, i, z, true);
@@ -28,7 +27,7 @@ public class d {
     }
 
     public static boolean a(@NonNull Activity activity) {
-        return a() && (activity.getWindow().getDecorView().getSystemUiVisibility() & PlatformPlugin.DEFAULT_SYSTEM_UI) == 1280 && !ao.a(activity);
+        return a() && (activity.getWindow().getDecorView().getSystemUiVisibility() & 1280) == 1280 && !ao.a(activity);
     }
 
     public static boolean a(@NonNull Activity activity, boolean z) {
@@ -50,11 +49,11 @@ public class d {
     }
 
     public static void b(@NonNull Activity activity, int i, boolean z) {
-        int i2 = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        int i2 = 1280;
         Window window = activity.getWindow();
         if (Build.VERSION.SDK_INT < 21) {
             if (Build.VERSION.SDK_INT >= 19) {
-                window.getDecorView().setSystemUiVisibility(PlatformPlugin.DEFAULT_SYSTEM_UI);
+                window.getDecorView().setSystemUiVisibility(1280);
                 return;
             }
             return;

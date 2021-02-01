@@ -8,11 +8,11 @@ import com.baidu.searchbox.v8engine.JsObject;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, Object> ecy;
-    private Map<String, Integer> ecz;
+    private Map<String, Object> eeF;
+    private Map<String, Integer> eeG;
 
     public static c e(JsObject jsObject) {
         boolean z = false;
@@ -29,35 +29,35 @@ public class c {
             if (i < jsObject.length()) {
                 int propertyType = jsObject.getPropertyType(i);
                 String propertyName = jsObject.getPropertyName(i);
-                cVar.aVn().put(propertyName, Integer.valueOf(propertyType));
+                cVar.aVz().put(propertyName, Integer.valueOf(propertyType));
                 switch (propertyType) {
                     case 1:
-                        cVar.aVm().put(propertyName, Boolean.valueOf(jsObject.toBoolean(i)));
+                        cVar.aVy().put(propertyName, Boolean.valueOf(jsObject.toBoolean(i)));
                         break;
                     case 2:
-                        cVar.aVm().put(propertyName, Integer.valueOf(jsObject.toInteger(i)));
+                        cVar.aVy().put(propertyName, Integer.valueOf(jsObject.toInteger(i)));
                         break;
                     case 3:
-                        cVar.aVm().put(propertyName, Long.valueOf(jsObject.toLong(i)));
+                        cVar.aVy().put(propertyName, Long.valueOf(jsObject.toLong(i)));
                         break;
                     case 5:
-                        cVar.aVm().put(propertyName, Double.valueOf(jsObject.toDouble(i)));
+                        cVar.aVy().put(propertyName, Double.valueOf(jsObject.toDouble(i)));
                         break;
                     case 6:
-                        cVar.aVm().put(propertyName, new d(i, jsObject));
+                        cVar.aVy().put(propertyName, new d(i, jsObject));
                         z2 = true;
                         break;
                     case 7:
-                        cVar.aVm().put(propertyName, jsObject.toString(i));
+                        cVar.aVy().put(propertyName, jsObject.toString(i));
                         break;
                     case 8:
-                        cVar.aVm().put(propertyName, jsObject.toJsFunction(i));
+                        cVar.aVy().put(propertyName, jsObject.toJsFunction(i));
                         break;
                     case 9:
-                        cVar.aVm().put(propertyName, e(jsObject.toJsObject(i)));
+                        cVar.aVy().put(propertyName, e(jsObject.toJsObject(i)));
                         break;
                     case 10:
-                        cVar.aVm().put(propertyName, jsObject.toJsArrayBuffer(i));
+                        cVar.aVy().put(propertyName, jsObject.toJsArrayBuffer(i));
                         break;
                 }
                 z = z2;
@@ -71,44 +71,44 @@ public class c {
         }
     }
 
-    private Map<String, Object> aVm() {
-        if (this.ecy == null) {
-            this.ecy = new TreeMap();
+    private Map<String, Object> aVy() {
+        if (this.eeF == null) {
+            this.eeF = new TreeMap();
         }
-        return this.ecy;
+        return this.eeF;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, Integer> aVn() {
-        if (this.ecz == null) {
-            this.ecz = new TreeMap();
+    public Map<String, Integer> aVz() {
+        if (this.eeG == null) {
+            this.eeG = new TreeMap();
         }
-        return this.ecz;
+        return this.eeG;
     }
 
     public Set<String> keySet() {
-        return aVm().keySet();
+        return aVy().keySet();
     }
 
-    public int vN(String str) {
-        Integer num = aVn().get(str);
+    public int wg(String str) {
+        Integer num = aVz().get(str);
         if (num == null) {
             num = 12;
         }
         return num.intValue();
     }
 
-    public boolean vO(String str) {
-        return aVn().containsKey(str);
+    public boolean wh(String str) {
+        return aVz().containsKey(str);
     }
 
     public int length() {
-        return aVm().size();
+        return aVy().size();
     }
 
     public void put(String str, Object obj) {
         if (!TextUtils.isEmpty(str) && obj != null) {
-            aVm().put(str, obj);
+            aVy().put(str, obj);
         }
     }
 
@@ -117,12 +117,12 @@ public class c {
     }
 
     public boolean optBoolean(String str, boolean z) {
-        Boolean bool = a.toBoolean(aVm().get(str));
+        Boolean bool = a.toBoolean(aVy().get(str));
         return bool != null ? bool.booleanValue() : z;
     }
 
     public int getInt(String str) throws JSTypeMismatchException {
-        Integer integer = a.toInteger(aVm().get(str));
+        Integer integer = a.toInteger(aVy().get(str));
         if (integer == null) {
             throw a.a(this, str, 2);
         }
@@ -134,17 +134,17 @@ public class c {
     }
 
     public int optInt(String str, int i) {
-        Integer integer = a.toInteger(aVm().get(str));
+        Integer integer = a.toInteger(aVy().get(str));
         return integer != null ? integer.intValue() : i;
     }
 
     public long optLong(String str, long j) {
-        Long l = a.toLong(aVm().get(str));
+        Long l = a.toLong(aVy().get(str));
         return l != null ? l.longValue() : j;
     }
 
     public double getDouble(String str) throws JSTypeMismatchException {
-        Double d = a.toDouble(aVm().get(str));
+        Double d = a.toDouble(aVy().get(str));
         if (d == null) {
             throw a.a(this, str, 5);
         }
@@ -152,55 +152,55 @@ public class c {
     }
 
     public double optDouble(String str, double d) {
-        Double d2 = a.toDouble(aVm().get(str));
+        Double d2 = a.toDouble(aVy().get(str));
         return d2 != null ? d2.doubleValue() : d;
     }
 
-    public String[] vP(String str) throws JSTypeMismatchException {
-        d ae = a.ae(aVm().get(str));
+    public String[] wi(String str) throws JSTypeMismatchException {
+        d ae = a.ae(aVy().get(str));
         if (ae == null) {
             throw a.a(this, str, 6);
         }
-        return ae.ecA.toStringArray(ae.index);
+        return ae.eeH.toStringArray(ae.index);
     }
 
-    public String[] vQ(String str) {
+    public String[] wj(String str) {
         return g(str, null);
     }
 
     public String[] g(String str, String[] strArr) {
-        d ae = a.ae(aVm().get(str));
-        return ae != null ? ae.ecA.toStringArray(ae.index) : strArr;
+        d ae = a.ae(aVy().get(str));
+        return ae != null ? ae.eeH.toStringArray(ae.index) : strArr;
     }
 
-    public JsObject[] vR(String str) throws JSTypeMismatchException {
-        d ae = a.ae(aVm().get(str));
+    public JsObject[] wk(String str) throws JSTypeMismatchException {
+        d ae = a.ae(aVy().get(str));
         if (ae == null) {
             throw a.a(this, str, 6);
         }
-        return ae.ecA.toObjectArray(ae.index);
+        return ae.eeH.toObjectArray(ae.index);
     }
 
-    public JsObject[] vS(String str) {
+    public JsObject[] wl(String str) {
         return a(str, (JsObject[]) null);
     }
 
     public JsObject[] a(String str, JsObject[] jsObjectArr) {
-        d ae = a.ae(aVm().get(str));
-        return ae != null ? ae.ecA.toObjectArray(ae.index) : jsObjectArr;
+        d ae = a.ae(aVy().get(str));
+        return ae != null ? ae.eeH.toObjectArray(ae.index) : jsObjectArr;
     }
 
-    public double[] vT(String str) {
+    public double[] wm(String str) {
         return a(str, (double[]) null);
     }
 
     public double[] a(String str, double[] dArr) {
-        d ae = a.ae(aVm().get(str));
-        return ae != null ? ae.ecA.toDoubleArray(ae.index) : dArr;
+        d ae = a.ae(aVy().get(str));
+        return ae != null ? ae.eeH.toDoubleArray(ae.index) : dArr;
     }
 
     public String getString(String str) throws JSTypeMismatchException {
-        String aVar = a.toString(aVm().get(str));
+        String aVar = a.toString(aVy().get(str));
         if (aVar == null) {
             throw a.a(this, str, 7);
         }
@@ -212,39 +212,39 @@ public class c {
     }
 
     public String optString(String str, String str2) {
-        String aVar = a.toString(aVm().get(str));
+        String aVar = a.toString(aVy().get(str));
         return aVar != null ? aVar : str2;
     }
 
     public String toString(String str) {
-        return String.valueOf(aVm().get(str));
+        return String.valueOf(aVy().get(str));
     }
 
-    public JsFunction vU(String str) {
+    public JsFunction wn(String str) {
         return a(str, (JsFunction) null);
     }
 
     public JsFunction a(String str, JsFunction jsFunction) {
-        JsFunction af = a.af(aVm().get(str));
+        JsFunction af = a.af(aVy().get(str));
         return af != null ? af : jsFunction;
     }
 
-    public c vV(String str) {
+    public c wo(String str) {
         return a(str, (c) null);
     }
 
     public c a(String str, c cVar) {
-        c ah = a.ah(aVm().get(str));
+        c ah = a.ah(aVy().get(str));
         return ah != null ? ah : cVar;
     }
 
     public JsArrayBuffer a(String str, JsArrayBuffer jsArrayBuffer) {
-        JsArrayBuffer ag = a.ag(aVm().get(str));
+        JsArrayBuffer ag = a.ag(aVy().get(str));
         return ag != null ? ag : jsArrayBuffer;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         static Boolean toBoolean(Object obj) {
             if (obj instanceof Boolean) {
@@ -320,8 +320,8 @@ public class c {
 
         static JSTypeMismatchException a(c cVar, String str, int i) {
             int i2;
-            if (cVar.aVn().containsKey(str)) {
-                i2 = ((Integer) cVar.aVn().get(str)).intValue();
+            if (cVar.aVz().containsKey(str)) {
+                i2 = ((Integer) cVar.aVz().get(str)).intValue();
             } else {
                 i2 = 12;
             }
@@ -330,6 +330,6 @@ public class c {
     }
 
     public String toString() {
-        return aVm().toString();
+        return aVy().toString();
     }
 }

@@ -14,14 +14,14 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.baidu.ufosdk.UfoSDK;
 import java.util.Timer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 final class bc extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackHotActivity f5454a;
+    final /* synthetic */ FeedbackHotActivity f5456a;
 
     private bc(FeedbackHotActivity feedbackHotActivity) {
-        this.f5454a = feedbackHotActivity;
+        this.f5456a = feedbackHotActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,14 +41,14 @@ final class bc extends WebViewClient {
         Timer timer2;
         Timer timer3;
         super.onPageFinished(webView, str);
-        view = this.f5454a.l;
+        view = this.f5456a.l;
         view.setVisibility(8);
         webView.requestFocus();
-        timer = this.f5454a.q;
+        timer = this.f5456a.q;
         if (timer != null) {
-            timer2 = this.f5454a.q;
+            timer2 = this.f5456a.q;
             timer2.cancel();
-            timer3 = this.f5454a.q;
+            timer3 = this.f5456a.q;
             timer3.purge();
         }
     }
@@ -59,11 +59,11 @@ final class bc extends WebViewClient {
         Timer timer;
         super.onPageStarted(webView, str, bitmap);
         webView.clearView();
-        view = this.f5454a.l;
+        view = this.f5456a.l;
         view.setVisibility(0);
-        this.f5454a.q = new Timer();
+        this.f5456a.q = new Timer();
         bd bdVar = new bd(this);
-        timer = this.f5454a.q;
+        timer = this.f5456a.q;
         timer.schedule(bdVar, 20000L);
     }
 
@@ -73,12 +73,12 @@ final class bc extends WebViewClient {
         LinearLayout linearLayout;
         WebView webView2;
         super.onReceivedError(webView, i, str, str2);
-        Context applicationContext = this.f5454a.getApplicationContext();
-        textView = this.f5454a.m;
+        Context applicationContext = this.f5456a.getApplicationContext();
+        textView = this.f5456a.m;
         com.baidu.ufosdk.f.i.a(applicationContext, textView);
-        linearLayout = this.f5454a.h;
+        linearLayout = this.f5456a.h;
         linearLayout.setVisibility(0);
-        webView2 = this.f5454a.j;
+        webView2 = this.f5456a.j;
         webView2.setVisibility(8);
     }
 
@@ -88,26 +88,26 @@ final class bc extends WebViewClient {
         com.baidu.ufosdk.f.c.a("webClick ==> click:url-->" + str);
         com.baidu.ufosdk.f.c.a("PluginInvoker.appid=" + UfoSDK.appid);
         if (str.startsWith("feedback://")) {
-            FeedbackHotActivity.a(this.f5454a, str);
+            FeedbackHotActivity.a(this.f5456a, str);
             return true;
         } else if (str.startsWith("solve://")) {
-            z = this.f5454a.s;
+            z = this.f5456a.s;
             if (z) {
                 return true;
             }
-            Toast.makeText(this.f5454a, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_V8_SO), 0).show();
-            this.f5454a.s = true;
+            Toast.makeText(this.f5456a, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_V8_SO), 0).show();
+            this.f5456a.s = true;
             return true;
         } else if (str.startsWith("backtoufo://")) {
-            this.f5454a.finish();
+            this.f5456a.finish();
             return true;
         } else if (str.startsWith("unsolved://")) {
-            this.f5454a.s = true;
+            this.f5456a.s = true;
             return true;
         } else if (str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) || str.startsWith("http://")) {
             try {
                 com.baidu.ufosdk.f.c.a(">>跳转链接：" + str);
-                this.f5454a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                this.f5456a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -119,11 +119,11 @@ final class bc extends WebViewClient {
                 Intent intent = new Intent();
                 intent.setAction("android.intent.action.VIEW");
                 intent.setData(Uri.parse(str));
-                this.f5454a.startActivity(intent);
+                this.f5456a.startActivity(intent);
                 return true;
             } catch (Exception e2) {
                 e2.printStackTrace();
-                Toast.makeText(this.f5454a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
+                Toast.makeText(this.f5456a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
                 return true;
             }
         } else {

@@ -2,24 +2,24 @@ package com.baidu.tieba.faceshop;
 
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class w extends com.baidu.tbadk.editortools.emotiontool.c {
     private final String groupId;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(w wVar);
     }
 
     public w(com.baidu.tieba.face.data.b bVar) {
         this.groupId = bVar.getGroupId();
-        qU(1);
-        qT(4);
+        qZ(1);
+        qY(4);
     }
 
     public boolean a(com.baidu.tieba.face.data.b bVar, final a aVar) {
         if (bVar instanceof SingleBarEmotionRecommendData) {
-            com.baidu.adp.lib.e.d.mx().a(((SingleBarEmotionRecommendData) bVar).cover, 10, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.faceshop.w.1
+            com.baidu.adp.lib.e.d.mw().a(((SingleBarEmotionRecommendData) bVar).cover, 10, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.faceshop.w.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.e.c
@@ -44,36 +44,36 @@ public class w extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a bBl() {
-        return super.bBk();
+    public com.baidu.adp.widget.ImageView.a bBD() {
+        return super.bBC();
     }
 
     public boolean isReady() {
-        return bBk() != null;
+        return bBC() != null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String qS(int i) {
+    public String qX(int i) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean Cy(String str) {
+    public boolean CP(String str) {
         return false;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public EmotionGroupType bBj() {
+    public EmotionGroupType bBB() {
         return EmotionGroupType.SINGLE_FORUM;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a Cz(String str) {
+    public com.baidu.adp.widget.ImageView.a CQ(String str) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CA(String str) {
+    public com.baidu.adp.widget.ImageView.a CR(String str) {
         return null;
     }
 
@@ -103,7 +103,7 @@ public class w extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean bBi() {
+    public boolean bBA() {
         return false;
     }
 }

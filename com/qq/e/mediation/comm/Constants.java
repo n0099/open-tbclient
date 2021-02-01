@@ -1,5 +1,5 @@
 package com.qq.e.mediation.comm;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class Constants {
     public static final int VAST_CALLBACK_ALL_ADS_COMPLETED = 8;
     public static final int VAST_CALLBACK_CLICK = 6;

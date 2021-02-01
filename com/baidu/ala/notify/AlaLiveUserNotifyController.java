@@ -2,9 +2,9 @@ package com.baidu.ala.notify;
 
 import android.content.DialogInterface;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveUserNotifyController {
     private AlaLiveUserNotifyDialog mBdAlertDialog;
     private TbPageContext mTbPageContext;
@@ -14,7 +14,7 @@ public class AlaLiveUserNotifyController {
     }
 
     public void showNextNotifyDialog(int i, ArrayList<AlaLiveUserNotifyData> arrayList) {
-        if (i >= 0 && i < x.getCount(arrayList)) {
+        if (i >= 0 && i < y.getCount(arrayList)) {
             showNotifyDialog(i, arrayList.get(i), arrayList);
         }
     }

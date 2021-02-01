@@ -2,7 +2,7 @@ package androidx.fragment.app;
 
 import android.view.View;
 import android.view.ViewTreeObserver;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class OneShotPreDrawListener implements View.OnAttachStateChangeListener, ViewTreeObserver.OnPreDrawListener {
     private final Runnable mRunnable;
     private final View mView;

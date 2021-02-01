@@ -23,21 +23,21 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicInteger f12635a = new AtomicInteger();
+    private static final AtomicInteger f12637a = new AtomicInteger();
 
     /* renamed from: com.qq.e.comm.plugin.w.a.d$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     static final class AnonymousClass1 implements com.qq.e.comm.plugin.t.b {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ j f12636a;
+        final /* synthetic */ j f12638a;
 
         AnonymousClass1(j jVar) {
-            this.f12636a = jVar;
+            this.f12638a = jVar;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:11:0x0025  */
@@ -65,70 +65,70 @@ public class d {
                             jSONObject = jSONObject.optJSONObject("data");
                         } catch (JSONException e3) {
                             GDTLogger.e("JSONExceptionWhileParseClickADResponse");
-                            e = NativeErrorCode.EKS_AVERROR_PROTOCOL_NOT_FOUND;
-                            if (this.f12636a == null) {
+                            e = -5001;
+                            if (this.f12638a == null) {
                             }
                         } catch (Throwable th2) {
                             GDTLogger.e("JSONExceptionWhileParseClickADResponse");
                             e = NativeErrorCode.EKS_AVERROR_EIO;
-                            if (this.f12636a == null) {
+                            if (this.f12638a == null) {
                             }
                         }
                     }
-                    if (this.f12636a == null) {
-                        this.f12636a.a(new Pair(Integer.valueOf(e), jSONObject));
+                    if (this.f12638a == null) {
+                        this.f12638a.a(new Pair(Integer.valueOf(e), jSONObject));
                         return;
                     }
                     return;
                 }
             }
             jSONObject = null;
-            if (this.f12636a == null) {
+            if (this.f12638a == null) {
             }
         }
 
         @Override // com.qq.e.comm.plugin.t.b
         public void a(Exception exc) {
-            if (this.f12636a != null) {
-                this.f12636a.a(new Pair(-1, null));
+            if (this.f12638a != null) {
+                this.f12638a.a(new Pair(-1, null));
             }
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.a.d$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     static final class AnonymousClass2 implements j<Pair<Integer, JSONObject>> {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Exchanger f12637a;
+        final /* synthetic */ Exchanger f12639a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ long f12638b;
+        final /* synthetic */ long f12640b;
 
         AnonymousClass2(Exchanger exchanger, long j) {
-            this.f12637a = exchanger;
-            this.f12638b = j;
+            this.f12639a = exchanger;
+            this.f12640b = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.qq.e.comm.plugin.util.j
         public void a(Pair<Integer, JSONObject> pair) {
             try {
-                this.f12637a.exchange(pair, this.f12638b, TimeUnit.MILLISECONDS);
+                this.f12639a.exchange(pair, this.f12640b, TimeUnit.MILLISECONDS);
             } catch (Exception e) {
                 GDTLogger.e("ExceptionWhileDoClickADSync", e);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final JSONObject f12639a;
+        public final JSONObject f12641a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f12640b;
+        public final String f12642b;
         public final com.qq.e.comm.plugin.s.a c;
 
         public a(JSONObject jSONObject, String str) {
@@ -136,21 +136,21 @@ public class d {
         }
 
         public a(JSONObject jSONObject, String str, com.qq.e.comm.plugin.s.a aVar) {
-            this.f12639a = jSONObject;
-            this.f12640b = str;
+            this.f12641a = jSONObject;
+            this.f12642b = str;
             this.c = aVar;
         }
 
         public String toString() {
-            return "ADParam [adInfo=" + this.f12639a + ", clickURL=" + this.f12640b + "]";
+            return "ADParam [adInfo=" + this.f12641a + ", clickURL=" + this.f12642b + "]";
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class b {
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12642b;
+        public int f12644b;
         public c c;
         public String d;
         public boolean e;
@@ -163,16 +163,16 @@ public class d {
         private boolean m = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f12641a = 0;
+        public int f12643a = 0;
         public int j = 0;
 
         public b(int i, c cVar) {
-            this.f12642b = i;
+            this.f12644b = i;
             this.c = cVar;
         }
 
         public b a(int i) {
-            this.f12641a = i;
+            this.f12643a = i;
             return this;
         }
 
@@ -231,34 +231,34 @@ public class d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public enum c {
         InnerBrowser,
         SysBrowser
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private static class RunnableC1208d<T> implements Runnable {
+    /* loaded from: classes15.dex */
+    private static class RunnableC1212d<T> implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private final T f12645a;
+        private final T f12647a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final a f12646b;
+        private final a f12648b;
         private final b c;
         private final e d;
         private com.qq.e.comm.plugin.y.c e = new com.qq.e.comm.plugin.y.c();
 
-        public RunnableC1208d(T t, a aVar, b bVar, e eVar) {
-            this.f12645a = t;
-            this.f12646b = aVar;
+        public RunnableC1212d(T t, a aVar, b bVar, e eVar) {
+            this.f12647a = t;
+            this.f12648b = aVar;
             this.c = bVar;
             this.d = eVar;
             this.e.a(eVar.c);
-            if (aVar.f12639a != null) {
-                this.e.b(aVar.f12639a.optString(Config.CELL_LOCATION));
-                this.e.c(aVar.f12639a.optString("traceid"));
+            if (aVar.f12641a != null) {
+                this.e.b(aVar.f12641a.optString(Config.CELL_LOCATION));
+                this.e.c(aVar.f12641a.optString("traceid"));
             }
         }
 
@@ -268,46 +268,46 @@ public class d {
             Context context;
             try {
                 d.a().incrementAndGet();
-                if (this.f12645a instanceof View) {
-                    Context context2 = ((View) this.f12645a).getRootView().getContext();
+                if (this.f12647a instanceof View) {
+                    Context context2 = ((View) this.f12647a).getRootView().getContext();
                     if (this.c.i <= 0) {
-                        this.c.i = com.qq.e.comm.plugin.ad.a.a().b((View) this.f12645a);
+                        this.c.i = com.qq.e.comm.plugin.ad.a.a().b((View) this.f12647a);
                     }
                     ai.b("gdt_tag_p", "DoClickRunable : viewIdentifier = %d", Integer.valueOf(this.c.i));
                     context = context2;
-                } else if (this.f12645a instanceof com.qq.e.comm.plugin.ab.h) {
-                    Context context3 = ((com.qq.e.comm.plugin.ab.h) this.f12645a).a().getRootView().getContext();
+                } else if (this.f12647a instanceof com.qq.e.comm.plugin.ab.h) {
+                    Context context3 = ((com.qq.e.comm.plugin.ab.h) this.f12647a).a().getRootView().getContext();
                     if (this.c.i <= 0) {
-                        this.c.i = com.qq.e.comm.plugin.ad.a.a().b(((com.qq.e.comm.plugin.ab.h) this.f12645a).a());
+                        this.c.i = com.qq.e.comm.plugin.ad.a.a().b(((com.qq.e.comm.plugin.ab.h) this.f12647a).a());
                     }
                     ai.b("gdt_tag_p", "DoClickRunable(IWebView) : viewIdentifier = %d", Integer.valueOf(this.c.i));
                     context = context3;
                 } else {
                     context = null;
                 }
-                boolean z = (this.f12646b.c instanceof com.qq.e.comm.plugin.s.f) && ((com.qq.e.comm.plugin.s.f) this.f12646b.c).ap().booleanValue();
-                if (z || com.qq.e.comm.plugin.util.b.c(this.f12646b.f12639a)) {
-                    if (!((Boolean) i.a(this.f12645a, this.f12646b, this.c, this.d, (i.a) null).second).booleanValue() && z) {
-                        h.a(this.f12645a, context, this.f12646b, this.c, this.d);
+                boolean z = (this.f12648b.c instanceof com.qq.e.comm.plugin.s.f) && ((com.qq.e.comm.plugin.s.f) this.f12648b.c).ap().booleanValue();
+                if (z || com.qq.e.comm.plugin.util.b.c(this.f12648b.f12641a)) {
+                    if (!((Boolean) i.a(this.f12647a, this.f12648b, this.c, this.d, (i.a) null).second).booleanValue() && z) {
+                        h.a(this.f12647a, context, this.f12648b, this.c, this.d);
                     }
-                } else if (this.c.f12642b == 18) {
-                    d.a(this.f12646b, this.c);
-                } else if (this.c.f12642b == 1 && com.qq.e.comm.plugin.util.d.a(this.f12646b.f12639a)) {
-                    f.a(this.f12645a, context, this.f12646b, this.c, this.d);
-                } else if (this.c.f12642b == 0) {
-                    h.a(this.f12645a, context, this.f12646b, this.c, this.d);
-                } else if (36 == this.c.f12642b) {
-                    d.a(context, this.f12646b, this.c, this.d);
-                } else if (45 == this.c.f12642b) {
-                    d.b(this.f12646b, this.c);
-                } else if (this.c.f12642b == 9001) {
-                    g.a(this.f12645a, context, this.f12646b, this.c, this.d);
-                } else if (this.c.f12642b == 9000) {
-                    g.a(this.f12645a, this.f12646b, this.c, this.d);
-                } else if (this.c.f12642b == 9002) {
-                    g.b(this.f12645a, context, this.f12646b, this.c, this.d);
+                } else if (this.c.f12644b == 18) {
+                    d.a(this.f12648b, this.c);
+                } else if (this.c.f12644b == 1 && com.qq.e.comm.plugin.util.d.a(this.f12648b.f12641a)) {
+                    f.a(this.f12647a, context, this.f12648b, this.c, this.d);
+                } else if (this.c.f12644b == 0) {
+                    h.a(this.f12647a, context, this.f12648b, this.c, this.d);
+                } else if (36 == this.c.f12644b) {
+                    d.a(context, this.f12648b, this.c, this.d);
+                } else if (45 == this.c.f12644b) {
+                    d.b(this.f12648b, this.c);
+                } else if (this.c.f12644b == 9001) {
+                    g.a(this.f12647a, context, this.f12648b, this.c, this.d);
+                } else if (this.c.f12644b == 9000) {
+                    g.a(this.f12647a, this.f12648b, this.c, this.d);
+                } else if (this.c.f12644b == 9002) {
+                    g.b(this.f12647a, context, this.f12648b, this.c, this.d);
                 } else {
-                    d.c(this.f12646b, this.c);
+                    d.c(this.f12648b, this.c);
                 }
             } catch (Throwable th) {
                 try {
@@ -318,7 +318,7 @@ public class d {
                         return;
                     }
                     com.qq.e.comm.plugin.y.d dVar = new com.qq.e.comm.plugin.y.d();
-                    dVar.a("adParam", this.f12646b.toString());
+                    dVar.a("adParam", this.f12648b.toString());
                     dVar.a("stack", a2.toString());
                     u.a(90012, 0, this.e, dVar);
                 } finally {
@@ -326,7 +326,7 @@ public class d {
                     Stack<b.a> a3 = com.qq.e.comm.plugin.w.a.b.a();
                     if (a3 != null && !a3.isEmpty()) {
                         com.qq.e.comm.plugin.y.d dVar2 = new com.qq.e.comm.plugin.y.d();
-                        dVar2.a("adParam", this.f12646b.toString());
+                        dVar2.a("adParam", this.f12648b.toString());
                         dVar2.a("stack", a3.toString());
                         u.a(90012, 0, this.e, dVar2);
                     }
@@ -335,19 +335,19 @@ public class d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f12647a;
+        public final String f12649a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final com.qq.e.comm.plugin.ad.e f12648b;
+        public final com.qq.e.comm.plugin.ad.e f12650b;
         public final String c;
 
         public e(String str, com.qq.e.comm.plugin.ad.e eVar, String str2) {
-            this.f12647a = str;
-            this.f12648b = eVar;
+            this.f12649a = str;
+            this.f12650b = eVar;
             this.c = str2;
         }
     }

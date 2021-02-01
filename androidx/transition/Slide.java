@@ -17,7 +17,7 @@ import androidx.core.view.ViewCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class Slide extends Visibility {
     private static final String PROPNAME_SCREEN_POSITION = "android:slide:screenPosition";
     private CalculateSlide mSlideCalculator;
@@ -68,7 +68,7 @@ public class Slide extends Visibility {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public interface CalculateSlide {
         float getGoneX(ViewGroup viewGroup, View view);
 
@@ -77,11 +77,11 @@ public class Slide extends Visibility {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public @interface GravityFlag {
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     private static abstract class CalculateSlideHorizontal implements CalculateSlide {
         private CalculateSlideHorizontal() {
         }
@@ -92,7 +92,7 @@ public class Slide extends Visibility {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     private static abstract class CalculateSlideVertical implements CalculateSlide {
         private CalculateSlideVertical() {
         }

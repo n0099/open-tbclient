@@ -14,7 +14,7 @@ import com.google.android.material.animation.Positioning;
 import com.google.android.material.transformation.FabTransformationBehavior;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     private Map<View, Integer> importantForAccessibilityMap;
 

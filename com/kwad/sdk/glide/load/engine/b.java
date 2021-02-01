@@ -8,14 +8,14 @@ import com.kwad.sdk.glide.load.engine.e;
 import java.io.File;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b implements d.a<Object>, e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<com.kwad.sdk.glide.load.c> f10177a;
+    private final List<com.kwad.sdk.glide.load.c> f10179a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final f<?> f10178b;
+    private final f<?> f10180b;
     private final e.a c;
     private int d;
     private com.kwad.sdk.glide.load.c e;
@@ -32,8 +32,8 @@ public class b implements d.a<Object>, e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(List<com.kwad.sdk.glide.load.c> list, f<?> fVar, e.a aVar) {
         this.d = -1;
-        this.f10177a = list;
-        this.f10178b = fVar;
+        this.f10179a = list;
+        this.f10180b = fVar;
         this.c = aVar;
     }
 
@@ -58,14 +58,14 @@ public class b implements d.a<Object>, e {
         while (true) {
             if (this.f == null || !c()) {
                 this.d++;
-                if (this.d >= this.f10177a.size()) {
+                if (this.d >= this.f10179a.size()) {
                     break;
                 }
-                com.kwad.sdk.glide.load.c cVar = this.f10177a.get(this.d);
-                this.i = this.f10178b.b().a(new c(cVar, this.f10178b.f()));
+                com.kwad.sdk.glide.load.c cVar = this.f10179a.get(this.d);
+                this.i = this.f10180b.b().a(new c(cVar, this.f10180b.f()));
                 if (this.i != null) {
                     this.e = cVar;
-                    this.f = this.f10178b.a(this.i);
+                    this.f = this.f10180b.a(this.i);
                     this.g = 0;
                 }
             } else {
@@ -74,12 +74,12 @@ public class b implements d.a<Object>, e {
                     List<com.kwad.sdk.glide.load.b.n<File, ?>> list = this.f;
                     int i = this.g;
                     this.g = i + 1;
-                    this.h = list.get(i).a(this.i, this.f10178b.g(), this.f10178b.h(), this.f10178b.e());
-                    if (this.h == null || !this.f10178b.a(this.h.c.a())) {
+                    this.h = list.get(i).a(this.i, this.f10180b.g(), this.f10180b.h(), this.f10180b.e());
+                    if (this.h == null || !this.f10180b.a(this.h.c.a())) {
                         z = z2;
                     } else {
                         z = true;
-                        this.h.c.a(this.f10178b.d(), this);
+                        this.h.c.a(this.f10180b.d(), this);
                     }
                     z2 = z;
                 }

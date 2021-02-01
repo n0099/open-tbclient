@@ -2,7 +2,7 @@ package com.ss.android.downloadlib.a;
 
 import android.content.Context;
 import com.ss.android.a.a.a.s;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface g {
     g a(s sVar);
 
@@ -28,5 +28,5 @@ public interface g {
 
     void g();
 
-    g iv(Context context);
+    g iy(Context context);
 }

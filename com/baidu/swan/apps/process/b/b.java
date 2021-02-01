@@ -14,19 +14,19 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final c dqU;
+    private final c dtg;
     private final String mId;
-    private final Set<com.baidu.swan.apps.ao.e.b<i.a>> dqV = new HashSet();
-    private final Set<com.baidu.swan.apps.ao.e.b<b>> dqW = new HashSet();
-    private final Set<String> dqX = new HashSet();
-    private final Set<Integer> dqY = new HashSet();
-    private Exception RG = null;
-    private long dqZ = 0;
-    private boolean dra = false;
-    private final Runnable drb = new Runnable() { // from class: com.baidu.swan.apps.process.b.b.1
+    private final Set<com.baidu.swan.apps.ao.e.b<i.a>> dth = new HashSet();
+    private final Set<com.baidu.swan.apps.ao.e.b<b>> dti = new HashSet();
+    private final Set<String> dtj = new HashSet();
+    private final Set<Integer> dtk = new HashSet();
+    private Exception RE = null;
+    private long dtl = 0;
+    private boolean dtm = false;
+    private final Runnable dtn = new Runnable() { // from class: com.baidu.swan.apps.process.b.b.1
         @Override // java.lang.Runnable
         public void run() {
             b.this.onTimeout();
@@ -35,17 +35,17 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(@NonNull c cVar, String str) {
-        this.dqU = cVar;
+        this.dtg = cVar;
         this.mId = TextUtils.isEmpty(str) ? UUID.randomUUID().toString() : str;
         if (DEBUG) {
-            D("IpcSession", "host=" + cVar + " id=" + str + " mId=" + this.mId);
+            B("IpcSession", "host=" + cVar + " id=" + str + " mId=" + this.mId);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.ao.e.d
-    /* renamed from: aEZ */
-    public b ayy() {
+    /* renamed from: aFu */
+    public b ayW() {
         return this;
     }
 
@@ -53,92 +53,92 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
         return this.mId;
     }
 
-    public b aFa() {
-        return cH(dqT);
+    public b aFv() {
+        return cN(dtf);
     }
 
-    public b cH(long j) {
-        b ayy;
-        synchronized (this.dqU) {
+    public b cN(long j) {
+        b ayW;
+        synchronized (this.dtg) {
             if (DEBUG) {
-                D(NotificationCompat.CATEGORY_CALL, "timeoutAtLeast=" + j);
+                B(NotificationCompat.CATEGORY_CALL, "timeoutAtLeast=" + j);
             }
             if (valid()) {
-                long cI = cI(j);
+                long cO = cO(j);
                 if (DEBUG) {
-                    D(NotificationCompat.CATEGORY_CALL, "joinTimeout=" + cI);
+                    B(NotificationCompat.CATEGORY_CALL, "joinTimeout=" + cO);
                 }
-                com.baidu.swan.apps.process.messaging.a.aFe().a(aFb());
-                azb();
+                com.baidu.swan.apps.process.messaging.a.aFz().a(aFw());
+                azz();
             } else {
-                this.dqU.a(this, new IllegalStateException("invalid session call"));
+                this.dtg.a(this, new IllegalStateException("invalid session call"));
             }
-            ayy = ayy();
+            ayW = ayW();
         }
-        return ayy;
+        return ayW;
     }
 
     public boolean valid() {
         boolean z;
-        synchronized (this.dqU) {
+        synchronized (this.dtg) {
             z = (isFinished() || hasException() || TextUtils.isEmpty(this.mId)) ? false : true;
             if (DEBUG) {
-                D(CloudControlUBCUtils.KEY_VALID, z + " isFinished=" + isFinished() + " hasException=" + this.RG + " id=" + this.mId);
+                B(CloudControlUBCUtils.KEY_VALID, z + " isFinished=" + isFinished() + " hasException=" + this.RE + " id=" + this.mId);
             }
         }
         return z;
     }
 
     public Exception getException() {
-        return this.RG;
+        return this.RE;
     }
 
     public boolean hasException() {
-        return this.RG != null;
+        return this.RE != null;
     }
 
-    public b gB(boolean z) {
-        b ayy;
-        synchronized (this.dqU) {
-            this.dra = z;
-            ayy = ayy();
+    public b gD(boolean z) {
+        b ayW;
+        synchronized (this.dtg) {
+            this.dtm = z;
+            ayW = ayW();
         }
-        return ayy;
+        return ayW;
     }
 
-    public b ir(int i) {
-        b ayy;
-        synchronized (this.dqU) {
-            this.dqY.add(Integer.valueOf(i));
-            ayy = ayy();
+    public b iu(int i) {
+        b ayW;
+        synchronized (this.dtg) {
+            this.dtk.add(Integer.valueOf(i));
+            ayW = ayW();
         }
-        return ayy;
+        return ayW;
     }
 
     public b t(com.baidu.swan.apps.ao.e.b<b> bVar) {
-        return a((Set<Set<com.baidu.swan.apps.ao.e.b<b>>>) this.dqW, (Set<com.baidu.swan.apps.ao.e.b<b>>) bVar);
+        return a((Set<Set<com.baidu.swan.apps.ao.e.b<b>>>) this.dti, (Set<com.baidu.swan.apps.ao.e.b<b>>) bVar);
     }
 
     public b u(com.baidu.swan.apps.ao.e.b<i.a> bVar) {
-        return a((Set<Set<com.baidu.swan.apps.ao.e.b<i.a>>>) this.dqV, (Set<com.baidu.swan.apps.ao.e.b<i.a>>) bVar);
+        return a((Set<Set<com.baidu.swan.apps.ao.e.b<i.a>>>) this.dth, (Set<com.baidu.swan.apps.ao.e.b<i.a>>) bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b v(Exception exc) {
-        synchronized (this.dqU) {
+        synchronized (this.dtg) {
             if (!isFinished()) {
-                d.getMainHandler().removeCallbacks(this.drb);
-                this.dqZ = -1L;
-                this.RG = exc;
-                this.dqV.clear();
-                for (com.baidu.swan.apps.ao.e.b<b> bVar : this.dqW) {
+                d.getMainHandler().removeCallbacks(this.dtn);
+                this.dtl = -1L;
+                this.RE = exc;
+                this.dth.clear();
+                for (com.baidu.swan.apps.ao.e.b<b> bVar : this.dti) {
                     bVar.L(this);
                 }
-                this.dqW.clear();
-                this.dra = false;
-                this.dqX.clear();
-                this.dqY.clear();
-                azb();
+                this.dti.clear();
+                this.dtm = false;
+                this.dtj.clear();
+                this.dtk.clear();
+                azz();
             }
         }
         return this;
@@ -147,10 +147,10 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean e(i.a aVar) {
         boolean z;
-        synchronized (this.dqU) {
-            z = (!valid() || this.dqV.isEmpty() || aVar == null) ? false : true;
+        synchronized (this.dtg) {
+            z = (!valid() || this.dth.isEmpty() || aVar == null) ? false : true;
             if (z) {
-                for (com.baidu.swan.apps.ao.e.b<i.a> bVar : this.dqV) {
+                for (com.baidu.swan.apps.ao.e.b<i.a> bVar : this.dth) {
                     bVar.L(aVar);
                 }
             }
@@ -159,28 +159,28 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long cI(long j) {
+    public long cO(long j) {
         long j2;
-        synchronized (this.dqU) {
+        synchronized (this.dtg) {
             if (valid()) {
-                this.dqZ = Math.max(Math.max(j, dqT), this.dqZ);
+                this.dtl = Math.max(Math.max(j, dtf), this.dtl);
                 Handler mainHandler = d.getMainHandler();
-                if (this.dqZ > 0) {
-                    mainHandler.removeCallbacks(this.drb);
-                    mainHandler.postDelayed(this.drb, this.dqZ);
+                if (this.dtl > 0) {
+                    mainHandler.removeCallbacks(this.dtn);
+                    mainHandler.postDelayed(this.dtn, this.dtl);
                 }
             }
-            j2 = this.dqZ;
+            j2 = this.dtl;
         }
         return j2;
     }
 
     boolean isFinished() {
-        return this.dqZ < 0;
+        return this.dtl < 0;
     }
 
     private <CallBackT> b a(@NonNull Set<CallBackT> set, CallBackT callbackt) {
-        synchronized (this.dqU) {
+        synchronized (this.dtg) {
             if (valid() && callbackt != null) {
                 set.add(callbackt);
             }
@@ -190,45 +190,45 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onTimeout() {
-        synchronized (this.dqU) {
-            this.dqU.a(this, new TimeoutException("timeout"));
+        synchronized (this.dtg) {
+            this.dtg.a(this, new TimeoutException("timeout"));
         }
     }
 
-    private com.baidu.swan.apps.process.messaging.c aFb() {
+    private com.baidu.swan.apps.process.messaging.c aFw() {
         Bundle bundle = toBundle();
         bundle.putString("ipc_session_id", this.mId);
-        bundle.putLong("ipc_session_timeout", this.dqZ);
+        bundle.putLong("ipc_session_timeout", this.dtl);
         bundle.putInt("ipc_session_repal", SwanAppProcessInfo.current().index);
-        bundle.putString("ipc_topic", this.dqU.c(this));
-        com.baidu.swan.apps.process.messaging.c gD = new com.baidu.swan.apps.process.messaging.c(aFc(), bundle).gC(true).gD(!SwanAppProcessInfo.current().isSwanService || this.dra);
-        for (Integer num : this.dqY) {
+        bundle.putString("ipc_topic", this.dtg.c(this));
+        com.baidu.swan.apps.process.messaging.c gF = new com.baidu.swan.apps.process.messaging.c(aFx(), bundle).gE(true).gF(!SwanAppProcessInfo.current().isSwanService || this.dtm);
+        for (Integer num : this.dtk) {
             int intValue = num.intValue();
             if (SwanAppProcessInfo.checkProcessId(intValue)) {
-                gD.g(intValue);
+                gF.g(intValue);
             }
         }
-        for (String str : this.dqX) {
+        for (String str : this.dtj) {
             if (!TextUtils.isEmpty(str)) {
-                gD.D(str);
+                gF.D(str);
             }
         }
         if (DEBUG) {
-            D("createMsg", "msgCooker=" + gD + " bundle=" + bundle);
+            B("createMsg", "msgCooker=" + gF + " bundle=" + bundle);
         }
-        return gD;
+        return gF;
     }
 
     @Override // com.baidu.swan.apps.u.c.a.c
     public synchronized String toString() {
-        return "IpcSession: id=" + this.mId + " timeout=" + this.dqZ;
+        return "IpcSession: id=" + this.mId + " timeout=" + this.dtl;
     }
 
-    private int aFc() {
+    private int aFx() {
         boolean z = SwanAppProcessInfo.current().isSwanService;
         int i = z ? 111 : 11;
         if (DEBUG) {
-            D("msgType", "service=" + z + " msgType=" + i);
+            B("msgType", "service=" + z + " msgType=" + i);
         }
         return i;
     }
@@ -239,7 +239,7 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
         }
     }
 
-    private void D(String str, String str2) {
+    private void B(String str, String str2) {
         log(str + ": " + str2);
     }
 }

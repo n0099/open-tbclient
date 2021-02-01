@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.constants;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PlayerConstant {
     public static final int AUTO_END = 307;
     public static final int CLICK_BACK_ICON = 2;
@@ -24,27 +24,27 @@ public class PlayerConstant {
     public static final int START_PREVIEW = 2;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface PauseType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface PlayMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface PlayStyleSwitchReason {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface PlayerCompleteType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface StartType {
     }
 }

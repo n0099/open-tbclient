@@ -6,14 +6,14 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class l<T> implements q.a, q.b<T>, Future<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.pano.platform.a.n<?> f3861a;
+    private com.baidu.pano.platform.a.n<?> f3864a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3862b = false;
+    private boolean f3865b = false;
     private T c;
     private v d;
 
@@ -28,8 +28,8 @@ public class l<T> implements q.a, q.b<T>, Future<T> {
     public synchronized boolean cancel(boolean z) {
         boolean z2 = false;
         synchronized (this) {
-            if (this.f3861a != null && !isDone()) {
-                this.f3861a.g();
+            if (this.f3864a != null && !isDone()) {
+                this.f3864a.g();
                 z2 = true;
             }
         }
@@ -55,7 +55,7 @@ public class l<T> implements q.a, q.b<T>, Future<T> {
         if (this.d != null) {
             throw new ExecutionException(this.d);
         }
-        if (this.f3862b) {
+        if (this.f3865b) {
             t = this.c;
         } else {
             if (l == null) {
@@ -66,7 +66,7 @@ public class l<T> implements q.a, q.b<T>, Future<T> {
             if (this.d != null) {
                 throw new ExecutionException(this.d);
             }
-            if (!this.f3862b) {
+            if (!this.f3865b) {
                 throw new TimeoutException();
             }
             t = this.c;
@@ -76,16 +76,16 @@ public class l<T> implements q.a, q.b<T>, Future<T> {
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        if (this.f3861a == null) {
+        if (this.f3864a == null) {
             return false;
         }
-        return this.f3861a.h();
+        return this.f3864a.h();
     }
 
     @Override // java.util.concurrent.Future
     public synchronized boolean isDone() {
         boolean z;
-        if (!this.f3862b && this.d == null) {
+        if (!this.f3865b && this.d == null) {
             z = isCancelled();
         }
         return z;
@@ -93,7 +93,7 @@ public class l<T> implements q.a, q.b<T>, Future<T> {
 
     @Override // com.baidu.pano.platform.a.q.b
     public synchronized void a(T t) {
-        this.f3862b = true;
+        this.f3865b = true;
         this.c = t;
         notifyAll();
     }

@@ -9,7 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class a {
     private final Executor zB = new ExecutorC0005a();
     private static final a zA = new a();
@@ -38,7 +38,7 @@ final class a {
     }
 
     /* renamed from: bolts.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class ExecutorC0005a implements Executor {
         private ExecutorC0005a() {
         }

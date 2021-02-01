@@ -10,16 +10,16 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f {
     private static String c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
     private static f d = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f5384b = "ufo";
+    private final String f5386b = "ufo";
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f5383a = 1209600000;
+    public final int f5385a = 1209600000;
 
     public static Bitmap a(String str) {
         Bitmap decodeFile;

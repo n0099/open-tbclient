@@ -2,7 +2,7 @@ package com.baidu.l.b;
 
 import android.content.Context;
 import android.os.Process;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
     public static int checkSelfPermission(Context context, String str) {
         if (str == null) {

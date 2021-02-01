@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.pay.PayManager;
 import com.baidu.live.tbadk.pay.WalletPayCallback;
 import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import com.baidu.tieba.ala.live.b.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d extends a {
     private boolean mIsPaying;
 

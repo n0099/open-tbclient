@@ -18,19 +18,19 @@ import java.io.RandomAccessFile;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SystemUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile String f9654a;
+    private static volatile String f9656a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static long f9655b = 0;
+    private static long f9657b = 0;
     private static long c = 0;
     private static int d = 0;
     private static LEVEL e = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum LEVEL {
         BEST(5),
         HIGH(4),
@@ -50,14 +50,14 @@ public class SystemUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f9656a;
+        public long f9658a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f9657b;
+        public long f9659b;
         public long c;
         public long d;
         public long e;
@@ -142,7 +142,7 @@ public class SystemUtil {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0084 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0041 */
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0034, code lost:
-        com.kwad.sdk.crash.utils.SystemUtil.f9654a = r0.processName;
+        com.kwad.sdk.crash.utils.SystemUtil.f9656a = r0.processName;
      */
     /* JADX WARN: Type inference failed for: r1v5, types: [int] */
     @Nullable
@@ -154,7 +154,7 @@ public class SystemUtil {
         int read;
         ?? myPid;
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        if (TextUtils.isEmpty(f9654a)) {
+        if (TextUtils.isEmpty(f9656a)) {
             try {
                 myPid = Process.myPid();
                 ActivityManager activityManager = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
@@ -173,7 +173,7 @@ public class SystemUtil {
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
             }
-            if (TextUtils.isEmpty(f9654a)) {
+            if (TextUtils.isEmpty(f9656a)) {
                 BufferedReader bufferedReader2 = null;
                 BufferedReader bufferedReader3 = null;
                 try {
@@ -200,30 +200,30 @@ public class SystemUtil {
                             }
                             sb.append((char) read);
                         }
-                        f9654a = sb.toString();
+                        f9656a = sb.toString();
                         b.a((Reader) bufferedReader);
                         bufferedReader2 = read;
                     } catch (FileNotFoundException e5) {
                         e = e5;
                         com.kwad.sdk.core.d.a.b(e);
                         b.a((Reader) bufferedReader);
-                        return f9654a;
+                        return f9656a;
                     } catch (IOException e6) {
                         e = e6;
                         bufferedReader3 = bufferedReader;
                         com.kwad.sdk.core.d.a.b(e);
                         b.a((Reader) bufferedReader3);
                         bufferedReader2 = bufferedReader3;
-                        return f9654a;
+                        return f9656a;
                     }
                 } catch (Throwable th2) {
                     th = th2;
                     bufferedReader2 = myPid;
                 }
             }
-            return f9654a;
+            return f9656a;
         }
-        return f9654a;
+        return f9656a;
     }
 
     private static String a(String str, String str2) {
@@ -283,7 +283,7 @@ public class SystemUtil {
                             if (readLine.startsWith("VmSize") && readLine.contains("kB")) {
                                 String a3 = a(readLine, "VmSize");
                                 if (a3 != null) {
-                                    aVar.f9657b = Long.valueOf(a3).longValue();
+                                    aVar.f9659b = Long.valueOf(a3).longValue();
                                 }
                             } else if (readLine.startsWith("VmRSS:") && readLine.contains("kB")) {
                                 String a4 = a(readLine, "VmRSS:");

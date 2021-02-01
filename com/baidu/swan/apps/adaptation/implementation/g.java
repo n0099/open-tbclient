@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import androidx.core.content.FileProvider;
 import com.baidu.swan.apps.scheme.actions.p;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g implements com.baidu.swan.apps.adaptation.a.u {
     @Override // com.baidu.swan.apps.adaptation.a.u
     public boolean a(Activity activity, Uri uri, String str) {
@@ -23,7 +23,7 @@ public class g implements com.baidu.swan.apps.adaptation.a.u {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.u
-    public boolean Z(Context context, String str) {
+    public boolean X(Context context, String str) {
         return true;
     }
 

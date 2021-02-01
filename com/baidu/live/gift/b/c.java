@@ -7,23 +7,23 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.PopupWindow;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.k;
+import com.baidu.live.data.l;
 import com.baidu.live.gift.aa;
 import com.baidu.live.gift.b.b;
 import com.baidu.live.gift.container.AlaGiftTabView;
 import com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView;
 import com.baidu.live.gift.z;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private GiftPanelPackageFragmentView bbA;
-    private com.baidu.live.gift.container.c bbB;
-    private b bbC;
-    private a bby;
-    private AlaGiftTabView.a bbz;
+    private a beF;
+    private AlaGiftTabView.a beG;
+    private GiftPanelPackageFragmentView beH;
+    private com.baidu.live.gift.container.c beI;
+    private b beJ;
     private final Activity mContext;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void c(String str, String str2, int i, String str3);
 
@@ -35,27 +35,27 @@ public class c {
         initView();
     }
 
-    public GiftPanelPackageFragmentView FU() {
-        return this.bbA;
+    public GiftPanelPackageFragmentView Hk() {
+        return this.beH;
     }
 
     public void a(a aVar) {
-        this.bby = aVar;
+        this.beF = aVar;
     }
 
     public void b(AlaGiftTabView.a aVar) {
-        this.bbz = aVar;
+        this.beG = aVar;
     }
 
-    public void gj(String str) {
-        if (this.bbA != null) {
-            this.bbA.setCountSelectValue(str);
+    public void gH(String str) {
+        if (this.beH != null) {
+            this.beH.setCountSelectValue(str);
         }
     }
 
     public void a(boolean z, String str, String str2, String str3, String str4, int i) {
-        if (this.bbA != null) {
-            this.bbA.setCompositeEnabled(true);
+        if (this.beH != null) {
+            this.beH.setCompositeEnabled(true);
         }
         if (!z) {
             if (!TextUtils.isEmpty(str)) {
@@ -65,64 +65,64 @@ public class c {
             return;
         }
         p(str2, str4, "20".equals(str3) ? "查看道具" : "查看礼物");
-        if (this.bbA != null) {
-            aa data = this.bbA.getData();
-            if (data.CC().equals(str2) && data.aUT != null && !data.aUT.isEmpty()) {
-                for (aa.a aVar : data.aUT) {
+        if (this.beH != null) {
+            aa data = this.beH.getData();
+            if (data.DR().equals(str2) && data.aYb != null && !data.aYb.isEmpty()) {
+                for (aa.a aVar : data.aYb) {
                     aVar.num -= i;
                 }
             }
-            this.bbA.setData(data);
+            this.beH.setData(data);
         }
     }
 
     private void p(String str, String str2, String str3) {
-        this.bbC = new b(this.mContext);
-        this.bbC.a(new b.a() { // from class: com.baidu.live.gift.b.c.1
+        this.beJ = new b(this.mContext);
+        this.beJ.a(new b.a() { // from class: com.baidu.live.gift.b.c.1
             @Override // com.baidu.live.gift.b.b.a
-            public void gi(String str4) {
-                c.this.bbC.dismiss();
-                if (c.this.bby != null) {
-                    c.this.bby.onBack(str4);
+            public void gG(String str4) {
+                c.this.beJ.dismiss();
+                if (c.this.beF != null) {
+                    c.this.beF.onBack(str4);
                 }
             }
 
             @Override // com.baidu.live.gift.b.b.a
             public void onClose() {
-                c.this.bbC.dismiss();
+                c.this.beJ.dismiss();
             }
         });
-        this.bbC.o(str, str2, str3);
+        this.beJ.o(str, str2, str3);
     }
 
     public void release() {
-        if (this.bbC != null) {
-            this.bbC.dismiss();
+        if (this.beJ != null) {
+            this.beJ.dismiss();
         }
-        this.bby = null;
-        this.bbz = null;
+        this.beF = null;
+        this.beG = null;
     }
 
     private void initView() {
-        this.bbA = new GiftPanelPackageFragmentView(this.mContext);
-        this.bbA.setCallback(new GiftPanelPackageFragmentView.a() { // from class: com.baidu.live.gift.b.c.2
+        this.beH = new GiftPanelPackageFragmentView(this.mContext);
+        this.beH.setCallback(new GiftPanelPackageFragmentView.a() { // from class: com.baidu.live.gift.b.c.2
             @Override // com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView.a
             public void onBack() {
-                if (c.this.bby != null) {
-                    c.this.bby.onBack(null);
+                if (c.this.beF != null) {
+                    c.this.beF.onBack(null);
                 }
             }
 
             @Override // com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView.a
-            public void gk(String str) {
-                if (c.this.bbz != null && !TextUtils.isEmpty(str)) {
-                    c.this.bbz.g(str, "", true);
+            public void gI(String str) {
+                if (c.this.beG != null && !TextUtils.isEmpty(str)) {
+                    c.this.beG.g(str, "", true);
                 }
             }
 
             @Override // com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView.a
-            public void FW() {
-                c.this.FV();
+            public void Hm() {
+                c.this.Hl();
             }
 
             @Override // com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView.a
@@ -133,62 +133,62 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FV() {
-        final List<k> DR;
-        if (this.bbA != null && this.bbA.getCountSelectView() != null && (DR = z.DO().DR()) != null && !DR.isEmpty()) {
-            this.bbA.setCountSelectInputShowing(true);
-            if (this.bbB == null) {
-                this.bbB = new com.baidu.live.gift.container.c(this.mContext, 1, new AdapterView.OnItemClickListener() { // from class: com.baidu.live.gift.b.c.3
+    public void Hl() {
+        final List<l> Fh;
+        if (this.beH != null && this.beH.getCountSelectView() != null && (Fh = z.Fe().Fh()) != null && !Fh.isEmpty()) {
+            this.beH.setCountSelectInputShowing(true);
+            if (this.beI == null) {
+                this.beI = new com.baidu.live.gift.container.c(this.mContext, 1, new AdapterView.OnItemClickListener() { // from class: com.baidu.live.gift.b.c.3
                     @Override // android.widget.AdapterView.OnItemClickListener
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                        if (c.this.bbB != null) {
-                            c.this.bbB.dismiss();
+                        if (c.this.beI != null) {
+                            c.this.beI.dismiss();
                         }
-                        if (c.this.bbA != null) {
-                            if (i == DR.size()) {
-                                if (c.this.bbz != null) {
-                                    c.this.bbz.c(true, c.this.bbA.getMaxSendNum());
+                        if (c.this.beH != null) {
+                            if (i == Fh.size()) {
+                                if (c.this.beG != null) {
+                                    c.this.beG.c(true, c.this.beH.getMaxSendNum());
                                     return;
                                 }
                                 return;
                             }
-                            k kVar = (k) DR.get(i);
-                            if (kVar != null) {
-                                int number = kVar.getNumber();
+                            l lVar = (l) Fh.get(i);
+                            if (lVar != null) {
+                                int number = lVar.getNumber();
                                 if (number == -1) {
-                                    number = c.this.bbA.getMaxSendNum();
+                                    number = c.this.beH.getMaxSendNum();
                                 }
                                 if (number < 1) {
                                     number = 1;
                                 }
-                                c.this.bbA.setCountSelectValue(String.valueOf(number));
+                                c.this.beH.setCountSelectValue(String.valueOf(number));
                             }
                         }
                     }
                 });
             }
-            this.bbB.a(this.bbA.getCountSelectView(), DR, new PopupWindow.OnDismissListener() { // from class: com.baidu.live.gift.b.c.4
+            this.beI.a(this.beH.getCountSelectView(), Fh, new PopupWindow.OnDismissListener() { // from class: com.baidu.live.gift.b.c.4
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
-                    if (c.this.bbA != null) {
-                        c.this.bbA.setCountSelectInputShowing(false);
+                    if (c.this.beH != null) {
+                        c.this.beH.setCountSelectInputShowing(false);
                     }
                 }
             });
-            this.bbB.z(Color.parseColor("#FF65008B"), Color.parseColor("#FF8C008F"));
+            this.beI.z(Color.parseColor("#FF65008B"), Color.parseColor("#FF8C008F"));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2, int i, String str3) {
-        if (this.bbA != null) {
-            if (i > this.bbA.getMaxSendNum()) {
+        if (this.beH != null) {
+            if (i > this.beH.getMaxSendNum()) {
                 BdUtilHelper.showToast(this.mContext.getApplicationContext(), "合成失败，超过能合成的最大数量上限");
                 return;
             }
-            this.bbA.setCompositeEnabled(false);
-            if (this.bby != null) {
-                this.bby.c(str, str2, i, str3);
+            this.beH.setCompositeEnabled(false);
+            if (this.beF != null) {
+                this.beF.c(str, str2, i, str3);
             }
         }
     }

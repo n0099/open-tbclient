@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
-import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.coremedia.iso.Hex;
@@ -11,7 +10,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 @Descriptor(objectTypeIndication = 64, tags = {5})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
     int aacScalefactorDataResilienceFlag;
     int aacSectionDataResilienceFlag;
@@ -63,9 +62,9 @@ public class AudioSpecificConfig extends BaseDescriptor {
         samplingFrequencyIndexMap.put(0, 96000);
         samplingFrequencyIndexMap.put(1, 88200);
         samplingFrequencyIndexMap.put(2, Integer.valueOf((int) AudioEncoderCore.EncodeConfig.BIT_RATE));
-        samplingFrequencyIndexMap.put(3, Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K));
+        samplingFrequencyIndexMap.put(3, 48000);
         samplingFrequencyIndexMap.put(4, 44100);
-        samplingFrequencyIndexMap.put(5, Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K));
+        samplingFrequencyIndexMap.put(5, 32000);
         samplingFrequencyIndexMap.put(6, 24000);
         samplingFrequencyIndexMap.put(7, 22050);
         samplingFrequencyIndexMap.put(8, 16000);

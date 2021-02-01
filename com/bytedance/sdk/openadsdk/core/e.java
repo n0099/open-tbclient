@@ -7,15 +7,15 @@ import com.bytedance.sdk.openadsdk.utils.aj;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile e f6530b;
+    private static volatile e f6532b;
     private Map<String, String> c = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f6529a = "AppEnvironment";
+    private static String f6531a = "AppEnvironment";
     private static String d = "ad_style";
     private static String e = LegoListActivityConfig.AD_ID;
     private static String f = "rit";
@@ -37,14 +37,14 @@ public class e {
     }
 
     public static e a() {
-        if (f6530b == null) {
+        if (f6532b == null) {
             synchronized (e.class) {
-                if (f6530b == null) {
-                    f6530b = new e();
+                if (f6532b == null) {
+                    f6532b = new e();
                 }
             }
         }
-        return f6530b;
+        return f6532b;
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
@@ -68,12 +68,12 @@ public class e {
         float freeMemory = (float) ((runtime.freeMemory() * 1.0d) / 1048576.0d);
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
         ((ActivityManager) p.a().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
-        com.bytedance.sdk.openadsdk.utils.u.f(f6529a, "系统是否处于低内存运行：" + memoryInfo.lowMemory);
-        com.bytedance.sdk.openadsdk.utils.u.f(f6529a, "maxMemory: " + maxMemory);
-        com.bytedance.sdk.openadsdk.utils.u.f(f6529a, "totalMemory: " + f2);
-        com.bytedance.sdk.openadsdk.utils.u.f(f6529a, "freeMemory: " + freeMemory);
+        com.bytedance.sdk.openadsdk.utils.u.f(f6531a, "系统是否处于低内存运行：" + memoryInfo.lowMemory);
+        com.bytedance.sdk.openadsdk.utils.u.f(f6531a, "maxMemory: " + maxMemory);
+        com.bytedance.sdk.openadsdk.utils.u.f(f6531a, "totalMemory: " + f2);
+        com.bytedance.sdk.openadsdk.utils.u.f(f6531a, "freeMemory: " + freeMemory);
         int i2 = (int) ((f2 / maxMemory) * 100.0f);
-        com.bytedance.sdk.openadsdk.utils.u.f(f6529a, "totalMaxRate: " + i2);
+        com.bytedance.sdk.openadsdk.utils.u.f(f6531a, "totalMaxRate: " + i2);
         this.c.put(j, String.valueOf(memoryInfo.lowMemory));
         this.c.put(k, String.valueOf(i2));
     }

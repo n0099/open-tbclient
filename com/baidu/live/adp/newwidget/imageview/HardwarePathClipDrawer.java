@@ -8,7 +8,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.widget.ImageView;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class HardwarePathClipDrawer extends PathClipDrawer {
     private final Paint mModeBeforePaint = new Paint();
     private final Paint mModeAfterPaint = new Paint();

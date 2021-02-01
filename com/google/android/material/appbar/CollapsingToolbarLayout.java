@@ -36,7 +36,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.internal.CollapsingTextHelper;
 import com.google.android.material.internal.DescendantOffsetUtils;
 import com.google.android.material.internal.ThemeEnforcement;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class CollapsingToolbarLayout extends FrameLayout {
     private static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
     final CollapsingTextHelper collapsingTextHelper;
@@ -659,7 +659,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return new LayoutParams(layoutParams);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public static final int COLLAPSE_MODE_OFF = 0;
         public static final int COLLAPSE_MODE_PARALLAX = 2;
@@ -740,7 +740,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         setContentDescription(getTitle());
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private class OffsetUpdateListener implements AppBarLayout.OnOffsetChangedListener {
         OffsetUpdateListener() {
         }

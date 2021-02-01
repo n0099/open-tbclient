@@ -16,18 +16,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class b extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String[] f5642a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
+    private final String[] f5644a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
 
     private boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int i = 0; i < this.f5642a.length; i++) {
-            if (str.startsWith(this.f5642a[i])) {
+        for (int i = 0; i < this.f5644a.length; i++) {
+            if (str.startsWith(this.f5644a[i])) {
                 return true;
             }
         }

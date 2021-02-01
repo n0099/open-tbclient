@@ -25,147 +25,104 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class PortraitService extends AbstractService implements NoProguard {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ SetPortraitCallback f4529a;
+        final /* synthetic */ SetPortraitCallback f4531a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ SetPortraitResult f4530b;
+        final /* synthetic */ SetPortraitResult f4532b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         a(Looper looper, SetPortraitCallback setPortraitCallback, SetPortraitResult setPortraitResult) {
             super(looper);
-            this.f4529a = setPortraitCallback;
-            this.f4530b = setPortraitResult;
+            this.f4531a = setPortraitCallback;
+            this.f4532b = setPortraitResult;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            this.f4530b.setResultCode(i);
-            this.f4529a.onFailure(this.f4530b);
+            this.f4532b.setResultCode(i);
+            this.f4531a.onFailure(this.f4532b);
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFinish() {
-            this.f4529a.onFinish();
+            this.f4531a.onFinish();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
-            this.f4529a.onStart();
+            this.f4531a.onStart();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
-            this.f4530b.setResultCode(PortraitService.this.getErrorCode(str));
-            this.f4530b.setResultMsg(PortraitService.this.getErrorMsg(str));
-            int resultCode = this.f4530b.getResultCode();
+            this.f4532b.setResultCode(PortraitService.this.getErrorCode(str));
+            this.f4532b.setResultMsg(PortraitService.this.getErrorMsg(str));
+            int resultCode = this.f4532b.getResultCode();
             if (resultCode != 0) {
                 if (resultCode != 160103) {
-                    this.f4529a.onFailure(this.f4530b);
+                    this.f4531a.onFailure(this.f4532b);
                     return;
                 } else {
-                    this.f4529a.onBdussExpired(this.f4530b);
+                    this.f4531a.onBdussExpired(this.f4532b);
                     return;
                 }
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f4530b.portraitSign = jSONObject.optString("portrait_tag");
+                this.f4532b.portraitSign = jSONObject.optString("portrait_tag");
                 String optString = jSONObject.optString("portrait");
                 if (!TextUtils.isEmpty(optString)) {
-                    this.f4530b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.f4530b.portraitSign);
+                    this.f4532b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.f4532b.portraitSign);
                 }
             } catch (JSONException e) {
             }
-            this.f4529a.onSuccess(this.f4530b);
+            this.f4531a.onSuccess(this.f4532b);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ SetPopularPortraitResult f4531a;
+        final /* synthetic */ SetPopularPortraitResult f4533a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ SetPopularPortraitCallback f4532b;
+        final /* synthetic */ SetPopularPortraitCallback f4534b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         b(Looper looper, SetPopularPortraitResult setPopularPortraitResult, SetPopularPortraitCallback setPopularPortraitCallback) {
             super(looper);
-            this.f4531a = setPopularPortraitResult;
-            this.f4532b = setPopularPortraitCallback;
-        }
-
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onFailure(Throwable th, int i, String str) {
-            this.f4531a.setResultCode(i);
-            this.f4532b.onFailure(this.f4531a);
-        }
-
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onFinish() {
-            this.f4532b.onFinish();
-        }
-
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onStart() {
-            this.f4532b.onStart();
-        }
-
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onSuccess(int i, String str) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int i2 = jSONObject.getInt(BaseJsonData.TAG_ERRNO);
-                this.f4531a.setResultCode(i2);
-                this.f4531a.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-                if (i2 == 0) {
-                    this.f4532b.onSuccess(this.f4531a);
-                } else {
-                    this.f4532b.onFailure(this.f4531a);
-                }
-            } catch (JSONException e) {
-                this.f4531a.setResultCode(-202);
-                this.f4532b.onFailure(this.f4531a);
-                Log.e(e);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
-    public class c extends HttpHandlerWrap {
-
-        /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ GetHistoryPortraitsResult f4533a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ GetHistoryPortraitsCallback f4534b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        c(Looper looper, GetHistoryPortraitsResult getHistoryPortraitsResult, GetHistoryPortraitsCallback getHistoryPortraitsCallback) {
-            super(looper);
-            this.f4533a = getHistoryPortraitsResult;
-            this.f4534b = getHistoryPortraitsCallback;
+            this.f4533a = setPopularPortraitResult;
+            this.f4534b = setPopularPortraitCallback;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
             this.f4533a.setResultCode(i);
             this.f4534b.onFailure(this.f4533a);
+        }
+
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onFinish() {
+            this.f4534b.onFinish();
+        }
+
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onStart() {
+            this.f4534b.onStart();
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
@@ -176,16 +133,10 @@ public class PortraitService extends AbstractService implements NoProguard {
                 this.f4533a.setResultCode(i2);
                 this.f4533a.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                 if (i2 == 0) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("history");
-                    int length = optJSONArray.length();
-                    this.f4533a.historyPortraits = new ArrayList(length);
-                    for (int i3 = 0; i3 < length; i3++) {
-                        this.f4533a.historyPortraits.add(optJSONArray.optString(i3));
-                    }
                     this.f4534b.onSuccess(this.f4533a);
-                    return;
+                } else {
+                    this.f4534b.onFailure(this.f4533a);
                 }
-                this.f4534b.onFailure(this.f4533a);
             } catch (JSONException e) {
                 this.f4533a.setResultCode(-202);
                 this.f4534b.onFailure(this.f4533a);
@@ -195,36 +146,85 @@ public class PortraitService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
-    public class d extends HttpHandlerWrap {
+    /* loaded from: classes3.dex */
+    public class c extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ GetPopularPortraitsCallback f4535a;
+        final /* synthetic */ GetHistoryPortraitsResult f4535a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ GetPopularPortraitsInfoResult f4536b;
+        final /* synthetic */ GetHistoryPortraitsCallback f4536b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        d(Looper looper, GetPopularPortraitsCallback getPopularPortraitsCallback, GetPopularPortraitsInfoResult getPopularPortraitsInfoResult) {
+        c(Looper looper, GetHistoryPortraitsResult getHistoryPortraitsResult, GetHistoryPortraitsCallback getHistoryPortraitsCallback) {
             super(looper);
-            this.f4535a = getPopularPortraitsCallback;
-            this.f4536b = getPopularPortraitsInfoResult;
+            this.f4535a = getHistoryPortraitsResult;
+            this.f4536b = getHistoryPortraitsCallback;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            this.f4536b.setResultCode(i);
-            this.f4535a.onFailure(this.f4536b);
+            this.f4535a.setResultCode(i);
+            this.f4536b.onFailure(this.f4535a);
+        }
+
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onSuccess(int i, String str) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int i2 = jSONObject.getInt(BaseJsonData.TAG_ERRNO);
+                this.f4535a.setResultCode(i2);
+                this.f4535a.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
+                if (i2 == 0) {
+                    JSONArray optJSONArray = jSONObject.optJSONArray("history");
+                    int length = optJSONArray.length();
+                    this.f4535a.historyPortraits = new ArrayList(length);
+                    for (int i3 = 0; i3 < length; i3++) {
+                        this.f4535a.historyPortraits.add(optJSONArray.optString(i3));
+                    }
+                    this.f4536b.onSuccess(this.f4535a);
+                    return;
+                }
+                this.f4536b.onFailure(this.f4535a);
+            } catch (JSONException e) {
+                this.f4535a.setResultCode(-202);
+                this.f4536b.onFailure(this.f4535a);
+                Log.e(e);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes3.dex */
+    public class d extends HttpHandlerWrap {
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ GetPopularPortraitsCallback f4537a;
+
+        /* renamed from: b  reason: collision with root package name */
+        final /* synthetic */ GetPopularPortraitsInfoResult f4538b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        d(Looper looper, GetPopularPortraitsCallback getPopularPortraitsCallback, GetPopularPortraitsInfoResult getPopularPortraitsInfoResult) {
+            super(looper);
+            this.f4537a = getPopularPortraitsCallback;
+            this.f4538b = getPopularPortraitsInfoResult;
+        }
+
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onFailure(Throwable th, int i, String str) {
+            this.f4538b.setResultCode(i);
+            this.f4537a.onFailure(this.f4538b);
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFinish() {
-            this.f4535a.onFinish();
+            this.f4537a.onFinish();
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
-            this.f4535a.onStart();
+            this.f4537a.onStart();
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
@@ -232,12 +232,12 @@ public class PortraitService extends AbstractService implements NoProguard {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-                this.f4536b.setResultCode(optInt);
-                this.f4536b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
+                this.f4538b.setResultCode(optInt);
+                this.f4538b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                 if (optInt == 0) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("list");
                     int length = optJSONArray.length();
-                    this.f4536b.popularPortraitsInfoList = new ArrayList(length);
+                    this.f4538b.popularPortraitsInfoList = new ArrayList(length);
                     for (int i2 = 0; i2 < length; i2++) {
                         JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                         if (optJSONObject != null) {
@@ -246,16 +246,16 @@ public class PortraitService extends AbstractService implements NoProguard {
                             popularPortraitsInfo.series = optJSONObject.optString("serie");
                             popularPortraitsInfo.url = optJSONObject.optString("url");
                             popularPortraitsInfo.myItem = optJSONObject.optInt("myitem");
-                            this.f4536b.popularPortraitsInfoList.add(popularPortraitsInfo);
+                            this.f4538b.popularPortraitsInfoList.add(popularPortraitsInfo);
                         }
                     }
-                    this.f4535a.onSuccess(this.f4536b);
+                    this.f4537a.onSuccess(this.f4538b);
                     return;
                 }
-                this.f4535a.onFailure(this.f4536b);
+                this.f4537a.onFailure(this.f4538b);
             } catch (JSONException e) {
-                this.f4536b.setResultCode(-202);
-                this.f4535a.onFailure(this.f4536b);
+                this.f4538b.setResultCode(-202);
+                this.f4537a.onFailure(this.f4538b);
                 Log.e(e);
             }
         }

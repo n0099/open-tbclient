@@ -2,7 +2,7 @@ package com.baidu.live.utils;
 
 import android.os.Build;
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i {
     public static void ae(View view) {
         if (Build.VERSION.SDK_INT < 16) {

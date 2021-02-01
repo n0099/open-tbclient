@@ -6,7 +6,7 @@ import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 final class TouchHelper$mTouchSlop$2 extends Lambda implements a<Integer> {
     final /* synthetic */ TouchHelper this$0;
 

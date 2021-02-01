@@ -4,15 +4,15 @@ import java.util.Collections;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ah {
-    public static final <T> Set<T> eIO() {
+    public static final <T> Set<T> eLe() {
         return EmptySet.INSTANCE;
     }
 
     public static final <T> Set<T> U(T... tArr) {
         kotlin.jvm.internal.p.o(tArr, "elements");
-        return tArr.length > 0 ? f.T(tArr) : ag.eIO();
+        return tArr.length > 0 ? f.T(tArr) : ag.eLe();
     }
 
     public static final <T> Set<T> bT(T t) {

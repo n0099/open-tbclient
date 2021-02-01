@@ -3,7 +3,7 @@ package rx.internal.producers;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.f;
 import rx.j;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class SingleProducer<T> extends AtomicBoolean implements f {
     private static final long serialVersionUID = -3353584923995471404L;
     final j<? super T> child;

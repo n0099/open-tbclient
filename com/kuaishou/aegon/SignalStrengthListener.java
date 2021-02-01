@@ -14,25 +14,25 @@ import android.telephony.TelephonyManager;
 import androidx.annotation.Keep;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.PermissionChecker;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SignalStrengthListener extends PhoneStateListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8109a;
+    public Context f8111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TelephonyManager f8110b;
+    public TelephonyManager f8112b;
 
     public SignalStrengthListener(Context context) {
-        this.f8110b = null;
-        this.f8109a = context;
+        this.f8112b = null;
+        this.f8111a = context;
         if (Build.VERSION.SDK_INT < 23) {
             return;
         }
         try {
-            this.f8110b = (TelephonyManager) context.getSystemService("phone");
-            if (this.f8110b != null) {
-                this.f8110b.listen(this, 256);
+            this.f8112b = (TelephonyManager) context.getSystemService("phone");
+            if (this.f8112b != null) {
+                this.f8112b.listen(this, 256);
             }
         } catch (Exception e) {
         }
@@ -48,9 +48,9 @@ public class SignalStrengthListener extends PhoneStateListener {
         CellInfoLte cellInfoLte;
         CellSignalStrengthLte cellSignalStrengthLte = null;
         new StringBuilder();
-        if (PermissionChecker.checkSelfPermission(this.f8109a, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
+        if (PermissionChecker.checkSelfPermission(this.f8111a, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
             CellInfoLte cellInfoLte2 = null;
-            for (CellInfo cellInfo : this.f8110b.getAllCellInfo()) {
+            for (CellInfo cellInfo : this.f8112b.getAllCellInfo()) {
                 if (!cellInfo.isRegistered()) {
                     cellInfo = cellInfoLte2;
                 }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static boolean a(DressItemData dressItemData) {
         int freeUserLevel = dressItemData.getFreeUserLevel();
@@ -27,8 +27,8 @@ public class b {
     public static void a(TbPageContext<?> tbPageContext, int i, String str, int i2) {
         if (tbPageContext != null) {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.nv(R.color.CAM_X0305);
-            aVar.Ac(str);
+            aVar.ny(R.color.CAM_X0305);
+            aVar.At(str);
             a.b bVar = new a.b() { // from class: com.baidu.tieba.themeCenter.b.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -38,15 +38,15 @@ public class b {
             aVar.b(R.string.cancel, bVar);
             aVar.a(R.string.know, bVar);
             aVar.b(tbPageContext);
-            aVar.bqe();
+            aVar.bqx();
         }
     }
 
     public static void a(final TbPageContext<?> tbPageContext, final int i, String str, final int i2, final String str2, final String str3) {
         if (tbPageContext != null) {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.nv(R.color.CAM_X0305);
-            aVar.Ad(str);
+            aVar.ny(R.color.CAM_X0305);
+            aVar.Au(str);
             aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.themeCenter.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -98,14 +98,14 @@ public class b {
                 }
             });
             aVar.b(tbPageContext);
-            aVar.bqe();
+            aVar.bqx();
         }
     }
 
     public static void a(final TbPageContext<?> tbPageContext, int i, final String str) {
         if (tbPageContext != null) {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.nu(R.string.tip_download_activity_require);
+            aVar.nx(R.string.tip_download_activity_require);
             aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.themeCenter.b.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -123,7 +123,7 @@ public class b {
                 }
             });
             aVar.b(tbPageContext);
-            aVar.bqe();
+            aVar.bqx();
         }
     }
 }

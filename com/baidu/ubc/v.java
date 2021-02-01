@@ -3,7 +3,7 @@ package com.baidu.ubc;
 public interface v {
     public static final com.baidu.pyramid.runtime.service.d SERVICE_REFERENCE = new com.baidu.pyramid.runtime.service.d("ubc", "yalog");
 
-    void gT(String str, String str2);
+    void ha(String str, String str2);
 
-    void gU(String str, String str2);
+    void hb(String str, String str2);
 }

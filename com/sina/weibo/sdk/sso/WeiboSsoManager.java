@@ -6,12 +6,12 @@ import com.sina.weibo.sdk.utils.LogUtil;
 import com.weibo.ssosdk.WeiboSsoSdk;
 import com.weibo.ssosdk.a;
 import com.weibo.ssosdk.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WeiboSsoManager {
     private static final String TAG = "WeiboSsoManager";
     private String aid;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     private static class Instance {
         private static final WeiboSsoManager instance = new WeiboSsoManager();
 
@@ -36,16 +36,16 @@ public final class WeiboSsoManager {
         bVar.setContext(context);
         bVar.setAppKey(str);
         bVar.setFrom("1478195010");
-        bVar.aaC("1000_0001");
+        bVar.abD("1000_0001");
         WeiboSsoSdk.a(bVar);
         initAid();
     }
 
     private void initAid() {
         try {
-            this.aid = WeiboSsoSdk.eGu().uE();
+            this.aid = WeiboSsoSdk.eIK().uB();
             if (TextUtils.isEmpty(this.aid)) {
-                this.aid = WeiboSsoSdk.eGu().eGv().uE();
+                this.aid = WeiboSsoSdk.eIK().eIL().uB();
             }
         } catch (Exception e) {
             e.printStackTrace();

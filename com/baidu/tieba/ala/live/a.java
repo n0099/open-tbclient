@@ -11,19 +11,19 @@ import com.baidu.live.tbadk.pay.channel.interfaces.IChannelPayController;
 import com.baidu.live.tbadk.util.PageDialogHelper;
 import com.baidu.tieba.ala.live.c.a;
 import com.baidu.tieba.ala.live.c.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements IChannelPayController {
-    private BaseActivity bRI;
+    private BaseActivity bVA;
     private PayConfig mCurPayConfig;
     private com.baidu.tieba.ala.live.c.a mPayController;
 
     public a(PayChannelData payChannelData) {
-        this.bRI = payChannelData.getBaseActivity();
+        this.bVA = payChannelData.getBaseActivity();
         Log.d(IChannelPayController.TAG, "-->mPayController  构造函数");
-        this.mPayController = c.c(this.bRI);
+        this.mPayController = c.c(this.bVA);
         this.mPayController.a(new a.InterfaceC0646a() { // from class: com.baidu.tieba.ala.live.a.1
             @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0646a
-            public void GA(String str) {
+            public void GZ(String str) {
             }
 
             @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0646a
@@ -67,14 +67,14 @@ public class a implements IChannelPayController {
         String liveId = payChannelData.getLiveId();
         Log.d(IChannelPayController.TAG, "-->mPayController  pay--- propsId:" + iconId + ", money:" + str + ", propsMon:1, tBeanNum:" + str2 + ", from:" + from);
         this.mCurPayConfig = new PayConfig(payType, "0", iconId, str, "1", true, str2, false, PageDialogHelper.PayForm.NOT_SET, null, null, from, liveId);
-        this.mPayController.GE(payChannelData.getChannel());
+        this.mPayController.Hj(payChannelData.getChannel());
         this.mPayController.setShowToast(payChannelData.getShowToast());
         this.mPayController.d(this.mCurPayConfig);
     }
 
     @Override // com.baidu.live.tbadk.pay.channel.interfaces.IChannelPayController
     public void release() {
-        this.bRI = null;
+        this.bVA = null;
         this.mPayController = null;
     }
 }

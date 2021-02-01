@@ -2,11 +2,11 @@ package com.baidu.live.view.web.a;
 
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.ak;
+import com.baidu.live.data.ao;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g extends com.baidu.live.view.web.a {
     @Override // com.baidu.live.view.web.a
     public String getName() {
@@ -14,23 +14,23 @@ public class g extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void hU(String str) {
+    public void is(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            final ak akVar = new ak();
-            akVar.aHq = jSONObject.optInt("tab", -1);
-            akVar.aHr = jSONObject.optInt("category_id", -1);
-            akVar.aHs = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
+            final ao aoVar = new ao();
+            aoVar.aJV = jSONObject.optInt("tab", -1);
+            aoVar.aJW = jSONObject.optInt("category_id", -1);
+            aoVar.aJX = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
             if (jSONObject.optInt("close", 0) == 1) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913123));
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.view.web.a.g.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        g.this.a(akVar);
+                        g.this.a(aoVar);
                     }
                 }, 250L);
             } else {
-                a(akVar);
+                a(aoVar);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -38,7 +38,7 @@ public class g extends com.baidu.live.view.web.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(ak akVar) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, akVar));
+    public void a(ao aoVar) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, aoVar));
     }
 }

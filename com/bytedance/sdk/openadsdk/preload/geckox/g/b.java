@@ -5,14 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, Lock> f7485a = new HashMap();
+    private static final Map<String, Lock> f7487a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private static ReentrantLock f7486b = new ReentrantLock();
+    private static ReentrantLock f7488b = new ReentrantLock();
     private String c;
     private FileLock d;
 
@@ -22,18 +22,18 @@ public class b {
     }
 
     public static b a(String str) throws Exception {
-        f7486b.lock();
+        f7488b.lock();
         try {
             FileLock a2 = FileLock.a(str);
-            Lock lock = f7485a.get(str);
+            Lock lock = f7487a.get(str);
             if (lock == null) {
                 lock = new ReentrantLock();
-                f7485a.put(str, lock);
+                f7487a.put(str, lock);
             }
             lock.lock();
             return new b(str, a2);
         } catch (Exception e) {
-            f7486b.unlock();
+            f7488b.unlock();
             throw e;
         }
     }
@@ -42,12 +42,12 @@ public class b {
         try {
             this.d.a();
             this.d.b();
-            Lock lock = f7485a.get(this.c);
+            Lock lock = f7487a.get(this.c);
             if (lock != null) {
                 lock.unlock();
             }
         } finally {
-            f7486b.unlock();
+            f7488b.unlock();
         }
     }
 }

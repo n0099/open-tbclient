@@ -6,18 +6,18 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.glide.load.DataSource;
 import com.kwad.sdk.glide.load.engine.GlideException;
 import com.kwad.sdk.glide.request.a.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c implements com.kwad.sdk.glide.request.e<Drawable> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f8244a;
+    private String f8246a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AdTemplate f8245b;
+    private AdTemplate f8247b;
 
     public c(String str, AdTemplate adTemplate) {
-        this.f8244a = str;
-        this.f8245b = adTemplate;
+        this.f8246a = str;
+        this.f8247b = adTemplate;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class c implements com.kwad.sdk.glide.request.e<Drawable> {
         if (glideException != null) {
             sb.append(glideException.getMessage());
         }
-        com.kwad.sdk.core.report.e.c(this.f8245b, this.f8244a, sb.toString());
+        com.kwad.sdk.core.report.e.c(this.f8247b, this.f8246a, sb.toString());
         return false;
     }
 }

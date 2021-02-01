@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.ubc;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class UbcStatisticLiveKey {
     public static final String KEY_ID_1391 = "1391";
     public static final String KEY_ID_1392 = "1392";
@@ -46,6 +46,7 @@ public class UbcStatisticLiveKey {
     public static final String KEY_ID_IM_SEND_RESULT = "1537";
     public static final String KEY_ID_IM_WRONG_ID = "1537";
     public static final String KEY_ID_LUCKY_BAG = "2674";
+    public static final String KEY_ID_MEMORY = "2983";
     public static final String KEY_ID_MIC_LITE_API_FLOW = "2414";
     public static final String KEY_ID_NET = "2652";
     public static final String KEY_ID_PK_RANK = "2677";

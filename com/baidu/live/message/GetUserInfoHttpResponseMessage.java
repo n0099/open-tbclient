@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GetUserInfoHttpResponseMessage extends JsonHttpResponsedMessage {
     public long userId;
     public String userName;

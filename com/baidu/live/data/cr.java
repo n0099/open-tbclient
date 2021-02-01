@@ -1,127 +1,122 @@
 package com.baidu.live.data;
 
-import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
-import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-import com.baidu.android.imsdk.IMConstants;
-import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.mobstat.Config;
-import io.flutter.plugin.platform.PlatformPlugin;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import android.graphics.Color;
+import com.baidu.live.adp.lib.util.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class cr {
-    public static cr aPQ = new cr();
-    public int aPI;
-    public int aPJ;
-    public int aPK;
-    public int aPN;
-    public int aPO;
-    public String aPP;
-    public List<a> dataList;
-    public int fps;
-    public int maxBitrate;
+    private String aRK;
+    private String aRL;
+    private String aRM;
+    private String aRN;
+    private String aRO;
+    private String aRP;
+    private String aRQ;
+    private String aRR;
+    public boolean aRS;
+    private String aRT;
+    public int aRU;
+    public int aRV;
+    private int[] aRW;
+    private int[] aRX;
+    private int[] aRY;
+    private int[] aRZ;
+    private int[] aSa;
+    public String id;
+    public String name;
+    public int price;
+    public int type;
 
-    static {
-        aPQ.fps = 15;
-        aPQ.aPI = 720;
-        aPQ.aPJ = PlatformPlugin.DEFAULT_SYSTEM_UI;
-        aPQ.maxBitrate = FeatureCodes.ADVANCE_BEAUTY;
-        aPQ.aPK = 1100;
-        aPQ.aPN = 800;
-        aPQ.aPO = 1100;
-        aPQ.aPP = "meg_public_show_2x.png";
-        aPQ.dataList = a.aPM;
+    public cr() {
+        this.aRS = false;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.fps = jSONObject.optInt(AlaRecorderLog.KEY_CANERA_START_FPS, aPQ.fps);
-                this.aPI = jSONObject.optInt("video_w", aPQ.aPI);
-                this.aPJ = jSONObject.optInt("video_h", aPQ.aPJ);
-                this.aPP = jSONObject.optString("bgp", aPQ.aPP);
-                this.maxBitrate = jSONObject.optInt("max_bitrate", aPQ.maxBitrate);
-                this.aPK = jSONObject.optInt("min_bitrate", aPQ.aPK);
-                this.aPN = jSONObject.optInt("rtc_min_bitrate", aPQ.aPN);
-                this.aPO = jSONObject.optInt("rtc_max_bitrate", aPQ.aPO);
-                JSONArray optJSONArray = jSONObject.optJSONArray("list");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.dataList = new ArrayList();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            a aVar = new a();
-                            aVar.parserJson(optJSONObject);
-                            this.dataList.add(aVar);
-                        }
-                    }
-                    return;
-                }
-                this.dataList = a.aPM;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    public cr(int i, JSONObject jSONObject) {
+        int i2;
+        this.aRS = false;
+        this.type = i;
+        this.id = jSONObject.optString("id");
+        this.price = jSONObject.optInt("price");
+        this.name = jSONObject.optString("name");
+        this.aRK = jSONObject.optString("barrage_start_color");
+        this.aRL = jSONObject.optString("barrage_end_color");
+        this.aRM = jSONObject.optString("portrait_start_color");
+        this.aRN = jSONObject.optString("portrait_end_color");
+        this.aRO = jSONObject.optString("portrait_frame_start_color");
+        this.aRP = jSONObject.optString("portrait_frame_end_color");
+        this.aRQ = jSONObject.optString("btn_start_color");
+        this.aRR = jSONObject.optString("btn_end_color");
+        this.aRT = jSONObject.optString("btn_border_color");
+        this.aRU = jSONObject.optInt("btn_border_transprancy");
+        if (!StringUtils.isNull(this.aRT)) {
+            this.aRS = true;
         }
+        try {
+            i2 = (int) (((this.aRU * 1.0f) / 100.0f) * 255.0f);
+        } catch (Exception e) {
+            i2 = 255;
+        }
+        this.aRU = i2;
+        this.aRV = jSONObject.optInt("noble_level");
     }
 
-    /* loaded from: classes10.dex */
-    public static class a {
-        public static List<a> aPM = new ArrayList();
-        public int aPR;
-        public int height;
-        public String order;
-        public int width;
-        public int x;
-        public int y;
-        public int z;
+    public cr CL() {
+        this.type = 1;
+        this.price = 100;
+        this.aRK = "#FF613EFB";
+        this.aRL = "#FF44E3FF";
+        this.aRM = "#FF623DFE";
+        this.aRN = "#FF03E2F5";
+        this.aRO = "#FF61A0FF";
+        this.aRP = "#FF73FFEF";
+        return this;
+    }
 
-        static {
-            a aVar = new a();
-            aVar.order = "0";
-            aVar.aPR = 1;
-            aVar.x = 264;
-            aVar.y = Opcodes.IFNE;
-            aVar.z = 1;
-            aVar.width = 192;
-            aVar.height = 192;
-            aPM.add(aVar);
-            a aVar2 = new a();
-            aVar2.order = "1";
-            aVar2.aPR = 0;
-            aVar2.x = 0;
-            aVar2.y = 250;
-            aVar2.z = 0;
-            aVar2.width = EncoderTextureDrawer.X264_WIDTH;
-            aVar2.height = 480;
-            aPM.add(aVar2);
-            a aVar3 = new a();
-            aVar3.order = "2";
-            aVar3.aPR = 0;
-            aVar3.x = EncoderTextureDrawer.X264_WIDTH;
-            aVar3.y = 250;
-            aVar3.z = 0;
-            aVar3.width = EncoderTextureDrawer.X264_WIDTH;
-            aVar3.height = 480;
-            aPM.add(aVar3);
+    public int[] CM() {
+        if (this.aRW == null || this.aRW.length != 2) {
+            this.aRW = j(this.aRQ, this.aRR, "#FF623DFE", "#FF03E2F5");
         }
+        return this.aRW;
+    }
 
-        public void parserJson(JSONObject jSONObject) {
-            if (jSONObject != null) {
-                try {
-                    this.order = jSONObject.optString(IMConstants.SERVICE_TYPE_ORDER);
-                    this.aPR = jSONObject.optInt("shape");
-                    this.x = jSONObject.optInt(Config.EVENT_HEAT_X);
-                    this.y = jSONObject.optInt("y");
-                    this.z = jSONObject.optInt("z");
-                    this.width = jSONObject.optInt("width");
-                    this.height = jSONObject.optInt("height");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+    public int[] CN() {
+        if (this.aSa == null || this.aSa.length != 2) {
+            this.aSa = j(this.aRT, this.aRT, "#FFFFC926", "#FFFFC926");
         }
+        return this.aSa;
+    }
+
+    public int[] CO() {
+        if (this.aRX == null || this.aRX.length != 2) {
+            this.aRX = j(this.aRM, this.aRN, "#FF623DFE", "#FF03E2F5");
+        }
+        return this.aRX;
+    }
+
+    public int[] CP() {
+        if (this.aRY == null || this.aRY.length != 2) {
+            this.aRY = j(this.aRK, this.aRL, "#FF613EFB", "#FF44E3FF");
+        }
+        return this.aRY;
+    }
+
+    public int[] CQ() {
+        if (this.aRZ == null || this.aRZ.length != 2) {
+            this.aRZ = j(this.aRO, this.aRP, "#FF61A0FF", "#FF73FFEF");
+        }
+        return this.aRZ;
+    }
+
+    private int[] j(String str, String str2, String str3, String str4) {
+        int parseColor;
+        int parseColor2;
+        try {
+            parseColor = Color.parseColor(str);
+            parseColor2 = Color.parseColor(str2);
+        } catch (Exception e) {
+            parseColor = Color.parseColor(str3);
+            parseColor2 = Color.parseColor(str4);
+        }
+        return new int[]{parseColor, parseColor2};
     }
 }

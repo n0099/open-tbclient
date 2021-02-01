@@ -52,9 +52,9 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
             if (get() == 0 && compareAndSet(0, 1)) {
                 long j2 = this.requested;
                 if (j2 != Long.MAX_VALUE) {
-                    long T = b.T(j2, j);
-                    this.requested = T;
-                    if (T == Long.MAX_VALUE) {
+                    long X = b.X(j2, j);
+                    this.requested = X;
+                    if (X == Long.MAX_VALUE) {
                         this.unbounded = true;
                     }
                 }
@@ -140,15 +140,15 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
             } else {
                 long j5 = this.requested;
                 if (j5 != Long.MAX_VALUE) {
-                    long T = b.T(j5, andSet);
-                    if (T != Long.MAX_VALUE) {
-                        j = T - andSet2;
+                    long X = b.X(j5, andSet);
+                    if (X != Long.MAX_VALUE) {
+                        j = X - andSet2;
                         if (j < 0) {
                             SubscriptionHelper.reportMoreProduced(j);
                             j = 0;
                         }
                     } else {
-                        j = T;
+                        j = X;
                     }
                     this.requested = j;
                 } else {
@@ -160,12 +160,12 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
                     }
                     this.actual = dVar;
                     if (j != 0) {
-                        j2 = b.T(j2, j);
+                        j2 = b.X(j2, j);
                     }
                     dVar = dVar2;
                 } else {
                     if (dVar3 != null && andSet != 0) {
-                        j2 = b.T(j2, andSet);
+                        j2 = b.X(j2, andSet);
                         dVar = dVar3;
                     }
                     dVar = dVar2;

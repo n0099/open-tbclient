@@ -38,7 +38,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.math.MathUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public abstract class FabTransformationBehavior extends ExpandableTransformationBehavior {
     private final int[] tmpArray;
     private final Rect tmpRect;
@@ -46,7 +46,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     private final RectF tmpRectF2;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class FabTransformationSpec {
         public Positioning positioning;
         public MotionSpec timings;

@@ -1,25 +1,21 @@
 package com.baidu.live.guess.http;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends HttpMessage {
     public a() {
-        super(1021218);
-    }
-
-    public void setUserId(long j) {
-        addParam("user_id", j);
+        super(1021237);
     }
 
     public void setQuesId(long j) {
         addParam("ques_id", j);
     }
 
-    public void setAnswer(int i) {
-        addParam("answer", i);
+    public void setIsFirst(int i) {
+        addParam("is_first", i);
     }
 
-    public void setCuid(String str) {
-        addParam("cuid", str);
+    public void setUserId(String str) {
+        addParam("user_id", str);
     }
 }

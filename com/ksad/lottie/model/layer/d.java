@@ -3,7 +3,7 @@ package com.ksad.lottie.model.layer;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.RectF;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.ksad.lottie.f fVar, Layer layer) {

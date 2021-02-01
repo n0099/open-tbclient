@@ -35,7 +35,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class X509Util {
     public static CertificateFactory sCertificateFactory;
     public static X509TrustManagerImplementation sDefaultTrustManager;
@@ -51,7 +51,7 @@ public class X509Util {
     public static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class TrustStorageListener extends BroadcastReceiver {
         public /* synthetic */ TrustStorageListener(AnonymousClass1 anonymousClass1) {
         }
@@ -79,7 +79,7 @@ public class X509Util {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class X509TrustManagerIceCreamSandwich implements X509TrustManagerImplementation {
         public final X509TrustManager mTrustManager;
 
@@ -95,13 +95,13 @@ public class X509Util {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface X509TrustManagerImplementation {
         List<X509Certificate> checkServerTrusted(X509Certificate[] x509CertificateArr, String str, String str2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class X509TrustManagerJellyBean implements X509TrustManagerImplementation {
         public final X509TrustManagerExtensions mTrustManagerExtensions;
 

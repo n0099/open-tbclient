@@ -13,14 +13,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f7108a;
+    protected Context f7110a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected m f7109b;
+    protected m f7111b;
     protected h c;
     protected String e;
     g g;
@@ -56,7 +56,7 @@ public abstract class a {
                         if (p.a(pVar)) {
                             i.a("By pass invalid call: " + pVar);
                             if (pVar != null) {
-                                a.this.b(x.a(new r(pVar.f7130a, "Failed to parse invocation.")), pVar);
+                                a.this.b(x.a(new r(pVar.f7132a, "Failed to parse invocation.")), pVar);
                                 return;
                             }
                             return;
@@ -80,31 +80,31 @@ public abstract class a {
             g b2 = b(pVar.g);
             if (b2 == null) {
                 i.b("Received call with unknown namespace, " + pVar);
-                if (this.f7109b != null) {
-                    this.f7109b.a(a(), pVar.d, 2);
+                if (this.f7111b != null) {
+                    this.f7111b.a(a(), pVar.d, 2);
                 }
                 b(x.a(new r(-4, "Namespace " + pVar.g + " unknown.")), pVar);
                 return;
             }
             f fVar = new f();
-            fVar.f7117b = a2;
-            fVar.f7116a = this.f7108a;
+            fVar.f7119b = a2;
+            fVar.f7118a = this.f7110a;
             fVar.c = b2;
             try {
                 g.a a3 = b2.a(pVar, fVar);
                 if (a3 == null) {
                     i.b("Received call but not registered, " + pVar);
-                    if (this.f7109b != null) {
-                        this.f7109b.a(a(), pVar.d, 2);
+                    if (this.f7111b != null) {
+                        this.f7111b.a(a(), pVar.d, 2);
                     }
                     b(x.a(new r(-2, "Function " + pVar.d + " is not registered.")), pVar);
                     return;
                 }
-                if (a3.f7124a) {
-                    b(a3.f7125b, pVar);
+                if (a3.f7126a) {
+                    b(a3.f7127b, pVar);
                 }
-                if (this.f7109b != null) {
-                    this.f7109b.a(a(), pVar.d);
+                if (this.f7111b != null) {
+                    this.f7111b.a(a(), pVar.d);
                 }
             } catch (Exception e) {
                 i.a("call finished with error, " + pVar, e);
@@ -115,9 +115,9 @@ public abstract class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(j jVar, u uVar) {
-        this.f7108a = a(jVar);
+        this.f7110a = a(jVar);
         this.c = jVar.d;
-        this.f7109b = jVar.i;
+        this.f7111b = jVar.i;
         this.g = new g(jVar, this, uVar);
         this.e = jVar.k;
         b(jVar);
@@ -147,8 +147,8 @@ public abstract class a {
         String optString2 = jSONObject.optString("func");
         String a2 = a();
         if (a2 == null) {
-            if (this.f7109b != null) {
-                this.f7109b.a(null, null, 3);
+            if (this.f7111b != null) {
+                this.f7111b.a(null, null, 3);
                 return null;
             }
             return null;
@@ -161,8 +161,8 @@ public abstract class a {
             return p.a().a(string3).b(string).c(optString2).d(string2).e(optString).f(optString3).g(jSONObject.optString("__iframe_url")).a();
         } catch (JSONException e) {
             i.b("Failed to create call.", e);
-            if (this.f7109b != null) {
-                this.f7109b.a(a2, optString2, 1);
+            if (this.f7111b != null) {
+                this.f7111b.a(a2, optString2, 1);
             }
             return p.a(optString, -1);
         }

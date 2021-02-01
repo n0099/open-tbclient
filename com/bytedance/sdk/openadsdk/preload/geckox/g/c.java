@@ -9,26 +9,26 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, Pair<FileLock, AtomicLong>> f7487a = new HashMap();
+    private static final Map<String, Pair<FileLock, AtomicLong>> f7489a = new HashMap();
 
     public static void a(String str) throws Exception {
-        synchronized (f7487a) {
-            Pair<FileLock, AtomicLong> pair = f7487a.get(str);
+        synchronized (f7489a) {
+            Pair<FileLock, AtomicLong> pair = f7489a.get(str);
             if (pair == null) {
                 pair = new Pair<>(FileLock.a(str, Process.myPid()), new AtomicLong(0L));
-                f7487a.put(str, pair);
+                f7489a.put(str, pair);
             }
             ((AtomicLong) pair.second).incrementAndGet();
         }
     }
 
     public static void b(String str) throws Exception {
-        synchronized (f7487a) {
-            Pair<FileLock, AtomicLong> pair = f7487a.get(str);
+        synchronized (f7489a) {
+            Pair<FileLock, AtomicLong> pair = f7489a.get(str);
             if (pair == null) {
                 throw new RuntimeException("using.lock illegal state");
             }
@@ -38,16 +38,16 @@ public class c {
             }
             if (decrementAndGet == 0) {
                 ((FileLock) pair.first).a();
-                f7487a.remove(str);
+                f7489a.remove(str);
             }
         }
     }
 
     public static void c(String str) throws Exception {
-        synchronized (f7487a) {
+        synchronized (f7489a) {
             FileLock b2 = FileLock.b(str);
             if (b2 != null) {
-                Pair<FileLock, AtomicLong> pair = f7487a.get(str);
+                Pair<FileLock, AtomicLong> pair = f7489a.get(str);
                 if (pair != null && ((AtomicLong) pair.second).get() != 0) {
                     b2.a();
                     FileLock.a(str, Process.myPid());

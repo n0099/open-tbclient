@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.arch.core.internal.SafeIterableMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MediatorLiveData<T> extends MutableLiveData<T> {
     private SafeIterableMap<LiveData<?>, Source<?>> mSources = new SafeIterableMap<>();
 
@@ -49,7 +49,7 @@ public class MediatorLiveData<T> extends MutableLiveData<T> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static class Source<V> implements Observer<V> {
         final LiveData<V> mLiveData;
         final Observer<? super V> mObserver;

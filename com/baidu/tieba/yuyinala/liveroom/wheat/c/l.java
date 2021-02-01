@@ -1,54 +1,55 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.c;
 
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imrtc.utils.IStatusListener;
+import com.baidu.live.adp.lib.safe.SafeHandler;
+import com.baidu.live.data.r;
 import com.baidu.live.sdk.a;
-import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdToast;
-/* loaded from: classes10.dex */
+import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaInviteConnectionWheatHttpResponseMessage;
+import com.baidu.tieba.yuyinala.liveroom.wheat.model.i;
+/* loaded from: classes11.dex */
 public class l {
-    private static l oxf;
-    private TbPageContext ovA;
-
-    public static l ebk() {
-        if (oxf == null) {
-            oxf = new l();
-        }
-        return oxf;
-    }
-
-    public l i(TbPageContext tbPageContext) {
-        this.ovA = tbPageContext;
-        return this;
-    }
-
-    public void LZ(int i) {
-        o.ebo().zM(false);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, true));
-        if (i == 3) {
-            ebl();
-            if (!o.ebo().eaE()) {
-                e.eaX().eaZ().eaY();
+    public void a(final r rVar, int i) {
+        new com.baidu.tieba.yuyinala.liveroom.wheat.model.i(null, new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.l.1
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.i.a
+            public void a(AlaInviteConnectionWheatHttpResponseMessage alaInviteConnectionWheatHttpResponseMessage) {
+                if (alaInviteConnectionWheatHttpResponseMessage.eeA()) {
+                    a.edd().a(rVar.uk, rVar.cuid, rVar.aGi, rVar.aGk, alaInviteConnectionWheatHttpResponseMessage.getPushUrl(), alaInviteConnectionWheatHttpResponseMessage.eer());
+                    return;
+                }
+                com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("auth_success_anchor_2", false);
+                l.this.a(rVar, alaInviteConnectionWheatHttpResponseMessage);
             }
-        } else if (i == 2) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("auth_success_host_2", true);
-            o.ebo().zO(true);
-            ebl();
-        } else if (i == 4) {
-            ebl();
-            if (!o.ebo().eaE()) {
-                e.eaX().eaZ().eaY();
+
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.i.a
+            public void b(AlaInviteConnectionWheatHttpResponseMessage alaInviteConnectionWheatHttpResponseMessage) {
             }
-        }
+        }).aU(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().ym(), rVar.uk, String.valueOf(i));
     }
 
-    private void ebl() {
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.e.a.hg(TbadkCoreApplication.getInst())) {
-            BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_apply_succ_1_text)).show();
-        } else {
-            BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_apply_succ_2_text)).show();
-        }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(r rVar, AlaInviteConnectionWheatHttpResponseMessage alaInviteConnectionWheatHttpResponseMessage) {
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().ecL().a(rVar.uk, rVar.cuid, rVar.aGi, rVar.aGk, com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().ecO(), false, alaInviteConnectionWheatHttpResponseMessage.getPushUrl(), alaInviteConnectionWheatHttpResponseMessage.eer(), new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.l.2
+            @Override // com.baidu.android.imrtc.utils.IStatusListener
+            public void onResult(int i, String str) {
+                if (i == 0) {
+                    com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("invite_succ_anchor_4", false);
+                }
+                l.this.W(i, str);
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void W(final int i, String str) {
+        SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.l.3
+            @Override // java.lang.Runnable
+            public void run() {
+                if (i != 0) {
+                    BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_invite_error_text)).show();
+                }
+            }
+        });
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FlutterActivityPageContext<T> implements TbPageContext<T> {
     FlutterPageActivity<T> activity;
 

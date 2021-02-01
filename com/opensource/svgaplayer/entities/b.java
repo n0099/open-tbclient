@@ -7,32 +7,32 @@ import java.util.StringTokenizer;
 import kotlin.jvm.internal.p;
 import kotlin.text.l;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b {
-    private final String pPA;
-    private Path pPB;
+    private final String pZE;
+    private Path pZF;
 
     public b(String str) {
         p.o(str, "originValue");
-        this.pPA = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
+        this.pZE = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
         p.o(path, "toPath");
-        Path path2 = this.pPB;
+        Path path2 = this.pZF;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.pPA, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.pZE, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
             p.n(nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.pPC;
+                set = c.pZG;
                 if (set.contains(nextToken)) {
                     if (p.l(nextToken, "Z") || p.l(nextToken, "z")) {
                         a(path3, nextToken, new StringTokenizer("", ""));
@@ -44,7 +44,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.pPB = path3;
+        this.pZF = path3;
         path.set(path3);
     }
 

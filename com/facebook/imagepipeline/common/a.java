@@ -1,6 +1,5 @@
 package com.facebook.imagepipeline.common;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.facebook.common.internal.g;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
@@ -20,10 +19,10 @@ public class a {
     }
 
     public String toString() {
-        return String.format(null, "%s-%s", Pj(this.from), Pj(this.to));
+        return String.format(null, "%s-%s", PE(this.from), PE(this.to));
     }
 
-    private static String Pj(int i) {
+    private static String PE(int i) {
         return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
     }
 
@@ -42,12 +41,12 @@ public class a {
         return com.facebook.common.util.a.hashCode(this.from, this.to);
     }
 
-    public static a Pk(int i) {
+    public static a PF(int i) {
         g.checkArgument(i >= 0);
-        return new a(i, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return new a(i, Integer.MAX_VALUE);
     }
 
-    public static a Pl(int i) {
+    public static a PG(int i) {
         g.checkArgument(i > 0);
         return new a(0, i);
     }

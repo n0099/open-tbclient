@@ -8,21 +8,21 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a implements com.baidu.swan.game.ad.downloader.c.a {
-    private final b dWg;
-    private final SQLiteDatabase dWh;
-    private final SQLiteDatabase dWi;
+    private final b dYn;
+    private final SQLiteDatabase dYo;
+    private final SQLiteDatabase dYp;
     private final Context mContext;
-    public static final String[] dWf = {IMConstants.MSG_ROW_ID, "createAt", DownloadDataConstants.Columns.COLUMN_URI, "packagename", "path", TiebaInitialize.LogFields.SIZE, "progress", "status"};
+    public static final String[] dYm = {IMConstants.MSG_ROW_ID, "createAt", DownloadDataConstants.Columns.COLUMN_URI, "packagename", "path", TiebaInitialize.LogFields.SIZE, "progress", "status"};
     public static final int STATUS_COMPLETED = SwanAdDownloadState.DOWNLOADED.value();
     public static final int STATUS_PAUSED = SwanAdDownloadState.DOWNLOAD_PAUSED.value();
 
     public a(Context context, com.baidu.swan.game.ad.downloader.a.a aVar) {
         this.mContext = context;
-        this.dWg = new b(context, aVar);
-        this.dWh = this.dWg.getWritableDatabase();
-        this.dWi = this.dWg.getReadableDatabase();
+        this.dYn = new b(context, aVar);
+        this.dYo = this.dYn.getWritableDatabase();
+        this.dYp = this.dYn.getReadableDatabase();
     }
 
     private void a(Cursor cursor, DownloadInfo downloadInfo) {
@@ -45,8 +45,8 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.a {
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
-    public DownloadInfo uJ(String str) {
-        Cursor query = this.dWi.query("ad_download", dWf, "_id=?", new String[]{str}, null, null, "createAt desc");
+    public DownloadInfo vc(String str) {
+        Cursor query = this.dYp.query("ad_download", dYm, "_id=?", new String[]{str}, null, null, "createAt desc");
         if (query.moveToNext()) {
             DownloadInfo downloadInfo = new DownloadInfo();
             a(query, downloadInfo);
@@ -58,17 +58,17 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.a {
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
-    public void aRr() {
-        this.dWh.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(STATUS_PAUSED), Integer.valueOf(STATUS_COMPLETED)});
+    public void aRH() {
+        this.dYo.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(STATUS_PAUSED), Integer.valueOf(STATUS_COMPLETED)});
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
     public void m(DownloadInfo downloadInfo) {
-        this.dWh.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
+        this.dYo.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
     public void n(DownloadInfo downloadInfo) {
-        this.dWh.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
+        this.dYo.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
     }
 }

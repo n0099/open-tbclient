@@ -4,18 +4,18 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
 import com.baidu.platform.core.a.d;
 import com.baidu.platform.core.a.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DistrictSearch extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f2864a;
+    private e f2862a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f2865b = false;
+    private boolean f2863b = false;
 
     DistrictSearch() {
-        this.f2864a = null;
-        this.f2864a = new d();
+        this.f2862a = null;
+        this.f2862a = new d();
     }
 
     public static DistrictSearch newInstance() {
@@ -24,31 +24,31 @@ public class DistrictSearch extends l {
     }
 
     public void destroy() {
-        if (this.f2865b) {
+        if (this.f2863b) {
             return;
         }
-        this.f2865b = true;
-        this.f2864a.a();
+        this.f2863b = true;
+        this.f2862a.a();
         BMapManager.destroy();
     }
 
     public boolean searchDistrict(DistrictSearchOption districtSearchOption) {
-        if (this.f2864a == null) {
+        if (this.f2862a == null) {
             throw new IllegalStateException("searcher is null, please call newInstance first.");
         }
         if (districtSearchOption == null || districtSearchOption.mCityName == null || districtSearchOption.mCityName.equals("")) {
             throw new IllegalArgumentException("option or city name can not be null or empty.");
         }
-        return this.f2864a.a(districtSearchOption);
+        return this.f2862a.a(districtSearchOption);
     }
 
     public void setOnDistrictSearchListener(OnGetDistricSearchResultListener onGetDistricSearchResultListener) {
-        if (this.f2864a == null) {
+        if (this.f2862a == null) {
             throw new IllegalStateException("searcher is null, please call newInstance first.");
         }
         if (onGetDistricSearchResultListener == null) {
             throw new IllegalArgumentException("listener can not be null");
         }
-        this.f2864a.a(onGetDistricSearchResultListener);
+        this.f2862a.a(onGetDistricSearchResultListener);
     }
 }

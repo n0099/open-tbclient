@@ -5,12 +5,12 @@ import android.content.Context;
 import android.os.Process;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i {
     public static boolean a(Context context, Activity activity) {
         try {
             if (!checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                aF(activity);
+                ay(activity);
                 return false;
             }
         } catch (Exception e) {
@@ -30,7 +30,7 @@ public class i {
         return context.checkPermission(str, Process.myPid(), Process.myUid());
     }
 
-    private static boolean aF(Activity activity) {
+    private static boolean ay(Activity activity) {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.setDialogClickListener(new PermissionJudgePolicy.PermissionDialogClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.i.1
             @Override // com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.PermissionDialogClickListener

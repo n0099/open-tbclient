@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat;
 
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.o;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g {
@@ -19,7 +19,7 @@ public class g {
             if (this.mUrl == null || this.mUrl.length() <= 0) {
                 showToast(this.mActivity.getPageContext().getString(R.string.save_fail));
             }
-            com.baidu.adp.lib.e.d.mx().a(this.mUrl, 10, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.chat.g.1
+            com.baidu.adp.lib.e.d.mw().a(this.mUrl, 10, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.chat.g.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.e.c
@@ -39,9 +39,9 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String n(String str, byte[] bArr) {
-        switch (n.saveImageFileByUser(str, bArr, this.mActivity.getPageContext().getPageActivity())) {
+        switch (o.saveImageFileByUser(str, bArr, this.mActivity.getPageContext().getPageActivity())) {
             case -2:
-                return n.getSdErrorString();
+                return o.getSdErrorString();
             case -1:
             default:
                 return this.mActivity.getPageContext().getString(R.string.save_fail);

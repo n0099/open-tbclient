@@ -11,23 +11,23 @@ import java.net.IDN;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f5942a = {42};
+    private static final byte[] f5944a = {42};
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String[] f5943b = new String[0];
+    private static final String[] f5945b = new String[0];
     private static final String[] c = {"*"};
-    private static final a pgu = new a();
+    private static final a pqM = new a();
     private final AtomicBoolean e = new AtomicBoolean(false);
     private final CountDownLatch f = new CountDownLatch(1);
     private byte[] g;
     private byte[] h;
 
-    public static a enh() {
-        return pgu;
+    public static a epA() {
+        return pqM;
     }
 
     public String a(String str) {
@@ -75,7 +75,7 @@ public final class a {
         }
         byte[][] bArr = new byte[strArr.length];
         for (int i2 = 0; i2 < strArr.length; i2++) {
-            bArr[i2] = strArr[i2].getBytes(c.peI);
+            bArr[i2] = strArr[i2].getBytes(c.poY);
         }
         int i3 = 0;
         while (true) {
@@ -92,7 +92,7 @@ public final class a {
         if (bArr.length > 1) {
             byte[][] bArr2 = (byte[][]) bArr.clone();
             for (int i4 = 0; i4 < bArr2.length - 1; i4++) {
-                bArr2[i4] = f5942a;
+                bArr2[i4] = f5944a;
                 String a2 = a(this.g, bArr2, i4);
                 if (a2 != null) {
                     str2 = a2;
@@ -120,8 +120,8 @@ public final class a {
         if (str == null && str2 == null) {
             return c;
         }
-        String[] split = str != null ? str.split("\\.") : f5943b;
-        String[] split2 = str2 != null ? str2.split("\\.") : f5943b;
+        String[] split = str != null ? str.split("\\.") : f5945b;
+        String[] split2 = str2 != null ? str2.split("\\.") : f5945b;
         return split.length > split2.length ? split : split2;
     }
 
@@ -198,7 +198,7 @@ public final class a {
                     i6 = i11 + i10 + 1;
                     i7 = length;
                 } else {
-                    return new String(bArr, i10, i12, c.peI);
+                    return new String(bArr, i10, i12, c.poY);
                 }
             }
             length = i7;
@@ -219,7 +219,7 @@ public final class a {
                 } catch (InterruptedIOException e) {
                     z2 = true;
                 } catch (IOException e2) {
-                    e.eng().a(5, "Failed to read public suffix list", e2);
+                    e.epz().a(5, "Failed to read public suffix list", e2);
                     if (!z) {
                         return;
                     }
@@ -242,7 +242,7 @@ public final class a {
     private void c() throws IOException {
         InputStream resourceAsStream = a.class.getResourceAsStream(PublicSuffixDatabase.PUBLIC_SUFFIX_RESOURCE);
         if (resourceAsStream != null) {
-            com.bytedance.sdk.a.a.e c2 = l.c(new j(l.s(resourceAsStream)));
+            com.bytedance.sdk.a.a.e c2 = l.c(new j(l.p(resourceAsStream)));
             try {
                 byte[] bArr = new byte[c2.j()];
                 c2.a(bArr);

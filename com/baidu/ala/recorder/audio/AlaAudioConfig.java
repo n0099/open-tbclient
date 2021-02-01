@@ -1,5 +1,5 @@
 package com.baidu.ala.recorder.audio;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AlaAudioConfig {
     public int channels;
     public boolean enableAPM;

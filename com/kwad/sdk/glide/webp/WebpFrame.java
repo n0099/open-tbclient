@@ -3,7 +3,7 @@ package com.kwad.sdk.glide.webp;
 import android.graphics.Bitmap;
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class WebpFrame {
     static final int FRAME_DURATION_MS_FOR_MIN = 100;
     static final int MIN_FRAME_DURATION_MS = 20;

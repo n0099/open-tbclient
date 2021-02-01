@@ -2,6 +2,7 @@ package com.xiaomi.push.service;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -10,7 +11,7 @@ import java.nio.channels.FileLock;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f14218a;
+    private static volatile a f14220a;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f904a;
@@ -21,7 +22,7 @@ public class a {
     private final Object f905a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Object f14219b = new Object();
+    private final Object f14221b = new Object();
 
     /* renamed from: a  reason: collision with other field name */
     private final String f906a = "mipush_region";
@@ -36,14 +37,14 @@ public class a {
     }
 
     public static a a(Context context) {
-        if (f14218a == null) {
+        if (f14220a == null) {
             synchronized (a.class) {
-                if (f14218a == null) {
-                    f14218a = new a(context);
+                if (f14220a == null) {
+                    f14220a = new a(context);
                 }
             }
         }
-        return f14218a;
+        return f14220a;
     }
 
     private String a(Context context, String str, String str2, Object obj) {
@@ -56,7 +57,7 @@ public class a {
                 try {
                     File file2 = new File(context.getFilesDir(), str2);
                     com.xiaomi.push.y.m616a(file2);
-                    randomAccessFile = new RandomAccessFile(file2, "rw");
+                    randomAccessFile = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                     try {
                         fileLock = randomAccessFile.getChannel().lock();
                         try {
@@ -130,7 +131,7 @@ public class a {
             try {
                 File file = new File(context.getFilesDir(), str3);
                 com.xiaomi.push.y.m616a(file);
-                randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
                     try {
@@ -209,7 +210,7 @@ public class a {
 
     public String b() {
         if (TextUtils.isEmpty(this.f)) {
-            this.f = a(this.f904a, "mipush_country_code", "mipush_country_code.lock", this.f14219b);
+            this.f = a(this.f904a, "mipush_country_code", "mipush_country_code.lock", this.f14221b);
         }
         return this.f;
     }
@@ -219,6 +220,6 @@ public class a {
             return;
         }
         this.f = str;
-        a(this.f904a, this.f, "mipush_country_code", "mipush_country_code.lock", this.f14219b);
+        a(this.f904a, this.f, "mipush_country_code", "mipush_country_code.lock", this.f14221b);
     }
 }

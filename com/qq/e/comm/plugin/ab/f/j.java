@@ -9,23 +9,23 @@ import com.tencent.smtt.export.external.interfaces.WebResourceResponse;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class j extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f11812a;
+    private boolean f11814a;
 
     /* renamed from: b  reason: collision with root package name */
-    private g f11813b = new g();
+    private g f11815b = new g();
 
     public void a() {
-        this.f11812a = true;
+        this.f11814a = true;
     }
 
     @Nullable
     @TargetApi(21)
     public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
-        Pair<? extends InputStream, az.a> a2 = this.f11813b.a(this.f11812a, webResourceRequest.getUrl());
+        Pair<? extends InputStream, az.a> a2 = this.f11815b.a(this.f11814a, webResourceRequest.getUrl());
         if (a2 == null) {
             return super.shouldInterceptRequest(webView, webResourceRequest);
         }
@@ -34,6 +34,6 @@ public class j extends WebViewClient {
     }
 
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        return this.f11813b.a(str);
+        return this.f11815b.a(str);
     }
 }

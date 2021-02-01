@@ -3,22 +3,22 @@ package com.bytedance.tea.crash.e;
 import android.os.Build;
 import android.system.Os;
 import android.system.OsConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f7652a = -1;
+    private static long f7654a = -1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static long f7653a = -1;
+        private static long f7655a = -1;
 
         public static long a(long j) {
             long a2;
-            if (f7653a > 0) {
-                return f7653a;
+            if (f7655a > 0) {
+                return f7655a;
             }
             if (Build.VERSION.SDK_INT >= 21) {
                 a2 = Os.sysconf(OsConstants._SC_CLK_TCK);
@@ -28,15 +28,15 @@ public class i {
             if (a2 > 0) {
                 j = a2;
             }
-            f7653a = j;
-            return f7653a;
+            f7655a = j;
+            return f7655a;
         }
 
         public static long a() {
-            if (i.f7652a == -1) {
-                long unused = i.f7652a = 1000 / b();
+            if (i.f7654a == -1) {
+                long unused = i.f7654a = 1000 / b();
             }
-            return i.f7652a;
+            return i.f7654a;
         }
 
         public static long b() {

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.adapter.PbNoDataItemViewHolder;
 /* loaded from: classes2.dex */
-public class ag extends l<com.baidu.tieba.pb.data.l, PbNoDataItemViewHolder> {
+public class ag extends l<com.baidu.tieba.pb.data.m, PbNoDataItemViewHolder> {
     public ag(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
     }
@@ -24,28 +24,28 @@ public class ag extends l<com.baidu.tieba.pb.data.l, PbNoDataItemViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, PbNoDataItemViewHolder pbNoDataItemViewHolder) {
-        super.a(i, view, viewGroup, (ViewGroup) lVar, (com.baidu.tieba.pb.data.l) pbNoDataItemViewHolder);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.m mVar, PbNoDataItemViewHolder pbNoDataItemViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) mVar, (com.baidu.tieba.pb.data.m) pbNoDataItemViewHolder);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        pbNoDataItemViewHolder.mTextView.setText(lVar.lCv);
-        if (lVar.lCu != 0) {
-            com.baidu.tbadk.core.util.ao.setImageResource(pbNoDataItemViewHolder.mImageView, lVar.lCu);
+        pbNoDataItemViewHolder.mTextView.setText(mVar.lLj);
+        if (mVar.lLi != 0) {
+            com.baidu.tbadk.core.util.ap.setImageResource(pbNoDataItemViewHolder.mImageView, mVar.lLi);
         } else {
-            com.baidu.tbadk.core.util.ao.setImageResource(pbNoDataItemViewHolder.mImageView, R.drawable.new_pic_emotion_06);
+            com.baidu.tbadk.core.util.ap.setImageResource(pbNoDataItemViewHolder.mImageView, R.drawable.new_pic_emotion_06);
         }
-        com.baidu.tbadk.core.util.ao.setViewTextColor(pbNoDataItemViewHolder.mTextView, R.color.CAM_X0109);
-        if (lVar.gxN != 0 && view.getLayoutParams() != null) {
-            view.getLayoutParams().height = lVar.gxN;
+        com.baidu.tbadk.core.util.ap.setViewTextColor(pbNoDataItemViewHolder.mTextView, R.color.CAM_X0109);
+        if (mVar.gAx != 0 && view.getLayoutParams() != null) {
+            view.getLayoutParams().height = mVar.gAx;
         }
-        if (lVar.lCw != 0) {
+        if (mVar.lLk != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.mImageView.getLayoutParams();
-            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.lCw, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
+            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, mVar.lLk, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
         }
-        if (lVar.lCx != 0) {
+        if (mVar.lLl != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.mTextView.getLayoutParams();
-            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.lCx);
+            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, mVar.lLl);
         }
-        pbNoDataItemViewHolder.mImageView.setVisibility(lVar.lCy);
+        pbNoDataItemViewHolder.mImageView.setVisibility(mVar.lLm);
         return view;
     }
 }

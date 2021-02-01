@@ -17,80 +17,80 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.kwad.sdk.collector.AppStatusRules;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private static int hJX = 0;
-    private static volatile c hJY = null;
+    private static int hOv = 0;
+    private static volatile c hOw = null;
     private long currLiveId;
     private long duration;
     private long now;
     private Handler handler = new Handler();
-    Runnable hJZ = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.c.1
+    Runnable hOx = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.c.1
         @Override // java.lang.Runnable
         public void run() {
-            Log.i("TaskHelper", "@@ reportRunnable haokan=" + c.hJX + ", currLiveId=" + c.this.currLiveId + ", duration=" + c.this.duration);
-            c.this.atQ();
+            Log.i("TaskHelper", "@@ reportRunnable haokan=" + c.hOv + ", currLiveId=" + c.this.currLiveId + ", duration=" + c.this.duration);
+            c.this.auo();
             c.this.stopRecord();
         }
     };
 
-    public static c cjB() {
-        if (hJY == null) {
+    public static c ckA() {
+        if (hOw == null) {
             synchronized (c.class) {
-                if (hJY == null) {
-                    hJY = new c();
+                if (hOw == null) {
+                    hOw = new c();
                 }
             }
         }
-        return hJY;
+        return hOw;
     }
 
-    public void fF(long j) {
-        Log.i("TaskHelper", "@@ startRecord watchCount=" + hJX + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
-        if (cjC()) {
+    public void fK(long j) {
+        Log.i("TaskHelper", "@@ startRecord watchCount=" + hOv + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
+        if (ckB()) {
             this.currLiveId = j;
             this.duration = 0L;
             this.now = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.hJZ);
-            this.handler.postDelayed(this.hJZ, AppStatusRules.DEFAULT_GRANULARITY - this.duration);
+            this.handler.removeCallbacks(this.hOx);
+            this.handler.postDelayed(this.hOx, AppStatusRules.DEFAULT_GRANULARITY - this.duration);
         }
     }
 
     public void pauseRecord() {
-        Log.i("TaskHelper", "@@ pauseRecord watchCount=" + hJX + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
-        this.handler.removeCallbacks(this.hJZ);
+        Log.i("TaskHelper", "@@ pauseRecord watchCount=" + hOv + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
+        this.handler.removeCallbacks(this.hOx);
         this.duration = System.currentTimeMillis() - this.now;
         if (this.duration < 0) {
             this.duration = 0L;
         }
     }
 
-    public void fG(long j) {
-        Log.i("TaskHelper", "@@ resumeRecord watchCount=" + hJX + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
+    public void fL(long j) {
+        Log.i("TaskHelper", "@@ resumeRecord watchCount=" + hOv + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
         if (this.currLiveId == 0 || this.currLiveId != j) {
             stopRecord();
             return;
         }
         this.now = System.currentTimeMillis();
-        this.handler.removeCallbacks(this.hJZ);
-        this.handler.postDelayed(this.hJZ, AppStatusRules.DEFAULT_GRANULARITY - this.duration);
+        this.handler.removeCallbacks(this.hOx);
+        this.handler.postDelayed(this.hOx, AppStatusRules.DEFAULT_GRANULARITY - this.duration);
     }
 
     public void stopRecord() {
-        Log.i("TaskHelper", "@@ stopRecord watchCount=" + hJX + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
+        Log.i("TaskHelper", "@@ stopRecord watchCount=" + hOv + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
         this.duration = 0L;
         this.currLiveId = 0L;
-        this.handler.removeCallbacks(this.hJZ);
+        this.handler.removeCallbacks(this.hOx);
     }
 
-    private boolean cjC() {
-        return hJX < 30;
+    private boolean ckB() {
+        return hOv < 30;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void atQ() {
-        Log.i("TaskHelper", "@@ report watchCount=" + hJX + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + cjC());
-        if (cjC()) {
+    public void auo() {
+        Log.i("TaskHelper", "@@ report watchCount=" + hOv + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + ckB());
+        if (ckB()) {
             HttpMessage httpMessage = new HttpMessage(1021127);
             httpMessage.addParam("live_id", this.currLiveId);
             httpMessage.addParam("client_ip", "");
@@ -100,8 +100,8 @@ public class c {
 
     public void a(Context context, a aVar) {
         if (aVar != null) {
-            hJX++;
-            if (context != null && (context instanceof Activity) && aVar.hJO == 1 && !TextUtils.isEmpty(aVar.tips)) {
+            hOv++;
+            if (context != null && (context instanceof Activity) && aVar.hOm == 1 && !TextUtils.isEmpty(aVar.tips)) {
                 g(context, aVar.tips, aVar.url, aVar.title);
             }
         }

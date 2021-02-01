@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j {
     private String f;
     private final Context g;
@@ -29,10 +29,10 @@ public class j {
     private p w;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6231a = 1;
+    private int f6233a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f6232b = false;
+    private boolean f6234b = false;
     private boolean c = false;
     private boolean d = false;
     private int e = -1;
@@ -95,8 +95,8 @@ public class j {
         if (this.w != null) {
             this.w.e();
         }
-        if (!this.f6232b) {
-            this.f6232b = true;
+        if (!this.f6234b) {
+            this.f6234b = true;
             a("load_start", new JSONObject());
         }
     }
@@ -115,10 +115,10 @@ public class j {
                 this.r.incrementAndGet();
             }
         }
-        if (this.f6231a != 3) {
-            this.f6231a = 2;
+        if (this.f6233a != 3) {
+            this.f6233a = 2;
         }
-        if (this.f6231a == 2) {
+        if (this.f6233a == 2) {
             long j = this.m - this.l;
             if (!this.c) {
                 this.c = true;
@@ -146,7 +146,7 @@ public class j {
         if (this.w != null) {
             this.w.g();
         }
-        this.f6231a = 3;
+        this.f6233a = 3;
         this.e = i;
         this.f = str;
     }
@@ -158,12 +158,12 @@ public class j {
 
     public void c() {
         u.b("LandingPageLog", MissionEvent.MESSAGE_STOP);
-        boolean z = this.f6231a == 2;
+        boolean z = this.f6233a == 2;
         this.k = System.currentTimeMillis();
         long j = this.k - this.j;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("load_status", this.f6231a);
+            jSONObject.put("load_status", this.f6233a);
             jSONObject.put("stay_page_duration", j);
             jSONObject.put("max_scroll_percent", z ? this.o.get() : 0);
         } catch (JSONException e) {
@@ -237,7 +237,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class a {
         private a() {
         }

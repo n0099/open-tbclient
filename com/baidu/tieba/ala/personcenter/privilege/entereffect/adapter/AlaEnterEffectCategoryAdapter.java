@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaEnterEffectCategoryAdapter extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a, ViewHolder> {
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.hYo);
+        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.icI);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,8 +26,8 @@ public class AlaEnterEffectCategoryAdapter extends com.baidu.adp.widget.ListView
     private void a(ViewHolder viewHolder) {
         if (viewHolder != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            ao.setViewTextColor(viewHolder.hYm, R.color.CAM_X0105, 1, skinType);
-            ao.setBackgroundResource(viewHolder.hYn, R.color.CAM_X0204, skinType);
+            ap.setViewTextColor(viewHolder.icG, R.color.CAM_X0105, 1, skinType);
+            ap.setBackgroundResource(viewHolder.icH, R.color.CAM_X0204, skinType);
         }
     }
 
@@ -36,26 +36,26 @@ public class AlaEnterEffectCategoryAdapter extends com.baidu.adp.widget.ListView
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a aVar, ViewHolder viewHolder) {
         if (aVar != null) {
-            viewHolder.hYm.setText(aVar.aEF);
+            viewHolder.icG.setText(aVar.aGs);
         }
         if (i == 0) {
-            viewHolder.hYn.setVisibility(8);
+            viewHolder.icH.setVisibility(8);
         } else {
-            viewHolder.hYn.setVisibility(0);
+            viewHolder.icH.setVisibility(0);
         }
         a(viewHolder);
         return viewHolder.getView();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
-        public TextView hYm;
-        public View hYn;
+        public TextView icG;
+        public View icH;
 
         public ViewHolder(View view) {
             super(view);
-            this.hYm = (TextView) getView().findViewById(R.id.enter_effect_txt);
-            this.hYn = getView().findViewById(R.id.ala_enter_effect_devide);
+            this.icG = (TextView) getView().findViewById(R.id.enter_effect_txt);
+            this.icH = getView().findViewById(R.id.ala_enter_effect_devide);
         }
     }
 }

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class EditorInfoCompat {
     private static final String CONTENT_MIME_TYPES_KEY = "androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES";
     private static final String[] EMPTY_STRING_ARRAY = new String[0];

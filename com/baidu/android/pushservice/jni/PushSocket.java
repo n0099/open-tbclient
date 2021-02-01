@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.jni;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.message.h;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PushSocket {
 
     /* renamed from: a  reason: collision with root package name */
@@ -16,7 +16,7 @@ public class PushSocket {
     private static int e = 36;
     private static int f = 32;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface OnCreateSocketListener {
         void onConnect(int i);
     }

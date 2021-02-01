@@ -1,11 +1,11 @@
 package com.sdk.base.framework.c;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public abstract class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f12820a = new g("PRODUCE_STATISTICAL", 0) { // from class: com.sdk.base.framework.c.h
+    public static final g f12822a = new g("PRODUCE_STATISTICAL", 0) { // from class: com.sdk.base.framework.c.h
         @Override // com.sdk.base.framework.c.g
         public final String a() {
             return com.sdk.base.framework.f.f.a.a("cucc/host_cucc.properties", "PRODUCE_STATISTICAL");
@@ -13,7 +13,7 @@ public abstract class g {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f12821b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
+    public static final g f12823b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
         @Override // com.sdk.base.framework.c.g
         public final String a() {
             return com.sdk.base.framework.f.f.a.a("cucc/host_cucc.properties", "PRODUCE_DZH");
@@ -21,7 +21,7 @@ public abstract class g {
     };
 
     static {
-        g[] gVarArr = {f12820a, f12821b};
+        g[] gVarArr = {f12822a, f12823b};
     }
 
     private g(String str, int i) {

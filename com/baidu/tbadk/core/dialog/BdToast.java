@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.adp.lib.util.w;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
@@ -25,7 +25,7 @@ public class BdToast {
     private final TextView mTextView;
     private Toast mToast;
     private int mIconResId = -1;
-    private boolean eSK = false;
+    private boolean eUZ = false;
     private int mGravity = 16;
     private int mDuration = 0;
     private int offsetX = 0;
@@ -64,16 +64,16 @@ public class BdToast {
 
     public BdToast F(int i, boolean z) {
         this.mIconResId = i;
-        this.eSK = z;
+        this.eUZ = z;
         return this;
     }
 
-    public BdToast nD(int i) {
+    public BdToast nG(int i) {
         this.mGravity = i;
         return this;
     }
 
-    public BdToast nE(int i) {
+    public BdToast nH(int i) {
         this.mDuration = i;
         return this;
     }
@@ -86,22 +86,22 @@ public class BdToast {
         this.mTextView.setLineSpacing(0.0f, f);
     }
 
-    public BdToast bqj() {
+    public BdToast bqC() {
         this.mToast = new Toast(this.mContext);
         w.b(this.mToast);
         updateStaticToast();
         if (this.mIconResId != -1) {
-            if (this.eSK) {
-                SvgManager.bsx().a(this.mIconView, this.mIconResId, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null);
+            if (this.eUZ) {
+                SvgManager.bsR().a(this.mIconView, this.mIconResId, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null);
             } else {
-                ao.setImageResource(this.mIconView, this.mIconResId);
+                ap.setImageResource(this.mIconView, this.mIconResId);
             }
             this.mIconView.setVisibility(0);
         } else {
             this.mIconView.setVisibility(8);
         }
-        this.mRootView.setBackgroundDrawable(ao.aO(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), ao.getColor(R.color.CAM_X0701)));
-        ao.setViewTextColor(this.mTextView, R.color.CAM_X0101, 1);
+        this.mRootView.setBackgroundDrawable(ap.aL(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), ap.getColor(R.color.CAM_X0701)));
+        ap.setViewTextColor(this.mTextView, R.color.CAM_X0101, 1);
         this.mTextView.setText(this.mText);
         this.mToast.setGravity(this.mGravity, this.offsetX, this.offsetY);
         this.mToast.setDuration(this.mDuration);
@@ -110,20 +110,20 @@ public class BdToast {
         return this;
     }
 
-    public BdToast nF(int i) {
+    public BdToast nI(int i) {
         this.mToast = new Toast(this.mContext);
         updateStaticToast();
         if (this.mIconResId != -1) {
-            if (this.eSK) {
-                SvgManager.bsx().a(this.mIconView, this.mIconResId, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null);
+            if (this.eUZ) {
+                SvgManager.bsR().a(this.mIconView, this.mIconResId, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null);
             } else {
-                ao.setImageResource(this.mIconView, this.mIconResId);
+                ap.setImageResource(this.mIconView, this.mIconResId);
             }
             this.mIconView.setVisibility(0);
         } else {
             this.mIconView.setVisibility(8);
         }
-        ao.setViewTextColor(this.mTextView, R.color.CAM_X0101, 1, i);
+        ap.setViewTextColor(this.mTextView, R.color.CAM_X0101, 1, i);
         this.mTextView.setText(this.mText);
         this.mToast.setGravity(this.mGravity, this.offsetX, this.offsetY);
         this.mToast.setDuration(this.mDuration);
@@ -145,7 +145,7 @@ public class BdToast {
         }
     }
 
-    public BdToast bqk() {
+    public BdToast bqD() {
         this.mTextView.setText(this.mText);
         this.mToast.setGravity(this.mGravity, this.offsetX, this.offsetY);
         this.mToast.setDuration(this.mDuration);
@@ -154,30 +154,30 @@ public class BdToast {
     }
 
     public static BdToast b(Context context, CharSequence charSequence) {
-        return new BdToast(context).j(charSequence).bqj();
+        return new BdToast(context).j(charSequence).bqC();
     }
 
     public static BdToast b(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).j(charSequence).nE(i).bqj();
+        return new BdToast(context).j(charSequence).nH(i).bqC();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2) {
-        return new BdToast(context).j(charSequence).nE(i).nF(i2);
+        return new BdToast(context).j(charSequence).nH(i).nI(i2);
     }
 
     public static BdToast b(Context context, CharSequence charSequence, int i, boolean z) {
-        return new BdToast(context).j(charSequence).F(i, z).bqj();
+        return new BdToast(context).j(charSequence).F(i, z).bqC();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2, boolean z) {
-        return new BdToast(context).j(charSequence).F(i, z).nE(i2).bqj();
+        return new BdToast(context).j(charSequence).F(i, z).nH(i2).bqC();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).j(charSequence).F(sDefaultIconMap.get(defaultIcon).intValue(), true).bqj();
+        return new BdToast(context).j(charSequence).F(sDefaultIconMap.get(defaultIcon).intValue(), true).bqC();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).j(charSequence).F(sDefaultIconMap.get(defaultIcon).intValue(), true).nE(i).bqj();
+        return new BdToast(context).j(charSequence).F(sDefaultIconMap.get(defaultIcon).intValue(), true).nH(i).bqC();
     }
 }

@@ -10,8 +10,8 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.x;
-import com.baidu.live.data.y;
+import com.baidu.live.data.ab;
+import com.baidu.live.data.ac;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -22,39 +22,39 @@ import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tieba.model.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private x aBr;
-    private BlueCircleProgressDialog bID;
-    private com.baidu.live.tieba.model.a hJn;
-    private a.InterfaceC0212a hJo = new a.InterfaceC0212a() { // from class: com.baidu.tieba.ala.liveroom.share.c.2
+    private ab aDd;
+    private BlueCircleProgressDialog bMn;
+    private com.baidu.live.tieba.model.a hNL;
+    private a.InterfaceC0214a hNM = new a.InterfaceC0214a() { // from class: com.baidu.tieba.ala.liveroom.share.c.2
     };
     private Handler mHandler = new Handler();
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        cjp();
+        cko();
     }
 
-    public void d(x xVar, boolean z) {
+    public void d(ab abVar, boolean z) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), a.h.sdk_neterror);
-        } else if (xVar != null && xVar.aFH != null && xVar.mLiveInfo != null) {
-            this.aBr = xVar;
-            LogManager.getMigrateFromTiebaLogger().doClickShareLog(xVar.aFH.userId + "", xVar.mLiveInfo.live_id + "");
+        } else if (abVar != null && abVar.aId != null && abVar.mLiveInfo != null) {
+            this.aDd = abVar;
+            LogManager.getMigrateFromTiebaLogger().doClickShareLog(abVar.aId.userId + "", abVar.mLiveInfo.live_id + "");
             if (TbadkCoreApplication.IS_SDK) {
-                y yVar = new y();
+                ac acVar = new ac();
                 if (this.mPageContext != null) {
-                    yVar.activity = this.mPageContext.getPageActivity();
+                    acVar.activity = this.mPageContext.getPageActivity();
                 }
-                yVar.alaLiveShowData = this.aBr;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2913077, yVar));
+                acVar.alaLiveShowData = this.aDd;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2913077, acVar));
             }
         }
     }
 
-    private void cjp() {
+    private void cko() {
         this.mPageContext.registerListener(new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS) { // from class: com.baidu.tieba.ala.liveroom.share.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -62,52 +62,52 @@ public class c {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     Log.i("AlaLiveViewController", "@@ initShareInterface.onMessage liveOwnerUid = " + longValue);
-                    if (c.this.aBr != null && c.this.aBr.aFH != null && c.this.aBr.aFH.userId == longValue) {
-                        Log.i("AlaLiveViewController", "@@ initShareInterface live_id = " + c.this.aBr.mLiveInfo.live_id);
+                    if (c.this.aDd != null && c.this.aDd.aId != null && c.this.aDd.aId.userId == longValue) {
+                        Log.i("AlaLiveViewController", "@@ initShareInterface live_id = " + c.this.aDd.mLiveInfo.live_id);
                         c.this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.share.c.1.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HttpMessage httpMessage = new HttpMessage(1021045);
-                                httpMessage.addParam("live_id", c.this.aBr.mLiveInfo.live_id);
+                                httpMessage.addParam("live_id", c.this.aDd.mLiveInfo.live_id);
                                 MessageManager.getInstance().sendMessage(httpMessage);
                             }
                         });
                     }
-                    c.this.cjq();
+                    c.this.ckp();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjq() {
+    public void ckp() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "click", "liveroom", LogConfig.VALUE_LIVE_SHARE_TO));
     }
 
-    private void cjr() {
-        if (this.bID != null) {
-            this.bID.setDialogVisiable(false);
+    private void ckq() {
+        if (this.bMn != null) {
+            this.bMn.setDialogVisiable(false);
         }
     }
 
-    public void zH() {
-        cjr();
+    public void Ar() {
+        ckq();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hJn != null) {
-            this.hJn.Sr();
+        if (this.hNL != null) {
+            this.hNL.TY();
         }
     }
 
     public void onDestroy() {
-        cjr();
+        ckq();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hJn != null) {
-            this.hJn.Sr();
-            this.hJn.onDestroy();
+        if (this.hNL != null) {
+            this.hNL.TY();
+            this.hNL.onDestroy();
         }
     }
 }

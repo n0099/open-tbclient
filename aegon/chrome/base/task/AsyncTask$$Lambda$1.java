@@ -1,7 +1,7 @@
 package aegon.chrome.base.task;
 
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final /* synthetic */ class AsyncTask$$Lambda$1 implements Executor {
     private static final AsyncTask$$Lambda$1 instance = new AsyncTask$$Lambda$1();
 

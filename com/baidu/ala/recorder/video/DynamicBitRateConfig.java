@@ -3,7 +3,7 @@ package com.baidu.ala.recorder.video;
 import com.baidu.ala.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class DynamicBitRateConfig {
     private static final int MAX_BIT_RATE = 2048000;
     private static final int MAX_FPS = 24;
@@ -257,7 +257,7 @@ public class DynamicBitRateConfig {
         this.bitrates = list;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class DynamicBitRateItem {
         public int bitrate;
         public int fps;

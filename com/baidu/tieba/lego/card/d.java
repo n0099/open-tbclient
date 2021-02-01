@@ -33,48 +33,48 @@ import com.baidu.tieba.lego.card.view.RankScoreCardView;
 import com.baidu.tieba.lego.card.view.SingleLineCardView;
 import com.baidu.tieba.lego.card.view.WebViewCardView;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d extends e {
     private d() {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     private static class a {
-        private static final d kTi = new d();
+        private static final d lbl = new d();
     }
 
-    public static d cZx() {
-        return a.kTi;
+    public static d dbv() {
+        return a.lbl;
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void cZv() {
-        kTj.put(1, kTj.size() + 1);
-        kTj.put(2, kTj.size() + 1);
-        kTj.put(3, kTj.size() + 1);
-        kTj.put(5, kTj.size() + 1);
-        kTj.put(6, kTj.size() + 1);
-        kTj.put(7, kTj.size() + 1);
-        kTj.put(8, kTj.size() + 1);
-        kTj.put(18, kTj.size() + 1);
-        kTj.put(19, kTj.size() + 1);
-        kTj.put(21, kTj.size() + 1);
-        kTj.put(22, kTj.size() + 1);
-        kTj.put(23, kTj.size() + 1);
-        kTj.put(28, kTj.size() + 1);
-        kTk.put(1, BdUniqueId.gen());
-        kTk.put(2, BdUniqueId.gen());
-        kTk.put(3, BdUniqueId.gen());
-        kTk.put(5, BdUniqueId.gen());
-        kTk.put(6, BdUniqueId.gen());
-        kTk.put(7, BdUniqueId.gen());
-        kTk.put(8, BdUniqueId.gen());
-        kTk.put(18, BdUniqueId.gen());
-        kTk.put(19, BdUniqueId.gen());
-        kTk.put(21, BdUniqueId.gen());
-        kTk.put(22, BdUniqueId.gen());
-        kTk.put(23, BdUniqueId.gen());
-        kTk.put(28, BdUniqueId.gen());
+    protected void dbt() {
+        lbm.put(1, lbm.size() + 1);
+        lbm.put(2, lbm.size() + 1);
+        lbm.put(3, lbm.size() + 1);
+        lbm.put(5, lbm.size() + 1);
+        lbm.put(6, lbm.size() + 1);
+        lbm.put(7, lbm.size() + 1);
+        lbm.put(8, lbm.size() + 1);
+        lbm.put(18, lbm.size() + 1);
+        lbm.put(19, lbm.size() + 1);
+        lbm.put(21, lbm.size() + 1);
+        lbm.put(22, lbm.size() + 1);
+        lbm.put(23, lbm.size() + 1);
+        lbm.put(28, lbm.size() + 1);
+        lbn.put(1, BdUniqueId.gen());
+        lbn.put(2, BdUniqueId.gen());
+        lbn.put(3, BdUniqueId.gen());
+        lbn.put(5, BdUniqueId.gen());
+        lbn.put(6, BdUniqueId.gen());
+        lbn.put(7, BdUniqueId.gen());
+        lbn.put(8, BdUniqueId.gen());
+        lbn.put(18, BdUniqueId.gen());
+        lbn.put(19, BdUniqueId.gen());
+        lbn.put(21, BdUniqueId.gen());
+        lbn.put(22, BdUniqueId.gen());
+        lbn.put(23, BdUniqueId.gen());
+        lbn.put(28, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e

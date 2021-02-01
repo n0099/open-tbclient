@@ -1,5 +1,5 @@
 package com.baidu.h.a.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface c {
     void a(b bVar);
 
@@ -9,7 +9,7 @@ public interface c {
 
     void b(b bVar);
 
-    void ik(String str);
+    void iQ(String str);
 
     @Deprecated
     void quitLiveShow();

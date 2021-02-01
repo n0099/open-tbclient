@@ -4,21 +4,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.e;
 import com.baidu.tieba.write.write.f;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends a {
     private View mRootView;
-    private HorizontalListView nEQ;
-    private f nXK;
+    private HorizontalListView nOA;
+    private f ohQ;
 
     public void a(e eVar) {
-        this.nXK.b(eVar);
+        this.ohQ.b(eVar);
     }
 
     public c(com.baidu.adp.base.f fVar) {
@@ -28,9 +28,9 @@ public class c extends a {
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
-        this.nEQ = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
-        this.nXK = new f();
-        this.nEQ.setAdapter((ListAdapter) this.nXK);
+        this.nOA = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
+        this.ohQ = new f();
+        this.nOA.setAdapter((ListAdapter) this.ohQ);
     }
 
     public View getRootView() {
@@ -38,18 +38,18 @@ public class c extends a {
     }
 
     public void onChangeSkinType() {
-        ao.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        bVw();
+        ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+        bWa();
     }
 
-    public void gk(List<String> list) {
-        if (!x.isEmpty(list)) {
-            this.nXK.setData(list);
-            this.nXK.notifyDataSetChanged();
+    public void gi(List<String> list) {
+        if (!y.isEmpty(list)) {
+            this.ohQ.setData(list);
+            this.ohQ.notifyDataSetChanged();
         }
     }
 
-    public void bVw() {
-        this.nXK.notifyDataSetChanged();
+    public void bWa() {
+        this.ohQ.notifyDataSetChanged();
     }
 }

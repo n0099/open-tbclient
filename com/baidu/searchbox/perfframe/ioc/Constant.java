@@ -1,5 +1,5 @@
 package com.baidu.searchbox.perfframe.ioc;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class Constant {
     public static final String KEY_APP_VERSION = "appversion";
     public static final String KEY_BUSINESS = "business";

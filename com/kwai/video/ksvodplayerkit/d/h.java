@@ -1,16 +1,16 @@
 package com.kwai.video.ksvodplayerkit.d;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class h {
     public static String a(g gVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("fill_preload", gVar.f11072a);
+            jSONObject.put("fill_preload", gVar.f11074a);
         } catch (Exception e) {
         }
         try {
-            jSONObject.put("preload_url", gVar.f11073b);
+            jSONObject.put("preload_url", gVar.f11075b);
         } catch (Exception e2) {
         }
         try {

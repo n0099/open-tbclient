@@ -9,15 +9,15 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.ab;
 import javax.microedition.khronos.opengles.GL10;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class w implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WearMapView f2817a;
+    final /* synthetic */ WearMapView f2815a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(WearMapView wearMapView) {
-        this.f2817a = wearMapView;
+        this.f2815a = wearMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -31,30 +31,30 @@ public class w implements com.baidu.mapsdkplatform.comapi.map.l {
         ImageView imageView;
         TextView textView;
         TextView textView2;
-        jVar = this.f2817a.e;
+        jVar = this.f2815a.e;
         if (jVar != null) {
-            jVar2 = this.f2817a.e;
+            jVar2 = this.f2815a.e;
             if (jVar2.a() == null) {
                 return;
             }
-            jVar3 = this.f2817a.e;
-            float f2 = jVar3.a().E().f3040a;
-            f = this.f2817a.z;
+            jVar3 = this.f2815a.e;
+            float f2 = jVar3.a().E().f3038a;
+            f = this.f2815a.z;
             if (f != f2) {
                 sparseArray = WearMapView.w;
                 int intValue = ((Integer) sparseArray.get((int) f2)).intValue();
-                jVar4 = this.f2817a.e;
+                jVar4 = this.f2815a.e;
                 int i = (int) (intValue / jVar4.a().E().m);
-                imageView = this.f2817a.q;
+                imageView = this.f2815a.q;
                 imageView.setPadding(i / 2, 0, i / 2, 0);
                 String format = intValue >= 1000 ? String.format(" %d公里 ", Integer.valueOf(intValue / 1000)) : String.format(" %d米 ", Integer.valueOf(intValue));
-                textView = this.f2817a.o;
+                textView = this.f2815a.o;
                 textView.setText(format);
-                textView2 = this.f2817a.p;
+                textView2 = this.f2815a.p;
                 textView2.setText(format);
-                this.f2817a.z = f2;
+                this.f2815a.z = f2;
             }
-            this.f2817a.requestLayout();
+            this.f2815a.requestLayout();
         }
     }
 

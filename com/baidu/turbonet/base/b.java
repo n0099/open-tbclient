@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b<E> implements Iterable<E> {
     static final /* synthetic */ boolean $assertionsDisabled;
     public final List<E> mObservers = new ArrayList();
@@ -47,12 +47,12 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edB() {
+    public void efT() {
         this.mIterationDepth++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edC() {
+    public void efU() {
         this.mIterationDepth--;
         if (!$assertionsDisabled && this.mIterationDepth < 0) {
             throw new AssertionError();
@@ -69,11 +69,11 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public E Mn(int i) {
+    public E MJ(int i) {
         return this.mObservers.get(i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class a implements c<E> {
         private int mIndex;
         private boolean mIsExhausted;
@@ -82,35 +82,35 @@ public class b<E> implements Iterable<E> {
         private a() {
             this.mIndex = 0;
             this.mIsExhausted = false;
-            b.this.edB();
+            b.this.efT();
             this.mListEndMarker = b.this.capacity();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             int i = this.mIndex;
-            while (i < this.mListEndMarker && b.this.Mn(i) == null) {
+            while (i < this.mListEndMarker && b.this.MJ(i) == null) {
                 i++;
             }
             if (i < this.mListEndMarker) {
                 return true;
             }
-            edD();
+            efV();
             return false;
         }
 
         @Override // java.util.Iterator
         public E next() {
-            while (this.mIndex < this.mListEndMarker && b.this.Mn(this.mIndex) == null) {
+            while (this.mIndex < this.mListEndMarker && b.this.MJ(this.mIndex) == null) {
                 this.mIndex++;
             }
             if (this.mIndex < this.mListEndMarker) {
                 b bVar = b.this;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
-                return (E) bVar.Mn(i);
+                return (E) bVar.MJ(i);
             }
-            edD();
+            efV();
             throw new NoSuchElementException();
         }
 
@@ -119,10 +119,10 @@ public class b<E> implements Iterable<E> {
             throw new UnsupportedOperationException();
         }
 
-        private void edD() {
+        private void efV() {
             if (!this.mIsExhausted) {
                 this.mIsExhausted = true;
-                b.this.edC();
+                b.this.efU();
             }
         }
     }

@@ -8,7 +8,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import com.google.android.material.circularreveal.CircularRevealHelper;
 import com.google.android.material.math.MathUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
     void buildCircularRevealCache();
 
@@ -33,7 +33,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
     void setRevealInfo(@Nullable RevealInfo revealInfo);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class RevealInfo {
         public static final float INVALID_RADIUS = Float.MAX_VALUE;
         public float centerX;
@@ -68,7 +68,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class CircularRevealProperty extends Property<CircularRevealWidget, RevealInfo> {
         public static final Property<CircularRevealWidget, RevealInfo> CIRCULAR_REVEAL = new CircularRevealProperty("circularReveal");
 
@@ -89,7 +89,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class CircularRevealEvaluator implements TypeEvaluator<RevealInfo> {
         public static final TypeEvaluator<RevealInfo> CIRCULAR_REVEAL = new CircularRevealEvaluator();
         private final RevealInfo revealInfo = new RevealInfo();
@@ -102,7 +102,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class CircularRevealScrimColorProperty extends Property<CircularRevealWidget, Integer> {
         public static final Property<CircularRevealWidget, Integer> CIRCULAR_REVEAL_SCRIM_COLOR = new CircularRevealScrimColorProperty("circularRevealScrimColor");
 

@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class p {
     public static List<a> a(com.baidu.h.a.b.a.c cVar) {
         return a(cVar, false);
@@ -47,8 +47,8 @@ public class p {
     }
 
     private static final List<a> b(com.baidu.h.a.b.a.c cVar) {
-        int i = cVar.caA.caN;
-        String str = cVar.caA.caO;
+        int i = cVar.ceM.ceZ;
+        String str = cVar.ceM.cfa;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -65,8 +65,8 @@ public class p {
                         if (aVar.getUserId() == 0) {
                             aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
                         }
-                        if (TextUtils.isEmpty(aVar.JB().userId) || "0".equals(aVar.JB().userId)) {
-                            aVar.JB().userId = String.valueOf(aVar.getUserId());
+                        if (TextUtils.isEmpty(aVar.KZ().userId) || "0".equals(aVar.KZ().userId)) {
+                            aVar.KZ().userId = String.valueOf(aVar.getUserId());
                         }
                         arrayList.add(aVar);
                     }
@@ -81,7 +81,7 @@ public class p {
     }
 
     private static final List<a> c(com.baidu.h.a.b.a.c cVar) {
-        String str = cVar.caB;
+        String str = cVar.ceN;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -98,8 +98,8 @@ public class p {
                         if (aVar.getUserId() == 0) {
                             aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
                         }
-                        if (TextUtils.isEmpty(aVar.JB().userId) || "0".equals(aVar.JB().userId)) {
-                            aVar.JB().userId = String.valueOf(aVar.getUserId());
+                        if (TextUtils.isEmpty(aVar.KZ().userId) || "0".equals(aVar.KZ().userId)) {
+                            aVar.KZ().userId = String.valueOf(aVar.getUserId());
                         }
                         arrayList.add(aVar);
                     }
@@ -128,7 +128,7 @@ public class p {
     }
 
     private static final List<a> d(com.baidu.h.a.b.a.c cVar) {
-        int i = cVar.caA.feedback;
+        int i = cVar.ceM.feedback;
         ArrayList arrayList = new ArrayList();
         if (i > 0) {
             a aVar = new a();
@@ -149,8 +149,8 @@ public class p {
 
     private static final List<a> e(com.baidu.h.a.b.a.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar != null && cVar.caA != null) {
-            String str = cVar.caA.caP;
+        if (cVar != null && cVar.ceM != null) {
+            String str = cVar.ceM.cfb;
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a();
                 aVar.setContent(str);

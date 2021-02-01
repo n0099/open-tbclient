@@ -1,121 +1,189 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.android.util.devices.RomUtils;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AttentionHostData;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class am {
-    private static String eYw;
-    private static String eYx;
-
-    public static boolean isEmui() {
-        return bsn();
-    }
-
-    public static boolean bsn() {
-        return check(RomUtils.ROM_EMUI) && Build.VERSION.SDK_INT >= 24;
-    }
-
-    public static boolean bso() {
-        return check("ONEPLUS");
-    }
-
-    public static boolean bsp() {
-        return check(RomUtils.ROM_OPPO);
-    }
-
-    public static boolean check(String str) {
-        if (eYw != null) {
-            return eYw.equals(str);
-        }
-        String prop = getProp("ro.miui.ui.version.name");
-        eYx = prop;
-        if (!TextUtils.isEmpty(prop)) {
-            eYw = RomUtils.ROM_MIUI;
-        } else {
-            String prop2 = getProp("ro.build.version.emui");
-            eYx = prop2;
-            if (!TextUtils.isEmpty(prop2)) {
-                eYw = RomUtils.ROM_EMUI;
-            } else {
-                String prop3 = getProp("ro.build.version.opporom");
-                eYx = prop3;
-                if (!TextUtils.isEmpty(prop3)) {
-                    eYw = RomUtils.ROM_OPPO;
-                } else {
-                    String prop4 = getProp("ro.vivo.os.version");
-                    eYx = prop4;
-                    if (!TextUtils.isEmpty(prop4)) {
-                        eYw = RomUtils.ROM_VIVO;
+    public static int faA = 0;
+    public static int faB = 1;
+    public static int faC = 2;
+    public static int faD = 2;
+    public static int faE = 3;
+    private com.baidu.tbadk.core.dialog.a acU;
+    private TbPageContext eUY;
+    private com.baidu.tbadk.coreExtra.model.a faF;
+    private AttentionHostData faG;
+    private int faH;
+    private a faI;
+    private CustomMessageListener faJ = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tbadk.core.util.am.5
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            boolean z;
+            if (customResponsedMessage instanceof UpdateAttentionMessage) {
+                UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+                UpdateAttentionMessage.a data = updateAttentionMessage.getData();
+                if (am.this.faG != null && !StringUtils.isNull(am.this.faG.uid) && data != null && am.this.faG.uid.equals(data.toUid)) {
+                    if (updateAttentionMessage.getOrginalMessage() == null || !updateAttentionMessage.getOrginalMessage().getTag().equals(am.this.mId)) {
+                        z = false;
                     } else {
-                        String prop5 = getProp("ro.smartisan.version");
-                        eYx = prop5;
-                        if (!TextUtils.isEmpty(prop5)) {
-                            eYw = RomUtils.ROM_SMARTISAN;
+                        z = true;
+                        if (updateAttentionMessage.getError() == 3250013) {
+                            BdToast.a(am.this.eUY.getPageActivity(), updateAttentionMessage.getErrorString(), R.drawable.icon_pure_toast_mistake40_svg, 3000, false).bqD();
                         } else {
-                            eYx = Build.DISPLAY;
-                            if (eYx.toUpperCase().contains(RomUtils.ROM_FLYME)) {
-                                eYw = RomUtils.ROM_FLYME;
-                            } else {
-                                eYx = "unknown";
-                                eYw = Build.MANUFACTURER.toUpperCase();
-                            }
+                            AntiHelper.a(am.this.eUY.getPageActivity(), data.fsD);
                         }
                     }
+                    if (data.isSucc) {
+                        am.this.faG.likeStatus = data.status;
+                        am.this.faG.isAttention = data.isAttention;
+                    }
+                    if (z && am.this.faI != null) {
+                        am.this.faI.q(data.isSucc, am.this.faH);
+                    }
                 }
             }
         }
-        return eYw.equals(str);
+    };
+    private BdUniqueId mId = BdUniqueId.gen();
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void q(boolean z, int i);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [101=4] */
-    public static String getProp(String str) {
-        BufferedReader bufferedReader;
-        BufferedReader bufferedReader2 = null;
-        try {
-            BufferedReader bufferedReader3 = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
-            try {
-                String readLine = bufferedReader3.readLine();
-                bufferedReader3.close();
-                if (bufferedReader3 != null) {
-                    try {
-                        bufferedReader3.close();
-                        return readLine;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return readLine;
-                    }
-                }
-                return readLine;
-            } catch (IOException e2) {
-                bufferedReader = bufferedReader3;
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
-                    }
-                }
-                return null;
-            } catch (Throwable th) {
-                th = th;
-                bufferedReader2 = bufferedReader3;
-                if (bufferedReader2 != null) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
+    public am(TbPageContext tbPageContext) {
+        this.eUY = tbPageContext;
+        this.faJ.setTag(this.mId);
+        MessageManager.getInstance().registerListener(this.faJ);
+    }
+
+    public boolean ox(int i) {
+        if (i == faE) {
+            com.baidu.adp.lib.util.l.showToast(this.eUY.getPageActivity(), R.string.reason_cannot_reply_thread);
+            return false;
+        }
+        return true;
+    }
+
+    public boolean aK(int i, int i2) {
+        this.faH = i2;
+        if (i == faD) {
+            if (this.faG == null || this.faG.isAttention) {
+                return true;
             }
-        } catch (IOException e5) {
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
+            bsF();
+            return false;
+        } else if (i == faE) {
+            com.baidu.adp.lib.util.l.showToast(this.eUY.getPageActivity(), R.string.reason_cannot_reply_thread);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean oy(int i) {
+        if (i == faD) {
+            if (this.faG == null || this.faG.isAttention) {
+                return true;
+            }
+            com.baidu.adp.lib.util.l.showToast(this.eUY.getPageActivity(), R.string.message_privacy_fans_can_reply);
+            return false;
+        } else if (i == faE) {
+            com.baidu.adp.lib.util.l.showToast(this.eUY.getPageActivity(), R.string.reason_cannot_reply_thread);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void a(AttentionHostData attentionHostData) {
+        this.faG = attentionHostData;
+    }
+
+    private void bsF() {
+        if (this.acU == null) {
+            this.acU = new com.baidu.tbadk.core.dialog.a(this.eUY.getPageActivity());
+            this.acU.nx(R.string.message_privacy_fans_can_reply);
+            this.acU.a(R.string.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.am.1
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+                    am.this.bsG();
+                    am.this.acU.dismiss();
+                }
+            });
+            this.acU.b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.am.2
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+                    am.this.acU.dismiss();
+                }
+            });
+            this.acU.setAutoNight(true);
+            this.acU.b(this.eUY);
+        }
+        this.acU.bqx();
+    }
+
+    public void a(bu buVar) {
+        if (buVar != null && !StringUtils.isNull(buVar.title) && !StringUtils.isNull(buVar.ePA) && !StringUtils.isNull(buVar.ePB)) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eUY.getPageActivity());
+            aVar.Au(buVar.title);
+            aVar.a(buVar.ePB, new a.b() { // from class: com.baidu.tbadk.core.util.am.3
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    am.this.bsG();
+                    aVar2.dismiss();
+                }
+            });
+            aVar.b(buVar.ePA, new a.b() { // from class: com.baidu.tbadk.core.util.am.4
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    aVar2.dismiss();
+                }
+            });
+            aVar.setAutoNight(true);
+            aVar.b(this.eUY);
+            aVar.bqx();
+            return;
+        }
+        bsF();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bsG() {
+        if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
+            this.eUY.showToast(R.string.network_ungeilivable);
+        } else if (this.faG != null && bh.checkUpIsLogin(this.eUY.getPageActivity())) {
+            if (this.faF == null) {
+                this.faF = new com.baidu.tbadk.coreExtra.model.a(this.eUY);
+            }
+            this.faF.a(true, this.faG.portrait, this.faG.uid, this.faG.isGod, "0", this.mId, null, "0");
+        }
+    }
+
+    public void a(a aVar) {
+        this.faI = aVar;
+    }
+
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.mId);
+        if (this.acU != null) {
+            this.acU.dismiss();
+        }
+        if (this.faF != null) {
+            this.faF.cancel();
         }
     }
 }

@@ -7,20 +7,20 @@ import com.baidu.tieba.R;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends BdAsyncTask<Void, Void, List<b>> {
-    private static long nFk = BdKVCache.MILLS_1Hour;
+    private static long nOU = BdKVCache.MILLS_1Hour;
     private Context context;
     private int maxHeight;
     private int maxWidth;
-    private InterfaceC0886a nFl;
-    private SimpleDateFormat nFn = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat nFm = new SimpleDateFormat("HH:mm:ss");
+    private InterfaceC0889a nOV;
+    private SimpleDateFormat nOX = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat nOW = new SimpleDateFormat("HH:mm:ss");
 
     /* renamed from: com.baidu.tieba.video.localvideo.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0886a {
-        void gb(List<b> list);
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0889a {
+        void fZ(List<b> list);
     }
 
     public a(Context context) {
@@ -28,12 +28,12 @@ public class a extends BdAsyncTask<Void, Void, List<b>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.nFn.setTimeZone(timeZone);
-        this.nFm.setTimeZone(timeZone);
+        this.nOX.setTimeZone(timeZone);
+        this.nOW.setTimeZone(timeZone);
     }
 
-    public void a(InterfaceC0886a interfaceC0886a) {
-        this.nFl = interfaceC0886a;
+    public void a(InterfaceC0889a interfaceC0889a) {
+        this.nOV = interfaceC0889a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,11 +41,11 @@ public class a extends BdAsyncTask<Void, Void, List<b>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: c */
     public List<b> doInBackground(Void... voidArr) {
-        List<b> gY = c.gY(this.context);
-        c.e("/sdcard", gY, false);
-        c.e("/sdcard/DCIM", gY, true);
-        c.gc(gY);
-        return gY;
+        List<b> hb = c.hb(this.context);
+        c.f("/sdcard", hb, false);
+        c.f("/sdcard/DCIM", hb, true);
+        c.ga(hb);
+        return hb;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,8 +54,8 @@ public class a extends BdAsyncTask<Void, Void, List<b>> {
     /* renamed from: B */
     public void onPostExecute(List<b> list) {
         super.onPostExecute(list);
-        if (this.nFl != null) {
-            this.nFl.gb(list);
+        if (this.nOV != null) {
+            this.nOV.fZ(list);
         }
     }
 }

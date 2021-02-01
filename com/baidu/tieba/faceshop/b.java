@@ -10,17 +10,17 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static boolean a(String str, String str2, InputStream inputStream) {
-        return com.baidu.tbadk.core.util.n.saveFile(new StringBuilder().append(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath()).append("/").append(new StringBuilder().append(".emotions/").append(str).toString()).append("/").append(str2).toString(), inputStream) != null;
+        return com.baidu.tbadk.core.util.o.saveFile(new StringBuilder().append(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath()).append("/").append(new StringBuilder().append(".emotions/").append(str).toString()).append("/").append(str2).toString(), inputStream) != null;
     }
 
     public static byte[] eT(String str, String str2) {
-        return com.baidu.tbadk.core.util.n.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
+        return com.baidu.tbadk.core.util.o.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
     }
 
-    public static boolean IM(String str) {
+    public static boolean Jx(String str) {
         Bitmap eQ = eQ(str, "panel.png");
         if (eQ == null) {
             return false;
@@ -29,7 +29,7 @@ public class b {
         return true;
     }
 
-    public static boolean aE(String str, String str2, String str3) {
+    public static boolean aF(String str, String str2, String str3) {
         String str4 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/" + str + "/";
         File file = new File(str4, str2);
         if (!file.exists()) {
@@ -40,11 +40,11 @@ public class b {
             if (file2.delete() && file.renameTo(file2)) {
                 return true;
             }
-            return com.baidu.tbadk.core.util.n.dT(file.getAbsolutePath(), file2.getAbsolutePath());
+            return com.baidu.tbadk.core.util.o.dO(file.getAbsolutePath(), file2.getAbsolutePath());
         } else if (file.renameTo(file2)) {
             return true;
         } else {
-            return com.baidu.tbadk.core.util.n.dT(file.getAbsolutePath(), file2.getAbsolutePath());
+            return com.baidu.tbadk.core.util.o.dO(file.getAbsolutePath(), file2.getAbsolutePath());
         }
     }
 
@@ -81,8 +81,8 @@ public class b {
                     if (split.length == 2) {
                         String trim2 = split[0].trim();
                         String trim3 = split[1].trim();
-                        aE(str, "s_" + trim3 + ".png", aN(trim2, false));
-                        aE(str, "d_" + trim3 + ".gif", aN(trim2, true));
+                        aF(str, "s_" + trim3 + ".png", aM(trim2, false));
+                        aF(str, "d_" + trim3 + ".gif", aM(trim2, true));
                         linkedList.add(trim2);
                     }
                 }
@@ -94,7 +94,7 @@ public class b {
         }
     }
 
-    public static String aN(String str, boolean z) {
+    public static String aM(String str, boolean z) {
         long hashCode = str.hashCode();
         if (hashCode < 0) {
             hashCode *= -1;
@@ -115,6 +115,6 @@ public class b {
     }
 
     public static Bitmap eQ(String str, String str2) {
-        return com.baidu.tbadk.core.util.n.getImage(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
+        return com.baidu.tbadk.core.util.o.getImage(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
     }
 }

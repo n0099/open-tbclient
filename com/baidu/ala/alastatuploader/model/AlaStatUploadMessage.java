@@ -5,7 +5,7 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaStatUploadMessage extends HttpMessage {
     public List<AlaUploadStatItem> list;
     private String uploadString;

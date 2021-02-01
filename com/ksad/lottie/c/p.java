@@ -9,28 +9,28 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.ksad.lottie.c.p$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f7976a = new int[JsonToken.values().length];
+        static final /* synthetic */ int[] f7978a = new int[JsonToken.values().length];
 
         static {
             try {
-                f7976a[JsonToken.NUMBER.ordinal()] = 1;
+                f7978a[JsonToken.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f7976a[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
+                f7978a[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f7976a[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
+                f7978a[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }
@@ -66,7 +66,7 @@ class p {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static float b(JsonReader jsonReader) {
         JsonToken peek = jsonReader.peek();
-        switch (AnonymousClass1.f7976a[peek.ordinal()]) {
+        switch (AnonymousClass1.f7978a[peek.ordinal()]) {
             case 1:
                 return (float) jsonReader.nextDouble();
             case 2:
@@ -84,7 +84,7 @@ class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static PointF b(JsonReader jsonReader, float f) {
-        switch (AnonymousClass1.f7976a[jsonReader.peek().ordinal()]) {
+        switch (AnonymousClass1.f7978a[jsonReader.peek().ordinal()]) {
             case 1:
                 return c(jsonReader, f);
             case 2:

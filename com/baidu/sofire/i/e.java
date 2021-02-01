@@ -56,11 +56,11 @@ import java.util.Properties;
 import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5255b;
+    public static String f5257b;
     public static String c;
     public static String e;
     public static String f;
@@ -75,7 +75,7 @@ public final class e {
     private static int o;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5254a = false;
+    public static boolean f5256a = false;
     public static int d = 0;
 
     static {
@@ -295,7 +295,7 @@ public final class e {
             }
             byte[] b2 = a.b("30212102dicudiab".getBytes(), (q(context) + hexString).toString().getBytes());
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            int i4 = eVar.f5238a.getInt("tk_sa_pu_cl", 0) + 1;
+            int i4 = eVar.f5240a.getInt("tk_sa_pu_cl", 0) + 1;
             eVar.c.putInt("tk_sa_pu_cl", i4);
             eVar.c.commit();
             String a2 = a(b2, i4);
@@ -834,7 +834,7 @@ public final class e {
 
     public static String b() {
         try {
-            return new String(F.getInstance().ad(Base64.decode(o.f5273a, 0), "30212102dicudiab".getBytes()));
+            return new String(F.getInstance().ad(Base64.decode(o.f5275a, 0), "30212102dicudiab".getBytes()));
         } catch (Throwable th) {
             return "";
         }
@@ -956,7 +956,7 @@ public final class e {
     public static String[] g(Context context) {
         String[] split;
         String[] split2;
-        String str = f5255b;
+        String str = f5257b;
         String str2 = c;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             com.baidu.sofire.b.a();
@@ -970,7 +970,7 @@ public final class e {
             }
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            String string = new com.baidu.sofire.e(context).f5238a.getString("svi", "");
+            String string = new com.baidu.sofire.e(context).f5240a.getString("svi", "");
             if (!TextUtils.isEmpty(string) && (split2 = string.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split2.length == 2) {
                 com.baidu.sofire.b.a();
                 return split2;
@@ -1003,9 +1003,9 @@ public final class e {
     public static void e(String str) {
         Map<String, Integer> map;
         try {
-            if (com.baidu.sofire.core.c.f5208b != null) {
-                com.baidu.sofire.e eVar = new com.baidu.sofire.e(com.baidu.sofire.core.c.f5208b);
-                String string = eVar.f5238a.getString("ses_ic", "");
+            if (com.baidu.sofire.core.c.f5210b != null) {
+                com.baidu.sofire.e eVar = new com.baidu.sofire.e(com.baidu.sofire.core.c.f5210b);
+                String string = eVar.f5240a.getString("ses_ic", "");
                 if (TextUtils.isEmpty(string)) {
                     map = new HashMap<>();
                     map.put(str, 1);
@@ -1040,7 +1040,7 @@ public final class e {
             g = new MyReceiver().a();
         }
         a(context, g, intentFilter);
-        f5254a = true;
+        f5256a = true;
         return false;
     }
 
@@ -1060,7 +1060,7 @@ public final class e {
     public static void h(Context context) {
         com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
         long currentTimeMillis = System.currentTimeMillis();
-        long j2 = eVar.f5238a.getLong("se_ae_fd", 0L);
+        long j2 = eVar.f5240a.getLong("se_ae_fd", 0L);
         if (j2 == 0) {
             j2 = System.currentTimeMillis();
             eVar.h();
@@ -1267,7 +1267,7 @@ public final class e {
     }
 
     public static JSONObject a(Context context, com.baidu.sofire.d.a aVar, String str, boolean z) {
-        return a(context, aVar.f5236a, aVar.c, z ? aVar.d : aVar.e, str);
+        return a(context, aVar.f5238a, aVar.c, z ? aVar.d : aVar.e, str);
     }
 
     public static int m(Context context) {
@@ -1407,7 +1407,7 @@ public final class e {
             jSONObject2.put(Constants.VIA_REPORT_TYPE_DATALINE, h.c(context));
             String n2 = eVar.n();
             if (TextUtils.isEmpty(n2)) {
-                String string = eVar.f5239b.getString("xygls", "");
+                String string = eVar.f5241b.getString("xygls", "");
                 if (TextUtils.isEmpty(string)) {
                     str2 = l.a(context);
                     if (TextUtils.isEmpty(str2)) {
@@ -1461,10 +1461,10 @@ public final class e {
         g a2 = g.a(context);
         Message message = new Message();
         message.what = 8;
-        a2.f5257a.a(message);
+        a2.f5259a.a(message);
         com.baidu.sofire.d.a aVar2 = new com.baidu.sofire.d.a();
-        aVar2.f5236a = str;
-        aVar2.f5237b = str2;
+        aVar2.f5238a = str;
+        aVar2.f5239b = str2;
         aVar2.c = str3;
         aVar2.d = str4;
         aVar2.e = str5;
@@ -1485,20 +1485,20 @@ public final class e {
             }
             if (!eVar.e.getBoolean("re_net_ins_" + aVar2.e, false)) {
                 g a3 = g.a(context);
-                com.baidu.sofire.h.a aVar3 = a3.f5257a;
-                String d2 = aVar3.f5250a.d(aVar2.e);
+                com.baidu.sofire.h.a aVar3 = a3.f5259a;
+                String d2 = aVar3.f5252a.d(aVar2.e);
                 com.baidu.sofire.f.a aVar4 = new com.baidu.sofire.f.a();
-                aVar4.f5244b = aVar2.e;
+                aVar4.f5246b = aVar2.e;
                 aVar4.g = 0;
                 aVar4.c = 1;
                 aVar4.e = System.currentTimeMillis();
                 aVar4.f = 1;
-                aVar4.d = a(aVar3.f5251b, aVar2, d2, false).toString();
-                com.baidu.sofire.e.a.a(aVar3.f5251b).a(aVar4);
-                com.baidu.sofire.e eVar2 = aVar3.f5250a;
+                aVar4.d = a(aVar3.f5253b, aVar2, d2, false).toString();
+                com.baidu.sofire.e.a.a(aVar3.f5253b).a(aVar4);
+                com.baidu.sofire.e eVar2 = aVar3.f5252a;
                 eVar2.f.putBoolean("re_net_ins_" + aVar2.e, true);
                 eVar2.f.commit();
-                a3.f5257a.a(aVar2);
+                a3.f5259a.a(aVar2);
             }
             g.a(context).b();
             g.a(context).c();
@@ -1521,7 +1521,7 @@ public final class e {
             int i2 = optInt2 != 0 ? optInt2 : 1;
             com.baidu.sofire.f.a aVar = new com.baidu.sofire.f.a();
             aVar.d = str;
-            aVar.f5244b = optString;
+            aVar.f5246b = optString;
             aVar.g = optInt;
             aVar.c = 3;
             aVar.e = optLong;
@@ -1533,7 +1533,7 @@ public final class e {
             Message message = new Message();
             message.what = 1;
             message.obj = aVar;
-            a2.f5257a.a(message);
+            a2.f5259a.a(message);
         } catch (Throwable th) {
             com.baidu.sofire.b.d();
         }
@@ -1724,7 +1724,7 @@ public final class e {
                     }
                 }
                 jSONObject2.put("8", packageInfo.versionName);
-                jSONObject2.put("9", String.valueOf(new com.baidu.sofire.e(context).f5238a.getInt("opi", 0)));
+                jSONObject2.put("9", String.valueOf(new com.baidu.sofire.e(context).f5240a.getInt("opi", 0)));
                 jSONObject.put("1", jSONObject2);
                 String jSONObject3 = jSONObject.toString();
                 new StringBuilder().append(str).append("---").append(jSONObject3);
@@ -1736,23 +1736,23 @@ public final class e {
                 }
                 JSONObject jSONObject4 = new JSONObject(a3);
                 com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-                if (TextUtils.isEmpty(f5255b) || TextUtils.isEmpty(c)) {
+                if (TextUtils.isEmpty(f5257b) || TextUtils.isEmpty(c)) {
                     String b2 = new com.baidu.sofire.e(context).b();
                     if (!TextUtils.isEmpty(b2)) {
                         strArr = b2.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                         if (strArr == null || strArr.length != 2) {
                             strArr = new String[0];
                         } else {
-                            f5255b = strArr[0];
+                            f5257b = strArr[0];
                             c = strArr[1];
                         }
                     } else {
                         strArr = new String[0];
                     }
                 } else {
-                    strArr = new String[]{f5255b, c};
+                    strArr = new String[]{f5257b, c};
                 }
-                if (eVar.f5238a.getInt("appinv_ky", 1) == 1 && (strArr == null || strArr.length != 2 || TextUtils.isEmpty(strArr[0]) || TextUtils.isEmpty(strArr[1]))) {
+                if (eVar.f5240a.getInt("appinv_ky", 1) == 1 && (strArr == null || strArr.length != 2 || TextUtils.isEmpty(strArr[0]) || TextUtils.isEmpty(strArr[1]))) {
                     z = true;
                 }
                 if (z) {
@@ -1765,9 +1765,9 @@ public final class e {
                         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
                             com.baidu.sofire.core.c a4 = com.baidu.sofire.core.c.a(context);
                             if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && (!e.equals(optString) || !f.equals(optString2))) {
-                                f5255b = optString;
+                                f5257b = optString;
                                 c = optString2;
-                                com.baidu.sofire.e eVar2 = a4.f5209a;
+                                com.baidu.sofire.e eVar2 = a4.f5211a;
                                 eVar2.c.putString("svi_n", optString + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + optString2);
                                 eVar2.c.commit();
                             }
@@ -1878,7 +1878,7 @@ public final class e {
                 if (optJSONObject3.optInt("1", -1) != 1) {
                     eVar4.b(false);
                 } else {
-                    eVar4.f5238a.getBoolean("se_fg_s", false);
+                    eVar4.f5240a.getBoolean("se_fg_s", false);
                     eVar4.b(true);
                 }
                 eVar4.c.putInt("appinv_sai", optJSONObject3.optInt("ai", 0));

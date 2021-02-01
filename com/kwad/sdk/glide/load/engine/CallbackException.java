@@ -1,5 +1,5 @@
 package com.kwad.sdk.glide.load.engine;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class CallbackException extends RuntimeException {
     private static final long serialVersionUID = -7530898992688511851L;
 

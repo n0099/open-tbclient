@@ -11,20 +11,20 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.message.EvaluateRelevanceItemSearchMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.relevance.RelevanceItemSearchActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RelevanceItemListFragment extends BaseFragment {
     private String mCategory;
     private View mRootView;
-    private CustomMessageListener obN = new CustomMessageListener(2921529) { // from class: com.baidu.tieba.write.write.relevance.list.RelevanceItemListFragment.1
+    private CustomMessageListener olG = new CustomMessageListener(2921529) { // from class: com.baidu.tieba.write.write.relevance.list.RelevanceItemListFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemSearchMessage)) {
-                RelevanceItemListFragment.this.Ut(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
+                RelevanceItemListFragment.this.Vr(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
             }
         }
     };
-    private RelevanceItemListController ode;
+    private RelevanceItemListController omV;
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -43,22 +43,22 @@ public class RelevanceItemListFragment extends BaseFragment {
 
     private void initData() {
         String str;
-        this.ode = new RelevanceItemListController(this, this.mRootView, this.mCategory, getUniqueId());
-        if (((RelevanceItemSearchActivity) getActivity()).dXq() == null || ((RelevanceItemSearchActivity) getActivity()).dXq().dXt() == null) {
+        this.omV = new RelevanceItemListController(this, this.mRootView, this.mCategory, getUniqueId());
+        if (((RelevanceItemSearchActivity) getActivity()).dZB() == null || ((RelevanceItemSearchActivity) getActivity()).dZB().dZE() == null) {
             str = "";
         } else {
-            str = ((RelevanceItemSearchActivity) getActivity()).dXq().dXt().getText().toString();
+            str = ((RelevanceItemSearchActivity) getActivity()).dZB().dZE().getText().toString();
         }
         if (!TextUtils.isEmpty(str)) {
-            Ut(str);
+            Vr(str);
             return;
         }
         showLoadingView(this.mRootView);
-        this.ode.dXu();
+        this.omV.dZF();
     }
 
     private void initListener() {
-        registerListener(this.obN);
+        registerListener(this.olG);
     }
 
     public void onError(String str) {
@@ -66,16 +66,16 @@ public class RelevanceItemListFragment extends BaseFragment {
         showNetRefreshView(this.mRootView, str, false);
     }
 
-    public void dhq() {
+    public void djr() {
         if (isLoadingViewAttached()) {
             hideLoadingView(this.mRootView);
         }
     }
 
-    public void Ut(String str) {
-        if (this.ode != null) {
-            this.ode.Ut(str);
-            this.ode.getListView().setVisibility(8);
+    public void Vr(String str) {
+        if (this.omV != null) {
+            this.omV.Vr(str);
+            this.omV.getListView().setVisibility(8);
             showLoadingView(this.mRootView);
         }
     }
@@ -84,11 +84,11 @@ public class RelevanceItemListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         hideNetRefreshView(this.mRootView);
-        this.ode.dXu();
+        this.omV.dZF();
         showLoadingView(this.mRootView);
     }
 
-    public void cMT() {
+    public void cOP() {
         hideLoadingView(this.mRootView);
         showNoDataNoRefreshView(this.mRootView, false);
     }
@@ -96,7 +96,7 @@ public class RelevanceItemListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.ode.onDestroy();
+        this.omV.onDestroy();
     }
 
     public void setCategory(String str) {

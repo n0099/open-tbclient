@@ -2,7 +2,7 @@ package com.kwad.sdk.core.imageloader.core.listener;
 
 import android.widget.AbsListView;
 import com.kwad.sdk.core.imageloader.core.ImageLoader;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PauseOnScrollListener implements AbsListView.OnScrollListener {
     private final AbsListView.OnScrollListener externalListener;
     private ImageLoader imageLoader;

@@ -8,31 +8,31 @@ import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.view.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
-    private List<EmotionPackageData> bWQ;
-    private BdListView luR;
-    private SingleThreadEmotionHorizontalAdater lvc;
-    private e lvd;
+    private List<EmotionPackageData> caS;
+    private BdListView lCV;
+    private SingleThreadEmotionHorizontalAdater lDg;
+    private e lDh;
 
     public b(TbPageContext<?> tbPageContext, BdListView bdListView) {
-        this.luR = bdListView;
-        this.lvd = new e(tbPageContext);
-        this.lvd.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.luR.addHeaderView(this.lvd.getView());
-        this.bWQ = new ArrayList();
-        this.lvc = new SingleThreadEmotionHorizontalAdater(this.bWQ, tbPageContext);
-        this.luR.setAdapter((ListAdapter) this.lvc);
+        this.lCV = bdListView;
+        this.lDh = new e(tbPageContext);
+        this.lDh.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.lCV.addHeaderView(this.lDh.getView());
+        this.caS = new ArrayList();
+        this.lDg = new SingleThreadEmotionHorizontalAdater(this.caS, tbPageContext);
+        this.lCV.setAdapter((ListAdapter) this.lDg);
     }
 
-    public void fc(List<EmotionPackageData> list) {
-        if (list != null && this.lvd != null && this.lvc != null) {
-            this.lvd.s(Integer.valueOf(list.size()));
-            this.bWQ.clear();
+    public void fa(List<EmotionPackageData> list) {
+        if (list != null && this.lDh != null && this.lDg != null) {
+            this.lDh.t(Integer.valueOf(list.size()));
+            this.caS.clear();
             if (list != null) {
-                this.bWQ.addAll(list);
+                this.caS.addAll(list);
             }
-            this.lvc.notifyDataSetChanged();
+            this.lDg.notifyDataSetChanged();
         }
     }
 }

@@ -6,11 +6,11 @@ import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     private final List<String> Fl;
     @Nullable
-    private f bpL;
+    private f btm;
 
     public e(String... strArr) {
         this.Fl = Arrays.asList(strArr);
@@ -18,12 +18,12 @@ public class e {
 
     private e(e eVar) {
         this.Fl = new ArrayList(eVar.Fl);
-        this.bpL = eVar.bpL;
+        this.btm = eVar.btm;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e gO(String str) {
+    public e hn(String str) {
         e eVar = new e(this);
         eVar.Fl.add(str);
         return eVar;
@@ -32,14 +32,14 @@ public class e {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.bpL = fVar;
+        eVar.btm = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f LS() {
-        return this.bpL;
+    public f Nq() {
+        return this.btm;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -72,10 +72,10 @@ public class e {
         boolean z = i == this.Fl.size() + (-1);
         String str2 = this.Fl.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.Fl.size() + (-2) && ja())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.Fl.size() + (-2) && iZ())) && (str2.equals(str) || str2.equals("*"));
         }
         if (!z && this.Fl.get(i + 1).equals(str)) {
-            return i == this.Fl.size() + (-2) || (i == this.Fl.size() + (-3) && ja());
+            return i == this.Fl.size() + (-2) || (i == this.Fl.size() + (-3) && iZ());
         } else if (z) {
             return true;
         } else {
@@ -98,11 +98,11 @@ public class e {
         return str.equals("__container");
     }
 
-    private boolean ja() {
+    private boolean iZ() {
         return this.Fl.get(this.Fl.size() - 1).equals("**");
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.Fl + ",resolved=" + (this.bpL != null) + '}';
+        return "KeyPath{keys=" + this.Fl + ",resolved=" + (this.btm != null) + '}';
     }
 }

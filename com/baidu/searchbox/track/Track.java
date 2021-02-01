@@ -9,7 +9,7 @@ import com.baidu.searchbox.track.ui.OnFragmentTraceListener;
 import com.baidu.searchbox.track.ui.TraceManager;
 import com.baidu.searchbox.track.ui.TrackUI;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class Track {
     private static final int UI_TRACK_CAPACITY = 20;
     private Object mLockListener;
@@ -17,7 +17,7 @@ public class Track {
     private EvictingDeque<TrackUI> mTrackUIDeque;
     private LinkedList<OnTrackUIListener> mTrackUIListeners;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface OnTrackUIListener {
         void onAddTrackUI(TrackUI trackUI);
     }
@@ -99,7 +99,7 @@ public class Track {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class TrackCreator {
         private static final Track mTrace = new Track();
 

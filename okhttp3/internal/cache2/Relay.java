@@ -1,6 +1,7 @@
 package okhttp3.internal.cache2;
 
 import com.baidu.live.tbadk.log.LogConfig;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -9,7 +10,7 @@ import okio.Buffer;
 import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 final class Relay {
     private static final long FILE_HEADER_SIZE = 32;
     static final ByteString PREFIX_CLEAN = ByteString.encodeUtf8("OkHttp cache v1\n");
@@ -37,7 +38,7 @@ final class Relay {
     }
 
     public static Relay edit(File file, Source source, ByteString byteString, long j) throws IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
         Relay relay = new Relay(randomAccessFile, source, 0L, byteString, j);
         randomAccessFile.setLength(0L);
         relay.writeHeader(PREFIX_DIRTY, -1L, -1L);
@@ -45,7 +46,7 @@ final class Relay {
     }
 
     public static Relay read(File file) throws IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
         FileOperator fileOperator = new FileOperator(randomAccessFile.getChannel());
         Buffer buffer = new Buffer();
         fileOperator.read(0L, buffer, 32L);
@@ -106,7 +107,7 @@ final class Relay {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     class RelaySource implements Source {
         private FileOperator fileOperator;
         private long sourcePos;

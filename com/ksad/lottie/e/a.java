@@ -4,16 +4,16 @@ import android.graphics.PointF;
 import android.view.animation.Interpolator;
 import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a<T> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f8001a;
+    public final T f8003a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final T f8002b;
+    public final T f8004b;
     @Nullable
     public final Interpolator c;
     public final float d;
@@ -32,8 +32,8 @@ public class a<T> {
         this.f = null;
         this.g = null;
         this.h = dVar;
-        this.f8001a = t;
-        this.f8002b = t2;
+        this.f8003a = t;
+        this.f8004b = t2;
         this.c = interpolator;
         this.d = f;
         this.e = f2;
@@ -45,8 +45,8 @@ public class a<T> {
         this.f = null;
         this.g = null;
         this.h = null;
-        this.f8001a = t;
-        this.f8002b = t;
+        this.f8003a = t;
+        this.f8004b = t;
         this.c = null;
         this.d = Float.MIN_VALUE;
         this.e = Float.valueOf(Float.MAX_VALUE);
@@ -85,6 +85,6 @@ public class a<T> {
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.f8001a + ", endValue=" + this.f8002b + ", startFrame=" + this.d + ", endFrame=" + this.e + ", interpolator=" + this.c + '}';
+        return "Keyframe{startValue=" + this.f8003a + ", endValue=" + this.f8004b + ", startFrame=" + this.d + ", endFrame=" + this.e + ", interpolator=" + this.c + '}';
     }
 }

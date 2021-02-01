@@ -4,7 +4,7 @@ package com.baidu.adp.lib.stats.c;
 public class e extends com.baidu.adp.lib.stats.base.a {
     public e(j jVar) {
         super(jVar);
-        this.Pm = 50;
-        this.Pn = "pf";
+        this.Pk = 50;
+        this.Pl = "pf";
     }
 }

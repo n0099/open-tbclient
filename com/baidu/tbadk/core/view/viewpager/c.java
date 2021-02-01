@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private int fmD;
-    private List<n> fmJ;
-    private List<n> fmK;
-    private boolean fmL;
-    private boolean fmM;
-    private int fmN = 2;
-    private int fmO = 1;
+    private int foV;
+    private List<n> fpb;
+    private List<n> fpc;
+    private boolean fpd;
+    private boolean fpe;
+    private int fpf = 2;
+    private int fpg = 1;
 
     public c(List<n> list, boolean z, int i) {
-        this.fmD = 2;
-        this.fmJ = list;
-        this.fmM = z;
-        this.fmD = i;
-        bG(list);
+        this.foV = 2;
+        this.fpb = list;
+        this.fpe = z;
+        this.foV = i;
+        bB(list);
     }
 
-    public void bG(List<n> list) {
-        if (list != null && list.size() >= this.fmN && list.size() <= this.fmD) {
-            this.fmL = true;
-        } else if (list.size() > this.fmD && this.fmM) {
-            this.fmL = true;
+    public void bB(List<n> list) {
+        if (list != null && list.size() >= this.fpf && list.size() <= this.foV) {
+            this.fpd = true;
+        } else if (list.size() > this.foV && this.fpe) {
+            this.fpd = true;
         } else {
-            this.fmL = false;
+            this.fpd = false;
         }
-        this.fmK = bve();
+        this.fpc = bvy();
     }
 
-    private List<n> bve() {
+    private List<n> bvy() {
         ArrayList arrayList = new ArrayList();
-        if (this.fmJ != null) {
-            if (this.fmL) {
-                if (this.fmJ.size() > this.fmD && this.fmJ.size() >= this.fmO) {
-                    arrayList.addAll(this.fmJ.subList(0, this.fmD));
-                    arrayList.addAll(0, this.fmJ.subList(this.fmD - this.fmO, this.fmD));
-                    arrayList.addAll(this.fmJ.subList(0, this.fmO));
+        if (this.fpb != null) {
+            if (this.fpd) {
+                if (this.fpb.size() > this.foV && this.fpb.size() >= this.fpg) {
+                    arrayList.addAll(this.fpb.subList(0, this.foV));
+                    arrayList.addAll(0, this.fpb.subList(this.foV - this.fpg, this.foV));
+                    arrayList.addAll(this.fpb.subList(0, this.fpg));
                 } else {
-                    arrayList.addAll(this.fmJ);
-                    arrayList.addAll(0, this.fmJ.subList(this.fmJ.size() - this.fmO, this.fmJ.size()));
-                    arrayList.addAll(this.fmJ.subList(0, this.fmO));
+                    arrayList.addAll(this.fpb);
+                    arrayList.addAll(0, this.fpb.subList(this.fpb.size() - this.fpg, this.fpb.size()));
+                    arrayList.addAll(this.fpb.subList(0, this.fpg));
                 }
-            } else if (this.fmJ != null && this.fmJ.size() > 0 && this.fmJ.size() >= this.fmO) {
-                arrayList.addAll(this.fmJ.subList(0, this.fmO));
+            } else if (this.fpb != null && this.fpb.size() > 0 && this.fpb.size() >= this.fpg) {
+                arrayList.addAll(this.fpb.subList(0, this.fpg));
             }
         }
         return arrayList;
     }
 
-    public int qa(int i) {
-        if (this.fmL) {
-            int size = this.fmK.size();
+    public int qf(int i) {
+        if (this.fpd) {
+            int size = this.fpc.size();
             if (i == 0) {
-                return (size - 1) - this.fmO;
+                return (size - 1) - this.fpg;
             }
-            if (i == size - this.fmO) {
-                return this.fmO;
+            if (i == size - this.fpg) {
+                return this.fpg;
             }
             return i;
         }
         return i;
     }
 
-    public int qb(int i) {
-        if (this.fmL) {
-            return i - this.fmO;
+    public int qg(int i) {
+        if (this.fpd) {
+            return i - this.fpg;
         }
         return i;
     }
 
-    public int bvf() {
-        if (this.fmJ == null) {
+    public int bvz() {
+        if (this.fpb == null) {
             return 0;
         }
-        return this.fmJ.size();
+        return this.fpb.size();
     }
 
-    public int bvg() {
-        if (this.fmL) {
-            return this.fmO;
+    public int bvA() {
+        if (this.fpd) {
+            return this.fpg;
         }
         return 0;
     }
 
-    public void qc(int i) {
-        this.fmD = i;
-        bG(this.fmJ);
+    public void qh(int i) {
+        this.foV = i;
+        bB(this.fpb);
     }
 
-    public void qd(int i) {
-        this.fmN = i;
-        bG(this.fmJ);
+    public void qi(int i) {
+        this.fpf = i;
+        bB(this.fpb);
     }
 
-    public List<n> bvh() {
-        return this.fmK;
+    public List<n> bvB() {
+        return this.fpc;
     }
 
-    public void qe(int i) {
-        this.fmO = i;
-        bG(this.fmJ);
+    public void qj(int i) {
+        this.fpg = i;
+        bB(this.fpb);
     }
 }

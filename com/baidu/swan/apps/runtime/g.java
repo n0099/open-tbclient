@@ -3,23 +3,23 @@ package com.baidu.swan.apps.runtime;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, Object> dCn;
+    private Map<String, Object> dEr;
 
     public g(e eVar) {
         super(eVar);
-        this.dCn = new HashMap();
+        this.dEr = new HashMap();
     }
 
     public void putString(String str, String str2) {
-        s(str, str2);
+        q(str, str2);
     }
 
     public String getString(String str, String str2) {
         try {
-            return (String) r(str, str2);
+            return (String) p(str, str2);
         } catch (ClassCastException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -29,12 +29,12 @@ public class g extends f {
     }
 
     public void a(String str, Boolean bool) {
-        s(str, bool);
+        q(str, bool);
     }
 
     public Boolean b(String str, Boolean bool) {
         try {
-            return (Boolean) r(str, bool);
+            return (Boolean) p(str, bool);
         } catch (ClassCastException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -44,12 +44,12 @@ public class g extends f {
     }
 
     public void b(String str, Integer num) {
-        s(str, num);
+        q(str, num);
     }
 
     public Integer c(String str, Integer num) {
         try {
-            return (Integer) r(str, num);
+            return (Integer) p(str, num);
         } catch (ClassCastException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -59,23 +59,23 @@ public class g extends f {
     }
 
     public void clear() {
-        this.dCn.clear();
+        this.dEr.clear();
     }
 
     public boolean containsKey(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.dCn.containsKey(str);
+        return this.dEr.containsKey(str);
     }
 
-    private <V> V r(String str, V v) {
+    private <V> V p(String str, V v) {
         if (containsKey(str)) {
-            if (this.dCn.get(str) == null) {
+            if (this.dEr.get(str) == null) {
                 return null;
             }
             try {
-                return (V) this.dCn.get(str);
+                return (V) this.dEr.get(str);
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -87,8 +87,8 @@ public class g extends f {
         return v;
     }
 
-    private <V> void s(String str, V v) {
-        this.dCn.put(str, v);
+    private <V> void q(String str, V v) {
+        this.dEr.put(str, v);
     }
 
     @Override // com.baidu.swan.apps.runtime.f

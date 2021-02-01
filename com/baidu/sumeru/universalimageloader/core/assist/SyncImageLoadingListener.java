@@ -2,7 +2,7 @@ package com.baidu.sumeru.universalimageloader.core.assist;
 
 import android.graphics.Bitmap;
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class SyncImageLoadingListener extends SimpleImageLoadingListener {
     private Bitmap loadedImage;
 

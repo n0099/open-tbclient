@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class Texture2dProgram {
     private static final String FRAGMENT_SHADER_2D = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nuniform float alpha;\nvoid main() {\n    vec4 color = texture2D(sTexture, vTextureCoord);\n    gl_FragColor = color * alpha;\n}\n";
     private static final String FRAGMENT_SHADER_2D_BLEND = "precision mediump float;\nvarying vec2 vTextureCoord;\nvarying vec2 vTextureCoord2;\nuniform sampler2D sTexture;\nuniform sampler2D sTexture2;\nuniform float thresholdSensitivity;\nuniform float smoothing;\nuniform vec3 colorToReplace;\nconst highp vec3 W = vec3(0.2125, 0.7154, 0.0721);void main() {\n    vec4 textureColor =texture2D(sTexture, vTextureCoord);\n    vec4 textureColor2 =texture2D(sTexture2, vTextureCoord2);\n    float maskY = 0.2989 * colorToReplace.r + 0.5866 * colorToReplace.g + 0.1145 * colorToReplace.b;\n    float maskCr = 0.7132 * (colorToReplace.r - maskY);\n    float maskCb = 0.5647 * (colorToReplace.b - maskY);\n    float Y = 0.2989 * textureColor.r + 0.5866 * textureColor.g + 0.1145 * textureColor.b;\n    float Cr = 0.7132 * (textureColor.r - Y);\n    float Cb = 0.5647 * (textureColor.b - Y);\n    float L = dot(textureColor.rgb, W);\n    float maskL = dot(colorToReplace.rgb, W);\n    float blendValue = 1.0 - smoothstep(thresholdSensitivity, thresholdSensitivity + smoothing, distance(vec3(Cr, Cb, L), vec3(maskCr, maskCb, maskL)));\n    gl_FragColor = mix(textureColor, textureColor2, blendValue);\n}\n";
@@ -46,7 +46,7 @@ public class Texture2dProgram {
     private float mDx = 0.01f;
     private float mDy = 0.01f;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public enum ProgramType {
         TEXTURE_2D,
         TEXTURE_EXT,
@@ -66,27 +66,27 @@ public class Texture2dProgram {
         switch (programType) {
             case TEXTURE_2D:
                 this.mTextureTarget = 3553;
-                this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER_2D);
+                this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", FRAGMENT_SHADER_2D);
                 break;
             case TEXTURE_2D_AR:
                 this.mTextureTarget = 3553;
-                this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER_EXT);
+                this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", FRAGMENT_SHADER_EXT);
                 break;
             case TEXTURE_2D_FOLLOW:
                 this.mTextureTarget = 3553;
-                this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER_2D_FOLLOW);
+                this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", FRAGMENT_SHADER_2D_FOLLOW);
                 break;
             case TEXTURE_EXT:
                 this.mTextureTarget = 36197;
-                this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER_EXT);
+                this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", FRAGMENT_SHADER_EXT);
                 break;
             case TEXTURE_EXT_BW:
                 this.mTextureTarget = 36197;
-                this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER_EXT_BW);
+                this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", FRAGMENT_SHADER_EXT_BW);
                 break;
             case TEXTURE_EXT_FILT:
                 this.mTextureTarget = 36197;
-                this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER_EXT_FILT);
+                this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", FRAGMENT_SHADER_EXT_FILT);
                 break;
             case TEXTURE_2D_BLEND:
                 this.mTextureTarget = 3553;
@@ -102,11 +102,11 @@ public class Texture2dProgram {
                 break;
             case TEXTURE_2D_X_BLUR:
                 this.mTextureTarget = 3553;
-                this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER_2D_X_BLUR);
+                this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", FRAGMENT_SHADER_2D_X_BLUR);
                 break;
             case TEXTURE_2D_FILTER:
                 this.mTextureTarget = 3553;
-                this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER_FILTER);
+                this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", FRAGMENT_SHADER_FILTER);
                 break;
             default:
                 throw new RuntimeException("Unhandled type " + programType);

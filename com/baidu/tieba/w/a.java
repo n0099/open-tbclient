@@ -9,32 +9,32 @@ import com.baidu.tbadk.coreExtra.data.ai;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private CustomMessageListener eHt = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tieba.w.a.1
+    private CustomMessageListener eJz = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tieba.w.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                a.this.aiO();
+                a.this.ajm();
             }
         }
     };
     private long mEndTime;
     private long mInterval;
     private long mStartTime;
-    private long nMc;
-    private ai nMd;
+    private long nVT;
+    private ai nVU;
 
     public a() {
         init();
     }
 
     private void init() {
-        aiO();
-        this.nMc = com.baidu.tbadk.core.sharedPref.b.brx().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
-        MessageManager.getInstance().registerListener(this.eHt);
+        ajm();
+        this.nVT = com.baidu.tbadk.core.sharedPref.b.brQ().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
+        MessageManager.getInstance().registerListener(this.eJz);
     }
 
-    public boolean dTw() {
+    public boolean dVI() {
         if (this.mStartTime == 0 || this.mEndTime == 0 || this.mInterval == 0) {
             return false;
         }
@@ -47,22 +47,22 @@ public class a {
     }
 
     private boolean t(Date date) {
-        return date != null && date.getTime() - this.nMc >= this.mInterval;
+        return date != null && date.getTime() - this.nVT >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiO() {
-        if (this.nMd == null) {
-            this.nMd = new ai();
+    public void ajm() {
+        if (this.nVU == null) {
+            this.nVU = new ai();
         }
-        this.nMd.parseJson(com.baidu.tbadk.core.sharedPref.b.brx().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
-        this.mStartTime = this.nMd.bwp();
-        this.mEndTime = this.nMd.bwq();
-        this.mInterval = this.nMd.bwr();
+        this.nVU.parseJson(com.baidu.tbadk.core.sharedPref.b.brQ().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
+        this.mStartTime = this.nVU.bwH();
+        this.mEndTime = this.nVU.bwI();
+        this.mInterval = this.nVU.bwJ();
     }
 
-    public void hF(long j) {
-        this.nMc = j;
-        com.baidu.tbadk.core.sharedPref.b.brx().putLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, j);
+    public void hK(long j) {
+        this.nVT = j;
+        com.baidu.tbadk.core.sharedPref.b.brQ().putLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, j);
     }
 }

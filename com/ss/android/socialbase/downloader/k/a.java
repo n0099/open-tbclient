@@ -11,29 +11,29 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static JSONObject c;
     private static JSONObject d;
     private static Boolean e;
     private static boolean f;
-    private static final f<Integer, a> pXn = new f<>(8, 8);
-    private static final a pXo = new a(null);
-    private static a pXp;
+    private static final f<Integer, a> qhr = new f<>(8, 8);
+    private static final a qhs = new a(null);
+    private static a qht;
     private final JSONObject h;
     private final JSONObject i;
     private int k;
-    private final Boolean pXq;
+    private final Boolean qhu;
 
     static {
         a();
     }
 
     public static void a() {
-        JSONObject eBG = b.eBG();
-        f = eBG.optInt("disable_task_setting", 0) == 1;
-        c = eBG.optJSONObject("disabled_task_keys");
-        JSONObject optJSONObject = eBG.optJSONObject("bugfix");
+        JSONObject eDX = b.eDX();
+        f = eDX.optInt("disable_task_setting", 0) == 1;
+        c = eDX.optJSONObject("disabled_task_keys");
+        JSONObject optJSONObject = eDX.optJSONObject("bugfix");
         Boolean bool = null;
         if (optJSONObject != null && optJSONObject.has(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT)) {
             bool = Boolean.valueOf(optJSONObject.optInt(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT, 0) == 1);
@@ -60,12 +60,12 @@ public class a {
             }
         }
         this.i = jSONObject2;
-        this.pXq = bool;
+        this.qhu = bool;
     }
 
     @NonNull
     public static JSONObject b() {
-        return b.eBG();
+        return b.eDX();
     }
 
     public static void a(String str, boolean z) {
@@ -79,29 +79,29 @@ public class a {
     }
 
     @NonNull
-    public static a eGg() {
-        return pXo;
+    public static a eIx() {
+        return qhs;
     }
 
     @NonNull
-    public static a RA(int i) {
+    public static a RV(int i) {
         return a(i, (c) null);
     }
 
     private static a a(int i, c cVar) {
-        a aVar = pXp;
+        a aVar = qht;
         if (aVar == null || aVar.k != i) {
-            synchronized (pXn) {
-                aVar = pXn.get(Integer.valueOf(i));
+            synchronized (qhr) {
+                aVar = qhr.get(Integer.valueOf(i));
             }
             if (aVar == null) {
-                aVar = cVar == null ? RB(i) : s(cVar);
-                synchronized (pXn) {
-                    pXn.put(Integer.valueOf(i), aVar);
+                aVar = cVar == null ? RW(i) : s(cVar);
+                synchronized (qhr) {
+                    qhr.put(Integer.valueOf(i), aVar);
                 }
             }
             aVar.k = i;
-            pXp = aVar;
+            qht = aVar;
         }
         return aVar;
     }
@@ -114,8 +114,8 @@ public class a {
         if (this.i != null && !g(str)) {
             if (this.i.has(str)) {
                 return this.i.optInt(str, z ? 1 : 0) == 1;
-            } else if (this.pXq != null) {
-                return this.pXq.booleanValue();
+            } else if (this.qhu != null) {
+                return this.qhu.booleanValue();
             }
         }
         if (d != null) {
@@ -160,11 +160,11 @@ public class a {
         return (this.h == null || !this.h.has(str) || g(str)) ? b().optString(str, str2) : this.h.optString(str, str2);
     }
 
-    public JSONObject aau(String str) {
+    public JSONObject abv(String str) {
         return (this.h == null || !this.h.has(str) || g(str)) ? b().optJSONObject(str) : this.h.optJSONObject(str);
     }
 
-    public JSONArray aav(String str) {
+    public JSONArray abw(String str) {
         return (this.h == null || !this.h.has(str) || g(str)) ? b().optJSONArray(str) : this.h.optJSONArray(str);
     }
 
@@ -173,25 +173,25 @@ public class a {
     }
 
     @NonNull
-    public static a fl(JSONObject jSONObject) {
+    public static a fm(JSONObject jSONObject) {
         a aVar;
         if (jSONObject == null || jSONObject == b() || f) {
-            return pXo;
+            return qhs;
         }
-        a aVar2 = pXp;
+        a aVar2 = qht;
         if (aVar2 == null || aVar2.h != jSONObject) {
-            synchronized (pXn) {
-                Iterator<a> it = pXn.values().iterator();
+            synchronized (qhr) {
+                Iterator<a> it = qhr.values().iterator();
                 while (true) {
                     if (it.hasNext()) {
                         aVar = it.next();
                         if (aVar.h == jSONObject) {
-                            pXp = aVar;
+                            qht = aVar;
                             break;
                         }
                     } else {
                         aVar = new a(jSONObject);
-                        pXp = aVar;
+                        qht = aVar;
                         break;
                     }
                 }
@@ -203,12 +203,12 @@ public class a {
 
     public static void a(int i, JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != b() && !f) {
-            synchronized (pXn) {
-                a aVar = pXp;
+            synchronized (qhr) {
+                a aVar = qht;
                 if (aVar != null && aVar.h == jSONObject) {
                     aVar.k = i;
                 } else {
-                    Iterator<a> it = pXn.values().iterator();
+                    Iterator<a> it = qhr.values().iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             aVar = null;
@@ -224,38 +224,38 @@ public class a {
                         aVar = new a(jSONObject);
                         aVar.k = i;
                     }
-                    pXp = aVar;
+                    qht = aVar;
                 }
-                pXn.put(Integer.valueOf(i), aVar);
+                qhr.put(Integer.valueOf(i), aVar);
             }
         }
     }
 
     public static void b(int i) {
-        a aVar = pXp;
+        a aVar = qht;
         if (aVar != null && aVar.k == i) {
-            pXp = null;
+            qht = null;
         }
-        synchronized (pXn) {
-            pXn.remove(Integer.valueOf(i));
+        synchronized (qhr) {
+            qhr.remove(Integer.valueOf(i));
         }
     }
 
-    private static a RB(int i) {
+    private static a RW(int i) {
         c h;
         if (f) {
-            return pXo;
+            return qhs;
         }
-        Context eEd = b.eEd();
-        if (eEd != null && (h = com.ss.android.socialbase.downloader.downloader.f.iy(eEd).h(i)) != null) {
+        Context eGu = b.eGu();
+        if (eGu != null && (h = com.ss.android.socialbase.downloader.downloader.f.iB(eGu).h(i)) != null) {
             return s(h);
         }
-        return pXo;
+        return qhs;
     }
 
     private static a s(c cVar) {
         if (f) {
-            return pXo;
+            return qhs;
         }
         try {
             String R = cVar.R();
@@ -265,6 +265,6 @@ public class a {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        return pXo;
+        return qhs;
     }
 }

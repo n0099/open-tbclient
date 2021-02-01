@@ -19,12 +19,12 @@ import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.KsLoadManager;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.api.KsSplashScreenAd;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class az extends ac {
-    public AdRipper.RippedKSAd pFf;
-    public KsSplashScreenAd pFt;
+    public AdRipper.RippedKSAd pPk;
+    public KsSplashScreenAd pPy;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class a implements KsLoadManager.SplashScreenAdListener {
         public a() {
         }
@@ -33,10 +33,10 @@ public class az extends ac {
         public void onError(int i, String str) {
             m.a("KSSplashAd onError code: " + i + ", message: " + str);
             az azVar = az.this;
-            azVar.f7744b = false;
-            z zVar = azVar.pFc;
+            azVar.f7746b = false;
+            z zVar = azVar.pPh;
             if (zVar != null) {
-                ((ad) zVar).a(azVar.f7743a.f7760a, i, str);
+                ((ad) zVar).a(azVar.f7745a.f7762a, i, str);
             }
         }
 
@@ -44,17 +44,17 @@ public class az extends ac {
         public void onSplashScreenAdLoad(KsSplashScreenAd ksSplashScreenAd) {
             m.a("KSSplashAd onSplashScreenAdLoad");
             az azVar = az.this;
-            azVar.f7744b = false;
-            azVar.pFt = ksSplashScreenAd;
-            z zVar = azVar.pFc;
+            azVar.f7746b = false;
+            azVar.pPy = ksSplashScreenAd;
+            z zVar = azVar.pPh;
             if (zVar != null) {
-                ((ad) zVar).b(azVar.f7743a.f7760a);
+                ((ad) zVar).b(azVar.f7745a.f7762a);
             }
             AdRipper.ripKsSplash(ksSplashScreenAd);
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class b implements KsSplashScreenAd.SplashScreenAdInteractionListener {
         public b() {
         }
@@ -63,9 +63,9 @@ public class az extends ac {
         public void onAdClicked() {
             m.a("KSSplashAd onAdClicked");
             az azVar = az.this;
-            w wVar = azVar.pFd;
+            w wVar = azVar.pPi;
             if (wVar != null) {
-                ((ag) wVar).a(azVar.f7743a.f7760a);
+                ((ag) wVar).a(azVar.f7745a.f7762a);
             }
         }
 
@@ -73,9 +73,9 @@ public class az extends ac {
         public void onAdShowEnd() {
             m.a("KSSplashAd onAdShowEnd");
             az azVar = az.this;
-            w wVar = azVar.pFd;
+            w wVar = azVar.pPi;
             if (wVar != null) {
-                ((ag) wVar).b(azVar.f7743a.f7760a);
+                ((ag) wVar).b(azVar.f7745a.f7762a);
             }
         }
 
@@ -83,9 +83,9 @@ public class az extends ac {
         public void onAdShowError(int i, String str) {
             m.a("KSSplashAd onAdShowError code: " + i + ", message: " + str);
             az azVar = az.this;
-            w wVar = azVar.pFd;
+            w wVar = azVar.pPi;
             if (wVar != null) {
-                ((ag) wVar).a(azVar.f7743a.f7760a, i, str);
+                ((ag) wVar).a(azVar.f7745a.f7762a, i, str);
             }
         }
 
@@ -93,9 +93,9 @@ public class az extends ac {
         public void onAdShowStart() {
             m.a("KSSplashAd onAdShowStart");
             az azVar = az.this;
-            w wVar = azVar.pFd;
+            w wVar = azVar.pPi;
             if (wVar != null) {
-                ((ag) wVar).c(azVar.f7743a.f7760a);
+                ((ag) wVar).c(azVar.f7745a.f7762a);
             }
         }
 
@@ -103,20 +103,20 @@ public class az extends ac {
         public void onSkippedAd() {
             m.a("KSSplashAd onSkippedAd");
             az azVar = az.this;
-            w wVar = azVar.pFd;
+            w wVar = azVar.pPi;
             if (wVar != null) {
-                String str = azVar.f7743a.f7760a;
+                String str = azVar.f7745a.f7762a;
                 ag agVar = (ag) wVar;
                 if (agVar == null) {
                     throw null;
                 }
                 m.a("FunAdLoader 快手广告 onAdSkip，广告ID：" + str);
-                FunAdInteractionListener funAdInteractionListener = agVar.pEV;
+                FunAdInteractionListener funAdInteractionListener = agVar.pPa;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClose(agVar.pEX.pEF.f7758a);
+                    funAdInteractionListener.onAdClose(agVar.pPc.pOK.f7760a);
                 }
-                d.b bVar = d.pEu;
-                ((d.a) bVar).a(agVar.f7747b, agVar.pEW.f7761b, str);
+                d.b bVar = d.pOz;
+                ((d.a) bVar).a(agVar.f7749b, agVar.pPb.f7763b, str);
             }
         }
     }
@@ -128,24 +128,24 @@ public class az extends ac {
     @Override // com.fun.ad.ac
     public void a() {
         super.a();
-        this.pFt = null;
-        this.pFf = null;
+        this.pPy = null;
+        this.pPk = null;
     }
 
     @Override // com.fun.ad.ac
-    public FunRippedAd exX() {
-        KsSplashScreenAd ksSplashScreenAd = this.pFt;
+    public FunRippedAd eAp() {
+        KsSplashScreenAd ksSplashScreenAd = this.pPy;
         if (ksSplashScreenAd == null) {
             return null;
         }
-        if (this.pFf == null) {
-            this.pFf = AdRipper.getRippedKsSplashAd(ksSplashScreenAd, false);
+        if (this.pPk == null) {
+            this.pPk = AdRipper.getRippedKsSplashAd(ksSplashScreenAd, false);
         }
         FunRippedAd funRippedAd = new FunRippedAd();
-        AdRipper.RippedKSAd rippedKSAd = this.pFf;
+        AdRipper.RippedKSAd rippedKSAd = this.pPk;
         funRippedAd.description = rippedKSAd.adDescription;
         funRippedAd.isDeepLinkAd = !TextUtils.isEmpty(rippedKSAd.deeplinkUrl);
-        AdRipper.RippedKSAd rippedKSAd2 = this.pFf;
+        AdRipper.RippedKSAd rippedKSAd2 = this.pPk;
         funRippedAd.uniqueId = rippedKSAd2.adDescription;
         funRippedAd.appName = rippedKSAd2.appName;
         funRippedAd.appPackageName = rippedKSAd2.appPackageName;
@@ -157,12 +157,12 @@ public class az extends ac {
     @Override // com.fun.ad.ac
     public void a(Context context, FunAdSlot funAdSlot, z zVar) {
         super.a(context.getApplicationContext(), funAdSlot, zVar);
-        if (!this.f7744b) {
-            this.f7744b = true;
-            KsAdSDK.getLoadManager().loadSplashScreenAd(new KsScene.Builder(Long.parseLong(this.f7743a.f7760a)).build(), new a());
-            z zVar2 = this.pFc;
+        if (!this.f7746b) {
+            this.f7746b = true;
+            KsAdSDK.getLoadManager().loadSplashScreenAd(new KsScene.Builder(Long.parseLong(this.f7745a.f7762a)).build(), new a());
+            z zVar2 = this.pPh;
             if (zVar2 != null) {
-                ((ad) zVar2).a(this.f7743a.f7760a);
+                ((ad) zVar2).a(this.f7745a.f7762a);
             }
         }
     }
@@ -170,13 +170,13 @@ public class az extends ac {
     @Override // com.fun.ad.ac
     public void a(Activity activity, FunAdView funAdView, w wVar) {
         super.a(activity, funAdView, wVar);
-        KsSplashScreenAd ksSplashScreenAd = this.pFt;
+        KsSplashScreenAd ksSplashScreenAd = this.pPy;
         if (ksSplashScreenAd != null) {
             Fragment fragment = ksSplashScreenAd.getFragment(new b());
             if (fragment == null) {
-                w wVar2 = this.pFd;
+                w wVar2 = this.pPi;
                 if (wVar2 != null) {
-                    ((ag) wVar2).a(this.f7743a.f7760a, 0, "KsSplashScreenFragment is null");
+                    ((ag) wVar2).a(this.f7745a.f7762a, 0, "KsSplashScreenFragment is null");
                 }
             } else if (activity instanceof FragmentActivity) {
                 FrameLayout frameLayout = new FrameLayout(activity);
@@ -184,9 +184,9 @@ public class az extends ac {
                 funAdView.addView(frameLayout, new ViewGroup.LayoutParams(-1, -1));
                 ((FragmentActivity) activity).getSupportFragmentManager().beginTransaction().replace(R.id.splash_ad_container, fragment).commit();
             } else {
-                w wVar3 = this.pFd;
+                w wVar3 = this.pPi;
                 if (wVar3 != null) {
-                    ((ag) wVar3).a(this.f7743a.f7760a, 0, "Activity is not instanceof FragmentActivity");
+                    ((ag) wVar3).a(this.f7745a.f7762a, 0, "Activity is not instanceof FragmentActivity");
                 }
             }
         }

@@ -5,7 +5,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ad {
     /* JADX WARN: Removed duplicated region for block: B:14:0x0025  */
     @NonNull

@@ -6,15 +6,15 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WalkingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<WalkingRouteResult> CREATOR = new t();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<WalkingRouteLine> f2929a;
+    private List<WalkingRouteLine> f2927a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TaxiInfo f2930b;
+    private TaxiInfo f2928b;
     private SuggestAddrInfo c;
 
     public WalkingRouteResult() {
@@ -22,9 +22,9 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public WalkingRouteResult(Parcel parcel) {
-        this.f2929a = new ArrayList();
-        parcel.readList(this.f2929a, WalkingRouteLine.class.getClassLoader());
-        this.f2930b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.f2927a = new ArrayList();
+        parcel.readList(this.f2927a, WalkingRouteLine.class.getClassLoader());
+        this.f2928b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
         this.c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
@@ -34,7 +34,7 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
     }
 
     public List<WalkingRouteLine> getRouteLines() {
-        return this.f2929a;
+        return this.f2927a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
@@ -42,11 +42,11 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
     }
 
     public TaxiInfo getTaxiInfo() {
-        return this.f2930b;
+        return this.f2928b;
     }
 
     public void setRouteLines(List<WalkingRouteLine> list) {
-        this.f2929a = list;
+        this.f2927a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
@@ -54,13 +54,13 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
     }
 
     public void setTaxiInfo(TaxiInfo taxiInfo) {
-        this.f2930b = taxiInfo;
+        this.f2928b = taxiInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.f2929a);
-        parcel.writeParcelable(this.f2930b, 1);
+        parcel.writeList(this.f2927a);
+        parcel.writeParcelable(this.f2928b, 1);
         parcel.writeParcelable(this.c, 1);
     }
 }

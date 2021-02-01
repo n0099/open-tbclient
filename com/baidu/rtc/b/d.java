@@ -16,23 +16,40 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static d cxr;
+    private static d czJ;
     private OkHttpClient mOkHttpClient = new OkHttpClient().newBuilder().connectTimeout(10, TimeUnit.SECONDS).readTimeout(10, TimeUnit.SECONDS).writeTimeout(10, TimeUnit.SECONDS).build();
     private ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
     private d() {
     }
 
-    public static d aeV() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void N(String str, int i) {
+        String str2 = i == 3 ? "[RTC_SLI]" : "[RTC_QUALITY_CONTROL]";
+        String encodeToString = Base64.encodeToString((str2 + str).getBytes(), 2);
+        Request.Builder builder = new Request.Builder();
+        this.mOkHttpClient.newCall(builder.url("https://rtc-log.cdn.bcebos.com/collect?message=" + encodeToString).build()).enqueue(new Callback() { // from class: com.baidu.rtc.b.d.2
+            @Override // okhttp3.Callback
+            public void onFailure(Call call, IOException iOException) {
+                Log.e("RTCLOGREPORT", "qualityinfo send fail: " + iOException);
+            }
+
+            @Override // okhttp3.Callback
+            public void onResponse(Call call, Response response) throws IOException {
+            }
+        });
+    }
+
+    public static d afs() {
         d dVar;
         synchronized (d.class) {
             try {
-                if (cxr == null) {
-                    cxr = new d();
+                if (czJ == null) {
+                    czJ = new d();
                 }
-                dVar = cxr;
+                dVar = czJ;
             } catch (Throwable th) {
                 throw th;
             }
@@ -79,28 +96,12 @@ public class d {
         return "wifi";
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void jo(String str) {
-        String encodeToString = Base64.encodeToString(("[RTC_QUALITY_CONTROL]" + str).getBytes(), 2);
-        Request.Builder builder = new Request.Builder();
-        this.mOkHttpClient.newCall(builder.url("https://rtc-log.cdn.bcebos.com/collect?message=" + encodeToString).build()).enqueue(new Callback() { // from class: com.baidu.rtc.b.d.2
-            @Override // okhttp3.Callback
-            public void onFailure(Call call, IOException iOException) {
-                Log.e("RTCLOGREPORT", "qualityinfo send fail: " + iOException);
-            }
-
-            @Override // okhttp3.Callback
-            public void onResponse(Call call, Response response) throws IOException {
-            }
-        });
-    }
-
-    public void report(final String str, int i) {
+    public void report(final String str, final int i) {
         synchronized (this) {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.b.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.jo(str);
+                    d.this.N(str, i);
                 }
             });
         }

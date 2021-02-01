@@ -7,32 +7,32 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.im.data.d;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.AddMsgRecordModel;
 import com.baidu.tieba.im.util.c;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static a kEh = new a();
-    private HashSet<String> kEi = new HashSet<>();
-    private StringBuilder kEj = new StringBuilder();
+    private static a kMm = new a();
+    private HashSet<String> kMn = new HashSet<>();
+    private StringBuilder kMo = new StringBuilder();
 
     private a() {
     }
 
-    public static a cVY() {
-        return kEh;
+    public static a cXW() {
+        return kMm;
     }
 
-    public void cVZ() {
+    public void cXX() {
         String str;
         String str2 = null;
-        if (this.kEi != null) {
+        if (this.kMn != null) {
             StringBuilder sb = new StringBuilder();
-            Iterator<String> it = this.kEi.iterator();
+            Iterator<String> it = this.kMn.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 if (next != null && next.length() > 0) {
@@ -43,37 +43,37 @@ public class a {
                 sb.deleteCharAt(sb.length() - 1);
                 if (sb.length() > 0) {
                     str = sb.toString();
-                    if (this.kEj != null && this.kEj.length() > 0) {
-                        this.kEj.deleteCharAt(this.kEj.length() - 1);
-                        str2 = this.kEj.toString();
+                    if (this.kMo != null && this.kMo.length() > 0) {
+                        this.kMo.deleteCharAt(this.kMo.length() - 1);
+                        str2 = this.kMo.toString();
                     }
                     new AddMsgRecordModel().reqViewAndClick(str, str2);
                 }
             }
         }
         str = null;
-        if (this.kEj != null) {
-            this.kEj.deleteCharAt(this.kEj.length() - 1);
-            str2 = this.kEj.toString();
+        if (this.kMo != null) {
+            this.kMo.deleteCharAt(this.kMo.length() - 1);
+            str2 = this.kMo.toString();
         }
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }
 
-    public void cWa() {
-        if (this.kEj != null && this.kEj.length() > 0) {
-            this.kEj.delete(0, this.kEj.length());
+    public void cXY() {
+        if (this.kMo != null && this.kMo.length() > 0) {
+            this.kMo.delete(0, this.kMo.length());
         }
-        if (this.kEi != null) {
-            this.kEi.clear();
+        if (this.kMn != null) {
+            this.kMn.clear();
         }
     }
 
     public void a(ChatMessage chatMessage, Context context) {
         UserData userInfo;
-        d Mu;
+        d Ni;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null) {
-            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (Mu = c.Mu(chatMessage.getContent())) != null && !TextUtils.isEmpty(Mu.taskId) && this.kEi.add(Mu.taskId)) {
-                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", Mu.kww, "task_id", Mu.taskId);
+            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (Ni = c.Ni(chatMessage.getContent())) != null && !TextUtils.isEmpty(Ni.taskId) && this.kMn.add(Ni.taskId)) {
+                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", Ni.kEC, "task_id", Ni.taskId);
             }
         }
     }
@@ -81,17 +81,17 @@ public class a {
     public void b(ChatMessage chatMessage, Context context) {
         UserData userInfo;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null && userInfo.getUserType() == 4) {
-            aq aqVar = new aq("c13989");
-            aqVar.w(Constants.EXTRA_SERVICE, chatMessage.getStatisticsServiceId());
-            aqVar.w("task_id", chatMessage.getStatTaskId());
-            aqVar.w("uid", TbadkApplication.getCurrentAccountId());
-            TiebaStatic.log(aqVar);
+            ar arVar = new ar("c13989");
+            arVar.v(Constants.EXTRA_SERVICE, chatMessage.getStatisticsServiceId());
+            arVar.v("task_id", chatMessage.getStatTaskId());
+            arVar.v("uid", TbadkApplication.getCurrentAccountId());
+            TiebaStatic.log(arVar);
         }
     }
 
-    public void Mq(String str) {
+    public void Ne(String str) {
         if (str != null && str.length() > 0) {
-            this.kEj.append(str).append(",");
+            this.kMo.append(str).append(",");
         }
     }
 }

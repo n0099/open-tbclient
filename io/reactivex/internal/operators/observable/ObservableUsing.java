@@ -14,27 +14,27 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class ObservableUsing<T, D> extends q<T> {
     final g<? super D> disposer;
     final boolean eager;
-    final Callable<? extends D> qdQ;
-    final h<? super D, ? extends t<? extends T>> qeM;
+    final Callable<? extends D> qnU;
+    final h<? super D, ? extends t<? extends T>> qoQ;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         try {
-            D call = this.qdQ.call();
+            D call = this.qnU.call();
             try {
-                ((t) io.reactivex.internal.functions.a.m(this.qeM.apply(call), "The sourceSupplier returned a null ObservableSource")).subscribe(new UsingObserver(uVar, call, this.disposer, this.eager));
+                ((t) io.reactivex.internal.functions.a.m(this.qoQ.apply(call), "The sourceSupplier returned a null ObservableSource")).subscribe(new UsingObserver(uVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 try {
                     this.disposer.accept(call);
                     EmptyDisposable.error(th, uVar);
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.O(th2);
+                    io.reactivex.exceptions.a.N(th2);
                     EmptyDisposable.error(new CompositeException(th, th2), uVar);
                 }
             }
         } catch (Throwable th3) {
-            io.reactivex.exceptions.a.O(th3);
+            io.reactivex.exceptions.a.N(th3);
             EmptyDisposable.error(th3, uVar);
         }
     }
@@ -76,7 +76,7 @@ public final class ObservableUsing<T, D> extends q<T> {
                     try {
                         this.disposer.accept((D) this.resource);
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.O(th2);
+                        io.reactivex.exceptions.a.N(th2);
                         th = new CompositeException(th, th2);
                     }
                 }
@@ -97,7 +97,7 @@ public final class ObservableUsing<T, D> extends q<T> {
                     try {
                         this.disposer.accept((D) this.resource);
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.O(th);
+                        io.reactivex.exceptions.a.N(th);
                         this.actual.onError(th);
                         return;
                     }
@@ -128,7 +128,7 @@ public final class ObservableUsing<T, D> extends q<T> {
                 try {
                     this.disposer.accept((D) this.resource);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.O(th);
+                    io.reactivex.exceptions.a.N(th);
                     io.reactivex.d.a.onError(th);
                 }
             }

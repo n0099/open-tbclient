@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.ubc.Flow;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static void onEvent(String str, JSONObject jSONObject) {
         com.baidu.swan.ubc.e.onEvent(str, jSONObject);
@@ -23,42 +23,42 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a sg(String str) {
-        return new a(com.baidu.swan.ubc.e.yk(str));
+    public static a sA(String str) {
+        return new a(com.baidu.swan.ubc.e.yD(str));
     }
 
     public static void a(@NonNull a aVar, String str, String str2) {
-        Flow aKY = aVar.aKY();
-        if (aKY != null) {
-            aKY.addEvent(str, str2);
+        Flow aLr = aVar.aLr();
+        if (aLr != null) {
+            aLr.addEvent(str, str2);
         }
     }
 
     public static void a(@NonNull a aVar, String str, String str2, long j) {
-        Flow aKY = aVar.aKY();
-        if (aKY != null) {
-            aKY.addEvent(str, str2, j);
+        Flow aLr = aVar.aLr();
+        if (aLr != null) {
+            aLr.addEvent(str, str2, j);
         }
     }
 
     public static void b(@NonNull a aVar) {
-        Flow aKY = aVar.aKY();
-        if (aKY != null) {
-            aKY.cancel();
+        Flow aLr = aVar.aLr();
+        if (aLr != null) {
+            aLr.cancel();
         }
     }
 
     public static void c(@NonNull a aVar) {
-        Flow aKY = aVar.aKY();
-        if (aKY != null) {
-            aKY.end();
+        Flow aLr = aVar.aLr();
+        if (aLr != null) {
+            aLr.end();
         }
     }
 
     public static void a(@NonNull a aVar, String str) {
-        Flow aKY = aVar.aKY();
-        if (aKY != null) {
-            aKY.setValueWithDuration(str);
+        Flow aLr = aVar.aLr();
+        if (aLr != null) {
+            aLr.setValueWithDuration(str);
         }
     }
 }

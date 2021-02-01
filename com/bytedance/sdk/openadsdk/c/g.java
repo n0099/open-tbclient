@@ -13,14 +13,14 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6225a = "AdEventThread";
+    public static String f6227a = "AdEventThread";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6226b = "ttad_bk";
+    public static String f6228b = "ttad_bk";
     public final e<T> c;
     public q<T> d;
     public final List<T> e;
@@ -32,13 +32,13 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     public final b k;
     protected boolean l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         boolean a();
     }
 
     public g(e<T> eVar, q<T> qVar, b bVar, a aVar) {
-        super(f6226b);
+        super(f6228b);
         this.k = bVar;
         this.j = aVar;
         this.c = eVar;
@@ -49,7 +49,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     public g(String str, String str2, e<T> eVar, q<T> qVar, b bVar, a aVar) {
         super(str);
-        f6225a = str2;
+        f6227a = str2;
         this.k = bVar;
         this.j = aVar;
         this.c = eVar;
@@ -142,7 +142,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
         }
         h a3 = a(a2);
         if (a3 != null) {
-            if (a3.f6229a) {
+            if (a3.f6231a) {
                 a("onHandleServerBusyRetryEvent, success");
                 g();
                 f();
@@ -235,7 +235,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
         } else {
             h a2 = a(this.e);
             if (a2 != null) {
-                if (a2.f6229a) {
+                if (a2.f6231a) {
                     a("doRoutineUpload success");
                     g();
                     f();
@@ -278,7 +278,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void j() {
-        a(2, this.k.f6228b);
+        a(2, this.k.f6230b);
     }
 
     private void a(int i, long j) {
@@ -310,7 +310,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private static boolean a(h hVar) {
-        return hVar.f6230b == 509;
+        return hVar.f6232b == 509;
     }
 
     private static boolean b(h hVar) {
@@ -318,7 +318,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private boolean n() {
-        return !this.g && (this.e.size() >= this.k.f6227a || System.currentTimeMillis() - this.f >= this.k.f6228b);
+        return !this.g && (this.e.size() >= this.k.f6229a || System.currentTimeMillis() - this.f >= this.k.f6230b);
     }
 
     private void o() {
@@ -330,25 +330,25 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void a(String str) {
-        u.b(f6225a, str);
+        u.b(f6227a, str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        final int f6227a;
+        final int f6229a;
 
         /* renamed from: b  reason: collision with root package name */
-        final long f6228b;
+        final long f6230b;
         final long c;
         final int d;
         final long e;
         final long f;
 
         b(int i, long j, long j2, int i2, long j3, long j4) {
-            this.f6227a = i;
-            this.f6228b = j;
+            this.f6229a = i;
+            this.f6230b = j;
             this.c = j2;
             this.d = i2;
             this.e = j3;

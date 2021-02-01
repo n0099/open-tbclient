@@ -1,15 +1,15 @@
 package com.baidu.live.view.dispatch;
 
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    void Wd();
+    void XM();
 
     boolean ai(View view);
 
-    void aj(View view);
-
-    void ak(View view);
-
     int indexOfChild(View view);
+
+    void onViewAdded(View view);
+
+    void onViewRemoved(View view);
 }

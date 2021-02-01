@@ -1,7 +1,7 @@
 package com.fun.ad.sdk;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class FunAdSlot {
     public AdLoadMode adLoadMode;
     public FunAdView adView;
@@ -10,13 +10,13 @@ public class FunAdSlot {
     public String sid;
     public boolean smallImgStyle;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public enum AdLoadMode {
         TIME_FIRST,
         PRIORITY_FIRST
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public AdLoadMode adLoadMode = AdLoadMode.PRIORITY_FIRST;
         public FunAdView adView;

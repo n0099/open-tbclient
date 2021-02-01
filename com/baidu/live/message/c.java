@@ -1,36 +1,36 @@
 package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends HttpMessage {
-    private long brk;
-    private String brl;
+    private long buN;
+    private String buO;
     private long mAlaId;
     private long mTime;
 
     public void setFrom(String str) {
-        this.brl = str;
+        this.buO = str;
     }
 
     public void setLiveId(long j) {
-        this.brk = j;
+        this.buN = j;
     }
 
-    public void aZ(long j) {
+    public void bd(long j) {
         this.mTime = j;
     }
 
     public c() {
         super(1021007);
-        this.brl = "";
-        this.brk = 0L;
+        this.buO = "";
+        this.buN = 0L;
         this.mAlaId = 0L;
         this.mTime = 0L;
     }
 
     public void setParams() {
-        addParam("from_type", this.brl);
-        addParam("live_id", this.brk);
+        addParam("from_type", this.buO);
+        addParam("live_id", this.buN);
         addParam("enter_time", this.mTime);
     }
 }

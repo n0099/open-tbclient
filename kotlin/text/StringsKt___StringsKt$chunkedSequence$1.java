@@ -1,9 +1,8 @@
 package kotlin.text;
 
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class StringsKt___StringsKt$chunkedSequence$1 extends Lambda implements kotlin.jvm.a.b<CharSequence, String> {
     public static final StringsKt___StringsKt$chunkedSequence$1 INSTANCE = new StringsKt___StringsKt$chunkedSequence$1();
 
@@ -14,7 +13,7 @@ final class StringsKt___StringsKt$chunkedSequence$1 extends Lambda implements ko
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(CharSequence charSequence) {
-        kotlin.jvm.internal.p.o(charSequence, AdvanceSetting.NETWORK_TYPE);
+        kotlin.jvm.internal.p.o(charSequence, "it");
         return charSequence.toString();
     }
 }

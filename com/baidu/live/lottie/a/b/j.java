@@ -2,7 +2,7 @@ package com.baidu.live.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class j extends f<PointF> {
     private final PointF Ez;
 
@@ -21,7 +21,7 @@ public class j extends f<PointF> {
         }
         PointF pointF2 = aVar.HL;
         PointF pointF3 = aVar.HM;
-        if (this.bpt == null || (pointF = (PointF) this.bpt.c(aVar.BS, aVar.HO.floatValue(), pointF2, pointF3, f, iI(), getProgress())) == null) {
+        if (this.bsU == null || (pointF = (PointF) this.bsU.c(aVar.BT, aVar.HO.floatValue(), pointF2, pointF3, f, iH(), getProgress())) == null) {
             this.Ez.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
             return this.Ez;
         }

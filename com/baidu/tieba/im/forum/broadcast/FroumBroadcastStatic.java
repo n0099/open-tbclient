@@ -2,7 +2,7 @@ package com.baidu.tieba.im.forum.broadcast;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumBroadCastMajorHistoryActivityConfig;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FroumBroadcastStatic {
     public static String Tag = "tag";
 

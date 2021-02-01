@@ -1,60 +1,91 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.android.imsdk.db.TableDefine;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class n {
-    public String aEv;
-    public long aEx;
-    public int aFh;
-    public int aFi;
-    public boolean aFj;
-    public String cuid;
-    public String customRoomId;
-    public int level;
-    public List<AlaLiveMarkInfoData> mLiveMarkInfo;
-    public String portrait;
-    public String roomId;
-    public int sex;
-    public String subappType;
-    public String uk;
-    public String userName;
+    private boolean aGL;
+    private String aGM;
+    private boolean aGN;
+    private String aGO;
+    private boolean aGP;
+    private String aGQ;
+    private String avatar;
+    private String nickname;
+    private int status;
+    private String userId;
 
-    public void parseJson(JSONObject jSONObject) {
-        this.roomId = jSONObject.optString("room_id", "");
-        this.customRoomId = jSONObject.optString(UbcStatConstant.KEY_CUSTOM_ROOM_ID, "");
-        this.subappType = jSONObject.optString("subapp_type", "");
-        this.uk = jSONObject.optString("uk", "");
-        this.userName = jSONObject.optString("user_nickname", "");
-        this.portrait = jSONObject.optString("portrait", "");
-        this.sex = jSONObject.optInt("sex", 0);
-        this.level = jSONObject.optInt("level", 0);
-        this.cuid = jSONObject.optString("cuid", "");
-        this.aEv = jSONObject.optString("client_version", "0");
-        this.aFh = jSONObject.optInt("link_status", 0);
-        this.aFi = jSONObject.optInt("living_status", 0);
-        this.aEx = jSONObject.optLong("app_id", 0L);
-        this.aFj = jSONObject.optInt("forbidden_status", 0) == 0;
-        JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.mLiveMarkInfo = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                try {
-                    AlaLiveMarkInfoData alaLiveMarkInfoData = new AlaLiveMarkInfoData();
-                    alaLiveMarkInfoData.parseJson((JSONObject) optJSONArray.get(i));
-                    this.mLiveMarkInfo.add(alaLiveMarkInfoData);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+    public String getNickname() {
+        return this.nickname;
+    }
+
+    public void setNickname(String str) {
+        this.nickname = str;
+    }
+
+    public String getAvatar() {
+        return this.avatar;
+    }
+
+    public void setAvatar(String str) {
+        this.avatar = str;
+    }
+
+    public void setUserId(String str) {
+        this.userId = str;
+    }
+
+    public boolean Bv() {
+        return this.aGL;
+    }
+
+    public void bu(boolean z) {
+        this.aGL = z;
+    }
+
+    public boolean Bw() {
+        return this.aGN;
+    }
+
+    public void bv(boolean z) {
+        this.aGN = z;
+    }
+
+    public String Bx() {
+        return this.aGO;
+    }
+
+    public void ft(String str) {
+        this.aGO = str;
+    }
+
+    public void bw(boolean z) {
+        this.aGP = z;
+    }
+
+    public void fu(String str) {
+        this.aGQ = str;
+    }
+
+    public void setStatus(int i) {
+        this.status = i;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            bu(jSONObject.optInt("is_answer", 0) == 1);
+            setNickname(jSONObject.optString("nickname", ""));
+            setAvatar(jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, ""));
+            setUserId(jSONObject.optString("user_id", ""));
+            bv(jSONObject.optInt("is_double", 0) == 1);
+            ft(jSONObject.optString("team_id", ""));
+            bw(jSONObject.optInt("is_leader", 0) == 1);
+            fu(jSONObject.optString("subject_id", ""));
+            setStatus(jSONObject.optInt("status"));
         }
     }
 
-    public boolean AG() {
-        return this.aFi == 1;
+    public String toString() {
+        return "AlaGuessGroupInfo{nickname='" + this.nickname + "', avatar='" + this.avatar + "', userId='" + this.userId + "', isAnswer=" + this.aGL + ", userAnswer='" + this.aGM + "', isDouble=" + this.aGN + ", teamId='" + this.aGO + "', isLeader=" + this.aGP + ", subjectId='" + this.aGQ + "', status=" + this.status + '}';
     }
 }

@@ -3,25 +3,25 @@ package com.baidu.mapsdkplatform.comapi.synchronization.c;
 import android.os.Build;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3094a = 4000;
+    private int f3092a = 4000;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f3095b = 4000;
+    private int f3093b = 4000;
     private ExecutorService c = Executors.newCachedThreadPool();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static abstract class AbstractRunnableC0251a implements Runnable {
-        private AbstractRunnableC0251a() {
+    /* loaded from: classes4.dex */
+    public static abstract class AbstractRunnableC0252a implements Runnable {
+        private AbstractRunnableC0252a() {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ AbstractRunnableC0251a(b bVar) {
+        public /* synthetic */ AbstractRunnableC0252a(b bVar) {
             this();
         }
 

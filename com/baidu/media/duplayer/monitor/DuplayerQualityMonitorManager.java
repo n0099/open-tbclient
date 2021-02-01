@@ -9,12 +9,12 @@ import com.baidu.media.duplayer.Keep;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class DuplayerQualityMonitorManager {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int[] f3208b = {480, 540, 720, 1080};
-    private static DuplayerQualityMonitorManager cep;
+    private static final int[] f3206b = {480, 540, 720, 1080};
+    private static DuplayerQualityMonitorManager ciy;
     private ConcurrentHashMap<String, Integer> c = new ConcurrentHashMap<>();
     private int d = -1;
 
@@ -33,12 +33,12 @@ public class DuplayerQualityMonitorManager {
         if (min <= 0) {
             return 540;
         }
-        for (int length = f3208b.length - 1; length >= 0; length--) {
-            if (min >= f3208b[length]) {
-                return f3208b[length];
+        for (int length = f3206b.length - 1; length >= 0; length--) {
+            if (min >= f3206b[length]) {
+                return f3206b[length];
             }
         }
-        return f3208b[0];
+        return f3206b[0];
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -66,10 +66,10 @@ public class DuplayerQualityMonitorManager {
     public static synchronized DuplayerQualityMonitorManager getInstance() {
         DuplayerQualityMonitorManager duplayerQualityMonitorManager;
         synchronized (DuplayerQualityMonitorManager.class) {
-            if (cep == null) {
-                cep = new DuplayerQualityMonitorManager();
+            if (ciy == null) {
+                ciy = new DuplayerQualityMonitorManager();
             }
-            duplayerQualityMonitorManager = cep;
+            duplayerQualityMonitorManager = ciy;
         }
         return duplayerQualityMonitorManager;
     }

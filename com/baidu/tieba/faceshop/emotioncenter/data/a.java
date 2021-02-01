@@ -2,12 +2,12 @@ package com.baidu.tieba.faceshop.emotioncenter.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.n;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a implements n {
-    public static final BdUniqueId iSy = BdUniqueId.gen();
+    public static final BdUniqueId iYf = BdUniqueId.gen();
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return iSy;
+        return iYf;
     }
 }

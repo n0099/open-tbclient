@@ -9,20 +9,21 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.adp.lib.safe.SafeHandler;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.data.AlaWheatInfoData;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.AccountData;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.tieba.yuyinala.liveroom.data.e;
 import com.baidu.tieba.yuyinala.liveroom.views.AlaLiveRoomBlurPageLayout;
-import com.baidu.tieba.yuyinala.liveroom.wheat.c.g;
-import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
+import com.baidu.tieba.yuyinala.liveroom.wheat.c.h;
+import com.baidu.tieba.yuyinala.liveroom.wheat.c.q;
+import com.baidu.tieba.yuyinala.liveroom.wheat.e.g;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaOnLineHttpResponseMessage;
-import com.baidu.tieba.yuyinala.liveroom.wheat.model.k;
+import com.baidu.tieba.yuyinala.liveroom.wheat.model.l;
 import com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -30,58 +31,58 @@ import java.util.List;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a {
-    public boolean aVN;
-    protected x buq;
+    public boolean aYV;
+    protected ab bxN;
+    private long cxN;
     public Activity mActivity;
     private Rect mRect;
-    public TbPageContext ovA;
-    private AlaLiveRoomBlurPageLayout oxo;
-    private com.baidu.tieba.yuyinala.player.b oxq;
-    private boolean ozE;
-    public int ozF;
-    private boolean ozG;
-    public boolean ozH;
-    private k ozI;
-    private boolean ozJ;
-    private long ozK;
-    public BaseWheatLayout ozL;
-    public List<AlaWheatInfoData> ozx = new ArrayList();
-    public List<AlaWheatInfoData> ozy = new ArrayList();
-    public List<AlaWheatInfoData> ozz = new ArrayList();
-    public List<AlaWheatInfoData> ozA = new ArrayList();
-    public List<AlaWheatInfoData> ozB = new ArrayList();
-    public List<AlaWheatInfoData> ozC = new ArrayList();
-    public Set<String> ozD = new HashSet();
+    private AlaLiveRoomBlurPageLayout oGT;
+    private com.baidu.tieba.yuyinala.player.b oGV;
+    public TbPageContext oGe;
+    public List<AlaWheatInfoData> oJf = new ArrayList();
+    public List<AlaWheatInfoData> oJg = new ArrayList();
+    public List<AlaWheatInfoData> oJh = new ArrayList();
+    public List<AlaWheatInfoData> oJi = new ArrayList();
+    public List<AlaWheatInfoData> oJj = new ArrayList();
+    public List<AlaWheatInfoData> oJk = new ArrayList();
+    public Set<String> oJl = new HashSet();
+    private boolean oJm;
+    public int oJn;
+    private boolean oJo;
+    public boolean oJp;
+    private l oJq;
+    private boolean oJr;
+    public BaseWheatLayout oJs;
 
-    public abstract void KM();
+    public abstract void Mk();
 
-    public abstract View ecn();
+    public abstract View eeB();
 
     public void a(TbPageContext tbPageContext, AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout, Rect rect) {
         this.mActivity = tbPageContext.getPageActivity();
-        this.ovA = tbPageContext;
-        this.oxo = alaLiveRoomBlurPageLayout;
+        this.oGe = tbPageContext;
+        this.oGT = alaLiveRoomBlurPageLayout;
         this.mRect = rect;
         initData();
         initView();
-        eco();
+        eeC();
     }
 
     private void initData() {
-        this.ozx.clear();
-        this.ozy.clear();
-        this.ozz.clear();
-        this.ozA.clear();
-        this.ozB.clear();
-        this.ozC.clear();
-        this.ozD.clear();
-        this.ozE = false;
-        this.ozF = 0;
-        this.ozG = false;
-        this.ozH = false;
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().aG(this.mActivity).f(this.ovA);
+        this.oJf.clear();
+        this.oJg.clear();
+        this.oJh.clear();
+        this.oJi.clear();
+        this.oJj.clear();
+        this.oJk.clear();
+        this.oJl.clear();
+        this.oJm = false;
+        this.oJn = 0;
+        this.oJo = false;
+        this.oJp = false;
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().az(this.mActivity);
     }
 
     public ViewGroup.LayoutParams k(Rect rect) {
@@ -91,21 +92,21 @@ public abstract class a {
         return layoutParams;
     }
 
-    public ViewGroup ebq() {
-        return this.ozL;
+    public ViewGroup edG() {
+        return this.oJs;
     }
 
     public void initView() {
-        this.oxo.f(ecn(), k(this.mRect));
+        this.oGT.f(eeB(), k(this.mRect));
     }
 
-    public void eco() {
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().aG(this.mActivity).f(this.ovA);
-        this.ozL.setOnItemClickListener(new BaseWheatLayout.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.a.1
+    public void eeC() {
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().az(this.mActivity);
+        this.oJs.setOnItemClickListener(new BaseWheatLayout.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.a.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout.a
             public void a(AlaWheatInfoData alaWheatInfoData, boolean z, int i) {
-                a.this.ozF = i;
-                a.this.a(alaWheatInfoData, z ? 0 : i + 1, z ? g.owL : g.owM);
+                a.this.oJn = i;
+                a.this.a(alaWheatInfoData, z ? 0 : i + 1, z ? h.oGk : h.oGl);
             }
         });
     }
@@ -114,40 +115,40 @@ public abstract class a {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501032));
     }
 
-    public List<AlaWheatInfoData> Wx() {
-        return this.ozx;
+    public List<AlaWheatInfoData> Yn() {
+        return this.oJf;
     }
 
-    public List<AlaWheatInfoData> Ww() {
-        return this.ozy;
+    public List<AlaWheatInfoData> Ym() {
+        return this.oJg;
     }
 
-    public List<AlaWheatInfoData> ebr() {
-        return this.ozB;
+    public List<AlaWheatInfoData> edH() {
+        return this.oJj;
     }
 
-    public boolean ebs() {
+    public boolean edI() {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo == null) {
             return false;
         }
         String encryptionUserId = ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID());
-        return (TextUtils.isEmpty(encryptionUserId) || eaE() || !id(encryptionUserId)) ? false : true;
+        return (TextUtils.isEmpty(encryptionUserId) || Yk() || !iJ(encryptionUserId)) ? false : true;
     }
 
-    public boolean eaE() {
+    public boolean Yk() {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null) {
-            return ic(ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID()));
+            return iI(ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID()));
         }
         return false;
     }
 
-    public boolean ic(String str) {
-        return (this.buq == null || this.buq.mLiveInfo == null || str == null || !TextUtils.equals(str, this.buq.mLiveInfo.user_uk)) ? false : true;
+    public boolean iI(String str) {
+        return (this.bxN == null || this.bxN.mLiveInfo == null || str == null || !TextUtils.equals(str, this.bxN.mLiveInfo.user_uk)) ? false : true;
     }
 
-    public boolean UV(String str) {
+    public boolean VT(String str) {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null) {
             return TextUtils.equals(str, ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID()));
@@ -155,20 +156,20 @@ public abstract class a {
         return false;
     }
 
-    public boolean ib(String str) {
+    public boolean iH(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (id(str)) {
+        if (iJ(str)) {
             return true;
         }
-        return Vs(str);
+        return Wr(str);
     }
 
-    public boolean id(String str) {
-        List<AlaWheatInfoData> Wx = Wx();
-        for (int i = 0; i < ListUtils.getCount(Wx); i++) {
-            AlaWheatInfoData alaWheatInfoData = Wx.get(i);
+    public boolean iJ(String str) {
+        List<AlaWheatInfoData> Yn = Yn();
+        for (int i = 0; i < ListUtils.getCount(Yn); i++) {
+            AlaWheatInfoData alaWheatInfoData = Yn.get(i);
             if (alaWheatInfoData != null && TextUtils.equals(str, alaWheatInfoData.uk)) {
                 return true;
             }
@@ -176,10 +177,10 @@ public abstract class a {
         return false;
     }
 
-    public boolean Vs(String str) {
-        List<AlaWheatInfoData> Ww = Ww();
-        for (int i = 0; i < ListUtils.getCount(Ww); i++) {
-            AlaWheatInfoData alaWheatInfoData = Ww.get(i);
+    public boolean Wr(String str) {
+        List<AlaWheatInfoData> Ym = Ym();
+        for (int i = 0; i < ListUtils.getCount(Ym); i++) {
+            AlaWheatInfoData alaWheatInfoData = Ym.get(i);
             if (alaWheatInfoData != null && TextUtils.equals(str, alaWheatInfoData.uk)) {
                 return true;
             }
@@ -187,7 +188,7 @@ public abstract class a {
         return false;
     }
 
-    public AlaWheatInfoData ie(String str) {
+    public AlaWheatInfoData iK(String str) {
         return bi(str, true);
     }
 
@@ -196,11 +197,11 @@ public abstract class a {
         AlaWheatInfoData alaWheatInfoData2;
         int i = 0;
         while (true) {
-            if (i >= ListUtils.getCount(this.ozx)) {
+            if (i >= ListUtils.getCount(this.oJf)) {
                 alaWheatInfoData = null;
                 break;
             }
-            AlaWheatInfoData alaWheatInfoData3 = this.ozx.get(i);
+            AlaWheatInfoData alaWheatInfoData3 = this.oJf.get(i);
             if (str != null && alaWheatInfoData3 != null && str.equals(alaWheatInfoData3.uk)) {
                 alaWheatInfoData = alaWheatInfoData3;
                 break;
@@ -208,8 +209,8 @@ public abstract class a {
             i++;
         }
         if (alaWheatInfoData == null) {
-            for (int i2 = 0; i2 < ListUtils.getCount(this.ozy); i2++) {
-                alaWheatInfoData2 = this.ozy.get(i2);
+            for (int i2 = 0; i2 < ListUtils.getCount(this.oJg); i2++) {
+                alaWheatInfoData2 = this.oJg.get(i2);
                 if (str != null && alaWheatInfoData2 != null && str.equals(alaWheatInfoData2.uk)) {
                     break;
                 }
@@ -225,61 +226,61 @@ public abstract class a {
         return null;
     }
 
-    public AlaWheatInfoData VB(String str) {
-        if (this.ozL != null) {
-            return this.ozL.ie(str);
+    public AlaWheatInfoData Wz(String str) {
+        if (this.oJs != null) {
+            return this.oJs.iK(str);
         }
         return null;
     }
 
-    public AlaWheatInfoData Wv() {
-        x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
-        if (WA == null || WA.mLiveInfo == null) {
+    public AlaWheatInfoData Yl() {
+        ab Yq = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().Yq();
+        if (Yq == null || Yq.mLiveInfo == null) {
             return null;
         }
         AlaWheatInfoData alaWheatInfoData = new AlaWheatInfoData();
-        alaWheatInfoData.uk = WA.mLiveInfo.user_uk;
-        alaWheatInfoData.userName = WA.mLiveInfo.user_name;
-        alaWheatInfoData.portrait = WA.mLiveInfo.user_avatar;
+        alaWheatInfoData.uk = Yq.mLiveInfo.user_uk;
+        alaWheatInfoData.userName = Yq.mLiveInfo.user_name;
+        alaWheatInfoData.portrait = Yq.mLiveInfo.user_avatar;
         return alaWheatInfoData;
     }
 
     public boolean isApplying() {
-        return this.ozE;
+        return this.oJm;
     }
 
-    public void zM(boolean z) {
-        this.ozE = z;
+    public void Af(boolean z) {
+        this.oJm = z;
     }
 
-    public void aS(String str, String str2, String str3) {
-        if (this.ozL != null && !ebw()) {
-            this.ozL.aS(str, str2, str3);
+    public void aT(String str, String str2, String str3) {
+        if (this.oJs != null && !edM()) {
+            this.oJs.aT(str, str2, str3);
         }
     }
 
-    public void VC(String str) {
-        if (this.ozL != null) {
-            this.ozL.VC(str);
+    public void WA(String str) {
+        if (this.oJs != null) {
+            this.oJs.WA(str);
         }
     }
 
-    public void VD(String str) {
-        if (this.ozL != null) {
-            this.ozL.VD(str);
+    public void WB(String str) {
+        if (this.oJs != null) {
+            this.oJs.WB(str);
         }
     }
 
-    public synchronized void ecp() {
-        if (this.ozL != null) {
+    public synchronized void eeD() {
+        if (this.oJs != null) {
             try {
                 if (BdUtilHelper.isMainThread()) {
-                    KM();
+                    Mk();
                 } else {
-                    this.ozL.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.a.2
+                    this.oJs.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.a.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.KM();
+                            a.this.Mk();
                         }
                     });
                 }
@@ -290,85 +291,87 @@ public abstract class a {
         }
     }
 
-    public void ar(x xVar) {
-        if (xVar != null && xVar.aGD != null) {
-            this.buq = xVar;
-            if (this.buq != null && this.buq.aGD != null) {
-                o.ebo().zM(this.buq.aGD.isApplying());
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501074));
-            if (this.ozJ) {
+    public void ar(ab abVar) {
+        if (abVar != null && abVar.aIY != null) {
+            this.bxN = abVar;
+            q.edE().Af(abVar.aIY.isApplying());
+            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.a.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501074));
+                }
+            }, 100L);
+            if (this.oJr) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.ozK > 100 && currentTimeMillis - this.ozK < 5000) {
-                    if (ib(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.Wz())) {
-                        if (eaE()) {
+                if (currentTimeMillis - this.cxN > 100 && currentTimeMillis - this.cxN < 5000) {
+                    if (iH(g.Yp())) {
+                        if (Yk()) {
                             com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("connection_wheat_succ_host_5", true);
                         } else {
                             com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("connection_wheat_succ_anchor_8", false);
                         }
-                        this.ozJ = false;
+                        this.oJr = false;
                     }
                 } else {
-                    this.ozJ = false;
+                    this.oJr = false;
                 }
             }
-            if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.otP) {
-                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz();
+            if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oDA) {
+                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().ecL();
             }
         }
     }
 
     public void G(String str, boolean z) {
-        if (this.ozD != null) {
+        if (this.oJl != null) {
             if (z) {
-                if (!this.ozD.contains(str)) {
-                    this.ozD.add(str);
+                if (!this.oJl.contains(str)) {
+                    this.oJl.add(str);
                     return;
                 }
                 return;
             }
-            this.ozD.remove(str);
+            this.oJl.remove(str);
         }
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public boolean m48if(String str) {
-        return this.ozD != null && this.ozD.contains(str);
+    public boolean iL(String str) {
+        return this.oJl != null && this.oJl.contains(str);
     }
 
     public void setMaskBg(boolean z) {
-        if (this.ozL != null) {
-            this.ozL.setMaskBg(z);
+        if (this.oJs != null) {
+            this.oJs.setMaskBg(z);
         }
     }
 
     public void setVisible(boolean z) {
-        if (this.ozL != null) {
-            this.ozL.setVisibility(z ? 0 : 8);
+        if (this.oJs != null) {
+            this.oJs.setVisibility(z ? 0 : 8);
         }
     }
 
-    public TbPageContext ebu() {
-        return this.ovA;
+    public TbPageContext edK() {
+        return this.oGe;
     }
 
-    public boolean ecq() {
-        return this.ozG;
+    public boolean eeE() {
+        return this.oJo;
     }
 
-    public void zN(boolean z) {
-        this.ozG = z;
+    public void Ag(boolean z) {
+        this.oJo = z;
     }
 
-    public int ebt() {
-        return this.ozF;
+    public int edJ() {
+        return this.oJn;
     }
 
-    private void ecr() {
-        if (eaE() && this.buq != null && this.buq.mLiveInfo != null && this.buq.mLiveInfo.apply_count > 0) {
+    private void eeF() {
+        if (Yk() && this.bxN != null && this.bxN.mLiveInfo != null && this.bxN.mLiveInfo.apply_count > 0) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("count", this.buq.mLiveInfo.apply_count);
+                jSONObject.put("count", this.bxN.mLiveInfo.apply_count);
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("data", jSONObject);
                 jSONObject2.toString();
@@ -379,59 +382,59 @@ public abstract class a {
         }
     }
 
-    public void m(x xVar) {
-        this.buq = xVar;
-        this.aVN = true;
-        ar(xVar);
-        ecr();
-        if ((xVar == null || xVar.mLiveInfo == null || xVar.mLiveInfo.live_status != 2) && this.ozL != null && this.ozL.getVisibility() != 0) {
+    public void m(ab abVar) {
+        this.bxN = abVar;
+        this.aYV = true;
+        ar(abVar);
+        eeF();
+        if ((abVar == null || abVar.mLiveInfo == null || abVar.mLiveInfo.live_status != 2) && this.oJs != null && this.oJs.getVisibility() != 0) {
             setVisible(true);
         }
     }
 
-    public void zH() {
-        this.ozx.clear();
-        this.ozy.clear();
-        this.ozz.clear();
-        this.ozA.clear();
-        this.ozB.clear();
-        this.ozC.clear();
-        this.ozD.clear();
-        this.ozE = false;
-        this.ozF = 0;
-        this.ozG = false;
-        this.ozH = false;
+    public void Ar() {
+        this.oJf.clear();
+        this.oJg.clear();
+        this.oJh.clear();
+        this.oJi.clear();
+        this.oJj.clear();
+        this.oJk.clear();
+        this.oJl.clear();
+        this.oJm = false;
+        this.oJn = 0;
+        this.oJo = false;
+        this.oJp = false;
         setVisible(false);
     }
 
-    public void H(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2) {
+    public void G(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2) {
         c(list, list2, null);
     }
 
     public void c(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2, List<AlaWheatInfoData> list3) {
-        this.ozH = false;
-        this.ozx.clear();
-        this.ozy.clear();
-        this.ozz.clear();
-        this.ozA.clear();
-        this.ozB.clear();
-        this.ozC.clear();
+        this.oJp = false;
+        this.oJf.clear();
+        this.oJg.clear();
+        this.oJh.clear();
+        this.oJi.clear();
+        this.oJj.clear();
+        this.oJk.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.ozA.addAll(list);
+            this.oJi.addAll(list);
         }
         if (!ListUtils.isEmpty(list2)) {
-            this.ozB.addAll(list2);
+            this.oJj.addAll(list2);
         }
         if (!ListUtils.isEmpty(list3)) {
-            this.ozC.addAll(list3);
+            this.oJk.addAll(list3);
         }
         if (!ListUtils.isEmpty(list)) {
             for (int i = 0; i < list.size(); i++) {
                 AlaWheatInfoData alaWheatInfoData = list.get(i);
                 if (alaWheatInfoData != null) {
-                    this.ozH = true;
+                    this.oJp = true;
                     alaWheatInfoData.realWheatPosition = i;
-                    this.ozx.add(alaWheatInfoData);
+                    this.oJf.add(alaWheatInfoData);
                 }
             }
         }
@@ -439,9 +442,9 @@ public abstract class a {
             for (int i2 = 0; i2 < list2.size(); i2++) {
                 AlaWheatInfoData alaWheatInfoData2 = list2.get(i2);
                 if (alaWheatInfoData2 != null) {
-                    this.ozH = true;
+                    this.oJp = true;
                     alaWheatInfoData2.realWheatPosition = i2 + 1;
-                    this.ozy.add(alaWheatInfoData2);
+                    this.oJg.add(alaWheatInfoData2);
                 }
             }
         }
@@ -449,92 +452,92 @@ public abstract class a {
             for (int i3 = 0; i3 < list3.size(); i3++) {
                 AlaWheatInfoData alaWheatInfoData3 = list3.get(i3);
                 if (alaWheatInfoData3 != null) {
-                    this.ozH = true;
+                    this.oJp = true;
                     alaWheatInfoData3.realWheatPosition = i3 + 1;
-                    this.ozz.add(alaWheatInfoData3);
+                    this.oJh.add(alaWheatInfoData3);
                 }
             }
         }
-        ecp();
+        eeD();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501081));
-        if (ecq()) {
+        if (eeE()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501068));
         }
         startPlayer();
-        this.aVN = false;
+        this.aYV = false;
     }
 
     private void startPlayer() {
         boolean z = true;
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.otP) {
-            Log.i("AudioRoom", "isFirstEnterLiveRoom" + this.aVN + "  havePersonOnWheat:" + this.ozH + "  isOnWheat(getCurrentUserUK())" + ib(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.Wz()));
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oDA) {
+            Log.i("AudioRoom", "isFirstEnterLiveRoom" + this.aYV + "  havePersonOnWheat:" + this.oJp + "  isOnWheat(getCurrentUserUK())" + iH(g.Yp()));
         }
-        if (!this.aVN && this.ozH && !ib(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.Wz())) {
-            final com.baidu.tieba.yuyinala.liveroom.wheat.a.b eaz = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz();
-            if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.otP) {
-                StringBuilder append = new StringBuilder().append("am != null").append(eaz != null).append("  am.isPlayerPlaying():");
-                if (eaz == null || eaz.eak()) {
+        if (!this.aYV && this.oJp && !iH(g.Yp()) && !Yk()) {
+            final com.baidu.tieba.yuyinala.liveroom.wheat.a.b ecL = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().ecL();
+            if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oDA) {
+                StringBuilder append = new StringBuilder().append("am != null").append(ecL != null).append("  am.isPlayerPlaying():");
+                if (ecL == null || ecL.ecv()) {
                     z = false;
                 }
                 Log.i("AudioRoom", append.append(z).toString());
             }
-            if (eaz != null && !eaz.eak()) {
+            if (ecL != null && !ecL.ecv()) {
                 if (TbadkCoreApplication.isLogin()) {
-                    if (this.ozI == null) {
-                        this.ozI = new k(null, new k.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.a.3
-                            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.k.a
+                    if (this.oJq == null) {
+                        this.oJq = new l(null, new l.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.a.4
+                            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.l.a
                             public void a(AlaOnLineHttpResponseMessage alaOnLineHttpResponseMessage) {
-                                if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.otP) {
+                                if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oDA) {
                                     Log.i("AudioRoom", "resp.isSuccess()" + alaOnLineHttpResponseMessage.isSuccess() + "  resp.isOnline():" + alaOnLineHttpResponseMessage.isOnline());
                                 }
-                                if (alaOnLineHttpResponseMessage.isSuccess() && !alaOnLineHttpResponseMessage.isOnline() && eaz != null) {
-                                    eaz.eat();
+                                if (alaOnLineHttpResponseMessage.isSuccess() && !alaOnLineHttpResponseMessage.isOnline() && ecL != null) {
+                                    ecL.ecD();
                                 }
                             }
 
-                            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.k.a
+                            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.l.a
                             public void onFail(int i, String str) {
                             }
                         });
                     }
-                    this.ozI.request();
-                } else if (eaz != null) {
-                    eaz.eat();
+                    this.oJq.request();
+                } else if (ecL != null) {
+                    ecL.ecD();
                 }
             }
         }
     }
 
     public void a(AlaWheatInfoData alaWheatInfoData, int i, int i2) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501010, new e(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA(), alaWheatInfoData, i2, i)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501010, new com.baidu.tieba.yuyinala.liveroom.data.e(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().Yq(), alaWheatInfoData, i2, i)));
     }
 
     public void a(com.baidu.tieba.yuyinala.player.b bVar) {
-        this.oxq = bVar;
+        this.oGV = bVar;
     }
 
-    public void zO(boolean z) {
-        this.ozJ = z;
-        this.ozK = System.currentTimeMillis();
+    public void Ah(boolean z) {
+        this.oJr = z;
+        this.cxN = System.currentTimeMillis();
     }
 
-    public boolean ebw() {
-        if (this.oxq != null) {
-            return this.oxq.ebw();
+    public boolean edM() {
+        if (this.oGV != null) {
+            return this.oGV.edM();
         }
         return false;
     }
 
     public void onDestroy() {
-        if (this.ozI != null) {
-            this.ozI.onDestroy();
-            this.ozI = null;
+        if (this.oJq != null) {
+            this.oJq.onDestroy();
+            this.oJq = null;
         }
     }
 
     public int getWheatHeight() {
-        if (this.ozL != null) {
-            return this.ozL.getWheatHeight();
+        if (this.oJs != null) {
+            return this.oJs.getWheatHeight();
         }
         return 0;
     }

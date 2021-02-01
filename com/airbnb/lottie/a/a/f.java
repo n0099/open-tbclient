@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f implements d, j, a.InterfaceC0007a {
     private final com.airbnb.lottie.f BH;
     private final com.airbnb.lottie.a.b.a<Integer, Integer> DK;
@@ -27,22 +27,22 @@ public class f implements d, j, a.InterfaceC0007a {
         this.Ds = aVar;
         this.name = iVar.getName();
         this.BH = fVar;
-        if (iVar.jO() == null || iVar.ji() == null) {
+        if (iVar.jN() == null || iVar.jh() == null) {
             this.DK = null;
             this.Dw = null;
             return;
         }
-        this.path.setFillType(iVar.jp());
-        this.DK = iVar.jO().jc();
+        this.path.setFillType(iVar.jo());
+        this.DK = iVar.jN().jb();
         this.DK.b(this);
         aVar.a(this.DK);
-        this.Dw = iVar.ji().jc();
+        this.Dw = iVar.jh().jb();
         this.Dw.b(this);
         aVar.a(this.Dw);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
-    public void is() {
+    public void ir() {
         this.BH.invalidateSelf();
     }
 
@@ -78,7 +78,7 @@ public class f implements d, j, a.InterfaceC0007a {
         }
         this.path.reset();
         for (int i2 = 0; i2 < this.DA.size(); i2++) {
-            this.path.addPath(this.DA.get(i2).iv(), matrix);
+            this.path.addPath(this.DA.get(i2).iu(), matrix);
         }
         canvas.drawPath(this.path, this.paint);
         com.airbnb.lottie.c.bb("FillContent#draw");
@@ -88,7 +88,7 @@ public class f implements d, j, a.InterfaceC0007a {
     public void d(RectF rectF, Matrix matrix) {
         this.path.reset();
         for (int i = 0; i < this.DA.size(); i++) {
-            this.path.addPath(this.DA.get(i).iv(), matrix);
+            this.path.addPath(this.DA.get(i).iu(), matrix);
         }
         this.path.computeBounds(rectF, false);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);

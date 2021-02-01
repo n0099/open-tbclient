@@ -28,7 +28,7 @@ public class VideoMiddlePageActivityConfig extends IntentConfig {
 
     public VideoMiddlePageActivityConfig(Context context, String str, String str2, String str3, String str4, VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
         this(context, str, str2, str3, str4);
-        getIntent().putExtra(PARAM_VIDEO_THREAD_INFO, videoSerializeVideoThreadInfo);
+        getIntent().putExtra("param_video_thread_info", videoSerializeVideoThreadInfo);
     }
 
     public void setNid(String str) {

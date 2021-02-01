@@ -23,7 +23,7 @@ import java.util.zip.ZipOutputStream;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f14332a = {"jpg", "png", "bmp", "gif", "webp"};
+    public static final String[] f14334a = {"jpg", "png", "bmp", "gif", "webp"};
 
     public static String a(File file) {
         InputStreamReader inputStreamReader;

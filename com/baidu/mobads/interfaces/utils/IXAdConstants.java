@@ -1,5 +1,5 @@
 package com.baidu.mobads.interfaces.utils;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IXAdConstants {
     String deviceNetworkTypeCdma();
 
@@ -103,6 +103,8 @@ public interface IXAdConstants {
     @Deprecated
     String getProductionTypeFeeds();
 
+    String getProductionTypeFullScreenVideo();
+
     @Deprecated
     String getProductionTypeIcon();
 
@@ -114,6 +116,8 @@ public interface IXAdConstants {
 
     @Deprecated
     String getProductionTypeRWall();
+
+    String getProductionTypeRewardVideo();
 
     @Deprecated
     String getProductionTypeSplash();

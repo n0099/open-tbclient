@@ -6,7 +6,7 @@ import android.animation.ValueAnimator;
 import androidx.annotation.RestrictTo;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class AnimatorSetCompat {
     public static void playTogether(AnimatorSet animatorSet, List<Animator> list) {
         long j = 0;

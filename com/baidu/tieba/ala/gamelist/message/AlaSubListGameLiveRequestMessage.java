@@ -5,10 +5,10 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.LiveTabliveSubTab.DataReq;
 import tbclient.LiveTabliveSubTab.LiveTabliveSubTabReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaSubListGameLiveRequestMessage extends NetMessage {
     public Integer entryId;
     public String entryName;
@@ -41,7 +41,7 @@ public class AlaSubListGameLiveRequestMessage extends NetMessage {
             builder.label_name = this.labelName;
             builder.sort_type = Integer.valueOf(this.sort_type);
             if (z) {
-                t.b(builder, true);
+                v.b(builder, true);
             }
             LiveTabliveSubTabReqIdl.Builder builder2 = new LiveTabliveSubTabReqIdl.Builder();
             builder2.data = builder.build(false);

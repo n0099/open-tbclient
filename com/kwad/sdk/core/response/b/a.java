@@ -12,7 +12,7 @@ import com.kwad.sdk.plugin.g;
 import com.kwad.sdk.utils.ag;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static int A(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.ecpm;

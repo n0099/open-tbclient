@@ -4,7 +4,7 @@ import com.qq.e.comm.plugin.aa.b.f;
 import com.qq.e.comm.plugin.y.u;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class h {
     private static com.qq.e.comm.plugin.y.d a(Exception exc, String str) {
         com.qq.e.comm.plugin.y.d dVar = new com.qq.e.comm.plugin.y.d();

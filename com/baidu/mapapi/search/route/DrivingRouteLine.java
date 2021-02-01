@@ -9,17 +9,17 @@ import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.RouteStep;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelable {
     public static final Parcelable.Creator<DrivingRouteLine> CREATOR = new d();
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f2894b;
+    private boolean f2892b;
     private List<RouteNode> c;
     private int d;
     private int e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class DrivingStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<DrivingStep> CREATOR = new e();
         List<LatLng> d;
@@ -158,7 +158,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
     /* JADX INFO: Access modifiers changed from: protected */
     public DrivingRouteLine(Parcel parcel) {
         super(parcel);
-        this.f2894b = parcel.readByte() != 0;
+        this.f2892b = parcel.readByte() != 0;
         this.c = new ArrayList();
         parcel.readList(this.c, RouteNode.class.getClassLoader());
         this.d = parcel.readInt();
@@ -184,7 +184,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
 
     @Deprecated
     public boolean isSupportTraffic() {
-        return this.f2894b;
+        return this.f2892b;
     }
 
     public void setCongestionDistance(int i) {
@@ -196,7 +196,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
     }
 
     public void setSupportTraffic(boolean z) {
-        this.f2894b = z;
+        this.f2892b = z;
     }
 
     public void setWayPoints(List<RouteNode> list) {
@@ -207,7 +207,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
     public void writeToParcel(Parcel parcel, int i) {
         super.setType(RouteLine.TYPE.DRIVESTEP);
         super.writeToParcel(parcel, i);
-        parcel.writeByte(this.f2894b ? (byte) 1 : (byte) 0);
+        parcel.writeByte(this.f2892b ? (byte) 1 : (byte) 0);
         parcel.writeList(this.c);
         parcel.writeInt(this.d);
         parcel.writeInt(this.e);

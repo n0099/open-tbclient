@@ -7,20 +7,20 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1660a;
+    final /* synthetic */ b f1658a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final CharSequence f1661b;
+    private final CharSequence f1659b;
     private byte[] c;
 
     public c(b bVar, CharSequence charSequence, byte[] bArr) {
-        this.f1660a = bVar;
+        this.f1658a = bVar;
         this.c = null;
-        this.f1661b = charSequence;
+        this.f1659b = charSequence;
         this.c = bArr;
     }
 
@@ -35,7 +35,7 @@ public class c extends Thread {
         HttpURLConnection httpURLConnection2 = null;
         try {
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.f1661b.toString()).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.f1659b.toString()).openConnection();
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -66,15 +66,15 @@ public class c extends Thread {
                 inputStream.close();
                 LogUtil.logE("LogRequest", "**********strResult:" + sb.toString());
                 if (new JSONObject(sb.toString()).getString("retcode").equals("1")) {
-                    aVar3 = this.f1660a.c;
+                    aVar3 = this.f1658a.c;
                     aVar3.c();
                 } else {
-                    aVar2 = this.f1660a.c;
+                    aVar2 = this.f1658a.c;
                     aVar2.e();
                 }
             } else {
                 LogUtil.logE("LogRequest", "request failed  " + httpURLConnection.getResponseCode());
-                aVar = this.f1660a.c;
+                aVar = this.f1658a.c;
                 aVar.e();
             }
             if (httpURLConnection != null) {

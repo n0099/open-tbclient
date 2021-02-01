@@ -1,9 +1,14 @@
 package com.baidu.live.j;
 
 import android.view.View;
-/* loaded from: classes10.dex */
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
 public interface b {
-    View getOverlayView();
+    void a(ab abVar);
 
-    void setViewTouchable(boolean z);
+    void du(int i);
+
+    View getView();
+
+    void setIsHost(boolean z);
 }

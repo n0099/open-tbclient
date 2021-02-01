@@ -17,20 +17,20 @@ import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @JNINamespace
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ProxyChangeListener {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static boolean sEnabled;
     private Context mContext;
     private long mNativePtr;
-    private b oGL;
-    private Delegate oGM;
+    private b oQT;
+    private Delegate oQU;
     private final Looper mLooper = Looper.myLooper();
     private final Handler mHandler = new Handler(this.mLooper);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface Delegate {
-        void eej();
+        void egB();
     }
 
     @NativeClassQualifiedName
@@ -45,7 +45,7 @@ public class ProxyChangeListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public final String[] mExclusionList;
         public final String mHost;
@@ -92,7 +92,7 @@ public class ProxyChangeListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b extends BroadcastReceiver {
         private b() {
         }
@@ -170,9 +170,9 @@ public class ProxyChangeListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar, a aVar) {
-        if (sEnabled && bVar == this.oGL) {
-            if (this.oGM != null) {
-                this.oGM.eej();
+        if (sEnabled && bVar == this.oQT) {
+            if (this.oQU != null) {
+                this.oQU.egB();
             }
             if (this.mNativePtr != 0) {
                 if (aVar != null) {
@@ -185,18 +185,18 @@ public class ProxyChangeListener {
     }
 
     private void registerReceiver() {
-        if (this.oGL == null) {
+        if (this.oQT == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PROXY_CHANGE");
-            this.oGL = new b();
-            this.mContext.getApplicationContext().registerReceiver(this.oGL, intentFilter);
+            this.oQT = new b();
+            this.mContext.getApplicationContext().registerReceiver(this.oQT, intentFilter);
         }
     }
 
     private void unregisterReceiver() {
-        if (this.oGL != null) {
-            this.mContext.unregisterReceiver(this.oGL);
-            this.oGL = null;
+        if (this.oQT != null) {
+            this.mContext.unregisterReceiver(this.oQT);
+            this.oQT = null;
         }
     }
 

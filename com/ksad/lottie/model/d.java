@@ -4,22 +4,22 @@ import androidx.annotation.RestrictTo;
 import com.ksad.lottie.model.content.j;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<j> f8085a;
+    private final List<j> f8087a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final char f8086b;
+    private final char f8088b;
     private final double c;
     private final double d;
     private final String e;
     private final String f;
 
     public d(List<j> list, char c, double d, double d2, String str, String str2) {
-        this.f8085a = list;
-        this.f8086b = c;
+        this.f8087a = list;
+        this.f8088b = c;
         this.c = d;
         this.d = d2;
         this.e = str;
@@ -31,7 +31,7 @@ public class d {
     }
 
     public List<j> a() {
-        return this.f8085a;
+        return this.f8087a;
     }
 
     public double b() {
@@ -39,6 +39,6 @@ public class d {
     }
 
     public int hashCode() {
-        return a(this.f8086b, this.f, this.e);
+        return a(this.f8088b, this.f, this.e);
     }
 }

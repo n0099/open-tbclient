@@ -5,7 +5,7 @@ import com.kwai.video.player.IKwaiRepresentationListener;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KwaiRepresentationListenerBridge {
     private static IKwaiRepresentationListener getListener(Object obj) {
         if (obj == null) {

@@ -6,7 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class BasicTrustRootIndex implements TrustRootIndex {
     private final Map<X500Principal, Set<X509Certificate>> subjectToCaCerts = new LinkedHashMap();
 

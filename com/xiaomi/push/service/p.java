@@ -160,8 +160,8 @@ public class p {
                     com.xiaomi.channel.commonutils.logger.b.m80a("drop a duplicate message, key=" + r0);
                 } else {
                     aa.c m556a = aa.m556a((Context) xMPushService, a2, bArr);
-                    if (m556a.f14223a > 0 && !TextUtils.isEmpty(m556a.f913a)) {
-                        gx.a(xMPushService, m556a.f913a, m556a.f14223a, true, false, System.currentTimeMillis());
+                    if (m556a.f14225a > 0 && !TextUtils.isEmpty(m556a.f913a)) {
+                        gx.a(xMPushService, m556a.f913a, m556a.f14225a, true, false, System.currentTimeMillis());
                     }
                     if (!aa.m559a(a2)) {
                         Intent intent2 = new Intent("com.xiaomi.mipush.MESSAGE_ARRIVED");

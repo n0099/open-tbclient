@@ -10,7 +10,7 @@ import androidx.annotation.RequiresApi;
 import java.util.ArrayList;
 import java.util.List;
 @RequiresApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class FragmentTransitionCompat21 extends FragmentTransitionImpl {
     @Override // androidx.fragment.app.FragmentTransitionImpl
     public boolean canHandle(Object obj) {

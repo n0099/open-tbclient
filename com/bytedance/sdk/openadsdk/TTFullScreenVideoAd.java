@@ -4,10 +4,10 @@ import android.app.Activity;
 import androidx.annotation.MainThread;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface TTFullScreenVideoAd {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface FullScreenVideoAdInteractionListener {
         void onAdClose();
 

@@ -2,12 +2,12 @@ package com.baidu.swan.pms.c;
 
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public interface f {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void S(String str, int i);
+        void U(String str, int i);
 
         void b(String str, String str2, JSONObject jSONObject);
 

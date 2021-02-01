@@ -8,23 +8,23 @@ import com.bytedance.sdk.openadsdk.c.i;
 import com.bytedance.sdk.openadsdk.core.q;
 import com.bytedance.sdk.openadsdk.h.b.c;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b<T extends i> {
 
     /* renamed from: a  reason: collision with root package name */
-    private g<T> f6218a;
+    private g<T> f6220a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Handler f6219b;
+    private Handler f6221b;
     private AtomicBoolean c;
 
     public b(e<T> eVar, q<T> qVar, g.b bVar, g.a aVar) {
-        this.f6218a = new g<>(eVar, qVar, bVar, aVar);
+        this.f6220a = new g<>(eVar, qVar, bVar, aVar);
         this.c = new AtomicBoolean(false);
     }
 
     public b(e<T> eVar, q<T> qVar, g.b bVar, g.a aVar, g<T> gVar) {
-        this.f6218a = gVar;
+        this.f6220a = gVar;
         this.c = new AtomicBoolean(false);
     }
 
@@ -33,28 +33,28 @@ public class b<T extends i> {
     }
 
     public synchronized void a() {
-        if ((this.c == null || !this.c.get()) && this.f6218a.getLooper() == null && this.c != null && !this.c.get()) {
-            this.f6218a.start();
-            this.f6219b = new Handler(this.f6218a.getLooper(), this.f6218a);
-            Message obtainMessage = this.f6219b.obtainMessage();
+        if ((this.c == null || !this.c.get()) && this.f6220a.getLooper() == null && this.c != null && !this.c.get()) {
+            this.f6220a.start();
+            this.f6221b = new Handler(this.f6220a.getLooper(), this.f6220a);
+            Message obtainMessage = this.f6221b.obtainMessage();
             obtainMessage.what = 5;
-            this.f6219b.sendMessage(obtainMessage);
+            this.f6221b.sendMessage(obtainMessage);
             this.c.set(true);
         }
     }
 
     public void b() {
         this.c.set(false);
-        this.f6218a.quit();
-        this.f6219b.removeCallbacksAndMessages(null);
+        this.f6220a.quit();
+        this.f6221b.removeCallbacksAndMessages(null);
     }
 
     public void a(@NonNull T t) {
         if (this.c.get()) {
-            Message obtainMessage = this.f6219b.obtainMessage();
+            Message obtainMessage = this.f6221b.obtainMessage();
             obtainMessage.what = 1;
             obtainMessage.obj = t;
-            this.f6219b.sendMessage(obtainMessage);
+            this.f6221b.sendMessage(obtainMessage);
         }
     }
 
@@ -62,26 +62,26 @@ public class b<T extends i> {
         return a.e();
     }
 
-    public static C0995b d() {
-        return C0995b.e();
+    public static C0999b d() {
+        return C0999b.e();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a extends b<com.bytedance.sdk.openadsdk.c.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        private static volatile a f6220a;
+        private static volatile a f6222a;
 
         public static a e() {
-            if (f6220a == null) {
+            if (f6222a == null) {
                 synchronized (a.class) {
-                    if (f6220a == null) {
-                        f6220a = new a();
+                    if (f6222a == null) {
+                        f6222a = new a();
                     }
                 }
             }
-            return f6220a;
+            return f6222a;
         }
 
         a() {
@@ -103,24 +103,24 @@ public class b<T extends i> {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0995b extends b<c.a> {
+    /* loaded from: classes6.dex */
+    public static class C0999b extends b<c.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        private static volatile C0995b f6221a;
+        private static volatile C0999b f6223a;
 
-        public static C0995b e() {
-            if (f6221a == null) {
-                synchronized (C0995b.class) {
-                    if (f6221a == null) {
-                        f6221a = new C0995b();
+        public static C0999b e() {
+            if (f6223a == null) {
+                synchronized (C0999b.class) {
+                    if (f6223a == null) {
+                        f6223a = new C0999b();
                     }
                 }
             }
-            return f6221a;
+            return f6223a;
         }
 
-        C0995b() {
+        C0999b() {
         }
 
         @Override // com.bytedance.sdk.openadsdk.c.b

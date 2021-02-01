@@ -14,17 +14,17 @@ import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.core.q;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile b f6261a;
+    private static volatile b f6263a;
 
     /* renamed from: b  reason: collision with root package name */
-    private WeakReference<Context> f6262b;
+    private WeakReference<Context> f6264b;
     private final q c = p.f();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -32,24 +32,24 @@ public class b {
     }
 
     private b(Context context) {
-        this.f6262b = new WeakReference<>(context);
+        this.f6264b = new WeakReference<>(context);
     }
 
     private void b(Context context) {
-        this.f6262b = new WeakReference<>(context);
+        this.f6264b = new WeakReference<>(context);
     }
 
     public static b a(@NonNull Context context) {
-        if (f6261a == null) {
+        if (f6263a == null) {
             synchronized (b.class) {
-                if (f6261a == null) {
-                    f6261a = new b(context);
+                if (f6263a == null) {
+                    f6263a = new b(context);
                 }
             }
         } else {
-            f6261a.b(context);
+            f6263a.b(context);
         }
-        return f6261a;
+        return f6263a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -96,8 +96,8 @@ public class b {
                         b.this.a(lVar, new a() { // from class: com.bytedance.sdk.openadsdk.component.banner.b.2.1
                             @Override // com.bytedance.sdk.openadsdk.component.banner.b.a
                             public void a(@NonNull com.bytedance.sdk.openadsdk.component.banner.a aVar2) {
-                                if (b.this.f6262b.get() != null) {
-                                    bannerAdListener.onBannerAdLoad(new e((Context) b.this.f6262b.get(), aVar2, adSlot));
+                                if (b.this.f6264b.get() != null) {
+                                    bannerAdListener.onBannerAdLoad(new e((Context) b.this.f6264b.get(), aVar2, adSlot));
                                 }
                             }
 
@@ -119,17 +119,17 @@ public class b {
     }
 
     private Context a() {
-        return (this.f6262b == null || this.f6262b.get() == null) ? p.a() : this.f6262b.get();
+        return (this.f6264b == null || this.f6264b.get() == null) ? p.a() : this.f6264b.get();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull final l lVar, @Nullable final a aVar) {
-        com.bytedance.sdk.openadsdk.i.e.a(a()).g().a(lVar.M().get(0).a(), new d.InterfaceC0993d() { // from class: com.bytedance.sdk.openadsdk.component.banner.b.3
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0993d
+        com.bytedance.sdk.openadsdk.i.e.a(a()).g().a(lVar.M().get(0).a(), new d.InterfaceC0997d() { // from class: com.bytedance.sdk.openadsdk.component.banner.b.3
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
             public void a() {
             }
 
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0993d
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
             public void a(d.c cVar, boolean z) {
                 if (cVar != null && cVar.a() != null) {
                     if (aVar != null) {
@@ -140,7 +140,7 @@ public class b {
                 }
             }
 
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0993d
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
             public void b() {
             }
 

@@ -1,5 +1,5 @@
 package common.network.download;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public enum State {
     PAUSED,
     RUNNING,

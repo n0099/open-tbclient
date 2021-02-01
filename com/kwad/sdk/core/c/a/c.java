@@ -6,7 +6,7 @@ import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c implements com.kwad.sdk.core.c<AdInfo.AdBaseInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c

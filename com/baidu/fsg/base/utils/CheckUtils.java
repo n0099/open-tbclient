@@ -14,10 +14,10 @@ import java.util.regex.Pattern;
 public final class CheckUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1966a = "CheckUtils";
+    private static final String f1964a = "CheckUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f1967b = 3;
+    private static final int f1965b = 3;
     private static final int c = 12;
     private static final int d = 4;
     private static long e;
@@ -264,7 +264,7 @@ public final class CheckUtils {
                         z = file.createNewFile();
                     } catch (IOException e2) {
                         if (ApollonConstants.DEBUG) {
-                            Log.w(f1966a, "isExternalStorageWriteable() can't create test file.");
+                            Log.w(f1964a, "isExternalStorageWriteable() can't create test file.");
                         }
                     }
                 }
@@ -272,7 +272,7 @@ public final class CheckUtils {
         }
         long currentTimeMillis2 = System.currentTimeMillis();
         if (ApollonConstants.DEBUG) {
-            Log.i(f1966a, "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.");
+            Log.i(f1964a, "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.");
         }
         return z;
     }

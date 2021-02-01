@@ -10,16 +10,16 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteVoteData extends OrmObject implements Serializable {
     public static final String VOTE_CONTENT_PREFIX_FORMAT = "#(poll,%s)";
-    private int expireType;
-    private int isMulti;
+    private int expire_type;
+    private int is_multi;
     private String title = "";
     private List<WriteVoteItemData> options = new ArrayList();
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.title = jSONObject.optString("title");
-            this.expireType = jSONObject.optInt("expire_type");
-            this.isMulti = jSONObject.optInt("is_multi");
+            this.expire_type = jSONObject.optInt("expire_type");
+            this.is_multi = jSONObject.optInt("is_multi");
             JSONArray optJSONArray = jSONObject.optJSONArray("options");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
@@ -36,11 +36,11 @@ public class WriteVoteData extends OrmObject implements Serializable {
     }
 
     public String toJsonString() {
-        String jsonStrWithObject = OrmObject.jsonStrWithObject(this);
-        if (jsonStrWithObject != null) {
-            return jsonStrWithObject.replace("\"expireType\":", "\"expire_type\":").replace("\"isMulti\":", "\"is_multi\":");
-        }
-        return jsonStrWithObject;
+        return OrmObject.jsonStrWithObject(this);
+    }
+
+    public JSONObject toJsonObject() {
+        return OrmObject.jsonWithObject(this);
     }
 
     public String getTitle() {
@@ -51,20 +51,20 @@ public class WriteVoteData extends OrmObject implements Serializable {
         this.title = str;
     }
 
-    public int getExpireType() {
-        return this.expireType;
+    public int getExpire_type() {
+        return this.expire_type;
     }
 
-    public void setExpireType(int i) {
-        this.expireType = i;
+    public void setExpire_type(int i) {
+        this.expire_type = i;
     }
 
-    public int getIsMulti() {
-        return this.isMulti;
+    public int getIs_multi() {
+        return this.is_multi;
     }
 
-    public void setIsMulti(int i) {
-        this.isMulti = i;
+    public void setIs_multi(int i) {
+        this.is_multi = i;
     }
 
     public List<WriteVoteItemData> getOptions() {

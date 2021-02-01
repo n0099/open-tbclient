@@ -1,7 +1,7 @@
 package com.kwai.player.qos;
 
 import com.kwai.video.player.IMediaPlayer;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface AppLiveReatimeInfoProvider extends IMediaPlayer {
     AppLiveAdaptiveRealtimeInfo getAppLiveAdaptiveRealtimeInfo();
 

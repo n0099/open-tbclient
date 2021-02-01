@@ -1,5 +1,5 @@
 package com.baidu.tieba.barselect.idCard;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface e {
-    boolean cqC();
+    boolean crM();
 }

@@ -1,7 +1,7 @@
 package com.baidu.yuyinala.privatemessage.session;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    void NI(int i);
+    void Od(int i);
 
     void x(String str, int i, String str2);
 }

@@ -5,13 +5,13 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 public class a extends com.baidu.adp.lib.stats.base.a {
     public a(j jVar) {
         super(jVar);
-        this.Pm = 10;
+        this.Pk = 10;
         this.mMustSuccess = true;
-        this.Pn = "alert";
+        this.Pl = "alert";
     }
 
     @Override // com.baidu.adp.lib.stats.base.a
-    public String nj() {
+    public String ni() {
         return BdStatsConstant.FILE_MON;
     }
 }

@@ -9,19 +9,19 @@ import com.xiaomi.push.il;
 public class q implements dp {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f13837a;
+    private Context f13839a;
 
     public q(Context context) {
-        this.f13837a = context;
+        this.f13839a = context;
     }
 
     @Override // com.xiaomi.push.dp
     public String a() {
-        return b.m120a(this.f13837a).d();
+        return b.m120a(this.f13839a).d();
     }
 
     @Override // com.xiaomi.push.dp
     public void a(il ilVar, hm hmVar, hz hzVar) {
-        aq.a(this.f13837a).a((aq) ilVar, hmVar, hzVar);
+        aq.a(this.f13839a).a((aq) ilVar, hmVar, hzVar);
     }
 }

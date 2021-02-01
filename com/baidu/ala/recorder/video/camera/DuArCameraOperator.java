@@ -35,7 +35,6 @@ import com.baidu.ar.DuMixOutput;
 import com.baidu.minivideo.arface.b;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.arface.c;
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.lang.ref.WeakReference;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -43,7 +42,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 @TargetApi(16)
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private static final int AR_OUTPUT_FPS = 15;
     private static final String EFFECT_NONE = "none";
@@ -82,7 +81,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private boolean isGiftEffectNeedRefresh = true;
     private AlaFrameTrack mPreviewFpsLimit = new AlaFrameTrack(15);
     private int mCameraPreviewWidth = 720;
-    private int mCameraPreviewHeight = PlatformPlugin.DEFAULT_SYSTEM_UI;
+    private int mCameraPreviewHeight = 1280;
     private int mYOffset = 0;
     private int mWindowSurfaceWidth = 0;
     private int mWindowSurfaceHeight = 0;
@@ -312,9 +311,9 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private void initARConfig() {
         if (!isSetupConfig) {
             isSetupConfig = true;
-            if (b.ZU() != null) {
-                b.ZU();
-                FILTER_DEFAULT = c.aab();
+            if (b.abI() != null) {
+                b.abI();
+                FILTER_DEFAULT = c.abP();
             }
         }
     }
@@ -347,6 +346,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                 if (this.mConfig != null) {
                     this.mARProcessor.setOutputFPS(this.mConfig.getVideoFPS());
                     this.mARProcessor.setLandscape(this.mConfig.isLandscape());
+                    this.mARProcessor.setArReportOriginalValue(this.mConfig.isArReportOriginalValue());
                 } else {
                     this.mARProcessor.setOutputFPS(15);
                     this.mARProcessor.setLandscape(isLandscape());
@@ -361,12 +361,12 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                             DuArCameraOperator.this.setBeautyJsonPath(DuArCameraOperator.this.mFaceFilePath);
                         }
                         if (DuArCameraOperator.this.mARProcessor != null) {
-                            com.baidu.minivideo.arface.bean.b ZX = b.ZX();
-                            if (DuArCameraOperator.this.isDebug() && ZX != null) {
+                            com.baidu.minivideo.arface.bean.b abL = b.abL();
+                            if (DuArCameraOperator.this.isDebug() && abL != null) {
                                 Log.d("ArUpdate", "onSetup setQulaityParm ------------ ");
                             }
                             try {
-                                DuArCameraOperator.this.mARProcessor.setQulaityParm(ZX);
+                                DuArCameraOperator.this.mARProcessor.setQulaityParm(abL);
                             } catch (NullPointerException e) {
                             }
                         }

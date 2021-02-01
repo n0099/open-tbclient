@@ -5,7 +5,7 @@ import com.ss.android.socialbase.downloader.d.ah;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c implements com.ss.android.a.a.b.c {
     private boolean B;
     private String D;
@@ -13,10 +13,10 @@ public class c implements com.ss.android.a.a.b.c {
     private int F;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f12916a;
+    private long f12918a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f12917b;
+    private long f12919b;
     private boolean c;
     private int d;
     private String e;
@@ -29,12 +29,12 @@ public class c implements com.ss.android.a.a.b.c {
     private String m;
     private String n;
     private String o;
-    private com.ss.android.a.a.d.b pQw;
-    private JSONObject pQx;
-    private f pQy;
-    private ah pQz;
-    private Map<String, String> pkD;
+    private Map<String, String> puS;
     private boolean q;
+    private com.ss.android.a.a.d.b qaA;
+    private JSONObject qaB;
+    private f qaC;
+    private ah qaD;
     private boolean r;
     private boolean s;
     private boolean u;
@@ -45,14 +45,14 @@ public class c implements com.ss.android.a.a.b.c {
     private String z;
 
     private c(a aVar) {
-        this.f12916a = aVar.f12918a;
-        this.f12917b = aVar.f12919b;
+        this.f12918a = aVar.f12920a;
+        this.f12919b = aVar.f12921b;
         this.c = aVar.c;
         this.d = aVar.d;
         this.e = aVar.e;
         this.f = aVar.f;
         this.g = aVar.g;
-        this.pQw = aVar.pQw;
+        this.qaA = aVar.qaA;
         this.i = aVar.i;
         this.j = aVar.j;
         this.k = aVar.k;
@@ -60,20 +60,20 @@ public class c implements com.ss.android.a.a.b.c {
         this.m = aVar.A;
         this.n = aVar.l;
         this.o = aVar.m;
-        this.pkD = aVar.n;
+        this.puS = aVar.n;
         this.q = aVar.o;
         this.r = aVar.p;
         this.s = aVar.q;
-        this.pQx = aVar.r;
+        this.qaB = aVar.r;
         this.u = aVar.s;
         this.v = aVar.t;
         this.w = aVar.u;
         this.x = aVar.v;
         this.y = aVar.w;
         this.z = aVar.x;
-        this.pQy = aVar.pQA;
+        this.qaC = aVar.qaE;
         this.B = aVar.B;
-        this.pQz = aVar.pQz;
+        this.qaD = aVar.qaD;
         this.D = aVar.D;
         this.E = aVar.E;
         this.F = aVar.F;
@@ -81,7 +81,7 @@ public class c implements com.ss.android.a.a.b.c {
 
     @Override // com.ss.android.a.a.b.c
     public long d() {
-        return this.f12916a;
+        return this.f12918a;
     }
 
     @Override // com.ss.android.a.a.b.c
@@ -96,7 +96,7 @@ public class c implements com.ss.android.a.a.b.c {
 
     @Override // com.ss.android.a.a.b.c
     public long g() {
-        return this.f12917b;
+        return this.f12919b;
     }
 
     @Override // com.ss.android.a.a.b.c
@@ -126,7 +126,7 @@ public class c implements com.ss.android.a.a.b.c {
 
     @Override // com.ss.android.a.a.b.c
     public Map<String, String> j() {
-        return this.pkD;
+        return this.puS;
     }
 
     @Override // com.ss.android.a.a.b.c
@@ -156,7 +156,7 @@ public class c implements com.ss.android.a.a.b.c {
 
     @Override // com.ss.android.a.a.b.c
     public JSONObject p() {
-        return this.pQx;
+        return this.qaB;
     }
 
     @Override // com.ss.android.a.a.b.c
@@ -195,17 +195,17 @@ public class c implements com.ss.android.a.a.b.c {
     }
 
     @Override // com.ss.android.a.a.b.c
-    public com.ss.android.a.a.d.b eBE() {
-        return this.pQw;
+    public com.ss.android.a.a.d.b eDV() {
+        return this.qaA;
     }
 
     @Override // com.ss.android.a.a.b.c
-    public List<String> eBF() {
+    public List<String> eDW() {
         return this.i;
     }
 
     @Override // com.ss.android.a.a.b.c
-    public JSONObject eBG() {
+    public JSONObject eDX() {
         return this.j;
     }
 
@@ -215,8 +215,8 @@ public class c implements com.ss.android.a.a.b.c {
     }
 
     @Override // com.ss.android.a.a.b.c
-    public f eBH() {
-        return this.pQy;
+    public f eDY() {
+        return this.qaC;
     }
 
     @Override // com.ss.android.a.a.b.c
@@ -225,13 +225,13 @@ public class c implements com.ss.android.a.a.b.c {
     }
 
     @Override // com.ss.android.a.a.b.c
-    public ah eBI() {
-        return this.pQz;
+    public ah eDZ() {
+        return this.qaD;
     }
 
     @Override // com.ss.android.a.a.b.c
     public boolean E() {
-        return com.ss.android.a.a.e.a.a(com.ss.android.socialbase.downloader.k.a.fl(p()), i());
+        return com.ss.android.a.a.e.a.a(com.ss.android.socialbase.downloader.k.a.fm(p()), i());
     }
 
     @Override // com.ss.android.a.a.b.c
@@ -240,20 +240,20 @@ public class c implements com.ss.android.a.a.b.c {
     }
 
     public void a(long j) {
-        this.f12917b = j;
+        this.f12919b = j;
     }
 
-    public c Zv(String str) {
+    public c aaw(String str) {
         this.f = str;
         return this;
     }
 
-    public c Zw(String str) {
+    public c aax(String str) {
         this.k = str;
         return this;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         private String A;
         private boolean B;
@@ -261,10 +261,10 @@ public class c implements com.ss.android.a.a.b.c {
         private long E;
 
         /* renamed from: a  reason: collision with root package name */
-        private long f12918a;
+        private long f12920a;
 
         /* renamed from: b  reason: collision with root package name */
-        private long f12919b;
+        private long f12921b;
         private int d;
         private String e;
         private String f;
@@ -275,9 +275,9 @@ public class c implements com.ss.android.a.a.b.c {
         private String l;
         private String m;
         private Map<String, String> n;
-        private f pQA;
-        private com.ss.android.a.a.d.b pQw;
-        private ah pQz;
+        private com.ss.android.a.a.d.b qaA;
+        private ah qaD;
+        private f qaE;
         private JSONObject r;
         private String t;
         private String u;
@@ -292,92 +292,92 @@ public class c implements com.ss.android.a.a.b.c {
         private boolean s = true;
         private int F = 2;
 
-        public a iV(long j) {
-            this.f12918a = j;
+        public a iY(long j) {
+            this.f12920a = j;
             return this;
         }
 
-        public a iW(long j) {
-            this.f12919b = j;
+        public a iZ(long j) {
+            this.f12921b = j;
             return this;
         }
 
-        public a Bz(boolean z) {
+        public a BT(boolean z) {
             this.c = z;
             return this;
         }
 
-        public a Qv(int i) {
+        public a QQ(int i) {
             this.d = i;
             return this;
         }
 
-        public a Zx(String str) {
+        public a aay(String str) {
             this.e = str;
             return this;
         }
 
-        public a Zy(String str) {
+        public a aaz(String str) {
             this.f = str;
             return this;
         }
 
-        public a Zz(String str) {
+        public a aaA(String str) {
             this.g = str;
             return this;
         }
 
         public a a(com.ss.android.a.a.d.b bVar) {
-            this.pQw = bVar;
+            this.qaA = bVar;
             return this;
         }
 
-        public a fa(JSONObject jSONObject) {
+        public a fb(JSONObject jSONObject) {
             this.j = jSONObject;
             return this;
         }
 
-        public a ZA(String str) {
+        public a aaB(String str) {
             this.k = str;
             return this;
         }
 
-        public a ZB(String str) {
+        public a aaC(String str) {
             this.l = str;
             return this;
         }
 
-        public a ZC(String str) {
+        public a aaD(String str) {
             this.m = str;
             return this;
         }
 
-        public a BA(boolean z) {
+        public a BU(boolean z) {
             this.p = z;
             return this;
         }
 
-        public a BB(boolean z) {
+        public a BV(boolean z) {
             this.v = z;
             return this;
         }
 
-        public a Qw(int i) {
+        public a QR(int i) {
             this.w = i;
             return this;
         }
 
-        public a ZD(String str) {
+        public a aaE(String str) {
             this.x = str;
             return this;
         }
 
-        public a BC(boolean z) {
+        public a BW(boolean z) {
             this.B = z;
             return this;
         }
 
-        public c eBP() {
+        public c eEg() {
             return new c(this);
         }
     }

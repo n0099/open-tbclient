@@ -10,11 +10,10 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.live.adp.R;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.imageview.BdImage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class BDImageView extends ImageView implements IRefresh {
     private static final int DEFAULT_BORDER_COLOR = 872415231;
     private static final int DEFAULT_BORDER_WIDTH = 1;
@@ -49,8 +48,8 @@ public abstract class BDImageView extends ImageView implements IRefresh {
         this.mArgs = new DrawerArgs();
         this.mIsBitmap = true;
         this.mNeedRecomputeMatrix = true;
-        this.mMaxWidth = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.mMaxHeight = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.mMaxWidth = Integer.MAX_VALUE;
+        this.mMaxHeight = Integer.MAX_VALUE;
         this.mImage = new DisplayImage();
         init(null);
     }
@@ -67,8 +66,8 @@ public abstract class BDImageView extends ImageView implements IRefresh {
         this.mArgs = new DrawerArgs();
         this.mIsBitmap = true;
         this.mNeedRecomputeMatrix = true;
-        this.mMaxWidth = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.mMaxHeight = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.mMaxWidth = Integer.MAX_VALUE;
+        this.mMaxHeight = Integer.MAX_VALUE;
         this.mImage = new DisplayImage();
         init(attributeSet);
     }
@@ -85,8 +84,8 @@ public abstract class BDImageView extends ImageView implements IRefresh {
             this.mArgs.mIsShowGifIcon = obtainStyledAttributes.getBoolean(R.styleable.sdk_BDImageView_showGifIcon, true);
             this.mArgs.mForegroundColor = obtainStyledAttributes.getColor(R.styleable.sdk_BDImageView_foregroundColor, 0);
             this.mDrawerType = obtainStyledAttributes.getInt(R.styleable.sdk_BDImageView_sdk_drawerType, 0);
-            this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.sdk_BDImageView_maxWidth, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-            this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.sdk_BDImageView_maxHeight, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+            this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.sdk_BDImageView_maxWidth, Integer.MAX_VALUE);
+            this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.sdk_BDImageView_maxHeight, Integer.MAX_VALUE);
             this.mAdjustViewBounds = obtainStyledAttributes.getBoolean(R.styleable.sdk_BDImageView_adjustViewBounds, false);
             obtainStyledAttributes.recycle();
         } else {

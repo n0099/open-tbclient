@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.appdownloader.c;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface d {
     void a(int i, int i2, String str, int i3, long j);
 

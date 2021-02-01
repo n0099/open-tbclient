@@ -4,16 +4,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.ca;
 import com.baidu.tieba.recapp.k;
 import com.baidu.tieba.recapp.o;
-/* loaded from: classes14.dex */
-public class b extends com.baidu.adp.widget.ListView.a<by, FunAdEmptyHolder> implements k, o {
-    private BaseFragmentActivity iEK;
+/* loaded from: classes5.dex */
+public class b extends com.baidu.adp.widget.ListView.a<ca, FunAdEmptyHolder> implements k, o {
+    private BaseFragmentActivity iKt;
 
     public b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity, bdUniqueId);
-        this.iEK = baseFragmentActivity;
+        this.iKt = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class b extends com.baidu.adp.widget.ListView.a<by, FunAdEmptyHolder> imp
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bN */
     public FunAdEmptyHolder e(ViewGroup viewGroup) {
-        View view = new View(this.iEK.getPageContext().getPageActivity());
+        View view = new View(this.iKt.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new FunAdEmptyHolder(view);
     }
@@ -29,7 +29,7 @@ public class b extends com.baidu.adp.widget.ListView.a<by, FunAdEmptyHolder> imp
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, by byVar, FunAdEmptyHolder funAdEmptyHolder) {
+    public View a(int i, View view, ViewGroup viewGroup, ca caVar, FunAdEmptyHolder funAdEmptyHolder) {
         return funAdEmptyHolder.getView();
     }
 

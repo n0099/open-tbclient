@@ -6,7 +6,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JsObject;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SwanApiNetworkV8Module {
     public static final String MODULE_NAME = "_naV8Network";
     private b requestApi;

@@ -9,17 +9,17 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ExtraLayout extends RelativeLayout {
-    private com.baidu.tbadk.core.data.a agr;
-    private TBSpecificationBtn akF;
-    private TextView akG;
-    private TextView akH;
-    private View.OnClickListener akI;
+    private com.baidu.tbadk.core.data.a agj;
+    private TBSpecificationBtn aku;
+    private TextView akv;
+    private TextView akw;
+    private View.OnClickListener akx;
     private final View.OnClickListener mOnClickListener;
 
     public ExtraLayout(Context context) {
@@ -27,8 +27,8 @@ public class ExtraLayout extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.card.view.ExtraLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ExtraLayout.this.akI != null) {
-                    ExtraLayout.this.akI.onClick(view);
+                if (ExtraLayout.this.akx != null) {
+                    ExtraLayout.this.akx.onClick(view);
                 }
             }
         };
@@ -40,8 +40,8 @@ public class ExtraLayout extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.card.view.ExtraLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ExtraLayout.this.akI != null) {
-                    ExtraLayout.this.akI.onClick(view);
+                if (ExtraLayout.this.akx != null) {
+                    ExtraLayout.this.akx.onClick(view);
                 }
             }
         };
@@ -53,8 +53,8 @@ public class ExtraLayout extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.card.view.ExtraLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ExtraLayout.this.akI != null) {
-                    ExtraLayout.this.akI.onClick(view);
+                if (ExtraLayout.this.akx != null) {
+                    ExtraLayout.this.akx.onClick(view);
                 }
             }
         };
@@ -63,50 +63,50 @@ public class ExtraLayout extends RelativeLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_extra_item, (ViewGroup) this, true);
-        this.akG = (TextView) inflate.findViewById(R.id.extra_text);
-        this.akG.setCompoundDrawablePadding(l.getDimens(context, R.dimen.tbds10));
-        this.akH = (TextView) inflate.findViewById(R.id.extra_tag);
-        this.akF = (TBSpecificationBtn) inflate.findViewById(R.id.extra_btn);
-        this.akF.setOnClickListener(this.mOnClickListener);
+        this.akv = (TextView) inflate.findViewById(R.id.extra_text);
+        this.akv.setCompoundDrawablePadding(l.getDimens(context, R.dimen.tbds10));
+        this.akw = (TextView) inflate.findViewById(R.id.extra_tag);
+        this.aku = (TBSpecificationBtn) inflate.findViewById(R.id.extra_btn);
+        this.aku.setOnClickListener(this.mOnClickListener);
         b bVar = new b();
-        bVar.pM(R.color.CAM_X0302);
-        this.akF.setConfig(bVar);
-        this.akF.setText(getResources().getString(R.string.download_just_now));
+        bVar.pR(R.color.CAM_X0302);
+        this.aku.setConfig(bVar);
+        this.aku.setText(getResources().getString(R.string.download_just_now));
     }
 
     public void setData(com.baidu.tbadk.core.data.a aVar) {
         boolean z;
         boolean z2 = true;
-        this.agr = aVar;
-        bz bkV = aVar.bkV();
-        if (!TextUtils.isEmpty(bkV.eRQ)) {
-            this.akG.setVisibility(0);
-            this.akG.setText(bkV.eRQ);
-            this.akG.setOnClickListener(null);
+        this.agj = aVar;
+        cb bln = aVar.bln();
+        if (!TextUtils.isEmpty(bln.eUe)) {
+            this.akv.setVisibility(0);
+            this.akv.setText(bln.eUe);
+            this.akv.setOnClickListener(null);
             z = true;
         } else {
-            this.akG.setVisibility(8);
+            this.akv.setVisibility(8);
             z = false;
         }
-        if (!TextUtils.isEmpty(bkV.eRR)) {
-            this.akH.setVisibility(0);
-            this.akH.setText(bkV.eRR);
-            this.akH.setOnClickListener(null);
+        if (!TextUtils.isEmpty(bln.eUf)) {
+            this.akw.setVisibility(0);
+            this.akw.setText(bln.eUf);
+            this.akw.setOnClickListener(null);
             z = true;
         } else {
-            this.akH.setVisibility(8);
+            this.akw.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(bkV.buttonText)) {
-            this.akF.setVisibility(0);
-            this.akF.setText(bkV.buttonText);
+        if (!TextUtils.isEmpty(bln.buttonText)) {
+            this.aku.setVisibility(0);
+            this.aku.setText(bln.buttonText);
         } else {
-            this.akF.setVisibility(4);
+            this.aku.setVisibility(4);
             z2 = z;
         }
         setVisibility(z2 ? 0 : 8);
     }
 
     public void setOnAfterClickListener(View.OnClickListener onClickListener) {
-        this.akI = onClickListener;
+        this.akx = onClickListener;
     }
 }

@@ -20,14 +20,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.common.PluginRegistry;
-import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.util.Preconditions;
 import io.flutter.view.FlutterMain;
 import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterRunArguments;
 import io.flutter.view.FlutterView;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class FlutterActivityDelegate implements FlutterActivityEvents, PluginRegistry, FlutterView.Provider {
     private static final String SPLASH_SCREEN_META_DATA_KEY = "io.flutter.app.android.SplashScreenUntilFirstFrame";
     private static final String TAG = "FlutterActivityDelegate";
@@ -37,7 +36,7 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Plu
     private View launchView;
     private final ViewFactory viewFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface ViewFactory {
         FlutterNativeView createFlutterNativeView();
 
@@ -88,7 +87,7 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Plu
             Window window = this.activity.getWindow();
             window.addFlags(Integer.MIN_VALUE);
             window.setStatusBarColor(1073741824);
-            window.getDecorView().setSystemUiVisibility(PlatformPlugin.DEFAULT_SYSTEM_UI);
+            window.getDecorView().setSystemUiVisibility(1280);
         }
         FlutterMain.ensureInitializationComplete(this.activity.getApplicationContext(), getArgsFromIntent(this.activity.getIntent()));
         this.flutterView = this.viewFactory.createFlutterView(this.activity);

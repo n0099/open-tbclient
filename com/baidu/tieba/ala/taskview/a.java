@@ -10,8 +10,8 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.data.aq;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
+import com.baidu.live.data.au;
 import com.baidu.live.pendantview.PendantChildView;
 import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.sdk.a;
@@ -29,18 +29,18 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.ala.tasklist.model.LiveFlowerTaskRewardResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public class a implements com.baidu.live.ai.b {
-    private TBLottieAnimationView hbV;
-    private PendantChildView icN;
-    private ImageView icO;
-    private int icQ;
-    private aq icR;
+/* loaded from: classes11.dex */
+public class a implements com.baidu.live.ag.b {
+    private TBLottieAnimationView heE;
+    private PendantChildView ihG;
+    private ImageView ihH;
+    private int ihJ;
+    private au ihK;
     private Context mContext;
     private String otherParams;
-    private boolean gJe = true;
-    private boolean icP = false;
-    private HttpMessageListener icD = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.taskview.a.3
+    private boolean gLK = true;
+    private boolean ihI = false;
+    private HttpMessageListener ihw = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.taskview.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -49,28 +49,28 @@ public class a implements com.baidu.live.ai.b {
                 int error = httpResponsedMessage.getError();
                 LiveFlowerTaskRewardResponsedMessage liveFlowerTaskRewardResponsedMessage = (LiveFlowerTaskRewardResponsedMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    aq aqVar = liveFlowerTaskRewardResponsedMessage.icA;
-                    if (aqVar == null) {
-                        a.this.oZ(false);
-                    } else if (a.this.icR != null) {
-                        a.this.icR.aKT = aqVar.aKT;
-                        a.this.icR.aKU = aqVar.aKU;
-                        a.this.a(a.this.icR.aKT, a.this.icR);
+                    au auVar = liveFlowerTaskRewardResponsedMessage.iht;
+                    if (auVar == null) {
+                        a.this.pj(false);
+                    } else if (a.this.ihK != null) {
+                        a.this.ihK.aNP = auVar.aNP;
+                        a.this.ihK.aNQ = auVar.aNQ;
+                        a.this.a(a.this.ihK.aNP, a.this.ihK);
                     } else {
-                        a.this.a(aqVar.aKT, aqVar);
+                        a.this.a(auVar.aNP, auVar);
                     }
                 }
             }
         }
     };
-    private Animator.AnimatorListener icS = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.5
+    private Animator.AnimatorListener ihL = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.5
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            a.this.icN.setVisibility(8);
+            a.this.ihG.setVisibility(8);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -81,7 +81,7 @@ public class a implements com.baidu.live.ai.b {
         public void onAnimationRepeat(Animator animator) {
         }
     };
-    private Animator.AnimatorListener icT = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.6
+    private Animator.AnimatorListener ihM = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.6
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
         }
@@ -96,10 +96,10 @@ public class a implements com.baidu.live.ai.b {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            if (!a.this.icP) {
-                a.this.icP = true;
-                a.this.hbV.setMinFrame(31);
-                a.this.hbV.setMaxFrame(80);
+            if (!a.this.ihI) {
+                a.this.ihI = true;
+                a.this.heE.setMinFrame(31);
+                a.this.heE.setMaxFrame(80);
             }
         }
     };
@@ -107,7 +107,7 @@ public class a implements com.baidu.live.ai.b {
     public a(Context context) {
         this.mContext = context;
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.ala_task_view, (ViewGroup) null);
-        this.icN = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.taskview.a.1
+        this.ihG = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.taskview.a.1
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
                 return PendantParentView.Position.RIGHT;
@@ -138,114 +138,114 @@ public class a implements com.baidu.live.ai.b {
                 return 40;
             }
         };
-        this.icN.addView(inflate);
-        this.icO = (ImageView) this.icN.findViewById(a.f.alaFlowerImg);
-        this.hbV = (TBLottieAnimationView) this.icN.findViewById(a.f.animation_view);
-        this.hbV.setAnimation("flower_entry.json");
-        this.hbV.setImageAssetsFolder("images/");
-        this.hbV.setVisibility(4);
-        this.hbV.addAnimatorListener(this.icT);
-        coa();
-        MessageManager.getInstance().registerListener(this.icD);
+        this.ihG.addView(inflate);
+        this.ihH = (ImageView) this.ihG.findViewById(a.f.alaFlowerImg);
+        this.heE = (TBLottieAnimationView) this.ihG.findViewById(a.f.animation_view);
+        this.heE.setAnimation("flower_entry.json");
+        this.heE.setImageAssetsFolder("images/");
+        this.heE.setVisibility(4);
+        this.heE.addAnimatorListener(this.ihM);
+        cpf();
+        MessageManager.getInstance().registerListener(this.ihw);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnZ() {
+    public void cpe() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913220));
     }
 
-    @Override // com.baidu.live.ai.b
-    public PendantChildView RO() {
-        return this.icN;
+    @Override // com.baidu.live.ag.b
+    public PendantChildView Tv() {
+        return this.ihG;
     }
 
-    @Override // com.baidu.live.ai.b
+    @Override // com.baidu.live.ag.b
     public void setOtherParams(String str) {
         this.otherParams = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String JQ() {
+    public String Lo() {
         return this.otherParams;
     }
 
-    private void coa() {
-        this.icN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.taskview.a.2
+    private void cpf() {
+        this.ihG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.taskview.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
                     AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.CLICK_FLOWER);
                     alaStaticItem.addParams("feed_id", HKStaticManager.FEED_ID);
                     alaStaticItem.addParams("live_id", HKStaticManager.LIVE_ID);
-                    alaStaticItem.addParams("other_params", a.this.JQ());
+                    alaStaticItem.addParams("other_params", a.this.Lo());
                     AlaStaticsManager.getInst().onStatic(alaStaticItem);
                 }
-                a.this.coc();
+                a.this.cph();
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(a.this.mContext);
                 } else {
-                    a.this.cnZ();
+                    a.this.cpe();
                 }
             }
         });
     }
 
-    @Override // com.baidu.live.ai.b
-    public void j(x xVar) {
+    @Override // com.baidu.live.ag.b
+    public void j(ab abVar) {
     }
 
-    @Override // com.baidu.live.ai.b
-    public void Z(JSONObject jSONObject) {
+    @Override // com.baidu.live.ag.b
+    public void ab(JSONObject jSONObject) {
     }
 
-    @Override // com.baidu.live.ai.b
+    @Override // com.baidu.live.ag.b
     public void setCanVisible(boolean z) {
-        this.gJe = false;
+        this.gLK = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, aq aqVar) {
+    public void a(int i, au auVar) {
         if (i >= 1 && i <= 3) {
-            this.icQ = i;
+            this.ihJ = i;
         }
-        if (aqVar != null) {
-            if (!ListUtils.isEmpty(aqVar.aKU)) {
-                if (this.icQ == 2 || aqVar.Be()) {
-                    if (this.gJe) {
-                        this.icN.setVisibility(0);
-                        oZ(true);
-                        cod();
-                        cob();
+        if (auVar != null) {
+            if (!ListUtils.isEmpty(auVar.aNQ)) {
+                if (this.ihJ == 2 || auVar.Cr()) {
+                    if (this.gLK) {
+                        this.ihG.setVisibility(0);
+                        pj(true);
+                        cpi();
+                        cpg();
                         return;
                     }
-                    oZ(false);
+                    pj(false);
                     return;
                 }
-                oZ(false);
+                pj(false);
                 return;
             }
-            oZ(false);
+            pj(false);
             return;
         }
-        oZ(false);
+        pj(false);
     }
 
-    private void cob() {
+    private void cpg() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "petal_show"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void coc() {
+    public void cph() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "petal_clk"));
     }
 
-    private void cod() {
+    private void cpi() {
         if (TbConfig.FLOWER_GUIDE_STATUS == 1) {
-            this.icN.post(new Runnable() { // from class: com.baidu.tieba.ala.taskview.a.4
+            this.ihG.post(new Runnable() { // from class: com.baidu.tieba.ala.taskview.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.icN.getLocationOnScreen(r0);
-                    int[] iArr = {iArr[0] + (a.this.icN.getWidth() / 2), iArr[1] + (a.this.icN.getHeight() / 2)};
+                    a.this.ihG.getLocationOnScreen(r0);
+                    int[] iArr = {iArr[0] + (a.this.ihG.getWidth() / 2), iArr[1] + (a.this.ihG.getHeight() / 2)};
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913110, iArr));
                 }
             });
@@ -253,63 +253,63 @@ public class a implements com.baidu.live.ai.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oZ(boolean z) {
+    public void pj(boolean z) {
         if (z) {
-            if (!this.hbV.isAnimating()) {
-                this.hbV.cancelAnimation();
-                this.hbV.loop(true);
-                this.hbV.setMinFrame(0);
-                this.hbV.setMaxFrame(80);
-                this.hbV.addAnimatorListener(this.icT);
-                this.hbV.removeAnimatorListener(this.icS);
-                this.hbV.playAnimation();
-                this.icP = false;
+            if (!this.heE.isAnimating()) {
+                this.heE.cancelAnimation();
+                this.heE.loop(true);
+                this.heE.setMinFrame(0);
+                this.heE.setMaxFrame(80);
+                this.heE.addAnimatorListener(this.ihM);
+                this.heE.removeAnimatorListener(this.ihL);
+                this.heE.playAnimation();
+                this.ihI = false;
             }
-        } else if (this.hbV.isAnimating()) {
-            this.hbV.cancelAnimation();
-            this.hbV.loop(false);
-            this.hbV.addAnimatorListener(this.icS);
-            this.hbV.removeAnimatorListener(this.icT);
-            this.hbV.setMaxFrame(95);
-            this.hbV.setMinFrame(80);
-            this.hbV.playAnimation();
+        } else if (this.heE.isAnimating()) {
+            this.heE.cancelAnimation();
+            this.heE.loop(false);
+            this.heE.addAnimatorListener(this.ihL);
+            this.heE.removeAnimatorListener(this.ihM);
+            this.heE.setMaxFrame(95);
+            this.heE.setMinFrame(80);
+            this.heE.playAnimation();
         } else {
-            this.hbV.cancelAnimation();
-            this.icN.setVisibility(8);
+            this.heE.cancelAnimation();
+            this.ihG.setVisibility(8);
         }
     }
 
-    private void ws(int i) {
+    private void wD(int i) {
         if (i == 8) {
-            this.icO.setImageResource(a.e.icon_liveshow_flowerless);
-            this.icO.setVisibility(0);
-            this.hbV.setVisibility(4);
+            this.ihH.setImageResource(a.e.icon_liveshow_flowerless);
+            this.ihH.setVisibility(0);
+            this.heE.setVisibility(4);
         } else if (i == 0) {
-            this.icO.setImageResource(a.e.icon_liveshow_flower);
-            this.icO.setVisibility(4);
-            this.hbV.setVisibility(0);
+            this.ihH.setImageResource(a.e.icon_liveshow_flower);
+            this.ihH.setVisibility(4);
+            this.heE.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.live.ai.b
-    public void RP() {
+    @Override // com.baidu.live.ag.b
+    public void Tw() {
         if (!TbadkCoreApplication.isLogin()) {
-            ws(8);
+            wD(8);
         } else {
-            ws(0);
+            wD(0);
         }
     }
 
-    @Override // com.baidu.live.ai.b
-    public void RQ() {
-        this.icR = null;
-        if (this.hbV != null) {
-            this.hbV.cancelAnimation();
+    @Override // com.baidu.live.ag.b
+    public void Tx() {
+        this.ihK = null;
+        if (this.heE != null) {
+            this.heE.cancelAnimation();
         }
     }
 
-    @Override // com.baidu.live.ai.b
+    @Override // com.baidu.live.ag.b
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.icD);
+        MessageManager.getInstance().unRegisterListener(this.ihw);
     }
 }

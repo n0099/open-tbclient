@@ -6,7 +6,7 @@ import kotlin.Pair;
 import kotlin.jvm.internal.Lambda;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class StringsKt__StringsKt$rangesDelimitedBy$4 extends Lambda implements kotlin.jvm.a.c<CharSequence, Integer, Pair<? extends Integer, ? extends Integer>> {
     final /* synthetic */ List $delimitersList;
     final /* synthetic */ boolean $ignoreCase;

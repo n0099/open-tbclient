@@ -3,7 +3,7 @@ package com.baidu.tieba.lego;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
 public interface e {
-    e O(String str, long j);
+    e N(String str, long j);
 
     void a(ICardInfo iCardInfo);
 

@@ -10,7 +10,7 @@ import com.qq.e.comm.util.StringUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class k {
     private static com.qq.e.comm.plugin.y.d a(String str, Exception exc, boolean z, String str2) {
         com.qq.e.comm.plugin.y.d dVar = new com.qq.e.comm.plugin.y.d();
@@ -30,10 +30,10 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(int i, b.EnumC1204b enumC1204b, boolean z, com.qq.e.comm.plugin.y.c cVar) {
+    public static void a(int i, b.EnumC1208b enumC1208b, boolean z, com.qq.e.comm.plugin.y.c cVar) {
         com.qq.e.comm.plugin.y.d dVar = new com.qq.e.comm.plugin.y.d();
         dVar.a("fd", Integer.valueOf(i));
-        if (enumC1204b != b.EnumC1204b.Unknown) {
+        if (enumC1208b != b.EnumC1208b.Unknown) {
             u.a(1010062, 3, cVar, dVar);
         } else {
             u.a(1010062, z ? 2 : 1, cVar, dVar);
@@ -113,10 +113,10 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(b.EnumC1204b enumC1204b, b.EnumC1204b enumC1204b2, com.qq.e.comm.plugin.y.c cVar, int i, Exception exc, String str, String str2) {
-        if (enumC1204b != b.EnumC1204b.Unknown) {
-            b(enumC1204b, enumC1204b2, cVar, i, exc, str, str2);
-        } else if (enumC1204b2 == b.EnumC1204b.Downloaded) {
+    public static void a(b.EnumC1208b enumC1208b, b.EnumC1208b enumC1208b2, com.qq.e.comm.plugin.y.c cVar, int i, Exception exc, String str, String str2) {
+        if (enumC1208b != b.EnumC1208b.Unknown) {
+            b(enumC1208b, enumC1208b2, cVar, i, exc, str, str2);
+        } else if (enumC1208b2 == b.EnumC1208b.Downloaded) {
             u.a(1010016, cVar);
         } else {
             u.a(1010015, i, cVar, a(str, exc, true, (String) null));
@@ -210,16 +210,16 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void b(b.EnumC1204b enumC1204b, b.EnumC1204b enumC1204b2, com.qq.e.comm.plugin.y.c cVar, int i, Exception exc, String str, String str2) {
-        if (enumC1204b == b.EnumC1204b.Downloading || enumC1204b2 == b.EnumC1204b.Downloading) {
+    public static void b(b.EnumC1208b enumC1208b, b.EnumC1208b enumC1208b2, com.qq.e.comm.plugin.y.c cVar, int i, Exception exc, String str, String str2) {
+        if (enumC1208b == b.EnumC1208b.Downloading || enumC1208b2 == b.EnumC1208b.Downloading) {
             return;
         }
-        if (enumC1204b == b.EnumC1204b.Downloaded) {
+        if (enumC1208b == b.EnumC1208b.Downloaded) {
             u.a(1010040, cVar);
-            if (enumC1204b2 == b.EnumC1204b.Failed) {
+            if (enumC1208b2 == b.EnumC1208b.Failed) {
                 u.a(1010043, i, cVar, a(str, exc, true, (String) null));
             }
-        } else if (enumC1204b2 == b.EnumC1204b.Downloaded) {
+        } else if (enumC1208b2 == b.EnumC1208b.Downloaded) {
             u.a(1010044, i, cVar, a((String) null, exc, true, str2));
         } else {
             u.a(1010045, i, cVar, a(str, exc, true, str2));

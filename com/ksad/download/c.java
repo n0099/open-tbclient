@@ -1,12 +1,12 @@
 package com.ksad.download;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f7910a;
+    protected int f7912a;
 
     public final void a(int i) {
-        this.f7910a = i;
+        this.f7912a = i;
     }
 
     public abstract void a(DownloadTask downloadTask);

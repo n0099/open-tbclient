@@ -2,7 +2,7 @@ package com.baidu.webkit.sdk;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public abstract class ServiceWorkerController {
     @NonNull
     public static ServiceWorkerController getInstance() {

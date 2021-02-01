@@ -10,7 +10,7 @@ import com.baidu.live.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.live.tbadk.core.util.TbImageHelper;
 import com.baidu.live.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NetworkChangedManager {
     private CustomMessageListener mNetworkChangedListener;
     private static final byte[] mlock = new byte[1];

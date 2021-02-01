@@ -18,7 +18,7 @@ import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FixRequestTask<T, R> implements RequestCancelable, Runnable {
     private FixRequestTask<T, R>.RequestCallback callback = new RequestCallback();
     private IRequestParam param;
@@ -98,7 +98,7 @@ public class FixRequestTask<T, R> implements RequestCancelable, Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class RequestCallback implements Handler.Callback {
         private RequestCallback() {
         }

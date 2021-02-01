@@ -20,18 +20,18 @@ import com.baidu.live.lottie.model.layer.Layer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
-public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185a, com.baidu.live.lottie.model.f {
+/* loaded from: classes10.dex */
+public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0186a, com.baidu.live.lottie.model.f {
     private List<a> GD;
     private final String Gw;
-    final o bpm;
-    final Layer bqA;
+    final o bsN;
+    final Layer buc;
     @Nullable
-    private com.baidu.live.lottie.a.b.g bqB;
+    private com.baidu.live.lottie.a.b.g bud;
     @Nullable
-    private a bqC;
+    private a bue;
     @Nullable
-    private a bqD;
+    private a bug;
     final h lottieDrawable;
     private final Path path = new Path();
     private final Matrix matrix = new Matrix();
@@ -53,7 +53,7 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public static a a(Layer layer, h hVar, com.baidu.live.lottie.e eVar) {
-        switch (layer.MF()) {
+        switch (layer.Od()) {
             case Shape:
                 return new e(hVar, layer);
             case PreComp:
@@ -67,7 +67,7 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
             case Text:
                 return new g(hVar, layer);
             default:
-                com.baidu.live.lottie.d.warn("Unknown layer type " + layer.MF());
+                com.baidu.live.lottie.d.warn("Unknown layer type " + layer.Od());
                 return null;
         }
     }
@@ -75,63 +75,63 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(h hVar, Layer layer) {
         this.lottieDrawable = hVar;
-        this.bqA = layer;
+        this.buc = layer;
         this.Gw = layer.getName() + "#draw";
         this.Gs.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         this.Gp.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         this.Gq.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        if (layer.MG() == Layer.MatteType.Invert) {
+        if (layer.Oe() == Layer.MatteType.Invert) {
             this.Gr.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         } else {
             this.Gr.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
-        this.bpm = layer.Mz().Md();
-        this.bpm.a((a.InterfaceC0185a) this);
-        if (layer.iM() != null && !layer.iM().isEmpty()) {
-            this.bqB = new com.baidu.live.lottie.a.b.g(layer.iM());
-            for (com.baidu.live.lottie.a.b.a<com.baidu.live.lottie.model.content.h, Path> aVar : this.bqB.iN()) {
+        this.bsN = layer.NX().NB();
+        this.bsN.a((a.InterfaceC0186a) this);
+        if (layer.iL() != null && !layer.iL().isEmpty()) {
+            this.bud = new com.baidu.live.lottie.a.b.g(layer.iL());
+            for (com.baidu.live.lottie.a.b.a<com.baidu.live.lottie.model.content.h, Path> aVar : this.bud.iM()) {
                 aVar.b(this);
             }
-            for (com.baidu.live.lottie.a.b.a<Integer, Integer> aVar2 : this.bqB.iO()) {
+            for (com.baidu.live.lottie.a.b.a<Integer, Integer> aVar2 : this.bud.iN()) {
                 a(aVar2);
                 aVar2.b(this);
             }
         }
-        jU();
+        jT();
     }
 
-    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0185a
-    public void is() {
+    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0186a
+    public void ir() {
         invalidateSelf();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Layer ME() {
-        return this.bqA;
+    public Layer Oc() {
+        return this.buc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(@Nullable a aVar) {
-        this.bqC = aVar;
+        this.bue = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean jT() {
-        return this.bqC != null;
+    public boolean jS() {
+        return this.bue != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(@Nullable a aVar) {
-        this.bqD = aVar;
+        this.bug = aVar;
     }
 
-    private void jU() {
-        if (!this.bqA.jZ().isEmpty()) {
-            final com.baidu.live.lottie.a.b.c cVar = new com.baidu.live.lottie.a.b.c(this.bqA.jZ());
-            cVar.iG();
-            cVar.b(new a.InterfaceC0185a() { // from class: com.baidu.live.lottie.model.layer.a.1
-                @Override // com.baidu.live.lottie.a.b.a.InterfaceC0185a
-                public void is() {
+    private void jT() {
+        if (!this.buc.jY().isEmpty()) {
+            final com.baidu.live.lottie.a.b.c cVar = new com.baidu.live.lottie.a.b.c(this.buc.jY());
+            cVar.iF();
+            cVar.b(new a.InterfaceC0186a() { // from class: com.baidu.live.lottie.model.layer.a.1
+                @Override // com.baidu.live.lottie.a.b.a.InterfaceC0186a
+                public void ir() {
                     a.this.setVisible(cVar.getValue().floatValue() == 1.0f);
                 }
             });
@@ -163,7 +163,7 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
     @CallSuper
     public void d(RectF rectF, Matrix matrix) {
         this.Gx.set(matrix);
-        this.Gx.preConcat(this.bpm.getMatrix());
+        this.Gx.preConcat(this.bsN.getMatrix());
     }
 
     @Override // com.baidu.live.lottie.a.a.d
@@ -173,17 +173,17 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
             com.baidu.live.lottie.d.bb(this.Gw);
             return;
         }
-        jW();
+        jV();
         com.baidu.live.lottie.d.beginSection("Layer#parentMatrix");
         this.matrix.reset();
         this.matrix.set(matrix);
         for (int size = this.GD.size() - 1; size >= 0; size--) {
-            this.matrix.preConcat(this.GD.get(size).bpm.getMatrix());
+            this.matrix.preConcat(this.GD.get(size).bsN.getMatrix());
         }
         com.baidu.live.lottie.d.bb("Layer#parentMatrix");
-        int intValue = (int) (((this.bpm.LP().getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f);
-        if (!jT() && !jV()) {
-            this.matrix.preConcat(this.bpm.getMatrix());
+        int intValue = (int) (((this.bsN.Nn().getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f);
+        if (!jS() && !jU()) {
+            this.matrix.preConcat(this.bsN.getMatrix());
             com.baidu.live.lottie.d.beginSection("Layer#drawLayer");
             d(canvas, this.matrix, intValue);
             com.baidu.live.lottie.d.bb("Layer#drawLayer");
@@ -194,7 +194,7 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
         d(this.rect, this.matrix);
         f(this.rect, this.matrix);
-        this.matrix.preConcat(this.bpm.getMatrix());
+        this.matrix.preConcat(this.bsN.getMatrix());
         e(this.rect, this.matrix);
         this.rect.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
         com.baidu.live.lottie.d.bb("Layer#computeBounds");
@@ -205,16 +205,16 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
         com.baidu.live.lottie.d.beginSection("Layer#drawLayer");
         d(canvas, this.matrix, intValue);
         com.baidu.live.lottie.d.bb("Layer#drawLayer");
-        if (jV()) {
+        if (jU()) {
             b(canvas, this.matrix);
         }
-        if (jT()) {
+        if (jS()) {
             com.baidu.live.lottie.d.beginSection("Layer#drawMatte");
             com.baidu.live.lottie.d.beginSection("Layer#saveLayer");
             b(canvas, this.rect, this.Gr, false);
             com.baidu.live.lottie.d.bb("Layer#saveLayer");
             f(canvas);
-            this.bqC.c(canvas, matrix, intValue);
+            this.bue.c(canvas, matrix, intValue);
             com.baidu.live.lottie.d.beginSection("Layer#restoreLayer");
             canvas.restore();
             com.baidu.live.lottie.d.bb("Layer#restoreLayer");
@@ -227,7 +227,7 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
     }
 
     private void i(float f) {
-        this.lottieDrawable.getComposition().getPerformanceTracker().c(this.bqA.getName(), f);
+        this.lottieDrawable.getComposition().getPerformanceTracker().c(this.buc.getName(), f);
     }
 
     private void f(Canvas canvas) {
@@ -238,12 +238,12 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
 
     private void e(RectF rectF, Matrix matrix) {
         this.Gt.set(0.0f, 0.0f, 0.0f, 0.0f);
-        if (jV()) {
-            int size = this.bqB.iM().size();
+        if (jU()) {
+            int size = this.bud.iL().size();
             for (int i = 0; i < size; i++) {
-                this.path.set(this.bqB.iN().get(i).getValue());
+                this.path.set(this.bud.iM().get(i).getValue());
                 this.path.transform(matrix);
-                switch (this.bqB.iM().get(i).Mn()) {
+                switch (this.bud.iL().get(i).NL()) {
                     case MaskModeSubtract:
                     case MaskModeIntersect:
                         return;
@@ -261,8 +261,8 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
     }
 
     private void f(RectF rectF, Matrix matrix) {
-        if (jT() && this.bqA.MG() != Layer.MatteType.Invert) {
-            this.bqC.d(this.Gu, matrix);
+        if (jS() && this.buc.Oe() != Layer.MatteType.Invert) {
+            this.bue.d(this.Gu, matrix);
             rectF.set(Math.max(rectF.left, this.Gu.left), Math.max(rectF.top, this.Gu.top), Math.min(rectF.right, this.Gu.right), Math.min(rectF.bottom, this.Gu.bottom));
         }
     }
@@ -284,12 +284,12 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
                 paint = this.Gp;
                 break;
         }
-        int size = this.bqB.iM().size();
+        int size = this.bud.iL().size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 z = false;
-            } else if (this.bqB.iM().get(i).Mn() != maskMode) {
+            } else if (this.bud.iL().get(i).NL() != maskMode) {
                 i++;
             } else {
                 z = true;
@@ -302,11 +302,11 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
             com.baidu.live.lottie.d.bb("Layer#saveLayer");
             f(canvas);
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.bqB.iM().get(i2).Mn() == maskMode) {
-                    this.path.set(this.bqB.iN().get(i2).getValue());
+                if (this.bud.iL().get(i2).NL() == maskMode) {
+                    this.path.set(this.bud.iM().get(i2).getValue());
                     this.path.transform(matrix);
                     int alpha = this.Go.getAlpha();
-                    this.Go.setAlpha((int) (this.bqB.iO().get(i2).getValue().intValue() * 2.55f));
+                    this.Go.setAlpha((int) (this.bud.iN().get(i2).getValue().intValue() * 2.55f));
                     canvas.drawPath(this.path, this.Go);
                     this.Go.setAlpha(alpha);
                 }
@@ -319,8 +319,8 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean jV() {
-        return (this.bqB == null || this.bqB.iN().isEmpty()) ? false : true;
+    public boolean jU() {
+        return (this.bud == null || this.bud.iM().isEmpty()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -333,31 +333,31 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        this.bpm.setProgress(f);
-        if (this.bqB != null) {
-            for (int i = 0; i < this.bqB.iN().size(); i++) {
-                this.bqB.iN().get(i).setProgress(f);
+        this.bsN.setProgress(f);
+        if (this.bud != null) {
+            for (int i = 0; i < this.bud.iM().size(); i++) {
+                this.bud.iM().get(i).setProgress(f);
             }
         }
-        if (this.bqA.jX() != 0.0f) {
-            f /= this.bqA.jX();
+        if (this.buc.jW() != 0.0f) {
+            f /= this.buc.jW();
         }
-        if (this.bqC != null) {
-            this.bqC.setProgress(this.bqC.bqA.jX() * f);
+        if (this.bue != null) {
+            this.bue.setProgress(this.bue.buc.jW() * f);
         }
         for (int i2 = 0; i2 < this.GF.size(); i2++) {
             this.GF.get(i2).setProgress(f);
         }
     }
 
-    private void jW() {
+    private void jV() {
         if (this.GD == null) {
-            if (this.bqD == null) {
+            if (this.bug == null) {
                 this.GD = Collections.emptyList();
                 return;
             }
             this.GD = new ArrayList();
-            for (a aVar = this.bqD; aVar != null; aVar = aVar.bqD) {
+            for (a aVar = this.bug; aVar != null; aVar = aVar.bug) {
                 this.GD.add(aVar);
             }
         }
@@ -365,7 +365,7 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
 
     @Override // com.baidu.live.lottie.a.a.b
     public String getName() {
-        return this.bqA.getName();
+        return this.buc.getName();
     }
 
     @Override // com.baidu.live.lottie.a.a.b
@@ -376,7 +376,7 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
     public void a(com.baidu.live.lottie.model.e eVar, int i, List<com.baidu.live.lottie.model.e> list, com.baidu.live.lottie.model.e eVar2) {
         if (eVar.h(getName(), i)) {
             if (!"__container".equals(getName())) {
-                eVar2 = eVar2.gO(getName());
+                eVar2 = eVar2.hn(getName());
                 if (eVar.j(getName(), i)) {
                     list.add(eVar2.a(this));
                 }
@@ -393,6 +393,6 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0185
     @Override // com.baidu.live.lottie.model.f
     @CallSuper
     public <T> void a(T t, @Nullable com.baidu.live.lottie.e.c<T> cVar) {
-        this.bpm.b(t, cVar);
+        this.bsN.b(t, cVar);
     }
 }

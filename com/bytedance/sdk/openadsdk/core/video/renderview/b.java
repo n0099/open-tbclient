@@ -2,10 +2,10 @@ package com.bytedance.sdk.openadsdk.core.video.renderview;
 
 import android.view.SurfaceHolder;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(int i);
     }

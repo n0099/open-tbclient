@@ -9,14 +9,14 @@ import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.bytedance.sdk.openadsdk.TTDislikeDialogAbstract;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.ak;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BackupView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f6615a;
+    protected Context f6617a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected com.bytedance.sdk.openadsdk.core.d.l f6616b;
+    protected com.bytedance.sdk.openadsdk.core.d.l f6618b;
     protected com.bytedance.sdk.openadsdk.dislike.b c;
     protected TTDislikeDialogAbstract d;
     protected String e;
@@ -48,8 +48,8 @@ public abstract class BackupView extends FrameLayout {
     }
 
     public void setDislikeOuter(TTDislikeDialogAbstract tTDislikeDialogAbstract) {
-        if (tTDislikeDialogAbstract != null && this.f6616b != null) {
-            tTDislikeDialogAbstract.setMaterialMeta(this.f6616b);
+        if (tTDislikeDialogAbstract != null && this.f6618b != null) {
+            tTDislikeDialogAbstract.setMaterialMeta(this.f6618b);
         }
         this.d = tTDislikeDialogAbstract;
     }
@@ -64,49 +64,49 @@ public abstract class BackupView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getNameOrSource() {
-        if (this.f6616b == null) {
+        if (this.f6618b == null) {
             return "";
         }
-        if (this.f6616b.U() != null && !TextUtils.isEmpty(this.f6616b.U().c())) {
-            return this.f6616b.U().c();
+        if (this.f6618b.U() != null && !TextUtils.isEmpty(this.f6618b.U().c())) {
+            return this.f6618b.U().c();
         }
-        if (!TextUtils.isEmpty(this.f6616b.G())) {
-            return this.f6616b.G();
+        if (!TextUtils.isEmpty(this.f6618b.G())) {
+            return this.f6618b.G();
         }
         return "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getTitle() {
-        if (this.f6616b.U() != null && !TextUtils.isEmpty(this.f6616b.U().c())) {
-            return this.f6616b.U().c();
+        if (this.f6618b.U() != null && !TextUtils.isEmpty(this.f6618b.U().c())) {
+            return this.f6618b.U().c();
         }
-        if (!TextUtils.isEmpty(this.f6616b.G())) {
-            return this.f6616b.G();
+        if (!TextUtils.isEmpty(this.f6618b.G())) {
+            return this.f6618b.G();
         }
-        if (!TextUtils.isEmpty(this.f6616b.Q())) {
-            return this.f6616b.Q();
+        if (!TextUtils.isEmpty(this.f6618b.Q())) {
+            return this.f6618b.Q();
         }
         return "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getDescription() {
-        if (!TextUtils.isEmpty(this.f6616b.Q())) {
-            return this.f6616b.Q();
+        if (!TextUtils.isEmpty(this.f6618b.Q())) {
+            return this.f6618b.Q();
         }
-        if (!TextUtils.isEmpty(this.f6616b.R())) {
-            return this.f6616b.R();
+        if (!TextUtils.isEmpty(this.f6618b.R())) {
+            return this.f6618b.R();
         }
         return "";
     }
 
     public float getRealWidth() {
-        return ak.b(this.f6615a, this.f);
+        return ak.b(this.f6617a, this.f);
     }
 
     public float getRealHeight() {
-        return ak.b(this.f6615a, this.g);
+        return ak.b(this.f6617a, this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -114,9 +114,9 @@ public abstract class BackupView extends FrameLayout {
         com.bytedance.sdk.openadsdk.core.a.b bVar;
         if (view != null) {
             if (z) {
-                bVar = new com.bytedance.sdk.openadsdk.core.a.a(this.f6615a, this.f6616b, this.e, aj.a(this.e));
+                bVar = new com.bytedance.sdk.openadsdk.core.a.a(this.f6617a, this.f6618b, this.e, aj.a(this.e));
             } else {
-                bVar = new com.bytedance.sdk.openadsdk.core.a.b(this.f6615a, this.f6616b, this.e, aj.a(this.e));
+                bVar = new com.bytedance.sdk.openadsdk.core.a.b(this.f6617a, this.f6618b, this.e, aj.a(this.e));
             }
             view.setOnTouchListener(bVar);
             view.setOnClickListener(bVar);

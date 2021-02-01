@@ -16,18 +16,17 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTCountdownView extends View {
     private boolean A;
     private AtomicBoolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6772a;
+    private int f6774a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6773b;
+    private int f6775b;
     private int c;
     private int d;
     private float e;
@@ -53,7 +52,7 @@ public class TTCountdownView extends View {
     private ValueAnimator y;
     private ValueAnimator z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -72,14 +71,14 @@ public class TTCountdownView extends View {
 
     public TTCountdownView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f6772a = Color.parseColor("#fce8b6");
-        this.f6773b = Color.parseColor("#f0f0f0");
+        this.f6774a = Color.parseColor("#fce8b6");
+        this.f6775b = Color.parseColor("#f0f0f0");
         this.c = Color.parseColor("#ffffff");
         this.d = Color.parseColor("#7c7c7c");
         this.e = 2.0f;
         this.f = 12.0f;
         this.g = 18.0f;
-        this.h = SubsamplingScaleImageView.ORIENTATION_270;
+        this.h = 270;
         this.i = false;
         this.j = 5.0f;
         this.k = 5.0f;
@@ -100,7 +99,7 @@ public class TTCountdownView extends View {
 
     private void e() {
         this.o = new Paint(1);
-        this.o.setColor(this.f6772a);
+        this.o.setColor(this.f6774a);
         this.o.setStrokeWidth(this.e);
         this.o.setAntiAlias(true);
         this.o.setStyle(Paint.Style.STROKE);
@@ -110,7 +109,7 @@ public class TTCountdownView extends View {
         this.p.setStrokeWidth(this.e);
         this.p.setStyle(Paint.Style.FILL);
         this.q = new Paint(1);
-        this.q.setColor(this.f6773b);
+        this.q.setColor(this.f6775b);
         this.q.setAntiAlias(true);
         this.q.setStrokeWidth(this.e / 2.0f);
         this.q.setStyle(Paint.Style.STROKE);

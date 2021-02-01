@@ -1,27 +1,27 @@
 package com.baidu.live.videochat.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface e extends c {
-    void J(int i, String str);
-
-    void K(int i, String str);
-
-    void L(int i, String str);
-
-    void M(int i, String str);
-
     void N(int i, String str);
 
     void O(int i, String str);
 
-    void Us();
+    void P(int i, String str);
 
-    void Ut();
+    void Q(int i, String str);
 
-    void Uu();
+    void R(int i, String str);
 
-    void Uv();
+    void S(int i, String str);
 
-    void Uw();
+    void Wb();
+
+    void Wc();
+
+    void Wd();
+
+    void We();
+
+    void Wf();
 
     void a(com.baidu.live.videochat.b.a aVar);
 }

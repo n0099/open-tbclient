@@ -12,10 +12,10 @@ import java.io.IOException;
 public class ImageBase64Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1977a = "ImageBase64Utils";
+    private static final String f1975a = "ImageBase64Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f1978b = 70;
+    private static int f1976b = 70;
     private static ImageBase64Utils c;
 
     /* loaded from: classes5.dex */
@@ -55,9 +55,9 @@ public class ImageBase64Utils {
             try {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
-                LogUtil.d(f1977a, "compress size:\t" + byteArray.length + "\timagesize" + byteArray.length + "\twidth" + bitmap.getWidth());
+                LogUtil.d(f1975a, "compress size:\t" + byteArray.length + "\timagesize" + byteArray.length + "\twidth" + bitmap.getWidth());
                 byte[] encode = Base64.encode(byteArray, 0, byteArray.length, 2);
-                LogUtil.d(f1977a, "base64 size:\t" + (byteArray.length / 1024));
+                LogUtil.d(f1975a, "base64 size:\t" + (byteArray.length / 1024));
                 String str = new String(encode);
                 try {
                     byteArrayOutputStream.close();
@@ -95,19 +95,19 @@ public class ImageBase64Utils {
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inJustDecodeBounds = true;
                     BitmapFactory.decodeFile(str, options);
-                    LogUtil.d(f1977a, "original size\t " + (file.length() / 1000) + "\twidth" + options.outWidth + "\theight" + options.outHeight);
+                    LogUtil.d(f1975a, "original size\t " + (file.length() / 1000) + "\twidth" + options.outWidth + "\theight" + options.outHeight);
                     int computeSampleSize = ImageCompressor.computeSampleSize(options, i, -1);
                     options.inSampleSize = computeSampleSize;
                     options.inJustDecodeBounds = false;
                     Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f1978b, byteArrayOutputStream);
+                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f1976b, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    LogUtil.d(f1977a, "compress size:\t" + byteArray.length + "\tsampleSize" + computeSampleSize + "\twidth" + decodeFile.getWidth());
+                    LogUtil.d(f1975a, "compress size:\t" + byteArray.length + "\tsampleSize" + computeSampleSize + "\twidth" + decodeFile.getWidth());
                     decodeFile.recycle();
                     byteArrayOutputStream.close();
                     byte[] encode = Base64.encode(byteArray, 0, byteArray.length, 2);
-                    LogUtil.d(f1977a, "base64 size:\t" + (byteArray.length / 1024));
+                    LogUtil.d(f1975a, "base64 size:\t" + (byteArray.length / 1024));
                     return new String(encode);
                 }
             } catch (Throwable th) {
@@ -124,12 +124,12 @@ public class ImageBase64Utils {
     class ImageBase64AsyncTask extends AsyncTask<String, Integer, String> {
 
         /* renamed from: b  reason: collision with root package name */
-        private ImageBase64Listener f1980b;
+        private ImageBase64Listener f1978b;
         private String c;
         private int d;
 
         public ImageBase64AsyncTask(ImageBase64Listener imageBase64Listener, String str, int i) {
-            this.f1980b = imageBase64Listener;
+            this.f1978b = imageBase64Listener;
             this.c = str;
             this.d = i;
         }
@@ -148,8 +148,8 @@ public class ImageBase64Utils {
         /* renamed from: a */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            if (this.f1980b != null) {
-                this.f1980b.onBase64Result(str);
+            if (this.f1978b != null) {
+                this.f1978b.onBase64Result(str);
             }
         }
     }

@@ -18,64 +18,64 @@ import com.baidu.tbadk.core.atomData.BarFolderFirstDirActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.flow.CoverFlowView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.square.h;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g extends BaseAdapter {
-    private TbPageContext<Object> eSJ;
+    private TbPageContext<Object> eUY;
     private Activity mActivity;
-    private h niE;
-    private ArrayList<bw> niF;
-    private ArrayList<h.b> niG;
-    private ArrayList<h.a> niH;
-    private com.baidu.tieba.square.view.a niI;
+    private h nsm;
+    private ArrayList<by> nsn;
+    private ArrayList<h.b> nso;
+    private ArrayList<h.a> nsp;
+    private com.baidu.tieba.square.view.a nsq;
 
     public g(TbPageContext<Object> tbPageContext) {
-        this.niI = null;
+        this.nsq = null;
         if (tbPageContext != null && tbPageContext.getOrignalPage() != null) {
-            this.eSJ = tbPageContext;
+            this.eUY = tbPageContext;
             this.mActivity = tbPageContext.getPageActivity();
-            this.niI = new com.baidu.tieba.square.view.a(tbPageContext);
-            CoverFlowView<i> dKe = this.niI.dKe();
+            this.nsq = new com.baidu.tieba.square.view.a(tbPageContext);
+            CoverFlowView<i> dMp = this.nsq.dMp();
             if (tbPageContext.getOrignalPage() instanceof f) {
-                dKe.setSwipeControlInterface((f) tbPageContext.getOrignalPage());
+                dMp.setSwipeControlInterface((f) tbPageContext.getOrignalPage());
             }
-            dKe.setDisableParentEvent(false);
+            dMp.setDisableParentEvent(false);
         }
     }
 
     public void a(h hVar) {
         if (hVar != null) {
-            this.niE = hVar;
-            this.niF = this.niE.dJV();
-            this.niG = this.niE.dJT();
-            this.niH = this.niE.dJU();
-            this.niI.setData(this.niF);
+            this.nsm = hVar;
+            this.nsn = this.nsm.dMg();
+            this.nso = this.nsm.dMe();
+            this.nsp = this.nsm.dMf();
+            this.nsq.setData(this.nsn);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         int i = 0;
-        if (this.niG != null && this.niG.size() != 0) {
-            i = 0 + this.niG.size();
+        if (this.nso != null && this.nso.size() != 0) {
+            i = 0 + this.nso.size();
         }
-        if (this.niF != null && this.niF.size() != 0) {
+        if (this.nsn != null && this.nsn.size() != 0) {
             i++;
         }
         if (i != 0) {
             i++;
         }
-        if (this.niH != null && this.niH.size() > 0) {
+        if (this.nsp != null && this.nsp.size() > 0) {
             return i + 1;
         }
         return i;
@@ -89,22 +89,22 @@ public class g extends BaseAdapter {
             return null;
         }
         if (itemViewType == 0) {
-            return this.niF;
+            return this.nsn;
         }
         if (itemViewType == 1) {
-            return this.niH;
+            return this.nsp;
         }
         if (itemViewType == 2 || itemViewType == 3) {
-            if (this.niF == null || this.niF.size() == 0) {
+            if (this.nsn == null || this.nsn.size() == 0) {
                 i2 = 0;
             }
-            if (this.niH != null && this.niH.size() != 0) {
+            if (this.nsp != null && this.nsp.size() != 0) {
                 i2++;
             }
-            if (i - i2 < 0 || i - i2 >= this.niG.size()) {
+            if (i - i2 < 0 || i - i2 >= this.nso.size()) {
                 return null;
             }
-            return this.niG.get(i - i2);
+            return this.nso.get(i - i2);
         }
         return null;
     }
@@ -123,31 +123,31 @@ public class g extends BaseAdapter {
     public int getItemViewType(int i) {
         int i2 = 1;
         if (i == 0) {
-            if (this.niF != null && this.niF.size() != 0) {
+            if (this.nsn != null && this.nsn.size() != 0) {
                 return 0;
             }
-            if (this.niH != null && this.niH.size() != 0) {
+            if (this.nsp != null && this.nsp.size() != 0) {
                 return 1;
             }
         }
-        if (i != 1 || this.niF == null || this.niF.size() == 0 || this.niH == null || this.niH.size() == 0) {
+        if (i != 1 || this.nsn == null || this.nsn.size() == 0 || this.nsp == null || this.nsp.size() == 0) {
             if (i == getCount() - 1) {
                 return 4;
             }
-            if (this.niF == null || this.niF.size() == 0) {
+            if (this.nsn == null || this.nsn.size() == 0) {
                 i2 = 0;
             }
-            if (this.niH != null && this.niH.size() != 0) {
+            if (this.nsp != null && this.nsp.size() != 0) {
                 i2++;
             }
-            if (i - i2 < 0 || i - i2 >= this.niG.size()) {
+            if (i - i2 < 0 || i - i2 >= this.nso.size()) {
                 return -1;
             }
-            h.b bVar = this.niG.get(i - i2);
+            h.b bVar = this.nso.get(i - i2);
             if (bVar == null) {
                 return -1;
             }
-            if (bVar.niZ) {
+            if (bVar.nsH) {
                 return 2;
             }
             return 3;
@@ -159,55 +159,55 @@ public class g extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            return this.niI.getView(i, view, viewGroup);
+            return this.nsq.getView(i, view, viewGroup);
         }
         if (view == null) {
             view = a(i, viewGroup, itemViewType);
         }
         E(view, i);
-        this.eSJ.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.eSJ.getLayoutMode().onModeChanged(view);
+        this.eUY.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.eUY.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     private View a(int i, ViewGroup viewGroup, int i2) {
         if (i2 == 1) {
-            return LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.square_list_entry_view, (ViewGroup) null);
+            return LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.square_list_entry_view, (ViewGroup) null);
         }
         if (i2 == 2) {
-            View inflate = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.square_list_title_view, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.square_list_title_view, (ViewGroup) null);
             a aVar = new a();
-            aVar.niT = (RelativeLayout) inflate.findViewById(R.id.title_layout);
+            aVar.nsB = (RelativeLayout) inflate.findViewById(R.id.title_layout);
             aVar.titleText = (TextView) inflate.findViewById(R.id.title_text);
-            aVar.jZj = (TextView) inflate.findViewById(R.id.more_text);
+            aVar.kgM = (TextView) inflate.findViewById(R.id.more_text);
             inflate.setTag(aVar);
             return inflate;
         } else if (i2 != 3) {
             if (i2 == 4) {
-                View inflate2 = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.square_list_more_view, (ViewGroup) null);
+                View inflate2 = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.square_list_more_view, (ViewGroup) null);
                 inflate2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        TiebaStatic.eventStat(g.this.eSJ.getPageActivity(), "square_bottom_find_more", "click", 1, new Object[0]);
-                        g.this.dJR();
+                        TiebaStatic.eventStat(g.this.eUY.getPageActivity(), "square_bottom_find_more", "click", 1, new Object[0]);
+                        g.this.dMc();
                     }
                 });
                 return inflate2;
             }
             return null;
         } else {
-            View inflate3 = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.square_forum_item_view, (ViewGroup) null);
+            View inflate3 = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.square_forum_item_view, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.knS = (TextView) inflate3.findViewById(R.id.forum_name);
-            aVar2.niN = (BarImageView) inflate3.findViewById(R.id.forum_image);
-            aVar2.niO = (TextView) inflate3.findViewById(R.id.forum_rank);
-            aVar2.niP = (TextView) inflate3.findViewById(R.id.forum_intro);
-            aVar2.niQ = (TextView) inflate3.findViewById(R.id.like_num_tv);
-            aVar2.niR = (TextView) inflate3.findViewById(R.id.thread_num_tv);
-            aVar2.niS = (TextView) inflate3.findViewById(R.id.category_name_tv);
-            aVar2.iRq = inflate3.findViewById(R.id.vertical_line_view);
-            aVar2.niV = (TextView) inflate3.findViewById(R.id.enter_forum);
-            aVar2.niU = (LinearLayout) inflate3.findViewById(R.id.enter_forum_ll);
+            aVar2.kvZ = (TextView) inflate3.findViewById(R.id.forum_name);
+            aVar2.nsv = (BarImageView) inflate3.findViewById(R.id.forum_image);
+            aVar2.nsw = (TextView) inflate3.findViewById(R.id.forum_rank);
+            aVar2.nsx = (TextView) inflate3.findViewById(R.id.forum_intro);
+            aVar2.nsy = (TextView) inflate3.findViewById(R.id.like_num_tv);
+            aVar2.nsz = (TextView) inflate3.findViewById(R.id.thread_num_tv);
+            aVar2.nsA = (TextView) inflate3.findViewById(R.id.category_name_tv);
+            aVar2.iWX = inflate3.findViewById(R.id.vertical_line_view);
+            aVar2.nsD = (TextView) inflate3.findViewById(R.id.enter_forum);
+            aVar2.nsC = (LinearLayout) inflate3.findViewById(R.id.enter_forum_ll);
             inflate3.setTag(aVar2);
             return inflate3;
         }
@@ -217,28 +217,28 @@ public class g extends BaseAdapter {
         if (view != null) {
             int itemViewType = getItemViewType(i);
             if (itemViewType == 1) {
-                ej(view);
+                eh(view);
             } else if (itemViewType == 2) {
                 Object item = getItem(i);
                 if (item instanceof h.b) {
                     final h.b bVar = (h.b) item;
                     a aVar = (a) view.getTag();
-                    if (bVar.njf == 0) {
-                        aVar.niT.setPadding(this.eSJ.getResources().getDimensionPixelSize(R.dimen.ds30), this.eSJ.getResources().getDimensionPixelSize(R.dimen.ds26), this.eSJ.getResources().getDimensionPixelSize(R.dimen.ds20), this.eSJ.getResources().getDimensionPixelSize(R.dimen.ds10));
+                    if (bVar.nsN == 0) {
+                        aVar.nsB.setPadding(this.eUY.getResources().getDimensionPixelSize(R.dimen.ds30), this.eUY.getResources().getDimensionPixelSize(R.dimen.ds26), this.eUY.getResources().getDimensionPixelSize(R.dimen.ds20), this.eUY.getResources().getDimensionPixelSize(R.dimen.ds10));
                     } else {
-                        aVar.niT.setPadding(this.eSJ.getResources().getDimensionPixelSize(R.dimen.ds30), this.eSJ.getResources().getDimensionPixelSize(R.dimen.ds6), this.eSJ.getResources().getDimensionPixelSize(R.dimen.ds20), this.eSJ.getResources().getDimensionPixelSize(R.dimen.ds10));
+                        aVar.nsB.setPadding(this.eUY.getResources().getDimensionPixelSize(R.dimen.ds30), this.eUY.getResources().getDimensionPixelSize(R.dimen.ds6), this.eUY.getResources().getDimensionPixelSize(R.dimen.ds20), this.eUY.getResources().getDimensionPixelSize(R.dimen.ds10));
                     }
                     aVar.titleText.setText(bVar.title);
-                    if (bVar.nja) {
-                        aVar.jZj.setVisibility(8);
+                    if (bVar.nsI) {
+                        aVar.kgM.setVisibility(8);
                         return;
                     }
-                    aVar.jZj.setVisibility(0);
-                    aVar.jZj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.2
+                    aVar.kgM.setVisibility(0);
+                    aVar.kgM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            TiebaStatic.eventStat(g.this.mActivity, "square_category_more", "click", 1, "loc", Integer.valueOf(bVar.njf));
-                            be.bsB().b(g.this.eSJ, new String[]{bVar.link});
+                            TiebaStatic.eventStat(g.this.mActivity, "square_category_more", "click", 1, "loc", Integer.valueOf(bVar.nsN));
+                            bf.bsV().b(g.this.eUY, new String[]{bVar.link});
                         }
                     });
                 }
@@ -248,54 +248,54 @@ public class g extends BaseAdapter {
                     final h.b bVar2 = (h.b) item2;
                     final a aVar2 = (a) view.getTag();
                     if (aVar2 != null) {
-                        aVar2.niN.startLoad(bVar2.lCh, 10, false);
-                        aVar2.knS.setText(bVar2.forumName);
-                        aVar2.niO.setText(bVar2.njc);
-                        aVar2.niP.setText(bVar2.njd);
-                        long j = bVar2.nje;
+                        aVar2.nsv.startLoad(bVar2.lKV, 10, false);
+                        aVar2.kvZ.setText(bVar2.forumName);
+                        aVar2.nsw.setText(bVar2.nsK);
+                        aVar2.nsx.setText(bVar2.nsL);
+                        long j = bVar2.nsM;
                         if (j < 0) {
                             j = 0;
                         }
                         long j2 = bVar2.threadNum;
                         long j3 = j2 >= 0 ? j2 : 0L;
-                        aVar2.niQ.setText(this.eSJ.getString(R.string.attention) + at.numFormatOver10000wan(j));
-                        aVar2.niR.setText(this.eSJ.getString(R.string.text_post) + at.numFormatOver10000wan(j3));
-                        if (bVar2.nja && !StringUtils.isNull(bVar2.njb)) {
-                            aVar2.niS.setText(UtilHelper.getFixedText(bVar2.njb, 5));
-                            aVar2.niS.setVisibility(0);
-                            aVar2.iRq.setVisibility(0);
+                        aVar2.nsy.setText(this.eUY.getString(R.string.attention) + au.numFormatOver10000wan(j));
+                        aVar2.nsz.setText(this.eUY.getString(R.string.text_post) + au.numFormatOver10000wan(j3));
+                        if (bVar2.nsI && !StringUtils.isNull(bVar2.nsJ)) {
+                            aVar2.nsA.setText(UtilHelper.getFixedText(bVar2.nsJ, 5));
+                            aVar2.nsA.setVisibility(0);
+                            aVar2.iWX.setVisibility(0);
                         } else {
-                            aVar2.niS.setVisibility(8);
-                            aVar2.iRq.setVisibility(8);
+                            aVar2.nsA.setVisibility(8);
+                            aVar2.iWX.setVisibility(8);
                         }
-                        aVar2.niS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.3
+                        aVar2.nsA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                TiebaStatic.eventStat(g.this.mActivity, "square_module_menu", "click", 1, "loc", Integer.valueOf(bVar2.njg));
-                                be.bsB().b(g.this.eSJ, new String[]{bVar2.link});
+                                TiebaStatic.eventStat(g.this.mActivity, "square_module_menu", "click", 1, "loc", Integer.valueOf(bVar2.nsO));
+                                bf.bsV().b(g.this.eUY, new String[]{bVar2.link});
                             }
                         });
-                        aVar2.niV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.4
+                        aVar2.nsD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.4
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                TiebaStatic.eventStat(g.this.mActivity, "square_module_entry", "click", 1, "moduleloc", Integer.valueOf(bVar2.njf), "loc", Integer.valueOf(bVar2.njg));
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(g.this.eSJ.getPageActivity()).createNormalCfg(bVar2.forumName, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
+                                TiebaStatic.eventStat(g.this.mActivity, "square_module_entry", "click", 1, "moduleloc", Integer.valueOf(bVar2.nsN), "loc", Integer.valueOf(bVar2.nsO));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(g.this.eUY.getPageActivity()).createNormalCfg(bVar2.forumName, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
                             }
                         });
-                        aVar2.niU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.5
+                        aVar2.nsC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.5
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                aVar2.niV.performClick();
+                                aVar2.nsD.performClick();
                             }
                         });
                         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.6
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                TiebaStatic.eventStat(g.this.mActivity, "square_module_content", "click", 1, "moduleloc", Integer.valueOf(bVar2.njf), "loc", Integer.valueOf(bVar2.njg));
+                                TiebaStatic.eventStat(g.this.mActivity, "square_module_content", "click", 1, "moduleloc", Integer.valueOf(bVar2.nsN), "loc", Integer.valueOf(bVar2.nsO));
                                 if (TbadkCoreApplication.getInst().isRegistedIntent(ForumDetailActivityConfig.class)) {
-                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(g.this.eSJ.getPageActivity(), bVar2.forumId + "", ForumDetailActivityConfig.FromType.BAR_SQUARE)));
+                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(g.this.eUY.getPageActivity(), bVar2.forumId + "", ForumDetailActivityConfig.FromType.BAR_SQUARE)));
                                 } else {
-                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(g.this.eSJ.getPageActivity()).createNormalCfg(bVar2.forumName, FrsActivityConfig.FRS_FROM_SQUARE)));
+                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(g.this.eUY.getPageActivity()).createNormalCfg(bVar2.forumName, FrsActivityConfig.FRS_FROM_SQUARE)));
                                 }
                             }
                         });
@@ -305,20 +305,20 @@ public class g extends BaseAdapter {
         }
     }
 
-    private void ej(View view) {
+    private void eh(View view) {
         if (view != null) {
-            if (this.niH == null || this.niH.size() == 0) {
+            if (this.nsp == null || this.nsp.size() == 0) {
                 view.setVisibility(8);
                 return;
             }
             view.setVisibility(0);
-            int size = this.niH.size();
+            int size = this.nsp.size();
             int i = size > 4 ? 4 : size;
             View[] viewArr = {view.findViewById(R.id.empty_view_01), view.findViewById(R.id.empty_view_02), view.findViewById(R.id.empty_view_03), view.findViewById(R.id.empty_view_04), view.findViewById(R.id.empty_view_05)};
             View[] viewArr2 = {view.findViewById(R.id.entry_ll_01), view.findViewById(R.id.entry_ll_02), view.findViewById(R.id.entry_ll_03), view.findViewById(R.id.entry_ll_04)};
             for (int i2 = 0; i2 < viewArr2.length; i2++) {
                 if (i2 < i) {
-                    final h.a aVar = this.niH.get(i2);
+                    final h.a aVar = this.nsp.get(i2);
                     if (aVar == null) {
                         viewArr2[i2].setVisibility(8);
                     } else {
@@ -331,7 +331,7 @@ public class g extends BaseAdapter {
                                 tbImageView.setTag(Integer.valueOf(i2));
                                 tbImageView.setDrawerType(1);
                                 tbImageView.setIsRound(true);
-                                tbImageView.startLoad(aVar.niY, 10, false);
+                                tbImageView.startLoad(aVar.nsG, 10, false);
                             }
                             View childAt2 = linearLayout.getChildAt(1);
                             if (childAt2 instanceof TextView) {
@@ -340,10 +340,10 @@ public class g extends BaseAdapter {
                             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.7
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
-                                    if (aVar.jSd) {
-                                        g.this.dJR();
+                                    if (aVar.jZE) {
+                                        g.this.dMc();
                                     } else {
-                                        be.bsB().b(g.this.eSJ, new String[]{aVar.link});
+                                        bf.bsV().b(g.this.eUY, new String[]{aVar.link});
                                     }
                                     if (view2.getTag() instanceof Integer) {
                                         TiebaStatic.eventStat(g.this.mActivity, "square_entry_content", "click", 1, "loc", "" + ((Integer) view2.getTag()).intValue());
@@ -363,32 +363,32 @@ public class g extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dJR() {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_BAR_FOLDER_FIRST_DIR, new BarFolderFirstDirActivityConfig(this.eSJ.getPageActivity(), SingleSquareActivityConfig.makeStatisticsParam("forum_browse", "all"))));
+    public void dMc() {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_BAR_FOLDER_FIRST_DIR, new BarFolderFirstDirActivityConfig(this.eUY.getPageActivity(), SingleSquareActivityConfig.makeStatisticsParam("forum_browse", "all"))));
     }
 
     public void onChangeSkinType(int i) {
-        if (this.niI != null) {
-            this.niI.onChangeSkinType(i);
+        if (this.nsq != null) {
+            this.nsq.onChangeSkinType(i);
         }
         notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        View iRq;
-        TextView jZj;
-        TextView knS;
-        BarImageView niN;
-        TextView niO;
-        TextView niP;
-        TextView niQ;
-        TextView niR;
-        TextView niS;
-        RelativeLayout niT;
-        LinearLayout niU;
-        TextView niV;
+        View iWX;
+        TextView kgM;
+        TextView kvZ;
+        TextView nsA;
+        RelativeLayout nsB;
+        LinearLayout nsC;
+        TextView nsD;
+        BarImageView nsv;
+        TextView nsw;
+        TextView nsx;
+        TextView nsy;
+        TextView nsz;
         TextView titleText;
 
         private a() {

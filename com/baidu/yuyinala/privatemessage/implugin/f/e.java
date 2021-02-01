@@ -3,7 +3,7 @@ package com.baidu.yuyinala.privatemessage.implugin.f;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e extends i {
     private String mKey;
     private long mPaid;
@@ -17,13 +17,13 @@ public class e extends i {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        return Xf(null) + "api/subscribe/v1/resource/pauid_thirdid";
+        return Yg(null) + "api/subscribe/v1/resource/pauid_thirdid";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
         if (i == 200) {
-            k.hz(this.mContext).a(i, new String(bArr), this.mPaid, this.mKey);
+            k.hC(this.mContext).a(i, new String(bArr), this.mPaid, this.mKey);
         } else {
             ListenerManager.getInstance().removeListener(this.mKey);
         }

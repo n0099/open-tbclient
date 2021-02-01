@@ -1,32 +1,32 @@
 package com.baidu.tieba.livesdk.j;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static void m(String str, Map<String, String> map) {
-        if (!at.isEmpty(str)) {
-            aq aqVar = new aq(str);
+    public static void l(String str, Map<String, String> map) {
+        if (!au.isEmpty(str)) {
+            ar arVar = new ar(str);
             if (map != null) {
                 for (String str2 : map.keySet()) {
-                    aqVar.dW(str2, map.get(str2));
+                    arVar.dR(str2, map.get(str2));
                 }
             }
-            TiebaStatic.log(aqVar);
+            TiebaStatic.log(arVar);
         }
     }
 
-    public static void F(Map<String, String> map) {
+    public static void H(Map<String, String> map) {
         if (map != null) {
             HashMap hashMap = new HashMap();
             String remove = map.remove("key");
             for (String str : map.keySet()) {
                 hashMap.put(str, map.get(str));
             }
-            m(remove, hashMap);
+            l(remove, hashMap);
         }
     }
 }

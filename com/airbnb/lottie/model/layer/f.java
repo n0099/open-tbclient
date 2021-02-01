@@ -10,7 +10,7 @@ import android.graphics.RectF;
 import androidx.annotation.Nullable;
 import com.airbnb.lottie.a.b.p;
 import com.airbnb.lottie.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f extends a {
     @Nullable
     private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> Dz;
@@ -37,7 +37,7 @@ public class f extends a {
     public void d(Canvas canvas, Matrix matrix, int i) {
         int alpha = Color.alpha(this.Gy.getSolidColor());
         if (alpha != 0) {
-            int intValue = (int) (((this.Ek.iQ().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
+            int intValue = (int) (((this.Ek.iP().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
             this.paint.setAlpha(intValue);
             if (this.Dz != null) {
                 this.paint.setColorFilter(this.Dz.getValue());
@@ -45,12 +45,12 @@ public class f extends a {
             if (intValue > 0) {
                 this.points[0] = 0.0f;
                 this.points[1] = 0.0f;
-                this.points[2] = this.Gy.kg();
+                this.points[2] = this.Gy.kf();
                 this.points[3] = 0.0f;
-                this.points[4] = this.Gy.kg();
-                this.points[5] = this.Gy.kf();
+                this.points[4] = this.Gy.kf();
+                this.points[5] = this.Gy.ke();
                 this.points[6] = 0.0f;
-                this.points[7] = this.Gy.kf();
+                this.points[7] = this.Gy.ke();
                 matrix.mapPoints(this.points);
                 this.path.reset();
                 this.path.moveTo(this.points[0], this.points[1]);
@@ -67,7 +67,7 @@ public class f extends a {
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d
     public void d(RectF rectF, Matrix matrix) {
         super.d(rectF, matrix);
-        this.rect.set(0.0f, 0.0f, this.Gy.kg(), this.Gy.kf());
+        this.rect.set(0.0f, 0.0f, this.Gy.kf(), this.Gy.ke());
         this.Gx.mapRect(this.rect);
         rectF.set(this.rect);
     }

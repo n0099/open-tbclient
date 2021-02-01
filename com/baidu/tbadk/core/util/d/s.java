@@ -4,37 +4,37 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
 public class s extends a {
-    private boolean akY;
+    private boolean akO;
     private int procType;
 
     public s(boolean z, int i) {
-        this.akY = true;
+        this.akO = true;
         this.procType = 0;
-        this.akY = z;
+        this.akO = z;
         this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bsT() {
+    public int btn() {
         return com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bsU() {
+    public int bto() {
         return com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bsV() {
+    public int btp() {
         return this.procType;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.akY;
+        return this.akO;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,21 +44,21 @@ public class s extends a {
         long currentTimeMillis = System.currentTimeMillis();
         com.baidu.adp.widget.ImageView.a aVar = null;
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c AZ = AZ(av.getNameMd5FromUrl(str2));
-        if (AZ == null) {
+        com.baidu.adp.lib.Disk.ops.c Bq = Bq(aw.getNameMd5FromUrl(str2));
+        if (Bq == null) {
             return null;
         }
-        AZ.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        AZ.setSubFolder(true);
-        AZ.setIsFormatData(false);
-        AZ.setLock(bArr);
-        AZ.setSdCard(false);
+        Bq.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        Bq.setSubFolder(true);
+        Bq.setIsFormatData(false);
+        Bq.setLock(bArr);
+        Bq.setSdCard(false);
         if (bVar != null) {
             d dVar = new d();
-            dVar.f(AZ);
-            bVar.Nn = dVar;
+            dVar.f(Bq);
+            bVar.Nl = dVar;
         }
-        if (!com.baidu.adp.lib.Disk.d.lh().c(AZ)) {
+        if (!com.baidu.adp.lib.Disk.d.lg().c(Bq)) {
             com.baidu.adp.lib.e.a.c(false, 0L);
             return null;
         }
@@ -72,8 +72,8 @@ public class s extends a {
             } catch (InterruptedException e) {
             }
         }
-        if (AZ.isSuccess()) {
-            aVar = a(AZ, str2, i, i2);
+        if (Bq.isSuccess()) {
+            aVar = a(Bq, str2, i, i2);
         }
         com.baidu.adp.lib.e.a.c(aVar != null, System.currentTimeMillis() - currentTimeMillis);
         return aVar;
@@ -83,18 +83,18 @@ public class s extends a {
     public void a(String str, byte[] bArr, Object... objArr) {
         if (!TextUtils.isEmpty(str) && bArr != null && ((Boolean) objArr[0]).booleanValue()) {
             boolean booleanValue = ((Boolean) objArr[2]).booleanValue();
-            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, av.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
+            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, aw.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.setSubFolder(true);
             cVar.setData(bArr);
             cVar.setSdCard(false);
             cVar.setGif(booleanValue);
-            com.baidu.adp.lib.Disk.d.lh().c(cVar);
+            com.baidu.adp.lib.Disk.d.lg().c(cVar);
             com.baidu.adp.lib.e.b bVar = (com.baidu.adp.lib.e.b) objArr[3];
             if (bVar != null) {
                 d dVar = new d();
                 dVar.f(cVar);
-                bVar.Nn = dVar;
+                bVar.Nl = dVar;
             }
         }
     }

@@ -1,25 +1,25 @@
 package com.baidu.helios.channels.csc;
 /* loaded from: classes6.dex */
 public class a {
-    private static final byte[][] asj = {new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
+    private static final byte[][] arZ = {new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
 
     /* renamed from: com.baidu.helios.channels.csc.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0132a {
 
         /* renamed from: a  reason: collision with root package name */
-        private byte[] f2430a;
+        private byte[] f2428a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f2431b;
+        private int f2429b;
 
         public C0132a(byte[] bArr, int i) {
-            this.f2430a = bArr;
-            this.f2431b = i;
+            this.f2428a = bArr;
+            this.f2429b = i;
         }
 
         public byte[] a() {
-            return this.f2430a;
+            return this.f2428a;
         }
     }
 
@@ -63,8 +63,8 @@ public class a {
             for (int i7 = 7; i7 >= 0; i7--) {
                 bArr2[i6] = (byte) ((bArr2[i6] << 1) | ((b3 >> i7) & 1));
                 if (i5 % 3 == 2) {
-                    bArr2[i6 + 1] = asj[bArr2[i6]][1];
-                    bArr2[i6] = asj[bArr2[i6]][0];
+                    bArr2[i6 + 1] = arZ[bArr2[i6]][1];
+                    bArr2[i6] = arZ[bArr2[i6]][0];
                     i6 += 2;
                 }
                 i5++;
@@ -78,8 +78,8 @@ public class a {
         }
         if (b2 > 0) {
             bArr2[i6] = (byte) (bArr2[i6] << b2);
-            bArr2[i6 + 1] = asj[bArr2[i6]][1];
-            bArr2[i6] = asj[bArr2[i6]][0];
+            bArr2[i6 + 1] = arZ[bArr2[i6]][1];
+            bArr2[i6] = arZ[bArr2[i6]][0];
             bArr2[i6 + 2] = b2;
         }
         return bArr2;

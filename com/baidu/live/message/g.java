@@ -2,7 +2,7 @@ package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g extends HttpMessage {
     private int mCommand;
     private int mIsAudio;
@@ -16,7 +16,7 @@ public class g extends HttpMessage {
         addParam("tbs", TbadkCoreApplication.getInst().getTbs());
     }
 
-    public boolean MU() {
+    public boolean Os() {
         return this.mIsAudio == 1;
     }
 

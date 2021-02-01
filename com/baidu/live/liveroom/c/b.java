@@ -1,7 +1,7 @@
 package com.baidu.live.liveroom.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    boolean KY();
+    boolean Mw();
 
     void a(String str, int i, int i2, a aVar);
 }

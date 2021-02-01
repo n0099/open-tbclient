@@ -4,39 +4,39 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.adp.widget.ListView.BdListView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PackageDetailListView extends BdListView {
-    private a iUS;
-    private boolean iUT;
+    private boolean jaA;
+    private a jaz;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         boolean onInterceptTouchEvent(MotionEvent motionEvent);
     }
 
     public PackageDetailListView(Context context) {
         super(context);
-        this.iUT = false;
+        this.jaA = false;
     }
 
     public PackageDetailListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iUT = false;
+        this.jaA = false;
     }
 
     public PackageDetailListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iUT = false;
+        this.jaA = false;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.iUT) {
-            if (this.iUS != null) {
-                this.iUS.onInterceptTouchEvent(motionEvent);
+        if (this.jaA) {
+            if (this.jaz != null) {
+                this.jaz.onInterceptTouchEvent(motionEvent);
             }
             return false;
-        } else if (this.iUS == null || !this.iUS.onInterceptTouchEvent(motionEvent)) {
+        } else if (this.jaz == null || !this.jaz.onInterceptTouchEvent(motionEvent)) {
             return super.onInterceptTouchEvent(motionEvent);
         } else {
             return true;
@@ -44,10 +44,10 @@ public class PackageDetailListView extends BdListView {
     }
 
     public void setTouchEventInterceptHandler(a aVar) {
-        this.iUS = aVar;
+        this.jaz = aVar;
     }
 
     public void setDisableListViewTouchIntercept(boolean z) {
-        this.iUT = z;
+        this.jaA = z;
     }
 }

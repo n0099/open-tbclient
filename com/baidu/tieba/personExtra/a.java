@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.HistorySwan.DataRes;
 import tbclient.SmartApp;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private List<SmartApp> mnh;
+    private List<SmartApp> mwi;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.mnh = new ArrayList(dataRes.swan_list);
+            this.mwi = new ArrayList(dataRes.swan_list);
         }
     }
 
-    public List<SmartApp> duZ() {
-        return this.mnh;
+    public List<SmartApp> dxi() {
+        return this.mwi;
     }
 }

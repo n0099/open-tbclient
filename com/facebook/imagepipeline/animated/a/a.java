@@ -14,5 +14,5 @@ public interface a {
     com.facebook.imagepipeline.decoder.b d(Bitmap.Config config);
 
     @Nullable
-    com.facebook.imagepipeline.e.a ih(Context context);
+    com.facebook.imagepipeline.e.a ik(Context context);
 }

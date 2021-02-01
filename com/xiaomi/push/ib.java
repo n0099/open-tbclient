@@ -16,10 +16,10 @@ public class ib implements ix<ib, Object>, Serializable, Cloneable {
     private static final jn f604a = new jn("Target");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14122a = new jf("", (byte) 10, 1);
+    private static final jf f14124a = new jf("", (byte) 10, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final jf f14123b = new jf("", Constants.GZIP_CAST_TYPE, 2);
+    private static final jf f14125b = new jf("", Constants.GZIP_CAST_TYPE, 2);
     private static final jf c = new jf("", Constants.GZIP_CAST_TYPE, 3);
     private static final jf d = new jf("", Constants.GZIP_CAST_TYPE, 4);
     private static final jf e = new jf("", (byte) 2, 5);
@@ -109,7 +109,7 @@ public class ib implements ix<ib, Object>, Serializable, Cloneable {
         jiVar.m515a();
         while (true) {
             jf m511a = jiVar.m511a();
-            if (m511a.f14171a == 0) {
+            if (m511a.f14173a == 0) {
                 jiVar.f();
                 if (!m423a()) {
                     throw new jj("Required field 'channelId' was not found in serialized data! Struct: " + toString());
@@ -119,8 +119,8 @@ public class ib implements ix<ib, Object>, Serializable, Cloneable {
             }
             switch (m511a.f857a) {
                 case 1:
-                    if (m511a.f14171a != 10) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 10) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f605a = jiVar.m510a();
@@ -128,32 +128,32 @@ public class ib implements ix<ib, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 2:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f606a = jiVar.m516a();
                         break;
                     }
                 case 3:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f609b = jiVar.m516a();
                         break;
                     }
                 case 4:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f610c = jiVar.m516a();
                         break;
                     }
                 case 5:
-                    if (m511a.f14171a != 2) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 2) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f608a = jiVar.m520a();
@@ -162,11 +162,11 @@ public class ib implements ix<ib, Object>, Serializable, Cloneable {
                     }
                 case 6:
                 default:
-                    jl.a(jiVar, m511a.f14171a);
+                    jl.a(jiVar, m511a.f14173a);
                     break;
                 case 7:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f611d = jiVar.m516a();
@@ -220,11 +220,11 @@ public class ib implements ix<ib, Object>, Serializable, Cloneable {
     public void b(ji jiVar) {
         a();
         jiVar.a(f604a);
-        jiVar.a(f14122a);
+        jiVar.a(f14124a);
         jiVar.a(this.f605a);
         jiVar.b();
         if (this.f606a != null) {
-            jiVar.a(f14123b);
+            jiVar.a(f14125b);
             jiVar.a(this.f606a);
             jiVar.b();
         }

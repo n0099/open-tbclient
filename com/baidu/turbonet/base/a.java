@@ -2,7 +2,7 @@ package com.baidu.turbonet.base;
 
 import android.util.Log;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     private a() {
     }
@@ -26,7 +26,7 @@ public class a {
     }
 
     private static String g(String str, Object... objArr) {
-        return "[" + edA() + "] " + formatLog(str, objArr);
+        return "[" + efS() + "] " + formatLog(str, objArr);
     }
 
     private static void debug(String str, String str2, Object... objArr) {
@@ -74,7 +74,7 @@ public class a {
         return null;
     }
 
-    private static String edA() {
+    private static String efS() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         String name = a.class.getName();
         int i = 0;

@@ -1,12 +1,12 @@
 package com.kwad.sdk.pngencrypt;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    final k f10508a;
+    final k f10510a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f10509b;
+    int f10511b;
     int c;
     int d;
     int e;
@@ -23,7 +23,7 @@ public class e {
 
     public e(k kVar) {
         this.o = false;
-        this.f10508a = kVar;
+        this.f10510a = kVar;
         this.o = false;
         a(1);
         c(0);
@@ -52,8 +52,8 @@ public class e {
 
     private void c(int i) {
         this.l = i;
-        this.m = (this.f10509b * i) + this.d;
-        if (this.m < 0 || this.m >= this.f10508a.f10512b) {
+        this.m = (this.f10511b * i) + this.d;
+        if (this.m < 0 || this.m >= this.f10510a.f10514b) {
             throw new PngjException("bad row - this should not happen");
         }
     }
@@ -65,16 +65,16 @@ public class e {
         this.i = i;
         byte[] b2 = b(i);
         this.c = b2[0];
-        this.f10509b = b2[1];
+        this.f10511b = b2[1];
         this.e = b2[2];
         this.d = b2[3];
-        this.j = this.f10508a.f10512b > this.d ? (((this.f10508a.f10512b + this.f10509b) - 1) - this.d) / this.f10509b : 0;
-        this.k = this.f10508a.f10511a > this.e ? (((this.f10508a.f10511a + this.c) - 1) - this.e) / this.c : 0;
+        this.j = this.f10510a.f10514b > this.d ? (((this.f10510a.f10514b + this.f10511b) - 1) - this.d) / this.f10511b : 0;
+        this.k = this.f10510a.f10513a > this.e ? (((this.f10510a.f10513a + this.c) - 1) - this.e) / this.c : 0;
         if (this.k == 0) {
             this.j = 0;
         }
-        this.g = this.c * this.f10508a.d;
-        this.f = this.e * this.f10508a.d;
+        this.g = this.c * this.f10510a.d;
+        this.f = this.e * this.f10510a.d;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -126,6 +126,6 @@ public class e {
     }
 
     public int h() {
-        return ((this.f10508a.i * g()) + 7) / 8;
+        return ((this.f10510a.i * g()) + 7) / 8;
     }
 }

@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.j;
 
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface a {
     void a();
 

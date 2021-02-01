@@ -4,7 +4,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface e extends IInterface {
     boolean a();
 
@@ -16,7 +16,7 @@ public interface e extends IInterface {
 
     String e();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements e {
         public static e a(IBinder iBinder) {
             if (iBinder == null) {
@@ -26,7 +26,7 @@ public interface e extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof e)) {
                 return (e) queryLocalInterface;
             }
-            return new C0987a(iBinder);
+            return new C0991a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -71,19 +71,19 @@ public interface e extends IInterface {
         }
 
         /* renamed from: com.bytedance.embedapplog.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        static class C0987a implements e {
+        /* loaded from: classes6.dex */
+        static class C0991a implements e {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f5828a;
+            private IBinder f5830a;
 
-            C0987a(IBinder iBinder) {
-                this.f5828a = iBinder;
+            C0991a(IBinder iBinder) {
+                this.f5830a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f5828a;
+                return this.f5830a;
             }
 
             @Override // com.bytedance.embedapplog.e
@@ -92,7 +92,7 @@ public interface e extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f5828a.transact(1, obtain, obtain2, 0);
+                    this.f5830a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -107,7 +107,7 @@ public interface e extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f5828a.transact(2, obtain, obtain2, 0);
+                    this.f5830a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -122,7 +122,7 @@ public interface e extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f5828a.transact(3, obtain, obtain2, 0);
+                    this.f5830a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -137,7 +137,7 @@ public interface e extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f5828a.transact(4, obtain, obtain2, 0);
+                    this.f5830a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -152,7 +152,7 @@ public interface e extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f5828a.transact(5, obtain, obtain2, 0);
+                    this.f5830a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {

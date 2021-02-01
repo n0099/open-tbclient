@@ -7,37 +7,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bjZ;
-    private s iGb;
-    private c kgh;
-    private a kgi;
-    private com.baidu.tieba.homepage.topic.topictab.a.b kgj;
+    private List<com.baidu.adp.widget.ListView.a> bns;
+    private s iLK;
+    private c kop;
+    private a koq;
+    private com.baidu.tieba.homepage.topic.topictab.a.b kor;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, s sVar) {
         this.mPageContext = tbPageContext;
-        this.iGb = sVar;
-        IY();
-        this.iGb.addAdapters(this.bjZ);
+        this.iLK = sVar;
+        Kw();
+        this.iLK.addAdapters(this.bns);
     }
 
-    private void IY() {
-        this.bjZ = new ArrayList();
-        this.kgh = new c(this.mPageContext);
-        this.kgi = new a(this.mPageContext);
-        this.kgj = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
-        this.bjZ.add(this.kgh);
-        this.bjZ.add(this.kgi);
-        this.bjZ.add(this.kgj);
+    private void Kw() {
+        this.bns = new ArrayList();
+        this.kop = new c(this.mPageContext);
+        this.koq = new a(this.mPageContext);
+        this.kor = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
+        this.bns.add(this.kop);
+        this.bns.add(this.koq);
+        this.bns.add(this.kor);
     }
 
     public void notifyDataSetChanged() {
-        if (this.iGb != null) {
-            this.iGb.getListAdapter().notifyDataSetChanged();
+        if (this.iLK != null) {
+            this.iLK.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<n> list) {
-        this.iGb.setData(list);
+        this.iLK.setData(list);
     }
 }

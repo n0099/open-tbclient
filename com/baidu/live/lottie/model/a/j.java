@@ -1,7 +1,7 @@
 package com.baidu.live.lottie.model.a;
 
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class j extends n<com.baidu.live.lottie.model.b, com.baidu.live.lottie.model.b> {
     @Override // com.baidu.live.lottie.model.a.n
     public /* bridge */ /* synthetic */ String toString() {
@@ -14,8 +14,8 @@ public class j extends n<com.baidu.live.lottie.model.b, com.baidu.live.lottie.mo
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.live.lottie.model.a.m
-    /* renamed from: LV */
-    public com.baidu.live.lottie.a.b.n LU() {
+    /* renamed from: Nt */
+    public com.baidu.live.lottie.a.b.n Ns() {
         return new com.baidu.live.lottie.a.b.n(this.Es);
     }
 }

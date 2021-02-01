@@ -6,38 +6,38 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class n extends BaseAdapter {
-    private ArrayList<String> eTF;
+    private ArrayList<String> eVV;
     private Context mContext;
 
     public n(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.eTF = arrayList;
+        this.eVV = arrayList;
     }
 
     public void setData(ArrayList<String> arrayList) {
-        this.eTF = arrayList;
+        this.eVV = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eTF == null) {
+        if (this.eVV == null) {
             return 0;
         }
-        return this.eTF.size();
+        return this.eVV.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.eTF == null || this.eTF.size() <= 0 || i < 0 || i >= this.eTF.size()) {
+        if (this.eVV == null || this.eVV.size() <= 0 || i < 0 || i >= this.eVV.size()) {
             return null;
         }
-        return this.eTF.get(i);
+        return this.eVV.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -51,23 +51,23 @@ public class n extends BaseAdapter {
         if (view == null) {
             a aVar = new a();
             view = LayoutInflater.from(this.mContext).inflate(R.layout.face_package_item_image, (ViewGroup) null);
-            aVar.iIW = (TbImageView) view.findViewById(R.id.image);
+            aVar.iOE = (TbImageView) view.findViewById(R.id.image);
             view.setTag(aVar);
             view.setLayoutParams(new AbsListView.LayoutParams(equipmentWidth, equipmentWidth));
         }
         a aVar2 = (a) view.getTag();
         String obj = getItem(i).toString();
-        ao.setBackgroundResource(aVar2.iIW, R.drawable.btn_choose_face_selector);
-        aVar2.iIW.a(obj, 10, equipmentWidth, equipmentWidth, false);
+        ap.setBackgroundResource(aVar2.iOE, R.drawable.btn_choose_face_selector);
+        aVar2.iOE.a(obj, 10, equipmentWidth, equipmentWidth, false);
         if (i == getCount() - 1) {
             viewGroup.invalidate();
         }
         return view;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     private class a {
-        TbImageView iIW;
+        TbImageView iOE;
 
         private a() {
         }

@@ -1,9 +1,12 @@
 package com.baidu.mobads.openad.a;
+/* loaded from: classes5.dex */
+public class d extends b {
 
-import android.content.Context;
-/* loaded from: classes14.dex */
-public abstract class d extends a {
-    public d(Context context) {
-        super(context);
+    /* renamed from: a  reason: collision with root package name */
+    private String f3419a;
+
+    public d(String str, String str2, String str3) {
+        super(str, str2);
+        this.f3419a = str3;
     }
 }

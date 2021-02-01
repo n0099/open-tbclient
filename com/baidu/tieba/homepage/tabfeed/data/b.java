@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.tabfeed.data;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.hotTopic.tab.b.d;
 import java.util.ArrayList;
@@ -20,13 +20,13 @@ public class b extends d {
     }
 
     public void parserProtobuf(List<RecomTopicList> list) {
-        if (!x.isEmpty(list)) {
+        if (!y.isEmpty(list)) {
             int min = Math.min(list.size(), 4);
             ArrayList arrayList = new ArrayList(list.size());
             for (int i = 0; i < min; i++) {
                 arrayList.add(new com.baidu.tieba.homepage.hotTopic.tab.b.c(list.get(i)));
             }
-            ec(arrayList);
+            dZ(arrayList);
         }
     }
 }

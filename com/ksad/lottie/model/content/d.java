@@ -2,14 +2,14 @@ package com.ksad.lottie.model.content;
 
 import android.graphics.Path;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final GradientType f8069a;
+    private final GradientType f8071a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Path.FillType f8070b;
+    private final Path.FillType f8072b;
     private final com.ksad.lottie.model.a.c c;
     private final com.ksad.lottie.model.a.d d;
     private final com.ksad.lottie.model.a.f e;
@@ -21,8 +21,8 @@ public class d implements b {
     private final com.ksad.lottie.model.a.b i;
 
     public d(String str, GradientType gradientType, Path.FillType fillType, com.ksad.lottie.model.a.c cVar, com.ksad.lottie.model.a.d dVar, com.ksad.lottie.model.a.f fVar, com.ksad.lottie.model.a.f fVar2, com.ksad.lottie.model.a.b bVar, com.ksad.lottie.model.a.b bVar2) {
-        this.f8069a = gradientType;
-        this.f8070b = fillType;
+        this.f8071a = gradientType;
+        this.f8072b = fillType;
         this.c = cVar;
         this.d = dVar;
         this.e = fVar;
@@ -42,11 +42,11 @@ public class d implements b {
     }
 
     public GradientType b() {
-        return this.f8069a;
+        return this.f8071a;
     }
 
     public Path.FillType c() {
-        return this.f8070b;
+        return this.f8072b;
     }
 
     public com.ksad.lottie.model.a.c d() {

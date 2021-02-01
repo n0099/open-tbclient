@@ -22,15 +22,15 @@ import java.util.Enumeration;
 import java.util.List;
 /* loaded from: classes3.dex */
 public final class bd {
-    public static int iQ(Context context) {
+    public static int iT(Context context) {
         return context.getResources().getDisplayMetrics().widthPixels;
     }
 
-    public static int iR(Context context) {
+    public static int iU(Context context) {
         return context.getResources().getDisplayMetrics().heightPixels;
     }
 
-    public static String iP(Context context) {
+    public static String iS(Context context) {
         try {
             return Settings.Secure.getString(context.getContentResolver(), "android_id");
         } catch (Exception e) {
@@ -46,7 +46,7 @@ public final class bd {
         }
     }
 
-    public static String iO(Context context) {
+    public static String iR(Context context) {
         String str = "";
         try {
             str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
@@ -192,9 +192,9 @@ public final class bd {
         }
     }
 
-    public static String eGG() {
+    public static String eIW() {
         try {
-            byte[] hardwareAddress = NetworkInterface.getByInetAddress(eGU()).getHardwareAddress();
+            byte[] hardwareAddress = NetworkInterface.getByInetAddress(eJk()).getHardwareAddress();
             StringBuffer stringBuffer = new StringBuffer();
             for (int i = 0; i < hardwareAddress.length; i++) {
                 if (i != 0) {
@@ -212,7 +212,7 @@ public final class bd {
         }
     }
 
-    private static InetAddress eGU() {
+    private static InetAddress eJk() {
         SocketException e;
         InetAddress inetAddress;
         try {
@@ -260,7 +260,7 @@ public final class bd {
         }
     }
 
-    public static String[] iV(Context context) {
+    public static String[] iY(Context context) {
         String str = "";
         String str2 = "";
         String str3 = "";
@@ -288,7 +288,7 @@ public final class bd {
         return Arrays.toString(strArr);
     }
 
-    public static List<String> eGV() {
+    public static List<String> eJl() {
         ArrayList arrayList = new ArrayList();
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("pm list package -3").getInputStream()));

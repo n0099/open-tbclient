@@ -1,5 +1,5 @@
 package com.baidu.tieba.setting.more;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface d {
-    void Il(int i);
+    void IF(int i);
 }

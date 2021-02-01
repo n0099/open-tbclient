@@ -5,13 +5,13 @@ import com.baidu.live.tbadk.core.atomdata.YuyinAlaLiveRoomActivityConfig;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveSdkInfo implements Serializable {
     public MCastIds mCastIds;
     public long mRoomId;
     public String tbs;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class MCastIds implements Serializable {
         public String chatMCastId;
         public String chat_msg_hls_url;

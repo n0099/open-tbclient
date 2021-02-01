@@ -7,23 +7,23 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DragView extends FrameLayout {
-    private int bjf;
-    private ViewDragHelper dOD;
-    private int dOE;
-    private int dOF;
-    private a dOG;
-    private int dOH;
-    private boolean dOI;
-    private int dOJ;
+    private int bmy;
+    private ViewDragHelper dQJ;
+    private int dQK;
+    private int dQL;
+    private a dQM;
+    private int dQN;
+    private boolean dQO;
+    private int dQP;
     private View mChildView;
     private int mLastMotionY;
     private float mSensitivity;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void hU(int i);
+        void hX(int i);
 
         void onClose();
 
@@ -32,28 +32,28 @@ public class DragView extends FrameLayout {
 
     public DragView(Context context) {
         super(context);
-        this.dOH = 300;
+        this.dQN = 300;
         this.mSensitivity = 0.5f;
-        this.dOI = true;
-        this.dOJ = Integer.MIN_VALUE;
+        this.dQO = true;
+        this.dQP = Integer.MIN_VALUE;
         init();
     }
 
     public DragView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dOH = 300;
+        this.dQN = 300;
         this.mSensitivity = 0.5f;
-        this.dOI = true;
-        this.dOJ = Integer.MIN_VALUE;
+        this.dQO = true;
+        this.dQP = Integer.MIN_VALUE;
         init();
     }
 
     public DragView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dOH = 300;
+        this.dQN = 300;
         this.mSensitivity = 0.5f;
-        this.dOI = true;
-        this.dOJ = Integer.MIN_VALUE;
+        this.dQO = true;
+        this.dQP = Integer.MIN_VALUE;
         init();
     }
 
@@ -70,17 +70,17 @@ public class DragView extends FrameLayout {
     }
 
     private void init() {
-        this.dOD = ViewDragHelper.create(this, this.mSensitivity, new ViewDragHelper.Callback() { // from class: com.baidu.swan.apps.view.DragView.1
+        this.dQJ = ViewDragHelper.create(this, this.mSensitivity, new ViewDragHelper.Callback() { // from class: com.baidu.swan.apps.view.DragView.1
             @Override // androidx.customview.widget.ViewDragHelper.Callback
             public void onViewReleased(View view, float f, float f2) {
                 if (DragView.this.mChildView != null) {
-                    int top = DragView.this.mChildView.getTop() - DragView.this.dOF;
-                    if (Math.abs(top) <= DragView.this.dOH) {
-                        DragView.this.dOD.smoothSlideViewTo(DragView.this.getChildAt(0), DragView.this.dOE, DragView.this.dOF);
+                    int top = DragView.this.mChildView.getTop() - DragView.this.dQL;
+                    if (Math.abs(top) <= DragView.this.dQN) {
+                        DragView.this.dQJ.smoothSlideViewTo(DragView.this.getChildAt(0), DragView.this.dQK, DragView.this.dQL);
                     } else if (top < 0) {
-                        DragView.this.dOD.smoothSlideViewTo(DragView.this.getChildAt(0), 0, -DragView.this.mChildView.getMeasuredHeight());
+                        DragView.this.dQJ.smoothSlideViewTo(DragView.this.getChildAt(0), 0, -DragView.this.mChildView.getMeasuredHeight());
                     } else {
-                        DragView.this.dOD.smoothSlideViewTo(DragView.this.getChildAt(0), 0, DragView.this.mChildView.getMeasuredHeight());
+                        DragView.this.dQJ.smoothSlideViewTo(DragView.this.getChildAt(0), 0, DragView.this.mChildView.getMeasuredHeight());
                     }
                     DragView.this.postInvalidate();
                 }
@@ -89,14 +89,14 @@ public class DragView extends FrameLayout {
             @Override // androidx.customview.widget.ViewDragHelper.Callback
             public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
                 super.onViewPositionChanged(view, i, i2, i3, i4);
-                if (DragView.this.dOG != null) {
-                    DragView.this.dOG.hU(i2 - DragView.this.dOF);
+                if (DragView.this.dQM != null) {
+                    DragView.this.dQM.hX(i2 - DragView.this.dQL);
                 }
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
             public boolean tryCaptureView(View view, int i) {
-                return DragView.this.dOI;
+                return DragView.this.dQO;
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
@@ -106,8 +106,8 @@ public class DragView extends FrameLayout {
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
             public int clampViewPositionVertical(View view, int i, int i2) {
-                if (i < DragView.this.dOJ) {
-                    return DragView.this.dOJ;
+                if (i < DragView.this.dQP) {
+                    return DragView.this.dQP;
                 }
                 return i;
             }
@@ -116,10 +116,10 @@ public class DragView extends FrameLayout {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.dOI) {
-            this.dOD.processTouchEvent(motionEvent);
-            if (this.dOG != null) {
-                this.dOG.z(motionEvent);
+        if (this.dQO) {
+            this.dQJ.processTouchEvent(motionEvent);
+            if (this.dQM != null) {
+                this.dQM.z(motionEvent);
             }
             return true;
         }
@@ -128,7 +128,7 @@ public class DragView extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (!this.dOI) {
+        if (!this.dQO) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction();
@@ -137,17 +137,17 @@ public class DragView extends FrameLayout {
         if (motionEvent.getPointerCount() < 2) {
             switch (action) {
                 case 0:
-                    this.bjf = x;
+                    this.bmy = x;
                     this.mLastMotionY = y;
                     break;
                 case 2:
-                    if (Math.abs(y - this.mLastMotionY) <= Math.abs(x - this.bjf)) {
+                    if (Math.abs(y - this.mLastMotionY) <= Math.abs(x - this.bmy)) {
                         return false;
                     }
                     break;
             }
             try {
-                return this.dOD.shouldInterceptTouchEvent(motionEvent);
+                return this.dQJ.shouldInterceptTouchEvent(motionEvent);
             } catch (ArrayIndexOutOfBoundsException e) {
                 e.printStackTrace();
                 return false;
@@ -158,25 +158,25 @@ public class DragView extends FrameLayout {
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.dOD.continueSettling(true)) {
+        if (this.dQJ.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
-        } else if (this.mChildView != null && Math.abs(this.mChildView.getTop() - this.dOF) >= this.dOH && this.dOG != null) {
-            this.dOG.onClose();
+        } else if (this.mChildView != null && Math.abs(this.mChildView.getTop() - this.dQL) >= this.dQN && this.dQM != null) {
+            this.dQM.onClose();
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.dOE = getLeft();
-        this.dOF = getTop();
+        this.dQK = getLeft();
+        this.dQL = getTop();
     }
 
     public void setOnCloseListener(a aVar) {
-        this.dOG = aVar;
+        this.dQM = aVar;
     }
 
     public void setTopMinValue(int i) {
-        this.dOJ = i;
+        this.dQP = i;
     }
 }

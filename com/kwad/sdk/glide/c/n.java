@@ -12,14 +12,14 @@ import com.kwad.sdk.api.core.fragment.KsFragmentManager;
 import java.lang.ref.WeakReference;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class n extends KsFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.glide.c.a f9955a;
+    private final com.kwad.sdk.glide.c.a f9957a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final l f9956b;
+    private final l f9958b;
     private final Set<n> c;
     @Nullable
     private n d;
@@ -28,18 +28,18 @@ public class n extends KsFragment {
     @Nullable
     private KsFragment f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class a implements l {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<n> f9957a;
+        private WeakReference<n> f9959a;
 
         a(n nVar) {
-            this.f9957a = new WeakReference<>(nVar);
+            this.f9959a = new WeakReference<>(nVar);
         }
 
         public String toString() {
-            return super.toString() + "{fragment=" + this.f9957a.get() + "}";
+            return super.toString() + "{fragment=" + this.f9959a.get() + "}";
         }
     }
 
@@ -50,9 +50,9 @@ public class n extends KsFragment {
     @SuppressLint({"ValidFragment"})
     @VisibleForTesting
     public n(@NonNull com.kwad.sdk.glide.c.a aVar) {
-        this.f9956b = new a(this);
+        this.f9958b = new a(this);
         this.c = new HashSet();
-        this.f9955a = aVar;
+        this.f9957a = aVar;
     }
 
     private void a(KsFragmentManager ksFragmentManager, @NonNull Activity activity) {
@@ -88,7 +88,7 @@ public class n extends KsFragment {
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     public com.kwad.sdk.glide.c.a a() {
-        return this.f9955a;
+        return this.f9957a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -111,7 +111,7 @@ public class n extends KsFragment {
 
     @NonNull
     public l c() {
-        return this.f9956b;
+        return this.f9958b;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -129,7 +129,7 @@ public class n extends KsFragment {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroy() {
         super.onDestroy();
-        this.f9955a.c();
+        this.f9957a.c();
         e();
     }
 
@@ -143,13 +143,13 @@ public class n extends KsFragment {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onStart() {
         super.onStart();
-        this.f9955a.a();
+        this.f9957a.a();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onStop() {
         super.onStop();
-        this.f9955a.b();
+        this.f9957a.b();
     }
 
     public String toString() {

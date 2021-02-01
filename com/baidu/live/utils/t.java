@@ -2,11 +2,11 @@ package com.baidu.live.utils;
 
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class t {
-    private static String bKl = "";
+    private static String bNV = "";
 
-    public static String Ef() {
+    public static String Fv() {
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
             return "ala_audio_mobilebaidu_android_consume";
         }
@@ -25,8 +25,8 @@ public class t {
         return "";
     }
 
-    public static String TN() {
-        if (TextUtils.isEmpty(bKl)) {
+    public static String Vu() {
+        if (TextUtils.isEmpty(bNV)) {
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
                 return "ala_audio_mobilebaidu_android_consume";
             }
@@ -44,14 +44,14 @@ public class t {
             }
             return "";
         }
-        return bKl;
+        return bNV;
     }
 
-    public static void hJ(String str) {
-        bKl = str;
+    public static void ie(String str) {
+        bNV = str;
     }
 
-    public static String TO() {
-        return bKl;
+    public static String Vv() {
+        return bNV;
     }
 }

@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import com.kwai.video.cache.AwesomeCacheInitConfig;
 import com.kwai.video.hodor.anotations.AccessedByNative;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractHodorTask implements IHodorTask {
     @AccessedByNative
     private int mTaskQosClass = 0;

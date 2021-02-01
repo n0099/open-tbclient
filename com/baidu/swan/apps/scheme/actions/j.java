@@ -13,7 +13,7 @@ import com.baidu.swan.apps.storage.PathType;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class j extends aa {
     public j(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getImageInfo");
@@ -33,10 +33,10 @@ public class j extends aa {
             return false;
         }
         JSONObject jSONObject = null;
-        if (com.baidu.swan.apps.storage.b.sL(optString) == PathType.BD_FILE) {
-            jSONObject = cw(com.baidu.swan.apps.storage.b.cD(optString, eVar.id), optString);
-        } else if (com.baidu.swan.apps.storage.b.sL(optString) == PathType.RELATIVE) {
-            jSONObject = cw(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
+        if (com.baidu.swan.apps.storage.b.te(optString) == PathType.BD_FILE) {
+            jSONObject = cq(com.baidu.swan.apps.storage.b.cx(optString, eVar.id), optString);
+        } else if (com.baidu.swan.apps.storage.b.te(optString) == PathType.RELATIVE) {
+            jSONObject = cq(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
         }
         if (jSONObject != null) {
             com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo success");
@@ -47,7 +47,7 @@ public class j extends aa {
         return false;
     }
 
-    private JSONObject cw(String str, String str2) {
+    private JSONObject cq(String str, String str2) {
         int i = 1;
         com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo start");
         if (TextUtils.isEmpty(str)) {
@@ -65,18 +65,18 @@ public class j extends aa {
             str4 = split[split.length - 1];
         }
         if (!TextUtils.equals("png", str4)) {
-            ExifInterface kp = kp(str);
-            if (kp == null) {
+            ExifInterface kH = kH(str);
+            if (kH == null) {
                 return null;
             }
-            i = kp.getAttributeInt("Orientation", 1);
+            i = kH.getAttributeInt("Orientation", 1);
         }
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("width", i2);
             jSONObject.put("height", i3);
             jSONObject.put("path", str2);
-            jSONObject.put("orientation", jl(i));
+            jSONObject.put("orientation", jo(i));
             jSONObject.put("type", str4);
         } catch (JSONException e) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "getImgInfo failed by json exception");
@@ -88,7 +88,7 @@ public class j extends aa {
         return jSONObject;
     }
 
-    private String jl(int i) {
+    private String jo(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -112,7 +112,7 @@ public class j extends aa {
         }
     }
 
-    private ExifInterface kp(String str) {
+    private ExifInterface kH(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

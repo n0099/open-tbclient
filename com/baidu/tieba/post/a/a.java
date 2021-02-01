@@ -3,7 +3,7 @@ package com.baidu.tieba.post.a;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.personExtra.e;
 import com.baidu.tieba.personPolymeric.a.i;
@@ -13,74 +13,74 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
-    private ArrayList<n> gnp = new ArrayList<>();
-    private BdTypeListView gwr;
-    public j mDi;
-    private c mDj;
-    public i mqk;
+    private List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
+    private ArrayList<n> gpY = new ArrayList<>();
+    private BdTypeListView gzb;
+    public j mMp;
+    private c mMq;
+    public i mzk;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.gwr = bdTypeListView;
-        w(tbPageContext);
+        this.gzb = bdTypeListView;
+        y(tbPageContext);
     }
 
-    private void w(TbPageContext<?> tbPageContext) {
-        this.mqk = new i(tbPageContext);
-        this.mDi = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.msI);
-        this.mDj = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.mDi.a(this.mDj);
-        this.bjZ.add(this.mqk);
-        this.bjZ.add(this.mDi);
-        this.gwr.addAdapters(this.bjZ);
+    private void y(TbPageContext<?> tbPageContext) {
+        this.mzk = new i(tbPageContext);
+        this.mMp = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.mBI);
+        this.mMq = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.mMp.a(this.mMq);
+        this.bns.add(this.mzk);
+        this.bns.add(this.mMp);
+        this.gzb.addAdapters(this.bns);
     }
 
-    public void W(ArrayList<n> arrayList) {
-        if (arrayList != null && this.gwr != null) {
-            this.gnp.clear();
-            this.gnp.addAll(arrayList);
-            this.gwr.setData(this.gnp);
+    public void V(ArrayList<n> arrayList) {
+        if (arrayList != null && this.gzb != null) {
+            this.gpY.clear();
+            this.gpY.addAll(arrayList);
+            this.gzb.setData(this.gpY);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.gwr.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.gwr.getAdapter().notifyDataSetChanged();
+        if (this.gzb.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.gzb.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void startPullRefresh() {
-        if (this.gwr != null) {
-            this.gwr.startPullRefresh();
+        if (this.gzb != null) {
+            this.gzb.startPullRefresh();
         }
     }
 
-    public boolean PT(String str) {
+    public boolean QK(String str) {
         boolean z;
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             return false;
         }
-        if (this.gwr == null || this.gnp == null) {
+        if (this.gzb == null || this.gpY == null) {
             return false;
         }
-        Iterator<n> it = this.gnp.iterator();
+        Iterator<n> it = this.gpY.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
                 break;
             }
             n next = it.next();
-            if ((next instanceof CardPersonDynamicThreadData) && at.equals(str, ((CardPersonDynamicThreadData) next).threadId)) {
+            if ((next instanceof CardPersonDynamicThreadData) && au.equals(str, ((CardPersonDynamicThreadData) next).threadId)) {
                 z = true;
                 it.remove();
                 break;
             }
         }
         if (z) {
-            this.gnp = PersonPostModel.mergeDynamicThreadByTime(this.gnp);
-            this.gwr.setData(this.gnp);
+            this.gpY = PersonPostModel.mergeDynamicThreadByTime(this.gpY);
+            this.gzb.setData(this.gpY);
             notifyDataSetChanged();
             return z;
         }

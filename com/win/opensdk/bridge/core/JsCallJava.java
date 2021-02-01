@@ -11,17 +11,17 @@ import org.json.JSONObject;
 public class JsCallJava {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13730a;
+    private String f13732a;
 
     /* renamed from: case  reason: not valid java name */
     private String f29case;
     private String java;
-    private JSONObject pZZ;
+    private JSONObject qkd;
 
     private JsCallJava() {
     }
 
-    public static JsCallJava eGQ() {
+    public static JsCallJava eJg() {
         return new JsCallJava();
     }
 
@@ -36,22 +36,22 @@ public class JsCallJava {
                 } else {
                     this.f29case = "";
                 }
-                this.f13730a = String.valueOf(parse.getPort());
+                this.f13732a = String.valueOf(parse.getPort());
                 try {
-                    this.pZZ = new JSONObject(parse.getQuery());
+                    this.qkd = new JSONObject(parse.getQuery());
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    this.pZZ = new JSONObject();
+                    this.qkd = new JSONObject();
                 }
             }
-            Method hw = NativeMethodInjectHelper.eGR().hw(this.java, this.f29case);
-            JsCallback g = JsCallback.g(webView, this.f13730a);
-            if (hw == null) {
+            Method hD = NativeMethodInjectHelper.eJh().hD(this.java, this.f29case);
+            JsCallback g = JsCallback.g(webView, this.f13732a);
+            if (hD == null) {
                 JsCallback.a(g, false, null, "Method (" + this.f29case + ") in this class (" + this.java + ") not found!");
                 return;
             }
             try {
-                hw.invoke(null, webView, this.pZZ, g);
+                hD.invoke(null, webView, this.qkd, g);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
             } catch (InvocationTargetException e3) {

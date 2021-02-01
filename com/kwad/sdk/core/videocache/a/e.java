@@ -6,27 +6,27 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class e implements com.kwad.sdk.core.videocache.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ExecutorService f9475a = Executors.newSingleThreadExecutor();
+    private final ExecutorService f9477a = Executors.newSingleThreadExecutor();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class a implements Callable<Void> {
 
         /* renamed from: b  reason: collision with root package name */
-        private final File f9477b;
+        private final File f9479b;
 
         public a(File file) {
-            this.f9477b = file;
+            this.f9479b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() {
-            e.this.b(this.f9477b);
+            e.this.b(this.f9479b);
             return null;
         }
     }
@@ -74,7 +74,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
 
     @Override // com.kwad.sdk.core.videocache.a.a
     public void a(File file) {
-        this.f9475a.submit(new a(file));
+        this.f9477a.submit(new a(file));
     }
 
     protected abstract boolean a(File file, long j, int i);

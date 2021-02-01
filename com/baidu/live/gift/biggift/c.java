@@ -1,5 +1,5 @@
 package com.baidu.live.gift.biggift;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface c {
     void onDestroy();
 

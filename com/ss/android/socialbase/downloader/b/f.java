@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static boolean a(int i) {
         return (i >= 0 || i == -2 || i == -5) ? false : true;

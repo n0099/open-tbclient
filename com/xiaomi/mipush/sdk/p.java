@@ -9,17 +9,17 @@ import com.xiaomi.push.service.ak;
 public final class p extends ak.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f13836a;
+    final /* synthetic */ Context f13838a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(int i, String str, Context context) {
         super(i, str);
-        this.f13836a = context;
+        this.f13838a = context;
     }
 
     @Override // com.xiaomi.push.service.ak.a
     protected void onCallback() {
-        eq.a(this.f13836a).a(com.xiaomi.push.service.ak.a(this.f13836a).a(hr.AwakeInfoUploadWaySwitch.a(), 0));
+        eq.a(this.f13838a).a(com.xiaomi.push.service.ak.a(this.f13838a).a(hr.AwakeInfoUploadWaySwitch.a(), 0));
     }
 }

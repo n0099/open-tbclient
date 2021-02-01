@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.dialog.RoundLinearLayout;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.i;
@@ -26,52 +26,52 @@ import com.baidu.tieba.tbadkCore.m;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class f {
-    private com.baidu.tbadk.core.dialog.a ada;
-    private ForumData fBZ;
-    private TextView fau;
-    private TbImageView jhj;
-    private RoundLinearLayout jhk;
-    private i jhl;
+    private com.baidu.tbadk.core.dialog.a acU;
+    private ForumData fEm;
+    private TextView fcK;
+    private TbImageView jmR;
+    private RoundLinearLayout jmS;
+    private i jmT;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.ad.f.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i = 11;
-            if (view == f.this.fau) {
-                if (f.this.ada != null && f.this.ada.isShowing()) {
-                    f.this.ada.dismiss();
+            if (view == f.this.fcK) {
+                if (f.this.acU != null && f.this.acU.isShowing()) {
+                    f.this.acU.dismiss();
                 }
-            } else if (view == f.this.jhj && f.this.jhl != null && !StringUtils.isNull(f.this.jhl.getUrl())) {
-                be.bsB().a(f.this.mPageContext, new String[]{f.this.jhl.getUrl()}, true);
+            } else if (view == f.this.jmR && f.this.jmT != null && !StringUtils.isNull(f.this.jmT.getUrl())) {
+                bf.bsV().a(f.this.mPageContext, new String[]{f.this.jmT.getUrl()}, true);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-                httpMessage.addParam("id", f.this.jhl.getId());
+                httpMessage.addParam("id", f.this.jmT.getId());
                 MessageManager.getInstance().sendMessage(httpMessage);
-                f.this.ada.dismiss();
-                aq aqVar = new aq("common_click");
-                aqVar.dW("page_type", PageStayDurationConstants.PageName.FRS);
-                aqVar.dW("obj_isad", "1");
-                if (f.this.jhl.getType() != 1) {
-                    if (f.this.jhl.getType() != 2) {
-                        if (f.this.jhl.getType() == 3) {
+                f.this.acU.dismiss();
+                ar arVar = new ar("common_click");
+                arVar.dR("page_type", PageStayDurationConstants.PageName.FRS);
+                arVar.dR("obj_isad", "1");
+                if (f.this.jmT.getType() != 1) {
+                    if (f.this.jmT.getType() != 2) {
+                        if (f.this.jmT.getType() == 3) {
                             i = 13;
                         }
                     } else {
                         i = 12;
                     }
                 }
-                aqVar.an("obj_adlocate", i);
-                aqVar.w("obj_id", f.this.jhl.getId());
-                aqVar.an("obj_floor", 1);
-                aqVar.an("obj_locate", 3);
-                if (f.this.fBZ != null) {
-                    aqVar.dW("fid", f.this.fBZ.getId());
-                    aqVar.dW("first_dir", f.this.fBZ.getFirst_class());
-                    aqVar.dW("second_dir", f.this.fBZ.getSecond_class());
+                arVar.ap("obj_adlocate", i);
+                arVar.v("obj_id", f.this.jmT.getId());
+                arVar.ap("obj_floor", 1);
+                arVar.ap("obj_locate", 3);
+                if (f.this.fEm != null) {
+                    arVar.dR("fid", f.this.fEm.getId());
+                    arVar.dR("first_dir", f.this.fEm.getFirst_class());
+                    arVar.dR("second_dir", f.this.fEm.getSecond_class());
                 }
-                if (f.this.jhl.getType() == 1) {
-                    aqVar.dW("tid", f.this.jhl.getThreadId());
-                    aqVar.an("thread_type", f.this.jhl.getThreadType());
+                if (f.this.jmT.getType() == 1) {
+                    arVar.dR("tid", f.this.jmT.getThreadId());
+                    arVar.ap("thread_type", f.this.jmT.getThreadType());
                 }
-                TiebaStatic.log(aqVar);
+                TiebaStatic.log(arVar);
             }
         }
     };
@@ -86,77 +86,77 @@ public class f {
         if (mVar == null || mVar.getForum() == null || mVar.getBusinessPromot() == null) {
             return false;
         }
-        this.fBZ = mVar.getForum();
-        this.jhl = mVar.getBusinessPromot();
+        this.fEm = mVar.getForum();
+        this.jmT = mVar.getBusinessPromot();
         String str = "key_frs_dialog_ad_last_show_time" + mVar.getForum().getId();
-        long j = com.baidu.tbadk.core.sharedPref.b.brx().getLong(str, 0L);
-        if (j < 0 || !bd.c(new Date(j), new Date(System.currentTimeMillis()))) {
-            com.baidu.tbadk.core.sharedPref.b.brx().putLong(str, System.currentTimeMillis());
-            Pd();
+        long j = com.baidu.tbadk.core.sharedPref.b.brQ().getLong(str, 0L);
+        if (j < 0 || !be.c(new Date(j), new Date(System.currentTimeMillis()))) {
+            com.baidu.tbadk.core.sharedPref.b.brQ().putLong(str, System.currentTimeMillis());
+            QE();
             return true;
         }
         return false;
     }
 
-    private void Pd() {
+    private void QE() {
         int i;
         initView();
-        this.ada = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        this.ada.jD(true);
-        this.ada.jE(true);
-        this.ada.b(this.mPageContext).bqe();
-        View decorView = this.ada.getWindow().getDecorView();
-        WindowManager.LayoutParams attributes = this.ada.getWindow().getAttributes();
+        this.acU = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
+        this.acU.jF(true);
+        this.acU.jG(true);
+        this.acU.b(this.mPageContext).bqx();
+        View decorView = this.acU.getWindow().getDecorView();
+        WindowManager.LayoutParams attributes = this.acU.getWindow().getAttributes();
         if (attributes != null) {
             attributes.width = -1;
             attributes.height = -2;
             attributes.gravity = 17;
-            this.ada.getWindow().setAttributes(attributes);
+            this.acU.getWindow().setAttributes(attributes);
         }
         if (decorView instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) decorView;
             viewGroup.removeAllViews();
             viewGroup.addView(this.mRootView);
         }
-        aq aqVar = new aq("common_exp");
-        aqVar.dW("page_type", PageStayDurationConstants.PageName.FRS);
-        aqVar.dW("obj_isad", "1");
-        if (this.jhl.getType() == 1) {
+        ar arVar = new ar("common_exp");
+        arVar.dR("page_type", PageStayDurationConstants.PageName.FRS);
+        arVar.dR("obj_isad", "1");
+        if (this.jmT.getType() == 1) {
             i = 11;
-        } else if (this.jhl.getType() == 2) {
+        } else if (this.jmT.getType() == 2) {
             i = 12;
         } else {
-            i = this.jhl.getType() == 3 ? 13 : 11;
+            i = this.jmT.getType() == 3 ? 13 : 11;
         }
-        aqVar.an("obj_floor", 1);
-        aqVar.an("obj_adlocate", i);
-        aqVar.w("obj_id", this.jhl.getId());
-        if (this.fBZ != null) {
-            aqVar.dW("fid", this.fBZ.getId());
-            aqVar.dW("first_dir", this.fBZ.getFirst_class());
-            aqVar.dW("second_dir", this.fBZ.getSecond_class());
+        arVar.ap("obj_floor", 1);
+        arVar.ap("obj_adlocate", i);
+        arVar.v("obj_id", this.jmT.getId());
+        if (this.fEm != null) {
+            arVar.dR("fid", this.fEm.getId());
+            arVar.dR("first_dir", this.fEm.getFirst_class());
+            arVar.dR("second_dir", this.fEm.getSecond_class());
         }
-        if (this.jhl.getType() == 1) {
-            aqVar.dW("tid", this.jhl.getThreadId());
-            aqVar.an("thread_type", this.jhl.getThreadType());
+        if (this.jmT.getType() == 1) {
+            arVar.dR("tid", this.jmT.getThreadId());
+            arVar.ap("thread_type", this.jmT.getThreadType());
         }
-        TiebaStatic.log(aqVar);
+        TiebaStatic.log(arVar);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.frs_dialog_ad_layout, (ViewGroup) null);
-        this.jhk = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
-        this.jhk.setRoundCount(8);
-        this.jhj = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
-        this.jhj.setOnClickListener(this.mClickListener);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jhj.getLayoutParams();
+        this.jmS = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
+        this.jmS.setRoundCount(8);
+        this.jmR = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
+        this.jmR.setOnClickListener(this.mClickListener);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jmR.getLayoutParams();
         layoutParams.width = l.getEquipmentWidth(this.mPageContext.getPageActivity()) - (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         layoutParams.height = (int) (layoutParams.width * 1.3306452f);
-        this.jhj.setLayoutParams(layoutParams);
-        this.fau = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
-        this.fau.setOnClickListener(this.mClickListener);
-        if (this.jhl != null) {
-            this.jhj.startLoad(this.jhl.dKj(), 10, false);
+        this.jmR.setLayoutParams(layoutParams);
+        this.fcK = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
+        this.fcK.setOnClickListener(this.mClickListener);
+        if (this.jmT != null) {
+            this.jmR.startLoad(this.jmT.dMu(), 10, false);
         }
     }
 }

@@ -21,28 +21,28 @@ import com.baidu.tbadk.core.atomData.HotTopicChangeActivityConfig;
 import com.baidu.tbadk.core.data.HotTopicBussinessData;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.likedForum.a;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, TransmitSelectViewHolder> {
     private ArrayList<HotTopicBussinessData> mForumList;
-    private List<TransmitForumData> nSm;
-    private com.baidu.tieba.likedForum.a nWF;
-    private w nWG;
-    private a.InterfaceC0776a nWH;
+    private List<TransmitForumData> ocs;
+    private com.baidu.tieba.likedForum.a ogL;
+    private w ogM;
+    private a.InterfaceC0778a ogN;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean gc(long j) {
-        if (this.nSm == null) {
+    public boolean gh(long j) {
+        if (this.ocs == null) {
             return false;
         }
-        for (TransmitForumData transmitForumData : this.nSm) {
+        for (TransmitForumData transmitForumData : this.ocs) {
             if (transmitForumData != null && transmitForumData.forumId == j) {
                 return true;
             }
@@ -51,14 +51,14 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dPg() {
+    public void dRr() {
         HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.mContext, RequestResponseCode.REQUEST_HOT_TOPIC_CHANGE_FOURM, this.mForumList);
         hotTopicChangeActivityConfig.setUseOriginList(true);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotTopicChangeActivityConfig));
     }
 
-    public HotTopicBussinessData KW(int i) {
-        if (x.isEmpty(this.mForumList)) {
+    public HotTopicBussinessData Lr(int i) {
+        if (y.isEmpty(this.mForumList)) {
             return null;
         }
         return this.mForumList.remove(i);
@@ -67,27 +67,27 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     /* JADX INFO: Access modifiers changed from: protected */
     public TransmitSelectAdapter(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.nWG = new w() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.1
+        this.ogM = new w() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
                 if (!j.isNetWorkAvailable()) {
                     l.showToast(TransmitSelectAdapter.this.mContext, R.string.neterror);
                 }
-                TiebaStatic.log(new aq("c12053"));
-                if (!x.isEmpty(TransmitSelectAdapter.this.mForumList)) {
-                    TransmitSelectAdapter.this.dPg();
+                TiebaStatic.log(new ar("c12053"));
+                if (!y.isEmpty(TransmitSelectAdapter.this.mForumList)) {
+                    TransmitSelectAdapter.this.dRr();
                     return;
                 }
-                TransmitSelectAdapter.this.nWF = new com.baidu.tieba.likedForum.a(TransmitSelectAdapter.this.mPageId);
-                TransmitSelectAdapter.this.nWF.a(TransmitSelectAdapter.this.nWH);
-                TransmitSelectAdapter.this.nWF.loadData();
+                TransmitSelectAdapter.this.ogL = new com.baidu.tieba.likedForum.a(TransmitSelectAdapter.this.mPageId);
+                TransmitSelectAdapter.this.ogL.a(TransmitSelectAdapter.this.ogN);
+                TransmitSelectAdapter.this.ogL.loadData();
             }
         };
-        this.nWH = new a.InterfaceC0776a() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.2
-            @Override // com.baidu.tieba.likedForum.a.InterfaceC0776a
+        this.ogN = new a.InterfaceC0778a() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.2
+            @Override // com.baidu.tieba.likedForum.a.InterfaceC0778a
             public void a(boolean z, int i, String str, List<ForumInfo> list2) {
                 ArrayList arrayList = new ArrayList();
-                if (x.getCount(list2) > 0) {
+                if (y.getCount(list2) > 0) {
                     int size = list2.size();
                     int i2 = 0;
                     while (true) {
@@ -96,26 +96,26 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
                             break;
                         }
                         ForumInfo forumInfo = list2.get(i3);
-                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !TransmitSelectAdapter.this.gc(forumInfo.forum_id.longValue())) {
+                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !TransmitSelectAdapter.this.gh(forumInfo.forum_id.longValue())) {
                             arrayList.add(new HotTopicBussinessData(forumInfo.forum_id.longValue(), forumInfo.forum_name, forumInfo.avatar, null, forumInfo.thread_count.longValue(), 0L, 0L, false, null, 0));
                         }
                         i2 = i3 + 1;
                     }
                     if (TransmitSelectAdapter.this.mForumList == null) {
                         TransmitSelectAdapter.this.mForumList = arrayList;
-                        TransmitSelectAdapter.this.dPg();
+                        TransmitSelectAdapter.this.dRr();
                     }
                 }
             }
         };
-        a(this.nWG);
-        this.nSm = list;
+        a(this.ogM);
+        this.ocs = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: dd */
+    /* renamed from: de */
     public TransmitSelectViewHolder e(ViewGroup viewGroup) {
         return new TransmitSelectViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.transmit_select_layout, (ViewGroup) null));
     }
@@ -124,26 +124,26 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
-        ao.setViewTextColor(transmitSelectViewHolder.nWJ, R.color.CAM_X0302);
-        ao.setImageResource(transmitSelectViewHolder.iTh, R.drawable.icon_post_add_ba_n);
+        ap.setViewTextColor(transmitSelectViewHolder.ogP, R.color.CAM_X0302);
+        ap.setImageResource(transmitSelectViewHolder.iYO, R.drawable.icon_post_add_ba_n);
         return view;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class TransmitSelectViewHolder extends TypeAdapter.ViewHolder {
-        public ImageView iTh;
-        public TextView nWJ;
+        public ImageView iYO;
+        public TextView ogP;
 
         public TransmitSelectViewHolder(View view) {
             super(view);
-            this.nWJ = (TextView) view.findViewById(R.id.select_by_self);
-            this.iTh = (ImageView) view.findViewById(R.id.add_icon);
+            this.ogP = (TextView) view.findViewById(R.id.select_by_self);
+            this.iYO = (ImageView) view.findViewById(R.id.add_icon);
         }
     }
 
     public void destroy() {
-        if (this.nWF != null) {
-            this.nWF.destroy();
+        if (this.ogL != null) {
+            this.ogL.destroy();
         }
     }
 }

@@ -10,22 +10,23 @@ import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapsdkplatform.comjni.map.basemap.JNIBaseMap;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.net.BdNetTask;
-/* loaded from: classes6.dex */
+import com.yy.mediaframework.base.VideoEncoderConfig;
+/* loaded from: classes4.dex */
 public class WNaviBaiduMap {
 
     /* renamed from: b  reason: collision with root package name */
-    private static long f4468b;
+    private static long f4471b;
     private static WNaviBaiduMap c;
 
     /* renamed from: a  reason: collision with root package name */
-    private JNIBaseMap f4469a = new JNIBaseMap();
+    private JNIBaseMap f4472a = new JNIBaseMap();
 
     public void setId(long j) {
-        f4468b = j;
+        f4471b = j;
     }
 
     public static long getId() {
-        return f4468b;
+        return f4471b;
     }
 
     public float getZoomLevel() {
@@ -54,7 +55,7 @@ public class WNaviBaiduMap {
             case 2:
                 return 5000000;
             case 3:
-                return 2000000;
+                return VideoEncoderConfig.SCREEN_RECORD_ENCODE_ULTRA_HIGH_BITRATE;
             case 4:
                 return MessageConfig.BASE_SEGMENT_LENGTH;
             case 5:
@@ -123,6 +124,6 @@ public class WNaviBaiduMap {
         bundle.putInt("hasHW", 1);
         bundle.putInt("width", i);
         bundle.putInt("height", i2);
-        return this.f4469a.GetZoomToBound(f4468b, bundle);
+        return this.f4472a.GetZoomToBound(f4471b, bundle);
     }
 }

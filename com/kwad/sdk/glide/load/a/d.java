@@ -4,10 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.Priority;
 import com.kwad.sdk.glide.load.DataSource;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface d<T> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a<T> {
         void a(@NonNull Exception exc);
 

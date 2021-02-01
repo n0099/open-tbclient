@@ -15,20 +15,20 @@ import com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment;
 import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i extends c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected com.baidu.swan.apps.adaptation.b.f cQD;
-    private String cQE;
-    boolean cQF = true;
-    protected com.baidu.swan.apps.adaptation.b.d czU;
+    protected com.baidu.swan.apps.adaptation.b.d cCq;
+    protected com.baidu.swan.apps.adaptation.b.f cSQ;
+    private String cSR;
+    boolean cSS = true;
     protected String mParams;
     public String mUrl;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        aoC();
+        apa();
         if (DEBUG) {
             Log.d("SwanAppWebViewFragment", "onCreate() : " + this);
         }
@@ -38,49 +38,49 @@ public class i extends c {
     @Override // com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
-        av(inflate);
-        this.cQD = air();
-        this.cQD.a(aiS());
-        this.czU = this.cQD.aiy();
-        this.cQD.loadUrl(this.mUrl);
+        aq(inflate);
+        this.cSQ = aiP();
+        this.cSQ.a(ajq());
+        this.cCq = this.cSQ.aiW();
+        this.cSQ.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.cQD.b(frameLayout, this.czU.covertToView());
+        this.cSQ.b(frameLayout, this.cCq.covertToView());
         e(frameLayout);
-        return a(aok() ? az(inflate) : inflate, this);
+        return a(aoI() ? av(inflate) : inflate, this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void e(FrameLayout frameLayout) {
     }
 
-    public com.baidu.swan.apps.adaptation.b.f air() {
+    public com.baidu.swan.apps.adaptation.b.f aiP() {
         return new SwanAppWebViewWidget(getContext()) { // from class: com.baidu.swan.apps.core.d.i.1
             @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-            protected boolean apo() {
-                return i.this.cQF;
+            protected boolean apM() {
+                return i.this.cSS;
             }
         };
     }
 
-    protected com.baidu.swan.apps.core.f.d aiS() {
+    protected com.baidu.swan.apps.core.f.d ajq() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.core.d.i.2
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public void hV(String str) {
-                if (i.this.mm(str) && i.this.cQE != null) {
-                    i.this.cPt.setTitle(i.this.cQE);
+            public void iv(String str) {
+                if (i.this.mE(str) && i.this.cSR != null) {
+                    i.this.cRH.setTitle(i.this.cSR);
                 } else {
-                    i.this.cPt.setTitle(str);
+                    i.this.cRH.setTitle(str);
                 }
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean mm(String str) {
+    public boolean mE(String str) {
         return TextUtils.equals(this.mUrl, str) || TextUtils.equals(this.mUrl.replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, ""), str);
     }
 
-    private void aoC() {
+    private void apa() {
         Bundle arguments = getArguments();
         if (arguments != null) {
             this.mUrl = arguments.getString("url");
@@ -88,8 +88,8 @@ public class i extends c {
             if (!TextUtils.isEmpty(this.mParams)) {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mParams);
-                    this.cQE = jSONObject.optString("fallback_title", null);
-                    this.cQF = jSONObject.optBoolean("should_check_domain", true);
+                    this.cSR = jSONObject.optString("fallback_title", null);
+                    this.cSS = jSONObject.optBoolean("should_check_domain", true);
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -182,32 +182,32 @@ public class i extends c {
     }
 
     public static boolean b(String str, com.baidu.swan.apps.model.b bVar) {
-        f afz = com.baidu.swan.apps.v.f.azN().afz();
-        if (afz == null) {
+        f afX = com.baidu.swan.apps.v.f.aAl().afX();
+        if (afX == null) {
             com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "open page failed");
             return false;
         }
         com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "open page url=" + bVar.mBaseUrl);
-        afz.apc().ai(f.cQm, f.cQo).a(str, bVar).apk();
+        afX.apB().af(f.cSz, f.cSB).a(str, bVar).apI();
         return true;
     }
 
-    public static a mn(String str) {
+    public static a mF(String str) {
         return new a(str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     static final class a {
-        private com.baidu.swan.apps.model.b cQH;
-        JSONObject cQI = new JSONObject();
+        private com.baidu.swan.apps.model.b cSU;
+        JSONObject cSV = new JSONObject();
 
         a(String str) {
-            this.cQH = com.baidu.swan.apps.model.b.cf(str, str);
+            this.cSU = com.baidu.swan.apps.model.b.bZ(str, str);
         }
 
-        public a mo(String str) {
+        public a mG(String str) {
             try {
-                this.cQI.put("fallback_title", str);
+                this.cSV.put("fallback_title", str);
             } catch (JSONException e) {
                 if (i.DEBUG) {
                     e.printStackTrace();
@@ -216,9 +216,9 @@ public class i extends c {
             return this;
         }
 
-        public a fo(boolean z) {
+        public a fq(boolean z) {
             try {
-                this.cQI.put("should_check_domain", z);
+                this.cSV.put("should_check_domain", z);
             } catch (JSONException e) {
                 if (i.DEBUG) {
                     e.printStackTrace();
@@ -227,87 +227,87 @@ public class i extends c {
             return this;
         }
 
-        public void app() {
-            this.cQH.mParams = this.cQI.toString();
-            i.b("default_webview", this.cQH);
+        public void apN() {
+            this.cSU.mParams = this.cSV.toString();
+            i.b("default_webview", this.cSU);
         }
     }
 
-    public static boolean apn() {
-        f afz = com.baidu.swan.apps.v.f.azN().afz();
-        if (afz == null) {
+    public static boolean apL() {
+        f afX = com.baidu.swan.apps.v.f.aAl().afX();
+        if (afX == null) {
             com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "close page failed");
             return false;
         }
         com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "page closed! ");
-        afz.apc().ai(f.cQo, f.cQn).apf().commit();
+        afX.apB().af(f.cSB, f.cSA).apE().commit();
         return true;
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.cQD != null) {
-            this.cQD.destroy();
-            this.cQD = null;
+        if (this.cSQ != null) {
+            this.cSQ.destroy();
+            this.cSQ = null;
         }
         super.onDestroy();
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void anH() {
-        this.cQD.ait();
-        aiZ();
-        this.cPu.n(com.baidu.swan.apps.t.a.awU().ahK(), aov());
+    protected void aof() {
+        this.cSQ.aiR();
+        ajx();
+        this.cRI.n(com.baidu.swan.apps.t.a.axs().aii(), aoT());
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected boolean aiT() {
+    protected boolean ajr() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c, com.baidu.searchbox.widget.SlideInterceptor
     public boolean isSlidable(MotionEvent motionEvent) {
-        if (this.cQD != null) {
-            return this.cQD.isSlidable(motionEvent);
+        if (this.cSQ != null) {
+            return this.cSQ.isSlidable(motionEvent);
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean anI() {
+    public boolean aog() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean ais() {
-        if (this.czU == null || !this.czU.canGoBack()) {
+    public boolean aiQ() {
+        if (this.cCq == null || !this.cCq.canGoBack()) {
             return false;
         }
-        this.czU.goBack();
+        this.cCq.goBack();
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void aiZ() {
+    protected void ajx() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public void av(View view) {
-        super.av(view);
-        gE(-1);
-        gF(ViewCompat.MEASURED_STATE_MASK);
-        this.cPt.setTitle(this.cQE == null ? "" : this.cQE);
-        this.cPt.setRightZoneVisibility(false);
-        fj(true);
-        this.cPt.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.i.3
+    public void aq(View view) {
+        super.aq(view);
+        gH(-1);
+        gI(ViewCompat.MEASURED_STATE_MASK);
+        this.cRH.setTitle(this.cSR == null ? "" : this.cSR);
+        this.cRH.setRightZoneVisibility(false);
+        fl(true);
+        this.cRH.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.i.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (i.this.czU.canGoBack()) {
-                    i.this.czU.goBack();
+                if (i.this.cCq.canGoBack()) {
+                    i.this.cCq.goBack();
                 } else {
-                    i.this.aof();
+                    i.this.aoD();
                 }
             }
         });

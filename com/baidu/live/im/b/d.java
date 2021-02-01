@@ -1,196 +1,196 @@
 package com.baidu.live.im.b;
 
 import com.baidu.live.data.AlaLiveMarkData;
-import com.baidu.live.data.bq;
-import com.baidu.live.data.ck;
+import com.baidu.live.data.bv;
+import com.baidu.live.data.cr;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private List<AlaLiveMarkData> biE;
-    private boolean bln;
-    private String blo;
+    private List<AlaLiveMarkData> blW;
+    private boolean boI;
+    private String boJ;
 
-    public static d Jp() {
-        return a.blp;
+    public static d KN() {
+        return a.boK;
     }
 
-    private List<ck> a(boolean z, int i, List<ck> list, ck[] ckVarArr, ck[] ckVarArr2) {
+    private List<cr> a(boolean z, int i, List<cr> list, cr[] crVarArr, cr[] crVarArr2) {
         boolean z2 = true;
         if (list == null) {
             list = new ArrayList<>();
         }
-        boolean Jv = Jv();
-        boolean Jw = Jw();
-        boolean z3 = ckVarArr != null && ckVarArr.length > 0 && Jv;
+        boolean KT = KT();
+        boolean KU = KU();
+        boolean z3 = crVarArr != null && crVarArr.length > 0 && KT;
         boolean z4 = i > 2;
-        if (ckVarArr2 == null || ckVarArr2.length <= 0 || Jw) {
+        if (crVarArr2 == null || crVarArr2.length <= 0 || KU) {
             z2 = false;
         }
         if (z && z4) {
             if (z2) {
-                list.addAll(0, Arrays.asList(ckVarArr2));
+                list.addAll(0, Arrays.asList(crVarArr2));
             }
             if (z3) {
-                list.addAll(0, Arrays.asList(ckVarArr));
+                list.addAll(0, Arrays.asList(crVarArr));
             }
         } else if (z) {
             if (z3) {
-                list.addAll(0, Arrays.asList(ckVarArr));
+                list.addAll(0, Arrays.asList(crVarArr));
             }
             if (z2) {
-                list.addAll(Arrays.asList(ckVarArr2));
+                list.addAll(Arrays.asList(crVarArr2));
             }
         } else if (z4) {
             if (z2) {
-                list.addAll(0, Arrays.asList(ckVarArr2));
+                list.addAll(0, Arrays.asList(crVarArr2));
             }
             if (z3) {
-                list.addAll(Arrays.asList(ckVarArr));
+                list.addAll(Arrays.asList(crVarArr));
             }
         } else {
             if (z3) {
-                list.addAll(Arrays.asList(ckVarArr));
+                list.addAll(Arrays.asList(crVarArr));
             }
             if (z2) {
-                list.addAll(Arrays.asList(ckVarArr2));
+                list.addAll(Arrays.asList(crVarArr2));
             }
         }
         return list;
     }
 
-    public ck[] Jq() {
+    public cr[] KO() {
         boolean z = true;
-        bq bqVar = com.baidu.live.af.a.OJ().bxp;
+        bv bvVar = com.baidu.live.ae.a.Qj().bAS;
         ArrayList arrayList = new ArrayList();
-        if (bqVar != null && bqVar.aMR != null && bqVar.aMR.aPq && bqVar.aMO != null) {
-            ck[] ckVarArr = bqVar.aMO.aOo;
-            if (ckVarArr != null && ckVarArr.length > 0) {
-                arrayList.addAll(Arrays.asList(ckVarArr));
+        if (bvVar != null && bvVar.aPP != null && bvVar.aPP.aSs && bvVar.aPM != null) {
+            cr[] crVarArr = bvVar.aPM.aRr;
+            if (crVarArr != null && crVarArr.length > 0) {
+                arrayList.addAll(Arrays.asList(crVarArr));
             }
-            ck[] ckVarArr2 = bqVar.aMO.aOu;
-            ck[] ckVarArr3 = bqVar.aMO.aOv;
-            ck[] ckVarArr4 = bqVar.aMO.aOw;
-            boolean Jv = Jv();
-            boolean Jw = Jw();
-            boolean z2 = ckVarArr2 != null && ckVarArr2.length > 0 && Jv;
-            if (ckVarArr3 == null || ckVarArr3.length <= 0 || Jw) {
+            cr[] crVarArr2 = bvVar.aPM.aRw;
+            cr[] crVarArr3 = bvVar.aPM.aRx;
+            cr[] crVarArr4 = bvVar.aPM.aRy;
+            boolean KT = KT();
+            boolean KU = KU();
+            boolean z2 = crVarArr2 != null && crVarArr2.length > 0 && KT;
+            if (crVarArr3 == null || crVarArr3.length <= 0 || KU) {
                 z = false;
             }
             if (z2) {
-                arrayList.addAll(Arrays.asList(ckVarArr2));
+                arrayList.addAll(Arrays.asList(crVarArr2));
             }
             if (z) {
-                arrayList.addAll(Arrays.asList(ckVarArr3));
+                arrayList.addAll(Arrays.asList(crVarArr3));
             }
-            if (ckVarArr4 != null && ckVarArr4.length > 0) {
-                arrayList.addAll(Arrays.asList(ckVarArr4));
+            if (crVarArr4 != null && crVarArr4.length > 0) {
+                arrayList.addAll(Arrays.asList(crVarArr4));
             }
         }
         if (arrayList.isEmpty()) {
             return null;
         }
-        return (ck[]) arrayList.toArray(new ck[arrayList.size()]);
+        return (cr[]) arrayList.toArray(new cr[arrayList.size()]);
     }
 
-    public ck[] b(boolean z, int i, boolean z2) {
-        bq bqVar = com.baidu.live.af.a.OJ().bxp;
-        List<ck> arrayList = new ArrayList<>();
-        if (bqVar != null && bqVar.aMR != null && bqVar.aMR.aPq && bqVar.aMO != null) {
-            ck[] ckVarArr = bqVar.aMO.aOo;
-            if (ckVarArr != null && ckVarArr.length > 0) {
-                arrayList.addAll(Arrays.asList(ckVarArr));
+    public cr[] b(boolean z, int i, boolean z2) {
+        bv bvVar = com.baidu.live.ae.a.Qj().bAS;
+        List<cr> arrayList = new ArrayList<>();
+        if (bvVar != null && bvVar.aPP != null && bvVar.aPP.aSs && bvVar.aPM != null) {
+            cr[] crVarArr = bvVar.aPM.aRr;
+            if (crVarArr != null && crVarArr.length > 0) {
+                arrayList.addAll(Arrays.asList(crVarArr));
             }
             if (z2) {
-                ck[] ckVarArr2 = bqVar.aMO.aOw;
-                if (ckVarArr2 != null && ckVarArr2.length > 0) {
-                    arrayList.addAll(0, Arrays.asList(ckVarArr2));
+                cr[] crVarArr2 = bvVar.aPM.aRy;
+                if (crVarArr2 != null && crVarArr2.length > 0) {
+                    arrayList.addAll(0, Arrays.asList(crVarArr2));
                 }
             } else {
-                arrayList = a(z, i, arrayList, bqVar.aMO.aOu, bqVar.aMO.aOv);
+                arrayList = a(z, i, arrayList, bvVar.aPM.aRw, bvVar.aPM.aRx);
             }
         }
         if (arrayList.isEmpty()) {
             return null;
         }
-        return (ck[]) arrayList.toArray(new ck[arrayList.size()]);
+        return (cr[]) arrayList.toArray(new cr[arrayList.size()]);
     }
 
-    public ck[] Jr() {
-        return du(0);
+    public cr[] KP() {
+        return dA(0);
     }
 
-    public ck[] du(int i) {
-        List<ck> list;
-        bq bqVar = com.baidu.live.af.a.OJ().bxp;
-        if (bqVar == null || bqVar.aMR == null || !bqVar.aMR.aPq || bqVar.aMO == null) {
+    public cr[] dA(int i) {
+        List<cr> list;
+        bv bvVar = com.baidu.live.ae.a.Qj().bAS;
+        if (bvVar == null || bvVar.aPP == null || !bvVar.aPP.aSs || bvVar.aPM == null) {
             list = null;
         } else {
-            ck[] ckVarArr = bqVar.aMO.aOo;
-            list = a(false, i, (ckVarArr == null || ckVarArr.length <= 0) ? null : new ArrayList(Arrays.asList(ckVarArr)), null, bqVar.aMO.aOv);
+            cr[] crVarArr = bvVar.aPM.aRr;
+            list = a(false, i, (crVarArr == null || crVarArr.length <= 0) ? null : new ArrayList(Arrays.asList(crVarArr)), null, bvVar.aPM.aRx);
         }
         if (list == null || list.isEmpty()) {
             return null;
         }
-        return (ck[]) list.toArray(new ck[list.size()]);
+        return (cr[]) list.toArray(new cr[list.size()]);
     }
 
-    public boolean Js() {
-        return this.bln;
+    public boolean KQ() {
+        return this.boI;
     }
 
     public void setSwitchStatus(boolean z) {
-        this.bln = z;
+        this.boI = z;
     }
 
-    public String Jt() {
-        return this.blo;
+    public String KR() {
+        return this.boJ;
     }
 
     public void setSelectId(String str) {
-        this.blo = str;
+        this.boJ = str;
     }
 
-    public List<AlaLiveMarkData> Ju() {
-        return this.biE;
+    public List<AlaLiveMarkData> KS() {
+        return this.blW;
     }
 
-    public void V(List<AlaLiveMarkData> list) {
-        if (this.biE == null) {
-            this.biE = new ArrayList();
+    public void W(List<AlaLiveMarkData> list) {
+        if (this.blW == null) {
+            this.blW = new ArrayList();
         }
-        this.biE.clear();
+        this.blW.clear();
         if (list != null && !list.isEmpty()) {
-            this.biE.addAll(list);
+            this.blW.addAll(list);
         }
     }
 
     public void release() {
-        this.bln = false;
-        this.blo = null;
-        if (this.biE != null) {
-            this.biE.clear();
+        this.boI = false;
+        this.boJ = null;
+        if (this.blW != null) {
+            this.blW.clear();
         }
     }
 
     private d() {
-        this.bln = false;
+        this.boI = false;
     }
 
-    private boolean Jv() {
-        return com.baidu.live.af.a.OJ().bru != null && com.baidu.live.af.a.OJ().bru.aKm && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled());
+    private boolean KT() {
+        return com.baidu.live.ae.a.Qj().buX != null && com.baidu.live.ae.a.Qj().buX.aMZ && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled());
     }
 
-    private boolean Jw() {
-        bq bqVar = com.baidu.live.af.a.OJ().bxp;
-        return TbadkCoreApplication.getInst().isMobileBaidu() || !(bqVar == null || bqVar.aMR == null || bqVar.aMR.aPy) || (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isNobleInfoSwitchUnabled());
+    private boolean KU() {
+        bv bvVar = com.baidu.live.ae.a.Qj().bAS;
+        return TbadkCoreApplication.getInst().isMobileBaidu() || !(bvVar == null || bvVar.aPP == null || bvVar.aPP.aSA) || (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isNobleInfoSwitchUnabled());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        private static final d blp = new d();
+        private static final d boK = new d();
     }
 }

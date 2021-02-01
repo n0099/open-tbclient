@@ -1,14 +1,14 @@
 package com.kwad.sdk.crash;
 
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final double f9627a = Runtime.getRuntime().maxMemory();
+    public static final double f9629a = Runtime.getRuntime().maxMemory();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f9628b = Pattern.compile("/data/user");
+    public static final Pattern f9630b = Pattern.compile("/data/user");
     public static final Pattern c = Pattern.compile("/data");
     public static final Pattern d = Pattern.compile("/data/data/(.*)/data/.*");
     public static final Pattern e = Pattern.compile("/data/user/.*/(.*)/data/.*");

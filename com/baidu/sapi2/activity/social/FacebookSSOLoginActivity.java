@@ -17,7 +17,7 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
     private static final String TAG = FacebookSSOLoginActivity.class.getSimpleName();
     private CallbackManager callbackManager;

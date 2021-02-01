@@ -1,16 +1,32 @@
 package com.baidu.live.alablmsdk.d;
-/* loaded from: classes10.dex */
+
+import com.baidu.live.alablmsdk.module.rtc.d;
+/* loaded from: classes11.dex */
 public class b {
-    private c axF;
+    private c axS;
 
     public b(c cVar) {
-        this.axF = cVar;
+        this.axS = cVar;
+    }
+
+    public void aY(boolean z) {
+        if (this.axS != null) {
+            com.baidu.live.alablmsdk.a.b.a.ag("in-media-device muteMicrophone " + z, "");
+            this.axS.aY(z);
+        }
     }
 
     public void aZ(boolean z) {
-        if (this.axF != null) {
-            com.baidu.live.alablmsdk.a.b.a.ai("BLMRtcRoom muteMicrophone " + z, "");
-            this.axF.aZ(z);
+        if (this.axS != null) {
+            com.baidu.live.alablmsdk.a.b.a.ag("in-media-device muteSpeaker " + z, "");
+            this.axS.aZ(z);
         }
+    }
+
+    public d yk() {
+        if (this.axS != null) {
+            return this.axS.yk();
+        }
+        return null;
     }
 }

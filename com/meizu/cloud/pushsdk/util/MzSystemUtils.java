@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MzSystemUtils {
     private static final String TAG = "MzSystemUtils";
 
@@ -339,8 +339,8 @@ public class MzSystemUtils {
     }
 
     public static boolean isInternational() {
-        if (com.meizu.cloud.pushsdk.base.a.a().f11226a) {
-            return com.meizu.cloud.pushsdk.base.a.a().f11227b.booleanValue();
+        if (com.meizu.cloud.pushsdk.base.a.a().f11228a) {
+            return com.meizu.cloud.pushsdk.base.a.a().f11229b.booleanValue();
         }
         return false;
     }

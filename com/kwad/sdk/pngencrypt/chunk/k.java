@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k extends s {
     int h;
     private int i;
@@ -12,7 +12,7 @@ public class k extends s {
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
         this.i = com.kwad.sdk.pngencrypt.n.c(dVar.d, 0);
-        this.h = dVar.f10501a - 4;
+        this.h = dVar.f10503a - 4;
         this.j = dVar.d;
     }
 }

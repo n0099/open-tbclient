@@ -12,14 +12,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<FieldDescriptorType>> {
     private static final FieldSet DEFAULT_INSTANCE = new FieldSet(true);
     private boolean isImmutable;
     private boolean hasLazyField = false;
     private final SmallSortedMap<FieldDescriptorType, Object> fields = SmallSortedMap.newFieldMap(16);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public interface FieldDescriptorLite<T extends FieldDescriptorLite<T>> extends Comparable<T> {
         Internal.EnumLiteMap<?> getEnumType();
 

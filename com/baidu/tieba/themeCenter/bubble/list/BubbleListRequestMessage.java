@@ -2,10 +2,10 @@ package com.baidu.tieba.themeCenter.bubble.list;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetBubbleList.DataReq;
 import tbclient.GetBubbleList.GetBubbleListReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BubbleListRequestMessage extends NetMessage {
     private int pn;
     private int rn;
@@ -20,7 +20,7 @@ public class BubbleListRequestMessage extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetBubbleListReqIdl.Builder builder2 = new GetBubbleListReqIdl.Builder();
         builder2.data = builder.build(false);

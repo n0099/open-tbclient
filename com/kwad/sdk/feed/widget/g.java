@@ -13,7 +13,7 @@ import com.kwad.sdk.feed.FeedDownloadActivityProxy;
 import com.kwad.sdk.feed.widget.base.RatioFrameLayout;
 import com.kwad.sdk.widget.KsLogoView;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickListener {
     private TextView f;
     private ImageView g;
@@ -27,11 +27,11 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     @Override // com.kwad.sdk.feed.widget.base.a
     public void a(@NonNull AdTemplate adTemplate) {
         super.a(adTemplate);
-        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f9861b));
-        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f9861b);
+        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f9863b));
+        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f9863b);
         this.i.a(adTemplate);
         if (I.size() >= 1) {
-            KSImageLoader.loadFeeImage(this.g, I.get(0), this.f9860a);
+            KSImageLoader.loadFeeImage(this.g, I.get(0), this.f9862a);
         } else {
             com.kwad.sdk.core.d.a.d("FeedTextImmerseImageView", "getImageUrlList size less than one");
         }
@@ -57,14 +57,14 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     public void onClick(View view) {
         if (view == this.h) {
             l();
-        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), this.f9860a, 1) == 1) {
+        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), this.f9862a, 1) == 1) {
             k();
-        } else if (com.kwad.sdk.core.response.b.a.y(this.f9861b)) {
+        } else if (com.kwad.sdk.core.response.b.a.y(this.f9863b)) {
             k();
-            FeedDownloadActivityProxy.launch(this.d, this.f9860a, this.c);
+            FeedDownloadActivityProxy.launch(this.d, this.f9862a, this.c);
         } else {
             k();
-            AdWebViewActivityProxy.launch(getContext(), this.f9860a);
+            AdWebViewActivityProxy.launch(getContext(), this.f9862a);
         }
     }
 }

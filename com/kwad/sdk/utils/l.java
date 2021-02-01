@@ -7,7 +7,7 @@ import android.location.LocationManager;
 import android.net.http.Headers;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class l {
     @Nullable
     public static Location a(Context context) {

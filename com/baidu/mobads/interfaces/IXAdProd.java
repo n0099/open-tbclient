@@ -5,8 +5,9 @@ import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
+import com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IXAdProd {
     public static final String SLOT_DID_FINISH = "slot_did_finish";
     public static final String SLOT_DID_LOADED = "slot_did_loaded";
@@ -38,6 +39,8 @@ public interface IXAdProd {
     ViewGroup getProdBase();
 
     IXAdProdInfo getProdInfo();
+
+    IXAdFeedsRequestParameters getRequestParameters();
 
     IXAdConstants4PDK.SlotState getSlotState();
 

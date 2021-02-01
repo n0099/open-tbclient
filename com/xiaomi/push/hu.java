@@ -22,10 +22,10 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     private static final jn f544a = new jn("DataCollectionItem");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14106a = new jf("", (byte) 10, 1);
+    private static final jf f14108a = new jf("", (byte) 10, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final jf f14107b = new jf("", (byte) 8, 2);
+    private static final jf f14109b = new jf("", (byte) 8, 2);
     private static final jf c = new jf("", Constants.GZIP_CAST_TYPE, 3);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,7 +97,7 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
         jiVar.m515a();
         while (true) {
             jf m511a = jiVar.m511a();
-            if (m511a.f14171a == 0) {
+            if (m511a.f14173a == 0) {
                 jiVar.f();
                 if (!m382a()) {
                     throw new jj("Required field 'collectedAt' was not found in serialized data! Struct: " + toString());
@@ -107,8 +107,8 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
             }
             switch (m511a.f857a) {
                 case 1:
-                    if (m511a.f14171a != 10) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 10) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f545a = jiVar.m510a();
@@ -116,23 +116,23 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 2:
-                    if (m511a.f14171a != 8) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 8) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f546a = ho.a(jiVar.m509a());
                         break;
                     }
                 case 3:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f547a = jiVar.m516a();
                         break;
                     }
                 default:
-                    jl.a(jiVar, m511a.f14171a);
+                    jl.a(jiVar, m511a.f14173a);
                     break;
             }
             jiVar.g();
@@ -167,11 +167,11 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     public void b(ji jiVar) {
         m381a();
         jiVar.a(f544a);
-        jiVar.a(f14106a);
+        jiVar.a(f14108a);
         jiVar.a(this.f545a);
         jiVar.b();
         if (this.f546a != null) {
-            jiVar.a(f14107b);
+            jiVar.a(f14109b);
             jiVar.a(this.f546a.a());
             jiVar.b();
         }

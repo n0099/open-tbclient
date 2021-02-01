@@ -1,33 +1,33 @@
 package com.facebook.drawee.components;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b {
-    private boolean prd;
-    private int pre;
-    private int prf;
+    private boolean pBm;
+    private int pBn;
+    private int pBo;
 
     public b() {
         init();
     }
 
     public void init() {
-        this.prd = false;
-        this.pre = 4;
+        this.pBm = false;
+        this.pBn = 4;
         reset();
     }
 
     public void reset() {
-        this.prf = 0;
+        this.pBo = 0;
     }
 
-    public void AR(boolean z) {
-        this.prd = z;
+    public void Bk(boolean z) {
+        this.pBm = z;
     }
 
-    public boolean ert() {
-        return this.prd && this.prf < this.pre;
+    public boolean etL() {
+        return this.pBm && this.pBo < this.pBn;
     }
 
-    public void eru() {
-        this.prf++;
+    public void etM() {
+        this.pBo++;
     }
 }

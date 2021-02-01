@@ -67,7 +67,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTVideoWebPageActivity extends Activity implements d {
     private l A;
     private c B;
@@ -87,12 +87,12 @@ public class TTVideoWebPageActivity extends Activity implements d {
     private j Z;
 
     /* renamed from: a  reason: collision with root package name */
-    LandingDislikeDialog f6172a;
+    LandingDislikeDialog f6174a;
     private String ac;
     private com.bytedance.sdk.openadsdk.preload.falconx.a.a ad;
 
     /* renamed from: b  reason: collision with root package name */
-    LandingCommentDialog f6173b;
+    LandingCommentDialog f6175b;
     LandingDislikeToast c;
     private SSWebView f;
     private ImageView g;
@@ -277,7 +277,7 @@ public class TTVideoWebPageActivity extends Activity implements d {
             }
             if (this.Y != null) {
                 this.z = this.Y.g;
-                this.T = this.Y.f7400a;
+                this.T = this.Y.f7402a;
             }
         }
         if (bundle != null) {
@@ -1011,17 +1011,17 @@ public class TTVideoWebPageActivity extends Activity implements d {
                 u();
                 return;
             }
-            if (this.f6172a == null) {
+            if (this.f6174a == null) {
                 d();
             }
-            this.f6172a.a();
+            this.f6174a.a();
         }
     }
 
     void d() {
-        if (this.f6173b == null) {
-            this.f6173b = new LandingCommentDialog(this, this.A);
-            this.f6173b.setCallback(new LandingCommentDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.7
+        if (this.f6175b == null) {
+            this.f6175b = new LandingCommentDialog(this, this.A);
+            this.f6175b.setCallback(new LandingCommentDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.7
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.a
                 public void a(View view) {
                     TTVideoWebPageActivity.this.d.set(true);
@@ -1034,10 +1034,10 @@ public class TTVideoWebPageActivity extends Activity implements d {
                 public void b(View view) {
                     TTVideoWebPageActivity.this.d.set(false);
                     if (!TTVideoWebPageActivity.this.e.get()) {
-                        TTVideoWebPageActivity.this.f6172a.a();
+                        TTVideoWebPageActivity.this.f6174a.a();
                         return;
                     }
-                    TTVideoWebPageActivity.this.f6172a.a(true);
+                    TTVideoWebPageActivity.this.f6174a.a(true);
                     if (TTVideoWebPageActivity.this.f()) {
                         TTVideoWebPageActivity.this.B.j();
                     }
@@ -1056,12 +1056,12 @@ public class TTVideoWebPageActivity extends Activity implements d {
                     }
                 }
             });
-            ((FrameLayout) findViewById(16908290)).addView(this.f6173b);
-            this.f6173b.setVisibility(8);
+            ((FrameLayout) findViewById(16908290)).addView(this.f6175b);
+            this.f6175b.setVisibility(8);
         }
-        if (this.f6172a == null) {
-            this.f6172a = new LandingDislikeDialog(this, this.A);
-            this.f6172a.setCallback(new LandingDislikeDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.8
+        if (this.f6174a == null) {
+            this.f6174a = new LandingDislikeDialog(this, this.A);
+            this.f6174a.setCallback(new LandingDislikeDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.8
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void a(View view) {
                     TTVideoWebPageActivity.this.d.set(true);
@@ -1083,17 +1083,17 @@ public class TTVideoWebPageActivity extends Activity implements d {
                     if (!TTVideoWebPageActivity.this.e.get() && filterWord != null && !filterWord.hasSecondOptions()) {
                         TTVideoWebPageActivity.this.e.set(true);
                         TTVideoWebPageActivity.this.v();
-                        TTVideoWebPageActivity.this.f6173b.a();
+                        TTVideoWebPageActivity.this.f6175b.a();
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void a() {
-                    TTVideoWebPageActivity.this.f6173b.b();
+                    TTVideoWebPageActivity.this.f6175b.b();
                     TTVideoWebPageActivity.this.d.set(true);
                 }
             });
-            ((FrameLayout) findViewById(16908290)).addView(this.f6172a);
+            ((FrameLayout) findViewById(16908290)).addView(this.f6174a);
         }
         if (this.c == null) {
             this.c = new LandingDislikeToast(this);

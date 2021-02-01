@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.album;
 
 import android.graphics.Bitmap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VideoFileInfo extends MediaFileInfo {
     private static final long serialVersionUID = 4168698601975684150L;
     public int albumId;

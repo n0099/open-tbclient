@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.lcp.sdk.b.a {
-    private a avN;
+    private a avC;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -24,7 +24,7 @@ public class b extends com.baidu.lcp.sdk.b.a {
 
     public b(Context context, a aVar) {
         this.context = context;
-        this.avN = aVar;
+        this.avC = aVar;
     }
 
     @Override // com.baidu.lcp.sdk.b.c.InterfaceC0150c
@@ -36,11 +36,11 @@ public class b extends com.baidu.lcp.sdk.b.a {
             int optInt = jSONObject2.optInt("error_code", -1);
             String optString = jSONObject2.optString("error_msg", "");
             if (optInt == 0) {
-                e.j(this.context, jSONObject2.optBoolean("bddns_enable", false));
+                e.k(this.context, jSONObject2.optBoolean("bddns_enable", false));
                 String optString2 = jSONObject2.optString("token");
                 JSONArray jSONArray = jSONObject2.getJSONArray(WebSocketRequest.PARAM_KEY_PROTOCOLS);
                 if (TextUtils.isEmpty(optString2) || jSONArray == null || jSONArray.length() < 1) {
-                    this.avN.onFailure(10002, "token or protocol is empty");
+                    this.avC.onFailure(10002, "token or protocol is empty");
                     return;
                 }
                 e.l(this.context, jSONArray.length());
@@ -49,7 +49,7 @@ public class b extends com.baidu.lcp.sdk.b.a {
                     e.e(this.context, jSONObject3.optString(AlaRecorderLog.KEY_CONTENT_EXT_PROTOCOL) + ":" + jSONObject3.optString("domain") + ":" + jSONObject3.optString(ClientCookie.PORT_ATTR), i);
                 }
                 e.o(this.context, jSONObject2.optInt("ipv6_strategy", 3));
-                this.avN.ei(optString2);
+                this.avC.ei(optString2);
                 e.D(this.context, optString2);
                 try {
                     String optString3 = jSONObject2.optString("client_log_config", "");
@@ -71,15 +71,15 @@ public class b extends com.baidu.lcp.sdk.b.a {
                     return;
                 }
             }
-            this.avN.onFailure(optInt, optString);
+            this.avC.onFailure(optInt, optString);
         } catch (JSONException e2) {
-            this.avN.onFailure(10001, "parse response exception ：" + e2);
+            this.avC.onFailure(10001, "parse response exception ：" + e2);
         }
     }
 
     @Override // com.baidu.lcp.sdk.b.c.InterfaceC0150c
     public void onFailure(int i, String str) {
-        this.avN.onFailure(i, str);
+        this.avC.onFailure(i, str);
     }
 
     @Override // com.baidu.lcp.sdk.b.c.a
@@ -97,7 +97,7 @@ public class b extends com.baidu.lcp.sdk.b.a {
     @Override // com.baidu.lcp.sdk.b.c.a
     public byte[] getRequestParameter() {
         try {
-            JSONObject jSONObject = (JSONObject) com.baidu.lcp.sdk.d.a.h(this.context, true);
+            JSONObject jSONObject = (JSONObject) com.baidu.lcp.sdk.d.a.i(this.context, true);
             return jSONObject != null ? jSONObject.toString().getBytes() : new byte[0];
         } catch (Exception e) {
             return new byte[0];

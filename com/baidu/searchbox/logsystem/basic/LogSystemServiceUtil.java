@@ -16,7 +16,7 @@ import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LogSystemServiceUtil {
     private static final String TAG = "LogSystemServiceUtil";
 

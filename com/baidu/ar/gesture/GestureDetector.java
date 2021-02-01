@@ -11,6 +11,7 @@ import com.baidu.ar.c.c;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
+import com.yy.videoplayer.decoder.VideoConstant;
 /* loaded from: classes6.dex */
 public class GestureDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = GestureDetector.class.getSimpleName();
@@ -19,7 +20,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
     public GestureDetector() {
         c.cd().a(this);
         this.nk = new PixelReadParams(PixelType.BGR);
-        this.nk.setOutputWidth(320);
+        this.nk.setOutputWidth(VideoConstant.THUMBNAIL_WIDTH);
         this.nk.setOutputHeight(180);
     }
 
@@ -64,7 +65,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
                 float f = bundle.getFloat("det_thresh", 0.25f);
                 float f2 = bundle.getFloat("first_cls_thresh", 0.75f);
                 float f3 = bundle.getFloat("second_cls_thresh", 0.5f);
-                return aVar.f1493tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1);
+                return aVar.f1491tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1);
             }
 
             @Override // com.baidu.ar.c.a

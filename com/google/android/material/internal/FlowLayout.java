@@ -7,12 +7,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.view.MarginLayoutParamsCompat;
 import androidx.core.view.ViewCompat;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class FlowLayout extends ViewGroup {
     private int itemSpacing;
     private int lineSpacing;
@@ -79,7 +78,7 @@ public class FlowLayout extends ViewGroup {
         int mode = View.MeasureSpec.getMode(i);
         int size2 = View.MeasureSpec.getSize(i2);
         int mode2 = View.MeasureSpec.getMode(i2);
-        int i4 = (mode == Integer.MIN_VALUE || mode == 1073741824) ? size : ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i4 = (mode == Integer.MIN_VALUE || mode == 1073741824) ? size : Integer.MAX_VALUE;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int i5 = 0;

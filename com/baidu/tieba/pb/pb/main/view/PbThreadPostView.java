@@ -8,17 +8,17 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
 /* loaded from: classes2.dex */
 public class PbThreadPostView extends LinearLayout {
-    private f lFA;
-    public View lWw;
-    public TextView lWx;
-    public TextView lWy;
+    private f lOq;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
+    public View mfB;
+    public TextView mfC;
+    public TextView mfD;
 
     public PbThreadPostView(Context context) {
         this(context, null);
@@ -36,30 +36,30 @@ public class PbThreadPostView extends LinearLayout {
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
-        tC();
+        tz();
     }
 
-    private void tC() {
-        this.lWw = findViewById(R.id.pb_thread_post_container);
-        this.lWx = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.lWy = (TextView) findViewById(R.id.pb_thread_post_button);
+    private void tz() {
+        this.mfB = findViewById(R.id.pb_thread_post_container);
+        this.mfC = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.mfD = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(f fVar) {
-        this.lFA = fVar;
-        uo(TbadkCoreApplication.getInst().getSkinType());
+        this.lOq = fVar;
+        uu(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.lWy.setOnClickListener(this.mOnClickListener);
+            this.mfD.setOnClickListener(this.mOnClickListener);
         }
     }
 
-    public void uo(int i) {
-        ao.setBackgroundColor(this.lWw, R.color.CAM_X0205, i);
-        ao.setViewTextColor(this.lWx, R.color.CAM_X0107);
-        ao.setViewTextColor(this.lWy, R.color.CAM_X0302);
+    public void uu(int i) {
+        ap.setBackgroundColor(this.mfB, R.color.CAM_X0205, i);
+        ap.setViewTextColor(this.mfC, R.color.CAM_X0107);
+        ap.setViewTextColor(this.mfD, R.color.CAM_X0302);
     }
 }

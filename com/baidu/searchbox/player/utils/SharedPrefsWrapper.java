@@ -7,7 +7,7 @@ import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SharedPrefsWrapper implements SharedPreferences {
     private static final boolean DEBUG = BDPlayerConfig.isDebug();
     private SharedPreferences mSp;

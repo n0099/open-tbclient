@@ -8,25 +8,25 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.StatisticModel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class b extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile b f7448a;
+    private static volatile b f7450a;
 
     private b(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
         super(context, str, cursorFactory, i);
     }
 
     public static b a(Context context) {
-        if (f7448a == null) {
+        if (f7450a == null) {
             synchronized (b.class) {
-                if (f7448a == null) {
-                    f7448a = new b(context.getApplicationContext(), "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
+                if (f7450a == null) {
+                    f7450a = new b(context.getApplicationContext(), "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
                 }
             }
         }
-        return f7448a;
+        return f7450a;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

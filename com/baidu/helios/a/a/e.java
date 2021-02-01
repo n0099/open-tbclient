@@ -8,11 +8,11 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 class e implements h {
     @Override // com.baidu.helios.a.a.h
     public String a(Context context) {
-        return com.baidu.helios.b.aj(context.getApplicationContext()).uE();
+        return com.baidu.helios.b.aj(context.getApplicationContext()).uB();
     }
 
     @Override // com.baidu.helios.a.a.h
@@ -23,9 +23,9 @@ class e implements h {
         boolean a2 = cVar.a(10000);
         JSONArray jSONArray = new JSONArray();
         if (a2) {
-            c.b uY = cVar.uY();
-            if (uY != null && uY.result != 0 && (c0120b = (b.C0120b) uY.result) != null && c0120b.uI() != null) {
-                for (b.c cVar2 : c0120b.uI()) {
+            c.b uV = cVar.uV();
+            if (uV != null && uV.result != 0 && (c0120b = (b.C0120b) uV.result) != null && c0120b.uF() != null) {
+                for (b.c cVar2 : c0120b.uF()) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("aid", cVar2.aid);
@@ -38,7 +38,7 @@ class e implements h {
                 }
             }
         } else {
-            cVar.uZ();
+            cVar.uW();
         }
         return jSONArray;
     }
@@ -48,14 +48,14 @@ class e implements h {
         c cVar = new c();
         com.baidu.helios.b.aj(context).b(cVar);
         if (!cVar.a(10000)) {
-            cVar.uZ();
+            cVar.uW();
             return null;
         }
-        c.b uY = cVar.uY();
-        if (uY == null || TextUtils.isEmpty((CharSequence) uY.result)) {
+        c.b uV = cVar.uV();
+        if (uV == null || TextUtils.isEmpty((CharSequence) uV.result)) {
             return null;
         }
-        return (String) uY.result;
+        return (String) uV.result;
     }
 
     @Override // com.baidu.helios.a.a.h
@@ -63,14 +63,14 @@ class e implements h {
         c cVar = new c();
         com.baidu.helios.b.aj(context).c(cVar);
         if (!cVar.a(10000)) {
-            cVar.uZ();
+            cVar.uW();
             return null;
         }
-        c.b uY = cVar.uY();
-        if (uY == null || TextUtils.isEmpty((CharSequence) uY.result)) {
+        c.b uV = cVar.uV();
+        if (uV == null || TextUtils.isEmpty((CharSequence) uV.result)) {
             return null;
         }
-        return (String) uY.result;
+        return (String) uV.result;
     }
 
     @Override // com.baidu.helios.a.a.h

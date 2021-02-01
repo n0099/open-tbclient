@@ -1,11 +1,11 @@
 package com.baidu.swan.config;
 
 import com.baidu.swan.apps.t.a.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public static boolean DEBUG = aPN().isDebug();
+    public static boolean DEBUG = aQg().isDebug();
 
-    public static a aPN() {
-        return d.axT();
+    public static a aQg() {
+        return d.ayr();
     }
 }

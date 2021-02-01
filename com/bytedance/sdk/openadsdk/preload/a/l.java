@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 abstract class l<IN, OUT> extends d<IN, OUT> {
     private Map<String, a> d;
 
@@ -19,7 +19,7 @@ abstract class l<IN, OUT> extends d<IN, OUT> {
         if (list.isEmpty()) {
             return false;
         }
-        return list.get(list.size() + (-1)).f7422a == f.class;
+        return list.get(list.size() + (-1)).f7424a == f.class;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -36,42 +36,42 @@ abstract class l<IN, OUT> extends d<IN, OUT> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private Map<String, a> f7429a = new HashMap();
+        private Map<String, a> f7431a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        private com.bytedance.sdk.openadsdk.preload.a.b.a f7430b;
+        private com.bytedance.sdk.openadsdk.preload.a.b.a f7432b;
 
         public a a(String str) {
-            if (this.f7429a.containsKey(str)) {
+            if (this.f7431a.containsKey(str)) {
                 throw new IllegalArgumentException("duplicated branch name");
             }
             a aVar = new a();
-            this.f7429a.put(str, aVar);
+            this.f7431a.put(str, aVar);
             return aVar;
         }
 
         public h a(Class<? extends l> cls) {
-            return h.a.a().a(cls).a(this.f7429a).a(this.f7430b).b();
+            return h.a.a().a(cls).a(this.f7431a).a(this.f7432b).b();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        List<h> f7428a = new ArrayList();
+        List<h> f7430a = new ArrayList();
 
         public a a(h hVar) {
-            this.f7428a.add(hVar);
+            this.f7430a.add(hVar);
             return this;
         }
 
         public a a(List<h> list) {
-            this.f7428a.addAll(list);
+            this.f7430a.addAll(list);
             return this;
         }
     }

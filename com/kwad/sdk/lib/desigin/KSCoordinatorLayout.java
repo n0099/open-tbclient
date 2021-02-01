@@ -45,7 +45,6 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.mapapi.map.WeightedLatLng;
 import com.kwad.sdk.R;
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Constructor;
@@ -56,7 +55,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingParent2 {
     static final Class<?>[] CONSTRUCTOR_PARAMS;
     static final int EVENT_NESTED_SCROLL = 1;
@@ -90,7 +89,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     private final List<View> mTempList1;
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Behavior<V extends View> {
         public Behavior() {
         }
@@ -235,18 +234,18 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Retention(RetentionPolicy.RUNTIME)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface DefaultBehavior {
         Class<? extends Behavior> value();
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface DispatchChangeEvent {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class HierarchyChangeListener implements ViewGroup.OnHierarchyChangeListener {
         HierarchyChangeListener() {
         }
@@ -268,7 +267,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public int anchorGravity;
         public int dodgeInsetEdges;
@@ -545,7 +544,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class OnPreDrawListener implements ViewTreeObserver.OnPreDrawListener {
         OnPreDrawListener() {
         }
@@ -558,7 +557,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.kwad.sdk.lib.desigin.KSCoordinatorLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -614,7 +613,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     static class ViewElevationComparator implements Comparator<View> {
         ViewElevationComparator() {
         }
@@ -1142,7 +1141,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
             };
         }
         ViewCompat.setOnApplyWindowInsetsListener(this, this.mApplyWindowInsetsListener);
-        setSystemUiVisibility(PlatformPlugin.DEFAULT_SYSTEM_UI);
+        setSystemUiVisibility(1280);
     }
 
     void addPreDrawListener() {

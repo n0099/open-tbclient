@@ -7,7 +7,7 @@ import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class AdResponseInfo implements Parcelable {
     public static final Parcelable.Creator<AdResponseInfo> CREATOR = new Parcelable.Creator<AdResponseInfo>() { // from class: com.baidu.swan.game.ad.entity.AdResponseInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ public class AdResponseInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: kK */
+        /* renamed from: kN */
         public AdResponseInfo[] newArray(int i) {
             return new AdResponseInfo[i];
         }
@@ -101,7 +101,7 @@ public class AdResponseInfo implements Parcelable {
         return 0;
     }
 
-    public AdElementInfo aRL() {
+    public AdElementInfo aSa() {
         if (this.mAdInstanceList.size() > 0) {
             return this.mAdInstanceList.get(0);
         }

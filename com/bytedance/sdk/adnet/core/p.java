@@ -5,20 +5,20 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.adnet.e.b;
 import com.bytedance.sdk.adnet.err.VAdError;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class p<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f6045a;
+    public final T f6047a;
     public boolean d;
     public long e;
     public long f;
     public Map<String, Object> g;
     public long h;
-    public final b.a pkZ;
-    public final VAdError pla;
+    public final b.a pvo;
+    public final VAdError pvp;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a<T> {
         void a(p<T> pVar);
 
@@ -42,7 +42,7 @@ public class p<T> {
     }
 
     public boolean a() {
-        return this.pla == null;
+        return this.pvp == null;
     }
 
     private p(T t, b.a aVar) {
@@ -50,11 +50,11 @@ public class p<T> {
         this.e = 0L;
         this.f = 0L;
         this.h = 0L;
-        this.f6045a = t;
-        this.pkZ = aVar;
-        this.pla = null;
+        this.f6047a = t;
+        this.pvo = aVar;
+        this.pvp = null;
         if (aVar != null) {
-            this.h = aVar.f6061a;
+            this.h = aVar.f6063a;
         }
     }
 
@@ -63,29 +63,29 @@ public class p<T> {
         this.e = 0L;
         this.f = 0L;
         this.h = 0L;
-        this.f6045a = null;
-        this.pkZ = null;
-        this.pla = vAdError;
+        this.f6047a = null;
+        this.pvo = null;
+        this.pvp = vAdError;
         if (this.h == 0 && vAdError != null && vAdError.networkResponse != null) {
-            this.h = vAdError.networkResponse.f6040a;
+            this.h = vAdError.networkResponse.f6042a;
         }
     }
 
-    public p ir(long j) {
+    public p iu(long j) {
         this.e = j;
         return this;
     }
 
-    public p is(long j) {
+    public p iv(long j) {
         this.f = j;
         return this;
     }
 
     public String a(String str, @Nullable String str2) {
-        if (this.pkZ == null || this.pkZ.h == null) {
+        if (this.pvo == null || this.pvo.h == null) {
             return str2;
         }
-        String str3 = this.pkZ.h.get(str);
+        String str3 = this.pvo.h.get(str);
         return str3 == null ? str2 : str3;
     }
 }

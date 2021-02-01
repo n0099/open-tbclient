@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,11 +17,11 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.NewUserRedPackageData;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.ad;
 import com.baidu.tbadk.coreExtra.data.ae;
@@ -45,10 +44,12 @@ public final class TbSingleton {
     private static TbSingleton mInstance = null;
     private String baiduIdForAnti;
     private Calendar calendar;
+    private boolean isNewUserRedPackageShowed;
     private boolean isRecommendPage;
     public boolean isShowBackLabel;
     public String isSwitchActivity;
     private String mActivityId;
+    private String mBannerText;
     public String mCallFansTid;
     public boolean mCanCallFans;
     public b mChannelConfigModel;
@@ -59,13 +60,15 @@ public final class TbSingleton {
     private String mHotSearch;
     private boolean mIsOpenTrack;
     private boolean mIsShowPersonCenterLiteGame;
+    private String mLFUser;
+    private String mLFUserTaskId;
     private MercatorModel.MercatorData mMercatorData;
     private String mMissionEntranceIcon;
     private String mMissionEntranceObjSource;
     private String mMissionEntranceUrl;
     private NewGodData mNewGodData;
     private NewUserRedPackageData mNewUserRedPackageData;
-    private bc mPbToHomeUpdateData;
+    private be mPbToHomeUpdateData;
     private a mPcdnConfigData;
     private String mProfileGameCenterKey;
     private String mPubEnvValue;
@@ -76,13 +79,14 @@ public final class TbSingleton {
     private boolean mShowHomeFloatRefreshButton;
     private boolean mShowShoubaiDynamicGuide;
     private boolean mShowVivoBadge;
+    private com.baidu.tieba.quickWebView.data.b mUploadAndClearModule;
     private LinkedList<com.baidu.tbadk.d.a> mVideoWatchTimeRecord;
     private String mWalletSignLink;
     private String videoTestType;
     public ArrayList<String> testUrls = new ArrayList<>();
     private final long THREE_DAY_MILLISECOND = Config.THREAD_IMAGE_SAVE_MAX_TIME;
-    private long pushDialogLoopTime = at.MS_TO_HOUR;
-    private long pushDialogShowTime = 5 * at.MS_TO_MIN;
+    private long pushDialogLoopTime = au.MS_TO_HOUR;
+    private long pushDialogShowTime = 5 * au.MS_TO_MIN;
     private long lastResumeTime = 0;
     private boolean canShowPermDlg = false;
     private boolean hasShowPermDlg = false;
@@ -96,7 +100,7 @@ public final class TbSingleton {
     private boolean mIsVideoCardMute = true;
     private boolean mEnableBenchmark = false;
     private int mCpuFlopsDur = -1;
-    private int mCpuThreshold = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private int mCpuThreshold = Integer.MAX_VALUE;
     private int mAnimFpsSyncThreshold = 0;
     private int mIsNotchScreen = -1;
     private int mIsCutoutScreen = -1;
@@ -112,6 +116,7 @@ public final class TbSingleton {
     private long appFirstInstallTime = 0;
     private long appLastUpdateTime = 0;
     private long activeTimeStamp = 0;
+    public boolean isAddBanner = false;
     public final String mBaseActivity = "BaseActivity";
     public final String mBaseFragmentActivity = "BaseFragmentActivity";
     public final String mFlutterPageActivity = "FlutterPageActivity";
@@ -131,30 +136,32 @@ public final class TbSingleton {
     private TbSingleton() {
         this.mShowHomeFloatRefreshButton = false;
         this.mShowVivoBadge = false;
-        setIsOpenTrack(com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("key_is_open_track", false));
-        setProfileGameCenterKey(com.baidu.tbadk.core.sharedPref.b.brx().getString("profile_swan_app_key", ""));
-        setHomePageStyleAbTest(com.baidu.tbadk.core.sharedPref.b.brx().getInt("index_activity_abtest_switch_json", 0));
-        setMissionEntranceIcon(com.baidu.tbadk.core.sharedPref.b.brx().getString("index_activity_abtest_icon_url", ""));
-        setMissionEntranceUrl(com.baidu.tbadk.core.sharedPref.b.brx().getString("index_activity_abtest_url", ""));
-        setMissionEntranceObjSource(com.baidu.tbadk.core.sharedPref.b.brx().getString("index_activity_abtest_obj_source", ""));
-        setShowPersonCenterLiteGame(com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("person_center_show_lite_game", true));
-        setUbsSampleId(com.baidu.tbadk.core.sharedPref.b.brx().getString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), ""));
-        setShowShoubaiDynamicGuide(com.baidu.tbadk.core.sharedPref.b.brx().getInt("key_is_show_shoubai_dynamic_guide", 0) == 1);
-        this.mShowHomeFloatRefreshButton = com.baidu.tbadk.core.sharedPref.b.brx().getInt("key_home_refresh_button_test", 0) == 1;
-        setClipboardDelayTime(com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", false));
+        this.isNewUserRedPackageShowed = false;
+        setIsOpenTrack(com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("key_is_open_track", false));
+        setProfileGameCenterKey(com.baidu.tbadk.core.sharedPref.b.brQ().getString("profile_swan_app_key", ""));
+        setHomePageStyleAbTest(com.baidu.tbadk.core.sharedPref.b.brQ().getInt("index_activity_abtest_switch_json", 0));
+        setMissionEntranceIcon(com.baidu.tbadk.core.sharedPref.b.brQ().getString("index_activity_abtest_icon_url", ""));
+        setMissionEntranceUrl(com.baidu.tbadk.core.sharedPref.b.brQ().getString("index_activity_abtest_url", ""));
+        setMissionEntranceObjSource(com.baidu.tbadk.core.sharedPref.b.brQ().getString("index_activity_abtest_obj_source", ""));
+        setShowPersonCenterLiteGame(com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("person_center_show_lite_game", true));
+        setUbsSampleId(com.baidu.tbadk.core.sharedPref.b.brQ().getString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), ""));
+        setShowShoubaiDynamicGuide(com.baidu.tbadk.core.sharedPref.b.brQ().getInt("key_is_show_shoubai_dynamic_guide", 0) == 1);
+        this.mShowHomeFloatRefreshButton = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("key_home_refresh_button_test", 0) == 1;
+        setClipboardDelayTime(com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", false));
         initBenchmarkData();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.HEADSET_PLUG");
         TbadkCoreApplication.getInst().registerReceiver(this.mHeadSetStateReceiver, intentFilter);
-        e.mB().post(new Runnable() { // from class: com.baidu.tbadk.TbSingleton.1
+        e.mA().post(new Runnable() { // from class: com.baidu.tbadk.TbSingleton.1
             @Override // java.lang.Runnable
             public void run() {
                 TbSingleton.this.registerScreenSizeChangeTask();
             }
         });
-        this.mShowVivoBadge = com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("key_show_vivo_badge", false);
+        this.mShowVivoBadge = com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("key_show_vivo_badge", false);
         this.mChannelConfigModel = new b();
         this.calendar = Calendar.getInstance();
+        this.isNewUserRedPackageShowed = com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("key_task_system_new_user_popup_show_number", false);
     }
 
     public static TbSingleton getInstance() {
@@ -186,7 +193,7 @@ public final class TbSingleton {
 
     public void putVideoRecord(String str, int i) {
         com.baidu.tbadk.d.a aVar;
-        if (!at.isEmpty(str)) {
+        if (!au.isEmpty(str)) {
             if (this.mVideoWatchTimeRecord == null) {
                 this.mVideoWatchTimeRecord = new LinkedList<>();
             }
@@ -263,7 +270,7 @@ public final class TbSingleton {
     }
 
     public boolean canShowPermDialog() {
-        return this.canShowPermDlg && !this.hasShowPermDlg && System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.brx().getLong("key_first_enter_app_timestamp", 0L) > Config.THREAD_IMAGE_SAVE_MAX_TIME;
+        return this.canShowPermDlg && !this.hasShowPermDlg && System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.brQ().getLong("key_first_enter_app_timestamp", 0L) > Config.THREAD_IMAGE_SAVE_MAX_TIME;
     }
 
     public void setHasShowPermDlg(boolean z) {
@@ -276,7 +283,7 @@ public final class TbSingleton {
 
     public long getLastResumeTime() {
         if (this.lastResumeTime == 0) {
-            this.lastResumeTime = com.baidu.tbadk.core.sharedPref.b.brx().getLong("last_resume_time", 0L);
+            this.lastResumeTime = com.baidu.tbadk.core.sharedPref.b.brQ().getLong("last_resume_time", 0L);
         }
         return this.lastResumeTime;
     }
@@ -335,7 +342,7 @@ public final class TbSingleton {
 
     private void initBenchmarkData() {
         if (TbadkCoreApplication.getInst().getIsFirstUse()) {
-            setCpuThreshold(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+            setCpuThreshold(Integer.MAX_VALUE);
             setAnimAverageFpsThreshold(0);
             setEnableBenchmark(true);
             setAnimComputedFps("anim_switch_trans_frs", -1);
@@ -349,25 +356,25 @@ public final class TbSingleton {
             setAnimAvgFpsCount("anim_switch_slide", 0);
             return;
         }
-        this.mEnableBenchmark = com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("enable_benchmark", true);
-        this.mCpuThreshold = com.baidu.tbadk.core.sharedPref.b.brx().getInt("cpu_flops_dura_threshold", ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        this.mAnimFpsSyncThreshold = com.baidu.tbadk.core.sharedPref.b.brx().getInt("anim_avg_fps_threshold", 0);
+        this.mEnableBenchmark = com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("enable_benchmark", true);
+        this.mCpuThreshold = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("cpu_flops_dura_threshold", Integer.MAX_VALUE);
+        this.mAnimFpsSyncThreshold = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("anim_avg_fps_threshold", 0);
     }
 
     public boolean isAnimFpsComputed(String str) {
-        return !at.isEmpty(str) && getAnimComputedFps(str) >= 0;
+        return !au.isEmpty(str) && getAnimComputedFps(str) >= 0;
     }
 
     public int getAnimComputedFps(String str) {
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             return -1;
         }
-        return com.baidu.tbadk.core.sharedPref.b.brx().getInt(str, -1);
+        return com.baidu.tbadk.core.sharedPref.b.brQ().getInt(str, -1);
     }
 
     public void setAnimComputedFps(String str, int i) {
-        if (!at.isEmpty(str)) {
-            com.baidu.tbadk.core.sharedPref.b.brx().putInt(str, i);
+        if (!au.isEmpty(str)) {
+            com.baidu.tbadk.core.sharedPref.b.brQ().putInt(str, i);
             if ("anim_switch_slide".equals(str) && !isAnimEnable(str)) {
                 setSlideAnimLocalSwitch(false);
             }
@@ -375,49 +382,49 @@ public final class TbSingleton {
     }
 
     public Integer getAnimAvgFps(String str) {
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             return 0;
         }
-        return Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.brx().getInt(str + "_anim_benchmark_avg_suffix", 0));
+        return Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.brQ().getInt(str + "_anim_benchmark_avg_suffix", 0));
     }
 
     public void setAnimAvgFps(String str, int i) {
-        if (!at.isEmpty(str) && i >= 0) {
-            com.baidu.tbadk.core.sharedPref.b.brx().putInt(str + "_anim_benchmark_avg_suffix", i);
+        if (!au.isEmpty(str) && i >= 0) {
+            com.baidu.tbadk.core.sharedPref.b.brQ().putInt(str + "_anim_benchmark_avg_suffix", i);
         }
     }
 
     public Integer getAnimAvgFpsCount(String str) {
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             return 0;
         }
-        return Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.brx().getInt(str + "_anim_benchmark_times_suffix", 0));
+        return Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.brQ().getInt(str + "_anim_benchmark_times_suffix", 0));
     }
 
     public void setAnimAvgFpsCount(String str, int i) {
-        if (!at.isEmpty(str) && i >= 0) {
-            com.baidu.tbadk.core.sharedPref.b.brx().putInt(str + "_anim_benchmark_times_suffix", i);
+        if (!au.isEmpty(str) && i >= 0) {
+            com.baidu.tbadk.core.sharedPref.b.brQ().putInt(str + "_anim_benchmark_times_suffix", i);
         }
     }
 
     public void setSlideAnimLocalSwitch(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("local_slide_animation__switch", z);
+        com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("local_slide_animation__switch", z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156674, Boolean.valueOf(z)));
     }
 
     public boolean isSlideAnimLocalSwitchOn() {
-        return com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("local_slide_animation__switch", false);
+        return com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("local_slide_animation__switch", false);
     }
 
     public boolean isSlideAnimEnable() {
-        boolean z = com.baidu.tbadk.core.sharedPref.b.brx().getInt("slide_local_switch_is_clicked", 0) == 1;
-        boolean z2 = com.baidu.tbadk.core.sharedPref.b.brx().getInt("sync_slide_animation__switch", 0) == 1;
+        boolean z = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("slide_local_switch_is_clicked", 0) == 1;
+        boolean z2 = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("sync_slide_animation__switch", 0) == 1;
         boolean isSlideAnimLocalSwitchOn = isSlideAnimLocalSwitchOn();
         if (z) {
             return isSlideAnimLocalSwitchOn;
         }
         if (z2 != isSlideAnimLocalSwitchOn) {
-            com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("local_slide_animation__switch", z2);
+            com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("local_slide_animation__switch", z2);
             return z2;
         }
         return z2;
@@ -435,7 +442,7 @@ public final class TbSingleton {
 
     public int getCpuFlopsDuration() {
         if (this.mCpuFlopsDur < 0) {
-            this.mCpuFlopsDur = com.baidu.tbadk.core.sharedPref.b.brx().getInt("cpu_flops_dura", 0);
+            this.mCpuFlopsDur = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("cpu_flops_dura", 0);
         }
         return this.mCpuFlopsDur;
     }
@@ -443,13 +450,13 @@ public final class TbSingleton {
     public void setCpuFlopsDuration(int i) {
         if (i >= 0) {
             this.mCpuFlopsDur = i;
-            com.baidu.tbadk.core.sharedPref.b.brx().putInt("cpu_flops_dura", i);
+            com.baidu.tbadk.core.sharedPref.b.brQ().putInt("cpu_flops_dura", i);
         }
     }
 
     public void setEnableBenchmark(boolean z) {
         this.mEnableBenchmark = z;
-        com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("enable_benchmark", z);
+        com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("enable_benchmark", z);
     }
 
     public boolean isEnableBenchmark() {
@@ -458,12 +465,12 @@ public final class TbSingleton {
 
     public void setCpuThreshold(int i) {
         this.mCpuThreshold = i;
-        com.baidu.tbadk.core.sharedPref.b.brx().putInt("cpu_flops_dura_threshold", i);
+        com.baidu.tbadk.core.sharedPref.b.brQ().putInt("cpu_flops_dura_threshold", i);
     }
 
     public void setAnimAverageFpsThreshold(int i) {
         this.mAnimFpsSyncThreshold = i;
-        com.baidu.tbadk.core.sharedPref.b.brx().putInt("anim_avg_fps_threshold", i);
+        com.baidu.tbadk.core.sharedPref.b.brQ().putInt("anim_avg_fps_threshold", i);
     }
 
     public int getCpuFlopsDurationSyncThreshold() {
@@ -584,12 +591,12 @@ public final class TbSingleton {
         if (this.mStartGameClicked) {
             this.mStartGameClicked = false;
             MessageManager.getInstance().sendMessage(new CustomMessage(2921361, "tiebaclient://swangame/ikyQxumlFXoxbTw4eVaZDHCGU4vSVvLI/?_baiduboxapp=%7B%22from%22%3A%221191003700000000%22%7D&callback=_bdbox_js_275&upgrade=0"));
-            TiebaStatic.log(new aq("c13274").dW("uid", TbadkCoreApplication.getCurrentAccount()).dW("obj_id", "15471320").dW("obj_source", "game_lauch_screen").dW("obj_name", "可口大冒险").an("obj_param1", 1));
+            TiebaStatic.log(new ar("c13274").dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("obj_id", "15471320").dR("obj_source", "game_lauch_screen").dR("obj_name", "可口大冒险").ap("obj_param1", 1));
         }
     }
 
     public void registerScreenSizeChangeTask() {
-        e.mB().post(new Runnable() { // from class: com.baidu.tbadk.TbSingleton.3
+        e.mA().post(new Runnable() { // from class: com.baidu.tbadk.TbSingleton.3
             @Override // java.lang.Runnable
             public void run() {
                 CustomMessageTask customMessageTask = new CustomMessageTask(2921414, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tbadk.TbSingleton.3.1
@@ -704,7 +711,32 @@ public final class TbSingleton {
         if (this.mPcdnConfigData == null) {
             this.mPcdnConfigData = new a();
         }
-        this.mPcdnConfigData.eG(jSONObject);
+        this.mPcdnConfigData.eH(jSONObject);
+    }
+
+    public String getModName() {
+        if (this.mUploadAndClearModule == null) {
+            return null;
+        }
+        return this.mUploadAndClearModule.getModName();
+    }
+
+    public boolean isClearOffPack() {
+        if (this.mUploadAndClearModule == null) {
+            return false;
+        }
+        return this.mUploadAndClearModule.isClear();
+    }
+
+    public boolean isUploadOffPack() {
+        if (this.mUploadAndClearModule == null) {
+            return false;
+        }
+        return this.mUploadAndClearModule.dCO();
+    }
+
+    public void setUploadAndClearModule(com.baidu.tieba.quickWebView.data.b bVar) {
+        this.mUploadAndClearModule = bVar;
     }
 
     public a getPcdnConfigData() {
@@ -735,11 +767,11 @@ public final class TbSingleton {
         return this.mMercatorData;
     }
 
-    public void setPbToHomeUpdateData(bc bcVar) {
-        this.mPbToHomeUpdateData = bcVar;
+    public void setPbToHomeUpdateData(be beVar) {
+        this.mPbToHomeUpdateData = beVar;
     }
 
-    public bc getPbToHomeUpdateData() {
+    public be getPbToHomeUpdateData() {
         return this.mPbToHomeUpdateData;
     }
 
@@ -812,28 +844,61 @@ public final class TbSingleton {
 
     public void setActiveTimeStamp() {
         if (getActiveTimeStamp() == 0) {
-            com.baidu.tbadk.core.sharedPref.b.brx().putLong("key_active_timestamp", System.currentTimeMillis());
+            com.baidu.tbadk.core.sharedPref.b.brQ().putLong("key_active_timestamp", System.currentTimeMillis());
         }
     }
 
     public long getActiveTimeStamp() {
         if (this.activeTimeStamp == 0) {
-            this.activeTimeStamp = com.baidu.tbadk.core.sharedPref.b.brx().getLong("key_active_timestamp", 0L);
+            this.activeTimeStamp = com.baidu.tbadk.core.sharedPref.b.brQ().getLong("key_active_timestamp", 0L);
         }
         return this.activeTimeStamp;
     }
 
     public String getBaiduIdForAnti() {
         if (this.baiduIdForAnti == null) {
-            this.baiduIdForAnti = com.baidu.tbadk.core.sharedPref.b.brx().getString("key_baiduid_for_anti", null);
+            this.baiduIdForAnti = com.baidu.tbadk.core.sharedPref.b.brQ().getString("key_baiduid_for_anti", null);
         }
         return this.baiduIdForAnti;
     }
 
     public void setBaiduIdForAnti(String str) {
-        if (com.baidu.tbadk.core.sharedPref.b.brx().getString("key_baiduid_for_anti", null) == null) {
-            com.baidu.tbadk.core.sharedPref.b.brx().putString("key_baiduid_for_anti", str);
+        if (com.baidu.tbadk.core.sharedPref.b.brQ().getString("key_baiduid_for_anti", null) == null) {
+            com.baidu.tbadk.core.sharedPref.b.brQ().putString("key_baiduid_for_anti", str);
             this.baiduIdForAnti = str;
         }
+    }
+
+    public void setLFUser(String str) {
+        this.mLFUser = str;
+    }
+
+    public String getLFUser() {
+        return this.mLFUser;
+    }
+
+    public void setLFUserTaskId(String str) {
+        this.mLFUserTaskId = str;
+    }
+
+    public String getLFUserTaskId() {
+        return this.mLFUserTaskId;
+    }
+
+    public void setBannerText(String str) {
+        this.mBannerText = str;
+    }
+
+    public String getBannerText() {
+        return this.mBannerText;
+    }
+
+    public boolean isNewUserRedPackageShowed() {
+        return this.isNewUserRedPackageShowed;
+    }
+
+    public void setNewUserRedPackageShowed(boolean z) {
+        this.isNewUserRedPackageShowed = z;
+        com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("key_task_system_new_user_popup_show_number", z);
     }
 }

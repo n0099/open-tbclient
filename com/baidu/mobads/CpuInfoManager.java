@@ -2,21 +2,21 @@ package com.baidu.mobads;
 
 import android.content.Context;
 import android.os.Looper;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class CpuInfoManager {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface UrlListener {
         void onUrl(String str);
     }
 
     public static void getCpuInfoUrl(Context context, String str, int i, UrlListener urlListener) {
-        a(new j(context, i, str, urlListener));
+        a(new k(context, i, str, urlListener));
     }
 
     private static void a(Runnable runnable) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            new Thread(new l(runnable)).start();
+            com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new m(runnable));
         } else {
             runnable.run();
         }

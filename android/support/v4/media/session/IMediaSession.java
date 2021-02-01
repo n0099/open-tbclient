@@ -16,7 +16,7 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface IMediaSession extends IInterface {
     void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat) throws RemoteException;
 
@@ -116,7 +116,7 @@ public interface IMediaSession extends IInterface {
 
     void unregisterCallbackListener(IMediaControllerCallback iMediaControllerCallback) throws RemoteException;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends Binder implements IMediaSession {
         private static final String DESCRIPTOR = "android.support.v4.media.session.IMediaSession";
         static final int TRANSACTION_addQueueItem = 41;
@@ -493,7 +493,7 @@ public interface IMediaSession extends IInterface {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes5.dex */
         public static class Proxy implements IMediaSession {
             private IBinder mRemote;
 

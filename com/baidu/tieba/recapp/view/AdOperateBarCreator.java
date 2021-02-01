@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.c;
 import com.baidu.tieba.recapp.lego.model.AdPost;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdOperateBarCreator {
     private final TbPageContext mTbPageContext;
 
@@ -18,7 +18,7 @@ public class AdOperateBarCreator {
 
     public AdOperateBarHolder obtainHolder(AdPost adPost, RelativeLayout relativeLayout, AdOperateBarHolder adOperateBarHolder, c cVar) {
         if (adPost != null && adPost.adData != null) {
-            if (adOperateBarHolder != null && bP(adPost.adData.style, adOperateBarHolder.mOQ)) {
+            if (adOperateBarHolder != null && bP(adPost.adData.style, adOperateBarHolder.mYo)) {
                 adOperateBarHolder.setDownloadAppCallback(cVar);
                 return adOperateBarHolder;
             } else if (relativeLayout == null) {

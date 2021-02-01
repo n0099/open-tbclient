@@ -7,12 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CheckRequestBodyModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    private Common f7503common;
+    private Common f7505common;
     @c(a = "custom")
     private Map<String, Map<String, Object>> custom;
     @c(a = "deployment")
@@ -23,14 +23,14 @@ public class CheckRequestBodyModel {
     private Map<String, Map<String, LocalChannel>> local;
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Channels {
         @c(a = "channels")
         public List<Channel> channels = new ArrayList();
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Group {
         @c(a = "group_name")
         public String groupName;
@@ -39,14 +39,14 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class LocalChannel {
         @c(a = "l_v")
         public Long localVersion;
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ProcessorParams {
         @c(a = "domain")
         public String domain;
@@ -65,7 +65,7 @@ public class CheckRequestBodyModel {
     }
 
     public void setCommon(Common common2) {
-        this.f7503common = common2;
+        this.f7505common = common2;
     }
 
     public void putChannelInfo(String str, List<ChannelInfo> list) {
@@ -76,7 +76,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ChannelInfo {
         @c(a = "channel")
         private String channel;
@@ -90,7 +90,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum GroupType {
         NORMAL("normal"),
         HIGHPRIORITY("high_priority");
@@ -107,7 +107,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class TargetChannel {
         @c(a = "c")
         public String channelName;
@@ -128,7 +128,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Channel {
         @c(a = "c")
         String channelName;

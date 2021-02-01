@@ -12,22 +12,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.c;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.h;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.tieba.card.b<h> {
-    private c akK;
-    public ClickableHeaderImageView jLA;
-    public CommonUserLikeButton jQh;
-    private TextView jQj;
-    private TextView jQk;
-    private MetaData jQm;
-    private h jQn;
-    private TextView jQo;
+    private c akz;
+    public ClickableHeaderImageView jSx;
+    public CommonUserLikeButton jXJ;
+    private TextView jXL;
+    private TextView jXM;
+    private MetaData jXO;
+    private h jXP;
+    private TextView jXQ;
     private View mBottomLine;
     private TbPageContext<?> mPageContext;
 
@@ -35,15 +35,15 @@ public class b extends com.baidu.tieba.card.b<h> {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         getView().setOnClickListener(this);
-        this.jLA = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
-        this.jLA.setGodIconMargin(R.dimen.ds6);
-        this.jLA.setAfterClickListener(this);
-        this.jQj = (TextView) getView().findViewById(R.id.god_name);
-        this.jQk = (TextView) getView().findViewById(R.id.god_describe);
-        this.jQo = (TextView) getView().findViewById(R.id.rec_reason);
-        this.jQh = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
-        this.akK = new c(tbPageContext, this.jQh);
-        this.jQh.setAfterOnClickListener(this);
+        this.jSx = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
+        this.jSx.setGodIconMargin(R.dimen.ds6);
+        this.jSx.setAfterClickListener(this);
+        this.jXL = (TextView) getView().findViewById(R.id.god_name);
+        this.jXM = (TextView) getView().findViewById(R.id.god_describe);
+        this.jXQ = (TextView) getView().findViewById(R.id.rec_reason);
+        this.jXJ = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
+        this.akz = new c(tbPageContext, this.jXJ);
+        this.jXJ.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(R.id.bottom_line);
     }
 
@@ -55,11 +55,11 @@ public class b extends com.baidu.tieba.card.b<h> {
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundResource(getView(), R.drawable.home_thread_card_item_bg);
-            ao.setViewTextColor(this.jQj, R.color.CAM_X0105);
-            ao.setViewTextColor(this.jQk, R.color.CAM_X0109);
-            ao.setViewTextColor(this.jQo, R.color.CAM_X0109);
-            ao.setBackgroundColor(this.mBottomLine, R.color.CAM_X0204);
+            ap.setBackgroundResource(getView(), R.drawable.home_thread_card_item_bg);
+            ap.setViewTextColor(this.jXL, R.color.CAM_X0105);
+            ap.setViewTextColor(this.jXM, R.color.CAM_X0109);
+            ap.setViewTextColor(this.jXQ, R.color.CAM_X0109);
+            ap.setBackgroundColor(this.mBottomLine, R.color.CAM_X0204);
         }
         this.mSkinType = i;
     }
@@ -72,31 +72,31 @@ public class b extends com.baidu.tieba.card.b<h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(h hVar) {
-        if (hVar != null && hVar.ePn != null && hVar.ePn.getGodUserData() != null) {
-            this.jQn = hVar;
-            this.jQm = hVar.ePn;
-            this.jLA.setData(hVar.ePn);
-            this.jQj.setText(hVar.ePn.getName_show());
-            this.jQk.setText(hVar.ePn.getGodUserData().getIntro());
+        if (hVar != null && hVar.eRz != null && hVar.eRz.getGodUserData() != null) {
+            this.jXP = hVar;
+            this.jXO = hVar.eRz;
+            this.jSx.setData(hVar.eRz);
+            this.jXL.setText(hVar.eRz.getName_show());
+            this.jXM.setText(hVar.eRz.getGodUserData().getIntro());
             String string = this.mPageContext.getResources().getString(R.string.recommend_reason);
-            String recommendReason = hVar.ePn.getGodUserData().getRecommendReason();
+            String recommendReason = hVar.eRz.getGodUserData().getRecommendReason();
             if (StringUtils.isNull(recommendReason)) {
-                this.jQo.setText("");
+                this.jXQ.setText("");
             } else {
-                this.jQo.setText(String.format(string, recommendReason));
+                this.jXQ.setText(String.format(string, recommendReason));
             }
-            this.akK.a(hVar.ePn);
+            this.akz.a(hVar.eRz);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (cqL() != null) {
-            cqL().a(view, this.jQn);
+        if (crV() != null) {
+            crV().a(view, this.jXP);
         }
-        if (view == getView() && this.jQm != null && !StringUtils.isNull(this.jQm.getName_show()) && !StringUtils.isNull(this.jQm.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), this.jQm.getUserId(), this.jQm.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        if (view == getView() && this.jXO != null && !StringUtils.isNull(this.jXO.getName_show()) && !StringUtils.isNull(this.jXO.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), this.jXO.getUserId(), this.jXO.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 }

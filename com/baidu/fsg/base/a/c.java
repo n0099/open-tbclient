@@ -5,17 +5,17 @@ import android.annotation.SuppressLint;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f1865a;
+    private final long f1863a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f1866b;
+    private long f1864b;
     private long c;
     private long d;
     @SuppressLint({"InlinedApi"})
     private int e = 1;
 
     public c(long j) {
-        this.f1865a = j;
+        this.f1863a = j;
     }
 
     public int a() {
@@ -27,11 +27,11 @@ public class c {
     }
 
     public long b() {
-        return this.f1866b;
+        return this.f1864b;
     }
 
     public void a(long j) {
-        this.f1866b = j;
+        this.f1864b = j;
     }
 
     public long c() {
@@ -43,7 +43,7 @@ public class c {
     }
 
     public long d() {
-        return this.f1865a;
+        return this.f1863a;
     }
 
     public long e() {
@@ -56,8 +56,8 @@ public class c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("DownloadItem=(id: " + this.f1865a);
-        sb.append(", current bytes: " + this.f1866b);
+        sb.append("DownloadItem=(id: " + this.f1863a);
+        sb.append(", current bytes: " + this.f1864b);
         sb.append(", total bytes: " + this.c);
         sb.append(", speed: " + this.d);
         sb.append(", state: " + this.e);

@@ -7,19 +7,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class PermissionInfoCompat {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public @interface Protection {
     }
 
     @SuppressLint({"UniqueConstants"})
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public @interface ProtectionFlags {
     }
 

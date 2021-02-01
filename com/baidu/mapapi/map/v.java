@@ -4,14 +4,14 @@ import android.util.Log;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.HashSet;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f2815a;
+    final /* synthetic */ int f2813a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ int f2816b;
+    final /* synthetic */ int f2814b;
     final /* synthetic */ int c;
     final /* synthetic */ String d;
     final /* synthetic */ TileOverlay e;
@@ -19,8 +19,8 @@ public class v implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(TileOverlay tileOverlay, int i, int i2, int i3, String str) {
         this.e = tileOverlay;
-        this.f2815a = i;
-        this.f2816b = i2;
+        this.f2813a = i;
+        this.f2814b = i2;
         this.c = i3;
         this.d = str;
     }
@@ -32,14 +32,14 @@ public class v implements Runnable {
         HashSet hashSet;
         String str2;
         tileProvider = this.e.g;
-        Tile tile = ((FileTileProvider) tileProvider).getTile(this.f2815a, this.f2816b, this.c);
+        Tile tile = ((FileTileProvider) tileProvider).getTile(this.f2813a, this.f2814b, this.c);
         if (tile == null) {
-            str = TileOverlay.f2776b;
+            str = TileOverlay.f2774b;
             Log.e(str, "FileTile pic is null");
         } else if (tile.width == 256 && tile.height == 256) {
-            this.e.a(this.f2815a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.f2816b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.c, tile);
+            this.e.a(this.f2813a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.f2814b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.c, tile);
         } else {
-            str2 = TileOverlay.f2776b;
+            str2 = TileOverlay.f2774b;
             Log.e(str2, "FileTile pic must be 256 * 256");
         }
         hashSet = this.e.e;

@@ -43,10 +43,10 @@ public class fi implements ix<fi, Object>, Serializable, Cloneable {
     private static final jn f401a = new jn("StatsEvent");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14014a = new jf("", (byte) 3, 1);
+    private static final jf f14016a = new jf("", (byte) 3, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final jf f14015b = new jf("", (byte) 8, 2);
+    private static final jf f14017b = new jf("", (byte) 8, 2);
     private static final jf c = new jf("", (byte) 8, 3);
     private static final jf d = new jf("", Constants.GZIP_CAST_TYPE, 4);
     private static final jf e = new jf("", Constants.GZIP_CAST_TYPE, 5);
@@ -174,7 +174,7 @@ public class fi implements ix<fi, Object>, Serializable, Cloneable {
         jiVar.m515a();
         while (true) {
             jf m511a = jiVar.m511a();
-            if (m511a.f14171a == 0) {
+            if (m511a.f14173a == 0) {
                 jiVar.f();
                 if (!m302a()) {
                     throw new jj("Required field 'chid' was not found in serialized data! Struct: " + toString());
@@ -190,8 +190,8 @@ public class fi implements ix<fi, Object>, Serializable, Cloneable {
             }
             switch (m511a.f857a) {
                 case 1:
-                    if (m511a.f14171a != 3) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 3) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f402a = jiVar.a();
@@ -199,8 +199,8 @@ public class fi implements ix<fi, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 2:
-                    if (m511a.f14171a != 8) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 8) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f403a = jiVar.m509a();
@@ -208,8 +208,8 @@ public class fi implements ix<fi, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 3:
-                    if (m511a.f14171a != 8) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 8) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f406b = jiVar.m509a();
@@ -217,24 +217,24 @@ public class fi implements ix<fi, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 4:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f404a = jiVar.m516a();
                         break;
                     }
                 case 5:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f407b = jiVar.m516a();
                         break;
                     }
                 case 6:
-                    if (m511a.f14171a != 8) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 8) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f408c = jiVar.m509a();
@@ -242,24 +242,24 @@ public class fi implements ix<fi, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 7:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f409c = jiVar.m516a();
                         break;
                     }
                 case 8:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f411d = jiVar.m516a();
                         break;
                     }
                 case 9:
-                    if (m511a.f14171a != 8) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 8) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f410d = jiVar.m509a();
@@ -267,8 +267,8 @@ public class fi implements ix<fi, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 10:
-                    if (m511a.f14171a != 8) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 8) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f412e = jiVar.m509a();
@@ -276,7 +276,7 @@ public class fi implements ix<fi, Object>, Serializable, Cloneable {
                         break;
                     }
                 default:
-                    jl.a(jiVar, m511a.f14171a);
+                    jl.a(jiVar, m511a.f14173a);
                     break;
             }
             jiVar.g();
@@ -347,10 +347,10 @@ public class fi implements ix<fi, Object>, Serializable, Cloneable {
     public void b(ji jiVar) {
         a();
         jiVar.a(f401a);
-        jiVar.a(f14014a);
+        jiVar.a(f14016a);
         jiVar.a(this.f402a);
         jiVar.b();
-        jiVar.a(f14015b);
+        jiVar.a(f14017b);
         jiVar.a(this.f403a);
         jiVar.b();
         jiVar.a(c);

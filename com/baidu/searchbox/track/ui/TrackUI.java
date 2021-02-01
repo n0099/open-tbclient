@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TrackUI {
     private static final String SEPERATOR = "\t";
     private static final String SEPERATOR_ARROR = "->";

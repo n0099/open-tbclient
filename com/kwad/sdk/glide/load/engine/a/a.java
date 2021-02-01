@@ -3,17 +3,17 @@ package com.kwad.sdk.glide.load.engine.a;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface a {
 
     /* renamed from: com.kwad.sdk.glide.load.engine.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1126a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1130a {
         @Nullable
         a a();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         boolean a(@NonNull File file);
     }

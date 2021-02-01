@@ -12,26 +12,26 @@ import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11119a = c.class.getSimpleName();
+    public static final String f11121a = c.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, String> f11120b;
+    private HashMap<String, String> f11122b;
     private HashMap<String, String> c;
     private HashMap<String, Object> d;
     private HashMap<String, Object> e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f11121a = null;
+        private Context f11123a = null;
 
         public a a(Context context) {
-            this.f11121a = context;
+            this.f11123a = context;
             return this;
         }
 
@@ -41,15 +41,15 @@ public class c {
     }
 
     private c(a aVar) {
-        this.f11120b = new HashMap<>();
+        this.f11122b = new HashMap<>();
         this.c = new HashMap<>();
         this.d = new HashMap<>();
         this.e = new HashMap<>();
         e();
-        if (aVar.f11121a != null) {
-            a(aVar.f11121a);
+        if (aVar.f11123a != null) {
+            a(aVar.f11123a);
         }
-        com.meizu.cloud.a.a.i(f11119a, "Subject created successfully.");
+        com.meizu.cloud.a.a.i(f11121a, "Subject created successfully.");
     }
 
     private void a(Context context, long j) {
@@ -67,7 +67,7 @@ public class c {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f11120b.put(str, str2);
+        this.f11122b.put(str, str2);
     }
 
     private void b(String str, Object obj) {
@@ -110,7 +110,7 @@ public class c {
     private void e(Context context) {
         Location c = e.c(context);
         if (c == null) {
-            com.meizu.cloud.a.a.e(f11119a, "Location information not available.");
+            com.meizu.cloud.a.a.e(f11121a, "Location information not available.");
             return;
         }
         b(b.B, Double.valueOf(c.getLongitude()));
@@ -119,7 +119,7 @@ public class c {
     }
 
     private void f(Context context) {
-        a(b.f11118b, MzSystemUtils.getDeviceId(context));
+        a(b.f11120b, MzSystemUtils.getDeviceId(context));
         a(b.c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
         a(b.d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
         a(b.e, MzSystemUtils.getLineNumber(context));
@@ -134,7 +134,7 @@ public class c {
     }
 
     public Map<String, String> a() {
-        return this.f11120b;
+        return this.f11122b;
     }
 
     public void a(int i, int i2) {
@@ -164,11 +164,11 @@ public class c {
                 display.getSize(point);
                 a(point.x, point.y);
             } catch (Exception e) {
-                com.meizu.cloud.a.a.e(f11119a, "Display.getSize isn't available on older devices.");
+                com.meizu.cloud.a.a.e(f11121a, "Display.getSize isn't available on older devices.");
                 if (display != null) {
                     a(display.getWidth(), display.getHeight());
                 } else {
-                    com.meizu.cloud.a.a.e(f11119a, "error get display");
+                    com.meizu.cloud.a.a.e(f11121a, "error get display");
                 }
             }
         } catch (Exception e2) {

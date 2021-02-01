@@ -24,77 +24,76 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotRanklistActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.PagerSlidingTabStrip;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HotTopicHeaderView extends LinearLayout {
-    private String OX;
+    private String OV;
     private View dividerLine;
-    private com.baidu.tbadk.widget.layout.e fSr;
-    private View iIa;
-    private TextView koA;
-    private TextView koB;
-    private PagerSlidingTabStrip koC;
-    private View koD;
-    private ImageView koE;
-    private boolean koF;
-    private int koG;
-    private int koH;
-    private int koI;
-    private f koJ;
-    private View.OnClickListener koK;
-    private ClickableSpan koL;
-    private ClickableSpan koM;
-    private TbImageView kot;
-    private TextView kou;
-    private TextView kov;
-    private TextView kow;
-    private LinearLayout kox;
-    private LinearLayout koy;
-    private ImageView koz;
+    private com.baidu.tbadk.widget.layout.e fUG;
+    private View iNI;
+    private TbImageView kwA;
+    private TextView kwB;
+    private TextView kwC;
+    private TextView kwD;
+    private LinearLayout kwE;
+    private LinearLayout kwF;
+    private ImageView kwG;
+    private TextView kwH;
+    private TextView kwI;
+    private PagerSlidingTabStrip kwJ;
+    private View kwK;
+    private ImageView kwL;
+    private boolean kwM;
+    private int kwN;
+    private int kwO;
+    private int kwP;
+    private f kwQ;
+    private View.OnClickListener kwR;
+    private ClickableSpan kwS;
+    private ClickableSpan kwT;
     private int mSkinType;
 
     public HotTopicHeaderView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.koF = false;
-        this.OX = "";
-        this.koH = 0;
-        this.koI = 0;
-        this.koK = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
+        this.kwM = false;
+        this.OV = "";
+        this.kwO = 0;
+        this.kwP = 0;
+        this.kwR = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicHeaderView.this.koJ != null && !StringUtils.isNull(HotTopicHeaderView.this.koJ.kmz)) {
-                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.koJ.kmz);
+                if (HotTopicHeaderView.this.kwQ != null && !StringUtils.isNull(HotTopicHeaderView.this.kwQ.kuG)) {
+                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.kwQ.kuG);
                 }
             }
         };
-        this.koL = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
+        this.kwS = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.OX);
-                if (HotTopicHeaderView.this.OX.length() > 500) {
+                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.OV);
+                if (HotTopicHeaderView.this.OV.length() > 500) {
                     spannableStringBuilder.append((CharSequence) "...  ");
                 }
                 String str = HotTopicHeaderView.this.getResources().getString(R.string.hot_topic_coll) + "  ";
                 spannableStringBuilder.append((CharSequence) str);
                 SpannableString spannableString = new SpannableString(spannableStringBuilder);
-                spannableString.setSpan(HotTopicHeaderView.this.koM, spannableString.length() - str.length(), spannableString.length(), 33);
-                HotTopicHeaderView.this.kow.setText(spannableString);
-                HotTopicHeaderView.this.kow.setHeight(HotTopicHeaderView.this.koG * HotTopicHeaderView.this.kow.getLineHeight());
-                int lineCount = HotTopicHeaderView.this.kow.getLineCount() * HotTopicHeaderView.this.kow.getLineHeight();
-                if (lineCount > HotTopicHeaderView.this.koG * HotTopicHeaderView.this.kow.getLineHeight()) {
-                    HotTopicHeaderView.this.kow.scrollTo(0, lineCount - (HotTopicHeaderView.this.koG * HotTopicHeaderView.this.kow.getLineHeight()));
+                spannableString.setSpan(HotTopicHeaderView.this.kwT, spannableString.length() - str.length(), spannableString.length(), 33);
+                HotTopicHeaderView.this.kwD.setText(spannableString);
+                HotTopicHeaderView.this.kwD.setHeight(HotTopicHeaderView.this.kwN * HotTopicHeaderView.this.kwD.getLineHeight());
+                int lineCount = HotTopicHeaderView.this.kwD.getLineCount() * HotTopicHeaderView.this.kwD.getLineHeight();
+                if (lineCount > HotTopicHeaderView.this.kwN * HotTopicHeaderView.this.kwD.getLineHeight()) {
+                    HotTopicHeaderView.this.kwD.scrollTo(0, lineCount - (HotTopicHeaderView.this.kwN * HotTopicHeaderView.this.kwD.getLineHeight()));
                 }
-                HotTopicHeaderView.this.kow.requestLayout();
+                HotTopicHeaderView.this.kwD.requestLayout();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -102,11 +101,11 @@ public class HotTopicHeaderView extends LinearLayout {
                 textPaint.setColor(HotTopicHeaderView.this.getResources().getColor(R.color.CAM_X0304));
             }
         };
-        this.koM = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
+        this.kwT = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
-                HotTopicHeaderView.this.kow.setText(HotTopicHeaderView.this.OX);
-                HotTopicHeaderView.this.cRB();
+                HotTopicHeaderView.this.kwD.setText(HotTopicHeaderView.this.OV);
+                HotTopicHeaderView.this.cTA();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -120,37 +119,37 @@ public class HotTopicHeaderView extends LinearLayout {
     public HotTopicHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.koF = false;
-        this.OX = "";
-        this.koH = 0;
-        this.koI = 0;
-        this.koK = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
+        this.kwM = false;
+        this.OV = "";
+        this.kwO = 0;
+        this.kwP = 0;
+        this.kwR = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicHeaderView.this.koJ != null && !StringUtils.isNull(HotTopicHeaderView.this.koJ.kmz)) {
-                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.koJ.kmz);
+                if (HotTopicHeaderView.this.kwQ != null && !StringUtils.isNull(HotTopicHeaderView.this.kwQ.kuG)) {
+                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.kwQ.kuG);
                 }
             }
         };
-        this.koL = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
+        this.kwS = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.OX);
-                if (HotTopicHeaderView.this.OX.length() > 500) {
+                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.OV);
+                if (HotTopicHeaderView.this.OV.length() > 500) {
                     spannableStringBuilder.append((CharSequence) "...  ");
                 }
                 String str = HotTopicHeaderView.this.getResources().getString(R.string.hot_topic_coll) + "  ";
                 spannableStringBuilder.append((CharSequence) str);
                 SpannableString spannableString = new SpannableString(spannableStringBuilder);
-                spannableString.setSpan(HotTopicHeaderView.this.koM, spannableString.length() - str.length(), spannableString.length(), 33);
-                HotTopicHeaderView.this.kow.setText(spannableString);
-                HotTopicHeaderView.this.kow.setHeight(HotTopicHeaderView.this.koG * HotTopicHeaderView.this.kow.getLineHeight());
-                int lineCount = HotTopicHeaderView.this.kow.getLineCount() * HotTopicHeaderView.this.kow.getLineHeight();
-                if (lineCount > HotTopicHeaderView.this.koG * HotTopicHeaderView.this.kow.getLineHeight()) {
-                    HotTopicHeaderView.this.kow.scrollTo(0, lineCount - (HotTopicHeaderView.this.koG * HotTopicHeaderView.this.kow.getLineHeight()));
+                spannableString.setSpan(HotTopicHeaderView.this.kwT, spannableString.length() - str.length(), spannableString.length(), 33);
+                HotTopicHeaderView.this.kwD.setText(spannableString);
+                HotTopicHeaderView.this.kwD.setHeight(HotTopicHeaderView.this.kwN * HotTopicHeaderView.this.kwD.getLineHeight());
+                int lineCount = HotTopicHeaderView.this.kwD.getLineCount() * HotTopicHeaderView.this.kwD.getLineHeight();
+                if (lineCount > HotTopicHeaderView.this.kwN * HotTopicHeaderView.this.kwD.getLineHeight()) {
+                    HotTopicHeaderView.this.kwD.scrollTo(0, lineCount - (HotTopicHeaderView.this.kwN * HotTopicHeaderView.this.kwD.getLineHeight()));
                 }
-                HotTopicHeaderView.this.kow.requestLayout();
+                HotTopicHeaderView.this.kwD.requestLayout();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -158,11 +157,11 @@ public class HotTopicHeaderView extends LinearLayout {
                 textPaint.setColor(HotTopicHeaderView.this.getResources().getColor(R.color.CAM_X0304));
             }
         };
-        this.koM = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
+        this.kwT = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
-                HotTopicHeaderView.this.kow.setText(HotTopicHeaderView.this.OX);
-                HotTopicHeaderView.this.cRB();
+                HotTopicHeaderView.this.kwD.setText(HotTopicHeaderView.this.OV);
+                HotTopicHeaderView.this.cTA();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -176,37 +175,37 @@ public class HotTopicHeaderView extends LinearLayout {
     public HotTopicHeaderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.koF = false;
-        this.OX = "";
-        this.koH = 0;
-        this.koI = 0;
-        this.koK = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
+        this.kwM = false;
+        this.OV = "";
+        this.kwO = 0;
+        this.kwP = 0;
+        this.kwR = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicHeaderView.this.koJ != null && !StringUtils.isNull(HotTopicHeaderView.this.koJ.kmz)) {
-                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.koJ.kmz);
+                if (HotTopicHeaderView.this.kwQ != null && !StringUtils.isNull(HotTopicHeaderView.this.kwQ.kuG)) {
+                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.kwQ.kuG);
                 }
             }
         };
-        this.koL = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
+        this.kwS = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.OX);
-                if (HotTopicHeaderView.this.OX.length() > 500) {
+                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.OV);
+                if (HotTopicHeaderView.this.OV.length() > 500) {
                     spannableStringBuilder.append((CharSequence) "...  ");
                 }
                 String str = HotTopicHeaderView.this.getResources().getString(R.string.hot_topic_coll) + "  ";
                 spannableStringBuilder.append((CharSequence) str);
                 SpannableString spannableString = new SpannableString(spannableStringBuilder);
-                spannableString.setSpan(HotTopicHeaderView.this.koM, spannableString.length() - str.length(), spannableString.length(), 33);
-                HotTopicHeaderView.this.kow.setText(spannableString);
-                HotTopicHeaderView.this.kow.setHeight(HotTopicHeaderView.this.koG * HotTopicHeaderView.this.kow.getLineHeight());
-                int lineCount = HotTopicHeaderView.this.kow.getLineCount() * HotTopicHeaderView.this.kow.getLineHeight();
-                if (lineCount > HotTopicHeaderView.this.koG * HotTopicHeaderView.this.kow.getLineHeight()) {
-                    HotTopicHeaderView.this.kow.scrollTo(0, lineCount - (HotTopicHeaderView.this.koG * HotTopicHeaderView.this.kow.getLineHeight()));
+                spannableString.setSpan(HotTopicHeaderView.this.kwT, spannableString.length() - str.length(), spannableString.length(), 33);
+                HotTopicHeaderView.this.kwD.setText(spannableString);
+                HotTopicHeaderView.this.kwD.setHeight(HotTopicHeaderView.this.kwN * HotTopicHeaderView.this.kwD.getLineHeight());
+                int lineCount = HotTopicHeaderView.this.kwD.getLineCount() * HotTopicHeaderView.this.kwD.getLineHeight();
+                if (lineCount > HotTopicHeaderView.this.kwN * HotTopicHeaderView.this.kwD.getLineHeight()) {
+                    HotTopicHeaderView.this.kwD.scrollTo(0, lineCount - (HotTopicHeaderView.this.kwN * HotTopicHeaderView.this.kwD.getLineHeight()));
                 }
-                HotTopicHeaderView.this.kow.requestLayout();
+                HotTopicHeaderView.this.kwD.requestLayout();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -214,11 +213,11 @@ public class HotTopicHeaderView extends LinearLayout {
                 textPaint.setColor(HotTopicHeaderView.this.getResources().getColor(R.color.CAM_X0304));
             }
         };
-        this.koM = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
+        this.kwT = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
-                HotTopicHeaderView.this.kow.setText(HotTopicHeaderView.this.OX);
-                HotTopicHeaderView.this.cRB();
+                HotTopicHeaderView.this.kwD.setText(HotTopicHeaderView.this.OV);
+                HotTopicHeaderView.this.cTA();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -230,175 +229,175 @@ public class HotTopicHeaderView extends LinearLayout {
     }
 
     private void init(Context context) {
-        this.koH = l.getDimens(context, R.dimen.tbds418);
+        this.kwO = l.getDimens(context, R.dimen.tbds418);
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.hot_topic_topicinfo_item, (ViewGroup) this, true);
-        this.iIa = findViewById(R.id.hot_topic_info_place_holder);
-        this.kot = (TbImageView) findViewById(R.id.hot_topic_info_picture);
-        this.kot.setOnClickListener(this.koK);
-        this.kou = (TextView) findViewById(R.id.hot_topic_info_title);
-        this.kov = (TextView) findViewById(R.id.hot_topic_info_threadcount);
-        this.kow = (TextView) findViewById(R.id.hot_topic_info_abstract);
+        this.iNI = findViewById(R.id.hot_topic_info_place_holder);
+        this.kwA = (TbImageView) findViewById(R.id.hot_topic_info_picture);
+        this.kwA.setOnClickListener(this.kwR);
+        this.kwB = (TextView) findViewById(R.id.hot_topic_info_title);
+        this.kwC = (TextView) findViewById(R.id.hot_topic_info_threadcount);
+        this.kwD = (TextView) findViewById(R.id.hot_topic_info_abstract);
         this.dividerLine = findViewById(R.id.divider_line);
         this.dividerLine.setVisibility(8);
-        this.kox = (LinearLayout) findViewById(R.id.hot_topic_ranking_item);
-        this.koy = (LinearLayout) findViewById(R.id.hot_topic_ranking_content);
-        this.koA = (TextView) findViewById(R.id.hot_topic_ranklist_title);
-        this.koz = (ImageView) findViewById(R.id.ranklist_pic_r);
-        this.koB = (TextView) findViewById(R.id.hot_topic_look_ranklist);
-        this.koC = (PagerSlidingTabStrip) findViewById(R.id.hot_topic_tab_strip);
-        this.koC.c(l.getDimens(context, R.dimen.ds32), l.getDimens(context, R.dimen.ds1), l.getDimens(context, R.dimen.ds4), true);
-        this.koD = findViewById(R.id.tab_divider_line);
-        this.koD.setVisibility(8);
-        this.koE = (ImageView) findViewById(R.id.hot_topic_tab_strip_bottomline);
+        this.kwE = (LinearLayout) findViewById(R.id.hot_topic_ranking_item);
+        this.kwF = (LinearLayout) findViewById(R.id.hot_topic_ranking_content);
+        this.kwH = (TextView) findViewById(R.id.hot_topic_ranklist_title);
+        this.kwG = (ImageView) findViewById(R.id.ranklist_pic_r);
+        this.kwI = (TextView) findViewById(R.id.hot_topic_look_ranklist);
+        this.kwJ = (PagerSlidingTabStrip) findViewById(R.id.hot_topic_tab_strip);
+        this.kwJ.c(l.getDimens(context, R.dimen.ds32), l.getDimens(context, R.dimen.ds1), l.getDimens(context, R.dimen.ds4), true);
+        this.kwK = findViewById(R.id.tab_divider_line);
+        this.kwK.setVisibility(8);
+        this.kwL = (ImageView) findViewById(R.id.hot_topic_tab_strip_bottomline);
         onChangeSkinType();
     }
 
     public void setOnSizeChangeListener(com.baidu.tbadk.widget.layout.e eVar) {
-        this.fSr = eVar;
+        this.fUG = eVar;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        if (this.koC != null) {
-            this.koC.setViewPager(viewPager);
+        if (this.kwJ != null) {
+            this.kwJ.setViewPager(viewPager);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cRB() {
+    public void cTA() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) this.OX);
+        spannableStringBuilder.append((CharSequence) this.OV);
         String string = getResources().getString(R.string.hot_topic_detail);
-        SpannableStringBuilder spannableStringBuilder2 = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, (this.kow.getLayout().getLineEnd(2) - string.length()) - ("...  ".length() / 2));
+        SpannableStringBuilder spannableStringBuilder2 = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, (this.kwD.getLayout().getLineEnd(2) - string.length()) - ("...  ".length() / 2));
         spannableStringBuilder2.append((CharSequence) "...  ");
         int length = spannableStringBuilder2.length();
         spannableStringBuilder2.append((CharSequence) string);
         SpannableString spannableString = new SpannableString(spannableStringBuilder2);
-        spannableString.setSpan(this.koL, length - 1, spannableString.length(), 33);
-        this.kow.setText(spannableString);
-        this.kow.setHeight(this.kow.getLineHeight() * 3);
-        this.kow.scrollTo(0, 0);
-        this.kow.requestLayout();
+        spannableString.setSpan(this.kwS, length - 1, spannableString.length(), 33);
+        this.kwD.setText(spannableString);
+        this.kwD.setHeight(this.kwD.getLineHeight() * 3);
+        this.kwD.scrollTo(0, 0);
+        this.kwD.requestLayout();
     }
 
     public void setData(final f fVar) {
-        if (fVar != null && !StringUtils.isNull(fVar.eNh)) {
-            this.koJ = fVar;
-            this.koF = true;
-            this.kot.setDefaultBgResource(R.color.CAM_X0205);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.kot.getLayoutParams();
-            layoutParams.height = this.koH;
-            this.kot.setLayoutParams(layoutParams);
-            if (!StringUtils.isNull(fVar.kmq) && StringUtils.isNull(fVar.videoUrl)) {
-                this.kot.startLoad(fVar.kmq, 10, false);
-                this.iIa.setVisibility(8);
+        if (fVar != null && !StringUtils.isNull(fVar.ePt)) {
+            this.kwQ = fVar;
+            this.kwM = true;
+            this.kwA.setDefaultBgResource(R.color.CAM_X0205);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.kwA.getLayoutParams();
+            layoutParams.height = this.kwO;
+            this.kwA.setLayoutParams(layoutParams);
+            if (!StringUtils.isNull(fVar.kux) && StringUtils.isNull(fVar.videoUrl)) {
+                this.kwA.startLoad(fVar.kux, 10, false);
+                this.iNI.setVisibility(8);
             } else {
-                this.kot.setVisibility(8);
-                this.iIa.setVisibility(0);
+                this.kwA.setVisibility(8);
+                this.iNI.setVisibility(0);
             }
-            this.kou.setSingleLine();
-            fVar.eNh = fVar.eNh.trim();
-            if (!StringUtils.isNull(fVar.eNh)) {
-                this.kou.setText(com.baidu.tieba.hottopic.a.a.be(fVar.eNh, 10));
+            this.kwB.setSingleLine();
+            fVar.ePt = fVar.ePt.trim();
+            if (!StringUtils.isNull(fVar.ePt)) {
+                this.kwB.setText(com.baidu.tieba.hottopic.a.a.be(fVar.ePt, 10));
             } else {
-                this.kou.setText("");
+                this.kwB.setText("");
             }
-            this.kou.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.2
+            this.kwB.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.2
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    HotTopicHeaderView.this.koI = HotTopicHeaderView.this.kou.getMeasuredHeight();
-                    HotTopicHeaderView.this.kou.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                    HotTopicHeaderView.this.kwP = HotTopicHeaderView.this.kwB.getMeasuredHeight();
+                    HotTopicHeaderView.this.kwB.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
             });
-            this.kov.setText(TbadkCoreApplication.getInst().getString(R.string.hot_topic_info_threadCount).replace("%s", at.longNumFormatOver9999wan(fVar.postNum)));
-            if (StringUtils.isNull(fVar.kmp)) {
-                this.kow.setVisibility(8);
+            this.kwC.setText(TbadkCoreApplication.getInst().getString(R.string.hot_topic_info_threadCount).replace("%s", au.longNumFormatOver9999wan(fVar.postNum)));
+            if (StringUtils.isNull(fVar.kuw)) {
+                this.kwD.setVisibility(8);
             } else {
-                if (k.byteLength(fVar.kmp) > 500) {
-                    this.OX = at.cutChineseAndEnglishWithSuffix(fVar.kmp, 500, "");
+                if (k.byteLength(fVar.kuw) > 500) {
+                    this.OV = au.cutChineseAndEnglishWithSuffix(fVar.kuw, 500, "");
                 } else {
-                    this.OX = fVar.kmp;
+                    this.OV = fVar.kuw;
                 }
-                this.kow.setText(this.OX);
-                this.koG = this.kow.getLineCount();
-                if (this.koG > 3) {
-                    this.kow.setMovementMethod(LinkMovementMethod.getInstance());
-                    cRB();
+                this.kwD.setText(this.OV);
+                this.kwN = this.kwD.getLineCount();
+                if (this.kwN > 3) {
+                    this.kwD.setMovementMethod(LinkMovementMethod.getInstance());
+                    cTA();
                 }
-                this.kow.setVisibility(0);
-                this.kow.setHighlightColor(getResources().getColor(R.color.transparent));
+                this.kwD.setVisibility(0);
+                this.kwD.setHighlightColor(getResources().getColor(R.color.transparent));
             }
-            if (fVar.kmr > 0 && fVar.kmr <= 20) {
-                this.kox.setVisibility(0);
-                this.koA.setText(fVar.eNh.trim() + getResources().getString(R.string.hot_topic_cur_rank) + fVar.kmr);
-                this.koy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.3
+            if (fVar.kuy > 0 && fVar.kuy <= 20) {
+                this.kwE.setVisibility(0);
+                this.kwH.setText(fVar.ePt.trim() + getResources().getString(R.string.hot_topic_cur_rank) + fVar.kuy);
+                this.kwF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotRanklistActivityConfig(view.getContext()).createNormalConfig(VideoMiddlePageActivityConfig.FROM_HOTTOPIC, fVar.kmv)));
-                        TiebaStatic.log(new aq("c10813").dW("obj_name", fVar.eNh));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hottopic", fVar.kuC)));
+                        TiebaStatic.log(new ar("c10813").dR("obj_name", fVar.ePt));
                     }
                 });
                 this.dividerLine.setVisibility(0);
             } else {
                 this.dividerLine.setVisibility(8);
-                this.kox.setVisibility(8);
+                this.kwE.setVisibility(8);
             }
-            this.koC.notifyDataSetChanged();
-            this.koD.setVisibility(0);
+            this.kwJ.notifyDataSetChanged();
+            this.kwK.setVisibility(0);
         }
     }
 
-    public boolean cRC() {
-        return this.koF;
+    public boolean cTB() {
+        return this.kwM;
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            ao.setBackgroundColor(this, R.color.CAM_X0201);
-            ao.setBackgroundColor(this.koC, R.color.CAM_X0201);
-            ao.setViewTextColor(this.kou, R.color.CAM_X0105, 1);
-            ao.setViewTextColor(this.kov, R.color.CAM_X0301, 1);
-            ao.setViewTextColor(this.kow, R.color.CAM_X0108, 1);
-            ao.setBackgroundColor(this.dividerLine, R.color.CAM_X0205);
-            ao.setBackgroundColor(this.koD, R.color.CAM_X0205);
-            ao.setViewTextColor(this.koA, R.color.CAM_X0105, 1);
-            ao.setViewTextColor(this.koB, R.color.CAM_X0107, 1);
-            ao.setBackgroundResource(this.koz, R.drawable.icon_arrow_more_gray);
-            ao.setBackgroundResource(this.koy, R.drawable.hot_topic_ranklist_bg);
-            ao.setBackgroundColor(this.koE, R.color.CAM_X0204);
-            this.koC.onChangeSkinType();
+            ap.setBackgroundColor(this, R.color.CAM_X0201);
+            ap.setBackgroundColor(this.kwJ, R.color.CAM_X0201);
+            ap.setViewTextColor(this.kwB, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(this.kwC, R.color.CAM_X0301, 1);
+            ap.setViewTextColor(this.kwD, R.color.CAM_X0108, 1);
+            ap.setBackgroundColor(this.dividerLine, R.color.CAM_X0205);
+            ap.setBackgroundColor(this.kwK, R.color.CAM_X0205);
+            ap.setViewTextColor(this.kwH, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(this.kwI, R.color.CAM_X0107, 1);
+            ap.setBackgroundResource(this.kwG, R.drawable.icon_arrow_more_gray);
+            ap.setBackgroundResource(this.kwF, R.drawable.hot_topic_ranklist_bg);
+            ap.setBackgroundColor(this.kwL, R.color.CAM_X0204);
+            this.kwJ.onChangeSkinType();
         }
     }
 
     public void setHeaderBottomLineShow(boolean z) {
-        if (this.koE != null) {
-            this.koE.setVisibility(z ? 0 : 8);
+        if (this.kwL != null) {
+            this.kwL.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.fSr != null) {
-            this.fSr.f(this, i, i2, i3, i4);
+        if (this.fUG != null) {
+            this.fUG.f(this, i, i2, i3, i4);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getNavigationBarSwitchHeight() {
-        boolean z = (this.koJ == null || StringUtils.isNull(this.koJ.kmq)) ? false : true;
-        int i = this.koI;
-        if (this.iIa != null) {
-            i += this.iIa.getMeasuredHeight();
+        boolean z = (this.kwQ == null || StringUtils.isNull(this.kwQ.kux)) ? false : true;
+        int i = this.kwP;
+        if (this.iNI != null) {
+            i += this.iNI.getMeasuredHeight();
         }
-        return z ? this.koI + this.koH : i;
+        return z ? this.kwP + this.kwO : i;
     }
 
-    public void Cc(int i) {
-        ((LinearLayout.LayoutParams) this.iIa.getLayoutParams()).height = i;
-        this.iIa.postInvalidate();
+    public void Cu(int i) {
+        ((LinearLayout.LayoutParams) this.iNI.getLayoutParams()).height = i;
+        this.iNI.postInvalidate();
     }
 }

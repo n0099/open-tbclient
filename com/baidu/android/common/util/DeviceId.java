@@ -8,7 +8,7 @@ import com.baidu.cesium.e.a;
 import com.baidu.cesium.f;
 import com.baidu.cesium.g;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class DeviceId {
 
     /* renamed from: a  reason: collision with root package name */
@@ -117,14 +117,14 @@ public final class DeviceId {
         if (aVar == null) {
             throw new NullPointerException("cuidV270Info should not be null");
         }
-        e tU = aVar.tU();
+        e tR = aVar.tR();
         this.e.a(aVar, true, false);
-        this.f.a(tU);
+        this.f.a(tR);
         this.e.a(aVar);
     }
 
     private g.a d() {
-        return this.e.tM();
+        return this.e.tJ();
     }
 
     private g.a e() {

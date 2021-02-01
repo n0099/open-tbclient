@@ -19,50 +19,50 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.a;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HotTopicDetailHeadView extends RelativeLayout {
-    private TextView akb;
-    private TextView eFr;
-    private int jZf;
-    private TextView knN;
-    private TbImageView lqN;
-    private View lqO;
-    private View lqP;
-    private BarImageView lqQ;
-    private TextView lqR;
-    private TextView lqS;
-    private TextView lqT;
-    private View lqU;
-    private TBLottieAnimationView lqV;
-    private TextView lqW;
-    private a lqX;
-    private ValueAnimator lqY;
+    private TextView ajQ;
+    private TextView eHx;
+    private int kgI;
+    private TextView kvU;
+    private TbImageView lyS;
+    private View lyT;
+    private View lyU;
+    private BarImageView lyV;
+    private TextView lyW;
+    private TextView lyX;
+    private TextView lyY;
+    private View lyZ;
+    private TBLottieAnimationView lza;
+    private TextView lzb;
+    private a lzc;
+    private ValueAnimator lzd;
     private TbPageContext<HotTopicDetailActivity> pageContext;
 
     public HotTopicDetailHeadView(Context context) {
         super(context);
-        this.jZf = 3;
+        this.kgI = 3;
         initView();
     }
 
     public HotTopicDetailHeadView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jZf = 3;
+        this.kgI = 3;
         initView();
     }
 
     public HotTopicDetailHeadView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jZf = 3;
+        this.kgI = 3;
         initView();
     }
 
@@ -72,37 +72,37 @@ public class HotTopicDetailHeadView extends RelativeLayout {
             this.pageContext = (TbPageContext) K;
         }
         LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_detail_head_item, (ViewGroup) this, true);
-        this.lqN = (TbImageView) findViewById(R.id.bgView);
-        this.lqO = findViewById(R.id.bgDefaultView);
-        this.lqP = findViewById(R.id.header_round_corner_layout);
-        this.lqQ = (BarImageView) findViewById(R.id.iconView);
-        this.eFr = (TextView) findViewById(R.id.titleView);
-        this.lqR = (TextView) findViewById(R.id.titlePreView);
-        this.lqS = (TextView) findViewById(R.id.titleNextView);
-        this.akb = (TextView) findViewById(R.id.tagView);
-        this.knN = (TextView) findViewById(R.id.descView);
-        this.lqT = (TextView) findViewById(R.id.descView1);
-        this.lqU = findViewById(R.id.descLayout);
-        this.lqV = (TBLottieAnimationView) findViewById(R.id.blessLayout);
-        this.lqW = (TextView) findViewById(R.id.blessView);
-        this.lqW.setAlpha(0.66f);
-        this.lqO.setBackgroundColor(ao.getColor(R.color.CAM_X0302));
-        this.lqQ.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.lqQ.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-        this.lqQ.setPlaceHolder(1);
-        this.akb.setAlpha(0.66f);
-        this.lqU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailHeadView.1
+        this.lyS = (TbImageView) findViewById(R.id.bgView);
+        this.lyT = findViewById(R.id.bgDefaultView);
+        this.lyU = findViewById(R.id.header_round_corner_layout);
+        this.lyV = (BarImageView) findViewById(R.id.iconView);
+        this.eHx = (TextView) findViewById(R.id.titleView);
+        this.lyW = (TextView) findViewById(R.id.titlePreView);
+        this.lyX = (TextView) findViewById(R.id.titleNextView);
+        this.ajQ = (TextView) findViewById(R.id.tagView);
+        this.kvU = (TextView) findViewById(R.id.descView);
+        this.lyY = (TextView) findViewById(R.id.descView1);
+        this.lyZ = findViewById(R.id.descLayout);
+        this.lza = (TBLottieAnimationView) findViewById(R.id.blessLayout);
+        this.lzb = (TextView) findViewById(R.id.blessView);
+        this.lzb.setAlpha(0.66f);
+        this.lyT.setBackgroundColor(ap.getColor(R.color.CAM_X0302));
+        this.lyV.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.lyV.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+        this.lyV.setPlaceHolder(1);
+        this.ajQ.setAlpha(0.66f);
+        this.lyZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailHeadView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ((HotTopicDetailActivity) HotTopicDetailHeadView.this.pageContext.getOrignalPage()).dfQ();
+                ((HotTopicDetailActivity) HotTopicDetailHeadView.this.pageContext.getOrignalPage()).dhR();
             }
         });
-        this.lqV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailHeadView.2
+        this.lza.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailHeadView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicDetailHeadView.this.lqX != null) {
-                    TiebaStatic.log(new aq("c13819").an("obj_type", HotTopicDetailHeadView.this.lqX.klQ));
-                    ((HotTopicDetailActivity) HotTopicDetailHeadView.this.pageContext.getOrignalPage()).a(HotTopicDetailHeadView.this.lqX);
+                if (HotTopicDetailHeadView.this.lzc != null) {
+                    TiebaStatic.log(new ar("c13819").ap("obj_type", HotTopicDetailHeadView.this.lzc.ktX));
+                    ((HotTopicDetailActivity) HotTopicDetailHeadView.this.pageContext.getOrignalPage()).a(HotTopicDetailHeadView.this.lzc);
                 }
             }
         });
@@ -110,54 +110,54 @@ public class HotTopicDetailHeadView extends RelativeLayout {
 
     public void setTopicInfo(com.baidu.tieba.hottopic.data.f fVar) {
         if (fVar != null) {
-            this.lqO.setVisibility(TextUtils.isEmpty(fVar.kmq) ? 0 : 8);
-            this.lqQ.startLoad(fVar.kmq, 10, false);
-            this.lqN.startLoad(fVar.kmq, 39, false);
-            this.eFr.setText(fVar.eNh);
-            if (fVar.kmr > 0) {
-                this.knN.setText(String.format(getContext().getString(R.string.hot_topic_rank_list_head_desc), "" + fVar.kmr));
-                this.knN.setVisibility(0);
+            this.lyT.setVisibility(TextUtils.isEmpty(fVar.kux) ? 0 : 8);
+            this.lyV.startLoad(fVar.kux, 10, false);
+            this.lyS.startLoad(fVar.kux, 39, false);
+            this.eHx.setText(fVar.ePt);
+            if (fVar.kuy > 0) {
+                this.kvU.setText(String.format(getContext().getString(R.string.hot_topic_rank_list_head_desc), "" + fVar.kuy));
+                this.kvU.setVisibility(0);
             } else {
-                this.knN.setVisibility(8);
+                this.kvU.setVisibility(8);
             }
-            this.akb.setText(String.format(getContext().getString(R.string.hot_topic_rank_item_tag), at.dX(fVar.postNum)));
+            this.ajQ.setText(String.format(getContext().getString(R.string.hot_topic_rank_item_tag), au.ed(fVar.postNum)));
         }
     }
 
     public void setBlessInfo(a aVar) {
-        this.lqX = aVar;
+        this.lzc = aVar;
         if (aVar == null) {
-            this.lqV.setVisibility(8);
-            this.lqW.setVisibility(4);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eFr.getLayoutParams();
-            layoutParams.rightMargin = l.getDimens(this.eFr.getContext(), R.dimen.tbds84);
-            this.eFr.setLayoutParams(layoutParams);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.lqS.getLayoutParams();
+            this.lza.setVisibility(8);
+            this.lzb.setVisibility(4);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eHx.getLayoutParams();
+            layoutParams.rightMargin = l.getDimens(this.eHx.getContext(), R.dimen.tbds84);
+            this.eHx.setLayoutParams(layoutParams);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.lyX.getLayoutParams();
             layoutParams2.leftMargin = -layoutParams.rightMargin;
-            this.lqS.setLayoutParams(layoutParams2);
+            this.lyX.setLayoutParams(layoutParams2);
             return;
         }
-        this.lqW.setText(getContext().getResources().getString(EL(aVar.klQ), at.dX(aVar.totalNum)));
-        if (aVar.klN == 1) {
-            this.lqV.setVisibility(8);
-            this.lqW.setVisibility(0);
-            this.lqW.setTranslationX(0.0f);
+        this.lzb.setText(getContext().getResources().getString(Fd(aVar.ktX), au.ed(aVar.totalNum)));
+        if (aVar.ktU == 1) {
+            this.lza.setVisibility(8);
+            this.lzb.setVisibility(0);
+            this.lzb.setTranslationX(0.0f);
         } else {
-            this.lqV.setVisibility(0);
-            this.lqW.setVisibility(4);
-            EM(aVar.klQ);
-            this.lqV.cancelAnimation();
+            this.lza.setVisibility(0);
+            this.lzb.setVisibility(4);
+            Fe(aVar.ktX);
+            this.lza.cancelAnimation();
         }
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.eFr.getLayoutParams();
-        layoutParams3.rightMargin = l.getDimens(this.eFr.getContext(), R.dimen.tbds280);
-        this.eFr.setLayoutParams(layoutParams3);
-        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.lqS.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.eHx.getLayoutParams();
+        layoutParams3.rightMargin = l.getDimens(this.eHx.getContext(), R.dimen.tbds280);
+        this.eHx.setLayoutParams(layoutParams3);
+        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.lyX.getLayoutParams();
         layoutParams4.leftMargin = -layoutParams3.rightMargin;
-        this.lqS.setLayoutParams(layoutParams4);
+        this.lyX.setLayoutParams(layoutParams4);
     }
 
     @StringRes
-    private int EL(int i) {
+    private int Fd(int i) {
         if (i == 1) {
             return R.string.hot_topic_bless_tag_watch;
         }
@@ -167,79 +167,79 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         return R.string.hot_topic_bless_tag_bless;
     }
 
-    private void EM(int i) {
-        if (this.lqV != null && this.lqV.getVisibility() == 0) {
+    private void Fe(int i) {
+        if (this.lza != null && this.lza.getVisibility() == 0) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType == 0 || skinType == 3) {
                 if (i == 1) {
-                    this.lqV.setImageAssetsFolder("lottie_watch/");
-                    ao.a(this.lqV, R.raw.lottie_watch);
+                    this.lza.setImageAssetsFolder("lottie_watch/");
+                    ap.a(this.lza, R.raw.lottie_watch);
                 } else if (i == 2) {
-                    this.lqV.setImageAssetsFolder("lottie_candle/");
-                    ao.a(this.lqV, R.raw.lottie_candle);
+                    this.lza.setImageAssetsFolder("lottie_candle/");
+                    ap.a(this.lza, R.raw.lottie_candle);
                 } else {
-                    this.lqV.setImageAssetsFolder("lottie_bless/");
-                    ao.a(this.lqV, R.raw.lottie_bless);
+                    this.lza.setImageAssetsFolder("lottie_bless/");
+                    ap.a(this.lza, R.raw.lottie_bless);
                 }
             } else if (i == 1) {
-                this.lqV.setImageAssetsFolder("lottie_watch_1/");
-                ao.a(this.lqV, R.raw.lottie_watch_1);
+                this.lza.setImageAssetsFolder("lottie_watch_1/");
+                ap.a(this.lza, R.raw.lottie_watch_1);
             } else if (i == 2) {
-                this.lqV.setImageAssetsFolder("lottie_candle_1/");
-                ao.a(this.lqV, R.raw.lottie_candle_1);
+                this.lza.setImageAssetsFolder("lottie_candle_1/");
+                ap.a(this.lza, R.raw.lottie_candle_1);
             } else {
-                this.lqV.setImageAssetsFolder("lottie_bless_1/");
-                ao.a(this.lqV, R.raw.lottie_bless_1);
+                this.lza.setImageAssetsFolder("lottie_bless_1/");
+                ap.a(this.lza, R.raw.lottie_bless_1);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jZf != i) {
-            ao.setBackgroundResource(this.lqP, R.drawable.bg_header_round_corner);
-            this.lqO.setBackgroundColor(ao.getColor(R.color.CAM_X0302));
-            ao.setViewTextColor(this.eFr, R.color.CAM_X0101);
-            ao.setViewTextColor(this.lqR, R.color.CAM_X0101);
-            ao.setViewTextColor(this.lqS, R.color.CAM_X0101);
-            ao.setViewTextColor(this.akb, R.color.CAM_X0101);
-            ao.setViewTextColor(this.knN, R.color.CAM_X0101);
-            ao.setViewTextColor(this.lqT, R.color.CAM_X0101);
-            ao.setViewTextColor(this.lqW, R.color.CAM_X0101);
-            if (this.lqX != null) {
-                EM(this.lqX.klQ);
+        if (this.kgI != i) {
+            ap.setBackgroundResource(this.lyU, R.drawable.bg_header_round_corner);
+            this.lyT.setBackgroundColor(ap.getColor(R.color.CAM_X0302));
+            ap.setViewTextColor(this.eHx, R.color.CAM_X0101);
+            ap.setViewTextColor(this.lyW, R.color.CAM_X0101);
+            ap.setViewTextColor(this.lyX, R.color.CAM_X0101);
+            ap.setViewTextColor(this.ajQ, R.color.CAM_X0101);
+            ap.setViewTextColor(this.kvU, R.color.CAM_X0101);
+            ap.setViewTextColor(this.lyY, R.color.CAM_X0101);
+            ap.setViewTextColor(this.lzb, R.color.CAM_X0101);
+            if (this.lzc != null) {
+                Fe(this.lzc.ktX);
             }
-            this.jZf = i;
+            this.kgI = i;
         }
     }
 
-    public void H(long j, long j2) {
-        if (this.lqX != null && this.lqX.klN != 1) {
-            this.lqV.playAnimation();
-            dgd();
-            this.lqX.klN = 1;
-            this.lqX.userPkId = j2;
+    public void L(long j, long j2) {
+        if (this.lzc != null && this.lzc.ktU != 1) {
+            this.lza.playAnimation();
+            die();
+            this.lzc.ktU = 1;
+            this.lzc.userPkId = j2;
         }
     }
 
-    private void dgd() {
-        if (this.lqY != null) {
-            this.lqY.cancel();
+    private void die() {
+        if (this.lzd != null) {
+            this.lzd.cancel();
         }
-        final int width = this.lqW.getWidth();
+        final int width = this.lzb.getWidth();
         if (width > 0) {
-            this.lqW.setTranslationX(width);
-            this.lqW.setVisibility(0);
-            this.lqY = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.lqY.setDuration(200L);
-            this.lqY.setStartDelay(1000L);
-            this.lqY.setInterpolator(new AccelerateDecelerateInterpolator());
-            this.lqY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailHeadView.3
+            this.lzb.setTranslationX(width);
+            this.lzb.setVisibility(0);
+            this.lzd = ValueAnimator.ofFloat(1.0f, 0.0f);
+            this.lzd.setDuration(200L);
+            this.lzd.setStartDelay(1000L);
+            this.lzd.setInterpolator(new AccelerateDecelerateInterpolator());
+            this.lzd.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailHeadView.3
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    HotTopicDetailHeadView.this.lqW.setTranslationX(((Float) valueAnimator.getAnimatedValue()).floatValue() * width);
+                    HotTopicDetailHeadView.this.lzb.setTranslationX(((Float) valueAnimator.getAnimatedValue()).floatValue() * width);
                 }
             });
-            this.lqY.start();
+            this.lzd.start();
         }
     }
 }

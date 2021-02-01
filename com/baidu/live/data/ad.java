@@ -1,25 +1,28 @@
 package com.baidu.live.data;
 
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public class ad {
-    public int aGZ;
-    public long aHa;
-    public long aHb;
-    public String division;
+/* loaded from: classes11.dex */
+public class ad extends BaseData {
+    public int aJx;
+    public boolean aJy;
+    public String aJz;
     public String iconUrl;
-    public int maxStar;
-    public String name;
+    public int status = DpStatConstants.MEDIA_ERROR_MEDIA_PLAYER;
+    public String url;
 
+    @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.division = jSONObject.optString("division");
-            this.aGZ = jSONObject.optInt("cur_star");
-            this.maxStar = jSONObject.optInt("max_star", 5);
-            this.aHa = jSONObject.optInt("min_score");
-            this.aHb = jSONObject.optInt("max_score");
-            this.name = jSONObject.optString("name");
-            this.iconUrl = jSONObject.optString("icon_url");
+        if (jSONObject == null) {
+            this.status = DpStatConstants.MEDIA_ERROR_MEDIA_PLAYER;
+            return;
         }
+        this.url = jSONObject.optString("lottery_url");
+        this.status = jSONObject.optInt("status");
+        this.aJy = jSONObject.optInt("is_change", 0) == 1;
+        this.aJx = jSONObject.optInt("open_time") - jSONObject.optInt("server_time");
+        this.aJz = jSONObject.optString("result_url");
+        this.iconUrl = jSONObject.optString("icon_url");
     }
 }

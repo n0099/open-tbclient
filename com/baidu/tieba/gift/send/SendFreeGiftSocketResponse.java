@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.SendFreeGift.SendFreeGiftResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SendFreeGiftSocketResponse extends TbSocketReponsedMessage {
     private int freeChance;
 

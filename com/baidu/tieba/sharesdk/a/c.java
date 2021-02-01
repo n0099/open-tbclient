@@ -9,51 +9,51 @@ import com.baidu.tieba.sharesdk.a.b;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends b {
-    private IUiListener nax;
-    private final com.baidu.adp.lib.e.c<e.a> naz;
+    private IUiListener nkf;
+    private final com.baidu.adp.lib.e.c<e.a> nkh;
 
     public c(Context context) {
         super(context);
-        this.naz = new com.baidu.adp.lib.e.c<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.nkh = new com.baidu.adp.lib.e.c<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: a */
             public void onLoaded(e.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
-                if (aVar == null || aVar.faC == null || TextUtils.isEmpty(aVar.path)) {
-                    c.this.dp(2, 4);
+                if (aVar == null || aVar.fcS == null || TextUtils.isEmpty(aVar.path)) {
+                    c.this.dm(2, 4);
                 }
-                c.this.Ry(aVar.path);
+                c.this.Sv(aVar.path);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.c
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                c.this.dp(3, 4);
+                c.this.dm(3, 4);
             }
         };
-        this.nan = 4;
+        this.njW = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.naw == null) {
-            dp(2, 4);
+        if (shareEntity == null || this.nke == null) {
+            dm(2, 4);
             if (bVar != null) {
-                bVar.mo47do(0, 2);
+                bVar.dl(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
-            dp(2, 4);
+            dm(2, 4);
             if (bVar != null) {
-                bVar.mo47do(0, 2);
+                bVar.dl(0, 2);
             }
         } else {
-            this.nax = new b.a(bVar);
-            if (shareEntity.dGR() != 0) {
+            this.nkf = new b.a(bVar);
+            if (shareEntity.dJc() != 0) {
                 b(shareEntity);
             } else {
                 c(shareEntity);
@@ -62,23 +62,23 @@ public class c extends b {
     }
 
     private void b(ShareEntity shareEntity) {
-        if (BU(shareEntity.dGP())) {
-            Ry(shareEntity.dGP());
+        if (Cl(shareEntity.dJa())) {
+            Sv(shareEntity.dJa());
         } else if (z(shareEntity.getImageUri())) {
-            Ry(shareEntity.getImageUri().getPath());
+            Sv(shareEntity.getImageUri().getPath());
         } else {
-            com.baidu.adp.lib.e.d.mx().a(shareEntity.getImgUrl(), 34, this.naz, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.e.d.mw().a(shareEntity.getImgUrl(), 34, this.nkh, 0, 0, getPageId(), new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ry(String str) {
+    public void Sv(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.nax != null) {
-            this.naw.shareToQQ((Activity) this.context, bundle, this.nax);
+        if (this.nkf != null) {
+            this.nke.shareToQQ((Activity) this.context, bundle, this.nkf);
         }
     }
 
@@ -93,8 +93,8 @@ public class c extends b {
             arrayList.add(shareEntity.getImgUrl());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.nax != null) {
-            this.naw.shareToQzone((Activity) this.context, bundle, this.nax);
+        if (this.nkf != null) {
+            this.nke.shareToQzone((Activity) this.context, bundle, this.nkf);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.poke;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaPokeBackResponseMessage extends JsonHttpResponsedMessage {
     public AlaPokeBackResponseMessage() {
         super(1021228);

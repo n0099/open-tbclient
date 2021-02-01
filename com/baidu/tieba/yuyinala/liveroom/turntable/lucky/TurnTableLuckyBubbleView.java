@@ -10,10 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.mobstat.Config;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TurnTableLuckyBubbleView extends LinearLayout {
-    private TextView aBG;
-    private String hKr;
+    private TextView aDt;
+    private String hOL;
     private String mName;
 
     public TurnTableLuckyBubbleView(Context context) {
@@ -22,21 +22,21 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
     }
 
     public void setContent(String str) {
-        this.aBG.setText(str);
+        this.aDt.setText(str);
     }
 
     public void setContent(String str, String str2) {
-        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.hKr) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.hKr.equals(str2)) {
+        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.hOL) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.hOL.equals(str2)) {
             this.mName = str;
-            this.hKr = str2;
-            this.aBG.setText(!TextUtils.isEmpty(this.hKr) ? this.mName + Config.EVENT_HEAT_X + this.hKr : this.mName);
+            this.hOL = str2;
+            this.aDt.setText(!TextUtils.isEmpty(this.hOL) ? this.mName + Config.EVENT_HEAT_X + this.hOL : this.mName);
         }
     }
 
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.g.turn_table_widget_lucky_bubble, (ViewGroup) this, true);
-        this.aBG = (TextView) findViewById(a.f.tv_content);
+        this.aDt = (TextView) findViewById(a.f.tv_content);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds40));
         gradientDrawable.setShape(0);
@@ -46,6 +46,6 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
         } else {
             gradientDrawable.setColor(-2199);
         }
-        this.aBG.setBackgroundDrawable(gradientDrawable);
+        this.aDt.setBackgroundDrawable(gradientDrawable);
     }
 }

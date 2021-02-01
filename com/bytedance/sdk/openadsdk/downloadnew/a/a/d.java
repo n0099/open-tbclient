@@ -12,14 +12,14 @@ import com.bytedance.sdk.openadsdk.utils.h;
 import com.ss.android.a.a.a.h;
 import com.ss.android.a.a.a.q;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference<Context> f7063a;
+    private final WeakReference<Context> f7065a;
 
     public d(Context context) {
-        this.f7063a = new WeakReference<>(context);
+        this.f7065a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.a.a.a.h

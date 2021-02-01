@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD})
 @Documented
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public @interface TransitionRes {
 }

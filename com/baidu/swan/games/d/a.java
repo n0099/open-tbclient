@@ -5,7 +5,7 @@ import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.games.binding.c;
 import java.net.URLEncoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static void a(c cVar, JsObject jsObject) {
         boolean z = false;
@@ -19,10 +19,10 @@ public class a {
             com.baidu.swan.games.utils.b.a(e, false, bVar);
             return;
         }
-        if (com.baidu.swan.games.glsurface.a.b.aWN()) {
-            e aIr = e.aIr();
-            if (aIr != null) {
-                if (SchemeRouter.invoke(com.baidu.swan.apps.t.a.awy(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode("{\"appKey\":\"" + aIr.getAppKey() + "\"}"))) {
+        if (com.baidu.swan.games.glsurface.a.b.aWZ()) {
+            e aIK = e.aIK();
+            if (aIK != null) {
+                if (SchemeRouter.invoke(com.baidu.swan.apps.t.a.awW(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode("{\"appKey\":\"" + aIK.getAppKey() + "\"}"))) {
                     bVar.errMsg = "openCustomerServiceConversation:ok";
                     z = true;
                 } else {

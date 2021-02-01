@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CyberPlayerManager {
     public static final int CLARITY_MODE_AUTO = -1;
     public static final int COMMAND_ADD_STAGE_INFO = 1001;
@@ -156,6 +156,10 @@ public class CyberPlayerManager {
     public static final int VIDEO_SCALING_MODE_SCALE_4_TO_3 = 4;
     public static final int VIDEO_SCALING_MODE_SCALE_5_TO_4 = 3;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FILL_WITH_CROPPING = 0;
+    public static final int VIDEO_SCALING_MODE_SCALE_TO_FILL_WITH_CROP_BOTTOM = 10;
+    public static final int VIDEO_SCALING_MODE_SCALE_TO_FILL_WITH_CROP_LEFT = 7;
+    public static final int VIDEO_SCALING_MODE_SCALE_TO_FILL_WITH_CROP_RIGHT = 8;
+    public static final int VIDEO_SCALING_MODE_SCALE_TO_FILL_WITH_CROP_TOP = 9;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT = 1;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING = 2;
     private static Context e;
@@ -165,10 +169,10 @@ public class CyberPlayerManager {
     private static Class<?> i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1704a = false;
+    private static boolean f1702a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private static OnDeleteListener f1705b = null;
+    private static OnDeleteListener f1703b = null;
     private static OnVideoFlowListener c = null;
     private static final Object d = new Object();
     public static String VIDEO_FLOW_URL = "video_flow_url";
@@ -178,13 +182,13 @@ public class CyberPlayerManager {
     private static Map<String, String> j = new HashMap();
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface HttpDNS {
         List<String> getIpList(String str);
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface InstallListener {
         void onInstallError(int i, int i2, String str);
 
@@ -194,61 +198,61 @@ public class CyberPlayerManager {
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnBufferingUpdateListener {
         void onBufferingUpdate(int i);
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnCompletionListener {
         void onCompletion();
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnDeleteListener {
         void onDeleteComplete(int i, long j);
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnErrorListener {
         boolean onError(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnInfoListener {
         boolean onInfo(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnMediaSourceChangedListener {
         boolean onMediaSourceChanged(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnPreparedListener {
         void onPrepared();
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnSeekCompleteListener {
         void onSeekComplete();
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnVideoFlowListener {
         void onRecordFlow(HashMap<String, String> hashMap);
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnVideoSizeChangedListener {
         void onVideoSizeChanged(int i, int i2, int i3, int i4);
     }
@@ -284,29 +288,29 @@ public class CyberPlayerManager {
     }
 
     public static void deleteVideoCache(OnDeleteListener onDeleteListener) {
-        if (f1704a) {
+        if (f1702a) {
             if (onDeleteListener != null) {
                 onDeleteListener.onDeleteComplete(-2, 0L);
                 return;
             }
             return;
         }
-        f1704a = true;
-        f1705b = onDeleteListener;
+        f1702a = true;
+        f1703b = onDeleteListener;
         CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.1
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (CyberPlayerManager.d) {
                     long a2 = n.a((Boolean) true);
-                    if (CyberPlayerManager.f1705b != null) {
+                    if (CyberPlayerManager.f1703b != null) {
                         if (a2 < 0) {
-                            CyberPlayerManager.f1705b.onDeleteComplete((int) a2, 0L);
+                            CyberPlayerManager.f1703b.onDeleteComplete((int) a2, 0L);
                         } else {
-                            CyberPlayerManager.f1705b.onDeleteComplete(0, a2);
+                            CyberPlayerManager.f1703b.onDeleteComplete(0, a2);
                         }
                     }
-                    boolean unused = CyberPlayerManager.f1704a = false;
-                    OnDeleteListener unused2 = CyberPlayerManager.f1705b = null;
+                    boolean unused = CyberPlayerManager.f1702a = false;
+                    OnDeleteListener unused2 = CyberPlayerManager.f1703b = null;
                 }
             }
         });

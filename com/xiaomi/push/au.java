@@ -7,7 +7,7 @@ import java.util.Map;
 public class au implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile au f13865a;
+    private static volatile au f13867a;
 
     /* renamed from: a  reason: collision with other field name */
     private ar f193a;
@@ -18,14 +18,14 @@ public class au implements ar {
     }
 
     public static au a(Context context) {
-        if (f13865a == null) {
+        if (f13867a == null) {
             synchronized (au.class) {
-                if (f13865a == null) {
-                    f13865a = new au(context.getApplicationContext());
+                if (f13867a == null) {
+                    f13867a = new au(context.getApplicationContext());
                 }
             }
         }
-        return f13865a;
+        return f13867a;
     }
 
     private String a(String str) {

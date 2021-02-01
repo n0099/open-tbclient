@@ -7,10 +7,10 @@ import com.baidu.tieba.barselect.data.d;
 import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<d> ikx;
-    private int iky = -1;
+    private List<d> iqf;
+    private int iqg = -1;
     private TbPageContext mPageContext;
     private f mVoteData;
 
@@ -21,15 +21,15 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void a(f fVar) {
         this.mVoteData = fVar;
         if (fVar != null) {
-            this.ikx = fVar.cqd();
+            this.iqf = fVar.crn();
         }
-        this.iky = -1;
+        this.iqg = -1;
         notifyDataSetChanged();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: x */
+    /* renamed from: y */
     public VoteViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         VoteCandidateCard voteCandidateCard = new VoteCandidateCard(this.mPageContext.getPageActivity());
         voteCandidateCard.setVoteAdaPter(this);
@@ -45,25 +45,25 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.ikx != null) {
-            return this.ikx.size();
+        if (this.iqf != null) {
+            return this.iqf.size();
         }
         return 0;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.ikx == null || this.ikx.size() <= i || this.ikx.get(i).getRank() != 1 || i != 0) {
+        if (this.iqf == null || this.iqf.size() <= i || this.iqf.get(i).getRank() != 1 || i != 0) {
             return 0;
         }
-        return com.baidu.tieba.barselect.a.a.inD;
+        return com.baidu.tieba.barselect.a.a.ith;
     }
 
-    public int cpO() {
-        return this.iky;
+    public int cqY() {
+        return this.iqg;
     }
 
-    public void wz(int i) {
-        this.iky = i;
+    public void wK(int i) {
+        this.iqg = i;
     }
 }

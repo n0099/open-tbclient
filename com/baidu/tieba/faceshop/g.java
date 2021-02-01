@@ -16,18 +16,18 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g extends ProxyAdkBaseActivity<g> {
-    private TbImageView fgY;
+    private TbImageView fjr;
     private int from = 0;
     private int height;
-    private TextView iNA;
-    private String iNB;
-    private String iNC;
-    private int iND;
-    private int iNE;
-    private GifView iNy;
-    private TextView iNz;
+    private GifView iTf;
+    private TextView iTg;
+    private TextView iTh;
+    private String iTi;
+    private String iTj;
+    private int iTk;
+    private int iTl;
     private String iconUrl;
     private NavigationBar mNavigationBar;
     private String pid;
@@ -46,14 +46,14 @@ public class g extends ProxyAdkBaseActivity<g> {
 
     private void initData(Bundle bundle) {
         float f = getResources().getDisplayMetrics().density;
-        this.iND = ((double) f) < 1.5d ? 160 : 240;
-        this.iNE = ((double) f) >= 1.5d ? 240 : 160;
+        this.iTk = ((double) f) < 1.5d ? 160 : 240;
+        this.iTl = ((double) f) >= 1.5d ? 240 : 160;
         if (bundle != null) {
             this.pid = bundle.getString("pid");
             this.pname = bundle.getString("panme");
             this.iconUrl = bundle.getString("iconUrl");
-            this.iNB = bundle.getString("gifUrl");
-            this.iNC = bundle.getString("staticUrl");
+            this.iTi = bundle.getString("gifUrl");
+            this.iTj = bundle.getString("staticUrl");
             this.sharpText = bundle.getString("sharpText");
             this.width = bundle.getInt("width");
             this.height = bundle.getInt("height");
@@ -62,11 +62,11 @@ public class g extends ProxyAdkBaseActivity<g> {
             this.pid = intent.getStringExtra("pid");
             this.pname = intent.getStringExtra("panme");
             this.iconUrl = intent.getStringExtra("iconUrl");
-            this.iNB = intent.getStringExtra("gifUrl");
-            this.iNC = intent.getStringExtra("staticUrl");
+            this.iTi = intent.getStringExtra("gifUrl");
+            this.iTj = intent.getStringExtra("staticUrl");
             this.sharpText = intent.getStringExtra("sharpText");
-            this.width = intent.getIntExtra("width", this.iND);
-            this.height = intent.getIntExtra("height", this.iNE);
+            this.width = intent.getIntExtra("width", this.iTk);
+            this.height = intent.getIntExtra("height", this.iTl);
         }
         this.from = getIntent().getIntExtra("from", 0);
     }
@@ -81,38 +81,38 @@ public class g extends ProxyAdkBaseActivity<g> {
                 g.this.finish();
             }
         });
-        this.iNy = (GifView) findViewById(R.id.gifview);
+        this.iTf = (GifView) findViewById(R.id.gifview);
         if (this.width == 0 || this.height == 0) {
-            layoutParams = new FrameLayout.LayoutParams(this.iND, this.iNE, 17);
+            layoutParams = new FrameLayout.LayoutParams(this.iTk, this.iTl, 17);
         } else {
             layoutParams = new FrameLayout.LayoutParams(this.width, this.height, 17);
         }
-        this.iNy.setLayoutParams(layoutParams);
-        boolean bEZ = com.baidu.tbadk.util.m.bEZ();
+        this.iTf.setLayoutParams(layoutParams);
+        boolean bFs = com.baidu.tbadk.util.n.bFs();
         GifInfo gifInfo = new GifInfo();
         gifInfo.mSharpText = this.sharpText;
         gifInfo.mGid = this.pid;
         gifInfo.mGifHeight = this.height;
         gifInfo.mGifWidth = this.width;
-        if (bEZ) {
-            gifInfo.mDynamicUrl = this.iNB;
+        if (bFs) {
+            gifInfo.mDynamicUrl = this.iTi;
         } else {
-            gifInfo.mStaticUrl = this.iNC;
+            gifInfo.mStaticUrl = this.iTj;
         }
-        this.iNy.a(gifInfo);
-        this.fgY = (TbImageView) findViewById(R.id.emotion_icon);
+        this.iTf.a(gifInfo);
+        this.fjr = (TbImageView) findViewById(R.id.emotion_icon);
         if (!TextUtils.isEmpty(this.iconUrl)) {
-            this.fgY.startLoad(this.iconUrl, 10, false);
+            this.fjr.startLoad(this.iconUrl, 10, false);
         } else {
             Bitmap eQ = b.eQ(this.pid, "panel.png");
             if (eQ != null) {
-                new com.baidu.adp.widget.ImageView.a(eQ, false).drawImageTo(this.fgY);
+                new com.baidu.adp.widget.ImageView.a(eQ, false).drawImageTo(this.fjr);
             }
         }
-        this.iNz = (TextView) findViewById(R.id.emotion_pname);
-        this.iNz.setText(this.pname);
-        this.iNA = (TextView) findViewById(R.id.emotion_detail);
-        this.iNA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.g.2
+        this.iTg = (TextView) findViewById(R.id.emotion_pname);
+        this.iTg.setText(this.pname);
+        this.iTh = (TextView) findViewById(R.id.emotion_detail);
+        this.iTh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.g.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
@@ -142,8 +142,8 @@ public class g extends ProxyAdkBaseActivity<g> {
         bundle.putString("pid", this.pid);
         bundle.putString("panme", this.pname);
         bundle.putString("iconUrl", this.iconUrl);
-        bundle.putString("gifUrl", this.iNB);
-        bundle.putString("staticUrl", this.iNC);
+        bundle.putString("gifUrl", this.iTi);
+        bundle.putString("staticUrl", this.iTj);
         bundle.putString("sharpText", this.sharpText);
         bundle.putInt("width", this.width);
         bundle.putInt("height", this.height);

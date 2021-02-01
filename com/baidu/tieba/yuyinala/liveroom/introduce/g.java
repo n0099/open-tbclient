@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
@@ -12,37 +12,37 @@ import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g extends com.baidu.tieba.yuyinala.liveroom.a {
-    private x aBr;
-    public PlayIntroduceView omj;
+    private ab aDd;
+    public PlayIntroduceView owb;
 
     public g(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
-    public void Y(x xVar) {
-        this.aBr = xVar;
+    public void af(ab abVar) {
+        this.aDd = abVar;
     }
 
-    public void cFF() {
-        if (this.omj != null) {
-            this.omj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
+    public void cGS() {
+        if (this.owb != null) {
+            this.owb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    new d(g.this.getPageContext().getPageActivity()).af(g.this.aBr);
-                    g.this.dZk();
+                    new d(g.this.getPageContext().getPageActivity()).ae(g.this.aDd);
+                    g.this.ebw();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dZk() {
+    public void ebw() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aBr.aGy.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDd.aIU.croom_id);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -56,44 +56,44 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     private void aN(ViewGroup viewGroup) {
-        if (this.omj != null && this.omj.getParent() != null) {
-            ((ViewGroup) this.omj.getParent()).removeView(this.omj);
+        if (this.owb != null && this.owb.getParent() != null) {
+            ((ViewGroup) this.owb.getParent()).removeView(this.owb);
         }
-        if (this.omj == null) {
-            this.omj = new PlayIntroduceView(getPageContext().getPageActivity());
+        if (this.owb == null) {
+            this.owb = new PlayIntroduceView(getPageContext().getPageActivity());
         }
-        this.omj.setId(a.f.ala_liveroom_play_introduce);
+        this.owb.setId(a.f.ala_liveroom_play_introduce);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(1, a.f.ala_liveroom_charm_rank);
         layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
         layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds19);
         layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
-        viewGroup.addView(this.omj, layoutParams);
+        viewGroup.addView(this.owb, layoutParams);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void zH() {
-        super.zH();
-        if (this.omj != null && this.omj.getParent() != null) {
-            ((ViewGroup) this.omj.getParent()).removeView(this.omj);
+    public void Ar() {
+        super.Ar();
+        if (this.owb != null && this.owb.getParent() != null) {
+            ((ViewGroup) this.owb.getParent()).removeView(this.owb);
         }
-        if (this.omj != null) {
-            this.omj.destory();
-            this.omj = null;
+        if (this.owb != null) {
+            this.owb.destory();
+            this.owb = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.omj != null) {
-            this.omj.destory();
-            this.omj = null;
+        if (this.owb != null) {
+            this.owb.destory();
+            this.owb = null;
         }
     }
 
-    public void cjm() {
+    public void ckl() {
     }
 
-    public void cjn() {
+    public void ckm() {
     }
 }

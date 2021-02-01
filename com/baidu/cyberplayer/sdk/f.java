@@ -1,15 +1,16 @@
 package com.baidu.cyberplayer.sdk;
 
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f {
     private int j;
+    private float[] l;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1768a = 0;
+    private int f1766a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f1769b = 0;
+    private int f1767b = 0;
     private int c = 1;
     private int d = 1;
     private int e = 0;
@@ -23,12 +24,15 @@ public class f {
         this.j = 0;
         this.k[0] = 1.0f;
         this.k[1] = 1.0f;
+        this.l = new float[2];
+        this.l[0] = 0.0f;
+        this.l[1] = 0.0f;
         this.j = 2;
     }
 
     public void a() {
-        this.f1768a = 0;
-        this.f1769b = 0;
+        this.f1766a = 0;
+        this.f1767b = 0;
         this.c = 1;
         this.d = 1;
         this.e = 0;
@@ -51,11 +55,11 @@ public class f {
     }
 
     public boolean a(int i, int i2) {
-        if (this.f1768a == i && this.f1769b == i2) {
+        if (this.f1766a == i && this.f1767b == i2) {
             return false;
         }
-        this.f1768a = i;
-        this.f1769b = i2;
+        this.f1766a = i;
+        this.f1767b = i2;
         return true;
     }
 
@@ -79,98 +83,186 @@ public class f {
         float f;
         float f2;
         float f3;
-        if (this.f1768a == 0 || this.f1769b == 0 || this.h == 0 || this.i == 0) {
+        float f4;
+        float f5;
+        if (this.f1766a == 0 || this.f1767b == 0 || this.h == 0 || this.i == 0) {
             return;
         }
         boolean z = this.j == 0 || this.j == 2;
-        float f4 = (this.f1769b * 1.0f) / this.f1768a;
-        float f5 = (this.i * 1.0f) / this.h;
+        float f6 = (this.f1767b * 1.0f) / this.f1766a;
+        float f7 = (this.i * 1.0f) / this.h;
         if ((this.g == 90 || this.g == 270) && this.i != 0) {
-            f5 = (this.h * 1.0f) / this.i;
+            f7 = (this.h * 1.0f) / this.i;
             if (z) {
-                f = ((this.c * 1.0f) / this.d) * f5;
+                f = ((this.c * 1.0f) / this.d) * f7;
             }
-            f = f5;
+            f = f7;
         } else {
             if (z) {
-                f = ((this.d * 1.0f) / this.c) * f5;
+                f = ((this.d * 1.0f) / this.c) * f7;
             }
-            f = f5;
+            f = f7;
         }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.f1768a + " mSurfaceHeight:" + this.f1769b + " mDisplayMode:" + this.j);
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.f1766a + " mSurfaceHeight:" + this.f1767b + " mDisplayMode:" + this.j);
         switch (this.j) {
             case 0:
-                if (f <= f4) {
-                    f2 = f4 / f;
-                    f3 = 1.0f;
+                if (f <= f6) {
+                    f2 = f6 / f;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
+                    f5 = 1.0f;
                     break;
                 } else {
-                    f3 = f / f4;
+                    f5 = f / f6;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
                     f2 = 1.0f;
                     break;
                 }
             case 1:
-                f3 = 1.0f;
+                f3 = 0.0f;
+                f4 = 0.0f;
+                f5 = 1.0f;
                 f2 = 1.0f;
                 break;
             case 2:
-                if (f <= f4) {
-                    f3 = f / f4;
+                if (f <= f6) {
+                    f5 = f / f6;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
                     f2 = 1.0f;
                     break;
                 } else {
-                    f2 = f4 / f;
-                    f3 = 1.0f;
+                    f2 = f6 / f;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
+                    f5 = 1.0f;
                     break;
                 }
             case 3:
-                if (0.8f <= f4) {
-                    f3 = 0.8f / f4;
+                if (0.8f <= f6) {
+                    f5 = 0.8f / f6;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
                     f2 = 1.0f;
                     break;
                 } else {
-                    f2 = f4 / 0.8f;
-                    f3 = 1.0f;
+                    f2 = f6 / 0.8f;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
+                    f5 = 1.0f;
                     break;
                 }
             case 4:
-                if (0.75f <= f4) {
-                    f3 = 0.75f / f4;
+                if (0.75f <= f6) {
+                    f5 = 0.75f / f6;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
                     f2 = 1.0f;
                     break;
                 } else {
-                    f2 = f4 / 0.75f;
-                    f3 = 1.0f;
+                    f2 = f6 / 0.75f;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
+                    f5 = 1.0f;
                     break;
                 }
             case 5:
-                if (0.5625f <= f4) {
-                    f3 = 0.5625f / f4;
+                if (0.5625f <= f6) {
+                    f5 = 0.5625f / f6;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
                     f2 = 1.0f;
                     break;
                 } else {
-                    f2 = f4 / 0.5625f;
-                    f3 = 1.0f;
+                    f2 = f6 / 0.5625f;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
+                    f5 = 1.0f;
                     break;
                 }
             case 6:
-                f2 = (this.h * 1.0f) / this.f1768a;
-                f3 = (this.i * 1.0f) / this.f1769b;
+                f2 = (this.h * 1.0f) / this.f1766a;
+                f5 = (this.i * 1.0f) / this.f1767b;
+                f3 = 0.0f;
+                f4 = 0.0f;
                 break;
+            case 7:
+                if (f <= f6) {
+                    f2 = f6 / f;
+                    f4 = 1.0f - f2;
+                    f3 = 0.0f;
+                    f5 = 1.0f;
+                    break;
+                } else {
+                    f5 = f / f6;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
+                    f2 = 1.0f;
+                    break;
+                }
+            case 8:
+                if (f <= f6) {
+                    f2 = f6 / f;
+                    f4 = f2 - 1.0f;
+                    f3 = 0.0f;
+                    f5 = 1.0f;
+                    break;
+                } else {
+                    f5 = f / f6;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
+                    f2 = 1.0f;
+                    break;
+                }
+            case 9:
+                if (f <= f6) {
+                    f2 = f6 / f;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
+                    f5 = 1.0f;
+                    break;
+                } else {
+                    f5 = f / f6;
+                    f3 = f5 - 1.0f;
+                    f4 = 0.0f;
+                    f2 = 1.0f;
+                    break;
+                }
+            case 10:
+                if (f <= f6) {
+                    f2 = f6 / f;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
+                    f5 = 1.0f;
+                    break;
+                } else {
+                    f5 = f / f6;
+                    f3 = 1.0f - f5;
+                    f4 = 0.0f;
+                    f2 = 1.0f;
+                    break;
+                }
             default:
-                if (f <= f4) {
-                    f3 = f / f4;
+                if (f <= f6) {
+                    f5 = f / f6;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
                     f2 = 1.0f;
                     break;
                 } else {
-                    f2 = f4 / f;
-                    f3 = 1.0f;
+                    f2 = f6 / f;
+                    f3 = 0.0f;
+                    f4 = 0.0f;
+                    f5 = 1.0f;
                     break;
                 }
         }
         this.k[0] = f2;
-        this.k[1] = f3;
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f2 + " sy:" + f3);
+        this.k[1] = f5;
+        this.l[0] = f4;
+        this.l[1] = f3;
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f2 + " sy:" + f5 + " translateX:" + f4 + " translateY:" + f3);
     }
 
     public boolean b(int i) {
@@ -195,22 +287,34 @@ public class f {
     }
 
     public int d() {
-        return this.g;
+        return this.j;
     }
 
-    public int e() {
-        return this.h;
+    public float[] e() {
+        return this.l;
     }
 
-    public int f() {
-        return this.i;
+    public boolean f() {
+        return this.j == 7 || this.j == 8 || this.j == 9 || this.j == 10;
     }
 
     public int g() {
-        return this.f1768a;
+        return this.g;
     }
 
     public int h() {
-        return this.f1769b;
+        return this.h;
+    }
+
+    public int i() {
+        return this.i;
+    }
+
+    public int j() {
+        return this.f1766a;
+    }
+
+    public int k() {
+        return this.f1767b;
     }
 }

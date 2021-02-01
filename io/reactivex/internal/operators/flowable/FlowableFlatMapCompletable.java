@@ -17,7 +17,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qdS.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.qnW.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
     /* loaded from: classes5.dex */
@@ -64,7 +64,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
                     eVar.a(innerConsumer);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 this.s.cancel();
                 onError(th);
             }

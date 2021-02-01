@@ -3,15 +3,15 @@ package com.kwad.sdk.utils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class al {
     private static volatile al l;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f10779a = false;
+    private volatile boolean f10781a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile boolean f10780b = false;
+    private volatile boolean f10782b = false;
     private volatile boolean c = false;
     private volatile boolean d = false;
     private volatile boolean e = false;
@@ -37,8 +37,8 @@ public class al {
     }
 
     private void e(@NonNull AdTemplate adTemplate) {
-        if (this.k && !this.f10780b) {
-            this.f10780b = true;
+        if (this.k && !this.f10782b) {
+            this.f10782b = true;
             this.h = System.currentTimeMillis();
             com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(66L, adTemplate);
             aVar.l = this.h - this.g;
@@ -77,8 +77,8 @@ public class al {
 
     public void a(@NonNull AdTemplate adTemplate) {
         this.k = com.kwad.sdk.core.config.c.U();
-        if (this.k && !this.f10779a) {
-            this.f10779a = true;
+        if (this.k && !this.f10781a) {
+            this.f10781a = true;
             this.g = System.currentTimeMillis();
             com.kwad.sdk.core.report.g.c(new com.kwad.sdk.core.report.a(65L, adTemplate));
         }

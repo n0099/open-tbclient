@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TrendListResultData extends BaseResultData implements com.kwad.sdk.core.b {
     private static final String TAG = "FeedResultData";
     private static final long serialVersionUID = -2356227162833699895L;

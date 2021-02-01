@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.a.b;
 
 import com.bytedance.sdk.openadsdk.preload.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
     public final void d(com.bytedance.sdk.openadsdk.preload.a.b bVar, d dVar) {
         c(bVar, dVar);

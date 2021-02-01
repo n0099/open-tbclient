@@ -1,8 +1,8 @@
 package com.baidu.browser.core.database;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Condition {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum Operation {
         EQUAL,
         NOTEQUAL,

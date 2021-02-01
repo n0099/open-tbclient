@@ -46,7 +46,7 @@ public class r {
         return null;
     }
 
-    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
     public static List<l.b<byte[]>> c(com.baidu.adp.lib.cache.l<byte[]> lVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();
@@ -87,9 +87,9 @@ public class r {
     private static Cursor d(com.baidu.adp.lib.cache.l<?> lVar) {
         if (lVar != null && (lVar instanceof l.c)) {
             l.c cVar = (l.c) lVar;
-            if (cVar.lz() instanceof com.baidu.adp.lib.cache.j) {
-                com.baidu.adp.lib.cache.c lw = ((com.baidu.adp.lib.cache.j) cVar.lz()).lw();
-                return lw.queryAllForNameSpace(lw.lt().getOpenedDatabase(), cVar.getNameSpace());
+            if (cVar.ly() instanceof com.baidu.adp.lib.cache.j) {
+                com.baidu.adp.lib.cache.c lv = ((com.baidu.adp.lib.cache.j) cVar.ly()).lv();
+                return lv.queryAllForNameSpace(lv.ls().getOpenedDatabase(), cVar.getNameSpace());
             }
             return null;
         }

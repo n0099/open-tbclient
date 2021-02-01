@@ -6,7 +6,7 @@ import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
     private final List<String> Fl;
     @Nullable
@@ -38,7 +38,7 @@ public class e {
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f iZ() {
+    public f iY() {
         return this.Fm;
     }
 
@@ -72,10 +72,10 @@ public class e {
         boolean z = i == this.Fl.size() + (-1);
         String str2 = this.Fl.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.Fl.size() + (-2) && ja())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.Fl.size() + (-2) && iZ())) && (str2.equals(str) || str2.equals("*"));
         }
         if (!z && this.Fl.get(i + 1).equals(str)) {
-            return i == this.Fl.size() + (-2) || (i == this.Fl.size() + (-3) && ja());
+            return i == this.Fl.size() + (-2) || (i == this.Fl.size() + (-3) && iZ());
         } else if (z) {
             return true;
         } else {
@@ -98,7 +98,7 @@ public class e {
         return str.equals("__container");
     }
 
-    private boolean ja() {
+    private boolean iZ() {
         return this.Fl.get(this.Fl.size() - 1).equals("**");
     }
 

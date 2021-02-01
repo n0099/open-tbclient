@@ -2,10 +2,10 @@ package com.baidu.tieba.gift.myGiftList;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetMyGift.DataReq;
 import tbclient.GetMyGift.GetMyGiftReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetPersonalGiftListRequest extends NetMessage {
     private int pageNumber;
     private String type;
@@ -24,7 +24,7 @@ public class GetPersonalGiftListRequest extends NetMessage {
         builder.st_type = this.type;
         builder.account_type = Integer.valueOf(this.userType);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetMyGiftReqIdl.Builder builder2 = new GetMyGiftReqIdl.Builder();
         builder2.data = builder.build(false);

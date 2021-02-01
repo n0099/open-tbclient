@@ -10,42 +10,42 @@ import java.util.List;
 import kotlin.e;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private final f pOi;
-    private final d pPg;
+    private final f pYm;
+    private final d pZk;
 
     public a(f fVar) {
         p.o(fVar, "videoItem");
-        this.pOi = fVar;
-        this.pPg = new d();
+        this.pYm = fVar;
+        this.pZk = new d();
     }
 
-    public final f eAf() {
-        return this.pOi;
+    public final f eCw() {
+        return this.pYm;
     }
 
-    public final d eAB() {
-        return this.pPg;
+    public final d eCS() {
+        return this.pZk;
     }
 
     @e
     /* renamed from: com.opensource.svgaplayer.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public final class C1168a {
+    /* loaded from: classes6.dex */
+    public final class C1172a {
         private final String imageKey;
-        private final g pPh;
-        final /* synthetic */ a pPi;
+        private final g pZl;
+        final /* synthetic */ a pZm;
 
-        public C1168a(a aVar, String str, g gVar) {
+        public C1172a(a aVar, String str, g gVar) {
             p.o(gVar, "frameEntity");
-            this.pPi = aVar;
+            this.pZm = aVar;
             this.imageKey = str;
-            this.pPh = gVar;
+            this.pZl = gVar;
         }
 
-        public final g eAC() {
-            return this.pPh;
+        public final g eCT() {
+            return this.pZl;
         }
 
         public final String getImageKey() {
@@ -53,17 +53,17 @@ public class a {
         }
     }
 
-    public final List<C1168a> Qi(int i) {
-        C1168a c1168a;
+    public final List<C1172a> QD(int i) {
+        C1172a c1172a;
         ArrayList arrayList = new ArrayList();
-        for (com.opensource.svgaplayer.entities.f fVar : this.pOi.eAw()) {
-            if (i < 0 || i >= fVar.eAZ().size()) {
-                c1168a = null;
+        for (com.opensource.svgaplayer.entities.f fVar : this.pYm.eCN()) {
+            if (i < 0 || i >= fVar.eDq().size()) {
+                c1172a = null;
             } else {
-                c1168a = fVar.eAZ().get(i).eBa() <= 0.0d ? null : new C1168a(this, fVar.getImageKey(), fVar.eAZ().get(i));
+                c1172a = fVar.eDq().get(i).eDr() <= 0.0d ? null : new C1172a(this, fVar.getImageKey(), fVar.eDq().get(i));
             }
-            if (c1168a != null) {
-                arrayList.add(c1168a);
+            if (c1172a != null) {
+                arrayList.add(c1172a);
             }
         }
         return arrayList;
@@ -72,6 +72,6 @@ public class a {
     public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         p.o(canvas, "canvas");
         p.o(scaleType, "scaleType");
-        this.pPg.a(canvas.getWidth(), canvas.getHeight(), (float) this.pOi.eAu().getWidth(), (float) this.pOi.eAu().getHeight(), scaleType);
+        this.pZk.a(canvas.getWidth(), canvas.getHeight(), (float) this.pYm.eCL().getWidth(), (float) this.pYm.eCL().getHeight(), scaleType);
     }
 }

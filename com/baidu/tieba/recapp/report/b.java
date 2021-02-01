@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.report;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,44 +13,44 @@ import tbclient.Abstract;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private static b mNE;
-    private ConcurrentHashMap<String, List<JSONObject>> mNF = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<String, Integer> mNG = new ConcurrentHashMap<>();
+    private static b mWT;
+    private ConcurrentHashMap<String, List<JSONObject>> mWU = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, Integer> mWV = new ConcurrentHashMap<>();
 
     private b() {
     }
 
-    public static b dCd() {
-        if (mNE == null) {
+    public static b dEl() {
+        if (mWT == null) {
             synchronized (b.class) {
-                if (mNE == null) {
-                    mNE = new b();
+                if (mWT == null) {
+                    mWT = new b();
                 }
             }
         }
-        return mNE;
+        return mWT;
     }
 
     public void q(String str, List<JSONObject> list) {
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list);
-        this.mNF.put(str, arrayList);
+        this.mWU.put(str, arrayList);
     }
 
-    public String QM(String str) {
-        return fO(this.mNF.get(str));
+    public String RF(String str) {
+        return fM(this.mWU.get(str));
     }
 
-    public void QN(String str) {
-        this.mNF.put(str, new ArrayList());
+    public void RG(String str) {
+        this.mWU.put(str, new ArrayList());
     }
 
     public void bO(String str, int i) {
-        this.mNG.put(str, Integer.valueOf(i));
+        this.mWV.put(str, Integer.valueOf(i));
     }
 
-    public int QO(String str) {
-        Integer num = this.mNG.get(str);
+    public int RH(String str) {
+        Integer num = this.mWV.get(str);
         if (num == null) {
             return 0;
         }
@@ -114,9 +114,9 @@ public class b {
         return jSONObject;
     }
 
-    private String fO(List<JSONObject> list) {
+    private String fM(List<JSONObject> list) {
         try {
-            if (x.isEmpty(list)) {
+            if (y.isEmpty(list)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();

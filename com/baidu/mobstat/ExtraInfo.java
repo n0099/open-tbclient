@@ -5,14 +5,14 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidubce.AbstractBceClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class ExtraInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    String f3598a = "";
+    String f3601a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    String f3599b = "";
+    String f3602b = "";
     String c = "";
     String d = "";
     String e = "";
@@ -46,19 +46,19 @@ public class ExtraInfo {
     }
 
     public String getV1() {
-        return this.f3598a;
+        return this.f3601a;
     }
 
     public void setV1(String str) {
-        this.f3598a = a(str);
+        this.f3601a = a(str);
     }
 
     public String getV2() {
-        return this.f3599b;
+        return this.f3602b;
     }
 
     public void setV2(String str) {
-        this.f3599b = a(str);
+        this.f3602b = a(str);
     }
 
     public String getV3() {
@@ -128,11 +128,11 @@ public class ExtraInfo {
     public JSONObject dumpToJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (!TextUtils.isEmpty(this.f3598a)) {
-                jSONObject.put(AbstractBceClient.URL_PREFIX, this.f3598a);
+            if (!TextUtils.isEmpty(this.f3601a)) {
+                jSONObject.put(AbstractBceClient.URL_PREFIX, this.f3601a);
             }
-            if (!TextUtils.isEmpty(this.f3599b)) {
-                jSONObject.put("v2", this.f3599b);
+            if (!TextUtils.isEmpty(this.f3602b)) {
+                jSONObject.put("v2", this.f3602b);
             }
             if (!TextUtils.isEmpty(this.c)) {
                 jSONObject.put("v3", this.c);

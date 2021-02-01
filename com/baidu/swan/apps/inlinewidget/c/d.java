@@ -12,7 +12,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.v.f;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d extends aa {
     public d(j jVar) {
         super(jVar, "/swanAPI/setFullscreenOrientationSync");
@@ -42,23 +42,23 @@ public class d extends aa {
                 return false;
             }
             int optInt = optParamsAsJo.optInt("orientationType", DpStatConstants.MEDIA_ERROR_MEDIA_PLAYER);
-            com.baidu.swan.apps.adaptation.b.e mQ = f.azN().mQ(optParamsAsJo.optString("slaveId"));
-            if (!(mQ instanceof SwanAppWebViewManager)) {
+            com.baidu.swan.apps.adaptation.b.e ni = f.aAl().ni(optParamsAsJo.optString("slaveId"));
+            if (!(ni instanceof SwanAppWebViewManager)) {
                 com.baidu.swan.apps.console.c.e("setFullscreenOrientationSync", "no WebView with this slaveId");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            int hB = hB(optInt);
-            ((SwanAppWebViewManager) mQ).gz(hB);
+            int hE = hE(optInt);
+            ((SwanAppWebViewManager) ni).gC(hE);
             if (DEBUG) {
-                Log.d("setFullscreenOrientationSync", "orientation set to : " + hB);
+                Log.d("setFullscreenOrientationSync", "orientation set to : " + hE);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
             return true;
         }
     }
 
-    private int hB(int i) {
+    private int hE(int i) {
         switch (i) {
             case -90:
                 return 8;

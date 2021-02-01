@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -84,7 +85,7 @@ public class bj {
                             file2 = new File(file4.getAbsolutePath() + ".lock");
                             try {
                                 y.m616a(file2);
-                                randomAccessFile = new RandomAccessFile(file2, "rw");
+                                randomAccessFile = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                                 try {
                                     try {
                                         lock = randomAccessFile.getChannel().lock();

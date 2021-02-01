@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.a.a;
 
 import java.io.File;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class e extends b {
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.a.a.b
     public void a(a aVar, File file, List<String> list) {

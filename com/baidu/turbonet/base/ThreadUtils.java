@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThreadUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final Object sLock;
@@ -40,7 +40,7 @@ public class ThreadUtils {
         }
     }
 
-    public static void x(Runnable runnable) {
+    public static void v(Runnable runnable) {
         getUiThreadHandler().post(runnable);
     }
 

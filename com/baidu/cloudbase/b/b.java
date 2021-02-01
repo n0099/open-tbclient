@@ -8,31 +8,31 @@ import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static String anX;
-    public static String anY;
+    public static String anN;
+    public static String anO;
 
     public static String Y(Context context) {
         return z(context, AlaRecorderLog.Protocol.RTC);
     }
 
     public static String Z(Context context) {
-        if (TextUtils.isEmpty(anX)) {
-            uc();
+        if (TextUtils.isEmpty(anN)) {
+            tZ();
         }
-        return y(context, anX) + File.separator + "jniLibs" + File.separator + getCPUType();
+        return y(context, anN) + File.separator + "jniLibs" + File.separator + getCPUType();
     }
 
     public static void dn(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "armeabi-v7a";
         }
-        anY = str;
+        anO = str;
     }
 
     public static String getCPUType() {
-        return TextUtils.isEmpty(anY) ? "armeabi-v7a" : anY;
+        return TextUtils.isEmpty(anO) ? "armeabi-v7a" : anO;
     }
 
     public static String m(Context context, String str, String str2) {
@@ -70,13 +70,13 @@ public class b {
         return com.baidu.cloudbase.d.a.isExists(m + File.separator + "jniLibs" + File.separator + getCPUType() + File.separator + "libjingle_peerconnection_so.so");
     }
 
-    public static String uc() {
-        anX = "https://b.bdstatic.com/searchbox/androidvideo/" + ud();
-        return anX;
+    public static String tZ() {
+        anN = "https://b.bdstatic.com/searchbox/androidvideo/" + ua();
+        return anN;
     }
 
-    public static String ud() {
-        return getCPUType() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + AlaRecorderLog.Protocol.RTC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "5.4.14.zip";
+    public static String ua() {
+        return getCPUType() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + AlaRecorderLog.Protocol.RTC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "5.4.15.zip";
     }
 
     public static String y(Context context, String str) {

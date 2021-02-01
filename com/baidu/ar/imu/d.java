@@ -28,11 +28,11 @@ public class d extends j {
     }
 
     private void a(Quaternion quaternion) {
-        Quaternion m15clone = quaternion.m15clone();
-        m15clone.w(-m15clone.w());
+        Quaternion m16clone = quaternion.m16clone();
+        m16clone.w(-m16clone.w());
         synchronized (this.sy) {
             this.sB.copyVec4(quaternion);
-            SensorManager.getRotationMatrixFromVector(this.sA.matrix, m15clone.toArray());
+            SensorManager.getRotationMatrixFromVector(this.sA.matrix, m16clone.toArray());
             eQ();
             this.rB++;
             if (this.rB > 100) {

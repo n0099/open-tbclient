@@ -2,7 +2,7 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.mobstat.Config;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NewGetUserOrderRequestMessage extends HttpMessage {
     private int orderType;
     private int pn;

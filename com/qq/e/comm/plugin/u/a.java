@@ -5,20 +5,20 @@ import com.qq.e.comm.plugin.y.c;
 import com.qq.e.comm.plugin.y.d;
 import com.qq.e.comm.plugin.y.u;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class a implements com.qq.e.comm.plugin.j.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f12542a = new c();
+    private c f12544a = new c();
 
     /* renamed from: b  reason: collision with root package name */
-    private d f12543b = new d();
+    private d f12545b = new d();
 
     public a(com.qq.e.comm.plugin.aa.a.b bVar, String str) {
-        this.f12542a.a(str);
+        this.f12544a.a(str);
         if (bVar != null) {
-            this.f12543b.a(DownloadDataConstants.Columns.COLUMN_URI, bVar.c());
-            this.f12543b.a("dir", bVar.a() == null ? null : bVar.a().getAbsolutePath());
+            this.f12545b.a(DownloadDataConstants.Columns.COLUMN_URI, bVar.c());
+            this.f12545b.a("dir", bVar.a() == null ? null : bVar.a().getAbsolutePath());
         }
     }
 
@@ -36,7 +36,7 @@ class a implements com.qq.e.comm.plugin.j.a {
 
     @Override // com.qq.e.comm.plugin.j.a
     public void a(com.qq.e.comm.plugin.j.c cVar) {
-        u.a(100152, 0, this.f12542a, this.f12543b);
+        u.a(100152, 0, this.f12544a, this.f12545b);
     }
 
     @Override // com.qq.e.comm.plugin.j.a
@@ -49,6 +49,6 @@ class a implements com.qq.e.comm.plugin.j.a {
 
     @Override // com.qq.e.comm.plugin.j.a
     public void c() {
-        u.a(100142, 0, this.f12542a, this.f12543b);
+        u.a(100142, 0, this.f12544a, this.f12545b);
     }
 }

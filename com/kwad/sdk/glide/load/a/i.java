@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import androidx.annotation.NonNull;
 import java.io.FileNotFoundException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i extends l<ParcelFileDescriptor> {
     public i(ContentResolver contentResolver, Uri uri) {
         super(contentResolver, uri);

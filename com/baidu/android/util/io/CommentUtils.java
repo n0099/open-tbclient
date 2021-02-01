@@ -2,6 +2,7 @@ package com.baidu.android.util.io;
 
 import android.os.Build;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -143,7 +144,7 @@ public class CommentUtils {
                     byteArrayOutputStream.write(bytes);
                     byteArrayOutputStream.write(short2Stream((short) bytes.length));
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    randomAccessFile = new RandomAccessFile(file, "rw");
+                    randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                     try {
                         try {
                             randomAccessFile.seek(file.length() - 2);

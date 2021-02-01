@@ -3,7 +3,7 @@ package com.baidu.android.imrtc.notify;
 import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
     private static final String TAG = "BIMKickResSyncRtcInfo";
     private int mKickedStatus = 0;

@@ -1,9 +1,9 @@
 package com.baidu.live.message;
 
 import android.text.TextUtils;
-import com.baidu.live.data.aa;
+import com.baidu.live.data.ae;
 import com.baidu.live.data.i;
-import com.baidu.live.data.k;
+import com.baidu.live.data.l;
 import com.baidu.live.gift.ac;
 import com.baidu.live.gift.aj;
 import com.baidu.live.gift.h;
@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.atomData.MangaCategoryActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<i> aXP;
-    private ArrayList<k> aXQ;
-    private ArrayList<h> bcZ;
-    private aa brt;
+    private ArrayList<i> baW;
+    private ArrayList<l> baX;
+    private ArrayList<h> bgi;
+    private ae buW;
     private String scene_from;
 
     public AlaSdkGetGiftListHttpResponseMessage() {
@@ -37,32 +37,32 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
         if (optJSONObject != null) {
             long optLong = optJSONObject.optLong("sleep_time_span");
             if (!z) {
-                com.baidu.live.d xf = com.baidu.live.d.xf();
-                xf.putLong("ala_sdk_get_gift_list_req_time", (optLong * 1000) + System.currentTimeMillis());
+                com.baidu.live.d xc = com.baidu.live.d.xc();
+                xc.putLong("ala_sdk_get_gift_list_req_time", (optLong * 1000) + System.currentTimeMillis());
             }
             this.scene_from = optJSONObject.optString("scene_from");
             if (n(optJSONObject.optJSONArray("list"))) {
                 k(optJSONObject.optJSONArray("num_info"));
                 aA(this.scene_from, jSONObject.toString());
-                U(optJSONObject.optJSONObject("contact_conf"));
+                W(optJSONObject.optJSONObject("contact_conf"));
             }
         }
     }
 
-    private void U(JSONObject jSONObject) {
+    private void W(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.brt = new aa();
-            this.brt.iconUrl = jSONObject.optString("button_url");
-            this.brt.aGW = jSONObject.optString("dialog_content");
-            this.brt.dialogTitle = jSONObject.optString("dialog_title");
-            this.brt.aGX = jSONObject.optString("dialog_content_copy");
+            this.buW = new ae();
+            this.buW.iconUrl = jSONObject.optString("button_url");
+            this.buW.aJA = jSONObject.optString("dialog_content");
+            this.buW.dialogTitle = jSONObject.optString("dialog_title");
+            this.buW.aJB = jSONObject.optString("dialog_content_copy");
         }
     }
 
     private boolean n(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.bcZ = new ArrayList<>();
-            this.aXP = new ArrayList<>();
+            this.bgi = new ArrayList<>();
+            this.baW = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -78,8 +78,8 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     iVar.setCategoryId(optInt);
                     iVar.setCategoryName(optString);
                     iVar.f(arrayList);
-                    iVar.bq(z);
-                    this.aXP.add(iVar);
+                    iVar.bs(z);
+                    this.baW.add(iVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -98,23 +98,23 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     hVar.setCategoryId(optInt);
                     hVar.setCategoryName(optString);
                     hVar.G(arrayList2);
-                    hVar.bq(z);
-                    this.bcZ.add(hVar);
+                    hVar.bs(z);
+                    this.bgi.add(hVar);
                 }
             }
         }
-        return (this.bcZ == null || this.bcZ.isEmpty()) ? false : true;
+        return (this.bgi == null || this.bgi.isEmpty()) ? false : true;
     }
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aXQ = new ArrayList<>();
+            this.baX = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    k kVar = new k();
-                    kVar.parser(optJSONObject);
-                    this.aXQ.add(kVar);
+                    l lVar = new l();
+                    lVar.parser(optJSONObject);
+                    this.baX.add(lVar);
                 }
             }
         }
@@ -123,34 +123,34 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
     private void aA(String str, String str2) {
         if (str2 != null) {
             if (!TextUtils.isEmpty(str) && str.contains("audio")) {
-                aj.fR(str2);
+                aj.gn(str2);
             } else {
-                ac.fR(str2);
+                ac.gn(str2);
             }
         }
     }
 
-    public ArrayList<h> Gm() {
-        return this.bcZ;
+    public ArrayList<h> HC() {
+        return this.bgi;
     }
 
     public ArrayList<i> getCategoryList() {
-        return this.aXP;
+        return this.baW;
     }
 
-    public ArrayList<k> Gn() {
-        return this.aXQ;
+    public ArrayList<l> HD() {
+        return this.baX;
     }
 
     public String getSceneFrom() {
         return this.scene_from;
     }
 
-    public String Go() {
-        return getOrginalMessage() instanceof f ? ((f) getOrginalMessage()).Go() : "";
+    public String HE() {
+        return getOrginalMessage() instanceof f ? ((f) getOrginalMessage()).HE() : "";
     }
 
-    public aa MT() {
-        return this.brt;
+    public ae Or() {
+        return this.buW;
     }
 }

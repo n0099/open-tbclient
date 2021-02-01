@@ -9,46 +9,46 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicInteger f6043a;
+    private final AtomicInteger f6045a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Set<Request<?>> f6044b;
+    private final Set<Request<?>> f6046b;
     private final PriorityBlockingQueue<Request<?>> c;
     private final PriorityBlockingQueue<Request<?>> d;
     private final List<b> j;
     private final List<a> k;
-    private final com.bytedance.sdk.adnet.e.b pkU;
-    private final com.bytedance.sdk.adnet.e.c pkV;
-    private final com.bytedance.sdk.adnet.e.d pkW;
-    private final k[] pkX;
-    private f pkY;
+    private final com.bytedance.sdk.adnet.e.b pvj;
+    private final com.bytedance.sdk.adnet.e.c pvk;
+    private final com.bytedance.sdk.adnet.e.d pvl;
+    private final k[] pvm;
+    private f pvn;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Request<?> request, int i);
     }
 
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b<T> {
         void b(Request<T> request);
     }
 
     public o(com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.c cVar, int i, com.bytedance.sdk.adnet.e.d dVar) {
-        this.f6043a = new AtomicInteger();
-        this.f6044b = new HashSet();
+        this.f6045a = new AtomicInteger();
+        this.f6046b = new HashSet();
         this.c = new PriorityBlockingQueue<>();
         this.d = new PriorityBlockingQueue<>();
         this.j = new ArrayList();
         this.k = new ArrayList();
-        this.pkU = bVar;
-        this.pkV = cVar;
-        this.pkX = new k[i];
-        this.pkW = dVar;
+        this.pvj = bVar;
+        this.pvk = cVar;
+        this.pvm = new k[i];
+        this.pvl = dVar;
     }
 
     public o(com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.c cVar, int i) {
@@ -61,21 +61,21 @@ public class o {
 
     public void a() {
         b();
-        this.pkY = new f(this.c, this.d, this.pkU, this.pkW);
-        this.pkY.start();
-        for (int i = 0; i < this.pkX.length; i++) {
-            k kVar = new k(this.d, this.pkV, this.pkU, this.pkW);
-            this.pkX[i] = kVar;
+        this.pvn = new f(this.c, this.d, this.pvj, this.pvl);
+        this.pvn.start();
+        for (int i = 0; i < this.pvm.length; i++) {
+            k kVar = new k(this.d, this.pvk, this.pvj, this.pvl);
+            this.pvm[i] = kVar;
             kVar.start();
         }
     }
 
     public void b() {
         k[] kVarArr;
-        if (this.pkY != null) {
-            this.pkY.a();
+        if (this.pvn != null) {
+            this.pvn.a();
         }
-        for (k kVar : this.pkX) {
+        for (k kVar : this.pvm) {
             if (kVar != null) {
                 kVar.a();
             }
@@ -83,15 +83,15 @@ public class o {
     }
 
     public int c() {
-        return this.f6043a.incrementAndGet();
+        return this.f6045a.incrementAndGet();
     }
 
     public <T> Request<T> j(Request<T> request) {
         g(request);
         request.setStartTime();
         request.setRequestQueue(this);
-        synchronized (this.f6044b) {
-            this.f6044b.add(request);
+        synchronized (this.f6046b) {
+            this.f6046b.add(request);
         }
         request.setSequence(c());
         request.addMarker("add-to-queue");
@@ -107,8 +107,8 @@ public class o {
     public <T> void g(Request<T> request) {
         if (request != null && !TextUtils.isEmpty(request.getUrl())) {
             String url = request.getUrl();
-            if (com.bytedance.sdk.adnet.a.eol() != null) {
-                String a2 = com.bytedance.sdk.adnet.a.eol().a(url);
+            if (com.bytedance.sdk.adnet.a.eqD() != null) {
+                String a2 = com.bytedance.sdk.adnet.a.eqD().a(url);
                 if (!TextUtils.isEmpty(a2)) {
                     request.setUrl(a2);
                 }
@@ -118,8 +118,8 @@ public class o {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public <T> void k(Request<T> request) {
-        synchronized (this.f6044b) {
-            this.f6044b.remove(request);
+        synchronized (this.f6046b) {
+            this.f6046b.remove(request);
         }
         synchronized (this.j) {
             for (b bVar : this.j) {

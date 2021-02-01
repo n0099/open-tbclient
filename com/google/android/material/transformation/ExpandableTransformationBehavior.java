@@ -9,7 +9,7 @@ import android.view.View;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public abstract class ExpandableTransformationBehavior extends ExpandableBehavior {
     @Nullable
     private AnimatorSet currentAnimation;

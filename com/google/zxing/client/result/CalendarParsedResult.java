@@ -11,7 +11,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class CalendarParsedResult extends ParsedResult {
     private final String[] attendees;
     private final String description;

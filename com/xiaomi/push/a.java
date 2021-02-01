@@ -3,7 +3,7 @@ package com.xiaomi.push;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f13846a = new a(new byte[0]);
+    public static final a f13848a = new a(new byte[0]);
 
     /* renamed from: a  reason: collision with other field name */
     private volatile int f168a = 0;

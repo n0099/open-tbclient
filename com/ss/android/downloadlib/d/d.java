@@ -7,11 +7,11 @@ import com.ss.android.a.a.d.c;
 import com.ss.android.downloadlib.f.h;
 import com.ss.android.socialbase.appdownloader.c.j;
 import com.ss.android.socialbase.appdownloader.c.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d extends com.ss.android.socialbase.appdownloader.c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f12979a = d.class.getSimpleName();
+    private static String f12981a = d.class.getSimpleName();
 
     @Override // com.ss.android.socialbase.appdownloader.c.a, com.ss.android.socialbase.appdownloader.c.c
     public boolean a() {
@@ -19,110 +19,110 @@ public class d extends com.ss.android.socialbase.appdownloader.c.a {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.a, com.ss.android.socialbase.appdownloader.c.c
-    public k iw(final Context context) {
+    public k iz(final Context context) {
         return new k() { // from class: com.ss.android.downloadlib.d.d.1
-            private c.a pSn;
-            private DialogInterface.OnClickListener pSo;
-            private DialogInterface.OnClickListener pSp;
-            private DialogInterface.OnCancelListener pSq;
+            private c.a qcr;
+            private DialogInterface.OnClickListener qcs;
+            private DialogInterface.OnClickListener qct;
+            private DialogInterface.OnCancelListener qcu;
 
             {
-                this.pSn = new c.a(context);
+                this.qcr = new c.a(context);
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.k
-            public k QA(int i) {
-                this.pSn.Ze(context.getResources().getString(i));
+            public k QV(int i) {
+                this.qcr.aaf(context.getResources().getString(i));
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.k
-            public k ZI(String str) {
-                this.pSn.Zf(str);
+            public k aaJ(String str) {
+                this.qcr.aag(str);
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.k
             public k h(int i, DialogInterface.OnClickListener onClickListener) {
-                this.pSn.Zg(context.getResources().getString(i));
-                this.pSo = onClickListener;
+                this.qcr.aah(context.getResources().getString(i));
+                this.qcs = onClickListener;
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.k
             public k i(int i, DialogInterface.OnClickListener onClickListener) {
-                this.pSn.Zh(context.getResources().getString(i));
-                this.pSp = onClickListener;
+                this.qcr.aai(context.getResources().getString(i));
+                this.qct = onClickListener;
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.k
             public k h(DialogInterface.OnCancelListener onCancelListener) {
-                this.pSq = onCancelListener;
+                this.qcu = onCancelListener;
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.k
-            public k BE(boolean z) {
-                this.pSn.Bp(z);
+            public k BY(boolean z) {
+                this.qcr.BJ(z);
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.k
-            public j eCH() {
-                this.pSn.a(new c.b() { // from class: com.ss.android.downloadlib.d.d.1.1
+            public j eEY() {
+                this.qcr.a(new c.b() { // from class: com.ss.android.downloadlib.d.d.1.1
                     @Override // com.ss.android.a.a.d.c.b
                     public void a(DialogInterface dialogInterface) {
-                        if (AnonymousClass1.this.pSo != null) {
-                            AnonymousClass1.this.pSo.onClick(dialogInterface, -1);
+                        if (AnonymousClass1.this.qcs != null) {
+                            AnonymousClass1.this.qcs.onClick(dialogInterface, -1);
                         }
                     }
 
                     @Override // com.ss.android.a.a.d.c.b
                     public void b(DialogInterface dialogInterface) {
-                        if (AnonymousClass1.this.pSp != null) {
-                            AnonymousClass1.this.pSp.onClick(dialogInterface, -2);
+                        if (AnonymousClass1.this.qct != null) {
+                            AnonymousClass1.this.qct.onClick(dialogInterface, -2);
                         }
                     }
 
                     @Override // com.ss.android.a.a.d.c.b
                     public void c(DialogInterface dialogInterface) {
-                        if (AnonymousClass1.this.pSq != null && dialogInterface != null) {
-                            AnonymousClass1.this.pSq.onCancel(dialogInterface);
+                        if (AnonymousClass1.this.qcu != null && dialogInterface != null) {
+                            AnonymousClass1.this.qcu.onCancel(dialogInterface);
                         }
                     }
                 });
-                h.i(d.f12979a, "getThemedAlertDlgBuilder", null);
-                this.pSn.Qq(3);
-                return new a(com.ss.android.downloadlib.a.j.eCo().b(this.pSn.eBL()));
+                h.i(d.f12981a, "getThemedAlertDlgBuilder", null);
+                this.qcr.QL(3);
+                return new a(com.ss.android.downloadlib.a.j.eEF().b(this.qcr.eEc()));
             }
         };
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class a implements j {
 
         /* renamed from: a  reason: collision with root package name */
-        private Dialog f12981a;
+        private Dialog f12983a;
 
         public a(Dialog dialog) {
             if (dialog != null) {
-                this.f12981a = dialog;
+                this.f12983a = dialog;
                 a();
             }
         }
 
         @Override // com.ss.android.socialbase.appdownloader.c.j
         public void a() {
-            if (this.f12981a != null) {
-                this.f12981a.show();
+            if (this.f12983a != null) {
+                this.f12983a.show();
             }
         }
 
         @Override // com.ss.android.socialbase.appdownloader.c.j
         public boolean b() {
-            if (this.f12981a != null) {
-                return this.f12981a.isShowing();
+            if (this.f12983a != null) {
+                return this.f12983a.isShowing();
             }
             return false;
         }

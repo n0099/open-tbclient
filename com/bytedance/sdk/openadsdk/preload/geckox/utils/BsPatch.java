@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BsPatch {
     private static native int patch(String str, String str2, String str3) throws Exception;
 

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.event.EventTarget;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e extends a {
     public e(@NonNull String str, @NonNull com.baidu.swan.games.f.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
         super(str, bVar, v8ThreadDelegatePolicy);
@@ -13,10 +13,10 @@ public class e extends a {
                 @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
                 public V8Engine onCreateWorker() {
                     f fVar = new f(e.this.getInitBasePath());
-                    fVar.aVJ();
+                    fVar.aVV();
                     fVar.a(new com.baidu.swan.games.f.a.b(fVar));
                     fVar.a(new com.baidu.swan.games.f.a.c(fVar));
-                    return fVar.aVM();
+                    return fVar.aVY();
                 }
             });
         }
@@ -24,12 +24,12 @@ public class e extends a {
 
     @Override // com.baidu.swan.games.f.a
     @NonNull
-    public EventTarget aVG() {
+    public EventTarget aVS() {
         return new com.baidu.swan.games.binding.c(this);
     }
 
     @Override // com.baidu.swan.games.f.a
-    public EventTarget aVH() {
+    public EventTarget aVT() {
         return new com.baidu.swan.games.binding.a.a(this);
     }
 

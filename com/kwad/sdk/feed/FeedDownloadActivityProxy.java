@@ -22,12 +22,12 @@ import com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertic
 import java.io.Serializable;
 @KsAdSdkDynamicImpl(FeedDownloadActivity.class)
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.OnClickListener {
     private static final boolean DEBUG = false;
     public static final String KEY_AD_DATA = "key_template";
     private static final String TAG = "FeedDownloadActivity";
-    private static a.InterfaceC1114a mAdClickListener;
+    private static a.InterfaceC1118a mAdClickListener;
     private KsAdContainer mAdContainer;
     private AdInfo mAdInfo;
     private AdTemplate mAdTemplate;
@@ -99,12 +99,12 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.
         bindDownloadListener();
     }
 
-    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC1114a interfaceC1114a) {
+    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC1118a interfaceC1118a) {
         KsAdSDKImpl.putComponentProxy(FeedDownloadActivity.class, FeedDownloadActivityProxy.class);
         Intent intent = new Intent(context, FeedDownloadActivity.class);
         intent.setFlags(268435456);
         intent.putExtra("key_template", adTemplate);
-        mAdClickListener = interfaceC1114a;
+        mAdClickListener = interfaceC1118a;
         context.startActivity(intent);
     }
 
@@ -126,8 +126,8 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.kwad.sdk.core.download.b.b.a(this.mApkDownloadHelper, view == this.mProgressBarTv);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.mAdTemplate, new a.InterfaceC1088a() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.mAdTemplate, new a.InterfaceC1092a() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
             public void a() {
                 FeedDownloadActivityProxy.this.notifyAdClick();
             }

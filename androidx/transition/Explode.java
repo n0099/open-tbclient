@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import androidx.annotation.NonNull;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class Explode extends Visibility {
     private static final String PROPNAME_SCREEN_BOUNDS = "android:explode:screenBounds";
     private int[] mTempLoc;

@@ -7,8 +7,8 @@ import com.baidu.live.pendantview.PendantChildView;
 import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.sdk.a;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes10.dex */
-public class AlaActiveRootView extends PendantChildView implements com.baidu.live.j.b {
+/* loaded from: classes11.dex */
+public class AlaActiveRootView extends PendantChildView implements com.baidu.live.i.b {
     private final int pos;
 
     public AlaActiveRootView(int i, Context context) {
@@ -30,8 +30,8 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
             int i2 = i;
             if (i2 < getChildCount()) {
                 View childAt = getChildAt(i2);
-                if (childAt instanceof d) {
-                    ((d) childAt).onStart();
+                if (childAt instanceof e) {
+                    ((e) childAt).onStart();
                 }
                 i = i2 + 1;
             } else {
@@ -46,8 +46,8 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
             int i2 = i;
             if (i2 < getChildCount()) {
                 View childAt = getChildAt(i2);
-                if (childAt instanceof d) {
-                    ((d) childAt).onStop();
+                if (childAt instanceof e) {
+                    ((e) childAt).onStop();
                 }
                 i = i2 + 1;
             } else {
@@ -62,8 +62,8 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
             int i2 = i;
             if (i2 < getChildCount()) {
                 View childAt = getChildAt(i2);
-                if (childAt instanceof d) {
-                    ((d) childAt).release();
+                if (childAt instanceof e) {
+                    ((e) childAt).release();
                 }
                 i = i2 + 1;
             } else {
@@ -82,11 +82,11 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
         setMinimumWidth(getResources().getDimensionPixelOffset(a.d.sdk_ds104));
     }
 
-    @Override // com.baidu.live.j.b
+    @Override // com.baidu.live.i.b
     public void setViewTouchable(boolean z) {
     }
 
-    @Override // com.baidu.live.j.b
+    @Override // com.baidu.live.i.b
     public View getOverlayView() {
         return this;
     }

@@ -24,23 +24,22 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView;
-import io.flutter.plugin.platform.PlatformPlugin;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends Dialog implements View.OnClickListener {
-    private a bbo;
-    private View bbp;
-    private View bbq;
-    private TBLottieAnimationView bbr;
-    private TBLottieAnimationView bbs;
-    private TbImageView bbt;
-    private TextView bbu;
-    private ImageView bbv;
-    private AnimatorSet bbw;
+    private TbImageView beA;
+    private TextView beB;
+    private ImageView beC;
+    private AnimatorSet beD;
+    private a bev;
+    private View bew;
+    private View bex;
+    private TBLottieAnimationView bey;
+    private TBLottieAnimationView bez;
     private String mId;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void gi(String str);
+        void gG(String str);
 
         void onClose();
     }
@@ -51,75 +50,75 @@ public class b extends Dialog implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.bbo = aVar;
+        this.bev = aVar;
     }
 
     public void o(String str, String str2, String str3) {
         this.mId = str;
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
             if (getWindow() != null) {
-                getWindow().addFlags(PlatformPlugin.DEFAULT_SYSTEM_UI);
+                getWindow().addFlags(1280);
             }
-            ViewGroup.LayoutParams layoutParams = this.bbp.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.bew.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = 0;
-                this.bbp.setLayoutParams(layoutParams);
+                this.bew.setLayoutParams(layoutParams);
             }
         }
         show();
         if (!TextUtils.isEmpty(str2)) {
-            this.bbt.startLoad(str2, 10, false, false);
+            this.beA.startLoad(str2, 10, false, false);
         }
         if (!TextUtils.isEmpty(str3)) {
-            this.bbu.setText(str3);
+            this.beB.setText(str3);
         }
-        if (this.bbr != null) {
-            this.bbr.playAnimation();
+        if (this.bey != null) {
+            this.bey.playAnimation();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FO() {
-        if (this.bbt != null) {
-            this.bbw = new AnimatorSet();
-            this.bbw.setDuration(400L);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.bbt, "scaleX", 0.0f, 1.2f, 1.0f);
+    public void He() {
+        if (this.beA != null) {
+            this.beD = new AnimatorSet();
+            this.beD.setDuration(400L);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.beA, "scaleX", 0.0f, 1.2f, 1.0f);
             ofFloat.setInterpolator(new LinearInterpolator());
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.bbt, "scaleY", 0.0f, 1.2f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.beA, "scaleY", 0.0f, 1.2f, 1.0f);
             ofFloat2.setInterpolator(new LinearInterpolator());
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.bbq, "alpha", 0.6f, 1.0f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.bex, "alpha", 0.6f, 1.0f);
             ofFloat3.setDuration(400L);
             ofFloat3.setInterpolator(new LinearInterpolator());
             ofFloat3.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.gift.b.b.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
-                    b.this.bbq.setVisibility(0);
+                    b.this.bex.setVisibility(0);
                 }
             });
-            this.bbw.play(ofFloat).with(ofFloat2).before(ofFloat3);
-            this.bbw.start();
+            this.beD.play(ofFloat).with(ofFloat2).before(ofFloat3);
+            this.beD.start();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bbo != null) {
-            if (view == this.bbu) {
-                this.bbo.gi(this.mId);
-            } else if (view == this.bbv) {
-                this.bbo.onClose();
+        if (this.bev != null) {
+            if (view == this.beB) {
+                this.bev.gG(this.mId);
+            } else if (view == this.beC) {
+                this.bev.onClose();
             }
         }
     }
 
     private void init() {
-        FP();
+        Hf();
         initView();
         initListener();
     }
 
-    private void FP() {
+    private void Hf() {
         setCancelable(true);
         setCanceledOnTouchOutside(false);
         Window window = getWindow();
@@ -137,60 +136,60 @@ public class b extends Dialog implements View.OnClickListener {
 
     private void initView() {
         setContentView(a.g.live_gift_fragment_composite_dialog);
-        EO();
-        FQ();
-        FR();
-        FS();
-        FT();
+        Ge();
+        Hg();
+        Hh();
+        Hi();
+        Hj();
     }
 
-    private void EO() {
-        this.bbp = findViewById(a.f.layout_dynamic);
-        this.bbr = (TBLottieAnimationView) findViewById(a.f.lottie_once);
-        this.bbs = (TBLottieAnimationView) findViewById(a.f.lottie_loop);
-        this.bbt = (TbImageView) findViewById(a.f.iv_thumb);
-        this.bbq = findViewById(a.f.layout_action);
-        this.bbu = (TextView) findViewById(a.f.tv_nav);
-        this.bbv = (ImageView) findViewById(a.f.iv_close);
+    private void Ge() {
+        this.bew = findViewById(a.f.layout_dynamic);
+        this.bey = (TBLottieAnimationView) findViewById(a.f.lottie_once);
+        this.bez = (TBLottieAnimationView) findViewById(a.f.lottie_loop);
+        this.beA = (TbImageView) findViewById(a.f.iv_thumb);
+        this.bex = findViewById(a.f.layout_action);
+        this.beB = (TextView) findViewById(a.f.tv_nav);
+        this.beC = (ImageView) findViewById(a.f.iv_close);
     }
 
-    private void FQ() {
-        this.bbr.setRepeatCount(0);
-        this.bbr.setImageAssetsFolder("images/");
-        this.bbr.setAnimation("live_gift_fragment_composite_once.json");
-        this.bbr.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.gift.b.b.2
+    private void Hg() {
+        this.bey.setRepeatCount(0);
+        this.bey.setImageAssetsFolder("images/");
+        this.bey.setAnimation("live_gift_fragment_composite_once.json");
+        this.bey.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.gift.b.b.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (((float) valueAnimator.getDuration()) >= 0.4f && b.this.bbw == null) {
-                    b.this.FO();
+                if (((float) valueAnimator.getDuration()) >= 0.4f && b.this.beD == null) {
+                    b.this.He();
                 }
             }
         });
-        this.bbr.addAnimatorListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.gift.b.b.3
+        this.bey.addAnimatorListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.gift.b.b.3
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                if (b.this.bbr != null) {
-                    b.this.bbr.setVisibility(8);
+                if (b.this.bey != null) {
+                    b.this.bey.setVisibility(8);
                 }
-                if (b.this.bbs != null) {
-                    b.this.bbs.playAnimation();
+                if (b.this.bez != null) {
+                    b.this.bez.playAnimation();
                 }
             }
         });
-        this.bbs.setRepeatCount(-1);
-        this.bbs.setImageAssetsFolder("images/");
-        this.bbs.setAnimation("live_gift_fragment_composite_loop.json");
+        this.bez.setRepeatCount(-1);
+        this.bez.setImageAssetsFolder("images/");
+        this.bez.setAnimation("live_gift_fragment_composite_loop.json");
     }
 
-    private void FR() {
-        this.bbt.setScaleX(0.0f);
-        this.bbt.setScaleY(0.0f);
-        this.bbt.setDefaultBgResource(a.c.sdk_transparent);
-        this.bbt.setDefaultErrorResource(a.e.sdk_shape_transparent);
+    private void Hh() {
+        this.beA.setScaleX(0.0f);
+        this.beA.setScaleY(0.0f);
+        this.beA.setDefaultBgResource(a.c.sdk_transparent);
+        this.beA.setDefaultErrorResource(a.e.sdk_shape_transparent);
     }
 
-    private void FS() {
+    private void Hi() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
@@ -199,26 +198,26 @@ public class b extends Dialog implements View.OnClickListener {
             gradientDrawable.setColor(-57754);
         }
         gradientDrawable.setCornerRadius(getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds36));
-        this.bbu.setBackgroundDrawable(gradientDrawable);
-        this.bbu.setOnClickListener(this);
+        this.beB.setBackgroundDrawable(gradientDrawable);
+        this.beB.setOnClickListener(this);
     }
 
-    private void FT() {
-        this.bbv.setOnClickListener(this);
+    private void Hj() {
+        this.beC.setOnClickListener(this);
     }
 
     private void initListener() {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.live.gift.b.b.4
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (b.this.bbw != null) {
-                    b.this.bbw.cancel();
+                if (b.this.beD != null) {
+                    b.this.beD.cancel();
                 }
-                if (b.this.bbr != null) {
-                    b.this.bbr.cancelAnimation();
+                if (b.this.bey != null) {
+                    b.this.bey.cancelAnimation();
                 }
-                if (b.this.bbs != null) {
-                    b.this.bbs.cancelAnimation();
+                if (b.this.bez != null) {
+                    b.this.bez.cancelAnimation();
                 }
             }
         });

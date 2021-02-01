@@ -1,6 +1,5 @@
 package com.baidu.ar.arplay.core.engine;
 
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +16,7 @@ public class ARPContent {
     private int mPreviewWidth = 0;
     private int mPreviewHeight = 0;
     private int mWindowWidth = 720;
-    private int mWindowHeight = PlatformPlugin.DEFAULT_SYSTEM_UI;
+    private int mWindowHeight = 1280;
     private List<a> mCaseLoadListenerList = new ArrayList();
 
     /* loaded from: classes6.dex */

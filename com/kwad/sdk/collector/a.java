@@ -5,18 +5,18 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.network.i;
 import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.utils.AppStatusHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: com.kwad.sdk.collector.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1068a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1072a {
         void a(int i, String str);
 
         void a(AppStatusRules appStatusRules);
     }
 
-    public static void a(final Context context, final InterfaceC1068a interfaceC1068a) {
+    public static void a(final Context context, final InterfaceC1072a interfaceC1072a) {
         if (context == null) {
             return;
         }
@@ -49,16 +49,16 @@ public class a {
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.collector.a.a aVar, int i, String str) {
                 super.a((AnonymousClass2) aVar, i, str);
-                if (InterfaceC1068a.this != null) {
-                    InterfaceC1068a.this.a(i, str);
+                if (InterfaceC1072a.this != null) {
+                    InterfaceC1072a.this.a(i, str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.collector.a.a aVar, @NonNull AppStatusRules appStatusRules) {
-                if (InterfaceC1068a.this != null) {
-                    InterfaceC1068a.this.a(appStatusRules);
+                if (InterfaceC1072a.this != null) {
+                    InterfaceC1072a.this.a(appStatusRules);
                 }
             }
         });

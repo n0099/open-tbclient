@@ -1,22 +1,22 @@
 package com.baidu.swan.pms.node.b;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
-    static final a etp = new a(200, 720, 10, 168);
-    public final int etl;
-    public final int etm;
-    public final int etn;
-    public final int eto;
+    static final a evv = new a(200, 720, 10, 168);
+    public final int evr;
+    public final int evs;
+    public final int evt;
+    public final int evu;
 
     public a(int i, int i2, int i3, int i4) {
-        this.etl = i;
-        this.etm = i2;
-        this.etn = i3;
-        this.eto = i4;
+        this.evr = i;
+        this.evs = i2;
+        this.evt = i3;
+        this.evu = i4;
     }
 
-    public static a cV(JSONObject jSONObject) {
+    public static a cS(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

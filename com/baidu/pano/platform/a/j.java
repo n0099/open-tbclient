@@ -6,21 +6,21 @@ import android.os.Build;
 import android.os.Process;
 import android.os.SystemClock;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class j extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private final BlockingQueue<n<?>> f3878a;
+    private final BlockingQueue<n<?>> f3881a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final i f3879b;
+    private final i f3882b;
     private final b c;
     private final r d;
     private volatile boolean e = false;
 
     public j(BlockingQueue<n<?>> blockingQueue, i iVar, b bVar, r rVar) {
-        this.f3878a = blockingQueue;
-        this.f3879b = iVar;
+        this.f3881a = blockingQueue;
+        this.f3882b = iVar;
         this.c = bVar;
         this.d = rVar;
     }
@@ -43,22 +43,22 @@ public class j extends Thread {
         while (true) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             try {
-                n<?> take = this.f3878a.take();
+                n<?> take = this.f3881a.take();
                 try {
                     take.a("network-queue-take");
                     if (take.h()) {
                         take.b("network-discard-cancelled");
                     } else {
                         a(take);
-                        l a2 = this.f3879b.a(take);
+                        l a2 = this.f3882b.a(take);
                         take.a("network-http-complete");
                         if (a2.d && take.w()) {
                             take.b("not-modified");
                         } else {
                             q<?> a3 = take.a(a2);
                             take.a("network-parse-complete");
-                            if (take.r() && a3.f3891b != null) {
-                                this.c.a(take.e(), a3.f3891b);
+                            if (take.r() && a3.f3894b != null) {
+                                this.c.a(take.e(), a3.f3894b);
                                 take.a("network-cache-written");
                             }
                             take.v();

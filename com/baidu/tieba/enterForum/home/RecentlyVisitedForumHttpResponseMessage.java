@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.home;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.squareup.wire.Wire;
 import java.util.HashMap;
@@ -34,7 +34,7 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
             if (getError() == 0 && getHistoryForumResIdl.data != null && getHistoryForumResIdl.data.history_forum != null) {
                 this.mForumData = new LinkedList<>();
                 HashMap hashMap = new HashMap();
-                if (!x.isEmpty(getHistoryForumResIdl.data.this_week_forums)) {
+                if (!y.isEmpty(getHistoryForumResIdl.data.this_week_forums)) {
                     for (HistoryForumInfo historyForumInfo : getHistoryForumResIdl.data.this_week_forums) {
                         if (historyForumInfo != null && historyForumInfo.forum_id != null) {
                             hashMap.put(historyForumInfo.forum_id, historyForumInfo);
@@ -45,7 +45,7 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
                     if (historyForumInfo2 != null && historyForumInfo2.forum_id != null) {
                         VisitedForumData visitedForumData = new VisitedForumData();
                         visitedForumData.a(historyForumInfo2);
-                        visitedForumData.kD(hashMap.containsKey(historyForumInfo2.forum_id));
+                        visitedForumData.kG(hashMap.containsKey(historyForumInfo2.forum_id));
                         this.mForumData.add(visitedForumData);
                     }
                 }

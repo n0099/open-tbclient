@@ -1,16 +1,16 @@
 package com.baidu.swan.games.view.recommend.model;
 
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public RecommendItemModel elu;
-    public List<RecommendItemModel> elv;
+    public RecommendItemModel enD;
+    public List<RecommendItemModel> enE;
 
     public a() {
     }
 
     public a(RecommendItemModel recommendItemModel, List<RecommendItemModel> list) {
-        this.elu = recommendItemModel;
-        this.elv = list;
+        this.enD = recommendItemModel;
+        this.enE = list;
     }
 }

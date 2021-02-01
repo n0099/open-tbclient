@@ -5,7 +5,7 @@ import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -37,7 +37,7 @@ public class b {
         }
     }
 
-    public static String eq(String str, String str2) {
+    public static String ep(String str, String str2) {
         try {
             if (TextUtils.isEmpty(str2)) {
                 str2 = EncryptUtils.ENCRYPT_MD5;

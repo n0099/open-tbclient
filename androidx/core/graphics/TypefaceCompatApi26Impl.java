@@ -24,7 +24,7 @@ import java.nio.ByteBuffer;
 import java.util.Map;
 @RequiresApi(26)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
     private static final String ABORT_CREATION_METHOD = "abortCreation";
     private static final String ADD_FONT_FROM_ASSET_MANAGER_METHOD = "addFontFromAssetManager";

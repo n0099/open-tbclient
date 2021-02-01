@@ -8,11 +8,11 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IndependentProcessDownloadService extends DownloadService {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f13128b = IndependentProcessDownloadService.class.getSimpleName();
+    private static final String f13130b = IndependentProcessDownloadService.class.getSimpleName();
     private static boolean c = false;
     private static int d = 0;
     private static long e = 0;
@@ -21,13 +21,13 @@ public class IndependentProcessDownloadService extends DownloadService {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             boolean unused = IndependentProcessDownloadService.c = true;
-            com.ss.android.socialbase.downloader.f.a.b(IndependentProcessDownloadService.f13128b, "onServiceConnected: ");
+            com.ss.android.socialbase.downloader.f.a.b(IndependentProcessDownloadService.f13130b, "onServiceConnected: ");
             try {
                 iBinder.linkToDeath(new IBinder.DeathRecipient() { // from class: com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService.2.1
                     @Override // android.os.IBinder.DeathRecipient
                     public void binderDied() {
                         boolean unused2 = IndependentProcessDownloadService.c = false;
-                        com.ss.android.socialbase.downloader.f.a.d(IndependentProcessDownloadService.f13128b, "binderDied:");
+                        com.ss.android.socialbase.downloader.f.a.d(IndependentProcessDownloadService.f13130b, "binderDied:");
                         IndependentProcessDownloadService.this.b();
                     }
                 }, 0);
@@ -46,8 +46,8 @@ public class IndependentProcessDownloadService extends DownloadService {
     public void onCreate() {
         super.onCreate();
         b.a(this);
-        this.f13125a = b.eDV();
-        this.f13125a.a(new WeakReference(this));
+        this.f13127a = b.eGm();
+        this.f13127a.a(new WeakReference(this));
         b();
     }
 
@@ -55,12 +55,12 @@ public class IndependentProcessDownloadService extends DownloadService {
     public void b() {
         if (Build.VERSION.SDK_INT < 26 && com.ss.android.socialbase.downloader.m.a.a(512) && !c) {
             if (d > 5) {
-                com.ss.android.socialbase.downloader.f.a.d(f13128b, "bindMainProcess: bind too many times!!! ");
+                com.ss.android.socialbase.downloader.f.a.d(f13130b, "bindMainProcess: bind too many times!!! ");
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - e < 15000) {
-                com.ss.android.socialbase.downloader.f.a.d(f13128b, "bindMainProcess: time too short since last bind!!! ");
+                com.ss.android.socialbase.downloader.f.a.d(f13130b, "bindMainProcess: time too short since last bind!!! ");
                 return;
             }
             d++;
@@ -76,7 +76,7 @@ public class IndependentProcessDownloadService extends DownloadService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        com.ss.android.socialbase.downloader.f.a.b(f13128b, "bindMainProcess: ");
+        com.ss.android.socialbase.downloader.f.a.b(f13130b, "bindMainProcess: ");
         Intent intent = new Intent(this, DownloadService.class);
         try {
             bindService(intent, this.g, 1);

@@ -70,10 +70,10 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
     private static final jn f612a = new jn("XmPushActionAckMessage");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14124a = new jf("", Constants.GZIP_CAST_TYPE, 1);
+    private static final jf f14126a = new jf("", Constants.GZIP_CAST_TYPE, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final jf f14125b = new jf("", (byte) 12, 2);
+    private static final jf f14127b = new jf("", (byte) 12, 2);
     private static final jf c = new jf("", Constants.GZIP_CAST_TYPE, 3);
     private static final jf d = new jf("", Constants.GZIP_CAST_TYPE, 4);
     private static final jf e = new jf("", (byte) 10, 5);
@@ -300,7 +300,7 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
         jiVar.m515a();
         while (true) {
             jf m511a = jiVar.m511a();
-            if (m511a.f14171a == 0) {
+            if (m511a.f14173a == 0) {
                 jiVar.f();
                 if (!e()) {
                     throw new jj("Required field 'messageTs' was not found in serialized data! Struct: " + toString());
@@ -310,172 +310,172 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
             }
             switch (m511a.f857a) {
                 case 1:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f617a = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 2:
-                    if (m511a.f14171a == 12) {
+                    if (m511a.f14173a == 12) {
                         this.f615a = new ib();
                         this.f615a.a(jiVar);
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 3:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f622b = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 4:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f624c = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 5:
-                    if (m511a.f14171a == 10) {
+                    if (m511a.f14173a == 10) {
                         this.f614a = jiVar.m510a();
                         a(true);
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 6:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f625d = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 7:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f626e = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 8:
-                    if (m511a.f14171a == 12) {
+                    if (m511a.f14173a == 12) {
                         this.f616a = new ip();
                         this.f616a.a(jiVar);
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 9:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f627f = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 10:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f628g = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 11:
-                    if (m511a.f14171a == 2) {
+                    if (m511a.f14173a == 2) {
                         this.f621a = jiVar.m520a();
                         b(true);
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 12:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f629h = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 13:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f630i = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 14:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f631j = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 15:
-                    if (m511a.f14171a == 6) {
+                    if (m511a.f14173a == 6) {
                         this.f620a = jiVar.m518a();
                         c(true);
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 16:
-                    if (m511a.f14171a == 6) {
+                    if (m511a.f14173a == 6) {
                         this.f623b = jiVar.m518a();
                         d(true);
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 17:
                 case 18:
                 case 19:
                 default:
-                    jl.a(jiVar, m511a.f14171a);
+                    jl.a(jiVar, m511a.f14173a);
                     break;
                 case 20:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f632k = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 21:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f633l = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 22:
-                    if (m511a.f14171a == 8) {
+                    if (m511a.f14173a == 8) {
                         this.f613a = jiVar.m509a();
                         e(true);
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 23:
-                    if (m511a.f14171a == 13) {
+                    if (m511a.f14173a == 13) {
                         jh m513a = jiVar.m513a();
                         this.f619a = new HashMap(m513a.f859a * 2);
                         for (int i2 = 0; i2 < m513a.f859a; i2++) {
@@ -484,7 +484,7 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
                         jiVar.h();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
             }
@@ -611,12 +611,12 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
         a();
         jiVar.a(f612a);
         if (this.f617a != null && m425a()) {
-            jiVar.a(f14124a);
+            jiVar.a(f14126a);
             jiVar.a(this.f617a);
             jiVar.b();
         }
         if (this.f615a != null && b()) {
-            jiVar.a(f14125b);
+            jiVar.a(f14127b);
             this.f615a.b(jiVar);
             jiVar.b();
         }

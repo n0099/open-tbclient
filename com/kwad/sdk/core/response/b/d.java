@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.core.response.model.TrendInfo;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static String A(@NonNull PhotoInfo photoInfo) {
         return photoInfo.tubeEpisode.tubeName;

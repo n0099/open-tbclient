@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.rewardvideo;
 import android.content.Context;
 import com.qq.e.mediation.interfaces.BaseRewardAd;
 import java.lang.reflect.Constructor;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class a {
     public static BaseRewardAd a(String str, Context context, String str2, String str3) throws Exception {
         Constructor declaredConstructor = Class.forName(str).asSubclass(BaseRewardAd.class).getDeclaredConstructor(Context.class, String.class, String.class);

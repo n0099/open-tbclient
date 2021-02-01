@@ -2,7 +2,7 @@ package com.bytedance.sdk.adnet.d;
 
 import android.util.Log;
 import com.bytedance.sdk.adnet.d.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements d.b {
     @Override // com.bytedance.sdk.adnet.d.d.b
     public void a(String str, String str2) {

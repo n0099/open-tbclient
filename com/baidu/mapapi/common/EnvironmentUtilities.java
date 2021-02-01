@@ -4,14 +4,14 @@ import android.content.Context;
 import com.baidu.mapsdkplatform.comapi.util.e;
 import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class EnvironmentUtilities {
 
     /* renamed from: a  reason: collision with root package name */
-    static String f2677a;
+    static String f2675a;
 
     /* renamed from: b  reason: collision with root package name */
-    static String f2678b;
+    static String f2676b;
     static String c;
     static int d;
     static int e;
@@ -19,11 +19,11 @@ public class EnvironmentUtilities {
     private static e g = null;
 
     public static String getAppCachePath() {
-        return f2678b;
+        return f2676b;
     }
 
     public static String getAppSDCardPath() {
-        String str = f2677a + "/BaiduMapSDKNew";
+        String str = f2675a + "/BaiduMapSDKNew";
         if (str.length() != 0) {
             File file = new File(str);
             if (!file.exists()) {
@@ -50,7 +50,7 @@ public class EnvironmentUtilities {
     }
 
     public static String getSDCardPath() {
-        return f2677a;
+        return f2675a;
     }
 
     public static void initAppDirectory(Context context) {
@@ -58,11 +58,11 @@ public class EnvironmentUtilities {
             g = e.a();
             g.a(context);
         }
-        if (f2677a == null || f2677a.length() <= 0) {
-            f2677a = g.b().a();
-            f2678b = g.b().c();
+        if (f2675a == null || f2675a.length() <= 0) {
+            f2675a = g.b().a();
+            f2676b = g.b().c();
         } else {
-            f2678b = f2677a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
+            f2676b = f2675a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
         }
         c = g.b().d();
         d = 20971520;
@@ -71,6 +71,6 @@ public class EnvironmentUtilities {
     }
 
     public static void setSDCardPath(String str) {
-        f2677a = str;
+        f2675a = str;
     }
 }

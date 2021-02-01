@@ -7,48 +7,48 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class q extends a {
-    private static BdAsyncTaskParallel faO = null;
-    private String faN;
-    private boolean faP;
-    private int faQ;
+    private static BdAsyncTaskParallel fde = null;
+    private String fdd;
+    private boolean fdf;
+    private int fdg;
     private int size;
 
     public q(boolean z, boolean z2, int i) {
-        this.faN = null;
+        this.fdd = null;
         this.size = 0;
-        this.faP = false;
-        this.faQ = 0;
+        this.fdf = false;
+        this.fdg = 0;
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        this.faP = z;
-        this.faQ = i;
+        this.fdf = z;
+        this.fdg = i;
         if (f < 2.0f) {
-            this.faN = TbConfig.getPhotoSmallAddress();
+            this.fdd = TbConfig.getPhotoSmallAddress();
             this.size = 80;
         } else {
-            this.faN = TbConfig.getBigPhotoAdress();
+            this.fdd = TbConfig.getBigPhotoAdress();
             this.size = 110;
         }
         if (z2) {
-            this.faN = TbConfig.getBigPhotoAdress();
+            this.fdd = TbConfig.getBigPhotoAdress();
             this.size = 110;
             return;
         }
-        this.faN = TbConfig.getPhotoSmallAddress();
+        this.fdd = TbConfig.getPhotoSmallAddress();
         this.size = 80;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bsT() {
+    public int btn() {
         return this.size;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bsU() {
+    public int bto() {
         return this.size;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.e.e
-    public boolean my() {
+    public boolean mx() {
         return true;
     }
 
@@ -56,22 +56,22 @@ public class q extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, boolean z, Object... objArr) {
-        if (this.faP) {
+        if (this.fdf) {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        com.baidu.adp.widget.ImageView.a CS = com.baidu.tbadk.imageManager.c.bCx().CS(str);
+        com.baidu.adp.widget.ImageView.a Dj = com.baidu.tbadk.imageManager.c.bCP().Dj(str);
         if (z) {
-            com.baidu.adp.lib.e.a.b(CS != null, System.currentTimeMillis() - currentTimeMillis);
+            com.baidu.adp.lib.e.a.b(Dj != null, System.currentTimeMillis() - currentTimeMillis);
         }
-        return CS;
+        return Dj;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.e.e
     /* renamed from: c */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, com.baidu.adp.lib.e.b bVar, Object... objArr) {
-        if (this.faP) {
+        if (this.fdf) {
             return null;
         }
         return super.a(str, str2, i, i2, bVar, objArr);
@@ -80,7 +80,7 @@ public class q extends a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
     public String p(String str, int i, int i2) {
-        return (str == null || !(str.toLowerCase().startsWith("http://") || str.toLowerCase().startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) ? this.faN + str : str;
+        return (str == null || !(str.toLowerCase().startsWith("http://") || str.toLowerCase().startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) ? this.fdd + str : str;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.e.e
@@ -89,7 +89,7 @@ public class q extends a {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.aP(i);
             aVar.aQ(i2);
-            com.baidu.tbadk.imageManager.c.bCx().a(str, aVar);
+            com.baidu.tbadk.imageManager.c.bCP().a(str, aVar);
         }
     }
 
@@ -99,15 +99,15 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.e.e
-    public BdAsyncTaskParallel mz() {
-        if (faO == null) {
-            faO = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, BdUniqueId.gen());
+    public BdAsyncTaskParallel my() {
+        if (fde == null) {
+            fde = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, BdUniqueId.gen());
         }
-        return faO;
+        return fde;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bsV() {
-        return this.faQ;
+    public int btp() {
+        return this.fdg;
     }
 }

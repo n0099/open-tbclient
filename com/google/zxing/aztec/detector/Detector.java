@@ -11,7 +11,8 @@ import com.google.zxing.common.detector.WhiteRectangleDetector;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
-/* loaded from: classes5.dex */
+import com.thunder.livesdk.system.ThunderNetStateService;
+/* loaded from: classes4.dex */
 public final class Detector {
     private static final int[] EXPECTED_CORNER_BITS = {3808, 476, RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL7, 1799};
     private boolean compact;
@@ -55,7 +56,7 @@ public final class Detector {
             int i4 = iArr[(this.shift + i3) % 4];
             if (this.compact) {
                 j = j2 << 7;
-                i = (i4 >> 1) & 127;
+                i = (i4 >> 1) & ThunderNetStateService.NetState.SYSNET_UNKNOWN;
             } else {
                 j = j2 << 10;
                 i = ((i4 >> 1) & 31) + ((i4 >> 2) & 992);
@@ -323,7 +324,7 @@ public final class Detector {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class Point {
         private final int x;
         private final int y;

@@ -1,225 +1,137 @@
 package com.baidu.mobads.production.b;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.graphics.Rect;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import android.view.View;
+import com.baidu.mobad.feeds.RequestParameters;
+import com.baidu.mobads.AdSize;
+import com.baidu.mobads.BaiduNativeH5AdView;
+import com.baidu.mobads.interfaces.IXAdConstants4PDK;
+import com.baidu.mobads.interfaces.IXAdContainer;
+import com.baidu.mobads.interfaces.IXAdInstanceInfo;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.interfaces.IXAdResponseInfo;
+import com.baidu.mobads.interfaces.error.XAdErrorCode;
+import com.baidu.mobads.interfaces.feeds.IXAdDummyContainer;
+import com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters;
+import com.baidu.mobads.production.p;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes14.dex */
-public class c {
+import com.baidu.mobads.utils.l;
+import com.baidu.mobads.utils.r;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class c extends com.baidu.mobads.production.a {
+    private BaiduNativeH5AdView A;
+    private d z;
 
-    /* renamed from: a  reason: collision with root package name */
-    private Set<String> f3432a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Set<String> f3433b;
-    private Set<String> c;
-    private CookieManager d;
-    private IXAdSystemUtils e;
-    private IXAdCommonUtils f;
-    private Context g;
-    private int h;
-    private String i;
-    private String j;
-
-    public c(Context context, int i, String str) {
-        this.e = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        this.f = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        this.g = context;
-        this.h = i;
-        this.i = str;
-        this.j = null;
-        b();
-        c();
-    }
-
-    public c(Context context, String str, String str2) {
-        this.e = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        this.f = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        this.g = context;
-        this.j = str;
-        this.i = str2;
-        this.h = -1;
-        b();
-        c();
-    }
-
-    private void b() {
-        try {
-            CookieSyncManager.createInstance(this.g);
-        } catch (Throwable th) {
-            th.printStackTrace();
+    public c(Context context, BaiduNativeH5AdView baiduNativeH5AdView) {
+        super(context);
+        this.z = null;
+        this.A = baiduNativeH5AdView;
+        setId(this.A.getAdPlacement().getApId());
+        setActivity(context);
+        setAdSlotBase(this.A);
+        this.o = IXAdConstants4PDK.SlotType.SLOT_TYPE_FEEDS;
+        this.z = new d(getApplicationContext(), getActivity(), this.o);
+        this.z.d(this.A.getAdPlacement().getApId());
+        l adConstants = XAdSDKFoundationFacade.getInstance().getAdConstants();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(adConstants.getSupportedActionType4RequestingLandingPage());
+        arrayList.add(adConstants.a());
+        XAdSDKFoundationFacade.getInstance().getPackageUtils();
+        if (r.b(this.f)) {
+            arrayList.add(adConstants.getSupportedActionType4RequestingDownload());
         }
-        try {
-            this.d = CookieManager.getInstance();
-            this.d.setAcceptCookie(true);
-        } catch (Throwable th2) {
-            th2.printStackTrace();
+        this.z.b(XAdSDKFoundationFacade.getInstance().getCommonUtils().a((List<String>) arrayList));
+        this.z.h(0);
+        this.z.f(AdSize.FeedH5TemplateNative.getValue());
+        this.z.g(1);
+    }
+
+    public void a(int i) {
+        this.z.a(i);
+    }
+
+    public void c(int i) {
+        this.z.b(i);
+    }
+
+    public void d(int i) {
+        this.z.c(i);
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void a(RequestParameters requestParameters) {
+        int width = requestParameters.getWidth();
+        int height = requestParameters.getHeight();
+        if (width > 0 && height > 0) {
+            this.z.d(width);
+            this.z.e(height);
         }
     }
 
-    public String a() {
-        d();
-        return this.j != null ? "https://cpu.baidu.com/block/app/" + this.i + "/" + this.j : "https://cpu.baidu.com/" + this.h + "/" + this.i;
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void request() {
+        m();
+        a(this.z);
     }
 
-    private void c() {
-        this.f3432a = new HashSet();
-        this.f3432a.add("46000");
-        this.f3432a.add("46002");
-        this.f3432a.add("46007");
-        this.f3433b = new HashSet();
-        this.f3433b.add("46001");
-        this.f3433b.add("46006");
-        this.c = new HashSet();
-        this.c.add("46003");
-        this.c.add("46005");
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public IXAdRequestInfo getAdRequestInfo() {
+        return this.z;
     }
 
-    private void d() {
-        Rect screenRect = this.f.getScreenRect(this.g);
-        int height = screenRect.height();
-        int width = screenRect.width();
-        boolean e = e();
-        String a2 = e ? a(h()) : null;
-        int f = e ? f() : 0;
-        String g = e ? g() : null;
-        int i = e ? 1 : 0;
-        String cuid = this.e.getCUID(this.g);
-        a("v", i());
-        a("im", this.e.getIMEI(this.g));
-        a("aid", this.e.getAndroidId(this.g));
-        a("m", a(this.e.getMacAddress(this.g)));
-        a("cuid", cuid);
-        a(Config.EXCEPTION_CRASH_TYPE, Integer.valueOf(a.a(this.g)));
-        a("oi", Integer.valueOf(j()));
-        a(UserAccountActionItem.KEY_SRC, 1);
-        a("h", Integer.valueOf(height));
-        a("w", Integer.valueOf(width));
-        a("apm", a2);
-        a("rssi", Integer.valueOf(f));
-        a("apn", g);
-        a("isc", Integer.valueOf(i));
-    }
-
-    private void a(String str, Object obj) {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(str);
-        stringBuffer.append("=");
-        stringBuffer.append(obj);
-        stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-        try {
-            this.d.setCookie("https://cpu.baidu.com/", stringBuffer.toString());
-        } catch (Throwable th) {
-            th.printStackTrace();
+    @Override // com.baidu.mobads.production.a
+    protected void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
+        if (getAdResponseInfo() != null) {
+            a("XAdMouldeLoader ad-server requesting success");
+        } else {
+            pVar.a(bVar, i);
         }
     }
 
-    private boolean e() {
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.g.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null) {
-                if (activeNetworkInfo.getType() == 1) {
-                    return true;
-                }
+    @Override // com.baidu.mobads.production.a
+    protected void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        iXAdContainer.start();
+    }
+
+    @Override // com.baidu.mobads.production.a
+    protected void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void c() {
+        if (this.h != null) {
+            this.h.load();
+        } else {
+            this.v.e("container is null");
+        }
+    }
+
+    @Override // com.baidu.mobads.production.a
+    protected void d() {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void b(IXAdResponseInfo iXAdResponseInfo) {
+        if (iXAdResponseInfo.getAdInstanceList().size() > 0) {
+            if (iXAdResponseInfo.getPrimaryAdInstanceInfo().getHtmlSnippet() == null || iXAdResponseInfo.getPrimaryAdInstanceInfo().getHtmlSnippet().length() <= 0) {
+                a(XAdErrorCode.REQUEST_PARAM_ERROR, "代码位错误，请检查代码位是否是信息流模板");
+                return;
             }
-            return false;
+            this.A.getAdPlacement().setAdResponse(iXAdResponseInfo);
+            dispatchEvent(new com.baidu.mobads.e.a("AdLoadData"));
+        }
+    }
+
+    public void a() {
+    }
+
+    public void a(View view, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
+        try {
+            ((IXAdDummyContainer) this.h).onImpression(view, iXAdInstanceInfo, iXAdFeedsRequestParameters, new HashMap());
         } catch (Exception e) {
-            e.printStackTrace();
-            return false;
         }
-    }
-
-    private int f() {
-        try {
-            WifiInfo connectionInfo = ((WifiManager) this.g.getSystemService("wifi")).getConnectionInfo();
-            if (connectionInfo == null) {
-                return 0;
-            }
-            return connectionInfo.getRssi();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-        }
-    }
-
-    private String g() {
-        try {
-            WifiInfo connectionInfo = ((WifiManager) this.g.getSystemService("wifi")).getConnectionInfo();
-            String ssid = connectionInfo == null ? "" : connectionInfo.getSSID();
-            if (ssid.startsWith("\"") && ssid.endsWith("\"")) {
-                return ssid.substring(1, ssid.length() - 1);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    private String h() {
-        try {
-            WifiInfo connectionInfo = ((WifiManager) this.g.getSystemService("wifi")).getConnectionInfo();
-            if (connectionInfo == null) {
-                return null;
-            }
-            return connectionInfo.getMacAddress();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
-    }
-
-    private String i() {
-        String str = null;
-        try {
-            PackageInfo packageInfo = this.g.getPackageManager().getPackageInfo(this.g.getPackageName(), 0);
-            String str2 = packageInfo == null ? null : packageInfo.versionName;
-            if (str2 != null) {
-                str = str2.replace(".", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                return str;
-            }
-            return null;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return str;
-        }
-    }
-
-    private int j() {
-        String networkOperator = this.e.getNetworkOperator(this.g);
-        if (networkOperator == null) {
-            return 0;
-        }
-        if (this.f3432a.contains(networkOperator)) {
-            return 1;
-        }
-        if (this.c.contains(networkOperator)) {
-            return 2;
-        }
-        if (this.f3433b.contains(networkOperator)) {
-            return 3;
-        }
-        return 99;
-    }
-
-    private String a(String str) {
-        if (str == null) {
-            return null;
-        }
-        return str.replace(":", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 }

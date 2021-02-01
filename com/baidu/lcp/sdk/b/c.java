@@ -26,7 +26,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 /* loaded from: classes3.dex */
 public class c {
-    private static b avO;
+    private static b avD;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -77,7 +77,7 @@ public class c {
                 build = build.newBuilder().headers(headers2).build();
                 String str2 = headers.get("Host");
                 if (!TextUtils.isEmpty(str2) && str2.contains(IMHttpDnsUrlRequest.HTTP_DNS_HOST)) {
-                    okHttpClient = build2.newBuilder().sslSocketFactory(createSSLSocketFactory(), avO).hostnameVerifier(new d()).build();
+                    okHttpClient = build2.newBuilder().sslSocketFactory(createSSLSocketFactory(), avD).hostnameVerifier(new d()).build();
                     com.baidu.lcp.sdk.d.d.d("HttpExecutor", "request url :" + str + " , method :" + aVar.getMethod() + " , body :" + new String(aVar.getRequestParameter()));
                     okHttpClient.newCall(build).enqueue(new Callback() { // from class: com.baidu.lcp.sdk.b.c.1
                         @Override // okhttp3.Callback
@@ -150,9 +150,9 @@ public class c {
 
     private static SSLSocketFactory createSSLSocketFactory() {
         try {
-            avO = new b();
+            avD = new b();
             SSLContext sSLContext = SSLContext.getInstance("TLS");
-            sSLContext.init(null, new TrustManager[]{avO}, new SecureRandom());
+            sSLContext.init(null, new TrustManager[]{avD}, new SecureRandom());
             return sSLContext.getSocketFactory();
         } catch (Exception e) {
             e.printStackTrace();

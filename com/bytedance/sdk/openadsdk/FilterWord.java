@@ -3,39 +3,39 @@ package com.bytedance.sdk.openadsdk;
 import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FilterWord {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6069a;
+    private String f6071a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6070b;
+    private String f6072b;
     private boolean c;
     private List<FilterWord> d;
 
     public FilterWord(String str, String str2) {
-        this.f6069a = str;
-        this.f6070b = str2;
+        this.f6071a = str;
+        this.f6072b = str2;
     }
 
     public FilterWord() {
     }
 
     public String getId() {
-        return this.f6069a;
+        return this.f6071a;
     }
 
     public void setId(String str) {
-        this.f6069a = str;
+        this.f6071a = str;
     }
 
     public String getName() {
-        return this.f6070b;
+        return this.f6072b;
     }
 
     public void setName(String str) {
-        this.f6070b = str;
+        this.f6072b = str;
     }
 
     public boolean getIsSelected() {
@@ -60,7 +60,7 @@ public class FilterWord {
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.f6069a) || TextUtils.isEmpty(this.f6070b)) ? false : true;
+        return (TextUtils.isEmpty(this.f6071a) || TextUtils.isEmpty(this.f6072b)) ? false : true;
     }
 
     public boolean hasSecondOptions() {

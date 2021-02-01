@@ -1,21 +1,21 @@
 package com.baidu.tieba.yuyinala.liveroom.messages;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
-    private x aBr;
+    private ab aDd;
 
     public AlaEnterLiveHttpResonseMessage() {
         super(1031023);
     }
 
-    public x DW() {
-        return this.aBr;
+    public ab Fm() {
+        return this.aDd;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -28,16 +28,16 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
                 setErrorString(optJSONObject2.optString("usermsg"));
             }
             if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.aBr = new x();
-                this.aBr.bs(true);
-                this.aBr.parserJson(optJSONObject);
-                com.baidu.live.af.b.OU().cL(this.aBr.aGI);
-                this.aBr.logId = jSONObject.optLong("logid");
-                if (this.aBr.mLiveInfo != null && this.aBr.mLiveInfo.live_id > 0) {
-                    com.baidu.live.d.xf().putLong("ala_live_room_last_live_id", this.aBr.mLiveInfo.live_id);
+                this.aDd = new ab();
+                this.aDd.bx(true);
+                this.aDd.parserJson(optJSONObject);
+                com.baidu.live.ae.b.Qv().cU(this.aDd.aJd);
+                this.aDd.logId = jSONObject.optLong("logid");
+                if (this.aDd.mLiveInfo != null && this.aDd.mLiveInfo.live_id > 0) {
+                    com.baidu.live.d.xc().putLong("ala_live_room_last_live_id", this.aDd.mLiveInfo.live_id);
                 }
-                if (this.aBr.mLiveInfo != null && this.aBr.mLiveInfo.broadGiftMsgId > 0) {
-                    com.baidu.live.gift.a.broadGiftMsgId = this.aBr.mLiveInfo.broadGiftMsgId;
+                if (this.aDd.mLiveInfo != null && this.aDd.mLiveInfo.broadGiftMsgId > 0) {
+                    com.baidu.live.gift.a.broadGiftMsgId = this.aDd.mLiveInfo.broadGiftMsgId;
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("live_info");
                 if (optJSONObject3 != null) {

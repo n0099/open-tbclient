@@ -1,11 +1,11 @@
 package com.bytedance.sdk.a.a;
 
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f5853a = Charset.forName("UTF-8");
+    public static final Charset f5855a = Charset.forName("UTF-8");
 
     public static void a(long j, long j2, long j3) {
         if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {

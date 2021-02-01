@@ -5,25 +5,25 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import rx.k;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class b implements k {
-    private volatile boolean qoe;
-    private Set<k> quL;
+    private Set<k> qEO;
+    private volatile boolean qyh;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.qoe;
+        return this.qyh;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.qoe) {
+            if (!this.qyh) {
                 synchronized (this) {
-                    if (!this.qoe) {
-                        if (this.quL == null) {
-                            this.quL = new HashSet(4);
+                    if (!this.qyh) {
+                        if (this.qEO == null) {
+                            this.qEO = new HashSet(4);
                         }
-                        this.quL.add(kVar);
+                        this.qEO.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void a(k kVar) {
-        if (!this.qoe) {
+        if (!this.qyh) {
             synchronized (this) {
-                if (!this.qoe && this.quL != null) {
-                    boolean remove = this.quL.remove(kVar);
+                if (!this.qyh && this.qEO != null) {
+                    boolean remove = this.qEO.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,12 +47,12 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.qoe) {
+        if (!this.qyh) {
             synchronized (this) {
-                if (!this.qoe) {
-                    this.qoe = true;
-                    Set<k> set = this.quL;
-                    this.quL = null;
+                if (!this.qyh) {
+                    this.qyh = true;
+                    Set<k> set = this.qEO;
+                    this.qEO = null;
                     u(set);
                 }
             }
@@ -71,7 +71,7 @@ public final class b implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.ho(arrayList);
+            rx.exceptions.a.hk(arrayList);
         }
     }
 }

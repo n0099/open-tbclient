@@ -6,25 +6,25 @@ import com.baidu.swan.apps.ae.c;
 import kotlin.e;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(Bundle bundle) {
-        c.a aGa;
-        c.a aGa2;
+        c.a aGv;
+        c.a aGv2;
         p.o(bundle, "params");
         String string = bundle.getString("openId");
         String string2 = bundle.getString("swanId");
         String string3 = bundle.getString("appId");
         String string4 = bundle.getString("hostName");
         if (ProcessUtils.isMainProcess()) {
-            if (string != null && (aGa2 = c.dsc.aGa()) != null) {
-                aGa2.W(string, string3, string4);
+            if (string != null && (aGv2 = c.duo.aGv()) != null) {
+                aGv2.X(string, string3, string4);
             }
-            if (string2 == null || (aGa = c.dsc.aGa()) == null) {
+            if (string2 == null || (aGv = c.duo.aGv()) == null) {
                 return;
             }
-            aGa.V(string2, string3, string4);
+            aGv.W(string2, string3, string4);
         }
     }
 }

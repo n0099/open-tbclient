@@ -12,10 +12,10 @@ import java.io.FileInputStream;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class SapiDeviceUtils {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class DeviceCrypto implements NoProguard {
         public static String base64Encode(byte[] bArr) {
             int i;

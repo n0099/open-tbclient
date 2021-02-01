@@ -6,7 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.VisibleForTesting;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class LifecycleDispatcher {
     private static AtomicBoolean sInitialized = new AtomicBoolean(false);
 
@@ -18,7 +18,7 @@ class LifecycleDispatcher {
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     static class DispatcherActivityCallback extends EmptyActivityLifecycleCallbacks {
         DispatcherActivityCallback() {
         }

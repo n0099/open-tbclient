@@ -5,6 +5,7 @@ import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
@@ -12,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class PM {
     private static final Map<Class<?>, String> h = new HashMap<Class<?>, String>() { // from class: com.qq.e.comm.managers.plugin.PM.2
         {
@@ -21,44 +22,44 @@ public class PM {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f11549b;
+    private final Context f11551b;
     private RandomAccessFile c;
     private FileLock d;
-    private a.InterfaceC1181a f;
+    private a.InterfaceC1185a f;
 
     /* renamed from: a  reason: collision with root package name */
-    private ExecutorService f11548a = Executors.newSingleThreadExecutor();
+    private ExecutorService f11550a = Executors.newSingleThreadExecutor();
     private a.b g = new a.b() { // from class: com.qq.e.comm.managers.plugin.PM.1
     };
     private boolean e = a();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface a {
 
         /* renamed from: com.qq.e.comm.managers.plugin.PM$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public interface InterfaceC1181a {
+        /* loaded from: classes15.dex */
+        public interface InterfaceC1185a {
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes15.dex */
         public interface b {
         }
     }
 
-    public PM(Context context, a.InterfaceC1181a interfaceC1181a) {
-        this.f11549b = context.getApplicationContext();
-        this.f = interfaceC1181a;
+    public PM(Context context, a.InterfaceC1185a interfaceC1185a) {
+        this.f11551b = context.getApplicationContext();
+        this.f = interfaceC1185a;
     }
 
     private boolean a() {
         try {
-            File a2 = b.a(this.f11549b);
+            File a2 = b.a(this.f11551b);
             if (!a2.exists()) {
                 a2.createNewFile();
                 StringUtil.writeTo("lock", a2);
             }
             if (a2.exists()) {
-                this.c = new RandomAccessFile(a2, "rw");
+                this.c = new RandomAccessFile(a2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 this.d = this.c.getChannel().tryLock();
                 if (this.d != null) {
                     this.c.writeByte(37);

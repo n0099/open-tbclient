@@ -2,10 +2,10 @@ package com.baidu.tieba.gift.send;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.PlaceOrder.DataReq;
 import tbclient.PlaceOrder.PlaceOrderReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PlaceOrderRequest extends NetMessage {
     public long accountId;
     public int accountType;
@@ -34,7 +34,7 @@ public class PlaceOrderRequest extends NetMessage {
         builder.account_id = Long.valueOf(this.accountId);
         builder.account_type = Integer.valueOf(this.accountType);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         PlaceOrderReqIdl.Builder builder2 = new PlaceOrderReqIdl.Builder();
         builder2.data = builder.build(false);

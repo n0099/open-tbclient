@@ -1,43 +1,43 @@
 package com.facebook.imagepipeline.producers;
 
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class aq<T> extends com.facebook.common.b.h<T> {
     private final String mRequestId;
-    private final k<T> pBE;
-    private final am pBi;
-    private final String pCQ;
+    private final k<T> pLM;
+    private final am pLq;
+    private final String pMY;
 
     @Override // com.facebook.common.b.h
     protected abstract void ba(T t);
 
     public aq(k<T> kVar, am amVar, String str, String str2) {
-        this.pBE = kVar;
-        this.pBi = amVar;
-        this.pCQ = str;
+        this.pLM = kVar;
+        this.pLq = amVar;
+        this.pMY = str;
         this.mRequestId = str2;
-        this.pBi.hm(this.mRequestId, this.pCQ);
+        this.pLq.ht(this.mRequestId, this.pMY);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onSuccess(T t) {
-        this.pBi.b(this.mRequestId, this.pCQ, this.pBi.Yt(this.mRequestId) ? bA(t) : null);
-        this.pBE.g(t, 1);
+        this.pLq.b(this.mRequestId, this.pMY, this.pLq.Zu(this.mRequestId) ? bA(t) : null);
+        this.pLM.g(t, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onFailure(Exception exc) {
-        this.pBi.a(this.mRequestId, this.pCQ, exc, this.pBi.Yt(this.mRequestId) ? D(exc) : null);
-        this.pBE.D(exc);
+        this.pLq.a(this.mRequestId, this.pMY, exc, this.pLq.Zu(this.mRequestId) ? D(exc) : null);
+        this.pLM.C(exc);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
-    public void eqc() {
-        this.pBi.c(this.mRequestId, this.pCQ, this.pBi.Yt(this.mRequestId) ? exC() : null);
-        this.pBE.eqc();
+    public void esv() {
+        this.pLq.c(this.mRequestId, this.pMY, this.pLq.Zu(this.mRequestId) ? ezU() : null);
+        this.pLM.esv();
     }
 
     protected Map<String, String> bA(T t) {
@@ -48,7 +48,7 @@ public abstract class aq<T> extends com.facebook.common.b.h<T> {
         return null;
     }
 
-    protected Map<String, String> exC() {
+    protected Map<String, String> ezU() {
         return null;
     }
 }

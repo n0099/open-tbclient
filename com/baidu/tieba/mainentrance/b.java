@@ -1,23 +1,23 @@
 package com.baidu.tieba.mainentrance;
 
 import tbclient.HotForum.ForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     private String forumAvatar;
     private long forumId;
     private String forumName;
-    private long lax;
-    private long lay;
-    private long laz;
+    private long liA;
+    private long liB;
+    private long liC;
 
     public void a(ForumInfo forumInfo) {
         if (forumInfo != null) {
             this.forumAvatar = forumInfo.avatar;
             this.forumId = forumInfo.forum_id.longValue();
             this.forumName = forumInfo.forum_name;
-            this.lax = forumInfo.time_out.longValue();
-            this.lay = forumInfo.member_count.longValue();
-            this.laz = forumInfo.thread_count.longValue();
+            this.liA = forumInfo.time_out.longValue();
+            this.liB = forumInfo.member_count.longValue();
+            this.liC = forumInfo.thread_count.longValue();
         }
     }
 }

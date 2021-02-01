@@ -5,26 +5,26 @@ import com.facebook.infer.annotation.ReturnsOwnership;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class i implements com.facebook.cache.common.a {
-    private static final Object pod = new Object();
-    private static i poe;
-    private static int pof;
-    private String mzf;
-    private IOException oHQ;
-    private com.facebook.cache.common.b pog;
-    private long poh;
-    private long poj;
-    private long pok;
-    private CacheEventListener.EvictionReason pol;
-    private i pom;
+    private static final Object pys = new Object();
+    private static i pyt;
+    private static int pyu;
+    private String mIm;
+    private IOException oRY;
+    private i pyA;
+    private com.facebook.cache.common.b pyv;
+    private long pyw;
+    private long pyx;
+    private long pyy;
+    private CacheEventListener.EvictionReason pyz;
 
     @ReturnsOwnership
-    public static i epW() {
-        synchronized (pod) {
-            if (poe != null) {
-                i iVar = poe;
-                poe = iVar.pom;
-                iVar.pom = null;
-                pof--;
+    public static i esp() {
+        synchronized (pys) {
+            if (pyt != null) {
+                i iVar = pyt;
+                pyt = iVar.pyA;
+                iVar.pyA = null;
+                pyu--;
                 return iVar;
             }
             return new i();
@@ -35,60 +35,60 @@ public class i implements com.facebook.cache.common.a {
     }
 
     public i h(com.facebook.cache.common.b bVar) {
-        this.pog = bVar;
+        this.pyv = bVar;
         return this;
     }
 
-    public i Yg(String str) {
-        this.mzf = str;
+    public i Zh(String str) {
+        this.mIm = str;
         return this;
     }
 
-    public i ix(long j) {
-        this.poh = j;
+    public i iA(long j) {
+        this.pyw = j;
         return this;
     }
 
-    public i iy(long j) {
-        this.pok = j;
+    public i iB(long j) {
+        this.pyy = j;
         return this;
     }
 
-    public i iz(long j) {
-        this.poj = j;
+    public i iC(long j) {
+        this.pyx = j;
         return this;
     }
 
     public i h(IOException iOException) {
-        this.oHQ = iOException;
+        this.oRY = iOException;
         return this;
     }
 
     public i a(CacheEventListener.EvictionReason evictionReason) {
-        this.pol = evictionReason;
+        this.pyz = evictionReason;
         return this;
     }
 
     public void recycle() {
-        synchronized (pod) {
-            if (pof < 5) {
+        synchronized (pys) {
+            if (pyu < 5) {
                 reset();
-                pof++;
-                if (poe != null) {
-                    this.pom = poe;
+                pyu++;
+                if (pyt != null) {
+                    this.pyA = pyt;
                 }
-                poe = this;
+                pyt = this;
             }
         }
     }
 
     private void reset() {
-        this.pog = null;
-        this.mzf = null;
-        this.poh = 0L;
-        this.poj = 0L;
-        this.pok = 0L;
-        this.oHQ = null;
-        this.pol = null;
+        this.pyv = null;
+        this.mIm = null;
+        this.pyw = 0L;
+        this.pyx = 0L;
+        this.pyy = 0L;
+        this.oRY = null;
+        this.pyz = null;
     }
 }

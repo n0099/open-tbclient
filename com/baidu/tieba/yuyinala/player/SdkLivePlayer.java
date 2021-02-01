@@ -11,85 +11,85 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
-import com.baidu.live.data.bq;
+import com.baidu.live.data.bv;
 import com.baidu.live.liveroom.e.d;
 import com.baidu.live.liveroom.e.i;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.v.c;
-import com.baidu.live.v.f;
-import com.baidu.live.v.g;
-import com.baidu.live.v.h;
+import com.baidu.live.u.c;
+import com.baidu.live.u.f;
+import com.baidu.live.u.g;
+import com.baidu.live.u.h;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SdkLivePlayer extends LinearLayout implements f {
-    private boolean aCf;
-    private com.baidu.live.v.b bNZ;
-    private String bOa;
-    private c iaB;
-    private ArrayList<d> iaw;
-    private ArrayList<AlaLiveInfoData> iax;
-    private g iaz;
+    private boolean aDS;
+    private com.baidu.live.u.b bRP;
+    private String bRQ;
+    private ArrayList<d> ieU;
+    private ArrayList<AlaLiveInfoData> ieV;
+    private g ieX;
+    private c ieZ;
     private Context mContext;
 
     public SdkLivePlayer(Context context) {
         super(context);
         d ba;
         d ba2;
-        this.bOa = "";
-        this.aCf = false;
-        this.iaB = new c() { // from class: com.baidu.tieba.yuyinala.player.SdkLivePlayer.1
+        this.bRQ = "";
+        this.aDS = false;
+        this.ieZ = new c() { // from class: com.baidu.tieba.yuyinala.player.SdkLivePlayer.1
         };
         this.mContext = context;
         setOrientation(0);
-        this.iaw = new ArrayList<>();
-        boolean z = com.baidu.live.af.a.OJ().bru.aIB;
+        this.ieU = new ArrayList<>();
+        boolean z = com.baidu.live.ae.a.Qj().buX.aLl;
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            ba = i.Lv().ba(context);
-            ba2 = i.Lv().ba(context);
+            ba = i.MT().ba(context);
+            ba2 = i.MT().ba(context);
         } else if (z) {
-            ba = i.Lv().bb(context);
-            ba2 = i.Lv().bb(context);
+            ba = i.MT().bb(context);
+            ba2 = i.MT().bb(context);
         } else {
-            ba = i.Lv().ba(context);
-            ba2 = i.Lv().ba(context);
+            ba = i.MT().ba(context);
+            ba2 = i.MT().ba(context);
         }
-        this.iaw.add(ba);
-        this.iaw.add(ba2);
-        com.baidu.live.v.d Ly = i.Lv().Ly();
-        if (Ly != null && !Ly.NI()) {
-            Ly.a(this.iaB);
+        this.ieU.add(ba);
+        this.ieU.add(ba2);
+        com.baidu.live.u.d MW = i.MT().MW();
+        if (MW != null && !MW.Pk()) {
+            MW.a(this.ieZ);
         }
-        this.iaz = new g(this.mContext);
+        this.ieX = new g(this.mContext);
     }
 
     public List<AlaLiveInfoData> getAlaLiveInfoDataList() {
-        return this.iax;
+        return this.ieV;
     }
 
-    @Override // com.baidu.live.v.f
+    @Override // com.baidu.live.u.f
     public void c(AlaLiveInfoData alaLiveInfoData) {
         ArrayList<AlaLiveInfoData> arrayList = new ArrayList<>();
         arrayList.add(alaLiveInfoData);
-        cni();
-        ag(arrayList);
+        cog();
+        af(arrayList);
     }
 
-    public void ag(ArrayList<AlaLiveInfoData> arrayList) {
+    public void af(ArrayList<AlaLiveInfoData> arrayList) {
         int i;
-        bq bqVar;
-        this.iax = arrayList;
-        LinearLayout.LayoutParams cnm = cnm();
+        bv bvVar;
+        this.ieV = arrayList;
+        LinearLayout.LayoutParams cok = cok();
         if (ListUtils.getCount(arrayList) == 2) {
-            cnm = cnl();
+            cok = coj();
         }
-        if (arrayList == null || arrayList.size() != 1 || (bqVar = com.baidu.live.af.a.OJ().bxp) == null || bqVar.aMV == null || ((i = bqVar.aMV.aNK) != 1 && i != 2)) {
+        if (arrayList == null || arrayList.size() != 1 || (bvVar = com.baidu.live.ae.a.Qj().bAS) == null || bvVar.aPT == null || ((i = bvVar.aPT.aQL) != 1 && i != 2)) {
             i = 1;
         }
         if (arrayList != null && arrayList.size() > 0) {
@@ -98,10 +98,10 @@ public class SdkLivePlayer extends LinearLayout implements f {
                 if (arrayList.get(i3).screen_direction == 2) {
                     i2 = 2;
                 }
-                a(arrayList.get(i3), i3, cnm, i, i2);
+                a(arrayList.get(i3), i3, cok, i, i2);
             }
         }
-        this.aCf = true;
+        this.aDS = true;
     }
 
     private void a(AlaLiveInfoData alaLiveInfoData, final int i, LinearLayout.LayoutParams layoutParams, int i2, int i3) {
@@ -111,18 +111,18 @@ public class SdkLivePlayer extends LinearLayout implements f {
                 BdLog.e("AlaLivePlayer startLive=url=" + d);
             }
             if (i == 0) {
-                this.bOa = d;
+                this.bRQ = d;
             }
-            if (this.iaw != null && this.iaw.size() > 0) {
-                final d dVar = this.iaw.get(i);
-                if (dVar.Lu() != null && dVar.Lu().getParent() != null) {
-                    ((ViewGroup) dVar.Lu().getParent()).removeView(dVar.Lu());
+            if (this.ieU != null && this.ieU.size() > 0) {
+                final d dVar = this.ieU.get(i);
+                if (dVar.MS() != null && dVar.MS().getParent() != null) {
+                    ((ViewGroup) dVar.MS().getParent()).removeView(dVar.MS());
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("sessionId", alaLiveInfoData.getSessionID());
                     jSONObject.put("liveId", alaLiveInfoData.getLiveID());
-                    jSONObject.put("clientIp", com.baidu.live.af.a.OJ().bru.clientIP);
+                    jSONObject.put("clientIp", com.baidu.live.ae.a.Qj().buX.clientIP);
                     jSONObject.put("level", AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT);
                     jSONObject.put("sessionLine", 1);
                     dVar.b(i + 1, jSONObject);
@@ -137,9 +137,9 @@ public class SdkLivePlayer extends LinearLayout implements f {
                     i2 = 2;
                 }
                 dVar.setDecodeMode(i2);
-                dVar.dB(8);
-                dVar.Lu().setTag(a.f.live_player_id, Integer.valueOf(i + 1));
-                addView(dVar.Lu(), layoutParams);
+                dVar.dH(8);
+                dVar.MS().setTag(a.f.live_player_id, Integer.valueOf(i + 1));
+                addView(dVar.MS(), layoutParams);
                 dVar.setPlayerCallback(new com.baidu.live.liveroom.e.g() { // from class: com.baidu.tieba.yuyinala.player.SdkLivePlayer.2
                     @Override // com.baidu.live.liveroom.e.g, com.baidu.live.liveroom.e.f
                     public void a(d dVar2, int i4, int i5) {
@@ -147,10 +147,10 @@ public class SdkLivePlayer extends LinearLayout implements f {
                             if (BdLog.isDebugMode()) {
                                 BdLog.e("AlaLivePlayer onFirstFrame(index＝)" + i);
                             }
-                            if (SdkLivePlayer.this.bNZ != null) {
-                                SdkLivePlayer.this.bNZ.cs(((Integer) dVar.Lu().getTag(a.f.live_player_id)).intValue());
+                            if (SdkLivePlayer.this.bRP != null) {
+                                SdkLivePlayer.this.bRP.cv(((Integer) dVar.MS().getTag(a.f.live_player_id)).intValue());
                             }
-                            dVar.dB(0);
+                            dVar.dH(0);
                         }
                     }
                 });
@@ -164,41 +164,41 @@ public class SdkLivePlayer extends LinearLayout implements f {
 
     private void a(d dVar, AlaLiveInfoData alaLiveInfoData) {
         HashMap hashMap = new HashMap();
-        hashMap.put("clientIp", com.baidu.live.af.a.OJ().bru.clientIP);
+        hashMap.put("clientIp", com.baidu.live.ae.a.Qj().buX.clientIP);
         hashMap.put("liveId", alaLiveInfoData != null ? alaLiveInfoData.getLiveID() + "" : "0");
         hashMap.put("roomId", alaLiveInfoData != null ? alaLiveInfoData.room_id + "" : "0");
         hashMap.put("uid", ExtraParamsManager.getEncryptionUserId(TbadkCoreApplication.getCurrentAccount()));
         dVar.b(1, hashMap);
     }
 
-    private void Vz() {
-        if (!ListUtils.isEmpty(this.iaw)) {
-            Iterator<d> it = this.iaw.iterator();
+    private void Xi() {
+        if (!ListUtils.isEmpty(this.ieU)) {
+            Iterator<d> it = this.ieU.iterator();
             while (it.hasNext()) {
                 d next = it.next();
-                if (next != null && next.Lu() != null && next.Lu().getParent() != null) {
-                    ((ViewGroup) next.Lu().getParent()).removeView(next.Lu());
+                if (next != null && next.MS() != null && next.MS().getParent() != null) {
+                    ((ViewGroup) next.MS().getParent()).removeView(next.MS());
                 }
             }
         }
         removeAllViews();
     }
 
-    public void cni() {
-        cD(true);
+    public void cog() {
+        cM(true);
     }
 
-    @Override // com.baidu.live.v.f
-    public void cD(boolean z) {
+    @Override // com.baidu.live.u.f
+    public void cM(boolean z) {
         if (BdLog.isDebugMode()) {
             BdLog.e("AlaLivePlayer stopLivePlayer()");
         }
         if (z) {
-            Vz();
+            Xi();
         }
-        this.bOa = "";
-        if (!ListUtils.isEmpty(this.iaw)) {
-            Iterator<d> it = this.iaw.iterator();
+        this.bRQ = "";
+        if (!ListUtils.isEmpty(this.ieU)) {
+            Iterator<d> it = this.ieU.iterator();
             while (it.hasNext()) {
                 d next = it.next();
                 if (next != null) {
@@ -207,59 +207,80 @@ public class SdkLivePlayer extends LinearLayout implements f {
                 }
             }
         }
-        if (this.iax != null) {
-            this.iax.clear();
+        if (this.ieV != null) {
+            this.ieV.clear();
         }
-        this.aCf = false;
+        this.aDS = false;
     }
 
-    @Override // com.baidu.live.v.f
+    @Override // com.baidu.live.u.f
     public View getLivePlayer() {
         return this;
     }
 
-    @Override // com.baidu.live.v.f
+    @Override // com.baidu.live.u.f
+    public void setVideoMode(int i) {
+        if (this.ieV != null && this.ieU != null && this.ieV.size() > 0 && this.ieU.size() > 0) {
+            int i2 = 0;
+            while (true) {
+                int i3 = i2;
+                if (i3 < this.ieV.size()) {
+                    if (this.ieV.get(i3) != null && this.ieU.get(i3) != null) {
+                        if (this.ieV.get(i3).screen_direction == 2) {
+                            i = 2;
+                        }
+                        this.ieU.get(i3).setVideoScalingMode(i);
+                    }
+                    i2 = i3 + 1;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.live.u.f
     public String getVideoPath() {
-        return this.bOa;
+        return this.bRQ;
     }
 
-    public void setIPlayerCallBack(com.baidu.live.v.b bVar) {
-        this.bNZ = bVar;
+    public void setIPlayerCallBack(com.baidu.live.u.b bVar) {
+        this.bRP = bVar;
     }
 
-    public void setIPlayerAudioFocusCallBack(com.baidu.live.v.a aVar) {
-        if (this.iaz != null) {
-            this.iaz.setIPlayerAudioFocusCallBack(aVar);
+    public void setIPlayerAudioFocusCallBack(com.baidu.live.u.a aVar) {
+        if (this.ieX != null) {
+            this.ieX.setIPlayerAudioFocusCallBack(aVar);
         }
     }
 
     public void setPlayLiveInfo(AlaLiveInfoData alaLiveInfoData) {
         ArrayList<AlaLiveInfoData> arrayList = new ArrayList<>();
         arrayList.add(alaLiveInfoData);
-        this.iax = arrayList;
-        cnk();
+        this.ieV = arrayList;
+        coi();
     }
 
     public void setPlayLiveInfo(ArrayList<AlaLiveInfoData> arrayList) {
-        this.iax = arrayList;
-        cnk();
+        this.ieV = arrayList;
+        coi();
     }
 
-    private void cnk() {
-        if (this.iax != null && this.iaw != null && this.iax.size() > 0 && this.iaw.size() > 0) {
+    private void coi() {
+        if (this.ieV != null && this.ieU != null && this.ieV.size() > 0 && this.ieU.size() > 0) {
             int i = 0;
-            for (int i2 = 0; i2 < this.iax.size(); i2++) {
-                if (this.iax.get(i2) != null && this.iaw.get(i2) != null) {
-                    if (this.iax.get(i2).screen_direction == 2) {
+            for (int i2 = 0; i2 < this.ieV.size(); i2++) {
+                if (this.ieV.get(i2) != null && this.ieU.get(i2) != null) {
+                    if (this.ieV.get(i2).screen_direction == 2) {
                         i = 2;
                     }
-                    this.iaw.get(i2).setVideoScalingMode(i);
+                    this.ieU.get(i2).setVideoScalingMode(i);
                 }
             }
         }
     }
 
-    private LinearLayout.LayoutParams cnl() {
+    private LinearLayout.LayoutParams coj() {
         int bm = com.baidu.live.utils.h.bm(this.mContext);
         int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.mContext) / 2;
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(equipmentWidth, (equipmentWidth * 4) / 3);
@@ -267,23 +288,23 @@ public class SdkLivePlayer extends LinearLayout implements f {
         return layoutParams;
     }
 
-    private LinearLayout.LayoutParams cnm() {
+    private LinearLayout.LayoutParams cok() {
         return new LinearLayout.LayoutParams(-1, -1);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.iaz != null) {
-            this.iaz.requestAudioFocus();
+        if (this.ieX != null) {
+            this.ieX.requestAudioFocus();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.iaz != null) {
-            this.iaz.abandonAudioFocus();
+        if (this.ieX != null) {
+            this.ieX.abandonAudioFocus();
         }
     }
 }

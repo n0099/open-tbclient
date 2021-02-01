@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout;
 /* loaded from: classes2.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.tabfeed.data.b, AdapterViewHolder<HotTopicRankLayout>> {
-    private s amu;
+    private s amk;
     private TbPageContext mPageContext;
 
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.jYX);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.kgA);
         this.mPageContext = tbPageContext;
     }
 
     public void a(s sVar) {
-        this.amu = sVar;
+        this.amk = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,9 +36,9 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (bVar == null || adapterViewHolder == null) {
             return null;
         }
-        HotTopicRankLayout qt = adapterViewHolder.qt();
-        qt.C(bVar);
-        qt.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        HotTopicRankLayout qr = adapterViewHolder.qr();
+        qr.C(bVar);
+        qr.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return adapterViewHolder.getView();
     }
 }

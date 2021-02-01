@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.bytedance.sdk.openadsdk";
     public static final String BUILD_TYPE = "release";

@@ -12,7 +12,7 @@ import com.baidu.location.a.i;
 import com.baidu.mobstat.Config;
 import com.kwad.sdk.collector.AppStatusRules;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class l extends i {
     public i.b e;
     private double y;
@@ -51,24 +51,24 @@ public class l extends i {
     private long M = 0;
     private boolean N = true;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     private class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ l f2571a;
+        final /* synthetic */ l f2569a;
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f2571a.E) {
-                this.f2571a.E = false;
-                if (!this.f2571a.F) {
+            if (this.f2569a.E) {
+                this.f2569a.E = false;
+                if (!this.f2569a.F) {
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         private b() {
         }
@@ -95,19 +95,19 @@ public class l extends i {
     }
 
     private boolean a(com.baidu.location.b.a aVar) {
-        this.f2556b = com.baidu.location.b.b.a().f();
-        if (this.f2556b == aVar) {
+        this.f2554b = com.baidu.location.b.b.a().f();
+        if (this.f2554b == aVar) {
             return false;
         }
-        return this.f2556b == null || aVar == null || !aVar.a(this.f2556b);
+        return this.f2554b == null || aVar == null || !aVar.a(this.f2554b);
     }
 
     private boolean a(com.baidu.location.b.h hVar) {
-        this.f2555a = com.baidu.location.b.i.a().o();
-        if (hVar == this.f2555a) {
+        this.f2553a = com.baidu.location.b.i.a().o();
+        if (hVar == this.f2553a) {
             return false;
         }
-        return this.f2555a == null || hVar == null || !hVar.c(this.f2555a);
+        return this.f2553a == null || hVar == null || !hVar.c(this.f2553a);
     }
 
     public static synchronized l c() {
@@ -262,8 +262,8 @@ public class l extends i {
                 }
                 String l = com.baidu.location.b.i.a().l();
                 a2 = l != null ? l + b() + j2[0] : "" + b() + j2[0];
-                if (this.f2556b != null && this.f2556b.g() != null) {
-                    a2 = this.f2556b.g() + a2;
+                if (this.f2554b != null && this.f2554b.g() != null) {
+                    a2 = this.f2554b.g() + a2;
                 }
                 String a3 = com.baidu.location.d.b.a().a(true);
                 if (a3 != null) {
@@ -275,8 +275,8 @@ public class l extends i {
                 this.j = null;
             }
             this.e.a(a2);
-            this.n = this.f2556b;
-            this.m = this.f2555a;
+            this.n = this.f2554b;
+            this.m = this.f2553a;
             if (this.q) {
                 this.q = false;
                 if (!com.baidu.location.b.i.i() || message == null || com.baidu.location.a.a.a().e(message) < 1000) {

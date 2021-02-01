@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.atomdata;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class YuyinAlaPersonCardActivityConfig extends AlaPersonCardActivityConfig {
     public static final String PERSON_REENTER_GIFTCARD = "PERSON_REENTER_GIFTCARD";
     public static final String PERSON_USER_KEY = "PERSON_USER_KEY";

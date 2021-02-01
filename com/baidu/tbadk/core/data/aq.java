@@ -1,19 +1,56 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.LotteryRegular;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aq {
-    private String eLY;
-    private List<Integer> eLZ;
+    private ArrayList<String> eOh;
+    private int eOi = 0;
+    private UserData eOg = new UserData();
+    private AntiData anti = new AntiData();
 
-    public void a(LotteryRegular lotteryRegular) {
-        this.eLY = lotteryRegular.regular;
-        this.eLZ = new ArrayList();
-        int size = lotteryRegular.chance.size();
-        for (int i = 0; i < size; i++) {
-            this.eLZ.add(lotteryRegular.chance.get(i));
+    public aq() {
+        this.eOh = null;
+        this.eOh = new ArrayList<>();
+        mW(0);
+    }
+
+    public UserData getUser() {
+        return this.eOg;
+    }
+
+    public AntiData getAnti() {
+        return this.anti;
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.eOg.parserJson(jSONObject.optJSONObject("user"));
+            this.anti.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.eOh.add(optJSONArray.optString(i, null));
+                }
+            }
+            mW(jSONObject.optInt("retrytime"));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void mW(int i) {
+        this.eOi = i;
     }
 }

@@ -1,8 +1,8 @@
 package org.webrtc;
 
-import androidx.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+import javax.annotation.Nullable;
+/* loaded from: classes10.dex */
 class RefCountDelegate implements RefCounted {
     private final AtomicInteger refCount = new AtomicInteger(1);
     @Nullable

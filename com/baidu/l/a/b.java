@@ -5,10 +5,10 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 @SuppressLint({"NewApi"})
 @TargetApi(23)
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void validateRequestPermissionsRequestCode(int i);
     }

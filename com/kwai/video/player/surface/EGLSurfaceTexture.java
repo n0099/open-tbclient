@@ -16,7 +16,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Locale;
 @TargetApi(17)
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class EGLSurfaceTexture implements SurfaceTexture.OnFrameAvailableListener, Runnable {
     private static final int[] EGL_CONFIG_ATTRIBUTES = {12352, 4, 12324, 8, 12323, 8, 12322, 8, 12321, 8, 12325, 0, 12327, 12344, 12339, 4, 12344};
     private static final int EGL_PROTECTED_CONTENT_EXT = 12992;
@@ -38,7 +38,7 @@ public final class EGLSurfaceTexture implements SurfaceTexture.OnFrameAvailableL
     private SurfaceTexture texture;
     private final int[] textureIdHolder;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class GlException extends RuntimeException {
         private GlException(String str) {
             super(str);
@@ -47,11 +47,11 @@ public final class EGLSurfaceTexture implements SurfaceTexture.OnFrameAvailableL
 
     @Documented
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface SecureMode {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface TextureImageListener {
         void onFrameAvailable();
     }

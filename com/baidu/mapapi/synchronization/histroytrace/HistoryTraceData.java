@@ -5,15 +5,15 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.synchronization.SyncCoordinateConverter;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HistoryTraceData implements Parcelable {
     public static final Parcelable.Creator<HistoryTraceData> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2949a;
+    private int f2947a;
 
     /* renamed from: b  reason: collision with root package name */
-    private double f2950b;
+    private double f2948b;
     private double c;
     private int d;
     private LatLng e;
@@ -22,15 +22,15 @@ public class HistoryTraceData implements Parcelable {
     private List<HistoryTracePoint> h;
     private int i;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class HistoryTracePoint implements Parcelable {
         public static final Parcelable.Creator<HistoryTracePoint> CREATOR = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        private LatLng f2951a;
+        private LatLng f2949a;
 
         /* renamed from: b  reason: collision with root package name */
-        private long f2952b;
+        private long f2950b;
         private String c;
 
         public HistoryTracePoint() {
@@ -38,8 +38,8 @@ public class HistoryTraceData implements Parcelable {
 
         /* JADX INFO: Access modifiers changed from: protected */
         public HistoryTracePoint(Parcel parcel) {
-            this.f2951a = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-            this.f2952b = parcel.readLong();
+            this.f2949a = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            this.f2950b = parcel.readLong();
             this.c = parcel.readString();
         }
 
@@ -53,11 +53,11 @@ public class HistoryTraceData implements Parcelable {
         }
 
         public long getLocationTime() {
-            return this.f2952b;
+            return this.f2950b;
         }
 
         public LatLng getPoint() {
-            return this.f2951a;
+            return this.f2949a;
         }
 
         public void setCreateTime(String str) {
@@ -65,17 +65,17 @@ public class HistoryTraceData implements Parcelable {
         }
 
         public void setLocationTime(long j) {
-            this.f2952b = j;
+            this.f2950b = j;
         }
 
         public void setPoint(LatLng latLng) {
-            this.f2951a = latLng;
+            this.f2949a = latLng;
         }
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            parcel.writeParcelable(this.f2951a, i);
-            parcel.writeLong(this.f2952b);
+            parcel.writeParcelable(this.f2949a, i);
+            parcel.writeLong(this.f2950b);
             parcel.writeString(this.c);
         }
     }
@@ -85,8 +85,8 @@ public class HistoryTraceData implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public HistoryTraceData(Parcel parcel) {
-        this.f2949a = parcel.readInt();
-        this.f2950b = parcel.readDouble();
+        this.f2947a = parcel.readInt();
+        this.f2948b = parcel.readDouble();
         this.c = parcel.readDouble();
         this.d = parcel.readInt();
         this.e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
@@ -112,7 +112,7 @@ public class HistoryTraceData implements Parcelable {
     }
 
     public double getDistance() {
-        return this.f2950b;
+        return this.f2948b;
     }
 
     public LatLng getOrderEndPosition() {
@@ -132,7 +132,7 @@ public class HistoryTraceData implements Parcelable {
     }
 
     public int getTotalPoints() {
-        return this.f2949a;
+        return this.f2947a;
     }
 
     public void setCoordType(SyncCoordinateConverter.CoordType coordType) {
@@ -148,7 +148,7 @@ public class HistoryTraceData implements Parcelable {
     }
 
     public void setDistance(double d) {
-        this.f2950b = d;
+        this.f2948b = d;
     }
 
     public void setOrderEndPosition(LatLng latLng) {
@@ -168,13 +168,13 @@ public class HistoryTraceData implements Parcelable {
     }
 
     public void setTotalPoints(int i) {
-        this.f2949a = i;
+        this.f2947a = i;
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("HistoryTraceData: \n");
-        stringBuffer.append("TotalPoints = ").append(this.f2949a);
-        stringBuffer.append("; Distance = ").append(this.f2950b);
+        stringBuffer.append("TotalPoints = ").append(this.f2947a);
+        stringBuffer.append("; Distance = ").append(this.f2948b);
         stringBuffer.append("; TollDistance = ").append(this.c);
         stringBuffer.append("; CurrentOrderState = ").append(this.d);
         stringBuffer.append("; OrderStartPosition = ").append(this.e);
@@ -203,8 +203,8 @@ public class HistoryTraceData implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f2949a);
-        parcel.writeDouble(this.f2950b);
+        parcel.writeInt(this.f2947a);
+        parcel.writeDouble(this.f2948b);
         parcel.writeDouble(this.c);
         parcel.writeInt(this.d);
         parcel.writeParcelable(this.e, i);

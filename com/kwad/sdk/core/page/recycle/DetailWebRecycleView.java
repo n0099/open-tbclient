@@ -10,14 +10,14 @@ import androidx.core.view.ViewCompat;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.aq;
 import com.kwad.sdk.utils.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DetailWebRecycleView extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    a f9349a;
+    a f9351a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f9350b;
+    private int f9352b;
     private boolean c;
     private boolean d;
     private int e;
@@ -27,7 +27,7 @@ public class DetailWebRecycleView extends b {
     private Runnable i;
     private aq j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         boolean a(MotionEvent motionEvent);
     }
@@ -42,7 +42,7 @@ public class DetailWebRecycleView extends b {
 
     public DetailWebRecycleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f9350b = 1000;
+        this.f9352b = 1000;
         this.c = false;
         this.d = false;
         this.i = new Runnable() { // from class: com.kwad.sdk.core.page.recycle.DetailWebRecycleView.1
@@ -51,7 +51,7 @@ public class DetailWebRecycleView extends b {
                 try {
                     Object a2 = n.a(DetailWebRecycleView.this, "mGapWorker");
                     if (a2 != null) {
-                        n.a(a2, "postFromTraversal", DetailWebRecycleView.this, 0, Integer.valueOf(DetailWebRecycleView.this.f9350b));
+                        n.a(a2, "postFromTraversal", DetailWebRecycleView.this, 0, Integer.valueOf(DetailWebRecycleView.this.f9352b));
                     }
                 } catch (RuntimeException e) {
                     com.kwad.sdk.core.d.a.a(e);
@@ -82,7 +82,7 @@ public class DetailWebRecycleView extends b {
 
     @Override // com.kwad.sdk.core.page.recycle.b, androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.f9349a == null || !this.f9349a.a(motionEvent)) {
+        if (this.f9351a == null || !this.f9351a.a(motionEvent)) {
             this.f = computeVerticalScrollOffset();
             if (motionEvent.getY() <= this.e - this.f) {
                 return super.onInterceptTouchEvent(motionEvent);
@@ -157,7 +157,7 @@ public class DetailWebRecycleView extends b {
     }
 
     public void setInterceptTouchListener(a aVar) {
-        this.f9349a = aVar;
+        this.f9351a = aVar;
     }
 
     public void setTopViewHeight(int i) {

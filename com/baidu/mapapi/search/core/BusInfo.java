@@ -2,15 +2,15 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BusInfo extends TransitBaseInfo {
     public static final Parcelable.Creator<BusInfo> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2837a;
+    private int f2835a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f2838b;
+    private int f2836b;
 
     public BusInfo() {
     }
@@ -18,8 +18,8 @@ public class BusInfo extends TransitBaseInfo {
     /* JADX INFO: Access modifiers changed from: protected */
     public BusInfo(Parcel parcel) {
         super(parcel);
-        this.f2837a = parcel.readInt();
-        this.f2838b = parcel.readInt();
+        this.f2835a = parcel.readInt();
+        this.f2836b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -28,25 +28,25 @@ public class BusInfo extends TransitBaseInfo {
     }
 
     public int getStopNum() {
-        return this.f2838b;
+        return this.f2836b;
     }
 
     public int getType() {
-        return this.f2837a;
+        return this.f2835a;
     }
 
     public void setStopNum(int i) {
-        this.f2838b = i;
+        this.f2836b = i;
     }
 
     public void setType(int i) {
-        this.f2837a = i;
+        this.f2835a = i;
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeInt(this.f2837a);
-        parcel.writeInt(this.f2838b);
+        parcel.writeInt(this.f2835a);
+        parcel.writeInt(this.f2836b);
     }
 }

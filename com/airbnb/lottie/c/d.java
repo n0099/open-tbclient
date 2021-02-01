@@ -4,14 +4,14 @@ import android.util.JsonReader;
 import androidx.annotation.Nullable;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static com.airbnb.lottie.model.a.b f(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         return a(jsonReader, dVar, true);
     }
 
     public static com.airbnb.lottie.model.a.b a(JsonReader jsonReader, com.airbnb.lottie.d dVar, boolean z) throws IOException {
-        return new com.airbnb.lottie.model.a.b(a(jsonReader, z ? com.airbnb.lottie.d.f.kA() : 1.0f, dVar, i.Hr));
+        return new com.airbnb.lottie.model.a.b(a(jsonReader, z ? com.airbnb.lottie.d.f.kz() : 1.0f, dVar, i.Hr));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,7 +21,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.a.f h(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
-        return new com.airbnb.lottie.model.a.f(a(jsonReader, com.airbnb.lottie.d.f.kA(), dVar, y.Hx));
+        return new com.airbnb.lottie.model.a.f(a(jsonReader, com.airbnb.lottie.d.f.kz(), dVar, y.Hx));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,7 +31,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.a.h j(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
-        return new com.airbnb.lottie.model.a.h(a(jsonReader, com.airbnb.lottie.d.f.kA(), dVar, ad.Hz));
+        return new com.airbnb.lottie.model.a.h(a(jsonReader, com.airbnb.lottie.d.f.kz(), dVar, ad.Hz));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

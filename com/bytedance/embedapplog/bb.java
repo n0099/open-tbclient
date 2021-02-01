@@ -1,24 +1,24 @@
 package com.bytedance.embedapplog;
 
 import com.bytedance.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f5795a;
-    private static com.bytedance.a.a pcw;
+    private static int f5797a;
+    private static com.bytedance.a.a pmK;
 
     static {
         a(2);
-        a(new a.C0980a());
+        a(new a.C0984a());
     }
 
     public static void a(com.bytedance.a.a aVar) {
-        pcw = aVar;
+        pmK = aVar;
     }
 
     public static void a(int i) {
-        f5795a = i;
+        f5797a = i;
     }
 
     public static void a(String str, String str2) {
@@ -26,8 +26,8 @@ public final class bb {
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (pcw != null && f5795a <= 2) {
-            pcw.h(str, str2, th);
+        if (pmK != null && f5797a <= 2) {
+            pmK.h(str, str2, th);
         }
     }
 
@@ -36,8 +36,8 @@ public final class bb {
     }
 
     public static void b(String str, String str2, Throwable th) {
-        if (pcw != null && f5795a <= 3) {
-            pcw.j(str, str2, th);
+        if (pmK != null && f5797a <= 3) {
+            pmK.j(str, str2, th);
         }
     }
 
@@ -46,8 +46,8 @@ public final class bb {
     }
 
     public static void c(String str, String str2, Throwable th) {
-        if (pcw != null && f5795a <= 6) {
-            pcw.k(str, str2, th);
+        if (pmK != null && f5797a <= 6) {
+            pmK.k(str, str2, th);
         }
     }
 }

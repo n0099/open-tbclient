@@ -6,15 +6,15 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MapStatusUpdate {
     private static final String p = MapStatusUpdate.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2736a;
+    int f2734a;
 
     /* renamed from: b  reason: collision with root package name */
-    MapStatus f2737b;
+    MapStatus f2735b;
     LatLng c;
     LatLngBounds d;
     int e;
@@ -34,7 +34,7 @@ public final class MapStatusUpdate {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public MapStatusUpdate(int i) {
-        this.f2736a = i;
+        this.f2734a = i;
     }
 
     private float a(LatLngBounds latLngBounds, com.baidu.mapsdkplatform.comapi.map.e eVar, int i, int i2) {
@@ -74,9 +74,9 @@ public final class MapStatusUpdate {
         if (eVar == null || mapStatus == null) {
             return null;
         }
-        switch (this.f2736a) {
+        switch (this.f2734a) {
             case 1:
-                return this.f2737b;
+                return this.f2735b;
             case 2:
                 return new MapStatus(mapStatus.rotate, this.c, mapStatus.overlook, mapStatus.zoom, mapStatus.targetScreen, null);
             case 3:
@@ -85,7 +85,7 @@ public final class MapStatusUpdate {
                 }
                 GeoPoint ll2mc = CoordUtil.ll2mc(this.d.southwest);
                 GeoPoint ll2mc2 = CoordUtil.ll2mc(this.d.northeast);
-                float a2 = eVar.a((int) ll2mc.getLongitudeE6(), (int) ll2mc2.getLatitudeE6(), (int) ll2mc2.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), mapStatus.f2732a.j.right - mapStatus.f2732a.j.left, mapStatus.f2732a.j.bottom - mapStatus.f2732a.j.top);
+                float a2 = eVar.a((int) ll2mc.getLongitudeE6(), (int) ll2mc2.getLatitudeE6(), (int) ll2mc2.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), mapStatus.f2730a.j.right - mapStatus.f2730a.j.left, mapStatus.f2730a.j.bottom - mapStatus.f2730a.j.top);
                 return new MapStatus(mapStatus.rotate, this.d.getCenter(), mapStatus.overlook, a2, mapStatus.targetScreen, null);
             case 4:
                 return new MapStatus(mapStatus.rotate, this.c, mapStatus.overlook, this.g, mapStatus.targetScreen, null);

@@ -7,10 +7,10 @@ import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
 import com.baidu.swan.apps.u.c.e;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static a dJH;
+    public static a dLL;
 
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
@@ -19,23 +19,23 @@ public final class b {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
             } else {
-                switch (searchFlowEvent.dJG) {
+                switch (searchFlowEvent.dLK) {
                     case START:
-                        aLu();
-                        if (dJH != null) {
-                            dJH.a(searchFlowEvent);
+                        aLN();
+                        if (dLL != null) {
+                            dLL.a(searchFlowEvent);
                             break;
                         }
                         break;
                     case END:
-                        if (dJH != null) {
-                            dJH.a(searchFlowEvent);
+                        if (dLL != null) {
+                            dLL.a(searchFlowEvent);
                         }
-                        alI();
+                        amg();
                         break;
                     case NORMAL:
-                        if (dJH != null) {
-                            dJH.a(searchFlowEvent);
+                        if (dLL != null) {
+                            dLL.a(searchFlowEvent);
                             break;
                         }
                         break;
@@ -50,10 +50,10 @@ public final class b {
     public static synchronized void p(com.baidu.swan.apps.u.c.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                f(bVar.ayH(), bVar.ayC());
-                if (dJH != null) {
-                    dJH.setAppId(bVar.getAppId());
-                    dJH.setSource(bVar.ayC());
+                f(bVar.azf(), bVar.aza());
+                if (dLL != null) {
+                    dLL.setAppId(bVar.getAppId());
+                    dLL.setSource(bVar.aza());
                 }
             }
         }
@@ -62,26 +62,26 @@ public final class b {
     public static synchronized void e(e eVar) {
         synchronized (b.class) {
             if (eVar != null) {
-                f(eVar.ayI(), eVar.ayC());
-                if (dJH != null) {
-                    dJH.setAppId(eVar.getAppId());
-                    dJH.setSource(eVar.ayC());
+                f(eVar.azg(), eVar.aza());
+                if (dLL != null) {
+                    dLL.setAppId(eVar.getAppId());
+                    dLL.setSource(eVar.aza());
                 }
             }
         }
     }
 
-    private static void aLu() {
-        if (dJH != null) {
-            dJH.destroy();
-            dJH = null;
+    private static void aLN() {
+        if (dLL != null) {
+            dLL.destroy();
+            dLL = null;
         }
-        dJH = new a("772");
+        dLL = new a("772");
     }
 
-    private static void alI() {
-        if (dJH != null) {
-            dJH.send();
+    private static void amg() {
+        if (dLL != null) {
+            dLL.send();
         }
     }
 
@@ -96,9 +96,9 @@ public final class b {
                 return;
             }
             a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-            if (dJH != null) {
-                dJH.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
-                dJH.addExt("url", bundle.getString("search_url"));
+            if (dLL != null) {
+                dLL.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
+                dLL.addExt("url", bundle.getString("search_url"));
             }
         }
     }

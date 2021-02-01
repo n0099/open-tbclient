@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import androidx.core.app.NotificationManagerCompat;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static boolean m(TbPageContext tbPageContext) {
         return NotificationManagerCompat.from(tbPageContext.getPageActivity()).areNotificationsEnabled();

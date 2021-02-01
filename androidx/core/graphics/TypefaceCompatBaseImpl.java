@@ -7,7 +7,6 @@ import android.os.CancellationSignal;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import java.io.File;
@@ -15,13 +14,13 @@ import java.io.IOException;
 import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class TypefaceCompatBaseImpl {
     private static final String CACHE_FILE_PREFIX = "cached_font_";
     private static final String TAG = "TypefaceCompatBaseImpl";
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public interface StyleExtractor<T> {
         int getWeight(T t);
 
@@ -32,7 +31,7 @@ public class TypefaceCompatBaseImpl {
         int i2 = (i & 1) == 0 ? 400 : 700;
         boolean z = (i & 2) != 0;
         T t = null;
-        int i3 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i3 = Integer.MAX_VALUE;
         for (T t2 : tArr) {
             int abs = (styleExtractor.isItalic(t2) == z ? 0 : 1) + (Math.abs(styleExtractor.getWeight(t2) - i2) * 2);
             if (t == null || i3 > abs) {

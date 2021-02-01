@@ -7,18 +7,18 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private byte[] f5665a;
+    private byte[] f5667a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f5666b;
+    private int f5668b;
     private int c;
     private byte[] d;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     static class a extends GZIPOutputStream {
         public a(OutputStream outputStream) throws IOException {
             super(outputStream);
@@ -58,22 +58,22 @@ public final class d {
 
     public final void a() {
         byte[] bArr = this.d;
-        this.f5666b = 0;
+        this.f5668b = 0;
         this.c = 0;
-        if (this.f5665a == null) {
-            this.f5665a = new byte[256];
+        if (this.f5667a == null) {
+            this.f5667a = new byte[256];
         }
         for (int i = 0; i < 256; i++) {
-            this.f5665a[i] = (byte) i;
+            this.f5667a[i] = (byte) i;
         }
         int i2 = 0;
         int i3 = 0;
         int i4 = 0;
         while (i2 < 256) {
-            int i5 = ((bArr[i4] & 255) + this.f5665a[i2] + i3) & 255;
-            byte b2 = this.f5665a[i2];
-            this.f5665a[i2] = this.f5665a[i5];
-            this.f5665a[i5] = b2;
+            int i5 = ((bArr[i4] & 255) + this.f5667a[i2] + i3) & 255;
+            byte b2 = this.f5667a[i2];
+            this.f5667a[i2] = this.f5667a[i5];
+            this.f5667a[i5] = b2;
             i4 = (i4 + 1) % bArr.length;
             i2++;
             i3 = i5;
@@ -88,12 +88,12 @@ public final class d {
             throw new RuntimeException("output buffer too short");
         }
         for (int i2 = 0; i2 < i; i2++) {
-            this.f5666b = (this.f5666b + 1) & 255;
-            this.c = (this.f5665a[this.f5666b] + this.c) & 255;
-            byte b2 = this.f5665a[this.f5666b];
-            this.f5665a[this.f5666b] = this.f5665a[this.c];
-            this.f5665a[this.c] = b2;
-            bArr2[i2 + 0] = (byte) (bArr[i2 + 0] ^ this.f5665a[(this.f5665a[this.f5666b] + this.f5665a[this.c]) & 255]);
+            this.f5668b = (this.f5668b + 1) & 255;
+            this.c = (this.f5667a[this.f5668b] + this.c) & 255;
+            byte b2 = this.f5667a[this.f5668b];
+            this.f5667a[this.f5668b] = this.f5667a[this.c];
+            this.f5667a[this.c] = b2;
+            bArr2[i2 + 0] = (byte) (bArr[i2 + 0] ^ this.f5667a[(this.f5667a[this.f5668b] + this.f5667a[this.c]) & 255]);
         }
     }
 

@@ -5,10 +5,10 @@ import android.os.Parcel;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 @RequiresApi(23)
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class MediaBrowserCompatApi23 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     interface ItemCallback {
         void onError(@NonNull String str);
 
@@ -23,7 +23,7 @@ class MediaBrowserCompatApi23 {
         ((MediaBrowser) obj).getItem(str, (MediaBrowser.ItemCallback) obj2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static class ItemCallbackProxy<T extends ItemCallback> extends MediaBrowser.ItemCallback {
         protected final T mItemCallback;
 

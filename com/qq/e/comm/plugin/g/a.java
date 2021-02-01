@@ -8,11 +8,11 @@ import android.os.Build;
 import com.qq.e.comm.util.GDTLogger;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a extends ContextWrapper {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11991a;
+    private String f11993a;
 
     public a(Context context) {
         this(context, "gdt_database");
@@ -20,7 +20,7 @@ public class a extends ContextWrapper {
 
     public a(Context context, String str) {
         super(context);
-        this.f11991a = str;
+        this.f11993a = str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x003f  */
@@ -36,8 +36,8 @@ public class a extends ContextWrapper {
             GDTLogger.d("getDatabasePath(" + str + ") = " + (databasePath != null ? databasePath.getPath() : null));
             return databasePath;
         }
-        if (this.f11991a != null) {
-            File file2 = new File(filesDir, this.f11991a);
+        if (this.f11993a != null) {
+            File file2 = new File(filesDir, this.f11993a);
             if (file2.exists() || file2.mkdir()) {
                 filesDir = file2;
             }

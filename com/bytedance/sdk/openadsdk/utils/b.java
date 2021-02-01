@@ -3,10 +3,10 @@ package com.bytedance.sdk.openadsdk.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 

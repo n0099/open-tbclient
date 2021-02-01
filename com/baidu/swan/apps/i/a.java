@@ -1,21 +1,21 @@
 package com.baidu.swan.apps.i;
 
 import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static String getSearchboxHostForHttps() {
         return BaseUrlManager.ONLINE_URL;
     }
 
-    public static String akY() {
+    public static String alw() {
         return String.format("%s/smtapp/ad/similar", getSearchboxHostForHttps());
     }
 
-    public static String akZ() {
+    public static String alx() {
         return String.format("%s/smtapp/ad/auto", getSearchboxHostForHttps());
     }
 
-    public static String ala() {
+    public static String aly() {
         return String.format("%s/searchbox?action=userx&type=attribute", getSearchboxHostForHttps());
     }
 

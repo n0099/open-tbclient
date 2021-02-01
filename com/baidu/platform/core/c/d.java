@@ -16,11 +16,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4486b = d.class.getSimpleName();
+    private static final String f4489b = d.class.getSimpleName();
     private boolean c = false;
 
     private LatLng a(JSONObject jSONObject) {
@@ -41,7 +41,7 @@ public class d extends com.baidu.platform.base.d {
             }
             return this.c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
         } catch (JSONException e) {
-            Log.e(f4486b, "Parse detail search result error", e);
+            Log.e(f4489b, "Parse detail search result error", e);
             return false;
         }
     }
@@ -182,7 +182,7 @@ public class d extends com.baidu.platform.base.d {
                     poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                 }
             } catch (JSONException e) {
-                Log.e(f4486b, "Parse detail search result failed", e);
+                Log.e(f4489b, "Parse detail search result failed", e);
                 poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             }
         }

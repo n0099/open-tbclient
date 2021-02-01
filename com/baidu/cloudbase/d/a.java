@@ -7,9 +7,9 @@ import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static void d(File file, File file2) {
+    public static void c(File file, File file2) {
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -76,6 +76,6 @@ public class a {
     }
 
     public static void unzipFile(File file, String str) {
-        d(file, new File(str));
+        c(file, new File(str));
     }
 }

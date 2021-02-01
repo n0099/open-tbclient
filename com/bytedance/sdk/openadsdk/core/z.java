@@ -17,14 +17,14 @@ import com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity;
 import com.bytedance.sdk.openadsdk.multipro.b.a;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f6863a = false;
+    private static boolean f6865a = false;
 
     public static void a(boolean z) {
-        f6863a = z;
+        f6865a = z;
     }
 
     public static boolean a(final Context context, final com.bytedance.sdk.openadsdk.core.d.l lVar, final int i, @Nullable TTNativeAd tTNativeAd, @Nullable TTNativeExpressAd tTNativeExpressAd, final String str, @Nullable com.bytedance.sdk.openadsdk.downloadnew.core.a aVar, final boolean z) {
@@ -108,7 +108,7 @@ public class z {
                 }
             } else {
                 com.bytedance.sdk.openadsdk.utils.b.a(context, a(context, K, lVar, i, tTNativeAd, tTNativeExpressAd, str, z), null);
-                f6863a = false;
+                f6865a = false;
             }
             return true;
         }
@@ -138,7 +138,7 @@ public class z {
                 }
             }
         } else {
-            intent = tTNativeAd instanceof TTDrawFeedAd ? new Intent(context, TTWebPageActivity.class) : (lVar.X() != 5 || f6863a) ? new Intent(context, TTWebPageActivity.class) : new Intent(context, TTVideoWebPageActivity.class);
+            intent = tTNativeAd instanceof TTDrawFeedAd ? new Intent(context, TTWebPageActivity.class) : (lVar.X() != 5 || f6865a) ? new Intent(context, TTWebPageActivity.class) : new Intent(context, TTVideoWebPageActivity.class);
         }
         intent.putExtra("url", str);
         intent.putExtra("gecko_id", lVar.L());
@@ -161,7 +161,7 @@ public class z {
         }
         if (lVar.X() == 5) {
             if (tTNativeAd != null) {
-                aVar = tTNativeAd instanceof a.InterfaceC1022a ? ((a.InterfaceC1022a) tTNativeAd).a() : null;
+                aVar = tTNativeAd instanceof a.InterfaceC1026a ? ((a.InterfaceC1026a) tTNativeAd).a() : null;
                 if (aVar != null) {
                     intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, aVar.a().toString());
                 }

@@ -74,12 +74,12 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
                 try {
                     aVar.onNext(io.reactivex.internal.functions.a.m(this.valueSelector.apply(t), "The value supplied is null"));
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.O(th);
+                    io.reactivex.exceptions.a.N(th);
                     this.s.dispose();
                     onError(th);
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.O(th2);
+                io.reactivex.exceptions.a.N(th2);
                 this.s.dispose();
                 onError(th2);
             }
@@ -131,7 +131,7 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class a<K, T> extends io.reactivex.c.b<K, T> {
-        final State<T, K> qfq;
+        final State<T, K> qpu;
 
         public static <T, K> a<K, T> a(K k, int i, GroupByObserver<?, K, T> groupByObserver, boolean z) {
             return new a<>(k, new State(i, groupByObserver, k, z));
@@ -139,24 +139,24 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.qfq = state;
+            this.qpu = state;
         }
 
         @Override // io.reactivex.q
         protected void a(u<? super T> uVar) {
-            this.qfq.subscribe(uVar);
+            this.qpu.subscribe(uVar);
         }
 
         public void onNext(T t) {
-            this.qfq.onNext(t);
+            this.qpu.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.qfq.onError(th);
+            this.qpu.onError(th);
         }
 
         public void onComplete() {
-            this.qfq.onComplete();
+            this.qpu.onComplete();
         }
     }
 

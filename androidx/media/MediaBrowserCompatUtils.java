@@ -3,9 +3,8 @@ package androidx.media;
 import android.os.Bundle;
 import android.support.v4.media.MediaBrowserCompat;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.widget.ActivityChooserView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class MediaBrowserCompatUtils {
     public static boolean areSameOptions(Bundle bundle, Bundle bundle2) {
         if (bundle == bundle2) {
@@ -18,7 +17,7 @@ public class MediaBrowserCompatUtils {
         int i;
         int i2;
         int i3;
-        int i4 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i4 = Integer.MAX_VALUE;
         int i5 = bundle == null ? -1 : bundle.getInt(MediaBrowserCompat.EXTRA_PAGE, -1);
         int i6 = bundle2 == null ? -1 : bundle2.getInt(MediaBrowserCompat.EXTRA_PAGE, -1);
         int i7 = bundle == null ? -1 : bundle.getInt(MediaBrowserCompat.EXTRA_PAGE_SIZE, -1);

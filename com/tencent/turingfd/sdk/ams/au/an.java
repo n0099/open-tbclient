@@ -16,14 +16,14 @@ import com.tencent.turingfd.sdk.ams.au.ad;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class an {
 
     /* renamed from: a  reason: collision with root package name */
-    public static an f13475a = new an();
+    public static an f13477a = new an();
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f13476b = TimeUnit.MINUTES.toMillis(30);
+    public static long f13478b = TimeUnit.MINUTES.toMillis(30);
     public static int[] c = {0, 15, 30, 90, 240, EncoderTextureDrawer.X264_WIDTH, 600, FeatureCodes.FACE, 2400, 3200, 4800, 7200};
     public aq d;
     public Handler e;
@@ -33,36 +33,36 @@ public class an {
     public final AtomicReference<ap> i = new AtomicReference<>(null);
     public final AtomicReference<Boolean> j = new AtomicReference<>(false);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f13477a;
+        public final /* synthetic */ Context f13479a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f13478b;
+        public final /* synthetic */ boolean f13480b;
 
         public a(Context context, boolean z) {
-            this.f13477a = context;
-            this.f13478b = z;
+            this.f13479a = context;
+            this.f13480b = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            an.this.b(this.f13477a, this.f13478b);
+            an.this.b(this.f13479a, this.f13480b);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class b extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f13479a;
+        public Context f13481a;
 
         public b(Looper looper, Context context) {
             super(looper);
-            this.f13479a = context;
+            this.f13481a = context;
         }
 
         @Override // android.os.Handler
@@ -70,10 +70,10 @@ public class an {
             System.currentTimeMillis();
             int i = message.what;
             if (i == 1) {
-                an.this.c(this.f13479a, true);
+                an.this.c(this.f13481a, true);
             } else if (i != 2) {
             } else {
-                an.this.a(an.this.a(this.f13479a, true, false, true), false);
+                an.this.a(an.this.a(this.f13481a, true, false, true), false);
                 synchronized (an.this.j) {
                     an.this.j.set(false);
                     an.this.j.notifyAll();
@@ -83,7 +83,7 @@ public class an {
     }
 
     public final int a(ap apVar) {
-        if (apVar.d != 0 || TextUtils.isEmpty(apVar.f13484b)) {
+        if (apVar.d != 0 || TextUtils.isEmpty(apVar.f13486b)) {
             return 2;
         }
         long currentTimeMillis = System.currentTimeMillis() / 1000;
@@ -109,7 +109,7 @@ public class an {
         synchronized (this) {
             if (z) {
                 long currentTimeMillis2 = System.currentTimeMillis();
-                if (f.f13522a.a(context, i, this.d.a(), this.g.c(context, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT), this.g.b(context).f13484b)) {
+                if (f.f13524a.a(context, i, this.d.a(), this.g.c(context, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT), this.g.b(context).f13486b)) {
                     this.g.l(context);
                 }
                 currentTimeMillis = System.currentTimeMillis() - currentTimeMillis2;
@@ -122,7 +122,7 @@ public class an {
                     a2 = n.a();
                 } catch (Throwable th) {
                 }
-                f fVar = f.f13522a;
+                f fVar = f.f13524a;
                 fVar.a(u.c.aO, !a2 ? 1 : 0);
                 fVar.a(u.g.aO, !a2 ? 1 : 0);
                 fVar.a(u.r.aO, a2 ? 1 : 0);
@@ -142,10 +142,10 @@ public class an {
                 } else {
                     fVar.b(u.R.aO, 1);
                 }
-                f.f13522a.a(context);
+                f.f13524a.a(context);
             }
             a2 = true;
-            f fVar2 = f.f13522a;
+            f fVar2 = f.f13524a;
             fVar2.a(u.c.aO, !a2 ? 1 : 0);
             fVar2.a(u.g.aO, !a2 ? 1 : 0);
             fVar2.a(u.r.aO, a2 ? 1 : 0);
@@ -162,7 +162,7 @@ public class an {
             fVar2.b(u.O.aO, 1);
             if (z) {
             }
-            f.f13522a.a(context);
+            f.f13524a.a(context);
         }
         return currentTimeMillis;
     }
@@ -226,13 +226,13 @@ public class an {
             if (r5 == 0) goto L40
             boolean r4 = r5.a()     // Catch: java.lang.Throwable -> Lb8f
         L40:
-            java.util.Map<java.lang.Integer, java.lang.Long> r5 = com.tencent.turingfd.sdk.ams.au.i.f13529a
+            java.util.Map<java.lang.Integer, java.lang.Long> r5 = com.tencent.turingfd.sdk.ams.au.i.f13531a
             r5.clear()
             java.util.HashMap r5 = new java.util.HashMap
             r5.<init>()
             java.lang.String r6 = ""
             java.lang.StringBuilder r6 = com.tencent.turingfd.sdk.ams.au.ab.a(r6)
-            int r7 = com.tencent.turingfd.sdk.ams.au.af.f13467a
+            int r7 = com.tencent.turingfd.sdk.ams.au.af.f13469a
             java.lang.String r8 = "1"
             com.tencent.turingfd.sdk.ams.au.ab.a(r6, r7, r5, r8)
             java.lang.String r6 = "101"
@@ -245,7 +245,7 @@ public class an {
             com.tencent.turingfd.sdk.ams.au.c r7 = r0.g
             r0 = r23
             com.tencent.turingfd.sdk.ams.au.ap r7 = r7.b(r0)
-            java.lang.String r7 = r7.f13484b
+            java.lang.String r7 = r7.f13486b
             r5.put(r6, r7)
             java.lang.String r6 = "209"
             r0 = r22
@@ -262,7 +262,7 @@ public class an {
             java.lang.String r4 = com.tencent.turingfd.sdk.ams.au.h.a(r0, r1, r7, r4, r8)
             r5.put(r6, r4)
             java.lang.String r4 = "2001"
-            com.tencent.turingfd.sdk.ams.au.f r6 = com.tencent.turingfd.sdk.ams.au.f.f13522a
+            com.tencent.turingfd.sdk.ams.au.f r6 = com.tencent.turingfd.sdk.ams.au.f.f13524a
             java.lang.String r6 = r6.a()
             r5.put(r4, r6)
             if (r24 == 0) goto Lb5
@@ -270,7 +270,7 @@ public class an {
             java.lang.String r6 = "1"
             r5.put(r4, r6)
         Lb5:
-            com.tencent.turingfd.sdk.ams.au.f r11 = com.tencent.turingfd.sdk.ams.au.f.f13522a
+            com.tencent.turingfd.sdk.ams.au.f r11 = com.tencent.turingfd.sdk.ams.au.f.f13524a
             com.tencent.turingfd.sdk.ams.au.u r4 = com.tencent.turingfd.sdk.ams.au.u.P
             int r4 = r4.aO
             boolean r4 = r11.a(r4)
@@ -311,7 +311,7 @@ public class an {
             long r6 = r6.longValue()
             com.tencent.turingfd.sdk.ams.au.i.a(r4, r6)
         L11c:
-            com.tencent.turingfd.sdk.ams.au.f r11 = com.tencent.turingfd.sdk.ams.au.f.f13522a
+            com.tencent.turingfd.sdk.ams.au.f r11 = com.tencent.turingfd.sdk.ams.au.f.f13524a
             com.tencent.turingfd.sdk.ams.au.u r4 = com.tencent.turingfd.sdk.ams.au.u.N
             int r4 = r4.aO
             boolean r4 = r11.a(r4)
@@ -355,14 +355,14 @@ public class an {
             goto L169
         L17f:
             long r6 = java.lang.System.currentTimeMillis()
-            com.tencent.turingfd.sdk.ams.au.n r4 = com.tencent.turingfd.sdk.ams.au.m.f13535b
+            com.tencent.turingfd.sdk.ams.au.n r4 = com.tencent.turingfd.sdk.ams.au.m.f13537b
             if (r4 == 0) goto L1b5
             int r4 = r4.a()
             if (r4 == 0) goto L1b5
-            com.tencent.turingfd.sdk.ams.au.n r4 = com.tencent.turingfd.sdk.ams.au.m.f13535b
+            com.tencent.turingfd.sdk.ams.au.n r4 = com.tencent.turingfd.sdk.ams.au.m.f13537b
         L18f:
             java.lang.String r8 = "100"
-            java.lang.String r4 = r4.f13538a
+            java.lang.String r4 = r4.f13540a
             r5.put(r8, r4)
             r4 = 20
             long r8 = java.lang.System.currentTimeMillis()
@@ -376,7 +376,7 @@ public class an {
             r5.put(r4, r6)
             goto Lca
         L1b5:
-            java.util.Map<java.lang.String, com.tencent.turingfd.sdk.ams.au.m$a> r4 = com.tencent.turingfd.sdk.ams.au.m.f13534a
+            java.util.Map<java.lang.String, com.tencent.turingfd.sdk.ams.au.m$a> r4 = com.tencent.turingfd.sdk.ams.au.m.f13536a
             java.lang.String r8 = com.tencent.turingfd.sdk.ams.au.m.c
             boolean r4 = r4.containsKey(r8)
             if (r4 != 0) goto L1c6
@@ -393,22 +393,22 @@ public class an {
             com.tencent.turingfd.sdk.ams.au.n r4 = com.tencent.turingfd.sdk.ams.au.n.a(r4)
             goto L18f
         L1de:
-            java.util.Map<java.lang.String, com.tencent.turingfd.sdk.ams.au.m$a> r4 = com.tencent.turingfd.sdk.ams.au.m.f13534a
+            java.util.Map<java.lang.String, com.tencent.turingfd.sdk.ams.au.m$a> r4 = com.tencent.turingfd.sdk.ams.au.m.f13536a
             java.lang.String r8 = com.tencent.turingfd.sdk.ams.au.m.c
             java.lang.Object r4 = r4.get(r8)
             com.tencent.turingfd.sdk.ams.au.m$a r4 = (com.tencent.turingfd.sdk.ams.au.m.a) r4
             if (r4 == 0) goto L1ff
-            int r8 = r4.f13537b
+            int r8 = r4.f13539b
             r9 = 3
             if (r8 > r9) goto L1ff
             int r8 = r8 + 1
-            r4.f13537b = r8
+            r4.f13539b = r8
             com.tencent.turingfd.sdk.ams.au.k r4 = com.tencent.turingfd.sdk.ams.au.m.a.a(r4)
             r0 = r23
             com.tencent.turingfd.sdk.ams.au.n r4 = r4.a(r0)
-            com.tencent.turingfd.sdk.ams.au.m.f13535b = r4
+            com.tencent.turingfd.sdk.ams.au.m.f13537b = r4
         L1ff:
-            com.tencent.turingfd.sdk.ams.au.n r4 = com.tencent.turingfd.sdk.ams.au.m.f13535b
+            com.tencent.turingfd.sdk.ams.au.n r4 = com.tencent.turingfd.sdk.ams.au.m.f13537b
             goto L18f
         L202:
             r4 = move-exception
@@ -540,7 +540,7 @@ public class an {
             r0 = r23
             android.content.Intent r4 = r0.registerReceiver(r7, r4)     // Catch: java.lang.Throwable -> L68a
             if (r4 != 0) goto L64e
-            int r4 = com.tencent.turingfd.sdk.ams.au.bc.f13507a
+            int r4 = com.tencent.turingfd.sdk.ams.au.bc.f13509a
         L318:
             java.lang.String r7 = "255"
             com.tencent.turingfd.sdk.ams.au.ab.a(r6, r4, r5, r7)
@@ -550,7 +550,7 @@ public class an {
             boolean r4 = r11.a(r4)
             if (r4 == 0) goto L359
             long r8 = java.lang.System.currentTimeMillis()
-            java.util.List<com.tencent.turingfd.sdk.ams.au.au> r4 = com.tencent.turingfd.sdk.ams.au.ac.f13462b
+            java.util.List<com.tencent.turingfd.sdk.ams.au.au> r4 = com.tencent.turingfd.sdk.ams.au.ac.f13464b
             if (r4 == 0) goto L68f
         L330:
             java.util.Iterator r6 = r4.iterator()
@@ -559,11 +559,11 @@ public class an {
             if (r4 == 0) goto L939
             java.lang.Object r4 = r6.next()
             com.tencent.turingfd.sdk.ams.au.au r4 = (com.tencent.turingfd.sdk.ams.au.au) r4
-            java.lang.String r7 = r4.f13492a
+            java.lang.String r7 = r4.f13494a
             java.lang.String r10 = com.tencent.turingfd.sdk.ams.au.ax.c
             boolean r7 = r7.contains(r10)
             if (r7 == 0) goto L334
-            java.lang.String r7 = r4.f13493b
+            java.lang.String r7 = r4.f13495b
         L34c:
             if (r7 != 0) goto L351
             java.lang.String r7 = ""
@@ -582,7 +582,7 @@ public class an {
             r6 = 0
             java.lang.Object r4 = r4.get(r6)
             com.tencent.turingfd.sdk.ams.au.au r4 = (com.tencent.turingfd.sdk.ams.au.au) r4
-            java.lang.String r4 = r4.f13493b
+            java.lang.String r4 = r4.f13495b
         L376:
             if (r4 != 0) goto L37b
             java.lang.String r4 = ""
@@ -922,7 +922,7 @@ public class an {
             java.lang.String r8 = "android.intent.action.BATTERY_CHANGED"
             boolean r7 = android.text.TextUtils.equals(r7, r8)
             if (r7 != 0) goto L65f
-            int r4 = com.tencent.turingfd.sdk.ams.au.bc.f13507a
+            int r4 = com.tencent.turingfd.sdk.ams.au.bc.f13509a
             goto L318
         L65f:
             java.lang.String r7 = "level"
@@ -932,7 +932,7 @@ public class an {
             r9 = 100
             int r4 = r4.getIntExtra(r8, r9)     // Catch: java.lang.Throwable -> L685
             if (r4 != 0) goto L676
-            int r4 = com.tencent.turingfd.sdk.ams.au.bc.f13507a
+            int r4 = com.tencent.turingfd.sdk.ams.au.bc.f13509a
             goto L318
         L676:
             int r7 = r7 * 100
@@ -946,11 +946,11 @@ public class an {
             goto L318
         L685:
             r4 = move-exception
-            int r4 = com.tencent.turingfd.sdk.ams.au.bc.f13507a
+            int r4 = com.tencent.turingfd.sdk.ams.au.bc.f13509a
             goto L318
         L68a:
             r4 = move-exception
-            int r4 = com.tencent.turingfd.sdk.ams.au.bc.f13507a
+            int r4 = com.tencent.turingfd.sdk.ams.au.bc.f13509a
             goto L318
         L68f:
             java.util.ArrayList r10 = new java.util.ArrayList
@@ -974,7 +974,7 @@ public class an {
             if (r4 == 0) goto L703
             java.lang.Object r4 = r18.next()
             com.tencent.turingfd.sdk.ams.au.ag r4 = (com.tencent.turingfd.sdk.ams.au.ag) r4
-            int r0 = r4.f13468a
+            int r0 = r4.f13470a
             r19 = r0
             r0 = r19
             if (r7 != r0) goto L6b6
@@ -1026,7 +1026,7 @@ public class an {
             if (r4 == 0) goto L79d
             java.lang.Object r4 = r18.next()
             com.tencent.turingfd.sdk.ams.au.ag r4 = (com.tencent.turingfd.sdk.ams.au.ag) r4
-            java.util.Set<java.lang.String> r6 = com.tencent.turingfd.sdk.ams.au.ac.f13461a
+            java.util.Set<java.lang.String> r6 = com.tencent.turingfd.sdk.ams.au.ac.f13463a
             java.util.Iterator r19 = r6.iterator()
         L72a:
             boolean r6 = r19.hasNext()
@@ -1052,7 +1052,7 @@ public class an {
             if (r4 == 0) goto L76e
             java.lang.Object r4 = r18.next()
             com.tencent.turingfd.sdk.ams.au.ag r4 = (com.tencent.turingfd.sdk.ams.au.ag) r4
-            int r0 = r4.f13468a
+            int r0 = r4.f13470a
             r19 = r0
             r0 = r19
             if (r6 != r0) goto L756
@@ -1066,15 +1066,15 @@ public class an {
             r4.<init>()
             java.lang.StringBuilder r6 = new java.lang.StringBuilder
             r6.<init>()
-            java.lang.String r18 = com.tencent.turingfd.sdk.ams.au.ax.f13498a
+            java.lang.String r18 = com.tencent.turingfd.sdk.ams.au.ax.f13500a
             r0 = r18
             java.lang.StringBuilder r6 = r6.append(r0)
             java.lang.String r18 = com.tencent.turingfd.sdk.ams.au.ax.e
             r0 = r18
             java.lang.StringBuilder r6 = r6.append(r0)
             java.lang.String r6 = r6.toString()
-            r4.f13492a = r6
-            r4.f13493b = r7
+            r4.f13494a = r6
+            r4.f13495b = r7
             r0 = r17
             r0.add(r4)
             goto L705
@@ -1086,20 +1086,20 @@ public class an {
             r6.<init>()
             java.lang.StringBuilder r7 = new java.lang.StringBuilder
             r7.<init>()
-            java.lang.String r18 = com.tencent.turingfd.sdk.ams.au.ax.f13498a
+            java.lang.String r18 = com.tencent.turingfd.sdk.ams.au.ax.f13500a
             r0 = r18
             java.lang.StringBuilder r7 = r7.append(r0)
             java.lang.String r18 = com.tencent.turingfd.sdk.ams.au.ax.c
             r0 = r18
             java.lang.StringBuilder r7 = r7.append(r0)
             java.lang.String r7 = r7.toString()
-            r6.f13492a = r7
+            r6.f13494a = r7
             r7 = 0
             int r18 = r4.length()
             int r18 = r18 + (-1)
             r0 = r18
             java.lang.String r4 = r4.substring(r7, r0)
-            r6.f13493b = r4
+            r6.f13495b = r4
             r0 = r17
             r0.add(r6)
         L7db:
@@ -1172,7 +1172,7 @@ public class an {
             r0 = r20
             boolean r4 = r4.endsWith(r0)
             if (r4 != 0) goto L7f5
-            java.util.Set<java.lang.String> r4 = com.tencent.turingfd.sdk.ams.au.ac.f13461a
+            java.util.Set<java.lang.String> r4 = com.tencent.turingfd.sdk.ams.au.ac.f13463a
             java.util.Iterator r20 = r4.iterator()
         L88e:
             boolean r4 = r20.hasNext()
@@ -1228,20 +1228,20 @@ public class an {
             r6.<init>()
             java.lang.StringBuilder r7 = new java.lang.StringBuilder
             r7.<init>()
-            java.lang.String r16 = com.tencent.turingfd.sdk.ams.au.ax.f13498a
+            java.lang.String r16 = com.tencent.turingfd.sdk.ams.au.ax.f13500a
             r0 = r16
             java.lang.StringBuilder r7 = r7.append(r0)
             java.lang.String r16 = com.tencent.turingfd.sdk.ams.au.ax.d
             r0 = r16
             java.lang.StringBuilder r7 = r7.append(r0)
             java.lang.String r7 = r7.toString()
-            r6.f13492a = r7
+            r6.f13494a = r7
             r7 = 0
             int r16 = r4.length()
             int r16 = r16 + (-1)
             r0 = r16
             java.lang.String r4 = r4.substring(r7, r0)
-            r6.f13493b = r4
+            r6.f13495b = r4
             r0 = r17
             r0.add(r6)
         L931:
@@ -1361,7 +1361,7 @@ public class an {
             java.lang.String r7 = "202"
             r0 = r23
             r6.a(r0, r7, r4)
-            int r4 = r5.f13505b
+            int r4 = r5.f13507b
             if (r4 == 0) goto La66
             int r4 = r5.a()
             com.tencent.turingfd.sdk.ams.au.ap r4 = com.tencent.turingfd.sdk.ams.au.ap.a(r4)
@@ -1576,7 +1576,7 @@ public class an {
         if (r11 != false) goto L48;
      */
     /* JADX WARN: Code restructure failed: missing block: B:51:0x010a, code lost:
-        if (java.lang.Math.abs(java.lang.System.currentTimeMillis() - r0.longValue()) < com.tencent.turingfd.sdk.ams.au.an.f13476b) goto L13;
+        if (java.lang.Math.abs(java.lang.System.currentTimeMillis() - r0.longValue()) < com.tencent.turingfd.sdk.ams.au.an.f13478b) goto L13;
      */
     /* JADX WARN: Removed duplicated region for block: B:26:0x006c  */
     /* JADX WARN: Removed duplicated region for block: B:35:0x009b  */
@@ -1619,7 +1619,7 @@ public class an {
             if (a3.a() != 0) {
                 long e = this.g.e(aj.a());
                 if (e > 0) {
-                    long abs = Math.abs(System.currentTimeMillis() - a3.f13466b.getLast().longValue());
+                    long abs = Math.abs(System.currentTimeMillis() - a3.f13468b.getLast().longValue());
                     int[] iArr = c;
                     int length = e < ((long) iArr.length) ? (int) e : iArr.length - 1;
                     if (length >= 1) {
@@ -1632,8 +1632,8 @@ public class an {
                         if (abs <= TimeUnit.SECONDS.toMillis(new Random().nextInt((i2 - i) + 1) + i)) {
                             z5 = false;
                             if (!z5) {
-                                Long first = a3.f13466b.getFirst();
-                                if (a3.a() >= a3.f13465a) {
+                                Long first = a3.f13468b.getFirst();
+                                if (a3.a() >= a3.f13467a) {
                                 }
                             }
                             if (z6) {
@@ -1723,12 +1723,12 @@ public class an {
             try {
                 System.currentTimeMillis();
                 ad.a a3 = ((bd) p).a(1, bArr, 0, 0);
-                a2 = a3.f13463a != 0 ? com.tencent.turingfd.sdk.ams.au.b.a(a3.f13463a + NativeErrorCode.EKS_UNKNOWN_ERROR_BASE) : new com.tencent.turingfd.sdk.ams.au.b(0, a3.f13464b);
+                a2 = a3.f13465a != 0 ? com.tencent.turingfd.sdk.ams.au.b.a(a3.f13465a + NativeErrorCode.EKS_UNKNOWN_ERROR_BASE) : new com.tencent.turingfd.sdk.ams.au.b(0, a3.f13466b);
             } catch (Throwable th) {
                 a2 = com.tencent.turingfd.sdk.ams.au.b.a(NativeErrorCode.EKS_UNKNOWN_ERROR_BASE);
             }
         }
-        if (a2.f13505b != 0) {
+        if (a2.f13507b != 0) {
         }
         return a2;
     }

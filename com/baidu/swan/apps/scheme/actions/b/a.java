@@ -11,7 +11,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends b {
     public a(j jVar) {
         super(jVar, "/swanAPI/addFavor");
@@ -19,8 +19,8 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void b(final com.baidu.swan.apps.runtime.e eVar, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
-        PMSAppInfo xC = com.baidu.swan.pms.database.a.bci().xC(this.dEP);
-        if (xC == null || TextUtils.isEmpty(xC.appId)) {
+        PMSAppInfo xV = com.baidu.swan.pms.database.a.bcv().xV(this.dGT);
+        if (xV == null || TextUtils.isEmpty(xV.appId)) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("success", "0");
@@ -32,9 +32,9 @@ public class a extends b {
             UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
             return;
         }
-        SwanFavorDataManager.auq().b(this.dEP, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.scheme.actions.b.a.1
+        SwanFavorDataManager.auO().b(this.dGT, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.scheme.actions.b.a.1
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void anR() {
+            public void aop() {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put("success", "1");
@@ -43,19 +43,19 @@ public class a extends b {
                         e2.printStackTrace();
                     }
                 }
-                if (a.this.dEQ) {
-                    com.baidu.swan.apps.database.favorite.a.asN();
-                    if (com.baidu.swan.apps.menu.a.C(eVar.aIl())) {
-                        com.baidu.swan.apps.menu.a.cd("addmyswan", ak.aNY().getPage());
+                if (a.this.dGU) {
+                    com.baidu.swan.apps.database.favorite.a.atl();
+                    if (com.baidu.swan.apps.menu.a.w(eVar.aIE())) {
+                        com.baidu.swan.apps.menu.a.bX("addmyswan", ak.aOr().getPage());
                     } else {
-                        com.baidu.swan.apps.res.widget.b.d.u(eVar.getApplicationContext(), a.h.aiapps_fav_success).jg(2).jc(2).aHZ();
+                        com.baidu.swan.apps.res.widget.b.d.u(eVar.getApplicationContext(), a.h.aiapps_fav_success).jj(2).jf(2).aIs();
                     }
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString(), str);
             }
 
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void anS() {
+            public void aoq() {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put("success", "0");
@@ -64,8 +64,8 @@ public class a extends b {
                         e2.printStackTrace();
                     }
                 }
-                if (a.this.dEQ) {
-                    com.baidu.swan.apps.res.widget.b.d.u(eVar.getApplicationContext(), a.h.aiapps_fav_fail).jg(2).aHZ();
+                if (a.this.dGU) {
+                    com.baidu.swan.apps.res.widget.b.d.u(eVar.getApplicationContext(), a.h.aiapps_fav_fail).jj(2).aIs();
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString(), str);
             }
@@ -79,8 +79,8 @@ public class a extends b {
             return false;
         }
         try {
-            this.dEP = this.dEQ ? eVar.getAppId() : new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.dEP);
+            this.dGT = this.dGU ? eVar.getAppId() : new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.dGT);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

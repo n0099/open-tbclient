@@ -9,7 +9,7 @@ import android.net.NetworkRequest;
 import android.os.Build;
 import cn.com.chinatelecom.account.api.CtAuth;
 import java.net.InetAddress;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends cn.com.chinatelecom.account.api.b.a {
 
     /* renamed from: b  reason: collision with root package name */
@@ -21,7 +21,7 @@ public class d extends cn.com.chinatelecom.account.api.b.a {
     private long g = 0;
     private long h = 0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 

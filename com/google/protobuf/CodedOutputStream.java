@@ -1,10 +1,11 @@
 package com.google.protobuf;
 
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class CodedOutputStream {
     public static final int DEFAULT_BUFFER_SIZE = 4096;
     public static final int LITTLE_ENDIAN_32_SIZE = 4;
@@ -458,7 +459,7 @@ public final class CodedOutputStream {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public static class OutOfSpaceException extends IOException {
         private static final long serialVersionUID = -6947486886997889499L;
 
@@ -551,7 +552,7 @@ public final class CodedOutputStream {
 
     public void writeRawVarint32(int i) throws IOException {
         while ((i & (-128)) != 0) {
-            writeRawByte((i & 127) | 128);
+            writeRawByte((i & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
             i >>>= 7;
         }
         writeRawByte(i);
@@ -572,7 +573,7 @@ public final class CodedOutputStream {
 
     public void writeRawVarint64(long j) throws IOException {
         while (((-128) & j) != 0) {
-            writeRawByte((((int) j) & 127) | 128);
+            writeRawByte((((int) j) & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
             j >>>= 7;
         }
         writeRawByte((int) j);

@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
     protected static final String TAG = "ForwardingCrash";
     private final List<DeviceEventSceneHandler> mEventSceneHandlers = new LinkedList();

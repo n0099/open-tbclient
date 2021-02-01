@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.data;
 
 import android.util.SparseArray;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NegativeFeedBackData {
     public SparseArray<String> feedBackReasonMap = null;
     private String fid;

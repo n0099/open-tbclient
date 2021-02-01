@@ -5,19 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class g extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f11618a;
+    private final a f11620a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     interface a {
         void c(String str);
     }
 
     public g(a aVar) {
-        this.f11618a = aVar;
+        this.f11620a = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,8 +36,8 @@ class g extends BroadcastReceiver {
                 dataString = dataString.substring("package:".length());
             }
             GDTLogger.d("App被安装，包名: " + dataString);
-            if (this.f11618a != null) {
-                this.f11618a.c(dataString);
+            if (this.f11620a != null) {
+                this.f11620a.c(dataString);
             }
         }
     }

@@ -38,13 +38,14 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class SubsamplingScaleImageView extends View {
     public static final int EASE_IN_OUT_QUAD = 2;
     public static final int EASE_OUT_QUAD = 1;
     private static final int MESSAGE_LONG_CLICK = 1;
     public static final int ORIENTATION_0 = 0;
     public static final int ORIENTATION_180 = 180;
+    public static final int ORIENTATION_270 = 270;
     public static final int ORIENTATION_90 = 90;
     public static final int ORIENTATION_USE_EXIF = -1;
     public static final int PAN_LIMIT_CENTER = 3;
@@ -120,14 +121,13 @@ public class SubsamplingScaleImageView extends View {
     private PointF vTranslateStart;
     private boolean zoomEnabled;
     private static final String TAG = SubsamplingScaleImageView.class.getSimpleName();
-    public static final int ORIENTATION_270 = 270;
-    private static final List<Integer> VALID_ORIENTATIONS = Arrays.asList(0, 90, 180, Integer.valueOf((int) ORIENTATION_270), -1);
+    private static final List<Integer> VALID_ORIENTATIONS = Arrays.asList(0, 90, 180, 270, -1);
     private static final List<Integer> VALID_ZOOM_STYLES = Arrays.asList(1, 2, 3, 4);
     private static final List<Integer> VALID_EASING_STYLES = Arrays.asList(2, 1);
     private static final List<Integer> VALID_PAN_LIMITS = Arrays.asList(1, 2, 3);
     private static final List<Integer> VALID_SCALE_TYPES = Arrays.asList(2, 1, 3);
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public interface OnImageEventListener {
         void onImageLoadError(Exception exc);
 
@@ -1105,7 +1105,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class TilesInitTask extends BdAsyncTask<Void, Void, int[]> {
         private final WeakReference<Context> contextRef;
         private ImageRegionDecoder decoder;
@@ -1194,7 +1194,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class TileLoadTask extends BdAsyncTask<Void, Void, Bitmap> {
         private final WeakReference<ImageRegionDecoder> decoderRef;
         private Exception exception;
@@ -1277,7 +1277,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class BitmapLoadTask extends BdAsyncTask<Void, Void, Integer> {
         private Bitmap bitmap;
         private final WeakReference<Context> contextRef;
@@ -1392,7 +1392,7 @@ public class SubsamplingScaleImageView extends View {
                 return 180;
             }
             if (attributeInt == 8) {
-                return ORIENTATION_270;
+                return 270;
             }
             Log.w(TAG, "Unsupported EXIF orientation: " + attributeInt);
             return 0;
@@ -1403,7 +1403,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class Tile {
         private Bitmap bitmap;
         private Rect fileSRect;
@@ -1422,7 +1422,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class Anim {
         private long duration;
         private int easing;
@@ -1449,7 +1449,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class ScaleAndTranslate {
         private float scale;
         private PointF vTranslate;
@@ -1900,7 +1900,7 @@ public class SubsamplingScaleImageView extends View {
         return null;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public final class AnimationBuilder {
         private long duration;
         private int easing;
@@ -2024,7 +2024,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class DefaultOnImageEventListener implements OnImageEventListener {
         @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
         public void onReady() {

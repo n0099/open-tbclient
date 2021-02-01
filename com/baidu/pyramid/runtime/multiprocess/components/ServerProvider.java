@@ -3,24 +3,24 @@ package com.baidu.pyramid.runtime.multiprocess.components;
 import com.baidu.pyramid.runtime.multiprocess.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class ServerProvider extends DispatchableContentProvider {
-    public static String aeb() {
+    public static String aes() {
         return e.getAppContext().getPackageName() + ".provider.ipc.server";
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    protected String adY() {
-        return aeb();
+    protected String aep() {
+        return aes();
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    protected List<a> adZ() {
-        List<a> jc = com.baidu.pyramid.runtime.multiprocess.a.a.jc(adY());
-        if (jc == null) {
-            jc = new ArrayList<>();
+    protected List<a> aeq() {
+        List<a> jt = com.baidu.pyramid.runtime.multiprocess.a.a.jt(aep());
+        if (jt == null) {
+            jt = new ArrayList<>();
         }
-        jc.add(0, new com.baidu.pyramid.runtime.multiprocess.internal.a());
-        return jc;
+        jt.add(0, new com.baidu.pyramid.runtime.multiprocess.internal.a());
+        return jt;
     }
 }

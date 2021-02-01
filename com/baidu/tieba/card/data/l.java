@@ -2,237 +2,237 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class l extends b implements com.baidu.tbadk.core.util.g.a {
-    public boolean ivn = false;
-    public boolean ivs = true;
+    public boolean iAX = false;
+    public boolean iBc = true;
     public int sourceType = 0;
-    public static final BdUniqueId eOy = BdUniqueId.gen();
-    public static String iuY = "";
-    public static String iuZ = "";
-    public static String ivo = "";
-    public static String iuX = "";
-    public static String ivp = "";
-    public static String ivq = "";
-    public static String ivr = "";
+    public static final BdUniqueId eQK = BdUniqueId.gen();
+    public static String iAI = "";
+    public static String iAJ = "";
+    public static String iAY = "";
+    public static String iAH = "";
+    public static String iAZ = "";
+    public static String iBa = "";
+    public static String iBb = "";
 
-    public l(bz bzVar) {
-        this.eHK = bzVar;
+    public l(cb cbVar) {
+        this.eJQ = cbVar;
     }
 
-    public static boolean ad(bz bzVar) {
-        return (bzVar == null || bzVar.bnO() == null) ? false : true;
+    public static boolean ae(cb cbVar) {
+        return (cbVar == null || cbVar.boh() == null) ? false : true;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        if (this.eHK == null) {
+        if (this.eJQ == null) {
             return k.TYPE;
         }
-        if (this.iuC) {
-            if (this.eNW) {
-                return bz.eOb;
+        if (this.iAm) {
+            if (this.eQi) {
+                return cb.eQn;
             }
-            return this.eHK.getType();
-        } else if (this.eNF) {
-            return k.ivd;
+            return this.eJQ.getType();
+        } else if (this.ePR) {
+            return k.iAN;
         } else {
-            if (this.iuA) {
-                return eOy;
+            if (this.iAk) {
+                return eQK;
             }
-            if (this.eNL) {
-                return k.ivi;
+            if (this.ePX) {
+                return k.iAS;
             }
-            if (this.eNM) {
-                return k.ivk;
+            if (this.ePY) {
+                return k.iAU;
             }
-            if (this.iuB) {
-                return k.ivj;
+            if (this.iAl) {
+                return k.iAT;
             }
-            if (this.eNW) {
-                return k.eOf;
+            if (this.eQi) {
+                return k.eQr;
             }
-            if (this.eNS) {
-                return k.eOr;
+            if (this.eQe) {
+                return k.eQD;
             }
-            if (this.eNU) {
-                return k.eOt;
+            if (this.eQg) {
+                return k.eQF;
             }
-            if (this.eNV) {
-                return k.eOu;
+            if (this.eQh) {
+                return k.eQG;
             }
-            return eOy;
+            return eQK;
         }
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.tbadk.core.data.a
-    public bz bkV() {
-        if (this.eHK == null) {
+    public cb bln() {
+        if (this.eJQ == null) {
             return null;
         }
-        if (this.eHK.bnl() != 5) {
-            this.eHK.ng(1);
+        if (this.eJQ.bnE() != 5) {
+            this.eJQ.nj(1);
         }
-        return this.eHK;
+        return this.eJQ;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String bkW() {
-        if (this.eHK == null) {
+    public String blo() {
+        if (this.eJQ == null) {
             return null;
         }
-        return this.eHK.eQw;
+        return this.eJQ.eSI;
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public aq Ih(String str) {
-        aq aqVar = new aq(str);
-        if (this.eHK != null) {
-            aqVar.w("fid", this.eHK.getFid());
-            aqVar.dW("tid", this.eHK.getTid());
-            if (this.eHK.bmf()) {
-                aqVar.an("obj_type", 8);
-            } else if (this.eHK.bpw()) {
-                aqVar.an("obj_type", 9);
-            } else if (this.eHK.bmc()) {
-                aqVar.an("obj_type", 2);
+    public ar IS(String str) {
+        ar arVar = new ar(str);
+        if (this.eJQ != null) {
+            arVar.v("fid", this.eJQ.getFid());
+            arVar.dR("tid", this.eJQ.getTid());
+            if (this.eJQ.bmy()) {
+                arVar.ap("obj_type", 8);
+            } else if (this.eJQ.bpO()) {
+                arVar.ap("obj_type", 9);
+            } else if (this.eJQ.bmv()) {
+                arVar.ap("obj_type", 2);
             }
-            aqVar.an("obj_param1", crA() ? 2 : 1);
-            if (this.eHK.bnx() != null) {
-                aqVar.dW("obj_id", this.eHK.bnx().getUserId());
+            arVar.ap("obj_param1", csM() ? 2 : 1);
+            if (this.eJQ.bnQ() != null) {
+                arVar.dR("obj_id", this.eJQ.bnQ().getUserId());
             }
         }
-        return aqVar;
+        return arVar;
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public aq crE() {
-        aq aA = aA(ivo, true);
-        if (aA != null && bkV() != null) {
-            bz bkV = bkV();
-            aA.an("obj_name", bkV.bpd() != null && (bkV.bpd().dLo() != null || bkV.bpd().bHn() != null) ? 1 : 0);
-            if (bkV.bnx() != null) {
-                aA.an(TiebaInitialize.Params.AB_TYPE, bkV.bnx().hadConcerned() ? 1 : 0);
+    public ar csQ() {
+        ar az = az(iAY, true);
+        if (az != null && bln() != null) {
+            cb bln = bln();
+            az.ap("obj_name", bln.bpv() != null && (bln.bpv().dNz() != null || bln.bpv().bHH() != null) ? 1 : 0);
+            if (bln.bnQ() != null) {
+                az.ap(TiebaInitialize.Params.AB_TYPE, bln.bnQ().hadConcerned() ? 1 : 0);
             }
-            if (bkV.getBaijiahaoData() != null) {
-                aA.dW("obj_param4", bkV.getBaijiahaoData().oriUgcNid);
-                aA.dW("obj_param6", bkV.getBaijiahaoData().oriUgcVid);
+            if (bln.getBaijiahaoData() != null) {
+                az.dR("obj_param4", bln.getBaijiahaoData().oriUgcNid);
+                az.dR("obj_param6", bln.getBaijiahaoData().oriUgcVid);
             }
-            aA.an("obj_param5", ah(bkV));
-            if (bkV.bpD()) {
-                aA.an(TiebaInitialize.Params.OBJ_TO, 2);
+            az.ap("obj_param5", ai(bln));
+            if (bln.bpV()) {
+                az.ap(TiebaInitialize.Params.OBJ_TO, 2);
             } else {
-                aA.an(TiebaInitialize.Params.OBJ_TO, 1);
+                az.ap(TiebaInitialize.Params.OBJ_TO, 1);
             }
         }
-        return aA;
+        return az;
     }
 
-    public aq b(bz bzVar, int i) {
-        aq aA = aA(iuX, true);
-        if (aA != null) {
+    public ar b(cb cbVar, int i) {
+        ar az = az(iAH, true);
+        if (az != null) {
             if (i != -1) {
-                aA.an("click_locate", i);
+                az.ap("click_locate", i);
             }
-            if (bkV() != null) {
-                bz bkV = bkV();
-                if (bkV.getBaijiahaoData() != null) {
-                    aA.dW("obj_param4", bkV.getBaijiahaoData().oriUgcNid);
-                    aA.dW("obj_param6", bkV.getBaijiahaoData().oriUgcVid);
+            if (bln() != null) {
+                cb bln = bln();
+                if (bln.getBaijiahaoData() != null) {
+                    az.dR("obj_param4", bln.getBaijiahaoData().oriUgcNid);
+                    az.dR("obj_param6", bln.getBaijiahaoData().oriUgcVid);
                 }
-                aA.an("obj_param5", ah(bkV));
+                az.ap("obj_param5", ai(bln));
             }
         }
-        return aA;
+        return az;
     }
 
-    public aq ai(bz bzVar) {
-        return b(bzVar, -1);
+    public ar aj(cb cbVar) {
+        return b(cbVar, -1);
     }
 
-    public aq crN() {
-        aq aA = aA(ivr, true);
-        if (aA != null && bkV() != null) {
-            bz bkV = bkV();
-            if (bkV.getBaijiahaoData() != null) {
-                aA.dW("obj_param4", bkV.getBaijiahaoData().oriUgcNid);
-                aA.dW("obj_param6", bkV.getBaijiahaoData().oriUgcVid);
+    public ar csZ() {
+        ar az = az(iBb, true);
+        if (az != null && bln() != null) {
+            cb bln = bln();
+            if (bln.getBaijiahaoData() != null) {
+                az.dR("obj_param4", bln.getBaijiahaoData().oriUgcNid);
+                az.dR("obj_param6", bln.getBaijiahaoData().oriUgcVid);
             }
-            aA.an("obj_param5", ah(bkV));
+            az.ap("obj_param5", ai(bln));
         }
-        return aA;
+        return az;
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public aq crB() {
-        aq aA = aA(iuZ, true);
-        if (aA != null && bkV() != null) {
-            bz bkV = bkV();
-            if (bkV.getBaijiahaoData() != null) {
-                aA.dW("obj_param4", bkV.getBaijiahaoData().oriUgcNid);
-                aA.dW("obj_param6", bkV.getBaijiahaoData().oriUgcVid);
+    public ar csN() {
+        ar az = az(iAJ, true);
+        if (az != null && bln() != null) {
+            cb bln = bln();
+            if (bln.getBaijiahaoData() != null) {
+                az.dR("obj_param4", bln.getBaijiahaoData().oriUgcNid);
+                az.dR("obj_param6", bln.getBaijiahaoData().oriUgcVid);
             }
-            aA.an("obj_param5", ah(bkV));
+            az.ap("obj_param5", ai(bln));
         }
-        return aA;
+        return az;
     }
 
-    public aq aj(bz bzVar) {
-        aq aA = aA(iuY, true);
-        if (aA != null && bkV() != null) {
-            bz bkV = bkV();
-            if (bkV.getBaijiahaoData() != null) {
-                aA.dW("obj_param4", bkV.getBaijiahaoData().oriUgcNid);
-                aA.dW("obj_param6", bkV.getBaijiahaoData().oriUgcVid);
-                if (bkV.bpD()) {
-                    aA.an(TiebaInitialize.Params.OBJ_PARAM2, 2);
+    public ar ak(cb cbVar) {
+        ar az = az(iAI, true);
+        if (az != null && bln() != null) {
+            cb bln = bln();
+            if (bln.getBaijiahaoData() != null) {
+                az.dR("obj_param4", bln.getBaijiahaoData().oriUgcNid);
+                az.dR("obj_param6", bln.getBaijiahaoData().oriUgcVid);
+                if (bln.bpV()) {
+                    az.ap(TiebaInitialize.Params.OBJ_PARAM2, 2);
                 } else {
-                    aA.an(TiebaInitialize.Params.OBJ_PARAM2, 1);
+                    az.ap(TiebaInitialize.Params.OBJ_PARAM2, 1);
                 }
             }
-            aA.an("obj_param5", ah(bkV));
+            az.ap("obj_param5", ai(bln));
         }
-        return aA;
+        return az;
     }
 
     @Override // com.baidu.tbadk.core.util.g.a
     public String getVideoUrl() {
-        if (this.eHK == null || this.eHK.bnO() == null || this.eHK.bnO().video_url == null) {
+        if (this.eJQ == null || this.eJQ.boh() == null || this.eJQ.boh().video_url == null) {
             return null;
         }
-        return this.eHK.bnO().video_url;
+        return this.eJQ.boh().video_url;
     }
 
-    public int ah(bz bzVar) {
-        if (bzVar == null) {
+    public int ai(cb cbVar) {
+        if (cbVar == null) {
             return 1;
         }
-        if (bzVar.bpw() || bzVar.bpv()) {
+        if (cbVar.bpO() || cbVar.bpN()) {
             return 2;
         }
-        return (bzVar.bme() || bzVar.bmf()) ? 3 : 1;
+        return (cbVar.bmx() || cbVar.bmy()) ? 3 : 1;
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public boolean bmc() {
+    public boolean bmv() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public aq crD() {
-        aq aA = aA(iuX, true);
-        if (bkV() != null) {
-            bz bkV = bkV();
-            if (bkV.getBaijiahaoData() != null) {
-                aA.dW("obj_param4", bkV.getBaijiahaoData().oriUgcNid);
-                aA.dW("obj_param6", bkV.getBaijiahaoData().oriUgcVid);
+    public ar csP() {
+        ar az = az(iAH, true);
+        if (bln() != null) {
+            cb bln = bln();
+            if (bln.getBaijiahaoData() != null) {
+                az.dR("obj_param4", bln.getBaijiahaoData().oriUgcNid);
+                az.dR("obj_param6", bln.getBaijiahaoData().oriUgcVid);
             }
-            aA.an("obj_param5", ah(bkV));
-            aA.dW(IntentConfig.NID, bkV.blV());
+            az.ap("obj_param5", ai(bln));
+            az.dR(IntentConfig.NID, bln.bmo());
         }
-        return aA;
+        return az;
     }
 }

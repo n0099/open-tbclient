@@ -1,8 +1,8 @@
 package com.qq.e.comm.plugin.m;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface i {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void a(int i);
 

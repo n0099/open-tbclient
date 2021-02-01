@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.g;
 
 import java.util.concurrent.PriorityBlockingQueue;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b<E> extends PriorityBlockingQueue<E> {
     @Override // java.util.concurrent.PriorityBlockingQueue, java.util.Queue, java.util.concurrent.BlockingQueue
     public boolean offer(E e) {

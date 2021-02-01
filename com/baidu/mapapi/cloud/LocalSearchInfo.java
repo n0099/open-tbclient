@@ -4,15 +4,15 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LocalSearchInfo extends BaseCloudSearchInfo {
     public String region;
 
     public LocalSearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.f2671a = "https://api.map.baidu.com/geosearch/v2/local";
+            this.f2669a = "https://api.map.baidu.com/geosearch/v2/local";
         } else {
-            this.f2671a = "http://api.map.baidu.com/geosearch/v2/local";
+            this.f2669a = "http://api.map.baidu.com/geosearch/v2/local";
         }
     }
 

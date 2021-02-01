@@ -11,10 +11,10 @@ import java.util.concurrent.Exchanger;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class c {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void a(com.qq.e.comm.plugin.k.b bVar);
 

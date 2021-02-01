@@ -1,64 +1,64 @@
 package rx.internal.util.a;
 
 import java.util.Iterator;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class f<E> extends g<E> {
-    protected static final int qtl = Integer.getInteger("sparse.shift", 0).intValue();
-    private static final long qtm;
-    private static final int qtn;
-    protected final E[] qiV;
-    protected final long qto;
+    protected static final int qDo = Integer.getInteger("sparse.shift", 0).intValue();
+    private static final long qDp;
+    private static final int qDq;
+    protected final long qDr;
+    protected final E[] qsZ;
 
     static {
-        int K = ae.qtw.K(Object[].class);
+        int K = ae.qDz.K(Object[].class);
         if (4 == K) {
-            qtn = qtl + 2;
+            qDq = qDo + 2;
         } else if (8 == K) {
-            qtn = qtl + 3;
+            qDq = qDo + 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        qtm = ae.qtw.L(Object[].class) + (32 << (qtn - qtl));
+        qDp = ae.qDz.L(Object[].class) + (32 << (qDq - qDo));
     }
 
     public f(int i) {
-        int RT = h.RT(i);
-        this.qto = RT - 1;
-        this.qiV = (E[]) new Object[(RT << qtl) + 64];
+        int So = h.So(i);
+        this.qDr = So - 1;
+        this.qsZ = (E[]) new Object[(So << qDo) + 64];
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long jy(long j) {
-        return X(j, this.qto);
+    public final long jB(long j) {
+        return ab(j, this.qDr);
     }
 
-    protected final long X(long j, long j2) {
-        return qtm + ((j & j2) << qtn);
+    protected final long ab(long j, long j2) {
+        return qDp + ((j & j2) << qDq);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(E[] eArr, long j, E e) {
-        ae.qtw.a(eArr, j, e);
+        ae.qDz.a(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(E[] eArr, long j, E e) {
-        ae.qtw.b(eArr, j, e);
+        ae.qDz.b(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E a(E[] eArr, long j) {
-        return (E) ae.qtw.c(eArr, j);
+        return (E) ae.qDz.c(eArr, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final E jz(long j) {
-        return b(this.qiV, j);
+    public final E jC(long j) {
+        return b(this.qsZ, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E b(E[] eArr, long j) {
-        return (E) ae.qtw.d(eArr, j);
+        return (E) ae.qDz.d(eArr, j);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable

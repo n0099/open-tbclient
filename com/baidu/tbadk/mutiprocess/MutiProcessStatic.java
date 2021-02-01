@@ -13,22 +13,22 @@ import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 /* loaded from: classes.dex */
 public class MutiProcessStatic {
     static {
-        bCO();
+        bDg();
     }
 
-    private static void bCO() {
+    private static void bDg() {
         try {
-            g bCN = g.bCN();
-            bCN.a(AgreeEvent.class, new com.baidu.tbadk.mutiprocess.agree.a());
-            bCN.a(MissionEvent.class, new com.baidu.tbadk.mutiprocess.mission.a());
-            bCN.a(CompeteTaskEvent.class, new com.baidu.tbadk.mutiprocess.competetask.a());
-            bCN.a(ShareEvent.class, new com.baidu.tbadk.mutiprocess.share.a());
-            bCN.a(HistoryEvent.class, new com.baidu.tbadk.mutiprocess.history.a());
-            bCN.a(BackBaiduBoxViewEvent.class, new com.baidu.tbadk.mutiprocess.backbaidubox.a());
-            bCN.a(SyncDataEvent.class, new com.baidu.tbadk.mutiprocess.sync.a());
-            bCN.a(ShowReplyInPbEvent.class, new com.baidu.tbadk.mutiprocess.showreplyinpb.a());
-            bCN.a(LocationEvent.class, new com.baidu.tbadk.mutiprocess.location.a());
-            bCN.a(PrePageKeyEvent.class, new com.baidu.tbadk.mutiprocess.prePageKey.a());
+            g bDf = g.bDf();
+            bDf.a(AgreeEvent.class, new com.baidu.tbadk.mutiprocess.agree.a());
+            bDf.a(MissionEvent.class, new com.baidu.tbadk.mutiprocess.mission.a());
+            bDf.a(CompeteTaskEvent.class, new com.baidu.tbadk.mutiprocess.competetask.a());
+            bDf.a(ShareEvent.class, new com.baidu.tbadk.mutiprocess.share.a());
+            bDf.a(HistoryEvent.class, new com.baidu.tbadk.mutiprocess.history.a());
+            bDf.a(BackBaiduBoxViewEvent.class, new com.baidu.tbadk.mutiprocess.backbaidubox.a());
+            bDf.a(SyncDataEvent.class, new com.baidu.tbadk.mutiprocess.sync.a());
+            bDf.a(ShowReplyInPbEvent.class, new com.baidu.tbadk.mutiprocess.showreplyinpb.a());
+            bDf.a(LocationEvent.class, new com.baidu.tbadk.mutiprocess.location.a());
+            bDf.a(PrePageKeyEvent.class, new com.baidu.tbadk.mutiprocess.prePageKey.a());
         } catch (Exception e) {
             e.printStackTrace();
         }

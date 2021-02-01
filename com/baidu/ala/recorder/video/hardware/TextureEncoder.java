@@ -12,7 +12,7 @@ import com.baidu.ala.recorder.video.gles.GlUtil;
 import com.baidu.ala.recorder.video.gles.Texture2dProgram;
 import com.baidu.ala.recorder.video.gles.WindowSurface;
 import com.baidu.ala.recorder.video.hardware.VideoEncoderCore;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class TextureEncoder {
     private static final int ENCODE_TIMEOUT_MS = 1000;
     private static final int OFFSET = 20;
@@ -187,7 +187,7 @@ public class TextureEncoder {
         GlUtil.logPrint("TextureEncoder.doRelease done ");
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class EncodeConfig {
         public int H264FPS;
         public int H264GOP;

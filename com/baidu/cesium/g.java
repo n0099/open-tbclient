@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.cesium.b.a;
 import com.baidu.cesium.e.a;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -18,23 +19,23 @@ import java.util.List;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g {
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f1651b = false;
-    c anD;
-    private a.C0093a anH;
-    private volatile FileLock anI;
-    private volatile RandomAccessFile anJ;
-    private com.baidu.cesium.b.b anK;
+    private static boolean f1649b = false;
+    private com.baidu.cesium.b.b anA;
+    c ant;
+    private a.C0093a anx;
+    private volatile FileLock any;
+    private volatile RandomAccessFile anz;
     private Context f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f1652a = {"V", "O", "0"};
+        public static final String[] f1650a = {"V", "O", "0"};
         private String i;
         private String j;
         private String k;
@@ -109,7 +110,7 @@ public class g {
             return Arrays.hashCode(new Object[]{this.i, this.j, this.k, this.m, Integer.valueOf(this.n)});
         }
 
-        public e tU() {
+        public e tR() {
             e eVar = new e();
             eVar.d = this.i;
             StringBuilder sb = new StringBuilder();
@@ -130,9 +131,9 @@ public class g {
             throw new NullPointerException("context should not be null!!!");
         }
         this.f = context.getApplicationContext();
-        this.anH = aVar.tQ().dh("bohrium");
-        this.anH.a();
-        this.anD = cVar;
+        this.anx = aVar.tN().dh("bohrium");
+        this.anx.a();
+        this.ant = cVar;
         a(aVar);
     }
 
@@ -171,20 +172,20 @@ public class g {
     }
 
     private String a(boolean z) {
-        return this.anH.a("libbh.so", z);
+        return this.anx.a("libbh.so", z);
     }
 
     private void a(com.baidu.cesium.e.a aVar) {
         com.baidu.cesium.b.b bVar = new com.baidu.cesium.b.b(new com.baidu.cesium.a());
         a.C0090a c0090a = new a.C0090a();
-        c0090a.f1620a = this.f;
-        c0090a.amW = aVar;
+        c0090a.f1618a = this.f;
+        c0090a.amM = aVar;
         a.c cVar = new a.c();
         for (com.baidu.cesium.b.a aVar2 : bVar.a()) {
             aVar2.a(c0090a);
             aVar2.a(cVar);
         }
-        this.anK = bVar;
+        this.anA = bVar;
     }
 
     private static String c(String str) {
@@ -217,20 +218,20 @@ public class g {
         }
     }
 
-    public a R(String str, String str2) {
-        com.baidu.cesium.b.a dg = this.anK.dg(str2);
+    public a P(String str, String str2) {
+        com.baidu.cesium.b.a dg = this.anA.dg(str2);
         a.f fVar = new a.f();
-        fVar.f1622a = true;
+        fVar.f1620a = true;
         a.g a2 = dg.a(str, fVar);
         if (a2 == null || !a2.a()) {
             return null;
         }
-        return a2.f1623a;
+        return a2.f1621a;
     }
 
     public void a(a aVar) {
         a.d dVar = new a.d();
-        for (com.baidu.cesium.b.a aVar2 : this.anK.a()) {
+        for (com.baidu.cesium.b.a aVar2 : this.anA.a()) {
             aVar2.a(dVar, aVar);
         }
     }
@@ -242,7 +243,7 @@ public class g {
         }
         if (!z2) {
             try {
-                if (new File(this.anH.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
+                if (new File(this.anx.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
                     String g = a2.g();
                     if (!TextUtils.isEmpty(g) && g.equals(aVar.g())) {
                         return true;
@@ -253,7 +254,7 @@ public class g {
                 return false;
             }
         }
-        return this.anH.a("libbh.so", aVar.f(), z);
+        return this.anx.a("libbh.so", aVar.f(), z);
     }
 
     public a b(e eVar) {
@@ -268,7 +269,7 @@ public class g {
             aVar.j = eVar.e.substring(0, 1);
             aVar.i = eVar.d;
             aVar.k = c(eVar.d);
-            String[] strArr = a.f1652a;
+            String[] strArr = a.f1650a;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -296,7 +297,7 @@ public class g {
         String a2 = a(this.f);
         if (Build.VERSION.SDK_INT < 23) {
             String uuid = UUID.randomUUID().toString();
-            if (f1651b) {
+            if (f1649b) {
                 Log.d("CuidV270Manager", "uuid: " + uuid);
             }
             str2 = str + a2 + uuid;
@@ -318,7 +319,7 @@ public class g {
         RandomAccessFile randomAccessFile;
         boolean z = false;
         synchronized (this) {
-            File b2 = this.anH.b(".lock");
+            File b2 = this.anx.b(".lock");
             if (!b2.exists()) {
                 try {
                     b2.createNewFile();
@@ -327,15 +328,15 @@ public class g {
                 }
             }
             try {
-                randomAccessFile = new RandomAccessFile(b2, "rw");
+                randomAccessFile = new RandomAccessFile(b2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 int i = 0;
                 while (true) {
                     if (i >= 100) {
                         break;
                     }
                     try {
-                        this.anI = randomAccessFile.getChannel().lock();
-                        this.anJ = randomAccessFile;
+                        this.any = randomAccessFile.getChannel().lock();
+                        this.anz = randomAccessFile;
                         z = true;
                         break;
                     } catch (OverlappingFileLockException e2) {
@@ -345,7 +346,7 @@ public class g {
                         } catch (Exception e3) {
                             e = e3;
                             com.baidu.cesium.f.c.a(e);
-                            if (this.anI == null) {
+                            if (this.any == null) {
                                 com.baidu.cesium.f.c.a(randomAccessFile);
                             }
                             return z;
@@ -361,31 +362,31 @@ public class g {
     }
 
     public synchronized void c() {
-        if (this.anI != null) {
+        if (this.any != null) {
             try {
-                this.anI.release();
+                this.any.release();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            this.anI = null;
+            this.any = null;
         }
-        com.baidu.cesium.f.c.a(this.anJ);
-        this.anJ = null;
+        com.baidu.cesium.f.c.a(this.anz);
+        this.anz = null;
     }
 
     public a d() {
         a.f fVar = new a.f();
-        fVar.f1622a = true;
-        List<com.baidu.cesium.b.a> a2 = this.anK.a();
+        fVar.f1620a = true;
+        List<com.baidu.cesium.b.a> a2 = this.anA.a();
         Collections.sort(a2, com.baidu.cesium.b.a.d);
-        List<b> b2 = this.anD.b(this.f);
+        List<b> b2 = this.ant.b(this.f);
         if (b2 != null) {
             for (b bVar : b2) {
                 if (!bVar.d && bVar.c) {
                     for (com.baidu.cesium.b.a aVar : a2) {
-                        a.g a3 = aVar.a(bVar.f1618a.packageName, fVar);
-                        if (a3 != null && a3.a() && a3.f1623a != null) {
-                            return a3.f1623a;
+                        a.g a3 = aVar.a(bVar.f1616a.packageName, fVar);
+                        if (a3 != null && a3.a() && a3.f1621a != null) {
+                            return a3.f1621a;
                         }
                     }
                     continue;
@@ -395,8 +396,8 @@ public class g {
         return null;
     }
 
-    public a tM() {
-        if (new File(this.anH.b(), "libbh.so").exists()) {
+    public a tJ() {
+        if (new File(this.anx.b(), "libbh.so").exists()) {
             return a(a(true));
         }
         return null;

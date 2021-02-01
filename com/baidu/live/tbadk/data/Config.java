@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.data;
 
 import com.baidu.live.tbadk.TbConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Config extends TbConfig {
     public static final String ADD_PHOTO_LIVE_BLACK_LIST = "c/c/user/userMuteAdd";
     public static final String AGREE_ME_ADDRESS = "c/u/feed/agreeme";

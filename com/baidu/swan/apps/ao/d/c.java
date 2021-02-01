@@ -3,56 +3,56 @@ package com.baidu.swan.apps.ao.d;
 import com.baidu.swan.apps.ao.ak;
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c implements b {
-    private final Queue<a> dOh = new ArrayDeque();
-    private a dOi;
+    private final Queue<a> dQn = new ArrayDeque();
+    private a dQo;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.dOh) {
-                this.dOh.offer(aVar.a(this));
+            synchronized (this.dQn) {
+                this.dQn.offer(aVar.a(this));
             }
         }
-        aOr();
+        aOK();
     }
 
     @Override // com.baidu.swan.apps.ao.d.b
     public void a(a aVar) {
-        synchronized (this.dOh) {
-            if (aVar == this.dOi) {
-                aOs();
+        synchronized (this.dQn) {
+            if (aVar == this.dQo) {
+                aOL();
             }
         }
     }
 
-    private void aOr() {
-        synchronized (this.dOh) {
-            if (this.dOi == null) {
-                aOs();
+    private void aOK() {
+        synchronized (this.dQn) {
+            if (this.dQo == null) {
+                aOL();
             }
         }
     }
 
-    private void aOs() {
-        synchronized (this.dOh) {
-            this.dOi = null;
-            if (!this.dOh.isEmpty()) {
-                this.dOi = this.dOh.poll();
-                if (this.dOi == null) {
-                    aOs();
+    private void aOL() {
+        synchronized (this.dQn) {
+            this.dQo = null;
+            if (!this.dQn.isEmpty()) {
+                this.dQo = this.dQn.poll();
+                if (this.dQo == null) {
+                    aOL();
                 } else {
-                    ak.l(this.dOi);
+                    ak.k(this.dQo);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.dOi != null) {
-            this.dOi.finish();
-            this.dOi = null;
+        if (this.dQo != null) {
+            this.dQo.finish();
+            this.dQo = null;
         }
-        this.dOh.clear();
+        this.dQn.clear();
     }
 }

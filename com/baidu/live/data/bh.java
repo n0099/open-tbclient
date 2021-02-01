@@ -1,56 +1,22 @@
 package com.baidu.live.data;
 
-import android.text.TextUtils;
-import com.baidu.live.adp.lib.util.StringUtils;
-import org.json.JSONException;
+import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class bh {
-    public int aMb;
-    public int aMc;
-    public String id;
-    public String intro;
-    public int live_status;
-    public String metaKey;
-    public String name;
-    public String name_show;
-    public String portrait;
+    public String aOQ;
+    public String aOR;
+    public long aOS;
+    public String mNickName;
+    public String mPortrait;
 
-    public void parserJson(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.id = jSONObject.optString("id");
-            this.metaKey = jSONObject.optString("meta_key");
-            this.name = jSONObject.optString("name");
-            this.name_show = jSONObject.optString("name_show");
-            this.portrait = jSONObject.optString("bd_portrait");
-            if (StringUtils.isNull(this.portrait)) {
-                this.portrait = jSONObject.optString("portrait");
-            }
-            this.intro = jSONObject.optString("intro");
-            this.live_status = jSONObject.optInt("live_status");
-            this.aMb = jSONObject.optInt("live_id");
-            this.aMc = jSONObject.optInt("has_concerned");
+            this.mNickName = jSONObject.optString("nickname");
+            this.mPortrait = jSONObject.optString("mvp_user_portrait");
+            this.aOQ = jSONObject.optString("anchor_nickname");
+            this.aOR = jSONObject.optString(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
+            this.aOS = jSONObject.optLong("win_score");
         }
-    }
-
-    public String getNameShow() {
-        return TextUtils.isEmpty(this.name_show) ? this.name : this.name_show;
-    }
-
-    public String toString() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("id", this.id);
-            jSONObject.put("name", this.name);
-            jSONObject.put("name_show", this.name_show);
-            jSONObject.put("portrait", this.portrait);
-            jSONObject.put("intro", this.intro);
-            jSONObject.put("live_status", this.live_status);
-            jSONObject.put("live_id", this.aMb);
-            jSONObject.put("has_concerned", this.aMc);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jSONObject.toString();
     }
 }

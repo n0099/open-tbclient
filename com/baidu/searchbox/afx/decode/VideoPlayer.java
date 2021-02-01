@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.Surface;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.searchbox.afx.callback.ErrorInfo;
 import com.baidu.searchbox.afx.callback.OnReportListener;
 import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
@@ -24,7 +23,7 @@ import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class VideoPlayer {
     private static final int DEFAULT_FPS = 25;
     public static final int MEDIA_INFO_EXTRA_NONE = 0;
@@ -46,9 +45,9 @@ public class VideoPlayer {
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private int mFps = 25;
     private volatile long mStartFrameTimeUs = 0;
-    private volatile int mPlayFrames = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private volatile int mPlayFrames = Integer.MAX_VALUE;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface FrameCallback {
         void loopReset();
 
@@ -57,7 +56,7 @@ public class VideoPlayer {
         void reset();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface OnInfoListener {
         boolean onInfo(VideoPlayer videoPlayer, int i, int i2);
     }
@@ -262,7 +261,7 @@ public class VideoPlayer {
         }
         this.mGLTextureView = null;
         this.mStartFrameTimeUs = 0L;
-        this.mPlayFrames = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.mPlayFrames = Integer.MAX_VALUE;
     }
 
     private static int selectVideoTrackIndex(MediaExtractor mediaExtractor) {
@@ -416,7 +415,7 @@ public class VideoPlayer {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class PlayTask implements Runnable {
         private static final int MSG_PLAY_ERROR = 1;
         private static final int MSG_PLAY_STOPPED = 0;
@@ -497,7 +496,7 @@ public class VideoPlayer {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes15.dex */
         private static class LocalHandler extends Handler {
             private OnVideoEndedListener mOnEndedListener;
             private OnVideoErrorListener mOnErrorListener;

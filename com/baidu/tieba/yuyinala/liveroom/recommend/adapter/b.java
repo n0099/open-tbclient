@@ -10,7 +10,7 @@ import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.yuyinala.liveroom.recommend.data.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends AbsDelegateAdapter<c, a> {
     public b(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
@@ -38,23 +38,23 @@ public class b extends AbsDelegateAdapter<c, a> {
                 string = this.mContext.getString(a.h.recommend_live_recommend);
                 break;
         }
-        aVar.mRi.setText(string);
+        aVar.naF.setText(string);
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16);
         if (i == 0) {
-            aVar.mRi.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds20), 0, dimensionPixelSize);
+            aVar.naF.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds20), 0, dimensionPixelSize);
         } else {
-            aVar.mRi.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds40), 0, dimensionPixelSize);
+            aVar.naF.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds40), 0, dimensionPixelSize);
         }
         return view;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private TextView mRi;
+        private TextView naF;
 
         private a(View view) {
             super(view);
-            this.mRi = (TextView) view.findViewById(a.f.ala_recommend_live_type);
+            this.naF = (TextView) view.findViewById(a.f.ala_recommend_live_type);
         }
     }
 }

@@ -8,7 +8,7 @@ public class ac extends as {
     }
 
     @Override // com.baidu.card.as
-    protected com.baidu.tieba.play.operableVideoView.a sX() {
-        return new com.baidu.tieba.play.operableVideoView.d(this.mContext, this.agL);
+    protected com.baidu.tieba.play.operableVideoView.a sU() {
+        return new com.baidu.tieba.play.operableVideoView.d(this.mContext, this.agA);
     }
 }

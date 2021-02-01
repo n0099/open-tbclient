@@ -20,7 +20,7 @@ import com.kwad.sdk.splashscreen.a.e;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.b<c> {
     private KsSplashScreenAd.SplashScreenAdInteractionListener d;
     private KsVideoPlayConfig e;
@@ -76,16 +76,16 @@ public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.b<c> {
         this.f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.KsSplashScreenFragment.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.kwad.sdk.core.download.b.a.a(view.getContext(), KsSplashScreenFragment.this.j, new a.InterfaceC1088a() { // from class: com.kwad.sdk.splashscreen.KsSplashScreenFragment.1.1
-                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
+                com.kwad.sdk.core.download.b.a.a(view.getContext(), KsSplashScreenFragment.this.j, new a.InterfaceC1092a() { // from class: com.kwad.sdk.splashscreen.KsSplashScreenFragment.1.1
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
                     public void a() {
                         if (KsSplashScreenFragment.this.d != null) {
                             KsSplashScreenFragment.this.d.onAdClicked();
                         }
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            if (KsSplashScreenFragment.this.f8264b != null && ((c) KsSplashScreenFragment.this.f8264b).e != null) {
-                                jSONObject.put("duration", ((c) KsSplashScreenFragment.this.f8264b).e.c());
+                            if (KsSplashScreenFragment.this.f8266b != null && ((c) KsSplashScreenFragment.this.f8266b).e != null) {
+                                jSONObject.put("duration", ((c) KsSplashScreenFragment.this.f8266b).e.c());
                             }
                         } catch (JSONException e) {
                             com.kwad.sdk.core.d.a.a(e);
@@ -108,15 +108,15 @@ public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.b<c> {
     @Override // com.kwad.sdk.contentalliance.b
     public void a() {
         super.a();
-        if (((c) this.f8264b).e != null) {
-            ((c) this.f8264b).e.f();
+        if (((c) this.f8266b).e != null) {
+            ((c) this.f8266b).e.f();
         }
     }
 
     public void a(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
         this.d = splashScreenAdInteractionListener;
-        if (this.f8264b != 0) {
-            ((c) this.f8264b).f10747a = splashScreenAdInteractionListener;
+        if (this.f8266b != 0) {
+            ((c) this.f8266b).f10749a = splashScreenAdInteractionListener;
         }
     }
 
@@ -151,11 +151,11 @@ public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.b<c> {
             this.e = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
         }
         c cVar = new c();
-        cVar.f10747a = this.d;
+        cVar.f10749a = this.d;
         cVar.d = this.f;
         cVar.c = this.j;
         cVar.g = this.k;
-        cVar.f10748b = this.e;
+        cVar.f10750b = this.e;
         cVar.h = this.i;
         cVar.f = this.h;
         if (com.kwad.sdk.core.response.b.a.J(this.l)) {
@@ -169,8 +169,8 @@ public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.b<c> {
     @Override // com.kwad.sdk.contentalliance.b, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
-        if (((c) this.f8264b).e != null) {
-            ((c) this.f8264b).e.g();
+        if (((c) this.f8266b).e != null) {
+            ((c) this.f8266b).e.g();
         }
     }
 

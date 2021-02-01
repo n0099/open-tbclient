@@ -2,7 +2,7 @@ package com.baidu.swan.impl.map.f;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static Bitmap d(Bitmap bitmap, int i, int i2) {
         Bitmap bitmap2;

@@ -1,15 +1,15 @@
 package com.baidu.live.liveroom.e;
 
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    void Lq();
+    void MO();
 
-    boolean Lr();
+    boolean MP();
 
-    boolean Ls();
+    boolean MQ();
 
     void a(d dVar, View view, String str, a aVar);
 
-    void cx(boolean z);
+    void cG(boolean z);
 }

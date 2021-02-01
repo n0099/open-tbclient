@@ -13,20 +13,20 @@ import java.text.ParseException;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class b extends a implements View.OnClickListener {
-    private c fXT;
+    private c gaj;
 
     public b(com.baidu.tbadk.widget.timepicker.a.c.a aVar) {
         super(aVar.context);
-        this.fWJ = aVar;
+        this.fYZ = aVar;
         initView(aVar.context);
     }
 
     private void initView(Context context) {
-        bIh();
+        bIA();
         initViews();
-        GS();
-        if (this.fWJ.fWM == null) {
-            LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.fXK);
+        Ii();
+        if (this.fYZ.fZc == null) {
+            LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.gaa);
             TextView textView = (TextView) findViewById(R.id.tvTitle);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.rv_topbar);
             Button button = (Button) findViewById(R.id.btnSubmit);
@@ -35,96 +35,96 @@ public class b extends a implements View.OnClickListener {
             button2.setTag("cancel");
             button.setOnClickListener(this);
             button2.setOnClickListener(this);
-            button.setText(TextUtils.isEmpty(this.fWJ.fXn) ? context.getResources().getString(R.string.pickerview_submit) : this.fWJ.fXn);
-            button2.setText(TextUtils.isEmpty(this.fWJ.fXo) ? context.getResources().getString(R.string.pickerview_cancel) : this.fWJ.fXo);
-            textView.setText(TextUtils.isEmpty(this.fWJ.fXp) ? "" : this.fWJ.fXp);
-            button.setTextColor(this.fWJ.fXq);
-            button2.setTextColor(this.fWJ.fXr);
-            textView.setTextColor(this.fWJ.fXs);
-            relativeLayout.setBackgroundColor(this.fWJ.fXu);
-            button.setTextSize(this.fWJ.fXv);
-            button2.setTextSize(this.fWJ.fXv);
-            textView.setTextSize(this.fWJ.fXw);
+            button.setText(TextUtils.isEmpty(this.fYZ.fZD) ? context.getResources().getString(R.string.pickerview_submit) : this.fYZ.fZD);
+            button2.setText(TextUtils.isEmpty(this.fYZ.fZE) ? context.getResources().getString(R.string.pickerview_cancel) : this.fYZ.fZE);
+            textView.setText(TextUtils.isEmpty(this.fYZ.fZF) ? "" : this.fYZ.fZF);
+            button.setTextColor(this.fYZ.fZG);
+            button2.setTextColor(this.fYZ.fZH);
+            textView.setTextColor(this.fYZ.fZI);
+            relativeLayout.setBackgroundColor(this.fYZ.fZK);
+            button.setTextSize(this.fYZ.fZL);
+            button2.setTextSize(this.fYZ.fZL);
+            textView.setTextSize(this.fYZ.fZM);
         } else {
-            this.fWJ.fWM.bM(LayoutInflater.from(context).inflate(this.fWJ.fXl, this.fXK));
+            this.fYZ.fZc.bI(LayoutInflater.from(context).inflate(this.fYZ.fZB, this.gaa));
         }
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.timepicker);
-        linearLayout.setBackgroundColor(this.fWJ.fXt);
+        linearLayout.setBackgroundColor(this.fYZ.fZJ);
         a(linearLayout);
     }
 
     private void a(LinearLayout linearLayout) {
-        this.fXT = new c(linearLayout, this.fWJ.fWR, this.fWJ.fXm, this.fWJ.fXx);
-        if (this.fWJ.fWL != null) {
-            this.fXT.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
+        this.gaj = new c(linearLayout, this.fYZ.fZh, this.fYZ.fZC, this.fYZ.fZN);
+        if (this.fYZ.fZb != null) {
+            this.gaj.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.b
-                public void bIg() {
+                public void bIz() {
                     try {
-                        b.this.fWJ.fWL.q(c.dateFormat.parse(b.this.fXT.getTime()));
+                        b.this.fYZ.fZb.q(c.dateFormat.parse(b.this.gaj.getTime()));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
                 }
             });
         }
-        this.fXT.lN(this.fWJ.fWY);
-        if (this.fWJ.fWV != 0 && this.fWJ.fWW != 0 && this.fWJ.fWV <= this.fWJ.fWW) {
-            bIj();
+        this.gaj.lR(this.fYZ.fZo);
+        if (this.fYZ.fZl != 0 && this.fYZ.fZm != 0 && this.fYZ.fZl <= this.fYZ.fZm) {
+            bIC();
         }
-        if (this.fWJ.fWT != null && this.fWJ.fWU != null) {
-            if (this.fWJ.fWT.getTimeInMillis() > this.fWJ.fWU.getTimeInMillis()) {
+        if (this.fYZ.fZj != null && this.fYZ.fZk != null) {
+            if (this.fYZ.fZj.getTimeInMillis() > this.fYZ.fZk.getTimeInMillis()) {
                 throw new IllegalArgumentException("startDate can't be later than endDate");
             }
-            bIk();
-        } else if (this.fWJ.fWT != null) {
-            if (this.fWJ.fWT.get(1) < 1900) {
+            bID();
+        } else if (this.fYZ.fZj != null) {
+            if (this.fYZ.fZj.get(1) < 1900) {
                 throw new IllegalArgumentException("The startDate can not as early as 1900");
             }
-            bIk();
-        } else if (this.fWJ.fWU != null) {
-            if (this.fWJ.fWU.get(1) > 2100) {
+            bID();
+        } else if (this.fYZ.fZk != null) {
+            if (this.fYZ.fZk.get(1) > 2100) {
                 throw new IllegalArgumentException("The endDate should not be later than 2100");
             }
-            bIk();
+            bID();
         } else {
-            bIk();
+            bID();
         }
-        bIm();
-        this.fXT.e(this.fWJ.fWZ, this.fWJ.fXa, this.fWJ.fXb, this.fWJ.fXc, this.fWJ.fXd, this.fWJ.fXe);
-        this.fXT.k(this.fWJ.fXf, this.fWJ.fXg, this.fWJ.fXh, this.fWJ.fXi, this.fWJ.fXj, this.fWJ.fXk);
-        lM(this.fWJ.cancelable);
-        this.fXT.setCyclic(this.fWJ.fWX);
-        this.fXT.setDividerColor(this.fWJ.dyj);
-        this.fXT.setDividerType(this.fWJ.fXz);
-        this.fXT.setLineSpacingMultiplier(this.fWJ.dyk);
-        this.fXT.setTextColorOut(this.fWJ.dyh);
-        this.fXT.setTextColorCenter(this.fWJ.dyi);
-        this.fXT.lO(this.fWJ.dxU);
+        bIF();
+        this.gaj.e(this.fYZ.fZp, this.fYZ.fZq, this.fYZ.fZr, this.fYZ.fZs, this.fYZ.fZt, this.fYZ.fZu);
+        this.gaj.k(this.fYZ.fZv, this.fYZ.fZw, this.fYZ.fZx, this.fYZ.fZy, this.fYZ.fZz, this.fYZ.fZA);
+        lQ(this.fYZ.cancelable);
+        this.gaj.setCyclic(this.fYZ.fZn);
+        this.gaj.setDividerColor(this.fYZ.dAo);
+        this.gaj.setDividerType(this.fYZ.fZP);
+        this.gaj.setLineSpacingMultiplier(this.fYZ.dAp);
+        this.gaj.setTextColorOut(this.fYZ.dAm);
+        this.gaj.setTextColorCenter(this.fYZ.dAn);
+        this.gaj.lS(this.fYZ.dzZ);
     }
 
-    private void bIj() {
-        this.fXT.sz(this.fWJ.fWV);
-        this.fXT.sA(this.fWJ.fWW);
+    private void bIC() {
+        this.gaj.sE(this.fYZ.fZl);
+        this.gaj.sF(this.fYZ.fZm);
     }
 
-    private void bIk() {
-        this.fXT.a(this.fWJ.fWT, this.fWJ.fWU);
-        bIl();
+    private void bID() {
+        this.gaj.a(this.fYZ.fZj, this.fYZ.fZk);
+        bIE();
     }
 
-    private void bIl() {
-        if (this.fWJ.fWT != null && this.fWJ.fWU != null) {
-            if (this.fWJ.fWS == null || this.fWJ.fWS.getTimeInMillis() < this.fWJ.fWT.getTimeInMillis() || this.fWJ.fWS.getTimeInMillis() > this.fWJ.fWU.getTimeInMillis()) {
-                this.fWJ.fWS = this.fWJ.fWT;
+    private void bIE() {
+        if (this.fYZ.fZj != null && this.fYZ.fZk != null) {
+            if (this.fYZ.fZi == null || this.fYZ.fZi.getTimeInMillis() < this.fYZ.fZj.getTimeInMillis() || this.fYZ.fZi.getTimeInMillis() > this.fYZ.fZk.getTimeInMillis()) {
+                this.fYZ.fZi = this.fYZ.fZj;
             }
-        } else if (this.fWJ.fWT != null) {
-            this.fWJ.fWS = this.fWJ.fWT;
-        } else if (this.fWJ.fWU != null) {
-            this.fWJ.fWS = this.fWJ.fWU;
+        } else if (this.fYZ.fZj != null) {
+            this.fYZ.fZi = this.fYZ.fZj;
+        } else if (this.fYZ.fZk != null) {
+            this.fYZ.fZi = this.fYZ.fZk;
         }
     }
 
-    private void bIm() {
+    private void bIF() {
         int i;
         int i2;
         int i3;
@@ -132,7 +132,7 @@ public class b extends a implements View.OnClickListener {
         int i5;
         int i6;
         Calendar calendar = Calendar.getInstance();
-        if (this.fWJ.fWS == null) {
+        if (this.fYZ.fZi == null) {
             calendar.setTimeInMillis(System.currentTimeMillis());
             i = calendar.get(1);
             i2 = calendar.get(2);
@@ -141,28 +141,28 @@ public class b extends a implements View.OnClickListener {
             i5 = calendar.get(12);
             i6 = calendar.get(13);
         } else {
-            i = this.fWJ.fWS.get(1);
-            i2 = this.fWJ.fWS.get(2);
-            i3 = this.fWJ.fWS.get(5);
-            i4 = this.fWJ.fWS.get(11);
-            i5 = this.fWJ.fWS.get(12);
-            i6 = this.fWJ.fWS.get(13);
+            i = this.fYZ.fZi.get(1);
+            i2 = this.fYZ.fZi.get(2);
+            i3 = this.fYZ.fZi.get(5);
+            i4 = this.fYZ.fZi.get(11);
+            i5 = this.fYZ.fZi.get(12);
+            i6 = this.fYZ.fZi.get(13);
         }
-        this.fXT.i(i, i2, i3, i4, i5, i6);
+        this.gaj.i(i, i2, i3, i4, i5, i6);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (((String) view.getTag()).equals("submit")) {
-            bIn();
+            bIG();
         }
         dismiss();
     }
 
-    public void bIn() {
-        if (this.fWJ.fWK != null) {
+    public void bIG() {
+        if (this.fYZ.fZa != null) {
             try {
-                this.fWJ.fWK.a(c.dateFormat.parse(this.fXT.getTime()), this.fXP);
+                this.fYZ.fZa.a(c.dateFormat.parse(this.gaj.getTime()), this.gaf);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -170,7 +170,7 @@ public class b extends a implements View.OnClickListener {
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.a.f.a
-    public boolean bIi() {
-        return this.fWJ.fXy;
+    public boolean bIB() {
+        return this.fYZ.fZO;
     }
 }

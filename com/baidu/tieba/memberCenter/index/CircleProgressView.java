@@ -7,17 +7,17 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CircleProgressView extends View {
-    private Paint bew;
+    private Paint bhE;
     private int currentProgress;
-    private Paint dTZ;
+    private Paint dWf;
     private int height;
-    private RectF ldG;
-    private int ldH;
-    private int ldI;
+    private RectF llJ;
+    private int llK;
+    private int llL;
     private Context mContext;
     private int maxWidth;
     private int paintWidth;
@@ -58,18 +58,18 @@ public class CircleProgressView extends View {
 
     private void initView() {
         this.paintWidth = l.getDimens(this.mContext, R.dimen.ds4);
-        this.ldG = new RectF();
-        this.dTZ = new Paint();
-        this.dTZ.setAntiAlias(true);
-        this.dTZ.setStrokeWidth(this.paintWidth);
-        this.dTZ.setStyle(Paint.Style.STROKE);
-        this.bew = new Paint();
-        this.bew.setAntiAlias(true);
-        this.bew.setStrokeWidth(this.paintWidth);
-        this.bew.setStyle(Paint.Style.STROKE);
-        this.ldH = R.color.common_color_10184;
-        this.ldI = R.color.common_color_10162;
-        byV();
+        this.llJ = new RectF();
+        this.dWf = new Paint();
+        this.dWf.setAntiAlias(true);
+        this.dWf.setStrokeWidth(this.paintWidth);
+        this.dWf.setStyle(Paint.Style.STROKE);
+        this.bhE = new Paint();
+        this.bhE.setAntiAlias(true);
+        this.bhE.setStrokeWidth(this.paintWidth);
+        this.bhE.setStyle(Paint.Style.STROKE);
+        this.llK = R.color.common_color_10184;
+        this.llL = R.color.common_color_10162;
+        bzn();
     }
 
     @Override // android.view.View
@@ -78,12 +78,12 @@ public class CircleProgressView extends View {
         this.width = getWidth();
         this.height = getHeight();
         this.maxWidth = this.width > this.height ? this.width : this.height;
-        this.ldG.left = this.paintWidth / 2.0f;
-        this.ldG.top = this.paintWidth / 2.0f;
-        this.ldG.right = this.maxWidth - (this.paintWidth / 2);
-        this.ldG.bottom = this.maxWidth - (this.paintWidth / 2);
-        canvas.drawArc(this.ldG, 150.0f, 360.0f, false, this.bew);
-        canvas.drawArc(this.ldG, 150.0f, this.currentProgress, false, this.dTZ);
+        this.llJ.left = this.paintWidth / 2.0f;
+        this.llJ.top = this.paintWidth / 2.0f;
+        this.llJ.right = this.maxWidth - (this.paintWidth / 2);
+        this.llJ.bottom = this.maxWidth - (this.paintWidth / 2);
+        canvas.drawArc(this.llJ, 150.0f, 360.0f, false, this.bhE);
+        canvas.drawArc(this.llJ, 150.0f, this.currentProgress, false, this.dWf);
     }
 
     @Override // android.view.View
@@ -91,9 +91,9 @@ public class CircleProgressView extends View {
         super.onMeasure(i, i2);
     }
 
-    public void byV() {
-        this.dTZ.setColor(ao.getColor(this.ldH));
-        this.bew.setColor(ao.getColor(this.ldI));
+    public void bzn() {
+        this.dWf.setColor(ap.getColor(this.llK));
+        this.bhE.setColor(ap.getColor(this.llL));
         invalidate();
     }
 }

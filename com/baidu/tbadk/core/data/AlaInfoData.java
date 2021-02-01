@@ -22,6 +22,7 @@ public class AlaInfoData implements Serializable {
     public SparseArray<String> dislikeInfo;
     public double distance;
     public int duration;
+    public String forumUserLiveMsg;
     public String friendRoomName;
     public int friendRoomStatus;
     public int frsLiveStageType;
@@ -29,7 +30,7 @@ public class AlaInfoData implements Serializable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public e label;
+    public f label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -95,7 +96,7 @@ public class AlaInfoData implements Serializable {
                 this.thread_id = jSONObject.optLong("thread_id");
                 JSONObject optJSONObject = jSONObject.optJSONObject("label");
                 if (optJSONObject != null) {
-                    this.label = new e();
+                    this.label = new f();
                     this.label.parserJson(optJSONObject);
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
@@ -132,6 +133,7 @@ public class AlaInfoData implements Serializable {
                 this.roomId = jSONObject.optLong("room_id");
                 this.friendRoomStatus = jSONObject.optInt("room_status");
                 this.friendRoomName = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
+                this.forumUserLiveMsg = jSONObject.optString("forum_user_live_msg");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -194,6 +196,7 @@ public class AlaInfoData implements Serializable {
                 this.roomId = alaLiveInfo.room_id.longValue();
                 this.friendRoomStatus = alaLiveInfo.room_status.intValue();
                 this.friendRoomName = alaLiveInfo.room_name;
+                this.forumUserLiveMsg = alaLiveInfo.forum_user_live_msg;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

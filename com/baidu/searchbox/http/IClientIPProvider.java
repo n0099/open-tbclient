@@ -1,5 +1,5 @@
 package com.baidu.searchbox.http;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public interface IClientIPProvider {
     String getClientIP();
 

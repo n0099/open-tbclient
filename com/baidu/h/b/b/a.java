@@ -2,10 +2,10 @@ package com.baidu.h.b.b;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     String appVersion;
-    int cbz;
+    int cfK;
     String cuid;
     long num;
     long roomId;
@@ -21,7 +21,7 @@ public class a {
         jSONObject.put("number", this.num);
         jSONObject.put("app_version", this.appVersion);
         jSONObject.put("source_type", this.sourceType);
-        jSONObject.put("caller_flag", this.cbz);
+        jSONObject.put("caller_flag", this.cfK);
         jSONObject.put("version", this.version);
         jSONObject.put("device_id", this.cuid);
         return jSONObject.toString();

@@ -11,13 +11,13 @@ import java.util.List;
 public class b implements IPerfProcessor {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f13783a;
+    protected Context f13785a;
 
     /* renamed from: a  reason: collision with other field name */
     private HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f102a;
 
     public b(Context context) {
-        this.f13783a = context;
+        this.f13785a = context;
     }
 
     public static String a(com.xiaomi.clientreport.data.a aVar) {
@@ -31,7 +31,7 @@ public class b implements IPerfProcessor {
         if (i > 0 && !TextUtils.isEmpty(str2)) {
             str = String.valueOf(i) + "#" + str2;
         }
-        File externalFilesDir = this.f13783a.getExternalFilesDir("perf");
+        File externalFilesDir = this.f13785a.getExternalFilesDir("perf");
         if (externalFilesDir == null) {
             com.xiaomi.channel.commonutils.logger.b.d("cannot get folder when to write perf");
             return null;
@@ -56,7 +56,7 @@ public class b implements IPerfProcessor {
                 break;
             }
             str = b2 + i2;
-            if (bj.m194a(this.f13783a, str)) {
+            if (bj.m194a(this.f13785a, str)) {
                 break;
             }
             i = i2 + 1;
@@ -66,14 +66,14 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.c
     public void a() {
-        bj.a(this.f13783a, "perf", "perfUploading");
-        File[] m195a = bj.m195a(this.f13783a, "perfUploading");
+        bj.a(this.f13785a, "perf", "perfUploading");
+        File[] m195a = bj.m195a(this.f13785a, "perfUploading");
         if (m195a == null || m195a.length <= 0) {
             return;
         }
         for (File file : m195a) {
             if (file != null) {
-                List<String> a2 = e.a(this.f13783a, file.getAbsolutePath());
+                List<String> a2 = e.a(this.f13785a, file.getAbsolutePath());
                 file.delete();
                 a(a2);
             }
@@ -100,7 +100,7 @@ public class b implements IPerfProcessor {
     }
 
     public void a(List<String> list) {
-        bj.a(this.f13783a, list);
+        bj.a(this.f13785a, list);
     }
 
     public void a(com.xiaomi.clientreport.data.a[] aVarArr) {

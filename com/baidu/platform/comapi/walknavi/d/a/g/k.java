@@ -3,14 +3,14 @@ package com.baidu.platform.comapi.walknavi.d.a.g;
 import android.os.Environment;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4247a = k.class.getName();
+    private static final String f4250a = k.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f4248b = Environment.getExternalStorageDirectory() + "/AR/Screenshots/";
+    private static String f4251b = Environment.getExternalStorageDirectory() + "/AR/Screenshots/";
 
     public static String a(String str) {
         try {

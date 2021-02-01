@@ -7,21 +7,21 @@ import com.sdk.base.framework.c.f;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class b extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12835a = b.class.getName();
+    private static final String f12837a = b.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static Boolean f12836b = Boolean.valueOf(f.f12819b);
+    private static Boolean f12838b = Boolean.valueOf(f.f12821b);
 
     public static ArrayList<String> a(Context context) {
         ArrayList<String> arrayList = new ArrayList<>();
         try {
             arrayList = com.sdk.base.framework.f.a.a.b() >= 21 ? b(context) : c(context);
         } catch (Exception e) {
-            c.b(f12835a, e.getMessage(), f12836b);
+            c.b(f12837a, e.getMessage(), f12838b);
         }
         return arrayList;
     }
@@ -51,9 +51,9 @@ public class b extends com.sdk.base.framework.f.a {
                 }
             }
         } catch (Throwable th) {
-            c.b(f12835a, th.getMessage(), f12836b);
+            c.b(f12837a, th.getMessage(), f12838b);
         }
-        f12836b.booleanValue();
+        f12838b.booleanValue();
         return arrayList;
     }
 
@@ -79,10 +79,10 @@ public class b extends com.sdk.base.framework.f.a {
             }
             arrayList.add(z ? (String) declaredMethod.invoke(obj, new Object[0]) : (String) declaredMethod.invoke(telephonyManager, new Object[0]));
         } catch (Exception e2) {
-            c.b(f12835a, e2.getMessage(), f12836b);
+            c.b(f12837a, e2.getMessage(), f12838b);
         }
-        if (f12836b.booleanValue()) {
-            c.a(f12835a, "应用层获取IMEI信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), f12836b);
+        if (f12838b.booleanValue()) {
+            c.a(f12837a, "应用层获取IMEI信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), f12838b);
         }
         return arrayList;
     }

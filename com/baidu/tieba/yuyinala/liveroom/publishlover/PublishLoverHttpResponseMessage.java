@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.publishlover;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PublishLoverHttpResponseMessage extends JsonHttpResponsedMessage {
     public PublishLoverHttpResponseMessage() {
         super(1031082);

@@ -1,7 +1,7 @@
 package com.baidu.mobads.openad.interfaces.event;
 
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IOAdEvent {
     int getCode();
 

@@ -3,16 +3,16 @@ package com.baidu.mapapi.synchronization;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SyncCoordinateConverter {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2943a;
+    private LatLng f2941a;
 
     /* renamed from: b  reason: collision with root package name */
-    private CoordType f2944b;
+    private CoordType f2942b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public enum CoordType {
         COMMON,
         BD09LL
@@ -37,29 +37,29 @@ public class SyncCoordinateConverter {
     }
 
     public LatLng convert() {
-        if (this.f2943a == null) {
+        if (this.f2941a == null) {
             return null;
         }
-        if (this.f2944b == null) {
-            this.f2944b = CoordType.BD09LL;
+        if (this.f2942b == null) {
+            this.f2942b = CoordType.BD09LL;
         }
-        switch (this.f2944b) {
+        switch (this.f2942b) {
             case COMMON:
-                return a(this.f2943a);
+                return a(this.f2941a);
             case BD09LL:
-                return b(this.f2943a);
+                return b(this.f2941a);
             default:
                 return null;
         }
     }
 
     public SyncCoordinateConverter coord(LatLng latLng) {
-        this.f2943a = latLng;
+        this.f2941a = latLng;
         return this;
     }
 
     public SyncCoordinateConverter from(CoordType coordType) {
-        this.f2944b = coordType;
+        this.f2942b = coordType;
         return this;
     }
 }

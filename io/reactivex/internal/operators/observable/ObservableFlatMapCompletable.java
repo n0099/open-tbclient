@@ -54,7 +54,7 @@ public final class ObservableFlatMapCompletable<T> extends a<T, T> {
                     eVar.a(innerObserver);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 this.d.dispose();
                 onError(th);
             }

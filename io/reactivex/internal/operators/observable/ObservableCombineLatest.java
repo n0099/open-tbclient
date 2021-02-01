@@ -14,19 +14,19 @@ public final class ObservableCombineLatest<T, R> extends q<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayError;
-    final Iterable<? extends t<? extends T>> qdT;
-    final t<? extends T>[] qfi;
+    final Iterable<? extends t<? extends T>> qnX;
+    final t<? extends T>[] qpm;
 
     @Override // io.reactivex.q
     public void a(u<? super R> uVar) {
         int length;
         t<? extends T>[] tVarArr;
         t<? extends T>[] tVarArr2;
-        t<? extends T>[] tVarArr3 = this.qfi;
+        t<? extends T>[] tVarArr3 = this.qpm;
         if (tVarArr3 == null) {
             t<? extends T>[] tVarArr4 = new q[8];
             length = 0;
-            for (t<? extends T> tVar : this.qdT) {
+            for (t<? extends T> tVar : this.qnX) {
                 if (length == tVarArr4.length) {
                     tVarArr2 = new t[(length >> 2) + length];
                     System.arraycopy(tVarArr4, 0, tVarArr2, 0, length);
@@ -145,7 +145,7 @@ public final class ObservableCombineLatest<T, R> extends q<R> {
                         try {
                             uVar.onNext((Object) io.reactivex.internal.functions.a.m(this.combiner.apply(poll), "The combiner returned a null value"));
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.O(th);
+                            io.reactivex.exceptions.a.N(th);
                             this.errors.addThrowable(th);
                             cancelSources();
                             clear(aVar);

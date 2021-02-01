@@ -7,7 +7,7 @@ import android.os.SystemClock;
 import com.tencent.map.geoloclite.tsa.TencentLiteLocation;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class ad implements TencentLiteLocation {
     public static final ad Bg = new ad(-1);
     private o Bh;

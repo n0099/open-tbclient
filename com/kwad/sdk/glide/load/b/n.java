@@ -4,17 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface n<Model, Data> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a<Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.kwad.sdk.glide.load.c f10100a;
+        public final com.kwad.sdk.glide.load.c f10102a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<com.kwad.sdk.glide.load.c> f10101b;
+        public final List<com.kwad.sdk.glide.load.c> f10103b;
         public final com.kwad.sdk.glide.load.a.d<Data> c;
 
         public a(@NonNull com.kwad.sdk.glide.load.c cVar, @NonNull com.kwad.sdk.glide.load.a.d<Data> dVar) {
@@ -22,8 +22,8 @@ public interface n<Model, Data> {
         }
 
         public a(@NonNull com.kwad.sdk.glide.load.c cVar, @NonNull List<com.kwad.sdk.glide.load.c> list, @NonNull com.kwad.sdk.glide.load.a.d<Data> dVar) {
-            this.f10100a = (com.kwad.sdk.glide.load.c) com.kwad.sdk.glide.g.j.a(cVar);
-            this.f10101b = (List) com.kwad.sdk.glide.g.j.a(list);
+            this.f10102a = (com.kwad.sdk.glide.load.c) com.kwad.sdk.glide.g.j.a(cVar);
+            this.f10103b = (List) com.kwad.sdk.glide.g.j.a(list);
             this.c = (com.kwad.sdk.glide.load.a.d) com.kwad.sdk.glide.g.j.a(dVar);
         }
     }

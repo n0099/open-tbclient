@@ -7,7 +7,7 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyActivity;
 import com.kwad.sdk.api.proxy.IActivityProxy;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdWebViewActivity extends BaseProxyActivity {
     @Override // com.kwad.sdk.api.proxy.BaseProxyActivity
     @NonNull

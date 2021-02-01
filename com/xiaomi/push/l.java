@@ -8,10 +8,10 @@ import java.util.Map;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f14186a = 0;
+    private static int f14188a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f14187b = -1;
+    private static int f14189b = -1;
 
     /* renamed from: a  reason: collision with other field name */
     private static Map<String, o> f864a = null;
@@ -20,14 +20,14 @@ public class l {
         int i;
         boolean z = false;
         synchronized (l.class) {
-            if (f14186a == 0) {
+            if (f14188a == 0) {
                 if (!TextUtils.isEmpty(m524a("ro.miui.ui.version.code")) || !TextUtils.isEmpty(m524a("ro.miui.ui.version.name"))) {
                     z = true;
                 }
-                f14186a = z ? 1 : 2;
-                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f14186a);
+                f14188a = z ? 1 : 2;
+                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f14188a);
             }
-            i = f14186a;
+            i = f14188a;
         }
         return i;
     }
@@ -178,14 +178,14 @@ public class l {
     }
 
     public static boolean c() {
-        if (f14187b < 0) {
+        if (f14189b < 0) {
             Object a2 = ba.a("miui.external.SdkHelper", "isMiuiSystem", new Object[0]);
-            f14187b = 0;
+            f14189b = 0;
             if (a2 != null && (a2 instanceof Boolean) && !((Boolean) Boolean.class.cast(a2)).booleanValue()) {
-                f14187b = 1;
+                f14189b = 1;
             }
         }
-        return f14187b > 0;
+        return f14189b > 0;
     }
 
     public static boolean d() {

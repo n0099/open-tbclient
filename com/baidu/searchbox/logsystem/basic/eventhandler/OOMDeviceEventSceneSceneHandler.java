@@ -8,7 +8,7 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneH
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class OOMDeviceEventSceneSceneHandler extends DeviceEventSceneHandler {
     private static final String EGL_BAD_ALLOC = "EGL_BAD_ALLOC";
     protected static final String OOM = "java.lang.OutOfMemoryError";

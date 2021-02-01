@@ -1,56 +1,220 @@
 package com.baidu.mobads.production.d;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import android.graphics.Color;
+import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.internal.view.SupportMenu;
+import com.baidu.mobads.AdSize;
+import com.baidu.mobads.interfaces.IXAdConstants4PDK;
+import com.baidu.mobads.interfaces.IXAdContainer;
+import com.baidu.mobads.interfaces.IXAdInstanceInfo;
+import com.baidu.mobads.interfaces.IXAdResponseInfo;
+import com.baidu.mobads.interfaces.utils.IXAdLogger;
+import com.baidu.mobads.production.p;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.mobads.utils.e;
-/* loaded from: classes14.dex */
-class b implements Runnable {
+import java.util.HashMap;
+/* loaded from: classes5.dex */
+public class b extends com.baidu.mobads.production.a implements a {
+    protected final IXAdLogger A;
+    private RelativeLayout B;
+    private TextView C;
+    private CountDownTimer D;
+    private f E;
+    private boolean F;
+    private boolean G;
+    private Activity H;
+    private Boolean I;
+    public final String z;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3437a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.f3437a = aVar;
+    public b(Context context, RelativeLayout relativeLayout, Boolean bool, AdSize adSize, String str) {
+        super(context);
+        this.z = "html5_intersitial";
+        this.F = false;
+        this.G = false;
+        this.A = XAdSDKFoundationFacade.getInstance().getAdLogger();
+        setId(str);
+        setActivity(context);
+        setAdSlotBase(relativeLayout);
+        this.o = IXAdConstants4PDK.SlotType.SLOT_TYPE_INTERSTITIAL;
+        this.I = bool;
+        this.E = new f(getApplicationContext(), getActivity(), this.o, true);
+        this.E.c(IXAdConstants4PDK.SlotType.SLOT_TYPE_INTERSTITIAL.getValue());
+        this.E.f(adSize.getValue());
+        this.E.d(str);
+        d(str);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Context context;
-        Context context2;
-        Context context3;
-        Context context4;
-        Context context5;
-        Context context6;
-        Context context7;
-        Context context8;
-        e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        context = this.f3437a.f;
-        commonUtils.getBaiduMapsInfo(context);
-        IXAdSystemUtils systemUtils = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context2 = this.f3437a.f;
-        systemUtils.getCUID(context2);
-        IXAdSystemUtils systemUtils2 = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context3 = this.f3437a.f;
-        systemUtils2.getCell(context3);
-        XAdSDKFoundationFacade.getInstance().getSystemUtils().getAppSDC();
-        IXAdSystemUtils systemUtils3 = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context4 = this.f3437a.f;
-        systemUtils3.getWIFI(context4);
-        IXAdSystemUtils systemUtils4 = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context5 = this.f3437a.f;
-        systemUtils4.getGPS(context5);
-        IXAdSystemUtils systemUtils5 = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context6 = this.f3437a.f;
-        systemUtils5.getNetType(context6);
-        XAdSDKFoundationFacade.getInstance().getSystemUtils().getAppSDC();
-        XAdSDKFoundationFacade.getInstance().getSystemUtils().getMem();
-        IXAdSystemUtils systemUtils6 = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context7 = this.f3437a.f;
-        systemUtils6.getAndroidId(context7);
-        e commonUtils2 = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        context8 = this.f3437a.f;
-        commonUtils2.createRequestId(context8, "");
+    @Override // com.baidu.mobads.production.a
+    public void c() {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    protected void d() {
+        this.m = 8000;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void request() {
+        super.a(this.E);
+    }
+
+    @Override // com.baidu.mobads.production.a
+    protected void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
+        pVar.a(bVar, "{'ad':[{'id':99999999,'url':'" + this.E.b() + "', type='" + IXAdInstanceInfo.CreativeType.HTML.getValue() + "'}],'n':1}");
+    }
+
+    @Override // com.baidu.mobads.production.a, com.baidu.mobads.interfaces.IXAdProd
+    public void start() {
+        super.start();
+    }
+
+    @Override // com.baidu.mobads.production.e.a
+    public void a() {
+    }
+
+    @Override // com.baidu.mobads.production.e.a
+    public void a(int i, int i2) {
+        if (!this.F && !this.G) {
+            this.E.d(i);
+            this.E.e(i2);
+            load();
+        }
+    }
+
+    @Override // com.baidu.mobads.production.e.a
+    public void a(Activity activity) {
+    }
+
+    @Override // com.baidu.mobads.production.e.a
+    public void a(Activity activity, RelativeLayout relativeLayout) {
+        try {
+            this.A.d("showInterstitialAdInit");
+            if (this.F && !this.G) {
+                this.G = true;
+                this.F = false;
+                this.H = activity;
+                start();
+                u();
+                this.e.setBackgroundColor(0);
+                RelativeLayout relativeLayout2 = new RelativeLayout(activity);
+                relativeLayout2.setBackgroundColor(0);
+                relativeLayout.addView(relativeLayout2, new RelativeLayout.LayoutParams(-1, -1));
+                this.e.addView(this.h.getAdView(), new RelativeLayout.LayoutParams(-1, -1));
+                relativeLayout2.addView(this.e, new RelativeLayout.LayoutParams(-1, -1));
+                this.h.getAdView().setVisibility(4);
+            } else if (this.G) {
+                this.A.w("interstitial ad is showing now");
+            } else if (!this.F) {
+                this.A.w("interstitial ad is not ready");
+            }
+        } catch (Exception e) {
+            this.A.d(e);
+        }
+    }
+
+    public void b() {
+        new Handler(Looper.getMainLooper()).post(new c(this));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean w() {
+        return s();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean s() {
+        return AdSize.InterstitialForVideoBeforePlay.getValue() == this.E.getApt();
+    }
+
+    @Override // com.baidu.mobads.production.a
+    protected void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        this.F = true;
+    }
+
+    @Override // com.baidu.mobads.production.a
+    protected void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        b();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    /* renamed from: t */
+    public com.baidu.mobads.vo.d getAdRequestInfo() {
+        return this.E;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void u() {
+        if (this.H != null) {
+            this.H.runOnUiThread(new d(this));
+        }
+    }
+
+    @Override // com.baidu.mobads.production.e.a
+    public boolean v() {
+        return this.F;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.mobads.production.a
+    public void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        u();
+        this.G = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public View x() {
+        if (this.B == null) {
+            this.B = new RelativeLayout(this.f);
+            this.B.setBackgroundColor(Color.argb(42, 0, 0, 0));
+            this.C = new TextView(this.f);
+            this.C.setTextColor(SupportMenu.CATEGORY_MASK);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(13);
+            this.B.addView(this.C, layoutParams);
+        }
+        this.D = new e(this, 6000L, 1000L).start();
+        return this.B;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void y() {
+        if (this.B != null && this.B.getParent() != null) {
+            ((ViewGroup) this.B.getParent()).removeView(this.B);
+        }
+        if (this.D != null) {
+            this.A.d("cancel countDownTimer before it finished");
+            try {
+                this.D.cancel();
+            } catch (Exception e) {
+                this.A.d(e);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public RelativeLayout.LayoutParams z() {
+        int screenDensity = (int) (20.0f * XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenDensity(this.f));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(screenDensity, screenDensity);
+        layoutParams.addRule(11);
+        layoutParams.addRule(10);
+        return layoutParams;
+    }
+
+    @Override // com.baidu.mobads.production.a, com.baidu.mobads.production.e.a
+    public boolean a(int i, KeyEvent keyEvent) {
+        return true;
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void b(IXAdResponseInfo iXAdResponseInfo) {
     }
 }

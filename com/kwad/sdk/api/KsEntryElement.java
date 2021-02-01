@@ -7,12 +7,12 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface KsEntryElement {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface EntranceType {
         public static final int ENTRYTYPE_BLUR = 4;
         public static final int ENTRYTYPE_GIF = 3;
@@ -23,7 +23,7 @@ public interface KsEntryElement {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnFeedClickListener {
         @KsAdSdkApi
         @Keep

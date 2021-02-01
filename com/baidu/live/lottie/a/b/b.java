@@ -1,7 +1,7 @@
 package com.baidu.live.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends f<Integer> {
     public b(List<com.baidu.live.lottie.e.a<Integer>> list) {
         super(list);
@@ -17,6 +17,6 @@ public class b extends f<Integer> {
         }
         int intValue = aVar.HL.intValue();
         int intValue2 = aVar.HM.intValue();
-        return (this.bpt == null || (num = (Integer) this.bpt.c(aVar.BS, aVar.HO.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, iI(), getProgress())) == null) ? Integer.valueOf(com.baidu.live.lottie.d.b.b(f, intValue, intValue2)) : num;
+        return (this.bsU == null || (num = (Integer) this.bsU.c(aVar.BT, aVar.HO.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, iH(), getProgress())) == null) ? Integer.valueOf(com.baidu.live.lottie.d.b.b(f, intValue, intValue2)) : num;
     }
 }

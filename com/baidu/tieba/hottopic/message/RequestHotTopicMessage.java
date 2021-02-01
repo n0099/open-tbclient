@@ -2,16 +2,16 @@ package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.CommonReq;
 import tbclient.Hottopic.DataReq;
 import tbclient.Hottopic.HottopicReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RequestHotTopicMessage extends NetMessage {
     private int call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f5338common;
+    private CommonReq f5340common;
     private Long fid;
     private String first_dir;
     private Integer q_type;
@@ -45,11 +45,11 @@ public class RequestHotTopicMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f5338common;
+        return this.f5340common;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f5338common = commonReq;
+        this.f5340common = commonReq;
     }
 
     public Long getTopicId() {
@@ -112,7 +112,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f14616common = getCommon();
+            builder.f14624common = getCommon();
             builder.topic_id = getTopicId();
             builder.topic_name = getTopicName();
             builder.scr_w = getScrW();
@@ -126,7 +126,7 @@ public class RequestHotTopicMessage extends NetMessage {
             builder.call_from = Integer.valueOf(getCall_from());
             builder.topic_tid = Long.valueOf(getTopic_tid());
             if (z) {
-                t.b(builder, true);
+                v.b(builder, true);
             }
             HottopicReqIdl.Builder builder2 = new HottopicReqIdl.Builder();
             builder2.data = builder.build(false);

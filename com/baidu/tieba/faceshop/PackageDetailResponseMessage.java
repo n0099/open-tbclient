@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PackageDetailResponseMessage extends JsonHttpResponsedMessage {
     public EmotionPackageData data;
 

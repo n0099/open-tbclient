@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IFullScreenVideoAdInteractionListener extends IInterface {
     void onAdClose() throws RemoteException;
 
@@ -19,7 +19,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
 
     void onVideoComplete() throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements IFullScreenVideoAdInteractionListener {
         public Stub() {
             attachInterface(this, "com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
@@ -82,19 +82,19 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         private static class a implements IFullScreenVideoAdInteractionListener {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f6074a;
+            private IBinder f6076a;
 
             a(IBinder iBinder) {
-                this.f6074a = iBinder;
+                this.f6076a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6074a;
+                return this.f6076a;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener
@@ -103,7 +103,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    this.f6074a.transact(1, obtain, obtain2, 0);
+                    this.f6076a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -117,7 +117,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    this.f6074a.transact(2, obtain, obtain2, 0);
+                    this.f6076a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -131,7 +131,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    this.f6074a.transact(3, obtain, obtain2, 0);
+                    this.f6076a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -145,7 +145,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    this.f6074a.transact(4, obtain, obtain2, 0);
+                    this.f6076a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -159,7 +159,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    this.f6074a.transact(5, obtain, obtain2, 0);
+                    this.f6076a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -173,7 +173,7 @@ public interface IFullScreenVideoAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener");
-                    this.f6074a.transact(6, obtain, obtain2, 0);
+                    this.f6076a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

@@ -5,7 +5,7 @@ import android.os.Looper;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class FaceBaseModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public void sendMessage(final Message message) {

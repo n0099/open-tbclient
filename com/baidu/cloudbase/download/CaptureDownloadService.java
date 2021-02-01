@@ -10,7 +10,7 @@ import com.baidu.cloudbase.download.b;
 import com.baidu.cloudbase.download.exception.DownloadException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CaptureDownloadService extends Service {
     public static final String ACTION_CANCEL = "com.baidu.cloudar.download.ACTION_CANCEL";
     public static final String ACTION_CANCEL_ALL = "com.baidu.cloudar.download.ACTION_CANCEL_ALL";
@@ -24,9 +24,9 @@ public class CaptureDownloadService extends Service {
     public static final String TAG = "CaptureDownloadService";
     public com.baidu.cloudbase.download.a mDownloadManager;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends com.baidu.cloudbase.download.a.a {
-        public a.a.a.b.a anQ;
+        public a.a.a.b.a anG;
         public int mLastProgress;
         public long mLastTime;
         public LocalBroadcastManager mLocalBroadcastManager;
@@ -34,7 +34,7 @@ public class CaptureDownloadService extends Service {
 
         public a(int i, a.a.a.b.a aVar, Context context) {
             this.mPosition = i;
-            this.anQ = aVar;
+            this.anG = aVar;
             this.mLocalBroadcastManager = LocalBroadcastManager.getInstance(context);
         }
 
@@ -59,14 +59,14 @@ public class CaptureDownloadService extends Service {
         @Override // com.baidu.cloudbase.download.a.a
         public void c(DownloadException downloadException) {
             downloadException.printStackTrace();
-            a.a.a.b.a aVar = this.anQ;
+            a.a.a.b.a aVar = this.anG;
             aVar.g = 5;
             a(aVar);
         }
 
         @Override // com.baidu.cloudbase.download.a.a
         public void onCompleted(String str) {
-            a.a.a.b.a aVar = this.anQ;
+            a.a.a.b.a aVar = this.anG;
             aVar.g = 6;
             aVar.e = 100;
             aVar.h = str;
@@ -75,7 +75,7 @@ public class CaptureDownloadService extends Service {
 
         @Override // com.baidu.cloudbase.download.a.a
         public void onDownloadCanceled() {
-            a.a.a.b.a aVar = this.anQ;
+            a.a.a.b.a aVar = this.anG;
             aVar.g = 0;
             aVar.e = 0;
             aVar.f = "";
@@ -84,7 +84,7 @@ public class CaptureDownloadService extends Service {
 
         @Override // com.baidu.cloudbase.download.a.a
         public void onDownloadPaused() {
-            a.a.a.b.a aVar = this.anQ;
+            a.a.a.b.a aVar = this.anG;
             aVar.g = 4;
             a(aVar);
         }
@@ -94,12 +94,12 @@ public class CaptureDownloadService extends Service {
             if (this.mLastTime == 0) {
                 this.mLastTime = System.currentTimeMillis();
             }
-            a.a.a.b.a aVar = this.anQ;
+            a.a.a.b.a aVar = this.anG;
             aVar.g = 3;
             aVar.e = i;
             aVar.f = com.baidu.cloudbase.download.b.a.getDownloadPerSize(j, j2);
             if (checkSendBroadLimit(i)) {
-                a(this.anQ);
+                a(this.anG);
             }
         }
     }
@@ -130,7 +130,7 @@ public class CaptureDownloadService extends Service {
     }
 
     private void download(int i, a.a.a.b.a aVar, String str) {
-        this.mDownloadManager.a(new b.a().dm(aVar.d).ua(), str, new a(i, aVar, getApplicationContext()));
+        this.mDownloadManager.a(new b.a().dm(aVar.d).tX(), str, new a(i, aVar, getApplicationContext()));
     }
 
     public static void pause(Context context, String str) {
@@ -175,7 +175,7 @@ public class CaptureDownloadService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mDownloadManager = com.baidu.cloudbase.download.a.tZ();
+        this.mDownloadManager = com.baidu.cloudbase.download.a.tW();
     }
 
     @Override // android.app.Service

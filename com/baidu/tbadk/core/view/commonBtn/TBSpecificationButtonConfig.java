@@ -7,26 +7,26 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class TBSpecificationButtonConfig {
-    WebpType fkI;
-    protected int fkJ;
-    int fkK;
-    int fkL;
-    IconType fkN;
-    private int fkO;
-    boolean fkP;
-    protected a fkW;
-    boolean fkU = true;
-    int akf = 0;
-    GradientDrawable.Orientation fkV = GradientDrawable.Orientation.LEFT_RIGHT;
-    final int[] fkM = new int[2];
-    int fkQ = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int fkR = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int fkS = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-    int fkT = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+    WebpType fna;
+    protected int fnb;
+    int fnc;
+    int fnd;
+    IconType fnf;
+    private int fng;
+    boolean fnh;
+    protected a fno;
+    boolean fnm = true;
+    int ajU = 0;
+    GradientDrawable.Orientation fnn = GradientDrawable.Orientation.LEFT_RIGHT;
+    final int[] fne = new int[2];
+    int fni = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int fnj = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int fnk = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    int fnl = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
     int minWidth = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
     int minHeight = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
     int iconSize = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
@@ -47,38 +47,38 @@ public abstract class TBSpecificationButtonConfig {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void buA();
+        void buS();
 
-        void buy();
+        void buT();
 
-        void buz();
+        void buU();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract Drawable aj(float f);
+    public abstract Drawable ak(float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable buB() {
-        return pH(this.fkM[0]);
+    public Drawable buV() {
+        return pM(this.fne[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable buC() {
-        return pH(this.fkM[1]);
+    public Drawable buW() {
+        return pM(this.fne[1]);
     }
 
-    private Drawable pH(int i) {
+    private Drawable pM(int i) {
         Drawable drawable;
-        if (this.fkN == IconType.SVG) {
-            drawable = SvgManager.bsx().c(i, ao.getColor(this.akf, this.fkO > 0 ? this.fkO : this.fkJ), SvgManager.SvgResourceStateType.NORMAL);
-        } else if (this.fkN == IconType.WEBP) {
-            if (this.fkI == WebpType.MASK) {
+        if (this.fnf == IconType.SVG) {
+            drawable = SvgManager.bsR().c(i, ap.getColor(this.ajU, this.fng > 0 ? this.fng : this.fnb), SvgManager.SvgResourceStateType.NORMAL);
+        } else if (this.fnf == IconType.WEBP) {
+            if (this.fna == WebpType.MASK) {
                 drawable = WebPManager.a(i, null);
             } else {
-                drawable = WebPManager.a(i, ao.getColor(this.akf, this.fkO > 0 ? this.fkO : this.fkJ), (WebPManager.ResourceStateType) null);
+                drawable = WebPManager.a(i, ap.getColor(this.ajU, this.fng > 0 ? this.fng : this.fnb), (WebPManager.ResourceStateType) null);
             }
         } else {
-            drawable = ao.getDrawable(this.akf, i);
+            drawable = ap.getDrawable(this.ajU, i);
         }
         if (drawable != null) {
             drawable.setBounds(0, 0, this.iconSize, this.iconSize);
@@ -87,39 +87,39 @@ public abstract class TBSpecificationButtonConfig {
     }
 
     public void a(int i, int i2, IconType iconType) {
-        if (this.fkM[0] != i || this.fkM[1] != i2 || this.fkN != iconType) {
-            this.fkM[0] = i;
-            this.fkM[1] = i2;
-            this.fkN = iconType;
-            if (this.fkW != null) {
-                this.fkW.buz();
+        if (this.fne[0] != i || this.fne[1] != i2 || this.fnf != iconType) {
+            this.fne[0] = i;
+            this.fne[1] = i2;
+            this.fnf = iconType;
+            if (this.fno != null) {
+                this.fno.buT();
             }
         }
     }
 
     public void a(WebpType webpType) {
-        this.fkI = webpType;
+        this.fna = webpType;
     }
 
     public void setIconSize(int i) {
         if (i > 0 && this.iconSize != i) {
             this.iconSize = i;
-            if (this.fkW != null) {
-                this.fkW.buy();
+            if (this.fno != null) {
+                this.fno.buS();
             }
         }
     }
 
-    public void pI(@ColorRes int i) {
-        if (this.fkO != i) {
-            this.fkO = i;
-            if (this.fkW != null) {
-                this.fkW.buz();
+    public void pN(@ColorRes int i) {
+        if (this.fng != i) {
+            this.fng = i;
+            if (this.fno != null) {
+                this.fno.buT();
             }
         }
     }
 
-    public void aZ(int i, int i2) {
+    public void aW(int i, int i2) {
         if (i > 0) {
             this.minWidth = i;
         }
@@ -128,25 +128,25 @@ public abstract class TBSpecificationButtonConfig {
         }
     }
 
-    public void pJ(int i) {
-        this.fkQ = i;
-        this.fkR = i;
+    public void pO(int i) {
+        this.fni = i;
+        this.fnj = i;
     }
 
-    public void ba(int i, int i2) {
-        this.fkQ = i;
-        this.fkR = i2;
+    public void aX(int i, int i2) {
+        this.fni = i;
+        this.fnj = i2;
     }
 
-    public void pK(int i) {
-        this.fkS = i;
+    public void pP(int i) {
+        this.fnk = i;
     }
 
     public void a(GradientDrawable.Orientation orientation) {
-        this.fkV = orientation;
+        this.fnn = orientation;
     }
 
-    public void pL(int i) {
-        this.fkT = i;
+    public void pQ(int i) {
+        this.fnl = i;
     }
 }

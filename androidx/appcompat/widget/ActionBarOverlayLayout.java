@@ -21,12 +21,11 @@ import android.widget.OverScroller;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuPresenter;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ActionBarOverlayLayout extends ViewGroup implements DecorContentParent, NestedScrollingParent {
     private static final int ACTION_BAR_ANIMATE_DELAY = 600;
     static final int[] ATTRS = {R.attr.actionBarSize, 16842841};
@@ -59,7 +58,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     private Drawable mWindowContentOverlay;
     private int mWindowVisibility;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface ActionBarVisibilityCallback {
         void enableContentAnimations(boolean z);
 
@@ -484,7 +483,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     private boolean shouldHideActionBarOnFling(float f, float f2) {
-        this.mFlingEstimator.fling(0, 0, 0, (int) f2, 0, 0, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this.mFlingEstimator.fling(0, 0, 0, (int) f2, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
         return this.mFlingEstimator.getFinalY() > this.mActionBarTop.getHeight();
     }
 
@@ -618,7 +617,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
         this.mDecorToolbar.dismissPopupMenus();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);

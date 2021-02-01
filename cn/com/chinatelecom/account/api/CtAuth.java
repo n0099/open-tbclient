@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import cn.com.chinatelecom.account.api.a.d;
 import cn.com.chinatelecom.account.api.c.b;
 import cn.com.chinatelecom.account.api.c.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CtAuth {
     private static volatile CtAuth instance;
     public static Context mContext;

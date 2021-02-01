@@ -5,27 +5,27 @@ import com.baidubce.services.bos.BosClientConfiguration;
 import com.kwad.sdk.glide.load.a.e;
 import com.kwad.sdk.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class k implements e<InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final RecyclableBufferedInputStream f10052a;
+    private final RecyclableBufferedInputStream f10054a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements e.a<InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f10053a;
+        private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f10055a;
 
         public a(com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-            this.f10053a = bVar;
+            this.f10055a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.a.e.a
         @NonNull
         public e<InputStream> a(InputStream inputStream) {
-            return new k(inputStream, this.f10053a);
+            return new k(inputStream, this.f10055a);
         }
 
         @Override // com.kwad.sdk.glide.load.a.e.a
@@ -36,13 +36,13 @@ public final class k implements e<InputStream> {
     }
 
     k(InputStream inputStream, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.f10052a = new RecyclableBufferedInputStream(inputStream, bVar);
-        this.f10052a.mark(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE);
+        this.f10054a = new RecyclableBufferedInputStream(inputStream, bVar);
+        this.f10054a.mark(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE);
     }
 
     @Override // com.kwad.sdk.glide.load.a.e
     public void b() {
-        this.f10052a.b();
+        this.f10054a.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public final class k implements e<InputStream> {
     @NonNull
     /* renamed from: c */
     public InputStream a() {
-        this.f10052a.reset();
-        return this.f10052a;
+        this.f10054a.reset();
+        return this.f10054a;
     }
 }

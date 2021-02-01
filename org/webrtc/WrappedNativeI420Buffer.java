@@ -2,7 +2,7 @@ package org.webrtc;
 
 import java.nio.ByteBuffer;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 class WrappedNativeI420Buffer implements VideoFrame.I420Buffer {
     private final ByteBuffer dataU;
     private final ByteBuffer dataV;

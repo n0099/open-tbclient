@@ -21,7 +21,7 @@ public class ad {
     private static final Pattern f917a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f14226a = 0;
+    private static long f14228a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     private static ThreadPoolExecutor f916a = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, new LinkedBlockingQueue());
@@ -66,8 +66,8 @@ public class ad {
     public static void a() {
         ej.a m589a;
         long currentTimeMillis = System.currentTimeMillis();
-        if ((f916a.getActiveCount() <= 0 || currentTimeMillis - f14226a >= 1800000) && he.m360a().m365a() && (m589a = be.a().m589a()) != null && m589a.e() > 0) {
-            f14226a = currentTimeMillis;
+        if ((f916a.getActiveCount() <= 0 || currentTimeMillis - f14228a >= 1800000) && he.m360a().m365a() && (m589a = be.a().m589a()) != null && m589a.e() > 0) {
+            f14228a = currentTimeMillis;
             a(m589a.a(), true);
         }
     }

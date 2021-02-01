@@ -11,7 +11,7 @@ import com.xiaomi.clientreport.manager.ClientReportClient;
 public class fb {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile fb f14005a;
+    private static volatile fb f14007a;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f390a;
@@ -21,14 +21,14 @@ public class fb {
     }
 
     public static fb a(Context context) {
-        if (f14005a == null) {
+        if (f14007a == null) {
             synchronized (fb.class) {
-                if (f14005a == null) {
-                    f14005a = new fb(context);
+                if (f14007a == null) {
+                    f14007a = new fb(context);
                 }
             }
         }
-        return f14005a;
+        return f14007a;
     }
 
     private void a(com.xiaomi.clientreport.data.a aVar) {

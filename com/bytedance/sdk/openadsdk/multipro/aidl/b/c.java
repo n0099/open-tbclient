@@ -5,31 +5,31 @@ import android.os.Looper;
 import android.os.RemoteException;
 import com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener;
 import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends IFullScreenVideoAdInteractionListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    private TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f7368a;
+    private TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f7370a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Handler f7369b = new Handler(Looper.getMainLooper());
+    private Handler f7371b = new Handler(Looper.getMainLooper());
 
     public c(TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
-        this.f7368a = fullScreenVideoAdInteractionListener;
+        this.f7370a = fullScreenVideoAdInteractionListener;
     }
 
     private void a() {
-        this.f7368a = null;
-        this.f7369b = null;
+        this.f7370a = null;
+        this.f7371b = null;
     }
 
     private Handler b() {
-        if (this.f7369b == null) {
+        if (this.f7371b == null) {
             Handler handler = new Handler(Looper.getMainLooper());
-            this.f7369b = handler;
+            this.f7371b = handler;
             return handler;
         }
-        return this.f7369b;
+        return this.f7371b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener
@@ -42,8 +42,8 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f7368a != null) {
-                    c.this.f7368a.onAdShow();
+                if (c.this.f7370a != null) {
+                    c.this.f7370a.onAdShow();
                 }
             }
         });
@@ -54,8 +54,8 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.2
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f7368a != null) {
-                    c.this.f7368a.onAdVideoBarClick();
+                if (c.this.f7370a != null) {
+                    c.this.f7370a.onAdVideoBarClick();
                 }
             }
         });
@@ -66,8 +66,8 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.3
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f7368a != null) {
-                    c.this.f7368a.onAdClose();
+                if (c.this.f7370a != null) {
+                    c.this.f7370a.onAdClose();
                 }
             }
         });
@@ -78,8 +78,8 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.4
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f7368a != null) {
-                    c.this.f7368a.onVideoComplete();
+                if (c.this.f7370a != null) {
+                    c.this.f7370a.onVideoComplete();
                 }
             }
         });
@@ -90,8 +90,8 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.5
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f7368a != null) {
-                    c.this.f7368a.onSkippedVideo();
+                if (c.this.f7370a != null) {
+                    c.this.f7370a.onSkippedVideo();
                 }
             }
         });

@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.d;
 
 import java.io.IOException;
 import java.io.StringWriter;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class l {
     public boolean g() {
         return this instanceof i;

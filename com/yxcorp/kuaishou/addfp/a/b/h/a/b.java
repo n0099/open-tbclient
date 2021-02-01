@@ -9,18 +9,18 @@ import android.os.HandlerThread;
 import android.os.Message;
 import android.os.SystemClock;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14370a;
+    private Context f14372a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f14371b;
-    private static volatile b qbM = null;
-    private static a qbN = null;
-    private static a qbO = null;
-    private static a qbP = null;
+    private boolean f14373b;
+    private static volatile b qlQ = null;
+    private static a qlR = null;
+    private static a qlS = null;
+    private static a qlT = null;
     private static Object g = new Object();
     private static HandlerThread h = null;
     private static Handler i = null;
@@ -28,10 +28,10 @@ public class b {
     private static String k = null;
 
     private b(Context context) {
-        this.f14371b = false;
-        this.f14370a = context;
-        this.f14371b = "1".equals(a("persist.sys.identifierid.supported", "0"));
-        if (this.f14371b) {
+        this.f14373b = false;
+        this.f14372a = context;
+        this.f14373b = "1".equals(a("persist.sys.identifierid.supported", "0"));
+        if (this.f14373b) {
             HandlerThread handlerThread = new HandlerThread("vivo_work");
             h = handlerThread;
             handlerThread.start();
@@ -111,15 +111,15 @@ public class b {
         }
     }
 
-    public static b jb(Context context) {
-        if (qbM == null) {
+    public static b je(Context context) {
+        if (qlQ == null) {
             synchronized (b.class) {
-                if (qbM == null) {
-                    qbM = new b(context);
+                if (qlQ == null) {
+                    qlQ = new b(context);
                 }
             }
         }
-        return qbM;
+        return qlQ;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:28:0x006a, code lost:
@@ -166,19 +166,19 @@ public class b {
     }
 
     public final boolean a() {
-        return this.f14371b;
+        return this.f14373b;
     }
 
     public final String b() {
-        if (this.f14371b) {
+        if (this.f14373b) {
             if (k != null) {
                 return k;
             }
             a(0, (String) null);
-            if (qbN == null) {
-                Context context = this.f14370a;
-                qbN = new a(qbM, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, qbN);
+            if (qlR == null) {
+                Context context = this.f14372a;
+                qlR = new a(qlQ, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, qlR);
             }
             return k;
         }

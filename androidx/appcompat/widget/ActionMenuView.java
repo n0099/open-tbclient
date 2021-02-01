@@ -19,9 +19,8 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.view.menu.MenuView;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.appcompat.widget.LinearLayoutCompat;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.ItemInvoker, MenuView {
     static final int GENERATED_ITEM_PADDING = 4;
     static final int MIN_CELL_SIZE = 56;
@@ -40,14 +39,14 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     private boolean mReserveOverflow;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface ActionMenuChildView {
         boolean needsDividerAfter();
 
         boolean needsDividerBefore();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface OnMenuItemClickListener {
         boolean onMenuItemClick(MenuItem menuItem);
     }
@@ -213,7 +212,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         long j3 = j2;
         int i18 = i9;
         while (i14 > 0 && i18 > 0) {
-            int i19 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i19 = Integer.MAX_VALUE;
             long j4 = 0;
             int i20 = 0;
             int i21 = 0;
@@ -649,7 +648,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class MenuBuilderCallback implements MenuBuilder.Callback {
         MenuBuilderCallback() {
         }
@@ -668,7 +667,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class ActionMenuPresenterCallback implements MenuPresenter.Callback {
         ActionMenuPresenterCallback() {
         }
@@ -683,7 +682,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class LayoutParams extends LinearLayoutCompat.LayoutParams {
         @ViewDebug.ExportedProperty
         public int cellsUsed;

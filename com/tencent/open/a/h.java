@@ -3,11 +3,11 @@ package com.tencent.open.a;
 import android.text.format.Time;
 import android.util.Log;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f13382a = new h();
+    public static final h f13384a = new h();
 
     public final String a(int i) {
         switch (i) {

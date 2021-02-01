@@ -11,67 +11,68 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.download.h;
 import com.baidu.tieba.recapp.k;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
+import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.tbadkCore.data.o;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> implements k, com.baidu.tieba.recapp.o {
-    private CustomMessageListener fVQ;
-    protected BaseFragmentActivity iEK;
-    private CustomMessageListener kkR;
-    private boolean mIN;
-    private CustomMessageListener mIO;
-    protected WeakReference<PbAppLegoViewHolder> mIQ;
+    private CustomMessageListener fYg;
+    protected BaseFragmentActivity iKt;
+    private CustomMessageListener ksY;
     private boolean mIsFromCDN;
+    private boolean mRV;
+    private CustomMessageListener mRW;
+    protected WeakReference<PbAppLegoViewHolder> mRX;
 
     public f(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.mIN = true;
-        this.kkR = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.recapp.adapter.f.1
+        this.mRV = true;
+        this.ksY = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.recapp.adapter.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (f.this.Ws != null && f.this.mIN) {
-                    int playStatus = ((PbAppLegoViewHolder) f.this.Ws).getPlayStatus();
-                    if (((PbAppLegoViewHolder) f.this.Ws).canPlay()) {
+                if (f.this.Wo != null && f.this.mRV) {
+                    int playStatus = ((PbAppLegoViewHolder) f.this.Wo).getPlayStatus();
+                    if (((PbAppLegoViewHolder) f.this.Wo).canPlay()) {
                         if (playStatus == -1) {
-                            ((PbAppLegoViewHolder) f.this.Ws).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
+                            ((PbAppLegoViewHolder) f.this.Wo).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
                         }
                     } else if (playStatus != -1) {
-                        ((PbAppLegoViewHolder) f.this.Ws).stopPlay();
+                        ((PbAppLegoViewHolder) f.this.Wo).stopPlay();
                     }
                 }
             }
         };
-        this.fVQ = new CustomMessageListener(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD) { // from class: com.baidu.tieba.recapp.adapter.f.2
+        this.fYg = new CustomMessageListener(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD) { // from class: com.baidu.tieba.recapp.adapter.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                f.this.cZW();
+                f.this.dbU();
             }
         };
-        this.mIO = new CustomMessageListener(CmdConfigCustom.PB_CHUDIAN_VIDEO_PAUSE) { // from class: com.baidu.tieba.recapp.adapter.f.3
+        this.mRW = new CustomMessageListener(CmdConfigCustom.PB_CHUDIAN_VIDEO_PAUSE) { // from class: com.baidu.tieba.recapp.adapter.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (f.this.Ws != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 2) {
-                    ((PbAppLegoViewHolder) f.this.Ws).stopPlay();
+                if (f.this.Wo != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 2) {
+                    ((PbAppLegoViewHolder) f.this.Wo).stopPlay();
                 }
             }
         };
-        this.mIQ = null;
-        this.iEK = baseFragmentActivity;
-        this.iEK.registerListener(this.kkR);
-        this.iEK.registerListener(this.mIO);
-        this.iEK.registerListener(this.fVQ);
+        this.mRX = null;
+        this.iKt = baseFragmentActivity;
+        this.iKt.registerListener(this.ksY);
+        this.iKt.registerListener(this.mRW);
+        this.iKt.registerListener(this.fYg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -84,17 +85,17 @@ public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> i
     */
     public View getView(int i, View view, ViewGroup viewGroup, o oVar) {
         View view2;
-        if (oVar == null || oVar.dLb() == null) {
+        if (oVar == null || oVar.dNm() == null) {
             return null;
         }
         if (a(view, oVar)) {
-            this.Ws = a(viewGroup, oVar);
-            if (this.Ws != 0) {
-                view2 = ((PbAppLegoViewHolder) this.Ws).getView();
+            this.Wo = a(viewGroup, oVar);
+            if (this.Wo != 0) {
+                view2 = ((PbAppLegoViewHolder) this.Wo).getView();
                 if (view2 == null) {
                     View a2 = a(i, view2, viewGroup, oVar, (PbAppLegoViewHolder) view2.getTag());
                     if (m.class.isAssignableFrom(a2.getClass())) {
-                        ((PbAppLegoViewHolder) this.Ws).a(((m) a2).getVideoOrVrView());
+                        ((PbAppLegoViewHolder) this.Wo).a(((m) a2).getVideoOrVrView());
                         return a2;
                     }
                     return a2;
@@ -108,13 +109,13 @@ public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> i
     }
 
     private boolean a(View view, o oVar) {
-        if (view == null || view.getTag() == null || this.Ws == 0) {
+        if (view == null || view.getTag() == null || this.Wo == 0) {
             return true;
         }
-        if (((PbAppLegoViewHolder) this.Ws).getClass().isAssignableFrom(view.getTag().getClass()) && view.getTag().getClass().isAssignableFrom(((PbAppLegoViewHolder) this.Ws).getClass())) {
-            AdvertAppInfo.ILegoAdvert dLb = oVar.dLb();
+        if (((PbAppLegoViewHolder) this.Wo).getClass().isAssignableFrom(view.getTag().getClass()) && view.getTag().getClass().isAssignableFrom(((PbAppLegoViewHolder) this.Wo).getClass())) {
+            AdvertAppInfo.ILegoAdvert dNm = oVar.dNm();
             Object tag = view.getTag(R.id.tag_first);
-            return ((tag instanceof AdvertAppInfo.ILegoAdvert) && dLb.isReusable((AdvertAppInfo.ILegoAdvert) tag)) ? false : true;
+            return ((tag instanceof AdvertAppInfo.ILegoAdvert) && dNm.isReusable((AdvertAppInfo.ILegoAdvert) tag)) ? false : true;
         }
         return true;
     }
@@ -122,7 +123,7 @@ public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> i
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cW */
+    /* renamed from: cX */
     public PbAppLegoViewHolder e(ViewGroup viewGroup) {
         throw new IllegalStateException("onCreateViewHolder(ViewGroup parent) unavailable.");
     }
@@ -130,7 +131,7 @@ public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> i
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
     public PbAppLegoViewHolder a(ViewGroup viewGroup, o oVar) {
-        View view = (View) com.baidu.tieba.lego.card.b.cZu().a(this.iEK.getPageContext(), oVar.dLb(), 4);
+        View view = (View) com.baidu.tieba.lego.card.b.dbs().a(this.iKt.getPageContext(), oVar.dNm(), 4);
         if (view != null) {
             PbAppLegoViewHolder pbAppLegoViewHolder = new PbAppLegoViewHolder((com.baidu.tieba.lego.card.view.e) view);
             pbAppLegoViewHolder.setIsRecyclable(false);
@@ -143,54 +144,55 @@ public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> i
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, o oVar, PbAppLegoViewHolder pbAppLegoViewHolder) {
-        if (this.iEK == null) {
+        if (this.iKt == null) {
             return null;
         }
-        if (oVar.dLb() instanceof AdCard) {
-            ((AdCard) oVar.dLb()).isPBBanner = oVar.nmL;
+        if (oVar.dNm() instanceof AdCard) {
+            ((AdCard) oVar.dNm()).isPBBanner = oVar.nwv;
         }
         pbAppLegoViewHolder.setIsRecyclable(false);
-        AdvertAppInfo.ILegoAdvert dLb = oVar.dLb();
-        view.setTag(R.id.tag_first, dLb);
-        this.iEK.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.iEK.getLayoutMode().onModeChanged(view);
-        com.baidu.tbadk.core.data.c.a(oVar);
-        if (!oVar.nmM) {
-            com.baidu.tbadk.distribute.a.bAC().a(oVar.qU(), oVar.forumId, oVar.threadId, oVar.dLd(), "show", oVar.pageNumber);
-            oVar.nmM = true;
+        AdvertAppInfo.ILegoAdvert dNm = oVar.dNm();
+        view.setTag(R.id.tag_first, dNm);
+        this.iKt.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.iKt.getLayoutMode().onModeChanged(view);
+        com.baidu.tbadk.core.data.d.a(oVar);
+        if (!oVar.nww) {
+            com.baidu.tbadk.distribute.a.bAU().a(oVar.qS(), oVar.forumId, oVar.threadId, oVar.dNo(), "show", oVar.pageNumber);
+            oVar.nww = true;
         }
         if (oVar != null) {
-            com.baidu.tbadk.distribute.a.fyl = oVar.jyf;
+            com.baidu.tbadk.distribute.a.fAA = oVar.jDK;
         }
-        final AdvertAppInfo qU = oVar.qU();
-        if (qU.advertAppContext == null) {
-            qU.advertAppContext = new com.baidu.tbadk.core.data.c();
+        final AdvertAppInfo qS = oVar.qS();
+        if (qS.advertAppContext == null) {
+            qS.advertAppContext = new com.baidu.tbadk.core.data.d();
         }
-        qU.advertAppContext.pn = oVar.pageNumber;
-        qU.advertAppContext.page = oVar.dLd();
+        qS.advertAppContext.pn = oVar.pageNumber;
+        qS.advertAppContext.page = oVar.dNo();
+        qS.position = oVar.position;
         com.baidu.tieba.lego.card.view.e eVar = (com.baidu.tieba.lego.card.view.e) view;
-        dLb.setAdvertAppInfo(qU);
+        dNm.setAdvertAppInfo(qS);
         eVar.setFromCDN(this.mIsFromCDN);
-        eVar.aN(dLb);
+        eVar.aN(dNm);
         final int i2 = oVar.pageNumber;
         final String str = oVar.forumId;
         eVar.setAfterClickSchemeListener(new com.baidu.tieba.lego.card.a() { // from class: com.baidu.tieba.recapp.adapter.f.4
             @Override // com.baidu.tieba.lego.card.a
             public void d(int i3, HashMap hashMap) {
                 if (i3 != 0) {
-                    if (i3 == 1) {
-                        f.this.a(qU, true, i2, "hotarea");
-                    } else if (i3 == 3) {
-                        f.this.a(qU, "hotarea", i2, str, (String) null);
+                    if (s.HL(i3)) {
+                        com.baidu.tieba.recapp.report.d.a(qS, i2, hashMap, i3);
                     } else {
-                        f.this.a(qU, false, i2, "hotarea");
+                        com.baidu.tieba.recapp.report.d.a(qS, i2, str, (String) null, hashMap);
                     }
+                    com.baidu.tieba.lego.card.a.c.a(com.baidu.tieba.lego.card.a.c.c(qS));
                 }
             }
 
             @Override // com.baidu.tieba.lego.card.a
-            public void a(String str2, String str3, HashMap<String, Object> hashMap) {
-                f.this.a(qU, "button", i2, str, str2);
+            public void b(String str2, String str3, HashMap<String, Object> hashMap) {
+                com.baidu.tieba.recapp.report.d.a(qS, i2, str, str2, hashMap);
+                com.baidu.tieba.lego.card.a.c.a(com.baidu.tieba.lego.card.a.c.c(qS));
                 if (!TextUtils.isEmpty(str3)) {
                     new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.recapp.adapter.f.4.1
                         /* JADX DEBUG: Method merged with bridge method */
@@ -198,7 +200,7 @@ public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> i
                         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                         public Void doInBackground(String... strArr) {
                             if (strArr != null && strArr.length > 0) {
-                                new z(strArr[0]).postNetData();
+                                new aa(strArr[0]).postNetData();
                                 return null;
                             }
                             return null;
@@ -210,58 +212,36 @@ public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> i
         eVar.setDownloadAppCallback(new com.baidu.tieba.lego.card.c() { // from class: com.baidu.tieba.recapp.adapter.f.5
             @Override // com.baidu.tieba.lego.card.c
             public void c(AdvertAppInfo advertAppInfo, int i3) {
-                h.a(f.this.iEK.getPageContext().getPageActivity(), advertAppInfo, i3, f.this.c(advertAppInfo, str));
+                h.a(f.this.iKt.getPageContext().getPageActivity(), advertAppInfo, i3, f.this.c(advertAppInfo, str));
             }
         });
-        if (this.mIQ == null || this.mIQ.get() != pbAppLegoViewHolder) {
-            this.mIQ = new WeakReference<>(pbAppLegoViewHolder);
+        if (this.mRX == null || this.mRX.get() != pbAppLegoViewHolder) {
+            this.mRX = new WeakReference<>(pbAppLegoViewHolder);
         }
-        cZW();
+        dbU();
         return view;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(AdvertAppInfo advertAppInfo, boolean z, int i, String str) {
-        com.baidu.tieba.recapp.report.c a2 = com.baidu.tieba.recapp.report.h.a(advertAppInfo, str, 706, i);
-        com.baidu.tieba.recapp.report.e.dCe().a(a2);
-        a2.HD(2);
-        com.baidu.tieba.recapp.report.e.dCe().a(a2);
-        com.baidu.tieba.lego.card.a.c.a(com.baidu.tieba.lego.card.a.c.c(advertAppInfo));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(AdvertAppInfo advertAppInfo, String str, int i, String str2, String str3) {
-        com.baidu.tbadk.distribute.a.bAC().a(advertAppInfo, str2, 0L, j(advertAppInfo), "click", i);
-        int i2 = 2;
-        if (advertAppInfo != null && advertAppInfo.legoCard != null && advertAppInfo.legoCard.forFree()) {
-            i2 = 102;
-        }
-        com.baidu.tieba.recapp.report.c a2 = com.baidu.tieba.recapp.report.h.a(advertAppInfo, str, i2, i);
-        a2.QS(str3);
-        com.baidu.tieba.recapp.report.e.dCe().a(a2);
-        com.baidu.tieba.lego.card.a.c.a(com.baidu.tieba.lego.card.a.c.c(advertAppInfo));
-    }
-
-    private String j(AdvertAppInfo advertAppInfo) {
+    private String k(AdvertAppInfo advertAppInfo) {
         return TextUtils.isEmpty(advertAppInfo.page) ? "PB" : advertAppInfo.page;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public DownloadStaticsData c(AdvertAppInfo advertAppInfo, String str) {
         DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
-        downloadStaticsData.setDa_page(j(advertAppInfo));
+        downloadStaticsData.setDa_page(k(advertAppInfo));
         downloadStaticsData.setFid(str);
-        downloadStaticsData.setApk_name(advertAppInfo.eJl);
+        downloadStaticsData.setApk_name(advertAppInfo.eLx);
         downloadStaticsData.setAdPosition(advertAppInfo.adPosition);
         downloadStaticsData.setPrice(advertAppInfo.price);
         downloadStaticsData.setExtensionInfo(advertAppInfo.extensionInfo);
         return downloadStaticsData;
     }
 
-    public void cZW() {
-        PbAppLegoViewHolder pbAppLegoViewHolder = this.mIQ != null ? this.mIQ.get() : null;
+    public void dbU() {
+        PbAppLegoViewHolder pbAppLegoViewHolder = this.mRX != null ? this.mRX.get() : null;
         if (pbAppLegoViewHolder != null) {
-            pbAppLegoViewHolder.cZW();
+            pbAppLegoViewHolder.dbU();
         }
     }
 
@@ -272,26 +252,26 @@ public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> i
 
     @Override // com.baidu.tieba.recapp.k
     public void onPause() {
-        if (this.Ws != 0) {
-            ((PbAppLegoViewHolder) this.Ws).stopPlay();
+        if (this.Wo != 0) {
+            ((PbAppLegoViewHolder) this.Wo).stopPlay();
         }
-        this.mIN = false;
+        this.mRV = false;
     }
 
     @Override // com.baidu.tieba.recapp.k
     public void onResume() {
-        if (this.Ws != 0 && ((PbAppLegoViewHolder) this.Ws).canPlay()) {
-            if (((PbAppLegoViewHolder) this.Ws).getPlayStatus() == -1) {
-                ((PbAppLegoViewHolder) this.Ws).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
+        if (this.Wo != 0 && ((PbAppLegoViewHolder) this.Wo).canPlay()) {
+            if (((PbAppLegoViewHolder) this.Wo).getPlayStatus() == -1) {
+                ((PbAppLegoViewHolder) this.Wo).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
             }
-            this.mIN = true;
+            this.mRV = true;
         }
     }
 
     @Override // com.baidu.tieba.recapp.k
     public void onDestroy() {
-        if (this.Ws != 0) {
-            ((PbAppLegoViewHolder) this.Ws).release();
+        if (this.Wo != 0) {
+            ((PbAppLegoViewHolder) this.Wo).release();
         }
     }
 }

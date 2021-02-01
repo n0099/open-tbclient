@@ -9,7 +9,7 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ASMUtils {
     public static final String JAVA_VM_NAME = System.getProperty("java.vm.name");
     public static final boolean IS_ANDROID = isAndroid(JAVA_VM_NAME);

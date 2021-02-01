@@ -1,7 +1,7 @@
 package com.ksad.lottie.network;
 
 import com.ksad.lottie.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public enum FileExtension {
     Json(".json"),
     Zip(".zip");

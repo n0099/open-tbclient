@@ -12,17 +12,17 @@ import androidx.core.view.ViewCompat;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.a.b;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a {
-    protected d dAJ;
-    protected b.a dAK;
-    private int dAL;
-    private InterfaceC0451a dAM;
-    private boolean dAN;
-    private float dAO;
-    private boolean dAP;
-    private int dAQ;
-    private boolean dAR;
+    protected d dCO;
+    protected b.a dCP;
+    private int dCQ;
+    private InterfaceC0448a dCR;
+    private boolean dCS;
+    private float dCT;
+    private boolean dCU;
+    private int dCV;
+    private boolean dCW;
     protected Context mContext;
     protected List<com.baidu.swan.apps.res.widget.a.b> mItems;
     protected View.OnKeyListener mKeyClickListener;
@@ -32,12 +32,12 @@ public abstract class a {
     protected final View mViewToAttach;
 
     /* renamed from: com.baidu.swan.apps.res.widget.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0451a {
-        void aX(List<com.baidu.swan.apps.res.widget.a.b> list);
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0448a {
+        void aS(List<com.baidu.swan.apps.res.widget.a.b> list);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
     }
 
@@ -52,16 +52,16 @@ public abstract class a {
     }
 
     public void a(b.a aVar) {
-        this.dAK = aVar;
+        this.dCP = aVar;
     }
 
     public void show() {
-        if (com.baidu.swan.apps.t.a.awU().ahK() != this.dAR) {
+        if (com.baidu.swan.apps.t.a.axs().aii() != this.dCW) {
             prepareMenuView(this.mContext);
             this.mPopupWindow = null;
         }
-        gZ(true);
-        this.dAR = com.baidu.swan.apps.t.a.awU().ahK();
+        hb(true);
+        this.dCW = com.baidu.swan.apps.t.a.axs().aii();
     }
 
     public void dismiss() {
@@ -107,23 +107,23 @@ public abstract class a {
         });
     }
 
-    protected void aW(List<com.baidu.swan.apps.res.widget.a.b> list) {
-        if (this.dAM != null) {
-            this.dAM.aX(list);
+    protected void aR(List<com.baidu.swan.apps.res.widget.a.b> list) {
+        if (this.dCR != null) {
+            this.dCR.aS(list);
         }
     }
 
-    private void gZ(boolean z) {
-        if (this.dAJ != null) {
-            this.dAJ.onShowMenu();
+    private void hb(boolean z) {
+        if (this.dCO != null) {
+            this.dCO.onShowMenu();
         }
-        aW(this.mItems);
+        aR(this.mItems);
         ensureMenuLoaded(this.mMenu, this.mItems);
         dismiss();
         if (this.mPopupWindow == null) {
-            this.mPopupWindow = new PopupWindow(this.mMenu, this.dAL, -2, true);
-            if (this.dAP) {
-                this.mPopupWindow.setAnimationStyle(this.dAQ);
+            this.mPopupWindow = new PopupWindow(this.mMenu, this.dCQ, -2, true);
+            if (this.dCU) {
+                this.mPopupWindow.setAnimationStyle(this.dCV);
             }
             if (z) {
                 this.mPopupWindow.setBackgroundDrawable(this.mResources.getDrawable(a.e.aiapps_pop_transparent_bg));
@@ -134,18 +134,18 @@ public abstract class a {
             this.mPopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.swan.apps.res.widget.a.a.2
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
-                    if (a.this.dAN) {
-                        a.this.aHP();
+                    if (a.this.dCS) {
+                        a.this.aIi();
                     }
-                    if (a.this.dAJ != null) {
-                        a.this.dAJ.onDismissMenu();
+                    if (a.this.dCO != null) {
+                        a.this.dCO.onDismissMenu();
                     }
                 }
             });
         }
         if (this.mViewToAttach == null) {
-            if (this.dAJ != null) {
-                this.dAJ.onDismissMenu();
+            if (this.dCO != null) {
+                this.dCO.onDismissMenu();
                 return;
             }
             return;
@@ -154,8 +154,8 @@ public abstract class a {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (a.this.dAN) {
-                        a.this.N(a.this.dAO);
+                    if (a.this.dCS) {
+                        a.this.O(a.this.dCT);
                     }
                     a.this.showMenu(a.this.mPopupWindow);
                 } catch (Exception e) {
@@ -169,7 +169,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void N(float f) {
+    public void O(float f) {
         if (this.mViewToAttach != null) {
             ViewGroup viewGroup = (ViewGroup) this.mViewToAttach.getRootView();
             ColorDrawable colorDrawable = new ColorDrawable(ViewCompat.MEASURED_STATE_MASK);
@@ -180,7 +180,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aHP() {
+    public void aIi() {
         if (this.mViewToAttach != null) {
             ((ViewGroup) this.mViewToAttach.getRootView()).getOverlay().clear();
         }

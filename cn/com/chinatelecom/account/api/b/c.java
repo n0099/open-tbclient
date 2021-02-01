@@ -12,6 +12,7 @@ import cn.com.chinatelecom.account.api.CtAuth;
 import cn.com.chinatelecom.account.api.CtSetting;
 import cn.com.chinatelecom.account.api.c.i;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.thunder.livesdk.ThunderRtcConstant;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -24,7 +25,7 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -376,7 +377,7 @@ public class c {
                                     th = th;
                                     bufferedReader3 = bufferedReader2;
                                     inputStream3 = inputStream2;
-                                    eVar.f1115b = i.a(-8001, "请求网络异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.toString());
+                                    eVar.f1115b = i.a(ThunderRtcConstant.ThunderRet.THUNDER_RET_LOG_ENGINE_ERROR, "请求网络异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.toString());
                                     CtAuth.warn(f1109a, "doPost Throwable-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage(), th);
                                     if (bufferedReader3 != null) {
                                         try {
@@ -432,7 +433,7 @@ public class c {
                         }
                         return a3;
                     } else {
-                        eVar.f1115b = i.a(-8001, "请求网络异常-Redirect more than 10 times ");
+                        eVar.f1115b = i.a(ThunderRtcConstant.ThunderRet.THUNDER_RET_LOG_ENGINE_ERROR, "请求网络异常-Redirect more than 10 times ");
                     }
                     if (bufferedReader3 != null) {
                         try {

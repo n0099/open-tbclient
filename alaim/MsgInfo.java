@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MsgInfo extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_LINK = "";
@@ -156,7 +156,7 @@ public final class MsgInfo extends Message {
         this.sid = builder.sid;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<MsgInfo> {
         public String content;
         public Integer createTime;

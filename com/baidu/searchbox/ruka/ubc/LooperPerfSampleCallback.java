@@ -5,7 +5,7 @@ import com.baidu.pyramid.runtime.service.c;
 import com.baidu.searchbox.PerfSampleManager;
 import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.ubc.ab;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class LooperPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
     private static String UBC_BLOCK_ID = "1157";
     private static String ACTIVE_UPLOAD_TYPE = "1";

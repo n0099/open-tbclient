@@ -5,18 +5,18 @@ import java.util.Collections;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ad f5977a;
+    private final ad f5979a;
     private final List<Certificate> c;
     private final List<Certificate> d;
-    private final k pgO;
+    private final k prg;
 
     private u(ad adVar, k kVar, List<Certificate> list, List<Certificate> list2) {
-        this.f5977a = adVar;
-        this.pgO = kVar;
+        this.f5979a = adVar;
+        this.prg = kVar;
         this.c = list;
         this.d = list2;
     }
@@ -29,7 +29,7 @@ public final class u {
         if (cipherSuite == null) {
             throw new IllegalStateException("cipherSuite == null");
         }
-        k XC = k.XC(cipherSuite);
+        k YD = k.YD(cipherSuite);
         String protocol = sSLSession.getProtocol();
         if (protocol == null) {
             throw new IllegalStateException("tlsVersion == null");
@@ -51,11 +51,11 @@ public final class u {
         } else {
             emptyList2 = Collections.emptyList();
         }
-        return new u(a2, XC, emptyList, emptyList2);
+        return new u(a2, YD, emptyList, emptyList2);
     }
 
-    public k enA() {
-        return this.pgO;
+    public k epT() {
+        return this.prg;
     }
 
     public List<Certificate> b() {
@@ -65,12 +65,12 @@ public final class u {
     public boolean equals(Object obj) {
         if (obj instanceof u) {
             u uVar = (u) obj;
-            return this.f5977a.equals(uVar.f5977a) && this.pgO.equals(uVar.pgO) && this.c.equals(uVar.c) && this.d.equals(uVar.d);
+            return this.f5979a.equals(uVar.f5979a) && this.prg.equals(uVar.prg) && this.c.equals(uVar.c) && this.d.equals(uVar.d);
         }
         return false;
     }
 
     public int hashCode() {
-        return ((((((this.f5977a.hashCode() + 527) * 31) + this.pgO.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode();
+        return ((((((this.f5979a.hashCode() + 527) * 31) + this.prg.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode();
     }
 }

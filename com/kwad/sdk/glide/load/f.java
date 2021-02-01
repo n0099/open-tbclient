@@ -3,7 +3,7 @@ package com.kwad.sdk.glide.load;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.engine.s;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface f<T, Z> {
     @Nullable
     s<Z> a(@NonNull T t, int i, int i2, @NonNull e eVar);

@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.image.loader;
 
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoaderBuilder;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ImageLoaderManager {
     private IImageLoader mImageLoader;
     private IImageLoaderBuilder mImageLoaderBuilder;
@@ -34,7 +34,7 @@ public class ImageLoaderManager {
         this.mImageLoader = this.mImageLoaderBuilder.build();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class InstanceHolder {
         private static final ImageLoaderManager sInst = new ImageLoaderManager();
     }

@@ -1,7 +1,7 @@
 package com.fun.ad;
 
 import com.qq.e.ads.nativ.express2.MediaEventListener;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class bb implements MediaEventListener {
     public bb(av avVar) {
     }

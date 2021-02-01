@@ -11,7 +11,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
     private Context mContext;
     private List<com.baidu.yuyinala.mode.b.a> mModeList;
@@ -32,7 +32,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Nc */
+    /* renamed from: Ny */
     public com.baidu.yuyinala.mode.b.a getItem(int i) {
         return (com.baidu.yuyinala.mode.b.a) ListUtils.getItem(this.mModeList, i);
     }
@@ -44,28 +44,28 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0956a c0956a;
+        C0960a c0960a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.item_ala_audio_mode, viewGroup, false);
-            C0956a c0956a2 = new C0956a();
-            c0956a2.oLu = (TbImageView) view.findViewById(a.f.thumbnail_iv);
-            c0956a2.oLv = (ImageView) view.findViewById(a.f.chosen_iv);
-            c0956a2.gKi = (TextView) view.findViewById(a.f.mode_name_tv);
-            c0956a2.oLu.setDefaultResource(a.e.loading_ala_audio_mode);
-            c0956a2.oLu.setDefaultErrorResource(a.e.loading_ala_audio_mode);
-            c0956a2.oLu.setDefaultBgResource(a.e.loading_ala_audio_mode);
-            view.setTag(c0956a2);
-            c0956a = c0956a2;
+            C0960a c0960a2 = new C0960a();
+            c0960a2.oVA = (TbImageView) view.findViewById(a.f.thumbnail_iv);
+            c0960a2.oVB = (ImageView) view.findViewById(a.f.chosen_iv);
+            c0960a2.gMO = (TextView) view.findViewById(a.f.mode_name_tv);
+            c0960a2.oVA.setDefaultResource(a.e.loading_ala_audio_mode);
+            c0960a2.oVA.setDefaultErrorResource(a.e.loading_ala_audio_mode);
+            c0960a2.oVA.setDefaultBgResource(a.e.loading_ala_audio_mode);
+            view.setTag(c0960a2);
+            c0960a = c0960a2;
         } else {
-            c0956a = (C0956a) view.getTag();
+            c0960a = (C0960a) view.getTag();
         }
         com.baidu.yuyinala.mode.b.a item = getItem(i);
         if (item != null) {
             view.setVisibility(0);
-            c0956a.gKi.setText(item.getTitle());
-            c0956a.oLu.startLoad(item.getIconUrl(), 10, false);
-            c0956a.oLu.setVisibility(0);
-            c0956a.oLv.setVisibility(item.egB() ? 0 : 8);
+            c0960a.gMO.setText(item.getTitle());
+            c0960a.oVA.startLoad(item.getIconUrl(), 10, false);
+            c0960a.oVA.setVisibility(0);
+            c0960a.oVB.setVisibility(item.eiT() ? 0 : 8);
         } else {
             view.setVisibility(8);
         }
@@ -73,13 +73,13 @@ public class a extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.yuyinala.mode.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private class C0956a {
-        private TextView gKi;
-        private TbImageView oLu;
-        private ImageView oLv;
+    /* loaded from: classes11.dex */
+    private class C0960a {
+        private TextView gMO;
+        private TbImageView oVA;
+        private ImageView oVB;
 
-        private C0956a() {
+        private C0960a() {
         }
     }
 }

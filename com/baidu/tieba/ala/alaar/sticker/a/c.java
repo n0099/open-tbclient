@@ -4,45 +4,45 @@ import android.text.TextUtils;
 import android.util.ArrayMap;
 import com.baidu.tieba.ala.alaar.sticker.model.e;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
-    private static c gqu;
-    private static c gqv;
-    private ArrayMap<String, T> gqw = new ArrayMap<>();
+    private static c gte;
+    private static c gtf;
+    private ArrayMap<String, T> gtg = new ArrayMap<>();
     private File mFolder;
 
-    public static c<com.baidu.tieba.ala.alaar.sticker.model.b> bPo() {
-        if (gqu == null) {
-            gqu = bPp();
+    public static c<com.baidu.tieba.ala.alaar.sticker.model.b> bPS() {
+        if (gte == null) {
+            gte = bPT();
         }
-        return gqu;
+        return gte;
     }
 
-    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.b> bPp() {
+    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.b> bPT() {
         c<com.baidu.tieba.ala.alaar.sticker.model.b> cVar;
         synchronized (c.class) {
-            if (gqu == null) {
-                gqu = new c(a.bPj().bPl());
+            if (gte == null) {
+                gte = new c(a.bPN().bPP());
             }
-            cVar = gqu;
+            cVar = gte;
         }
         return cVar;
     }
 
-    public static c<com.baidu.tieba.ala.alaar.sticker.model.d> bPn() {
-        if (gqv == null) {
-            gqv = bPq();
+    public static c<com.baidu.tieba.ala.alaar.sticker.model.d> bPR() {
+        if (gtf == null) {
+            gtf = bPU();
         }
-        return gqv;
+        return gtf;
     }
 
-    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.d> bPq() {
+    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.d> bPU() {
         c<com.baidu.tieba.ala.alaar.sticker.model.d> cVar;
         synchronized (c.class) {
-            if (gqv == null) {
-                gqv = new c(a.bPj().bPm());
+            if (gtf == null) {
+                gtf = new c(a.bPN().bPQ());
             }
-            cVar = gqv;
+            cVar = gtf;
         }
         return cVar;
     }
@@ -51,20 +51,20 @@ public class c<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
         this.mFolder = file;
     }
 
-    public T Fb(String str) {
+    public T Fz(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.gqw.get(str);
+        return this.gtg.get(str);
     }
 
     public T a(String str, T t) {
-        return this.gqw.put(str, t);
+        return this.gtg.put(str, t);
     }
 
     public void a(String str, com.baidu.tieba.ala.alaar.sticker.download.a.a aVar) {
         T t;
-        if (!TextUtils.isEmpty(str) && (t = this.gqw.get(str)) != null) {
+        if (!TextUtils.isEmpty(str) && (t = this.gtg.get(str)) != null) {
             t.b(aVar);
         }
     }

@@ -9,14 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class ay {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f13500a = {"px", "dp", "sp", "pt", "in", "mm"};
+    public static final String[] f13502a = {"px", "dp", "sp", "pt", "in", "mm"};
 
     /* renamed from: b  reason: collision with root package name */
-    public aw f13501b;
+    public aw f13503b;
     public Map<String, String> c = new HashMap();
     public byte[] d;
     public String[] e;
@@ -39,23 +39,23 @@ public class ay {
         String format;
         byte[] bArr;
         aw awVar = new aw();
-        this.f13501b = awVar;
+        this.f13503b = awVar;
         this.d = new byte[inputStream.available()];
         inputStream.read(this.d);
         inputStream.close();
         while (true) {
             int i = this.j;
             if (i >= this.d.length) {
-                this.f13501b.a();
-                return awVar.f13497b;
+                this.f13503b.a();
+                return awVar.f13499b;
             }
             int b2 = b(i);
             if (b2 == -1) {
-                this.f13501b.a();
+                this.f13503b.a();
             } else if (b2 == 524291) {
-                aw awVar2 = this.f13501b;
-                awVar2.f13497b = awVar2.c.newDocument();
-                awVar2.f13496a.push(awVar2.f13497b);
+                aw awVar2 = this.f13503b;
+                awVar2.f13499b = awVar2.c.newDocument();
+                awVar2.f13498a.push(awVar2.f13499b);
                 this.j += 8;
             } else if (b2 == 524672) {
                 int b3 = b(this.j + 4);
@@ -96,7 +96,7 @@ public class ay {
                             int b9 = b(this.j + 12);
                             int b10 = b(this.j + 16);
                             av avVar = new av();
-                            avVar.f13494a = a(b7);
+                            avVar.f13496a = a(b7);
                             if (b6 == -1) {
                                 avVar.b(null);
                                 avVar.a(null);
@@ -122,7 +122,7 @@ public class ay {
                                         format = Float.toString(Float.intBitsToFloat(b10));
                                         break;
                                     case 83886088:
-                                        format = Integer.toString(b10 >> 8) + f13500a[b10 & 255];
+                                        format = Integer.toString(b10 >> 8) + f13502a[b10 & 255];
                                         break;
                                     case 100663304:
                                         format = new DecimalFormat("#.##%").format(b10 / 2.147483647E9d);
@@ -149,7 +149,7 @@ public class ay {
                             avVarArr[i5] = avVar;
                             this.j += 20;
                         }
-                        this.f13501b.a(a2, a3, str, avVarArr);
+                        this.f13503b.a(a2, a3, str, avVarArr);
                         continue;
                     case 1048835:
                         int b11 = b(this.j + 16);
@@ -157,13 +157,13 @@ public class ay {
                         if (b11 != -1) {
                             a(b11);
                         }
-                        this.f13501b.f13496a.pop();
+                        this.f13503b.f13498a.pop();
                         this.j += 24;
                         continue;
                     case 1048836:
                         String a5 = a(b(this.j + 16));
-                        aw awVar3 = this.f13501b;
-                        awVar3.f13496a.peek().appendChild(awVar3.f13497b.createCDATASection(a5));
+                        aw awVar3 = this.f13503b;
+                        awVar3.f13498a.peek().appendChild(awVar3.f13499b.createCDATASection(a5));
                         this.j += 28;
                         continue;
                     default:
@@ -212,10 +212,10 @@ public class ay {
         String a2 = a(b(this.j + 20));
         String a3 = a(b2);
         if (z) {
-            this.f13501b.a(a3, a2);
+            this.f13503b.a(a3, a2);
             this.c.put(a2, a3);
         } else {
-            this.f13501b.b(a3, a2);
+            this.f13503b.b(a3, a2);
             this.c.remove(a2);
         }
         this.j += 24;

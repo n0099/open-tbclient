@@ -17,14 +17,14 @@ import com.fun.ad.sdk.R;
 import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class KSNativeAdSingleImgH5OpenView extends o1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f7831a;
+    public TextView f7833a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f7832b;
+    public ImageView f7834b;
     public TextView c;
     public Button d;
     public float e;
@@ -54,10 +54,10 @@ public class KSNativeAdSingleImgH5OpenView extends o1 {
             if (ksImage != null && ksImage.isValid()) {
                 this.e = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
                 m.a("KSNativeAd Single img width: " + ksImage.getWidth() + ", height: " + ksImage.getHeight());
-                ap.a.pFl.a(this, ksImage.getImageUrl(), this.f7832b);
+                ap.a.pPq.a(this, ksImage.getImageUrl(), this.f7834b);
             }
         }
-        this.f7831a.setText(ksNativeAd.getAdDescription());
+        this.f7833a.setText(ksNativeAd.getAdDescription());
         this.c.setText(ksNativeAd.getAdSource());
         this.d.setText(ksNativeAd.getActionDescription());
         ksNativeAd.setDownloadListener(new ai(ksNativeAd, this.d, str, FunAdType.KS_NATIVE, str2));
@@ -66,8 +66,8 @@ public class KSNativeAdSingleImgH5OpenView extends o1 {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f7831a = (TextView) findViewById(R.id.ad_description);
-        this.f7832b = (ImageView) findViewById(R.id.ad_img);
+        this.f7833a = (TextView) findViewById(R.id.ad_description);
+        this.f7834b = (ImageView) findViewById(R.id.ad_img);
         ImageView imageView = (ImageView) findViewById(R.id.ad_logo);
         this.c = (TextView) findViewById(R.id.ad_h5_description);
         this.d = (Button) findViewById(R.id.ad_h5_open);
@@ -77,11 +77,11 @@ public class KSNativeAdSingleImgH5OpenView extends o1 {
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         m.a("KSNativeAd onSizeChanged w: " + i + ", h: " + i2 + ", oldw: " + i3 + ", oldh: " + i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f7832b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f7834b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i5;
         layoutParams.height = (int) (i5 / this.e);
         m.a("KSNativeAd onSizeChanged adView width: " + layoutParams.width + ", height: " + layoutParams.height);
-        this.f7832b.setLayoutParams(layoutParams);
+        this.f7834b.setLayoutParams(layoutParams);
     }
 }

@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.v;
 import com.qq.e.ads.nativ.express2.VideoOption2;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class e extends com.qq.e.comm.plugin.m.c implements com.qq.e.comm.plugin.n.i {
     private String J;
     private String K;

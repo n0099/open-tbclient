@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     private static final float DEFAULT_ALPHA_END_DISTANCE = 0.5f;
     private static final float DEFAULT_ALPHA_START_DISTANCE = 0.0f;
@@ -145,7 +145,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface OnDismissListener {
         void onDismiss(View view);
 
@@ -222,7 +222,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private class SettleRunnable implements Runnable {
         private final boolean dismiss;
         private final View view;

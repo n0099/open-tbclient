@@ -6,10 +6,10 @@ import com.baidu.fsg.base.utils.ResUtils;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f2286a = 1;
+    public static final int f2284a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f2287b = 2;
+    public static final int f2285b = 2;
     public static final String c = ResUtils.string("error_msg_get_userinfo_failure");
     public static final String d = ResUtils.string("error_msg_upload_failure");
     public static final String e = ResUtils.string("error_msg_image_file_empty");
@@ -26,10 +26,10 @@ public class c {
     public class a extends com.baidu.fsg.face.base.c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f2288a = 1;
+        public static final int f2286a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f2289b = 2;
+        public static final int f2287b = 2;
         public static final int c = 5;
         public static final int d = -306;
         public String e;

@@ -10,7 +10,7 @@ import com.bytedance.sdk.openadsdk.utils.u;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static void a() {
         b.a();

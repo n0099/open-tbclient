@@ -13,35 +13,35 @@ import java.io.InputStream;
 import okhttp3.Response;
 /* loaded from: classes.dex */
 public class b {
-    private static b fKf = null;
+    private static b fMq = null;
 
     private b() {
     }
 
-    public static synchronized b bED() {
+    public static synchronized b bEW() {
         b bVar;
         synchronized (b.class) {
-            if (fKf == null) {
-                fKf = new b();
+            if (fMq == null) {
+                fMq = new b();
             }
-            bVar = fKf;
+            bVar = fMq;
         }
         return bVar;
     }
 
-    public void bEE() {
-        String bEF = bEF();
-        if (!TextUtils.isEmpty(bEF)) {
-            com.baidu.adp.lib.e.d.mx().a(bEF, 10, null, 0, 0, null, new Object[0]);
+    public void bEX() {
+        String bEY = bEY();
+        if (!TextUtils.isEmpty(bEY)) {
+            com.baidu.adp.lib.e.d.mw().a(bEY, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public String bEF() {
+    public String bEY() {
         return TbadkSettings.getInst().loadString("ad_url", null);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [190=4] */
-    public long g(File file, String str) {
+    public long f(File file, String str) {
         Throwable th;
         FileOutputStream fileOutputStream;
         InputStream inputStream;

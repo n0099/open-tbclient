@@ -6,7 +6,7 @@ import com.baidu.mobstat.Config;
 import com.ksad.lottie.model.content.ShapeStroke;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ah {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */

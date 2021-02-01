@@ -3,21 +3,21 @@ package com.baidu.pano.platform.a;
 import android.os.Process;
 import com.baidu.pano.platform.a.b;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f3866a = w.f3895b;
+    private static final boolean f3869a = w.f3898b;
 
     /* renamed from: b  reason: collision with root package name */
-    private final BlockingQueue<n<?>> f3867b;
+    private final BlockingQueue<n<?>> f3870b;
     private final BlockingQueue<n<?>> c;
     private final b d;
     private final r e;
     private volatile boolean f = false;
 
     public c(BlockingQueue<n<?>> blockingQueue, BlockingQueue<n<?>> blockingQueue2, b bVar, r rVar) {
-        this.f3867b = blockingQueue;
+        this.f3870b = blockingQueue;
         this.c = blockingQueue2;
         this.d = bVar;
         this.e = rVar;
@@ -30,14 +30,14 @@ public class c extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (f3866a) {
+        if (f3869a) {
             w.a("start new dispatcher", new Object[0]);
         }
         Process.setThreadPriority(10);
         this.d.a();
         while (true) {
             try {
-                n<?> take = this.f3867b.take();
+                n<?> take = this.f3870b.take();
                 take.a("cache-queue-take");
                 if (take.h()) {
                     take.b("cache-discard-canceled");
@@ -52,7 +52,7 @@ public class c extends Thread {
                         this.c.put(take);
                     } else {
                         take.a("cache-hit");
-                        q<?> a3 = take.a(new l(a2.f3864a, a2.g));
+                        q<?> a3 = take.a(new l(a2.f3867a, a2.g));
                         take.a("cache-hit-parsed");
                         if (!a2.b()) {
                             this.e.a(take, a3);

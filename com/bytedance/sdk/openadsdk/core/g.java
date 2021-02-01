@@ -10,22 +10,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g {
     private static final Object c = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    private c f6551a;
+    private c f6553a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f6552b;
+    private Context f6554b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(Context context) {
         try {
-            this.f6552b = context == null ? p.a() : context.getApplicationContext();
-            if (this.f6551a == null) {
-                this.f6551a = new c();
+            this.f6554b = context == null ? p.a() : context.getApplicationContext();
+            if (this.f6553a == null) {
+                this.f6553a = new c();
             }
         } catch (Throwable th) {
         }
@@ -33,14 +33,14 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Context c() {
-        return this.f6552b == null ? p.a() : this.f6552b;
+        return this.f6554b == null ? p.a() : this.f6554b;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class c {
 
         /* renamed from: b  reason: collision with root package name */
-        private SQLiteDatabase f6568b = null;
+        private SQLiteDatabase f6570b = null;
 
         public c() {
         }
@@ -50,9 +50,9 @@ public class g {
         private synchronized void d() {
             try {
                 synchronized (g.c) {
-                    if (this.f6568b == null || !this.f6568b.isOpen()) {
-                        this.f6568b = new a(g.this.c()).getWritableDatabase();
-                        this.f6568b.setLockingEnabled(false);
+                    if (this.f6570b == null || !this.f6570b.isOpen()) {
+                        this.f6570b = new a(g.this.c()).getWritableDatabase();
+                        this.f6570b.setLockingEnabled(false);
                     }
                 }
             } finally {
@@ -63,7 +63,7 @@ public class g {
         public synchronized void a(String str) throws SQLException {
             try {
                 d();
-                this.f6568b.execSQL(str);
+                this.f6570b.execSQL(str);
             } catch (Throwable th) {
                 if (e()) {
                     throw th;
@@ -76,7 +76,7 @@ public class g {
             Cursor bVar;
             try {
                 d();
-                bVar = this.f6568b.query(str, strArr, str2, strArr2, str3, str4, str5);
+                bVar = this.f6570b.query(str, strArr, str2, strArr2, str3, str4, str5);
             } catch (Throwable th) {
                 th.printStackTrace();
                 bVar = new b();
@@ -91,7 +91,7 @@ public class g {
             int i;
             try {
                 d();
-                i = this.f6568b.update(str, contentValues, str2, strArr);
+                i = this.f6570b.update(str, contentValues, str2, strArr);
             } catch (Exception e) {
                 e.printStackTrace();
                 i = 0;
@@ -106,7 +106,7 @@ public class g {
             long j;
             try {
                 d();
-                j = this.f6568b.insert(str, str2, contentValues);
+                j = this.f6570b.insert(str, str2, contentValues);
             } catch (Exception e) {
                 e.printStackTrace();
                 j = -1;
@@ -121,7 +121,7 @@ public class g {
             int i;
             try {
                 d();
-                i = this.f6568b.delete(str, str2, strArr);
+                i = this.f6570b.delete(str, str2, strArr);
             } catch (Exception e) {
                 e.printStackTrace();
                 i = 0;
@@ -134,28 +134,28 @@ public class g {
 
         public synchronized void a() {
             d();
-            if (this.f6568b != null) {
-                this.f6568b.beginTransaction();
+            if (this.f6570b != null) {
+                this.f6570b.beginTransaction();
             }
         }
 
         public synchronized void b() {
             d();
-            if (this.f6568b != null) {
-                this.f6568b.setTransactionSuccessful();
+            if (this.f6570b != null) {
+                this.f6570b.setTransactionSuccessful();
             }
         }
 
         public synchronized void c() {
             d();
-            if (this.f6568b != null) {
-                this.f6568b.endTransaction();
+            if (this.f6570b != null) {
+                this.f6570b.endTransaction();
             }
         }
 
         private synchronized boolean e() {
             boolean z;
-            SQLiteDatabase sQLiteDatabase = this.f6568b;
+            SQLiteDatabase sQLiteDatabase = this.f6570b;
             if (sQLiteDatabase != null) {
                 z = sQLiteDatabase.inTransaction();
             }
@@ -164,21 +164,21 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        final Context f6555a;
+        final Context f6557a;
 
         public a(Context context) {
             super(context, "ttopensdk.db", (SQLiteDatabase.CursorFactory) null, 7);
-            this.f6555a = context;
+            this.f6557a = context;
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                a(sQLiteDatabase, this.f6555a);
+                a(sQLiteDatabase, this.f6557a);
             } catch (Throwable th) {
             }
         }
@@ -197,10 +197,10 @@ public class g {
             try {
                 com.bytedance.sdk.openadsdk.utils.u.b("DBHelper", "onUpgrade....数据库版本升级.....old:" + i + ",new:" + i2);
                 if (i <= i2) {
-                    a(sQLiteDatabase, g.this.f6552b);
+                    a(sQLiteDatabase, g.this.f6554b);
                 } else {
                     a(sQLiteDatabase);
-                    a(sQLiteDatabase, g.this.f6552b);
+                    a(sQLiteDatabase, g.this.f6554b);
                     com.bytedance.sdk.openadsdk.utils.u.b("DBHelper", "onUpgrade...逆向安装.数据库重置-创建表.....");
                 }
                 switch (i) {
@@ -256,10 +256,10 @@ public class g {
     }
 
     public c a() {
-        return this.f6551a;
+        return this.f6553a;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class b extends AbstractCursor {
         private b() {
         }

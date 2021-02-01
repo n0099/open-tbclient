@@ -60,7 +60,7 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
         static final Integer LEFT_CLOSE = 3;
         static final Integer RIGHT_CLOSE = 4;
         final io.reactivex.disposables.a disposables = new io.reactivex.disposables.a();
-        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(q.eHO());
+        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(q.eKe());
         final Map<Integer, UnicastSubject<TRight>> lefts = new LinkedHashMap();
         final Map<Integer, TRight> rights = new LinkedHashMap();
         final AtomicReference<Throwable> error = new AtomicReference<>();
@@ -104,7 +104,7 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
         }
 
         void fail(Throwable th, u<?> uVar, io.reactivex.internal.queue.a<?> aVar) {
-            io.reactivex.exceptions.a.O(th);
+            io.reactivex.exceptions.a.N(th);
             ExceptionHelper.addThrowable(this.error, th);
             aVar.clear();
             cancelAll();
@@ -140,10 +140,10 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
                     } else if (!z2) {
                         Object poll = aVar.poll();
                         if (num == LEFT_VALUE) {
-                            UnicastSubject<TRight> eIz = UnicastSubject.eIz();
+                            UnicastSubject<TRight> eKP = UnicastSubject.eKP();
                             int i2 = this.leftIndex;
                             this.leftIndex = i2 + 1;
-                            this.lefts.put(Integer.valueOf(i2), eIz);
+                            this.lefts.put(Integer.valueOf(i2), eKP);
                             try {
                                 t tVar = (t) io.reactivex.internal.functions.a.m(this.leftEnd.apply(poll), "The leftEnd returned a null ObservableSource");
                                 LeftRightEndObserver leftRightEndObserver = new LeftRightEndObserver(this, true, i2);
@@ -156,9 +156,9 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
                                     return;
                                 }
                                 try {
-                                    uVar.onNext((Object) io.reactivex.internal.functions.a.m(this.resultSelector.apply(poll, eIz), "The resultSelector returned a null value"));
+                                    uVar.onNext((Object) io.reactivex.internal.functions.a.m(this.resultSelector.apply(poll, eKP), "The resultSelector returned a null value"));
                                     for (TRight tright : this.rights.values()) {
-                                        eIz.onNext(tright);
+                                        eKP.onNext(tright);
                                     }
                                 } catch (Throwable th) {
                                     fail(th, uVar, aVar);

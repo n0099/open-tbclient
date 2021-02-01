@@ -3,11 +3,11 @@ package com.ss.android.socialbase.appdownloader.b;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f13013a;
+    public static final String f13015a;
 
     static {
         boolean z = true;
@@ -35,6 +35,6 @@ public class a {
             }
         }
         sb.append(")");
-        f13013a = sb.toString();
+        f13015a = sb.toString();
     }
 }

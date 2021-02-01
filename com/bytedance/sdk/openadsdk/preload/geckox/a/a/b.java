@@ -4,14 +4,14 @@ import android.annotation.SuppressLint;
 import java.io.File;
 import java.util.List;
 @SuppressLint({"CI_StaticFieldLeak"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f7446a = new d();
+    public static final b f7448a = new d();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f7447b = new f();
+    public static final b f7449b = new f();
     public static final b c = new e();
     protected a d;
     protected File e;

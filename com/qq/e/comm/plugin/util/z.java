@@ -5,24 +5,24 @@ import com.baidu.mobstat.Config;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12601a = z.class.getSimpleName();
+    private static final String f12603a = z.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private String[] f12602b;
+    private String[] f12604b;
     private String[] c;
     private CopyOnWriteArrayList<String> d;
     private boolean e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static z f12606a = new z();
+        private static z f12608a = new z();
     }
 
     private z() {
@@ -30,7 +30,7 @@ public class z {
     }
 
     public static z a() {
-        return a.f12606a;
+        return a.f12608a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -48,7 +48,7 @@ public class z {
     private void d() {
         String string = GDTADManager.getInstance().getSM().getString("mcClaNa");
         if (!TextUtils.isEmpty(string)) {
-            this.f12602b = string.split(",");
+            this.f12604b = string.split(",");
         }
         String string2 = GDTADManager.getInstance().getSM().getString("mcPackNa");
         if (!TextUtils.isEmpty(string2)) {
@@ -56,7 +56,7 @@ public class z {
         }
         this.e = GDTADManager.getInstance().getSM().getInteger("mcena", 0) == 1;
         this.d = new CopyOnWriteArrayList<>();
-        GDTLogger.d(f12601a + "mIsEnableCheck: " + this.e + " mClassNames: " + this.f12602b + " mPackages: " + this.c);
+        GDTLogger.d(f12603a + "mIsEnableCheck: " + this.e + " mClassNames: " + this.f12604b + " mPackages: " + this.c);
     }
 
     public void a(final String str) {
@@ -68,7 +68,7 @@ public class z {
         }
         this.d.add(str);
         final StackTraceElement[] stackTrace = new Exception().getStackTrace();
-        s.f12589a.execute(new Runnable() { // from class: com.qq.e.comm.plugin.util.z.2
+        s.f12591a.execute(new Runnable() { // from class: com.qq.e.comm.plugin.util.z.2
             @Override // java.lang.Runnable
             public void run() {
                 StackTraceElement[] stackTraceElementArr;
@@ -89,7 +89,7 @@ public class z {
                                     sb.append("\t").append(stackTraceElement.toString());
                                 }
                                 if (!TextUtils.isEmpty(str2) && className.contains(str2)) {
-                                    GDTLogger.d(z.f12601a + "调用栈中：" + className + " 存在包名：" + str2);
+                                    GDTLogger.d(z.f12603a + "调用栈中：" + className + " 存在包名：" + str2);
                                     z = true;
                                 }
                             }
@@ -108,20 +108,20 @@ public class z {
     }
 
     public void b() {
-        if (!this.e || this.f12602b == null || this.f12602b.length == 0) {
+        if (!this.e || this.f12604b == null || this.f12604b.length == 0) {
             return;
         }
-        s.f12589a.execute(new Runnable() { // from class: com.qq.e.comm.plugin.util.z.1
+        s.f12591a.execute(new Runnable() { // from class: com.qq.e.comm.plugin.util.z.1
             @Override // java.lang.Runnable
             public void run() {
                 String[] strArr;
-                for (String str : z.this.f12602b) {
+                for (String str : z.this.f12604b) {
                     try {
                         Class.forName(str);
-                        GDTLogger.d(z.f12601a + "宿主APP中存在三方聚合 SDK 类：" + str);
+                        GDTLogger.d(z.f12603a + "宿主APP中存在三方聚合 SDK 类：" + str);
                         z.this.b(str);
                     } catch (ClassNotFoundException e) {
-                        GDTLogger.d(z.f12601a + "第三方聚合 SDK 类：" + str + " 不存在");
+                        GDTLogger.d(z.f12603a + "第三方聚合 SDK 类：" + str + " 不存在");
                     }
                 }
             }

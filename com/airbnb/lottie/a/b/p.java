@@ -1,7 +1,7 @@
 package com.airbnb.lottie.a.b;
 
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class p<K, A> extends a<K, A> {
     private final com.airbnb.lottie.e.b<A> EO;
 
@@ -12,14 +12,14 @@ public class p<K, A> extends a<K, A> {
     }
 
     @Override // com.airbnb.lottie.a.b.a
-    float iL() {
+    float iK() {
         return 1.0f;
     }
 
     @Override // com.airbnb.lottie.a.b.a
-    public void in() {
+    public void im() {
         if (this.Et != null) {
-            super.in();
+            super.im();
         }
     }
 

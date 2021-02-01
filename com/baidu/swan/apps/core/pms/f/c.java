@@ -9,21 +9,21 @@ import com.baidu.swan.apps.statistic.a.d;
 import com.baidu.swan.apps.statistic.h;
 import com.facebook.common.b.i;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void l(Bitmap bitmap);
+        void k(Bitmap bitmap);
     }
 
     public static void a(String str, final int i, final a aVar) {
-        Uri tC = ak.tC(str);
-        if (tC == null) {
+        Uri tV = ak.tV(str);
+        if (tV == null) {
             a(i, aVar, "download icon fail: icon url is null");
             return;
         }
-        com.facebook.drawee.a.a.c.eqX().e(ImageRequestBuilder.ag(tC).exQ(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.swan.apps.core.pms.f.c.1
+        com.facebook.drawee.a.a.c.etq().e(ImageRequestBuilder.ag(tV).eAi(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.swan.apps.core.pms.f.c.1
             @Override // com.facebook.imagepipeline.d.b
             protected void f(Bitmap bitmap) {
                 Bitmap copy;
@@ -38,7 +38,7 @@ public class c {
                         copy = bitmap.copy(bitmap.getConfig(), true);
                     }
                     if (a.this != null) {
-                        a.this.l(copy);
+                        a.this.k(copy);
                     }
                 } catch (Exception e) {
                     c.a(i, a.this, "download icon fail: " + e.getMessage());
@@ -55,16 +55,16 @@ public class c {
                 super.b(bVar);
                 c.a(i, a.this, "download icon fail: onCancellation");
             }
-        }, i.eqd());
+        }, i.esw());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(int i, a aVar, String str) {
-        com.baidu.swan.apps.al.a aVar2 = new com.baidu.swan.apps.al.a().cV(4L).cW(10L).to(str);
-        e.aMQ().j(aVar2);
-        h.b(new d().i(aVar2).sw(h.jr(i)));
+        com.baidu.swan.apps.al.a tH = new com.baidu.swan.apps.al.a().db(4L).dc(10L).tH(str);
+        e.aNj().j(tH);
+        h.b(new d().i(tH).sP(h.ju(i)));
         if (aVar != null) {
-            aVar.l(null);
+            aVar.k(null);
         }
     }
 }

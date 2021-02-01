@@ -1,91 +1,108 @@
 package com.baidu.live.alablmsdk.module;
 
-import android.text.TextUtils;
 import com.baidu.live.alablmsdk.module.state.BLMRtcState;
 import com.baidu.live.alablmsdk.module.state.BLMSignalState;
 import com.baidu.live.alablmsdk.module.state.BLMStateType;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public long axT;
-    public d axU;
+    public long ayk;
+    public d ayl;
     public String roomId;
     public String token = "";
     public String rtcAppId = "";
-    public List<d> axV = new CopyOnWriteArrayList();
+    public List<d> aym = new CopyOnWriteArrayList();
 
-    public UserPermission yd() {
-        return (this.axU == null || this.axU.ayc == null || this.axU.ayc.axY == null) ? UserPermission.UNKNOWN : this.axU.ayc.axY;
+    public UserPermission yq() {
+        return (this.ayl == null || this.ayl.ayt == null || this.ayl.ayt.ayp == null) ? UserPermission.UNKNOWN : this.ayl.ayt.ayp;
     }
 
-    public boolean ye() {
-        if (this.axU != null) {
-            return this.axU.yq();
+    public boolean yr() {
+        if (this.ayl != null) {
+            return this.ayl.yE();
         }
         return false;
     }
 
-    public String yf() {
+    public String ys() {
         StringBuilder sb = new StringBuilder();
-        synchronized (this.axV) {
-            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.axV)) {
-                for (int i = 0; i < this.axV.size(); i++) {
-                    d dVar = this.axV.get(i);
-                    if (dVar != null && dVar.ayc != null) {
-                        sb.append(" other").append(i).append("=").append(dVar.ayc.axT);
+        sb.append("roomId=").append(this.roomId).append(" , token=").append(this.token).append(" , rtcAppId=").append(this.rtcAppId).append(" , imUk=").append(this.ayk).append(" othersImUk(对方的)=");
+        synchronized (this.aym) {
+            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aym)) {
+                for (int i = 0; i < this.aym.size(); i++) {
+                    d dVar = this.aym.get(i);
+                    if (dVar != null && dVar.ayt != null) {
+                        sb.append(" other").append(i).append("=").append(dVar.ayt.ayk);
                     }
                 }
             }
         }
-        return "roomId=" + this.roomId + " , token=" + this.token + " , rtcAppId=" + this.rtcAppId + " , imUk=" + this.axT + " othersImUk(对方的)=" + sb.toString();
+        return sb.toString();
     }
 
-    public static boolean b(a aVar) {
-        return (aVar == null || TextUtils.isEmpty(aVar.roomId) || TextUtils.isEmpty(aVar.token) || TextUtils.isEmpty(aVar.rtcAppId) || aVar.axT == 0) ? false : true;
+    public boolean aA(long j) {
+        return (j == 0 || this.ayl == null || this.ayl.ayt == null || this.ayl.ayt.ayk != j) ? false : true;
     }
 
-    public boolean aw(long j) {
-        return (j == 0 || this.axU == null || this.axU.ayc == null || this.axU.ayc.axT != j) ? false : true;
+    public BLMSignalState yt() {
+        return this.ayl != null ? this.ayl.yt() : BLMSignalState.DEFAULT;
     }
 
-    public BLMSignalState yg() {
-        return this.axU != null ? this.axU.yg() : BLMSignalState.DEFAULT;
+    public List<c> yu() {
+        c cVar;
+        c clone;
+        if (com.baidu.live.alablmsdk.a.a.isEmpty(this.aym)) {
+            return null;
+        }
+        ArrayList arrayList = new ArrayList();
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 >= this.aym.size()) {
+                return arrayList;
+            }
+            d dVar = this.aym.get(i2);
+            if (dVar != null && (cVar = dVar.ayt) != null && (clone = cVar.clone()) != null) {
+                arrayList.add(clone);
+            }
+            i = i2 + 1;
+        }
     }
 
     public void a(d dVar, BLMStateType bLMStateType) {
-        if (dVar != null && dVar.ayc != null) {
-            c cVar = dVar.ayc;
-            if (cVar.axT != 0 && cVar.axT != 0) {
-                synchronized (this.axV) {
-                    d ay = ay(cVar.axT);
-                    if (ay == null) {
-                        this.axV.add(dVar);
+        if (dVar != null && dVar.ayt != null) {
+            c cVar = dVar.ayt;
+            if (cVar.ayk != 0 && cVar.ayk != 0) {
+                synchronized (this.aym) {
+                    d aC = aC(cVar.ayk);
+                    if (aC == null) {
+                        this.aym.add(dVar);
                     } else {
-                        ay.b(dVar, bLMStateType);
-                        ay.a(dVar);
+                        aC.b(dVar, bLMStateType);
+                        aC.a(dVar);
                     }
                 }
             }
         }
     }
 
-    public void e(long j, String str) {
-        c az;
-        com.baidu.live.alablmsdk.module.a.b eE;
-        if (j != 0 && !TextUtils.isEmpty(str) && (az = az(j)) != null && (eE = com.baidu.live.alablmsdk.module.a.b.eE(str)) != null && eE.axT != 0 && eE.axT == az.axT) {
-            az.order = eE.order;
+    public void h(c cVar) {
+        c aD;
+        if (cVar != null && cVar.ayk != 0 && (aD = aD(cVar.ayk)) != null) {
+            aD.order = cVar.order;
         }
     }
 
-    public void ax(long j) {
-        com.baidu.live.alablmsdk.a.b.a.ai(" remote other user state info , imUk=" + j, "");
+    public void aB(long j) {
+        com.baidu.live.alablmsdk.a.b.a.ag(" remote other user state info , imUk=" + j, "");
         if (j != 0 && j != 0) {
-            synchronized (this.axV) {
-                d ay = ay(j);
-                if (ay != null) {
-                    ay.release();
-                    this.axV.remove(ay);
+            synchronized (this.aym) {
+                d aC = aC(j);
+                if (aC != null) {
+                    aC.release();
+                    this.aym.remove(aC);
                 }
             }
         }
@@ -93,11 +110,11 @@ public class a {
 
     public void u(List<c> list) {
         if (!com.baidu.live.alablmsdk.a.a.isEmpty(list)) {
-            com.baidu.live.alablmsdk.a.b.a.ai(" remove other list : before  , list size=" + list.size(), "");
-            synchronized (this.axV) {
-                for (int i = 0; i < this.axV.size(); i++) {
+            com.baidu.live.alablmsdk.a.b.a.ag(" remove other list : before  , list size=" + list.size(), "");
+            synchronized (this.aym) {
+                for (int i = 0; i < this.aym.size(); i++) {
                     try {
-                        d dVar = this.axV.get(i);
+                        d dVar = this.aym.get(i);
                         if (dVar != null) {
                             int i2 = 0;
                             while (true) {
@@ -105,12 +122,12 @@ public class a {
                                     break;
                                 }
                                 c cVar = list.get(i2);
-                                if (cVar == null || cVar.axT == 0 || dVar.yo() != cVar.axT) {
+                                if (cVar == null || cVar.ayk == 0 || dVar.yC() != cVar.ayk) {
                                     i2++;
                                 } else {
                                     dVar.release();
-                                    this.axV.remove(dVar);
-                                    com.baidu.live.alablmsdk.a.b.a.ai(" remove other user ", "");
+                                    this.aym.remove(dVar);
+                                    com.baidu.live.alablmsdk.a.b.a.ag(" remove other user ", "");
                                     break;
                                 }
                             }
@@ -118,27 +135,27 @@ public class a {
                     } catch (Exception e) {
                     }
                 }
-                com.baidu.live.alablmsdk.a.b.a.ai(" remove other list : after , list size=" + list.size(), "");
+                com.baidu.live.alablmsdk.a.b.a.ag(" remove other list : after , list size=" + list.size(), "");
             }
         }
     }
 
-    public boolean yh() {
+    public boolean yv() {
         boolean z;
-        synchronized (this.axV) {
-            z = com.baidu.live.alablmsdk.a.a.isEmpty(this.axV);
+        synchronized (this.aym) {
+            z = com.baidu.live.alablmsdk.a.a.isEmpty(this.aym);
         }
         return z;
     }
 
-    public d ay(long j) {
-        synchronized (this.axV) {
+    public d aC(long j) {
+        synchronized (this.aym) {
             if (j != 0 && j != 0) {
-                if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.axV)) {
-                    int size = this.axV.size();
+                if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aym)) {
+                    int size = this.aym.size();
                     for (int i = 0; i < size; i++) {
-                        d dVar = this.axV.get(i);
-                        if (dVar != null && dVar.ayc != null && dVar.ayc.axT == j) {
+                        d dVar = this.aym.get(i);
+                        if (dVar != null && dVar.ayt != null && dVar.ayt.ayk == j) {
                             return dVar;
                         }
                     }
@@ -149,61 +166,61 @@ public class a {
         }
     }
 
-    public c az(long j) {
-        d ay;
-        if (j == 0 || (ay = ay(j)) == null) {
+    public c aD(long j) {
+        d aC;
+        if (j == 0 || (aC = aC(j)) == null) {
             return null;
         }
-        return ay.ayc;
+        return aC.ayt;
     }
 
-    public c yi() {
-        if (this.axU == null || this.axU.ayc == null) {
+    public c yw() {
+        if (this.ayl == null || this.ayl.ayt == null) {
             return null;
         }
-        return this.axU.ayc;
+        return this.ayl.ayt;
     }
 
-    public boolean aA(long j) {
+    public boolean aE(long j) {
         boolean z;
-        synchronized (this.axV) {
-            z = ay(j) != null;
+        synchronized (this.aym) {
+            z = aC(j) != null;
         }
         return z;
     }
 
     public void a(BLMSignalState bLMSignalState) {
-        if (this.axU != null) {
-            this.axU.b(bLMSignalState);
+        if (this.ayl != null) {
+            this.ayl.b(bLMSignalState);
         }
     }
 
     public void a(BLMRtcState bLMRtcState) {
-        if (this.axU != null) {
-            this.axU.b(bLMRtcState);
+        if (this.ayl != null) {
+            this.ayl.b(bLMRtcState);
         }
     }
 
     public void a(long j, BLMSignalState bLMSignalState) {
-        d ay = ay(j);
-        if (ay != null) {
-            ay.b(bLMSignalState);
+        d aC = aC(j);
+        if (aC != null) {
+            aC.b(bLMSignalState);
         }
     }
 
-    public void yj() {
-        if (this.axU != null && this.axU.ayd != null) {
-            this.axU.ayd.cancelTimer();
+    public void yx() {
+        if (this.ayl != null && this.ayl.ayu != null) {
+            this.ayl.ayu.cancelTimer();
         }
     }
 
-    public void yk() {
-        synchronized (this.axV) {
-            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.axV)) {
-                for (int i = 0; i < this.axV.size(); i++) {
-                    d dVar = this.axV.get(i);
-                    if (dVar != null && dVar.ayd != null) {
-                        dVar.ayd.cancelTimer();
+    public void yy() {
+        synchronized (this.aym) {
+            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aym)) {
+                for (int i = 0; i < this.aym.size(); i++) {
+                    d dVar = this.aym.get(i);
+                    if (dVar != null && dVar.ayu != null) {
+                        dVar.ayu.cancelTimer();
                     }
                 }
             }

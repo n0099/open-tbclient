@@ -3,8 +3,8 @@ package com.baidu.bdhttpdns;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class BDHttpDnsResult {
-    private ResolveType aeL;
-    private final ResolveStatus aeM;
+    private ResolveType aeE;
+    private final ResolveStatus aeF;
     private ArrayList<String> c;
     private ArrayList<String> d;
 
@@ -27,31 +27,31 @@ public class BDHttpDnsResult {
     }
 
     public BDHttpDnsResult(ResolveStatus resolveStatus) {
-        this.aeL = ResolveType.RESOLVE_NONE;
-        this.aeM = resolveStatus;
+        this.aeE = ResolveType.RESOLVE_NONE;
+        this.aeF = resolveStatus;
     }
 
     public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
-        this.aeL = ResolveType.RESOLVE_NONE;
-        this.aeL = resolveType;
-        this.aeM = resolveStatus;
+        this.aeE = ResolveType.RESOLVE_NONE;
+        this.aeE = resolveType;
+        this.aeF = resolveStatus;
         this.c = arrayList;
         this.d = arrayList2;
     }
 
-    public ResolveType so() {
-        return this.aeL;
+    public ResolveType sl() {
+        return this.aeE;
     }
 
-    public ResolveStatus sp() {
-        return this.aeM;
+    public ResolveStatus sm() {
+        return this.aeF;
     }
 
-    public ArrayList<String> sq() {
+    public ArrayList<String> sn() {
         return this.c;
     }
 
-    public ArrayList<String> sr() {
+    public ArrayList<String> so() {
         return this.d;
     }
 }

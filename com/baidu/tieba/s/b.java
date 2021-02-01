@@ -5,8 +5,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -14,52 +14,52 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<aq>> nkf;
-    private String[] nkg = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate", "recom_weight", IntentConfig.RECOM_SOURCE, "recom_ab_tag", "recom_extra", "recom_type", "ugc_vid", "ugc_nid", "ori_ugc_type", "obj_locate", "list_order"};
+    private Map<BdUniqueId, ArrayList<ar>> ntN;
+    private String[] ntO = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate", "recom_weight", IntentConfig.RECOM_SOURCE, "recom_ab_tag", "recom_extra", "recom_type", "ugc_vid", "ugc_nid", "ori_ugc_type", "obj_locate", "list_order"};
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.nkf == null) {
-            this.nkf = new LinkedHashMap();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void z(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null) {
-            this.nkf.put(bdUniqueId, null);
+        if (this.ntN == null) {
+            this.ntN = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void A(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.nkf.remove(bdUniqueId);
+            this.ntN.put(bdUniqueId, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(BdUniqueId bdUniqueId, aq aqVar) {
-        if (aqVar != null && bdUniqueId != null) {
-            ArrayList<aq> arrayList = this.nkf.get(bdUniqueId);
+    public void B(BdUniqueId bdUniqueId) {
+        if (bdUniqueId != null) {
+            this.ntN.remove(bdUniqueId);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(BdUniqueId bdUniqueId, ar arVar) {
+        if (arVar != null && bdUniqueId != null) {
+            ArrayList<ar> arrayList = this.ntN.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.nkf.put(bdUniqueId, arrayList);
+                this.ntN.put(bdUniqueId, arrayList);
             }
-            arrayList.add(aqVar);
+            arrayList.add(arVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean B(BdUniqueId bdUniqueId) {
-        return this.nkf.containsKey(bdUniqueId);
+    public boolean C(BdUniqueId bdUniqueId) {
+        return this.ntN.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dKf() {
-        if (this.nkf.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<aq>> entry : this.nkf.entrySet()) {
-                ArrayList<aq> value = entry.getValue();
+    public void dMq() {
+        if (this.ntN.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<ar>> entry : this.ntN.entrySet()) {
+                ArrayList<ar> value = entry.getValue();
                 if (value != null) {
                     value.clear();
                 }
@@ -70,48 +70,48 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<aq> arrayList = this.nkf.get(bdUniqueId);
-            if (x.getCount(arrayList) != 0) {
-                bg(arrayList);
+            ArrayList<ar> arrayList = this.ntN.get(bdUniqueId);
+            if (y.getCount(arrayList) != 0) {
+                bf(arrayList);
                 arrayList.clear();
             }
         }
     }
 
-    private void bg(ArrayList<aq> arrayList) {
-        if (arrayList != null && x.getCount(arrayList) != 0) {
+    private void bf(ArrayList<ar> arrayList) {
+        if (arrayList != null && y.getCount(arrayList) != 0) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (x.getCount(arrayList) == 1) {
-                TiebaStatic.log((aq) x.getItem(arrayList, 0));
+            if (y.getCount(arrayList) == 1) {
+                TiebaStatic.log((ar) y.getItem(arrayList, 0));
             } else {
                 HashMap hashMap = new HashMap();
                 for (int i = 0; i < arrayList.size(); i++) {
-                    aq aqVar = arrayList.get(i);
-                    if (hashMap.containsKey(aqVar.getKey())) {
-                        ((List) hashMap.get(aqVar.getKey())).add(aqVar);
+                    ar arVar = arrayList.get(i);
+                    if (hashMap.containsKey(arVar.getKey())) {
+                        ((List) hashMap.get(arVar.getKey())).add(arVar);
                     } else {
                         ArrayList arrayList2 = new ArrayList();
-                        arrayList2.add(aqVar);
-                        hashMap.put(aqVar.getKey(), arrayList2);
+                        arrayList2.add(arVar);
+                        hashMap.put(arVar.getKey(), arrayList2);
                     }
                 }
                 for (Map.Entry entry : hashMap.entrySet()) {
                     List list = (List) entry.getValue();
-                    if (x.getCount(list) != 0) {
-                        aq aqVar2 = (aq) list.get(0);
-                        for (int i2 = 0; i2 < this.nkg.length; i2++) {
+                    if (y.getCount(list) != 0) {
+                        ar arVar2 = (ar) list.get(0);
+                        for (int i2 = 0; i2 < this.ntO.length; i2++) {
                             StringBuilder sb = new StringBuilder();
                             for (int i3 = 0; i3 < list.size(); i3++) {
-                                sb.append(s(((aq) list.get(i3)).getParams(), this.nkg[i2]));
+                                sb.append(q(((ar) list.get(i3)).getParams(), this.ntO[i2]));
                                 sb.append("|");
                             }
                             if (sb.length() > 0) {
                                 sb.deleteCharAt(sb.length() - 1);
                             }
-                            aqVar2.delete(this.nkg[i2]);
-                            aqVar2.dW(this.nkg[i2] + "s", sb.toString());
+                            arVar2.delete(this.ntO[i2]);
+                            arVar2.dR(this.ntO[i2] + "s", sb.toString());
                         }
-                        TiebaStatic.log(aqVar2);
+                        TiebaStatic.log(arVar2);
                     }
                 }
                 if (hashMap != null && !hashMap.isEmpty()) {
@@ -124,9 +124,9 @@ public class b {
         }
     }
 
-    private String s(List<Object> list, String str) {
+    private String q(List<Object> list, String str) {
         int indexOf;
-        if (x.getCount(list) != 0 && !StringUtils.isNull(str) && (indexOf = list.indexOf(str)) >= 0 && list.size() > indexOf + 1) {
+        if (y.getCount(list) != 0 && !StringUtils.isNull(str) && (indexOf = list.indexOf(str)) >= 0 && list.size() > indexOf + 1) {
             String valueOf = String.valueOf(list.get(indexOf + 1));
             return StringUtils.isNull(valueOf, true) ? "" : valueOf;
         }

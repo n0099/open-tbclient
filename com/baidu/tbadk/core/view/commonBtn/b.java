@@ -3,76 +3,76 @@ package com.baidu.tbadk.core.view.commonBtn;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import androidx.annotation.ColorRes;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b extends TBSpecificationButtonConfig {
-    private boolean fkX;
+    private boolean fnp;
 
     public b() {
-        this.fkJ = R.color.CAM_X0302;
-        this.fkX = true;
+        this.fnb = R.color.CAM_X0302;
+        this.fnp = true;
     }
 
-    public void pM(@ColorRes int i) {
-        this.fkJ = i;
-        this.fkX = true;
-        this.fkU = true;
-        if (this.fkW != null) {
-            this.fkW.buA();
+    public void pR(@ColorRes int i) {
+        this.fnb = i;
+        this.fnp = true;
+        this.fnm = true;
+        if (this.fno != null) {
+            this.fno.buU();
         }
     }
 
-    public void pN(@ColorRes int i) {
-        this.fkJ = i;
-        this.fkL = R.color.CAM_X0211;
-        this.fkX = false;
-        this.fkU = true;
-        if (this.fkW != null) {
-            this.fkW.buA();
+    public void pS(@ColorRes int i) {
+        this.fnb = i;
+        this.fnd = R.color.CAM_X0211;
+        this.fnp = false;
+        this.fnm = true;
+        if (this.fno != null) {
+            this.fno.buU();
         }
     }
 
-    public void buD() {
-        this.fkJ = R.color.CAM_X0101;
-        this.fkL = R.color.CAM_X0904;
-        this.fkX = false;
-        this.fkU = true;
-        if (this.fkW != null) {
-            this.fkW.buA();
+    public void buX() {
+        this.fnb = R.color.CAM_X0101;
+        this.fnd = R.color.CAM_X0904;
+        this.fnp = false;
+        this.fnm = true;
+        if (this.fno != null) {
+            this.fno.buU();
         }
     }
 
-    public void pO(@ColorRes int i) {
-        this.fkJ = i;
-        this.fkL = R.color.CAM_X0903;
-        this.fkX = false;
-        if (this.fkW != null) {
-            this.fkW.buA();
+    public void pT(@ColorRes int i) {
+        this.fnb = i;
+        this.fnd = R.color.CAM_X0903;
+        this.fnp = false;
+        if (this.fno != null) {
+            this.fno.buU();
         }
     }
 
-    public void bb(@ColorRes int i, @ColorRes int i2) {
-        this.fkL = i;
-        this.fkJ = i2;
-        this.fkX = false;
-        if (this.fkW != null) {
-            this.fkW.buA();
+    public void aY(@ColorRes int i, @ColorRes int i2) {
+        this.fnd = i;
+        this.fnb = i2;
+        this.fnp = false;
+        if (this.fno != null) {
+            this.fno.buU();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable aj(float f) {
-        return al(f);
+    public Drawable ak(float f) {
+        return am(f);
     }
 
-    private Drawable al(float f) {
+    private Drawable am(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.fkX) {
-            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.m(this.fkU ? ao.getColor(this.akf, this.fkJ) : this.fkJ, 0.08f));
+        if (this.fnp) {
+            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.l(this.fnm ? ap.getColor(this.ajU, this.fnb) : this.fnb, 0.08f));
         } else {
-            gradientDrawable.setColor(ao.getColor(this.akf, this.fkL));
+            gradientDrawable.setColor(ap.getColor(this.ajU, this.fnd));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

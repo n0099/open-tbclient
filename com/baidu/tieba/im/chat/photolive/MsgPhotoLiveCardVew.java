@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
@@ -27,17 +27,17 @@ import com.baidu.tieba.im.chat.photolive.a;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.tbadkCore.util.c;
 import java.net.URLDecoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MsgPhotoLiveCardVew extends e {
-    private LinearLayout kvX;
-    private ClickableHeaderImageView kvY;
-    private TextView kvZ;
-    private TextView kwa;
-    private TextView kwb;
-    private TextView kwc;
-    private TextView kwd;
-    private LinearLayout kwe;
-    private TextView kwf;
+    private LinearLayout kEd;
+    private ClickableHeaderImageView kEe;
+    private TextView kEf;
+    private TextView kEg;
+    private TextView kEh;
+    private TextView kEi;
+    private TextView kEj;
+    private LinearLayout kEk;
+    private TextView kEl;
     private int messageType;
     private int paddingLeft;
     private long postId;
@@ -54,16 +54,16 @@ public class MsgPhotoLiveCardVew extends e {
     }
 
     private void init() {
-        this.kvX = (LinearLayout) findViewById(R.id.msg_photolive_card);
-        this.kvY = (ClickableHeaderImageView) findViewById(R.id.author_portrait);
-        this.kvZ = (TextView) findViewById(R.id.author_name);
-        this.kwa = (TextView) findViewById(R.id.call_time);
-        this.kwb = (TextView) findViewById(R.id.call_content);
-        this.kwc = (TextView) findViewById(R.id.call_thread_title);
-        this.kwe = (LinearLayout) findViewById(R.id.auhtor_name_and_call_time);
-        this.kwd = (TextView) findViewById(R.id.remind_title);
-        this.kwf = (TextView) findViewById(R.id.card_bottom_chakanzhibo);
-        this.kvX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.1
+        this.kEd = (LinearLayout) findViewById(R.id.msg_photolive_card);
+        this.kEe = (ClickableHeaderImageView) findViewById(R.id.author_portrait);
+        this.kEf = (TextView) findViewById(R.id.author_name);
+        this.kEg = (TextView) findViewById(R.id.call_time);
+        this.kEh = (TextView) findViewById(R.id.call_content);
+        this.kEi = (TextView) findViewById(R.id.call_thread_title);
+        this.kEk = (LinearLayout) findViewById(R.id.auhtor_name_and_call_time);
+        this.kEj = (TextView) findViewById(R.id.remind_title);
+        this.kEl = (TextView) findViewById(R.id.card_bottom_chakanzhibo);
+        this.kEd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (MsgPhotoLiveCardVew.this.threadId > 0) {
@@ -82,25 +82,26 @@ public class MsgPhotoLiveCardVew extends e {
                         }
                     } else {
                         TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
-                        if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.SB(String.valueOf(MsgPhotoLiveCardVew.this.threadId)) > 0) {
-                            MsgPhotoLiveCardVew.this.postId = photoLiveReadThreadHistory.SB(String.valueOf(MsgPhotoLiveCardVew.this.threadId));
+                        if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.Ty(String.valueOf(MsgPhotoLiveCardVew.this.threadId)) > 0) {
+                            MsgPhotoLiveCardVew.this.postId = photoLiveReadThreadHistory.Ty(String.valueOf(MsgPhotoLiveCardVew.this.threadId));
                         }
                     }
-                    MsgPhotoLiveCardVew.this.Cw(MsgPhotoLiveCardVew.this.messageType);
+                    MsgPhotoLiveCardVew.this.CO(MsgPhotoLiveCardVew.this.messageType);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cw(int i) {
+    public void CO(int i) {
         if (i == 5 || i == 6) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(String.valueOf(this.threadId), null, "message_tab")));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dq(View view) {
+    /* renamed from: do  reason: not valid java name */
+    public void m34do(View view) {
         Object tag = view.getTag();
         if (tag instanceof String) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), (String) tag, "")));
@@ -112,78 +113,78 @@ public class MsgPhotoLiveCardVew extends e {
         int i;
         int i2 = -1;
         if (chatMessage != null) {
-            a.C0753a LI = a.LI(chatMessage.getContent());
-            if (LI == null) {
+            a.C0755a Mw = a.Mw(chatMessage.getContent());
+            if (Mw == null) {
                 this.threadId = 0L;
                 return;
             }
-            this.threadId = LI.threadId;
-            this.postId = LI.postId;
-            this.messageType = LI.msgType;
-            int i3 = LI.kwj;
-            ViewGroup.LayoutParams layoutParams = this.kwe.getLayoutParams();
+            this.threadId = Mw.threadId;
+            this.postId = Mw.postId;
+            this.messageType = Mw.msgType;
+            int i3 = Mw.kEp;
+            ViewGroup.LayoutParams layoutParams = this.kEk.getLayoutParams();
             if (this.messageType == 1 || this.messageType == 6) {
                 if (this.messageType == 1) {
-                    decode = LI.threadTitle;
+                    decode = Mw.threadTitle;
                     i = R.string.look_live_thread;
                 } else {
-                    decode = URLDecoder.decode(LI.threadTitle);
+                    decode = URLDecoder.decode(Mw.threadTitle);
                     i = R.string.look_god_thread;
                     i2 = 0;
                 }
-                this.kwc.setText(decode);
+                this.kEi.setText(decode);
                 layoutParams.height = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds72);
-                this.kwe.setPadding(this.paddingLeft, 0, 0, 0);
-                this.kvY.setVisibility(0);
-                this.kvY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.2
+                this.kEk.setPadding(this.paddingLeft, 0, 0, 0);
+                this.kEe.setVisibility(0);
+                this.kEe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        MsgPhotoLiveCardVew.this.dq(view2);
+                        MsgPhotoLiveCardVew.this.m34do(view2);
                     }
                 });
-                this.kvY.setTag(LI.userId);
-                this.kvY.setGodIconMargin(i2);
-                this.kwd.setVisibility(8);
-                this.kvZ.setVisibility(0);
-                this.kvZ.setText(LI.userName);
-                this.kwb.setText(LI.kwi);
-                this.kvZ.setTextSize(0, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.fontsize28));
-                this.kwf.setText(i);
+                this.kEe.setTag(Mw.userId);
+                this.kEe.setGodIconMargin(i2);
+                this.kEj.setVisibility(8);
+                this.kEf.setVisibility(0);
+                this.kEf.setText(Mw.userName);
+                this.kEh.setText(Mw.kEo);
+                this.kEf.setTextSize(0, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.fontsize28));
+                this.kEl.setText(i);
             } else if (this.messageType == 3) {
-                this.kwc.setText(LI.threadTitle);
+                this.kEi.setText(Mw.threadTitle);
                 layoutParams.height = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds80);
-                this.kwe.setPadding(0, 0, 0, 0);
-                this.kvY.setVisibility(8);
-                this.kwd.setVisibility(0);
-                this.kvZ.setVisibility(8);
-                this.kwd.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
-                if (LI.kwi != null && LI.kwi.indexOf(String.valueOf(i3)) != -1) {
-                    this.kwb.setText(bh(LI.kwi, i3));
+                this.kEk.setPadding(0, 0, 0, 0);
+                this.kEe.setVisibility(8);
+                this.kEj.setVisibility(0);
+                this.kEf.setVisibility(8);
+                this.kEj.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
+                if (Mw.kEo != null && Mw.kEo.indexOf(String.valueOf(i3)) != -1) {
+                    this.kEh.setText(bh(Mw.kEo, i3));
                 } else {
-                    this.kwb.setText(LI.kwi);
+                    this.kEh.setText(Mw.kEo);
                 }
             } else {
                 layoutParams.height = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds80);
-                this.kwe.setPadding(0, 0, 0, 0);
-                this.kvY.setVisibility(8);
-                this.kwd.setVisibility(0);
-                this.kvZ.setVisibility(8);
-                this.kwb.setText(LI.kwi);
+                this.kEk.setPadding(0, 0, 0, 0);
+                this.kEe.setVisibility(8);
+                this.kEj.setVisibility(0);
+                this.kEf.setVisibility(8);
+                this.kEh.setText(Mw.kEo);
                 if (this.messageType == 4) {
-                    this.kwc.setText(LI.threadTitle);
-                    this.kwd.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
+                    this.kEi.setText(Mw.threadTitle);
+                    this.kEj.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
                 } else if (this.messageType == 5) {
-                    this.kwc.setText(LI.threadTitle);
-                    this.kwf.setText(R.string.look_normal_thread);
-                    this.kwd.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
+                    this.kEi.setText(Mw.threadTitle);
+                    this.kEl.setText(R.string.look_normal_thread);
+                    this.kEj.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
                 }
             }
-            if (!TextUtils.isEmpty(LI.portrait)) {
-                this.kvY.startLoad(LI.portrait, 12, false);
+            if (!TextUtils.isEmpty(Mw.portrait)) {
+                this.kEe.startLoad(Mw.portrait, 12, false);
             } else {
-                this.kvY.startLoad(null, 12, false);
+                this.kEe.startLoad(null, 12, false);
             }
-            this.kwa.setText(at.getFormatTime(LI.kwh));
+            this.kEg.setText(au.getFormatTime(Mw.kEn));
         }
     }
 
@@ -192,13 +193,13 @@ public class MsgPhotoLiveCardVew extends e {
             return null;
         }
         int indexOf = str.indexOf(String.valueOf(i));
-        int Cx = Cx(i);
+        int CP = CP(i);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)), indexOf, Cx + indexOf, 33);
+        spannableStringBuilder.setSpan(new ForegroundColorSpan(ap.getColor(R.color.CAM_X0305)), indexOf, CP + indexOf, 33);
         return spannableStringBuilder;
     }
 
-    private int Cx(int i) {
+    private int CP(int i) {
         int i2 = 0;
         do {
             i /= 10;

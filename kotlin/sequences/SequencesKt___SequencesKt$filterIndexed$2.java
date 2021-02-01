@@ -1,11 +1,10 @@
 package kotlin.sequences;
 
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.collections.x;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class SequencesKt___SequencesKt$filterIndexed$2 extends Lambda implements kotlin.jvm.a.b<x<? extends T>, T> {
     public static final SequencesKt___SequencesKt$filterIndexed$2 INSTANCE = new SequencesKt___SequencesKt$filterIndexed$2();
 
@@ -20,7 +19,7 @@ final class SequencesKt___SequencesKt$filterIndexed$2 extends Lambda implements 
 
     /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
     public final T invoke(x<? extends T> xVar) {
-        p.o(xVar, AdvanceSetting.NETWORK_TYPE);
+        p.o(xVar, "it");
         return xVar.getValue();
     }
 }

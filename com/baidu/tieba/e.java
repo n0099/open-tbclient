@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 public class e {
-    public a gai;
-    private int gaj = 0;
+    public a gcB;
+    private int gcC = 0;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bx(int i, int i2);
+        void bu(int i, int i2);
     }
 
-    public void sJ(int i) {
-        if (this.gaj != i) {
-            if (this.gai != null) {
-                this.gai.bx(this.gaj, i);
+    public void sO(int i) {
+        if (this.gcC != i) {
+            if (this.gcB != null) {
+                this.gcB.bu(this.gcC, i);
             }
-            this.gaj = i;
+            this.gcC = i;
         }
     }
 
-    public void sK(int i) {
-        this.gaj = i;
+    public void sP(int i) {
+        this.gcC = i;
     }
 
-    public int bJq() {
-        return this.gaj;
+    public int bJK() {
+        return this.gcC;
     }
 
     public void a(a aVar) {
-        this.gai = aVar;
+        this.gcB = aVar;
     }
 }

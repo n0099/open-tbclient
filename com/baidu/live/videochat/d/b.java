@@ -1,7 +1,7 @@
 package com.baidu.live.videochat.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public e bLH;
-    public e bLI;
+    public e bPr;
+    public e bPs;
     public String type;
 }

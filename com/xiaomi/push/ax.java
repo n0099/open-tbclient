@@ -6,7 +6,7 @@ import java.util.Map;
 public class ax {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13868a;
+    public int f13870a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f194a;
@@ -19,6 +19,6 @@ public class ax {
     }
 
     public String toString() {
-        return String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.f13868a), this.f195a.toString(), this.f194a);
+        return String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.f13870a), this.f195a.toString(), this.f194a);
     }
 }

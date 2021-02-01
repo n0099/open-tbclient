@@ -1,13 +1,12 @@
 package com.opensource.svgaplayer;
 
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.opensource.svgaplayer.d;
 import kotlin.h;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SVGAParser$decodeFromURL$3 extends Lambda implements kotlin.jvm.a.b<Exception, h> {
     final /* synthetic */ d.c $callback;
     final /* synthetic */ d this$0;
@@ -25,12 +24,12 @@ public final class SVGAParser$decodeFromURL$3 extends Lambda implements kotlin.j
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ h invoke(Exception exc) {
         invoke2(exc);
-        return h.qiK;
+        return h.qsO;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(Exception exc) {
-        p.o(exc, AdvanceSetting.NETWORK_TYPE);
+        p.o(exc, "it");
         this.this$0.a(exc, this.$callback);
     }
 }

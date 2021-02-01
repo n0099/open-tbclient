@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ExecutorUtilsExt {
     private static final boolean DEBUG = false;
     private static final String ELASTIC_TASK_NAME_PREFIX = "elastic_";

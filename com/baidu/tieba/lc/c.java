@@ -1,33 +1,33 @@
 package com.baidu.tieba.lc;
 /* loaded from: classes.dex */
 public class c {
-    private com.baidu.tieba.lc.a kRn;
+    private com.baidu.tieba.lc.a kZp;
 
     private c() {
     }
 
-    public static c cZc() {
-        return a.kRo;
+    public static c dba() {
+        return a.kZq;
     }
 
-    public void to(boolean z) {
-        if (this.kRn != null) {
-            this.kRn.cancel();
-            this.kRn = null;
+    public void tB(boolean z) {
+        if (this.kZp != null) {
+            this.kZp.cancel();
+            this.kZp = null;
         }
-        this.kRn = new com.baidu.tieba.lc.a(z);
-        this.kRn.execute(new String[0]);
+        this.kZp = new com.baidu.tieba.lc.a(z);
+        this.kZp.execute(new String[0]);
     }
 
     public void onDestroy() {
-        if (this.kRn != null) {
-            this.kRn.cancel();
-            this.kRn = null;
+        if (this.kZp != null) {
+            this.kZp.cancel();
+            this.kZp = null;
         }
     }
 
     /* loaded from: classes.dex */
     private static class a {
-        private static c kRo = new c();
+        private static c kZq = new c();
     }
 }

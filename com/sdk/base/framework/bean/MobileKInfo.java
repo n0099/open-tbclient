@@ -1,11 +1,11 @@
 package com.sdk.base.framework.bean;
 
 import com.sdk.base.framework.f.d.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class MobileKInfo {
 
     /* renamed from: cn  reason: collision with root package name */
-    private String f12809cn;
+    private String f12811cn;
     private String ic;
     private boolean idfd;
     private String ie;
@@ -13,7 +13,7 @@ public class MobileKInfo {
     private String m;
 
     public String getCn() {
-        return this.f12809cn;
+        return this.f12811cn;
     }
 
     public String getIc() {
@@ -37,7 +37,7 @@ public class MobileKInfo {
     }
 
     public void setCn(String str) {
-        this.f12809cn = str;
+        this.f12811cn = str;
     }
 
     public void setIc(String str) {

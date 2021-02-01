@@ -8,6 +8,7 @@ public class QuickWebViewBridgeData extends OrmObject {
     public String callBack;
     public Map<String, String> data;
     public String fr;
+    public String module;
     public String type;
     public String url;
 }

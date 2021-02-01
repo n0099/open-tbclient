@@ -14,12 +14,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
     public boolean isStarting;
-    private float jIf;
-    private float jIg;
-    private float jIh;
-    private float jIi;
-    public boolean jIj;
-    private View.OnClickListener jIk;
+    private float jPc;
+    private float jPd;
+    private float jPe;
+    private float jPf;
+    public boolean jPg;
+    private View.OnClickListener jPh;
     private Paint paint;
     private float progress;
     private float step;
@@ -28,14 +28,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context) {
         super(context);
-        this.jIf = 0.0f;
-        this.jIg = 0.0f;
+        this.jPc = 0.0f;
+        this.jPd = 0.0f;
         this.step = 0.0f;
         this.y = 0.0f;
-        this.jIh = 0.0f;
-        this.jIi = 0.0f;
+        this.jPe = 0.0f;
+        this.jPf = 0.0f;
         this.isStarting = false;
-        this.jIj = false;
+        this.jPg = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -43,14 +43,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jIf = 0.0f;
-        this.jIg = 0.0f;
+        this.jPc = 0.0f;
+        this.jPd = 0.0f;
         this.step = 0.0f;
         this.y = 0.0f;
-        this.jIh = 0.0f;
-        this.jIi = 0.0f;
+        this.jPe = 0.0f;
+        this.jPf = 0.0f;
         this.isStarting = false;
-        this.jIj = false;
+        this.jPg = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -64,14 +64,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         this.paint = getPaint();
         this.paint.setColor(-1);
         this.text = getText().toString();
-        this.jIf = this.paint.measureText(this.text);
-        this.jIg = getWidth();
-        if (this.jIg == 0.0f && windowManager != null) {
-            this.jIg = windowManager.getDefaultDisplay().getWidth();
+        this.jPc = this.paint.measureText(this.text);
+        this.jPd = getWidth();
+        if (this.jPd == 0.0f && windowManager != null) {
+            this.jPd = windowManager.getDefaultDisplay().getWidth();
         }
-        this.step = this.jIf;
-        this.jIh = this.jIf;
-        this.jIi = this.jIf * 2.0f;
+        this.step = this.jPc;
+        this.jPe = this.jPc;
+        this.jPf = this.jPc * 2.0f;
         this.y = getTextSize();
     }
 
@@ -100,7 +100,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.tieba.frs.view.AutoScrollTextView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: AL */
+            /* renamed from: Ba */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
@@ -142,12 +142,12 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
     }
 
-    public void cDX() {
+    public void cFj() {
         this.isStarting = true;
         invalidate();
     }
 
-    public void aI(float f) {
+    public void aL(float f) {
         this.progress = f;
         setWidth((int) (3000.0f * (this.progress - 0.5f)));
     }
@@ -157,27 +157,27 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         if (!this.isStarting) {
             if (this.progress > 0.5f) {
                 setWidth((int) (3000.0f * (this.progress - 0.5f)));
-                canvas.drawText(this.text, this.jIh - this.step, getTextSize() + 2.7f, this.paint);
+                canvas.drawText(this.text, this.jPe - this.step, getTextSize() + 2.7f, this.paint);
                 return;
             }
             return;
         }
-        canvas.drawText(this.text, this.jIh - this.step, getTextSize() + 2.7f, this.paint);
+        canvas.drawText(this.text, this.jPe - this.step, getTextSize() + 2.7f, this.paint);
         this.step = TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3) + this.step;
-        if (this.step > this.jIi) {
-            this.step = this.jIf;
+        if (this.step > this.jPf) {
+            this.step = this.jPc;
         }
         invalidate();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jIk != null) {
-            this.jIk.onClick(view);
+        if (this.jPh != null) {
+            this.jPh.onClick(view);
         }
     }
 
     public void setClickliner(View.OnClickListener onClickListener) {
-        this.jIk = onClickListener;
+        this.jPh = onClickListener;
     }
 }

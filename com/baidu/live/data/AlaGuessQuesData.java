@@ -2,8 +2,9 @@ package com.baidu.live.data;
 
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
+import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaGuessQuesData extends BaseData implements Serializable {
     public static final String ANSWER_INFO = "answer_mi_info";
     public static final long LNON = 0;
@@ -15,8 +16,11 @@ public class AlaGuessQuesData extends BaseData implements Serializable {
     private String doubleCouponTitle;
     private int doubleTicketNumber;
     private String firstOpt;
+    private List<n> groupPerson;
     private boolean isDoubleCoupon;
+    private int isFirst;
     private String secondOpt;
+    private long teamId;
     private long roomId = 0;
     private long anchorId = 0;
     private long userId = 0;
@@ -34,6 +38,22 @@ public class AlaGuessQuesData extends BaseData implements Serializable {
     private int voucherNum = -1;
     private boolean isMissGuess = false;
     private boolean isUseDoubleTicket = false;
+
+    public int isFirst() {
+        return this.isFirst;
+    }
+
+    public void setIsFirst(int i) {
+        this.isFirst = i;
+    }
+
+    public long getTeamId() {
+        return this.teamId;
+    }
+
+    public void setTeamId(long j) {
+        this.teamId = j;
+    }
 
     public float getDoubleAverage() {
         return this.doubleAverage;
@@ -201,6 +221,14 @@ public class AlaGuessQuesData extends BaseData implements Serializable {
 
     public void setMissGuess(boolean z) {
         this.isMissGuess = z;
+    }
+
+    public void setGroupPerson(List<n> list) {
+        this.groupPerson = list;
+    }
+
+    public List<n> getGroupPersons() {
+        return this.groupPerson;
     }
 
     public void reset() {

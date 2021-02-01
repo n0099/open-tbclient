@@ -1,21 +1,21 @@
 package com.baidu.platform.comapi.wnplatform.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f4402a;
+    private static a f4405a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f4403b;
+    private String f4406b;
     private String c;
 
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f4402a == null) {
-                f4402a = new a();
+            if (f4405a == null) {
+                f4405a = new a();
             }
-            aVar = f4402a;
+            aVar = f4405a;
         }
         return aVar;
     }
@@ -24,7 +24,7 @@ public class a {
     }
 
     public String b() {
-        return this.f4403b;
+        return this.f4406b;
     }
 
     public String c() {

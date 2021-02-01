@@ -18,7 +18,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
     protected void a(u<? super U> uVar) {
         if (this.skip == this.count) {
             a aVar = new a(uVar, this.count, this.bufferSupplier);
-            if (aVar.eHY()) {
+            if (aVar.eKo()) {
                 this.source.subscribe(aVar);
                 return;
             }
@@ -42,12 +42,12 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
             this.bufferSupplier = callable;
         }
 
-        boolean eHY() {
+        boolean eKo() {
             try {
                 this.buffer = (U) io.reactivex.internal.functions.a.m(this.bufferSupplier.call(), "Empty buffer supplied");
                 return true;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 this.buffer = null;
                 if (this.s == null) {
                     EmptyDisposable.error(th, this.actual);
@@ -87,7 +87,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
                 if (i >= this.count) {
                     this.actual.onNext(u);
                     this.size = 0;
-                    eHY();
+                    eKo();
                 }
             }
         }

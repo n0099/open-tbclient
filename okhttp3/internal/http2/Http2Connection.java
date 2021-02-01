@@ -1,6 +1,5 @@
 package okhttp3.internal.http2;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.internal.view.SupportMenu;
 import java.io.Closeable;
 import java.io.IOException;
@@ -30,7 +29,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class Http2Connection implements Closeable {
     static final /* synthetic */ boolean $assertionsDisabled;
     static final int AWAIT_PING = 3;
@@ -67,7 +66,7 @@ public final class Http2Connection implements Closeable {
 
     static {
         $assertionsDisabled = !Http2Connection.class.desiredAssertionStatus();
-        listenerExecutor = new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp Http2Connection", true));
+        listenerExecutor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp Http2Connection", true));
     }
 
     static /* synthetic */ long access$108(Http2Connection http2Connection) {
@@ -140,7 +139,7 @@ public final class Http2Connection implements Closeable {
     }
 
     public synchronized int maxConcurrentStreams() {
-        return this.peerSettings.getMaxConcurrentStreams(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return this.peerSettings.getMaxConcurrentStreams(Integer.MAX_VALUE);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -271,7 +270,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     final class PingRunnable extends NamedRunnable {
         final int payload1;
         final int payload2;
@@ -290,7 +289,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     final class IntervalPingRunnable extends NamedRunnable {
         IntervalPingRunnable() {
             super("OkHttp %s ping", Http2Connection.this.hostname);
@@ -487,7 +486,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static class Builder {
         boolean client;
         String hostname;
@@ -535,7 +534,7 @@ public final class Http2Connection implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public class ReaderRunnable extends NamedRunnable implements Http2Reader.Handler {
         final Http2Reader reader;
 
@@ -893,7 +892,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static abstract class Listener {
         public static final Listener REFUSE_INCOMING_STREAMS = new Listener() { // from class: okhttp3.internal.http2.Http2Connection.Listener.1
             @Override // okhttp3.internal.http2.Http2Connection.Listener

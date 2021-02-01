@@ -4,17 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class bf {
-    public List<Long> aLY;
+    public List<be> aOJ;
+    public String liveId;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aLY = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("id");
-            if (optJSONArray != null) {
+            this.liveId = jSONObject.optString("live_id");
+            JSONArray optJSONArray = jSONObject.optJSONArray("list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.aOJ = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.aLY.add(Long.valueOf(optJSONArray.optLong(i)));
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        be beVar = new be();
+                        beVar.parserJson(optJSONObject);
+                        this.aOJ.add(beVar);
+                    }
                 }
             }
         }

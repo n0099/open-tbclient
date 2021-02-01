@@ -1,17 +1,17 @@
 package com.bytedance.embedapplog;
 
 import android.util.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class au {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5785a;
+    public static boolean f5787a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f5786b = false;
+    public static boolean f5788b = false;
 
     public static void a(String str, Throwable th) {
-        if (f5786b) {
+        if (f5788b) {
             Log.d("TeaLog", str, th);
         }
     }

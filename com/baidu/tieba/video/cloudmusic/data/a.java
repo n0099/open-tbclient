@@ -2,18 +2,18 @@ package com.baidu.tieba.video.cloudmusic.data;
 
 import android.util.SparseArray;
 import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static a nBN = null;
-    private SparseArray<CloudMusicData.MusicTagList.MusicList> nBO = new SparseArray<>();
+    private static a nLx = null;
+    private SparseArray<CloudMusicData.MusicTagList.MusicList> nLy = new SparseArray<>();
 
-    public static synchronized a dQb() {
+    public static synchronized a dSm() {
         a aVar;
         synchronized (a.class) {
-            if (nBN == null) {
-                nBN = new a();
+            if (nLx == null) {
+                nLx = new a();
             }
-            aVar = nBN;
+            aVar = nLx;
         }
         return aVar;
     }
@@ -22,15 +22,15 @@ public class a {
     }
 
     public void a(CloudMusicData.MusicTagList.MusicList musicList) {
-        this.nBO.put(4096, musicList);
+        this.nLy.put(4096, musicList);
     }
 
-    public CloudMusicData.MusicTagList.MusicList dQc() {
-        return this.nBO.get(4096);
+    public CloudMusicData.MusicTagList.MusicList dSn() {
+        return this.nLy.get(4096);
     }
 
     public void onDestroy() {
-        this.nBO = null;
-        nBN = null;
+        this.nLy = null;
+        nLx = null;
     }
 }

@@ -16,15 +16,15 @@ import com.ss.android.socialbase.appdownloader.d;
 import com.ss.android.socialbase.appdownloader.i;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class JumpUnknownSourceActivity extends Activity {
 
     /* renamed from: b  reason: collision with root package name */
-    private Intent f13061b;
+    private Intent f13063b;
     @Nullable
     private Intent c;
     private JSONObject d;
-    private j pUa;
+    private j qee;
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
@@ -49,7 +49,7 @@ public class JumpUnknownSourceActivity extends Activity {
     protected void onResume() {
         super.onResume();
         Intent intent = getIntent();
-        this.f13061b = intent;
+        this.f13063b = intent;
         if (intent != null) {
             this.c = (Intent) intent.getParcelableExtra("intent");
             try {
@@ -59,20 +59,20 @@ public class JumpUnknownSourceActivity extends Activity {
             }
         }
         b();
-        if (this.pUa != null && !this.pUa.b()) {
-            this.pUa.a();
-        } else if (this.pUa == null) {
+        if (this.qee != null && !this.qee.b()) {
+            this.qee.a();
+        } else if (this.qee == null) {
             finish();
         }
     }
 
     private void b() {
-        if (this.pUa == null && this.f13061b != null) {
+        if (this.qee == null && this.f13063b != null) {
             try {
-                c eCR = d.eCW().eCR();
+                c eFi = d.eFn().eFi();
                 k kVar = null;
-                if (eCR != null) {
-                    kVar = eCR.iw(this);
+                if (eFi != null) {
+                    kVar = eFi.iz(this);
                 }
                 com.ss.android.socialbase.appdownloader.d.a aVar = kVar == null ? new com.ss.android.socialbase.appdownloader.d.a(this) : kVar;
                 int a2 = i.a(this, "appdownloader_tip");
@@ -82,7 +82,7 @@ public class JumpUnknownSourceActivity extends Activity {
                 if (TextUtils.isEmpty(optString)) {
                     optString = getString(i.a(this, "appdownloader_jump_unknown_source_tips"));
                 }
-                aVar.QA(a2).ZI(optString).h(a3, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.3
+                aVar.QV(a2).aaJ(optString).h(a3, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.3
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (!b.a(JumpUnknownSourceActivity.this, JumpUnknownSourceActivity.this.c, JumpUnknownSourceActivity.this.d)) {
@@ -106,8 +106,8 @@ public class JumpUnknownSourceActivity extends Activity {
                         }
                         JumpUnknownSourceActivity.this.finish();
                     }
-                }).BE(false);
-                this.pUa = aVar.eCH();
+                }).BY(false);
+                this.qee = aVar.eEY();
             } catch (Exception e) {
                 e.printStackTrace();
             }

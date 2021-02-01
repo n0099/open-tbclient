@@ -6,7 +6,7 @@ import android.animation.ValueAnimator;
 import android.os.Build;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a extends ValueAnimator {
     private final Set<ValueAnimator.AnimatorUpdateListener> HA = new CopyOnWriteArraySet();
     private final Set<Animator.AnimatorListener> HB = new CopyOnWriteArraySet();
@@ -74,7 +74,7 @@ public abstract class a extends ValueAnimator {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kr() {
+    public void kq() {
         for (Animator.AnimatorListener animatorListener : this.HB) {
             animatorListener.onAnimationRepeat(this);
         }
@@ -92,14 +92,14 @@ public abstract class a extends ValueAnimator {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ks() {
+    public void kr() {
         for (Animator.AnimatorListener animatorListener : this.HB) {
             animatorListener.onAnimationCancel(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kt() {
+    public void ks() {
         for (ValueAnimator.AnimatorUpdateListener animatorUpdateListener : this.HA) {
             animatorUpdateListener.onAnimationUpdate(this);
         }

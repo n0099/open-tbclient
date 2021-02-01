@@ -14,7 +14,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.flutter.util.OpenFlutter;
 import com.baidu.tieba.flutter.view.FlutterDelegateStatic;
 import com.baidu.tieba.flutter.view.FlutterEnterForumDelegateStatic;
@@ -27,7 +27,7 @@ import com.idlefish.flutterboost.interfaces.INativeRouter;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FlutterStatic {
     static {
         initFlutter();
@@ -99,8 +99,8 @@ public class FlutterStatic {
                 return null;
             }
         }));
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;

@@ -4,7 +4,7 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import androidx.annotation.FloatRange;
 import com.ksad.lottie.model.content.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static double a(double d, double d2, @FloatRange(from = 0.0d, to = 1.0d) double d3) {
         return ((d2 - d) * d3) + d;

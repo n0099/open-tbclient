@@ -11,21 +11,21 @@ import com.kwad.sdk.api.core.fragment.KsFragmentManager;
 import com.kwad.sdk.api.core.fragment.KsFragmentTransaction;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class a extends PagerAdapter {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private final KsFragmentManager f8265a;
+    private final KsFragmentManager f8267a;
     private boolean c;
     protected final SparseArray<List<KsFragment>> f = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private KsFragmentTransaction f8266b = null;
+    private KsFragmentTransaction f8268b = null;
     protected KsFragment g = null;
 
     public a(@NonNull KsFragmentManager ksFragmentManager) {
-        this.f8265a = ksFragmentManager;
+        this.f8267a = ksFragmentManager;
     }
 
     private static String a(int i, long j) {
@@ -56,19 +56,19 @@ public abstract class a extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-        if (this.f8266b == null) {
-            this.f8266b = this.f8265a.beginTransaction();
+        if (this.f8268b == null) {
+            this.f8268b = this.f8267a.beginTransaction();
         }
         KsFragment ksFragment = (KsFragment) obj;
         if (this.c) {
-            this.f8266b.remove(ksFragment);
+            this.f8268b.remove(ksFragment);
             return;
         }
-        this.f8266b.detach(ksFragment);
+        this.f8268b.detach(ksFragment);
         if (b(ksFragment)) {
             int a2 = a(ksFragment);
             if (!f(a2)) {
-                this.f8266b.remove(ksFragment);
+                this.f8268b.remove(ksFragment);
                 return;
             }
             List<KsFragment> a3 = a(a2);
@@ -86,21 +86,21 @@ public abstract class a extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void finishUpdate(@NonNull ViewGroup viewGroup) {
-        if (this.f8266b != null) {
+        if (this.f8268b != null) {
             try {
-                this.f8266b.commitNowAllowingStateLoss();
+                this.f8268b.commitNowAllowingStateLoss();
             } catch (Exception e) {
                 com.kwad.sdk.core.d.a.a(e);
             }
-            this.f8266b = null;
+            this.f8268b = null;
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
     public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
-        if (this.f8266b == null) {
-            this.f8266b = this.f8265a.beginTransaction();
+        if (this.f8268b == null) {
+            this.f8268b = this.f8267a.beginTransaction();
         }
         long b2 = b(i);
         int d = d(i);
@@ -111,11 +111,11 @@ public abstract class a extends PagerAdapter {
         }
         if (ksFragment != null) {
             a(ksFragment, i, d);
-            this.f8266b.attach(ksFragment);
+            this.f8268b.attach(ksFragment);
         } else {
             ksFragment = a(i, d);
             a(ksFragment, i, d);
-            this.f8266b.add(viewGroup.getId(), ksFragment, a(viewGroup.getId(), b2));
+            this.f8268b.add(viewGroup.getId(), ksFragment, a(viewGroup.getId(), b2));
         }
         if (ksFragment != this.g) {
             ksFragment.setMenuVisibility(false);

@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import com.baidu.l.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class b implements a.InterfaceC0148a {
-    final /* synthetic */ BdUploadHandler agb;
+    final /* synthetic */ BdUploadHandler afT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BdUploadHandler bdUploadHandler) {
-        this.agb = bdUploadHandler;
+        this.afT = bdUploadHandler;
     }
 
     @Override // com.baidu.l.a.a.InterfaceC0148a
@@ -25,12 +25,12 @@ public final class b implements a.InterfaceC0148a {
                 }
             }
             if (z) {
-                this.agb.mCanHandleResult = true;
-                activity = this.agb.mActivity;
-                createCamcorderIntent = this.agb.createCamcorderIntent();
+                this.afT.mCanHandleResult = true;
+                activity = this.afT.mActivity;
+                createCamcorderIntent = this.afT.createCamcorderIntent();
                 activity.startActivityForResult(createCamcorderIntent, 11);
             }
-            com.baidu.browser.core.permission.a.sL().bo(4099);
+            com.baidu.browser.core.permission.a.sI().bo(4099);
         }
     }
 }

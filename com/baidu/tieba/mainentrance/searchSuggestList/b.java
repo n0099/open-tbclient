@@ -11,40 +11,40 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private String enU;
-    private List<String> lbK;
+    private String eqb;
+    private List<String> ljN;
     private Context mContext;
 
     public b(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.lbK = arrayList;
+        this.ljN = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.lbK = list;
-        if (this.lbK != null) {
+        this.ljN = list;
+        if (this.ljN != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void Nb(String str) {
+    public void NP(String str) {
         if (!StringUtils.isNull(str)) {
-            this.enU = str.trim();
+            this.eqb = str.trim();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.lbK == null) {
+        if (this.ljN == null) {
             return 0;
         }
-        return this.lbK.size();
+        return this.ljN.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class b extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.lbK.get(i);
+        return this.ljN.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,8 +69,8 @@ public class b extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.search_suggest_item, (ViewGroup) null);
             a aVar2 = new a();
             aVar2.mRootView = view.findViewById(R.id.rootview);
-            aVar2.lbL = (TextView) view.findViewById(R.id.searchSuggestTitle);
-            aVar2.epB = view.findViewById(R.id.searchItemSep);
+            aVar2.ljO = (TextView) view.findViewById(R.id.searchSuggestTitle);
+            aVar2.erI = view.findViewById(R.id.searchItemSep);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -78,22 +78,22 @@ public class b extends BaseAdapter {
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            e(aVar.lbL, item);
+            e(aVar.ljO, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType != aVar.mSkinType) {
                 aVar.mSkinType = skinType;
-                ao.setBackgroundResource(aVar.mRootView, R.drawable.addresslist_item_bg);
-                ao.setViewTextColor(aVar.lbL, R.color.CAM_X0105);
-                ao.setBackgroundColor(aVar.epB, R.color.CAM_X0204);
+                ap.setBackgroundResource(aVar.mRootView, R.drawable.addresslist_item_bg);
+                ap.setViewTextColor(aVar.ljO, R.color.CAM_X0105);
+                ap.setBackgroundColor(aVar.erI, R.color.CAM_X0204);
             }
         }
         return view;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     private class a {
-        View epB;
-        TextView lbL;
+        View erI;
+        TextView ljO;
         View mRootView;
         int mSkinType;
 
@@ -103,17 +103,17 @@ public class b extends BaseAdapter {
     }
 
     public void e(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.enU)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.eqb)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.enU.toLowerCase();
+            String lowerCase2 = this.eqb.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
             }
             int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ao.getColor(R.color.CAM_X0301));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0301));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.enU.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.eqb.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

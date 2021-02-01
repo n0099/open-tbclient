@@ -2,9 +2,9 @@ package com.baidu.tieba.yuyinala.liveroom.recommend.data;
 
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c implements IAdapterData {
-    public static BdUniqueId mRs = BdUniqueId.gen();
+    public static BdUniqueId naP = BdUniqueId.gen();
     public int count;
     public int type;
 
@@ -14,6 +14,6 @@ public class c implements IAdapterData {
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return mRs;
+        return naP;
     }
 }

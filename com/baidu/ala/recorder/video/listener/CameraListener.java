@@ -1,7 +1,7 @@
 package com.baidu.ala.recorder.video.listener;
 
 import android.hardware.Camera;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public interface CameraListener {
     ImageFilter getImageFilter();
 

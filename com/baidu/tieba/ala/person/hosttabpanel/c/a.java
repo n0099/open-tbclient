@@ -3,24 +3,24 @@ package com.baidu.tieba.ala.person.hosttabpanel.c;
 import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BdBaseModel {
     private int FIRST_PN;
-    private long gmc;
-    private int hRu;
+    private long goL;
+    private int hVP;
     private long mGroupId;
     private HttpMessageListener mHttpMessageListener;
     private int mPn;
     private long mUserId;
 
     /* renamed from: com.baidu.tieba.ala.person.hosttabpanel.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface InterfaceC0684a {
     }
 
     public void refreshData() {
         this.mPn = this.FIRST_PN;
-        sendMessage(new com.baidu.tieba.ala.person.hosttabpanel.message.a(this.mPn, this.hRu, this.mUserId, this.gmc, this.mGroupId));
+        sendMessage(new com.baidu.tieba.ala.person.hosttabpanel.message.a(this.mPn, this.hVP, this.mUserId, this.goL, this.mGroupId));
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel

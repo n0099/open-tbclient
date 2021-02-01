@@ -4,22 +4,22 @@ import java.util.List;
 import tbclient.UnreadTip.DataRes;
 /* loaded from: classes2.dex */
 public class e {
-    public int kdg;
-    public List<String> kdh;
-    public long kdi;
-    public String kdj;
+    public int klq;
+    public List<String> klr;
+    public long kls;
+    public String klt;
     public int mThreadCount;
 
-    public boolean cPC() {
-        return this.kdg > 0;
+    public boolean cRB() {
+        return this.klq > 0;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.kdg = dataRes.user_count.intValue();
-            this.kdh = dataRes.portrait_list;
-            this.kdi = dataRes.hide_unix.longValue() * 1000;
-            this.kdj = dataRes.show_tip;
+            this.klq = dataRes.user_count.intValue();
+            this.klr = dataRes.portrait_list;
+            this.kls = dataRes.hide_unix.longValue() * 1000;
+            this.klt = dataRes.show_tip;
             this.mThreadCount = dataRes.thread_count.intValue();
         }
     }

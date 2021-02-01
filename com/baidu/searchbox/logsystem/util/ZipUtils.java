@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ZipUtils {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [66=4] */
     public static void zip(File file, List<ZipSrc> list) throws IOException {
@@ -105,7 +105,7 @@ public class ZipUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class ZipSrc {
         @NonNull
         public File mFile;

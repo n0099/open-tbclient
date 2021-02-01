@@ -17,7 +17,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/getMenuButtonBoundingClientRect");
@@ -32,43 +32,43 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
-        f afz = com.baidu.swan.apps.v.f.azN().afz();
-        if (afz == null) {
+        f afX = com.baidu.swan.apps.v.f.aAl().afX();
+        if (afX == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        c aoY = afz.aoY();
-        if (aoY == null) {
+        c apx = afX.apx();
+        if (apx == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (eVar.aIK() && (aoY instanceof com.baidu.swan.apps.core.d.j)) {
-            View apE = ((com.baidu.swan.apps.core.d.j) aoY).apE();
-            if (apE == null) {
+        if (eVar.aJd() && (apx instanceof com.baidu.swan.apps.core.d.j)) {
+            View aqc = ((com.baidu.swan.apps.core.d.j) apx).aqc();
+            if (aqc == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = aP(apE);
+            unitedSchemeEntity.result = aL(aqc);
         } else {
-            SwanAppActionBar aob = aoY.aob();
-            if (aob == null) {
+            SwanAppActionBar aoz = apx.aoz();
+            if (aoz == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            View rightMenu = aob.getRightMenu();
+            View rightMenu = aoz.getRightMenu();
             if (rightMenu == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = aP(rightMenu);
+            unitedSchemeEntity.result = aL(rightMenu);
         }
         return true;
     }
 
-    private JSONObject aP(View view) {
+    private JSONObject aL(View view) {
         JSONObject wrapCallbackParams;
-        e aIr = e.aIr();
-        int px2dpFloat = aIr != null ? aIr.aIK() : false ? 0 : (int) (ah.px2dpFloat(ah.getStatusBarHeight()) + 0.5f);
+        e aIK = e.aIK();
+        int px2dpFloat = aIK != null ? aIK.aJd() : false ? 0 : (int) (ah.px2dpFloat(ah.getStatusBarHeight()) + 0.5f);
         int px2dpFloat2 = (int) (ah.px2dpFloat(view.getLeft()) + 0.5f);
         int px2dpFloat3 = (int) (ah.px2dpFloat(view.getRight()) + 0.5f);
         int px2dpFloat4 = ((int) (ah.px2dpFloat(view.getTop()) + 0.5f)) + px2dpFloat;

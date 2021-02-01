@@ -1,5 +1,5 @@
 package androidx.webkit;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public abstract class SafeBrowsingResponseCompat {
     public abstract void backToSafety(boolean z);
 

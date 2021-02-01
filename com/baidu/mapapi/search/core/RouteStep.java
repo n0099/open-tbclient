@@ -5,15 +5,15 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RouteStep implements Parcelable {
     public static final Parcelable.Creator<RouteStep> CREATOR = new k();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2852a;
+    int f2850a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f2853b;
+    int f2851b;
     String c;
     protected List<LatLng> mWayPoints;
 
@@ -23,8 +23,8 @@ public class RouteStep implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public RouteStep(Parcel parcel) {
-        this.f2852a = parcel.readInt();
-        this.f2853b = parcel.readInt();
+        this.f2850a = parcel.readInt();
+        this.f2851b = parcel.readInt();
         this.c = parcel.readString();
         this.mWayPoints = new ArrayList();
         parcel.readList(this.mWayPoints, LatLng.class.getClassLoader());
@@ -39,11 +39,11 @@ public class RouteStep implements Parcelable {
     }
 
     public int getDistance() {
-        return this.f2852a;
+        return this.f2850a;
     }
 
     public int getDuration() {
-        return this.f2853b;
+        return this.f2851b;
     }
 
     public String getName() {
@@ -55,11 +55,11 @@ public class RouteStep implements Parcelable {
     }
 
     public void setDistance(int i) {
-        this.f2852a = i;
+        this.f2850a = i;
     }
 
     public void setDuration(int i) {
-        this.f2853b = i;
+        this.f2851b = i;
     }
 
     public void setName(String str) {
@@ -72,8 +72,8 @@ public class RouteStep implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f2852a);
-        parcel.writeInt(this.f2853b);
+        parcel.writeInt(this.f2850a);
+        parcel.writeInt(this.f2851b);
         parcel.writeString(this.c);
         parcel.writeList(this.mWayPoints);
     }

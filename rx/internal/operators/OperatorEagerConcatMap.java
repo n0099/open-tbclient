@@ -7,11 +7,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 import rx.internal.util.a.ae;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
     final int bufferSize;
-    final rx.functions.f<? super T, ? extends rx.d<? extends R>> qoD;
-    private final int qpP;
+    final rx.functions.f<? super T, ? extends rx.d<? extends R>> qyG;
+    private final int qzS;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -19,13 +19,13 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
     }
 
     public rx.j<? super T> call(rx.j<? super R> jVar) {
-        b bVar = new b(this.qoD, this.bufferSize, this.qpP, jVar);
+        b bVar = new b(this.qyG, this.bufferSize, this.qzS, jVar);
         bVar.init();
         return bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class EagerOuterProducer extends AtomicLong implements rx.f {
         private static final long serialVersionUID = -657299606803478389L;
         final b<?, ?> parent;
@@ -47,27 +47,27 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class b<T, R> extends rx.j<T> {
         final rx.j<? super R> actual;
         final int bufferSize;
         volatile boolean cancelled;
         volatile boolean done;
         Throwable error;
-        final rx.functions.f<? super T, ? extends rx.d<? extends R>> qoD;
-        private EagerOuterProducer qpR;
-        final Queue<a<R>> qpQ = new LinkedList();
+        final rx.functions.f<? super T, ? extends rx.d<? extends R>> qyG;
+        private EagerOuterProducer qzU;
+        final Queue<a<R>> qzT = new LinkedList();
         final AtomicInteger wip = new AtomicInteger();
 
         public b(rx.functions.f<? super T, ? extends rx.d<? extends R>> fVar, int i, int i2, rx.j<? super R> jVar) {
-            this.qoD = fVar;
+            this.qyG = fVar;
             this.bufferSize = i;
             this.actual = jVar;
             request(i2 == Integer.MAX_VALUE ? Long.MAX_VALUE : i2);
         }
 
         void init() {
-            this.qpR = new EagerOuterProducer(this);
+            this.qzU = new EagerOuterProducer(this);
             add(rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.operators.OperatorEagerConcatMap.b.1
                 @Override // rx.functions.a
                 public void call() {
@@ -78,14 +78,14 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
                 }
             }));
             this.actual.add(this);
-            this.actual.setProducer(this.qpR);
+            this.actual.setProducer(this.qzU);
         }
 
         void cleanup() {
             ArrayList<rx.k> arrayList;
-            synchronized (this.qpQ) {
-                arrayList = new ArrayList(this.qpQ);
-                this.qpQ.clear();
+            synchronized (this.qzT) {
+                arrayList = new ArrayList(this.qzT);
+                this.qzT.clear();
             }
             for (rx.k kVar : arrayList) {
                 kVar.unsubscribe();
@@ -95,12 +95,12 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
         @Override // rx.e
         public void onNext(T t) {
             try {
-                rx.d<? extends R> call = this.qoD.call(t);
+                rx.d<? extends R> call = this.qyG.call(t);
                 if (!this.cancelled) {
                     a<R> aVar = new a<>(this, this.bufferSize);
-                    synchronized (this.qpQ) {
+                    synchronized (this.qzT) {
                         if (!this.cancelled) {
-                            this.qpQ.add(aVar);
+                            this.qzT.add(aVar);
                             if (!this.cancelled) {
                                 call.a((rx.j<? super Object>) aVar);
                                 drain();
@@ -129,13 +129,13 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
         void drain() {
             a<R> peek;
             if (this.wip.getAndIncrement() == 0) {
-                EagerOuterProducer eagerOuterProducer = this.qpR;
+                EagerOuterProducer eagerOuterProducer = this.qzU;
                 rx.j<? super R> jVar = this.actual;
                 int i = 1;
                 while (!this.cancelled) {
                     boolean z = this.done;
-                    synchronized (this.qpQ) {
-                        peek = this.qpQ.peek();
+                    synchronized (this.qzT) {
+                        peek = this.qzT.peek();
                     }
                     boolean z2 = peek == null;
                     if (z) {
@@ -165,8 +165,8 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
                                     jVar.onError(th2);
                                     return;
                                 } else if (z5) {
-                                    synchronized (this.qpQ) {
-                                        this.qpQ.poll();
+                                    synchronized (this.qzT) {
+                                        this.qzT.poll();
                                     }
                                     peek.unsubscribe();
                                     z3 = true;
@@ -210,7 +210,7 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> extends rx.j<T> {
         volatile boolean done;
         Throwable error;
@@ -220,7 +220,7 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
         public a(b<?, T> bVar, int i) {
             Queue<Object> cVar;
             this.parent = bVar;
-            if (ae.eLk()) {
+            if (ae.eNA()) {
                 cVar = new rx.internal.util.a.q<>(i);
             } else {
                 cVar = new rx.internal.util.atomic.c<>(i);

@@ -4,7 +4,7 @@ import com.coremedia.iso.IsoTypeReader;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @Descriptor(tags = {20})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ProfileLevelIndicationDescriptor extends BaseDescriptor {
     int profileLevelIndicationIndex;
 

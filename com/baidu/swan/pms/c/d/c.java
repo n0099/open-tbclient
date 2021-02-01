@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c extends g {
-    private String esV;
-    private long esW;
-    private long esX;
-    private String esY;
-    private String esZ;
-    private int eta;
+    private String evc;
+    private long evd;
+    private long eve;
+    private String evf;
+    private String evg;
+    private int evh;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.esW = -1L;
-        this.esX = -1L;
-        this.eta = -1;
-        this.esV = str;
+        this.evd = -1L;
+        this.eve = -1L;
+        this.evh = -1;
+        this.evc = str;
     }
 
-    public c lT(int i) {
-        this.eta = i;
+    public c lW(int i) {
+        this.evh = i;
         return this;
     }
 
-    public int bda() {
-        return this.eta;
+    public int bdn() {
+        return this.evh;
     }
 
-    public c xK(String str) {
-        this.esY = str;
+    public c yd(String str) {
+        this.evf = str;
         return this;
     }
 
-    public c ds(long j) {
-        this.esW = j;
+    public c dy(long j) {
+        this.evd = j;
         return this;
     }
 
-    public c dt(long j) {
-        this.esX = j;
+    public c dz(long j) {
+        this.eve = j;
         return this;
     }
 
-    public c xL(String str) {
-        this.esZ = str;
+    public c ye(String str) {
+        this.evg = str;
         return this;
     }
 
-    public c xM(String str) {
+    public c yf(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.esV;
+        return this.evc;
     }
 
-    public long bcY() {
-        return this.esW;
+    public long bdl() {
+        return this.evd;
     }
 
-    public long bcZ() {
-        return this.esX;
+    public long bdm() {
+        return this.eve;
     }
 
-    public String bdb() {
-        return this.esY;
+    public String bdo() {
+        return this.evf;
     }
 
-    public String bdc() {
-        return this.esZ;
+    public String bdp() {
+        return this.evg;
     }
 
     public String getPath() {

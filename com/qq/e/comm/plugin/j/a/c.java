@@ -1,5 +1,5 @@
 package com.qq.e.comm.plugin.j.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface c {
     long a();
 

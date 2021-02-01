@@ -2,7 +2,7 @@ package com.baidu.live.lottie;
 
 import android.graphics.ColorFilter;
 import android.graphics.PointF;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface l {
     public static final Integer Cy = 1;
     public static final Integer Cz = 2;
@@ -12,7 +12,7 @@ public interface l {
     public static final PointF CE = new PointF();
     public static final PointF CF = new PointF();
     public static final PointF CG = new PointF();
-    public static final com.baidu.live.lottie.e.d boJ = new com.baidu.live.lottie.e.d();
+    public static final com.baidu.live.lottie.e.d bsk = new com.baidu.live.lottie.e.d();
     public static final Float CI = Float.valueOf(1.0f);
     public static final Float CJ = Float.valueOf(2.0f);
     public static final Float CK = Float.valueOf(3.0f);

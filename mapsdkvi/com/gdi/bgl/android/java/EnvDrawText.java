@@ -10,11 +10,11 @@ import android.util.SparseArray;
 import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.common.SysOSUtil;
 import java.nio.IntBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class EnvDrawText {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f14396a = EnvDrawText.class.getSimpleName();
+    private static final String f14402a = EnvDrawText.class.getSimpleName();
     public static boolean bBmpChange = false;
     public static Bitmap bmp = null;
     public static int[] buffer = null;
@@ -68,7 +68,7 @@ public class EnvDrawText {
                 textPaint.setSubpixelText(true);
                 textPaint.setAntiAlias(true);
                 if (i2 != 0 && fontCache != null && (aVar = fontCache.get(i2)) != null) {
-                    textPaint.setTypeface(aVar.f14397a);
+                    textPaint.setTypeface(aVar.f14403a);
                 }
                 textPaint.setTextSize(i);
                 int indexOf = str.indexOf(92, 0);
@@ -582,11 +582,11 @@ public class EnvDrawText {
                 a aVar = fontCache.get(i);
                 if (aVar == null) {
                     a aVar2 = new a();
-                    aVar2.f14397a = typeface;
-                    aVar2.f14398b++;
+                    aVar2.f14403a = typeface;
+                    aVar2.f14404b++;
                     fontCache.put(i, aVar2);
                 } else {
-                    aVar.f14398b++;
+                    aVar.f14404b++;
                 }
             }
         }
@@ -596,8 +596,8 @@ public class EnvDrawText {
         synchronized (EnvDrawText.class) {
             a aVar = fontCache.get(i);
             if (aVar != null) {
-                aVar.f14398b--;
-                if (aVar.f14398b == 0) {
+                aVar.f14404b--;
+                if (aVar.f14404b == 0) {
                     fontCache.remove(i);
                 }
             }

@@ -1,14 +1,42 @@
 package com.baidu.live.al;
 
-import android.content.Context;
-import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
-public class a {
-    public static int b(Context context, boolean z, boolean z2, boolean z3) {
-        return c.d(z, z2, z3) + context.getResources().getDimensionPixelSize(a.d.sdk_tbds130) + context.getResources().getDimensionPixelOffset(a.d.sdk_ds80) + context.getResources().getDimensionPixelOffset(a.d.sdk_ds20) + context.getResources().getDimensionPixelOffset(a.d.sdk_ds6);
-    }
+import android.view.KeyEvent;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
+public interface a {
+    void H(Object obj);
 
-    public static int h(boolean z, boolean z2) {
-        return c.d(z, z2, false) + c.dj(z);
-    }
+    boolean Rn();
+
+    void VA();
+
+    void VB();
+
+    void VC();
+
+    void Vx();
+
+    boolean Vy();
+
+    void Vz();
+
+    void a(FrameLayout frameLayout);
+
+    void a(b bVar);
+
+    void onDestroy();
+
+    boolean onKeyDown(int i, KeyEvent keyEvent);
+
+    void onKeyboardVisibilityChanged(boolean z);
+
+    void setMute(boolean z);
+
+    void t(ab abVar);
+
+    void v(ViewGroup viewGroup);
+
+    void w(ViewGroup viewGroup);
 }

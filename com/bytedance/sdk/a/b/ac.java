@@ -2,21 +2,21 @@ package com.bytedance.sdk.a.b;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class ac {
     public abstract void a(com.bytedance.sdk.a.a.d dVar) throws IOException;
 
-    public abstract y emT();
+    public abstract y epn();
 
     public long b() throws IOException {
         return -1L;
     }
 
     public static ac a(y yVar, String str) {
-        Charset charset = com.bytedance.sdk.a.b.a.c.peI;
-        if (yVar != null && (charset = yVar.enI()) == null) {
-            charset = com.bytedance.sdk.a.b.a.c.peI;
-            yVar = y.XM(yVar + "; charset=utf-8");
+        Charset charset = com.bytedance.sdk.a.b.a.c.poY;
+        if (yVar != null && (charset = yVar.eqb()) == null) {
+            charset = com.bytedance.sdk.a.b.a.c.poY;
+            yVar = y.YN(yVar + "; charset=utf-8");
         }
         return b(yVar, str.getBytes(charset));
     }
@@ -32,7 +32,7 @@ public abstract class ac {
         com.bytedance.sdk.a.b.a.c.a(bArr.length, i, i2);
         return new ac() { // from class: com.bytedance.sdk.a.b.ac.1
             @Override // com.bytedance.sdk.a.b.ac
-            public y emT() {
+            public y epn() {
                 return y.this;
             }
 

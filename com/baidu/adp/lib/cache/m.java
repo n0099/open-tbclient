@@ -7,13 +7,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 /* loaded from: classes.dex */
 public class m<T> implements l.c<T> {
-    protected final k<T> Le;
+    protected final k<T> Lc;
     protected final String nameSpace;
     private boolean strictMode = false;
 
     public m(String str, k<T> kVar) {
         this.nameSpace = str;
-        this.Le = kVar;
+        this.Lc = kVar;
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -24,7 +24,7 @@ public class m<T> implements l.c<T> {
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.Le.get(this.nameSpace, str);
+        return this.Lc.get(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -35,7 +35,7 @@ public class m<T> implements l.c<T> {
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.Le.t(this.nameSpace, str);
+        return this.Lc.r(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -53,7 +53,7 @@ public class m<T> implements l.c<T> {
         if (currentTimeMillis <= System.currentTimeMillis()) {
             remove(str);
         } else {
-            this.Le.set(this.nameSpace, str, t, currentTimeMillis);
+            this.Lc.set(this.nameSpace, str, t, currentTimeMillis);
         }
     }
 
@@ -70,12 +70,12 @@ public class m<T> implements l.c<T> {
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        this.Le.remove(this.nameSpace, str);
+        this.Lc.remove(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
     public void a(final String str, final l.a<T> aVar) {
-        com.baidu.adp.lib.f.h.mC().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.1
+        com.baidu.adp.lib.f.h.mB().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.1
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.adp.lib.cache.l$a */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
@@ -87,7 +87,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l
     public void asyncSet(final String str, final T t, final long j) {
-        com.baidu.adp.lib.f.h.mC().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.2
+        com.baidu.adp.lib.f.h.mB().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.2
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.adp.lib.cache.m */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
@@ -104,7 +104,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l
     public void asyncRemove(final String str) {
-        com.baidu.adp.lib.f.h.mC().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.3
+        com.baidu.adp.lib.f.h.mB().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.3
             @Override // java.lang.Runnable
             public void run() {
                 m.this.remove(str);
@@ -118,24 +118,24 @@ public class m<T> implements l.c<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l.c
-    public k<T> lz() {
-        return this.Le;
+    public k<T> ly() {
+        return this.Lc;
     }
 
     public void onCacheCreated() {
-        this.Le.startup(this.nameSpace);
+        this.Lc.startup(this.nameSpace);
     }
 
     protected void releaseCacheData() {
-        e lu = lz().lu();
-        if (lu instanceof e.b) {
-            ((e.b) lu).release();
+        e lt = ly().lt();
+        if (lt instanceof e.b) {
+            ((e.b) lt).release();
         }
     }
 
     @Override // com.baidu.adp.lib.cache.l.c
     public void clearAndClose() {
-        this.Le.clearAndClose(this.nameSpace);
+        this.Lc.clearAndClose(this.nameSpace);
         releaseCacheData();
     }
 }

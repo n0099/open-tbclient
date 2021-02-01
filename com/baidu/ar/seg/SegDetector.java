@@ -13,7 +13,6 @@ import com.baidu.ar.databasic.AlgoHandleAdapter;
 import com.baidu.ar.databasic.ReserveHandleData;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class SegDetector extends com.baidu.ar.b.a.a {
@@ -106,22 +105,15 @@ public class SegDetector extends com.baidu.ar.b.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int gb() {
-        int i = SubsamplingScaleImageView.ORIENTATION_270;
         switch (this.vO) {
             case -90:
                 return 0;
             case 90:
                 return 180;
             case 180:
-                if (this.mIsFrontCamera) {
-                    return 90;
-                }
-                return SubsamplingScaleImageView.ORIENTATION_270;
+                return !this.mIsFrontCamera ? 270 : 90;
             default:
-                if (!this.mIsFrontCamera) {
-                    i = 90;
-                }
-                return i;
+                return this.mIsFrontCamera ? 270 : 90;
         }
     }
 
@@ -134,14 +126,14 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                 switch (SegDetector.this.oU) {
                     case 2:
                         int[] iArr = new int[2];
-                        return aVar.f1493tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
+                        return aVar.f1491tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
                     case 3:
                     default:
                         return -1;
                     case 4:
-                        return aVar.f1493tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
+                        return aVar.f1491tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
                     case 5:
-                        return aVar.f1493tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
+                        return aVar.f1491tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
                 }
             }
 

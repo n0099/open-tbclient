@@ -2,7 +2,7 @@ package com.baidu.searchbox.logsystem.logsys;
 
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LogFile {
     public boolean mCanDelete;
     public File mFile;

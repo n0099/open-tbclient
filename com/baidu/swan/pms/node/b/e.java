@@ -9,42 +9,42 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class e {
-    private static e ets;
-    private a ett = new a();
-    private String etu = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_dialog_msg);
-    private String etv = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_toast_msg);
+    private static e evy;
+    private a evz = new a();
+    private String evA = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_dialog_msg);
+    private String evB = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_toast_msg);
 
-    public static e bds() {
-        if (ets == null) {
+    public static e bdF() {
+        if (evy == null) {
             synchronized (e.class) {
-                if (ets == null) {
-                    ets = new e();
+                if (evy == null) {
+                    evy = new e();
                 }
             }
         }
-        return ets;
+        return evy;
     }
 
     private e() {
     }
 
     public String getVersion() {
-        return this.ett.getString("tips_config_version", "0");
+        return this.evz.getString("tips_config_version", "0");
     }
 
-    public String du(long j) {
-        return this.ett.getString(String.format("%04d", Long.valueOf(j)), this.etu);
+    public String dA(long j) {
+        return this.evz.getString(String.format("%04d", Long.valueOf(j)), this.evA);
     }
 
-    public String dv(long j) {
-        return this.ett.getString(String.format("%04d", Long.valueOf(j)), this.etv);
+    public String dB(long j) {
+        return this.evz.getString(String.format("%04d", Long.valueOf(j)), this.evB);
     }
 
     public void b(HashMap<String, String> hashMap, String str) {
         if (hashMap != null && !hashMap.isEmpty() && !TextUtils.isEmpty(str)) {
-            SharedPreferences.Editor edit = this.ett.edit();
+            SharedPreferences.Editor edit = this.evz.edit();
             edit.clear();
             edit.putString("tips_config_version", str);
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -54,7 +54,7 @@ public class e {
         }
     }
 
-    public void cW(JSONObject jSONObject) {
+    public void cT(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null) {
             String optString = jSONObject.optString("version");
@@ -70,7 +70,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class a extends i {
         a() {
             super("updatecore_node_tipmsgs");

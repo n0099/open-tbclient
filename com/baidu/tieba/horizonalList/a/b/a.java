@@ -4,20 +4,20 @@ import android.annotation.TargetApi;
 import android.view.View;
 import com.baidu.tieba.horizonalList.a.b;
 /* loaded from: classes.dex */
-public class a extends b.C0747b {
+public class a extends b.C0749b {
     public a(View view) {
         super(view);
     }
 
-    @Override // com.baidu.tieba.horizonalList.a.b.C0747b, com.baidu.tieba.horizonalList.a.b.a
+    @Override // com.baidu.tieba.horizonalList.a.b.C0749b, com.baidu.tieba.horizonalList.a.b.a
     @TargetApi(14)
     public void setScrollX(int i) {
         this.view.setScrollX(i);
     }
 
-    @Override // com.baidu.tieba.horizonalList.a.b.C0747b, com.baidu.tieba.horizonalList.a.b.a
+    @Override // com.baidu.tieba.horizonalList.a.b.C0749b, com.baidu.tieba.horizonalList.a.b.a
     @TargetApi(11)
-    public boolean RU() {
+    public boolean TB() {
         return this.view.isHardwareAccelerated();
     }
 }

@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.e, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a>> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.e.hVk);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.e.hZF);
         this.mPageContext = tbPageContext;
     }
 
@@ -32,27 +32,27 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.e eVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a> cardViewHolder) {
-        if (cardViewHolder.crP() == null) {
+        if (cardViewHolder.ctb() == null) {
             return null;
         }
-        a(eVar, cardViewHolder.crP());
-        cardViewHolder.crP().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.b.1
+        a(eVar, cardViewHolder.ctb());
+        cardViewHolder.ctb().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                b.this.ZF();
+                b.this.abu();
             }
         });
-        return cardViewHolder.crP().getView();
+        return cardViewHolder.ctb().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.e eVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
-        aVar.wk(8);
+        aVar.wv(8);
         aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_forbidden));
         aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZF() {
+    public void abu() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaForbiddenListActivityConfig(this.mPageContext.getPageActivity())));
     }
 }

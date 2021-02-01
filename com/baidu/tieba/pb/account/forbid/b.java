@@ -5,34 +5,34 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.au;
 /* loaded from: classes2.dex */
 public class b {
     private static final String BAWU_LIST_REASON = TbConfig.SERVER_ADDRESS + Config.BAWU_LIST_REASON;
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0826b {
+    public interface InterfaceC0829b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
     }
 
-    public static void a(String str, String str2, InterfaceC0826b interfaceC0826b) {
-        new a(str, str2, interfaceC0826b).execute(new String[0]);
+    public static void a(String str, String str2, InterfaceC0829b interfaceC0829b) {
+        new a(str, str2, interfaceC0829b).execute(new String[0]);
     }
 
     /* loaded from: classes2.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String lzG;
-        private String lzH;
-        private InterfaceC0826b lzI;
+        private String lIt;
+        private String lIu;
+        private InterfaceC0829b lIv;
 
-        public a(String str, String str2, InterfaceC0826b interfaceC0826b) {
-            this.lzG = str;
-            this.lzH = str2;
-            this.lzI = interfaceC0826b;
+        public a(String str, String str2, InterfaceC0829b interfaceC0829b) {
+            this.lIt = str;
+            this.lIu = str2;
+            this.lIv = interfaceC0829b;
             setPriority(3);
         }
 
@@ -41,11 +41,11 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: X */
         public ForbidTplData doInBackground(String... strArr) {
-            z zVar = new z(b.BAWU_LIST_REASON);
-            zVar.addPostData("forum_id", this.lzG);
-            zVar.addPostData("user_id", this.lzH);
-            String postNetData = zVar.postNetData();
-            if (zVar.brX().bsH().isRequestSuccess()) {
+            aa aaVar = new aa(b.BAWU_LIST_REASON);
+            aaVar.addPostData("forum_id", this.lIt);
+            aaVar.addPostData("user_id", this.lIu);
+            String postNetData = aaVar.postNetData();
+            if (aaVar.bsr().btb().isRequestSuccess()) {
                 try {
                     return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
                 } catch (Exception e) {
@@ -56,8 +56,8 @@ public class b {
                 }
             }
             ForbidTplData forbidTplData2 = new ForbidTplData();
-            forbidTplData2.error.errno = zVar.getServerErrorCode();
-            forbidTplData2.error.errMsg = zVar.getErrorString();
+            forbidTplData2.error.errno = aaVar.getServerErrorCode();
+            forbidTplData2.error.errMsg = aaVar.getErrorString();
             return forbidTplData2;
         }
 
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.lzI != null) {
-                if (forbidTplData.error.errno == 0 && at.isEmpty(forbidTplData.error.errMsg)) {
-                    this.lzI.a(forbidTplData);
+            if (this.lIv != null) {
+                if (forbidTplData.error.errno == 0 && au.isEmpty(forbidTplData.error.errMsg)) {
+                    this.lIv.a(forbidTplData);
                 } else {
-                    this.lzI.b(forbidTplData);
+                    this.lIv.b(forbidTplData);
                 }
             }
         }

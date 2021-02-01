@@ -10,23 +10,23 @@ import com.bytedance.sdk.openadsdk.f.a.v;
 import java.util.LinkedHashSet;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Set<String> f7139a;
+    private final Set<String> f7141a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Set<String> f7140b;
-    private final v c = q.f7134a;
+    private final Set<String> f7142b;
+    private final v c = q.f7136a;
     private final u d;
     private k.b e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(@Nullable u uVar, @NonNull Set<String> set, @NonNull Set<String> set2) {
         this.d = uVar;
-        this.f7139a = new LinkedHashSet(set);
-        this.f7140b = new LinkedHashSet(set2);
+        this.f7141a = new LinkedHashSet(set);
+        this.f7142b = new LinkedHashSet(set2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,8 +44,8 @@ public class t {
         if (host == null) {
             b2 = null;
         } else {
-            w wVar3 = this.f7140b.contains(bVar.a()) ? w.PUBLIC : null;
-            for (String str2 : this.f7139a) {
+            w wVar3 = this.f7142b.contains(bVar.a()) ? w.PUBLIC : null;
+            for (String str2 : this.f7141a) {
                 if (parse.getHost().equals(str2) || host.endsWith("." + str2)) {
                     wVar = w.PRIVATE;
                     break;
@@ -98,16 +98,16 @@ public class t {
         if (!z || this.d == null) {
             return null;
         }
-        u.c a2 = this.d.a(str, this.f7139a);
+        u.c a2 = this.d.a(str, this.f7141a);
         if (a2.c.contains(bVar.a())) {
             return null;
         }
-        if (a2.f7148b.contains(bVar.a())) {
+        if (a2.f7150b.contains(bVar.a())) {
             return w.PRIVATE;
         }
-        if (a2.f7147a.compareTo(bVar.b()) < 0) {
+        if (a2.f7149a.compareTo(bVar.b()) < 0) {
             return null;
         }
-        return a2.f7147a;
+        return a2.f7149a;
     }
 }

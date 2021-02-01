@@ -7,20 +7,20 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.Thread;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class q implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3347a = "";
+    public static String f3357a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private static Thread.UncaughtExceptionHandler f3348b;
+    private static Thread.UncaughtExceptionHandler f3358b;
     private static volatile q c;
     private Context d;
     private a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(String str);
     }
@@ -38,8 +38,8 @@ public class q implements Thread.UncaughtExceptionHandler {
 
     private q(Context context) {
         this.d = context.getApplicationContext();
-        f3348b = Thread.getDefaultUncaughtExceptionHandler();
-        new Thread(new r(this)).start();
+        f3358b = Thread.getDefaultUncaughtExceptionHandler();
+        com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new r(this));
     }
 
     public void a() {
@@ -54,13 +54,12 @@ public class q implements Thread.UncaughtExceptionHandler {
             String a2 = a(th);
             if (a2 != null) {
                 a(a2, Log.getStackTraceString(th));
-                th.printStackTrace();
                 if (this.e != null) {
                     this.e.a(a2);
                 }
             }
-            if (f3348b != null) {
-                f3348b.uncaughtException(thread, th);
+            if (f3358b != null) {
+                f3358b.uncaughtException(thread, th);
             }
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(e);
@@ -93,11 +92,11 @@ public class q implements Thread.UncaughtExceptionHandler {
                 if (className.startsWith("com.baidu.mobads.loader")) {
                     return "loader";
                 }
-                if (className.startsWith("com.baidu.mobads_vr")) {
-                    return "vr";
-                }
                 if (className.startsWith("com.baidu.mobads")) {
                     return IMTrack.AckBuilder.PROXY_TYPE;
+                }
+                if (className.startsWith("com.baidu.mobstat.forbes")) {
+                    return "third-mtj";
                 }
             }
         }
@@ -112,11 +111,11 @@ public class q implements Thread.UncaughtExceptionHandler {
         return c().edit();
     }
 
-    private void a(String str, String str2) {
+    public void a(String str, String str2) {
         SharedPreferences.Editor d = d();
         d.putString("key_crash_source", str);
-        d.putString("key_crash_trace", str2);
-        d.putString("key_crash_ad", f3347a);
+        d.putString("key_crash_trace", ("crashtime:" + System.currentTimeMillis() + " ") + str2);
+        d.putString("key_crash_ad", f3357a);
         if (Build.VERSION.SDK_INT >= 9) {
             d.apply();
         } else {

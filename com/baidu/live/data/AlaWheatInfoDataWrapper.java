@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaWheatInfoDataWrapper implements Serializable, Cloneable {
     private int activity_stage;
     private List<AlaWheatInfoData> anchorWheatBackupLists;
@@ -72,7 +72,7 @@ public class AlaWheatInfoDataWrapper implements Serializable, Cloneable {
                             } else {
                                 this.anchorWheatLists.add(null);
                             }
-                            if (!isSweetStage()) {
+                            if (this.activity_stage != 4) {
                                 this.anchorWheatBackupLists.add(alaWheatInfoData2);
                             }
                         }
@@ -90,7 +90,7 @@ public class AlaWheatInfoDataWrapper implements Serializable, Cloneable {
                             } else {
                                 this.xiangqinLists.add(null);
                             }
-                            if (isSweetStage()) {
+                            if (this.activity_stage == 4) {
                                 this.anchorWheatBackupLists.add(alaWheatInfoData3);
                             }
                         }

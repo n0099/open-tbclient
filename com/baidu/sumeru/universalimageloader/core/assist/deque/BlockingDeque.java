@@ -3,7 +3,7 @@ package com.baidu.sumeru.universalimageloader.core.assist.deque;
 import java.util.Iterator;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface BlockingDeque<E> extends Deque<E>, BlockingQueue<E> {
     @Override // com.baidu.sumeru.universalimageloader.core.assist.deque.Deque, java.util.Queue, java.util.Collection, java.util.concurrent.BlockingQueue
     boolean add(E e);

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends Dialog implements View.OnClickListener {
     private Activity mContext;
     private TextView mTipView;
@@ -26,12 +26,12 @@ public class b extends Dialog implements View.OnClickListener {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.yuyin_sdk_custom_loading_toast);
-        WL();
+        YB();
         initView();
         initListener();
     }
 
-    private void WL() {
+    private void YB() {
         Window window;
         if (this.mContext != null && (window = this.mContext.getWindow()) != null) {
             window.getDecorView().setPadding(0, 0, 0, 0);

@@ -2,7 +2,7 @@ package aegon.chrome.net;
 
 import aegon.chrome.net.UrlRequest;
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class CronetEngine {
     static {
         CronetEngine.class.getSimpleName();

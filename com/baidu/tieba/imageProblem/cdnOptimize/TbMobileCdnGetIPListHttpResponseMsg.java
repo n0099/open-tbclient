@@ -5,14 +5,14 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessage {
     public TBCdnMobileListData mobileCdnData;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class TBCdnMobileListData {
-        public String kOE = null;
-        public String kOF = null;
+        public String kWG = null;
+        public String kWH = null;
         public ArrayList<String> mobileIpList = new ArrayList<>();
     }
 
@@ -39,8 +39,8 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                             }
                         }
                     }
-                    this.mobileCdnData.kOE = optJSONObject.optString("testimg_url");
-                    this.mobileCdnData.kOF = optJSONObject.optString("testimg_md5");
+                    this.mobileCdnData.kWG = optJSONObject.optString("testimg_url");
+                    this.mobileCdnData.kWH = optJSONObject.optString("testimg_md5");
                 }
             } catch (Exception e) {
                 BdLog.e(e);

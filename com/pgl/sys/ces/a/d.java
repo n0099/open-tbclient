@@ -6,14 +6,14 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f11394a = 0;
+    public static int f11396a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f11395b = 0;
+    public static int f11397b = 0;
     private static int d = 0;
     public static int c = 0;
     private static int e = 0;
@@ -26,7 +26,7 @@ public class d {
             d(context);
         } catch (Throwable th) {
         }
-        return "" + c + "[<!>]" + f11394a + "*" + f11395b + "[<!>]";
+        return "" + c + "[<!>]" + f11396a + "*" + f11397b + "[<!>]";
     }
 
     private static void b(Context context) {
@@ -35,15 +35,15 @@ public class d {
             Point point = new Point();
             if (Build.VERSION.SDK_INT >= 17) {
                 defaultDisplay.getRealSize(point);
-                f11394a = point.x;
-                f11395b = point.y;
+                f11396a = point.x;
+                f11397b = point.y;
             } else if (Build.VERSION.SDK_INT >= 13) {
                 defaultDisplay.getSize(point);
-                f11394a = point.x;
-                f11395b = point.y;
+                f11396a = point.x;
+                f11397b = point.y;
             } else {
-                f11394a = defaultDisplay.getWidth();
-                f11395b = defaultDisplay.getHeight();
+                f11396a = defaultDisplay.getWidth();
+                f11397b = defaultDisplay.getHeight();
             }
         } catch (Throwable th) {
         }

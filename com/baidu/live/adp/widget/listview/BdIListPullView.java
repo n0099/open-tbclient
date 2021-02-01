@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.adp.widget.refresh.BdSwipeRefreshLayout;
 import java.security.InvalidParameterException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class BdIListPullView implements BdSwipeRefreshLayout.IProgressView {
     private Context mContext;
     private View mView = null;

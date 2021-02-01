@@ -5,7 +5,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class UnitedSchemeEntity implements Cloneable {
     public static final String UNITED_SCHEME = SchemeConfig.getSchemeHead() + "://";
     public boolean callbackInvoked;

@@ -19,14 +19,14 @@ import com.baidu.mapapi.synchronization.histroytrace.OnHistoryTraceListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class e extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3090a = e.class.getSimpleName();
+    private static final String f3088a = e.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static OnHistoryTraceListener f3091b;
+    private static OnHistoryTraceListener f3089b;
     private HistoryTraceDisplayOptions c;
     private BaiduMap d;
     private int e;
@@ -42,17 +42,17 @@ class e extends Handler {
     }
 
     private void a(int i, String str) {
-        if (f3091b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "OnHistoryTraceListener is null");
+        if (f3089b == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "OnHistoryTraceListener is null");
         } else {
-            f3091b.onRenderHistroyTrace(i, str);
+            f3089b.onRenderHistroyTrace(i, str);
         }
     }
 
     private void a(BitmapDescriptor bitmapDescriptor, int i, List<HistoryTraceData.HistoryTracePoint> list) {
         List<List<LatLng>> b2 = b(list);
         if (b2 == null || b2.isEmpty()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "Calculate sub section points error");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "Calculate sub section points error");
             return;
         }
         b();
@@ -65,7 +65,7 @@ class e extends Handler {
             List<LatLng> list2 = b2.get(i3);
             if (list2 != null && !list2.isEmpty()) {
                 if (list2.size() < 2) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "Error points list, index = " + i3);
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "Error points list, index = " + i3);
                 } else {
                     a((Polyline) this.d.addOverlay(new PolylineOptions().width(i).points(list2).dottedLine(true).customTexture(bitmapDescriptor).zIndex(4)));
                 }
@@ -80,14 +80,14 @@ class e extends Handler {
 
     private void a(LatLng latLng) {
         if (!this.c.isShowStartPositionIcon()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "User set not render start point marker");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "User set not render start point marker");
         } else if (latLng == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "Start point is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "Start point is null");
             a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_START_POINT_NULL, "History trace end point is null, can't render start point marker");
         } else {
             BitmapDescriptor startPositionIcon = this.c.getStartPositionIcon();
             if (startPositionIcon == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "There is no startPositionIcon");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "There is no startPositionIcon");
                 a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_START_POINT_ICON_NULL, "History trace end point icon is null, can't render start point marker");
                 return;
             }
@@ -97,7 +97,7 @@ class e extends Handler {
 
     private void a(HistoryTraceData historyTraceData) {
         if (5 != this.e) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "Current order state not the complete state, render forbidden");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "Current order state not the complete state, render forbidden");
             a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_CURRENT_ORDER_STATE_NOT_COMPLETE, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_CURRENT_ORDER_STATE_NOT_COMPLETE);
         } else if (this.d == null) {
             a(10007, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_BAIDUMAP_NULL);
@@ -120,17 +120,17 @@ class e extends Handler {
 
     private void a(List<HistoryTraceData.HistoryTracePoint> list) {
         if (!this.c.isShowRoutePlan()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "User set not render route polyline");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "User set not render route polyline");
         } else if (list == null || list.isEmpty()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "There is no points data");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "There is no points data");
             a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_POINTS_NULL, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_POINTS_NULL);
         } else if (list.size() < 2) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "History trace points less than 2, can't render polyline");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "History trace points less than 2, can't render polyline");
             a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_POINTS_LESS, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_POINTS_LESS);
         } else {
             BitmapDescriptor routeLineTexture = this.c.getRouteLineTexture();
             if (routeLineTexture == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "Route polyline texture is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "Route polyline texture is null");
                 a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_ROUTE_TEXTURE_NULL, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_ROUTE_TEXTURE_NULL);
                 return;
             }
@@ -146,10 +146,10 @@ class e extends Handler {
     private List<List<LatLng>> b(List<HistoryTraceData.HistoryTracePoint> list) {
         HistoryTraceData.HistoryTracePoint historyTracePoint;
         if (list == null || list.isEmpty()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "History trace point list is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "History trace point list is null");
             return null;
         } else if (list.size() < 2) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "History trace point list size is less than 2, can't render polyline");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "History trace point list size is less than 2, can't render polyline");
             return null;
         } else {
             CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
@@ -209,14 +209,14 @@ class e extends Handler {
 
     private void b(LatLng latLng) {
         if (!this.c.isShowEndPositionIcon()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "User set not render end point marker");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "User set not render end point marker");
         } else if (latLng == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "End point is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "End point is null");
             a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_END_POINT_NULL, "History trace end point is null, can't render start point marker");
         } else {
             BitmapDescriptor endPositionIcon = this.c.getEndPositionIcon();
             if (endPositionIcon == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "There is no endPositionIcon");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "There is no endPositionIcon");
                 a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_END_POINT_ICON_NULL, "History trace end point icon is null, can't render start point marker");
                 return;
             }
@@ -247,7 +247,7 @@ class e extends Handler {
         }
         LatLngBounds build = builder.build();
         if (build == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "Visibility span is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "Visibility span is null");
             return;
         }
         this.d.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(build, this.c.getPaddingLeft(), this.c.getPaddingTop(), this.c.getPaddingRight(), this.c.getPaddingBottom()));
@@ -255,14 +255,14 @@ class e extends Handler {
 
     private void c(LatLng latLng) {
         if (!this.c.isShowCarIcon()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "User set not render car marker");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "User set not render car marker");
         } else if (latLng == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "Car point is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "Car point is null");
             a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_CAR_POINT_NULL, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_CAR_POINT_NULL);
         } else {
             BitmapDescriptor carIcon = this.c.getCarIcon();
             if (carIcon == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "Car icon is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "Car icon is null");
                 a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_CAR_POINT_ICON_NULL, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_CAR_POINT_ICON_NULL);
                 return;
             }
@@ -271,7 +271,7 @@ class e extends Handler {
     }
 
     public void a() {
-        f3091b = null;
+        f3089b = null;
         if (this.f != null) {
             this.f.remove();
             this.f = null;
@@ -308,18 +308,18 @@ class e extends Handler {
     }
 
     public void a(OnHistoryTraceListener onHistoryTraceListener) {
-        f3091b = onHistoryTraceListener;
+        f3089b = onHistoryTraceListener;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "Render message type = " + message.what);
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "Render message type = " + message.what);
         switch (message.what) {
             case 4:
                 a((HistoryTraceData) message.obj);
                 return;
             default:
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3090a, "Undefine Render message");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3088a, "Undefine Render message");
                 return;
         }
     }

@@ -20,7 +20,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.tencent.connect.common.Constants;
@@ -37,15 +36,15 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class j {
     private static String f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13444a = "";
+    private static String f13446a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f13445b = "";
+    private static String f13447b = "";
     private static String c = "";
     private static String d = "";
     private static int e = -1;
@@ -115,21 +114,21 @@ public class j {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f13446a;
+        public String f13448a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f13447b;
+        public long f13449b;
         public long c;
 
         public a(String str, int i) {
-            this.f13446a = str;
-            this.f13447b = i;
-            if (this.f13446a != null) {
-                this.c = this.f13446a.length();
+            this.f13448a = str;
+            this.f13449b = i;
+            if (this.f13448a != null) {
+                this.c = this.f13448a.length();
             }
         }
     }
@@ -434,7 +433,7 @@ public class j {
         bundle.putString("model_name", Build.MODEL);
         bundle.putString("sdk_ver", Constants.SDK_VERSION);
         bundle.putString("packagename", e.b());
-        bundle.putString(IXAdRequestInfo.APP_VERSION_NAME, d(e.a(), e.b()));
+        bundle.putString("app_ver", d(e.a(), e.b()));
         return bundle;
     }
 
@@ -464,9 +463,9 @@ public class j {
         if (context != null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
-                f13445b = packageInfo.versionName;
-                f13444a = f13445b.substring(0, f13445b.lastIndexOf(46));
-                d = f13445b.substring(f13445b.lastIndexOf(46) + 1, f13445b.length());
+                f13447b = packageInfo.versionName;
+                f13446a = f13447b.substring(0, f13447b.lastIndexOf(46));
+                d = f13447b.substring(f13447b.lastIndexOf(46) + 1, f13447b.length());
                 e = packageInfo.versionCode;
             } catch (PackageManager.NameNotFoundException e2) {
                 com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
@@ -481,7 +480,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f13445b;
+        return f13447b;
     }
 
     public static String d(Context context, String str) {
@@ -489,7 +488,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f13444a;
+        return f13446a;
     }
 
     public static String e(Context context, String str) {

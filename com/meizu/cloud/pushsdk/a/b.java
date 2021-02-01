@@ -3,14 +3,14 @@ package com.meizu.cloud.pushsdk.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f11117a = "ui";
+    public static String f11119a = "ui";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f11118b = "ie";
+    public static String f11120b = "ie";
     public static String c = "is1";
     public static String d = "is2";
     public static String e = "phn";

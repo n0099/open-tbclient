@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GiftDownloadingView extends View {
     protected Paint backgroundPaint;
     protected int currentProgress;

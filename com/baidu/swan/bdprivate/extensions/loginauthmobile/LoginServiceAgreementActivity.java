@@ -8,9 +8,9 @@ import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
 import com.baidu.swan.bdprivate.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
-    private SwanAppActionBar dSi;
+    private SwanAppActionBar dUo;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.bdprivate.activity.BaseActivity, android.app.Activity
@@ -29,15 +29,15 @@ public class LoginServiceAgreementActivity extends BaseActivity {
         if (extras != null) {
             ngWebView.loadUrl(extras.getString("url"));
         }
-        this.dSi = (SwanAppActionBar) findViewById(b.e.ai_apps_title_bar);
-        this.dSi.setLeftBackViewVisibility(true);
-        this.dSi.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginServiceAgreementActivity.1
+        this.dUo = (SwanAppActionBar) findViewById(b.e.ai_apps_title_bar);
+        this.dUo.setLeftBackViewVisibility(true);
+        this.dUo.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginServiceAgreementActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LoginServiceAgreementActivity.this.finish();
             }
         });
-        this.dSi.setTitle(b.g.swanapp_service_agreement);
-        this.dSi.setRightZoneVisibility(false);
+        this.dUo.setTitle(b.g.swanapp_service_agreement);
+        this.dUo.setRightZoneVisibility(false);
     }
 }

@@ -1,17 +1,17 @@
 package com.baidu.tieba.memberCenter.tail.data;
 
 import tbclient.SetTail.ResData;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f {
-    private int ljH;
+    private int lrN;
 
     public void a(ResData resData) {
         if (resData != null && resData.tailId != null) {
-            this.ljH = resData.tailId.intValue();
+            this.lrN = resData.tailId.intValue();
         }
     }
 
-    public int ddM() {
-        return this.ljH;
+    public int dfM() {
+        return this.lrN;
     }
 }

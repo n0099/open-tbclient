@@ -2,14 +2,14 @@ package com.tencent.open.a;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f13373a = 62;
+    public static int f13375a = 62;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f13374b = 60;
+    public static int f13376b = 60;
     public static String c = "OpenSDK.Client.File.Tracer";
     public static String d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
     public static String e = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;

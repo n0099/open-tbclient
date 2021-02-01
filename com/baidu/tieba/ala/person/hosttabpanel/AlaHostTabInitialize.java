@@ -9,11 +9,11 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.person.hosttabpanel.message.AlaNewHostTabHttpResponseMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaHostTabInitialize {
     static {
         registerTask();
-        clB();
+        cmz();
     }
 
     private static void registerTask() {
@@ -27,15 +27,15 @@ public class AlaHostTabInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void clB() {
+    private static void cmz() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913040) { // from class: com.baidu.tieba.ala.person.hosttabpanel.AlaHostTabInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof a)) {
                     a aVar = (a) customResponsedMessage.getData();
-                    if (aVar.bnZ != null && aVar.bnZ.context != null) {
-                        aVar.a(new com.baidu.tieba.ala.person.hosttabpanel.d.a((TbPageContext) IScrollableHelper.getBbPageContext(aVar.bnZ.context)));
+                    if (aVar.brA != null && aVar.brA.context != null) {
+                        aVar.a(new com.baidu.tieba.ala.person.hosttabpanel.d.a((TbPageContext) IScrollableHelper.getBbPageContext(aVar.brA.context)));
                     }
                 }
             }

@@ -2,28 +2,28 @@ package com.facebook.fresco.animation.b.a;
 
 import android.graphics.Bitmap;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c implements com.facebook.fresco.animation.b.b {
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public com.facebook.common.references.a<Bitmap> OY(int i) {
+    public com.facebook.common.references.a<Bitmap> Pt(int i) {
         return null;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public com.facebook.common.references.a<Bitmap> OZ(int i) {
+    public com.facebook.common.references.a<Bitmap> Pu(int i) {
         return null;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public com.facebook.common.references.a<Bitmap> ak(int i, int i2, int i3) {
+    public com.facebook.common.references.a<Bitmap> ai(int i, int i2, int i3) {
         return null;
     }
 
     @Override // com.facebook.fresco.animation.b.b
-    public boolean Pa(int i) {
+    public boolean Pv(int i) {
         return false;
     }
 

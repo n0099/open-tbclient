@@ -1,24 +1,24 @@
 package com.baidu.live.talentshow.d;
 
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e {
-    public static JSONObject a(x xVar, com.baidu.live.alablmsdk.module.c cVar, int i) {
+    public static JSONObject a(ab abVar, com.baidu.live.alablmsdk.module.c cVar, int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("line", Integer.valueOf(i));
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
-            if (xVar != null) {
-                if (xVar.aFH != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aFH.userId));
+            if (abVar != null) {
+                if (abVar.aId != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(abVar.aId.userId));
                 }
-                if (xVar.mLiveInfo != null) {
-                    jSONObject.putOpt("room_id", Long.valueOf(xVar.mLiveInfo.room_id));
-                    jSONObject.putOpt("live_id", Long.valueOf(xVar.mLiveInfo.live_id));
+                if (abVar.mLiveInfo != null) {
+                    jSONObject.putOpt("room_id", Long.valueOf(abVar.mLiveInfo.room_id));
+                    jSONObject.putOpt("live_id", Long.valueOf(abVar.mLiveInfo.live_id));
                 }
                 jSONObject.putOpt("user_id", TbadkCoreApplication.getCurrentAccount());
             }
@@ -28,18 +28,18 @@ public class e {
         return jSONObject;
     }
 
-    public static JSONObject a(x xVar, int i) {
+    public static JSONObject a(ab abVar, int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("line", Integer.valueOf(i));
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
-            if (xVar != null) {
-                if (xVar.aFH != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aFH.userId));
+            if (abVar != null) {
+                if (abVar.aId != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(abVar.aId.userId));
                 }
-                if (xVar.mLiveInfo != null) {
-                    jSONObject.putOpt("room_id", Long.valueOf(xVar.mLiveInfo.room_id));
-                    jSONObject.putOpt("live_id", Long.valueOf(xVar.mLiveInfo.live_id));
+                if (abVar.mLiveInfo != null) {
+                    jSONObject.putOpt("room_id", Long.valueOf(abVar.mLiveInfo.room_id));
+                    jSONObject.putOpt("live_id", Long.valueOf(abVar.mLiveInfo.live_id));
                 }
             }
             jSONObject.putOpt("user_id", TbadkCoreApplication.getCurrentAccount());
@@ -49,17 +49,17 @@ public class e {
         return jSONObject;
     }
 
-    public static JSONObject a(x xVar, String str, int i) {
+    public static JSONObject a(ab abVar, String str, int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
-            if (xVar != null) {
-                if (xVar.aFH != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aFH.userId));
+            if (abVar != null) {
+                if (abVar.aId != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(abVar.aId.userId));
                 }
-                if (xVar.mLiveInfo != null) {
-                    jSONObject.putOpt("room_id", Long.valueOf(xVar.mLiveInfo.room_id));
-                    jSONObject.putOpt("live_id", Long.valueOf(xVar.mLiveInfo.live_id));
+                if (abVar.mLiveInfo != null) {
+                    jSONObject.putOpt("room_id", Long.valueOf(abVar.mLiveInfo.room_id));
+                    jSONObject.putOpt("live_id", Long.valueOf(abVar.mLiveInfo.live_id));
                 }
             }
             jSONObject.putOpt("user_id", str);
@@ -70,19 +70,19 @@ public class e {
         return jSONObject;
     }
 
-    public static JSONObject b(x xVar, String str, int i) {
+    public static JSONObject b(ab abVar, String str, int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("line", Integer.valueOf(i));
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
             jSONObject.putOpt("user_id", str);
-            if (xVar != null) {
-                if (xVar.aFH != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aFH.userId));
+            if (abVar != null) {
+                if (abVar.aId != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(abVar.aId.userId));
                 }
-                if (xVar.mLiveInfo != null) {
-                    jSONObject.putOpt("room_id", Long.valueOf(xVar.mLiveInfo.room_id));
-                    jSONObject.putOpt("live_id", Long.valueOf(xVar.mLiveInfo.live_id));
+                if (abVar.mLiveInfo != null) {
+                    jSONObject.putOpt("room_id", Long.valueOf(abVar.mLiveInfo.room_id));
+                    jSONObject.putOpt("live_id", Long.valueOf(abVar.mLiveInfo.live_id));
                 }
             }
         } catch (JSONException e) {
@@ -91,14 +91,14 @@ public class e {
         return jSONObject;
     }
 
-    public static JSONObject w(x xVar) {
+    public static JSONObject w(ab abVar) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
-            if (xVar != null && xVar.mLiveInfo != null) {
-                jSONObject.putOpt("room_id", Long.valueOf(xVar.mLiveInfo.room_id));
-                jSONObject.putOpt("live_id", Long.valueOf(xVar.mLiveInfo.live_id));
-                jSONObject.put("anchor_id", xVar.mLiveInfo.user_id);
+            if (abVar != null && abVar.mLiveInfo != null) {
+                jSONObject.putOpt("room_id", Long.valueOf(abVar.mLiveInfo.room_id));
+                jSONObject.putOpt("live_id", Long.valueOf(abVar.mLiveInfo.live_id));
+                jSONObject.put("anchor_id", abVar.mLiveInfo.user_id);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -106,36 +106,36 @@ public class e {
         return jSONObject;
     }
 
-    public static JSONObject b(x xVar, int i) {
+    public static JSONObject b(ab abVar, int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("line", i);
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
-            if (xVar != null && xVar.mLiveInfo != null) {
-                jSONObject.put("live_id", xVar.mLiveInfo.live_id);
-                jSONObject.put("room_id", xVar.mLiveInfo.room_id);
-                jSONObject.put("anchor_id", xVar.mLiveInfo.user_id);
+            if (abVar != null && abVar.mLiveInfo != null) {
+                jSONObject.put("live_id", abVar.mLiveInfo.live_id);
+                jSONObject.put("room_id", abVar.mLiveInfo.room_id);
+                jSONObject.put("anchor_id", abVar.mLiveInfo.user_id);
             }
-            if (xVar != null && xVar.aGd != null) {
-                jSONObject.put("user_id", xVar.aGd.userId);
+            if (abVar != null && abVar.aIz != null) {
+                jSONObject.put("user_id", abVar.aIz.userId);
             }
         } catch (JSONException e) {
         }
         return jSONObject;
     }
 
-    public static JSONObject c(x xVar, int i) {
+    public static JSONObject c(ab abVar, int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("line", i);
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
-            if (xVar != null && xVar.mLiveInfo != null) {
-                jSONObject.put("live_id", xVar.mLiveInfo.live_id);
-                jSONObject.put("room_id", xVar.mLiveInfo.room_id);
-                jSONObject.put("anchor_id", xVar.mLiveInfo.user_id);
+            if (abVar != null && abVar.mLiveInfo != null) {
+                jSONObject.put("live_id", abVar.mLiveInfo.live_id);
+                jSONObject.put("room_id", abVar.mLiveInfo.room_id);
+                jSONObject.put("anchor_id", abVar.mLiveInfo.user_id);
             }
-            if (xVar != null && xVar.aGd != null) {
-                jSONObject.put("user_id", xVar.aGd.userId);
+            if (abVar != null && abVar.aIz != null) {
+                jSONObject.put("user_id", abVar.aIz.userId);
             }
         } catch (JSONException e) {
         }

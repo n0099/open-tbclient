@@ -9,26 +9,26 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class a implements WebKitFactory.WebkitInstallListener {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f1605a = a.class.getSimpleName();
+    static final String f1603a = a.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    byte f1606b;
+    byte f1604b;
     long c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, boolean z, int i) {
         WebKitFactory.init(context, context.getPackageName(), BdSailorPlatform.getInstance().getCuid());
         WebKitFactory.setApkLibLoadType(z);
-        if (BdWebkitManager.a.c == i || BdWebkitManager.a.f1604b == i) {
+        if (BdWebkitManager.a.c == i || BdWebkitManager.a.f1602b == i) {
             WebKitFactory.setEngine(1);
-            Log.d(f1605a, "zeus version =" + WebKitFactory.getZeusVersionName());
+            Log.d(f1603a, "zeus version =" + WebKitFactory.getZeusVersionName());
         } else {
             WebKitFactory.setEngine(0);
-            Log.d(f1605a, "zeus version =" + WebKitFactory.getZeusVersionName());
+            Log.d(f1603a, "zeus version =" + WebKitFactory.getZeusVersionName());
         }
         Log.i(EngineManager.LOG_TAG, "so in=" + WebKitFactory.getZeusVersionName());
         Log.i(EngineManager.LOG_TAG, "so out=" + WebKitFactory.getSdkVersionName());
@@ -42,7 +42,7 @@ public class a implements WebKitFactory.WebkitInstallListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(LoadErrorCode loadErrorCode) {
         WebKitFactory.setEngine(0);
-        BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.f1606b, loadErrorCode);
+        BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.f1604b, loadErrorCode);
     }
 
     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
@@ -51,21 +51,21 @@ public class a implements WebKitFactory.WebkitInstallListener {
         Log.i("soar", "the return value of installing kernal is: " + i);
         BdZeusUtil.printKernellog("oninstalled: " + i + " targetpath: " + str);
         if (i == 0) {
-            if (this.f1606b == 0) {
+            if (this.f1604b == 0) {
                 a(BdSailorPlatform.getInstance().getAppContext(), BdSailorPlatform.getWebkitManager().isWebkitBuiltin(), BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2());
                 if (BdZeusUtil.isWebkitLoaded()) {
                     BdSailorPlatform.getWebkitManager().onLoadZeusSDKSuccess();
                 }
             }
-            Log.d(f1605a, "install success!");
-            BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.f1606b);
+            Log.d(f1603a, "install success!");
+            BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.f1604b);
         } else {
-            Log.d(f1605a, "install failed!");
-            BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.f1606b, WebKitFactory.getLoadErrorCode());
+            Log.d(f1603a, "install failed!");
+            BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.f1604b, WebKitFactory.getLoadErrorCode());
         }
         BdZeusDownloadHelper.a();
         BdSailorPlatform.getWebkitManager().enableBdWebkit();
-        Log.i(f1605a, "total timecost: " + String.valueOf(System.currentTimeMillis() - this.c));
+        Log.i(f1603a, "total timecost: " + String.valueOf(System.currentTimeMillis() - this.c));
     }
 
     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener

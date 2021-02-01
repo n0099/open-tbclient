@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 public class gd extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    private gm f14042a;
+    private gm f14044a;
 
     /* renamed from: a  reason: collision with other field name */
     private gn f464a;
@@ -15,35 +15,35 @@ public class gd extends Exception {
     private Throwable f465a;
 
     public gd() {
-        this.f14042a = null;
+        this.f14044a = null;
         this.f464a = null;
         this.f465a = null;
     }
 
     public gd(gm gmVar) {
-        this.f14042a = null;
+        this.f14044a = null;
         this.f464a = null;
         this.f465a = null;
-        this.f14042a = gmVar;
+        this.f14044a = gmVar;
     }
 
     public gd(String str) {
         super(str);
-        this.f14042a = null;
+        this.f14044a = null;
         this.f464a = null;
         this.f465a = null;
     }
 
     public gd(String str, Throwable th) {
         super(str);
-        this.f14042a = null;
+        this.f14044a = null;
         this.f464a = null;
         this.f465a = null;
         this.f465a = th;
     }
 
     public gd(Throwable th) {
-        this.f14042a = null;
+        this.f14044a = null;
         this.f464a = null;
         this.f465a = null;
         this.f465a = th;
@@ -56,7 +56,7 @@ public class gd extends Exception {
     @Override // java.lang.Throwable
     public String getMessage() {
         String message = super.getMessage();
-        return (message != null || this.f464a == null) ? (message != null || this.f14042a == null) ? message : this.f14042a.toString() : this.f464a.toString();
+        return (message != null || this.f464a == null) ? (message != null || this.f14044a == null) ? message : this.f14044a.toString() : this.f464a.toString();
     }
 
     @Override // java.lang.Throwable
@@ -92,8 +92,8 @@ public class gd extends Exception {
         if (this.f464a != null) {
             sb.append(this.f464a);
         }
-        if (this.f14042a != null) {
-            sb.append(this.f14042a);
+        if (this.f14044a != null) {
+            sb.append(this.f14044a);
         }
         if (this.f465a != null) {
             sb.append("\n  -- caused by: ").append(this.f465a);

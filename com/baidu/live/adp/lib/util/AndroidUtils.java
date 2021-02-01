@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.ClipboardManager;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.adp.base.BdBaseApplication;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AndroidUtils {
     public static int getStatusBarHeight(Context context) {
         int identifier;

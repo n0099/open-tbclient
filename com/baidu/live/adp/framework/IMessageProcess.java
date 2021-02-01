@@ -4,7 +4,7 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.message.Message;
 import com.baidu.live.adp.framework.task.MessageTask;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IMessageProcess<M extends Message<?>, T extends MessageTask> {
     LinkedList<M> findMessage(int i, BdUniqueId bdUniqueId);
 

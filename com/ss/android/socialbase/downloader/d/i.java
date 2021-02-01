@@ -5,11 +5,11 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface i extends IInterface {
     boolean a() throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements i {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadAidlInterceptor");
@@ -23,7 +23,7 @@ public interface i extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof i)) {
                 return (i) queryLocalInterface;
             }
-            return new C1237a(iBinder);
+            return new C1241a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -49,19 +49,19 @@ public interface i extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.d.i$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C1237a implements i {
+        /* loaded from: classes6.dex */
+        private static class C1241a implements i {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13113a;
+            private IBinder f13115a;
 
-            C1237a(IBinder iBinder) {
-                this.f13113a = iBinder;
+            C1241a(IBinder iBinder) {
+                this.f13115a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13113a;
+                return this.f13115a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.i
@@ -70,7 +70,7 @@ public interface i extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlInterceptor");
-                    this.f13113a.transact(1, obtain, obtain2, 0);
+                    this.f13115a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

@@ -9,16 +9,16 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     static final /* synthetic */ boolean f;
     private static final Comparator<Comparable> g;
 
     /* renamed from: a  reason: collision with root package name */
-    Comparator<? super K> f6960a;
+    Comparator<? super K> f6962a;
 
     /* renamed from: b  reason: collision with root package name */
-    d<K, V> f6961b;
+    d<K, V> f6963b;
     int c;
     int d;
     final d<K, V> e;
@@ -45,7 +45,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         this.c = 0;
         this.d = 0;
         this.e = new d<>();
-        this.f6960a = comparator == null ? g : comparator;
+        this.f6962a = comparator == null ? g : comparator;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -80,7 +80,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
     @Override // java.util.AbstractMap, java.util.Map
     public void clear() {
-        this.f6961b = null;
+        this.f6963b = null;
         this.c = 0;
         this.d++;
         d<K, V> dVar = this.e;
@@ -101,8 +101,8 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     d<K, V> a(K k, boolean z) {
         int i;
         d<K, V> dVar;
-        Comparator<? super K> comparator = this.f6960a;
-        d<K, V> dVar2 = this.f6961b;
+        Comparator<? super K> comparator = this.f6962a;
+        d<K, V> dVar2 = this.f6963b;
         if (dVar2 == null) {
             i = 0;
         } else {
@@ -116,7 +116,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                 if (i == 0) {
                     return dVar2;
                 }
-                d<K, V> dVar3 = i < 0 ? dVar2.f6968b : dVar2.c;
+                d<K, V> dVar3 = i < 0 ? dVar2.f6970b : dVar2.c;
                 if (dVar3 == null) {
                     break;
                 }
@@ -130,11 +130,11 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                     throw new ClassCastException(k.getClass().getName() + " is not Comparable");
                 }
                 dVar = new d<>(dVar2, k, dVar4, dVar4.e);
-                this.f6961b = dVar;
+                this.f6963b = dVar;
             } else {
                 dVar = new d<>(dVar2, k, dVar4, dVar4.e);
                 if (i < 0) {
-                    dVar2.f6968b = dVar;
+                    dVar2.f6970b = dVar;
                 } else {
                     dVar2.c = dVar;
                 }
@@ -179,18 +179,18 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
             dVar.e.d = dVar.d;
             dVar.d.e = dVar.e;
         }
-        d<K, V> dVar2 = dVar.f6968b;
+        d<K, V> dVar2 = dVar.f6970b;
         d<K, V> dVar3 = dVar.c;
-        d<K, V> dVar4 = dVar.f6967a;
+        d<K, V> dVar4 = dVar.f6969a;
         if (dVar2 != null && dVar3 != null) {
             d<K, V> b2 = dVar2.h > dVar3.h ? dVar2.b() : dVar3.a();
             a((d) b2, false);
-            d<K, V> dVar5 = dVar.f6968b;
+            d<K, V> dVar5 = dVar.f6970b;
             if (dVar5 != null) {
                 i = dVar5.h;
-                b2.f6968b = dVar5;
-                dVar5.f6967a = b2;
-                dVar.f6968b = null;
+                b2.f6970b = dVar5;
+                dVar5.f6969a = b2;
+                dVar.f6970b = null;
             } else {
                 i = 0;
             }
@@ -198,7 +198,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
             if (dVar6 != null) {
                 i2 = dVar6.h;
                 b2.c = dVar6;
-                dVar6.f6967a = b2;
+                dVar6.f6969a = b2;
                 dVar.c = null;
             }
             b2.h = Math.max(i, i2) + 1;
@@ -207,7 +207,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         }
         if (dVar2 != null) {
             a((d) dVar, (d) dVar2);
-            dVar.f6968b = null;
+            dVar.f6970b = null;
         } else if (dVar3 != null) {
             a((d) dVar, (d) dVar3);
             dVar.c = null;
@@ -228,14 +228,14 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     }
 
     private void a(d<K, V> dVar, d<K, V> dVar2) {
-        d<K, V> dVar3 = dVar.f6967a;
-        dVar.f6967a = null;
+        d<K, V> dVar3 = dVar.f6969a;
+        dVar.f6969a = null;
         if (dVar2 != null) {
-            dVar2.f6967a = dVar3;
+            dVar2.f6969a = dVar3;
         }
         if (dVar3 != null) {
-            if (dVar3.f6968b == dVar) {
-                dVar3.f6968b = dVar2;
+            if (dVar3.f6970b == dVar) {
+                dVar3.f6970b = dVar2;
                 return;
             } else if (!f && dVar3.c != dVar) {
                 throw new AssertionError();
@@ -244,18 +244,18 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                 return;
             }
         }
-        this.f6961b = dVar2;
+        this.f6963b = dVar2;
     }
 
     private void b(d<K, V> dVar, boolean z) {
         while (dVar != null) {
-            d<K, V> dVar2 = dVar.f6968b;
+            d<K, V> dVar2 = dVar.f6970b;
             d<K, V> dVar3 = dVar.c;
             int i = dVar2 != null ? dVar2.h : 0;
             int i2 = dVar3 != null ? dVar3.h : 0;
             int i3 = i - i2;
             if (i3 == -2) {
-                d<K, V> dVar4 = dVar3.f6968b;
+                d<K, V> dVar4 = dVar3.f6970b;
                 d<K, V> dVar5 = dVar3.c;
                 int i4 = (dVar4 != null ? dVar4.h : 0) - (dVar5 != null ? dVar5.h : 0);
                 if (i4 == -1 || (i4 == 0 && !z)) {
@@ -270,7 +270,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                     return;
                 }
             } else if (i3 == 2) {
-                d<K, V> dVar6 = dVar2.f6968b;
+                d<K, V> dVar6 = dVar2.f6970b;
                 d<K, V> dVar7 = dVar2.c;
                 int i5 = (dVar6 != null ? dVar6.h : 0) - (dVar7 != null ? dVar7.h : 0);
                 if (i5 == 1 || (i5 == 0 && !z)) {
@@ -297,38 +297,38 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                     return;
                 }
             }
-            dVar = dVar.f6967a;
+            dVar = dVar.f6969a;
         }
     }
 
     private void a(d<K, V> dVar) {
-        d<K, V> dVar2 = dVar.f6968b;
+        d<K, V> dVar2 = dVar.f6970b;
         d<K, V> dVar3 = dVar.c;
-        d<K, V> dVar4 = dVar3.f6968b;
+        d<K, V> dVar4 = dVar3.f6970b;
         d<K, V> dVar5 = dVar3.c;
         dVar.c = dVar4;
         if (dVar4 != null) {
-            dVar4.f6967a = dVar;
+            dVar4.f6969a = dVar;
         }
         a((d) dVar, (d) dVar3);
-        dVar3.f6968b = dVar;
-        dVar.f6967a = dVar3;
+        dVar3.f6970b = dVar;
+        dVar.f6969a = dVar3;
         dVar.h = Math.max(dVar2 != null ? dVar2.h : 0, dVar4 != null ? dVar4.h : 0) + 1;
         dVar3.h = Math.max(dVar.h, dVar5 != null ? dVar5.h : 0) + 1;
     }
 
     private void b(d<K, V> dVar) {
-        d<K, V> dVar2 = dVar.f6968b;
+        d<K, V> dVar2 = dVar.f6970b;
         d<K, V> dVar3 = dVar.c;
-        d<K, V> dVar4 = dVar2.f6968b;
+        d<K, V> dVar4 = dVar2.f6970b;
         d<K, V> dVar5 = dVar2.c;
-        dVar.f6968b = dVar5;
+        dVar.f6970b = dVar5;
         if (dVar5 != null) {
-            dVar5.f6967a = dVar;
+            dVar5.f6969a = dVar;
         }
         a((d) dVar, (d) dVar2);
         dVar2.c = dVar;
-        dVar.f6967a = dVar2;
+        dVar.f6969a = dVar2;
         dVar.h = Math.max(dVar3 != null ? dVar3.h : 0, dVar5 != null ? dVar5.h : 0) + 1;
         dVar2.h = Math.max(dVar.h, dVar4 != null ? dVar4.h : 0) + 1;
     }
@@ -356,14 +356,14 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class d<K, V> implements Map.Entry<K, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        d<K, V> f6967a;
+        d<K, V> f6969a;
 
         /* renamed from: b  reason: collision with root package name */
-        d<K, V> f6968b;
+        d<K, V> f6970b;
         d<K, V> c;
         d<K, V> d;
         d<K, V> e;
@@ -378,7 +378,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         }
 
         d(d<K, V> dVar, K k, d<K, V> dVar2, d<K, V> dVar3) {
-            this.f6967a = dVar;
+            this.f6969a = dVar;
             this.f = k;
             this.h = 1;
             this.d = dVar2;
@@ -437,7 +437,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         }
 
         public d<K, V> a() {
-            for (d<K, V> dVar = this.f6968b; dVar != null; dVar = dVar.f6968b) {
+            for (d<K, V> dVar = this.f6970b; dVar != null; dVar = dVar.f6970b) {
                 this = dVar;
             }
             return this;
@@ -452,33 +452,33 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public abstract class c<T> implements Iterator<T> {
 
         /* renamed from: b  reason: collision with root package name */
-        d<K, V> f6966b;
+        d<K, V> f6968b;
         d<K, V> c = null;
         int d;
 
         c() {
-            this.f6966b = h.this.e.d;
+            this.f6968b = h.this.e.d;
             this.d = h.this.d;
         }
 
         @Override // java.util.Iterator
         public final boolean hasNext() {
-            return this.f6966b != h.this.e;
+            return this.f6968b != h.this.e;
         }
 
         final d<K, V> b() {
-            d<K, V> dVar = this.f6966b;
+            d<K, V> dVar = this.f6968b;
             if (dVar == h.this.e) {
                 throw new NoSuchElementException();
             }
             if (h.this.d != this.d) {
                 throw new ConcurrentModificationException();
             }
-            this.f6966b = dVar.d;
+            this.f6968b = dVar.d;
             this.c = dVar;
             return dVar;
         }
@@ -494,7 +494,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     class a extends AbstractSet<Map.Entry<K, V>> {
         a() {
         }
@@ -541,7 +541,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     final class b extends AbstractSet<K> {
         b() {
         }

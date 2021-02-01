@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.http.HttpHost;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SchemeUtils {
     private static final String DEFAULT_PROTOCOL = "bdlive";
     private static Set<String> commonProtocolSet;

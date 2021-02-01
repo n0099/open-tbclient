@@ -13,7 +13,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class j {
     public static JSONObject a(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
         JSONObject jSONObject;
@@ -60,7 +60,7 @@ public final class j {
             } else {
                 jSONObject.put("appVN", com.baidu.crabsdk.a.o);
             }
-            jSONObject.put("appVC", p.us());
+            jSONObject.put("appVC", p.up());
             jSONObject.put("model", Build.MODEL);
             jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject.put("os", "Android");
@@ -70,7 +70,7 @@ public final class j {
             jSONObject.put("curPage", a.r());
             jSONObject.put("locale", i.B());
             jSONObject.put("cuid", h.z());
-            jSONObject.put("channel", com.baidu.crabsdk.a.f1692b);
+            jSONObject.put("channel", com.baidu.crabsdk.a.f1690b);
             jSONObject.put("cpuabi", Build.CPU_ABI);
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);

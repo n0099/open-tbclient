@@ -1,5 +1,5 @@
 package com.fun.ad.sdk;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class FunRippedAd {
     public String appLinkUrl;
     public String appMarketUrl;

@@ -3,12 +3,12 @@ package com.kwad.sdk.contentalliance.detail.a;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends com.kwad.sdk.contentalliance.detail.b {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.contentalliance.detail.video.b f8340b;
+    private com.kwad.sdk.contentalliance.detail.video.b f8342b;
     private AdTemplate c;
     private boolean d;
     private com.kwad.sdk.contentalliance.a.a e = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.e.1
@@ -18,7 +18,7 @@ public class e extends com.kwad.sdk.contentalliance.detail.b {
             if (e.this.d) {
                 float q = com.kwad.sdk.core.config.c.q();
                 if (q > 0.0f) {
-                    e.this.f8340b.a(q);
+                    e.this.f8342b.a(q);
                 }
             }
         }
@@ -33,10 +33,10 @@ public class e extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8340b = this.f8393a.m;
-        this.c = this.f8393a.j;
+        this.f8342b = this.f8395a.m;
+        this.c = this.f8395a.j;
         this.d = false;
-        if (this.f8340b == null || this.c == null) {
+        if (this.f8342b == null || this.c == null) {
             return;
         }
         long b2 = com.kwad.sdk.core.response.b.c.c(this.c) ? com.kwad.sdk.core.response.b.a.b(com.kwad.sdk.core.response.b.c.j(this.c)) : com.kwad.sdk.core.response.b.d.c(com.kwad.sdk.core.response.b.c.k(this.c)).longValue() / 1000;
@@ -45,7 +45,7 @@ public class e extends com.kwad.sdk.contentalliance.detail.b {
             this.d = true;
         }
         if (this.d) {
-            this.f8393a.f8403b.add(this.e);
+            this.f8395a.f8405b.add(this.e);
         }
     }
 
@@ -53,8 +53,8 @@ public class e extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.f8393a != null) {
-            this.f8393a.f8403b.remove(this.e);
+        if (this.f8395a != null) {
+            this.f8395a.f8405b.remove(this.e);
         }
     }
 }

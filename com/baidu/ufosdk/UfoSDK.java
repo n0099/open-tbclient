@@ -26,7 +26,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UfoSDK {
     public static boolean localFirstCall;
     private static Context mApplication;
@@ -293,7 +293,7 @@ public class UfoSDK {
             hashMap.put("devid", devid);
             hashMap.put("uid", b.d);
             hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.f5356b);
+            hashMap.put("username", b.f5358b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
@@ -383,7 +383,7 @@ public class UfoSDK {
             hashMap.put("devid", devid);
             hashMap.put("uid", b.d);
             hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.f5356b);
+            hashMap.put("username", b.f5358b);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
             if (!TextUtils.isEmpty(a2)) {
@@ -432,7 +432,7 @@ public class UfoSDK {
             hashMap.put("devid", devid);
             hashMap.put("uid", b.d);
             hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.f5356b);
+            hashMap.put("username", b.f5358b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
@@ -567,7 +567,7 @@ public class UfoSDK {
     }
 
     public static void openLogcatSwitch() {
-        b.f5355a = true;
+        b.f5357a = true;
     }
 
     public static void openRobotAnswer() {
@@ -798,7 +798,7 @@ public class UfoSDK {
     }
 
     public static void setUserName(String str) {
-        b.f5356b = str;
+        b.f5358b = str;
     }
 
     public static void setUserStatus(int i) {

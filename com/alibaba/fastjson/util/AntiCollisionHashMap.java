@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.util;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -16,7 +15,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Serializable, Cloneable, Map<K, V> {
     static final int DEFAULT_INITIAL_CAPACITY = 16;
     static final float DEFAULT_LOAD_FACTOR = 0.75f;
@@ -228,7 +227,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
 
     void resize(int i) {
         if (this.table.length == 1073741824) {
-            this.threshold = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            this.threshold = Integer.MAX_VALUE;
             return;
         }
         Entry<K, V>[] entryArr = new Entry[i];
@@ -414,7 +413,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Entry<K, V> implements Map.Entry<K, V> {
         final int hash;
         final K key;
@@ -492,7 +491,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public abstract class HashIterator<E> implements Iterator<E> {
         Entry<K, V> current;
         int expectedModCount;
@@ -562,7 +561,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class ValueIterator extends AntiCollisionHashMap<K, V>.HashIterator<V> {
         private ValueIterator() {
             super();
@@ -575,7 +574,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class KeyIterator extends AntiCollisionHashMap<K, V>.HashIterator<K> {
         private KeyIterator() {
             super();
@@ -588,7 +587,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class EntryIterator extends AntiCollisionHashMap<K, V>.HashIterator<Map.Entry<K, V>> {
         private EntryIterator() {
             super();
@@ -624,7 +623,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
         return keySet;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private final class KeySet extends AbstractSet<K> {
         private KeySet() {
         }
@@ -666,7 +665,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
         return values;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private final class Values extends AbstractCollection<V> {
         private Values() {
         }
@@ -708,7 +707,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         private EntrySet() {
         }

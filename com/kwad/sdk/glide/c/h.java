@@ -1,7 +1,7 @@
 package com.kwad.sdk.glide.c;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface h {
     void a(@NonNull i iVar);
 

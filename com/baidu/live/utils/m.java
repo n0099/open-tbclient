@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.extraparams.interfaces.IExtraParams;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.lang.reflect.Method;
 import org.apache.http.HttpHost;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class m {
     private static boolean hasNavBar(Context context) {
         Resources resources = context.getResources();
@@ -77,7 +77,7 @@ public class m {
         }
     }
 
-    public static boolean hI(String str) {
+    public static boolean id(String str) {
         if (str.contains("·") || str.contains("•")) {
             if (str.matches("^[\\u4e00-\\u9fa5]+[·•][\\u4e00-\\u9fa5]+$")) {
                 return true;
@@ -88,7 +88,7 @@ public class m {
         return false;
     }
 
-    public static boolean TI() {
+    public static boolean Vp() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }
@@ -99,7 +99,7 @@ public class m {
         return true;
     }
 
-    public static boolean TJ() {
+    public static boolean Vq() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }

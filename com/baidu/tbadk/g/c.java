@@ -1,11 +1,25 @@
 package com.baidu.tbadk.g;
+
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public interface c {
-    void bjW();
+public class c {
+    private ViewGroup eHf;
+    private a eHg;
+    public b eHh;
 
-    void onAdClick();
+    public ViewGroup bkq() {
+        return this.eHf;
+    }
 
-    void onAdDismiss();
+    public void setParentView(ViewGroup viewGroup) {
+        this.eHf = viewGroup;
+    }
 
-    void zd(String str);
+    public a bkr() {
+        return this.eHg;
+    }
+
+    public void a(a aVar) {
+        this.eHg = aVar;
+    }
 }

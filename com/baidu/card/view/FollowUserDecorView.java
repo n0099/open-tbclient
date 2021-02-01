@@ -7,15 +7,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tbadk.core.view.userLike.c;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
 /* loaded from: classes.dex */
 public class FollowUserDecorView extends FollowUserButton {
-    private c akK;
-    private boolean akL;
+    private boolean akA;
+    private c akz;
     private BdUniqueId mBdUniqueId;
 
     public FollowUserDecorView(Context context) {
@@ -30,23 +30,23 @@ public class FollowUserDecorView extends FollowUserButton {
         super(context, attributeSet, i);
     }
 
-    public void setData(bz bzVar) {
-        if (bzVar == null || bzVar.bnx() == null) {
+    public void setData(cb cbVar) {
+        if (cbVar == null || cbVar.bnQ() == null) {
             setVisibility(8);
             return;
         }
-        if (this.akK == null) {
-            this.akK = new c(W(getContext()), this);
-            this.akK.l(this.mBdUniqueId);
+        if (this.akz == null) {
+            this.akz = new c(W(getContext()), this);
+            this.akz.l(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.akK.a(bzVar.bnx());
+        this.akz.a(cbVar.bnQ());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        if (this.akK != null) {
-            this.akK.l(this.mBdUniqueId);
+        if (this.akz != null) {
+            this.akz.l(this.mBdUniqueId);
         }
     }
 
@@ -63,14 +63,14 @@ public class FollowUserDecorView extends FollowUserButton {
     @Override // com.baidu.tieba.view.FollowUserButton
     public void aM(boolean z) {
         super.aM(z);
-        if (this.akL && !z) {
+        if (this.akA && !z) {
             b bVar = new b();
-            bVar.pM(R.color.CAM_X0304);
+            bVar.pR(R.color.CAM_X0304);
             setConfig(bVar);
         }
     }
 
     public void setUseNewStyle(boolean z) {
-        this.akL = z;
+        this.akA = z;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.view.anim;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
     void startAnim();
 }

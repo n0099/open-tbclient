@@ -1,10 +1,10 @@
 package com.baidu.swan.videoplayer.a;
 
 import com.baidu.swan.videoplayer.SwanVideoView;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public abstract class b implements a {
     @Override // com.baidu.swan.videoplayer.a.a
-    public void iL(boolean z) {
+    public void iN(boolean z) {
     }
 
     @Override // com.baidu.swan.videoplayer.a.a

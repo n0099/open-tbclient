@@ -7,7 +7,7 @@ import com.ss.android.b.a.a.a;
 import com.ss.android.b.a.a.b;
 import com.ss.android.b.a.a.c;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static c.a a(String str, String str2, l lVar, JSONObject jSONObject) {
         if (lVar == null) {
@@ -21,12 +21,12 @@ public class b {
             jSONObject2.put("open_ad_sdk_download_extra", a.a().a(str2).b(jSONObject).a(lVar).b());
         } catch (Exception e) {
         }
-        c.a Bz = new c.a().iV(Long.valueOf(lVar.T()).longValue()).Zz(lVar.I() == null ? null : lVar.I().a()).BA(i.c().k()).BC(!i.c().k()).Zx(lVar.W()).fa(jSONObject2).ZA(str).Bz(true);
+        c.a BT = new c.a().iY(Long.valueOf(lVar.T()).longValue()).aaA(lVar.I() == null ? null : lVar.I().a()).BU(i.c().k()).BW(!i.c().k()).aay(lVar.W()).fb(jSONObject2).aaB(str).BT(true);
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-            Bz.BB(true);
-            return Bz;
+            BT.BV(true);
+            return BT;
         }
-        return Bz;
+        return BT;
     }
 
     public static c.a a(String str, l lVar, JSONObject jSONObject) {
@@ -38,13 +38,13 @@ public class b {
             jSONObject2.put("open_ad_sdk_download_extra", a.a().a(str).b(jSONObject).a(lVar).b());
         } catch (Exception e) {
         }
-        c.a Bz = new c.a().iV(Long.valueOf(lVar.T()).longValue()).Zz(lVar.I() == null ? null : lVar.I().a()).BA(i.c().k()).BC(!i.c().k()).Zx(lVar.W()).fa(jSONObject2).Bz(true);
+        c.a BT = new c.a().iY(Long.valueOf(lVar.T()).longValue()).aaA(lVar.I() == null ? null : lVar.I().a()).BU(i.c().k()).BW(!i.c().k()).aay(lVar.W()).fb(jSONObject2).BT(true);
         com.bytedance.sdk.openadsdk.core.d.b U = lVar.U();
         if (U != null) {
-            Bz.ZA(U.b()).ZB(U.c()).Zy(U.d());
+            BT.aaB(U.b()).aaC(U.c()).aaz(U.d());
         }
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-            Bz.BB(true);
+            BT.BV(true);
         }
         if (lVar.V() != null) {
             com.ss.android.a.a.d.b bVar = new com.ss.android.a.a.d.b();
@@ -58,22 +58,22 @@ public class b {
                     bVar.a(lVar.K());
                 }
             }
-            Bz.a(bVar);
-            return Bz;
+            BT.a(bVar);
+            return BT;
         }
-        return Bz;
+        return BT;
     }
 
-    public static a.C1214a a(l lVar) {
+    public static a.C1218a a(l lVar) {
         int w = lVar == null ? 0 : lVar.w();
         int x = lVar == null ? 0 : lVar.x();
         if (lVar != null && !TextUtils.isEmpty(lVar.ag())) {
             x = 2;
         }
-        return new a.C1214a().Qs(w).Qt(x).Bs(true).Bt(false).bG(lVar);
+        return new a.C1218a().QN(w).QO(x).BM(true).BN(false).bG(lVar);
     }
 
     public static b.a a(l lVar, String str) {
-        return new b.a().Zm(str).Zn(str).Zo("click_start").Zq("click_continue").Zp("click_pause").Zt("download_failed").Zr("click_install").Bw(true).By(false);
+        return new b.a().aan(str).aao(str).aap("click_start").aar("click_continue").aaq("click_pause").aau("download_failed").aas("click_install").BQ(true).BS(false);
     }
 }

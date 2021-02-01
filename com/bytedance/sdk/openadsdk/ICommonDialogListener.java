@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface ICommonDialogListener extends IInterface {
     void onDialogBtnNo() throws RemoteException;
 
@@ -13,7 +13,7 @@ public interface ICommonDialogListener extends IInterface {
 
     void onDialogCancel() throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements ICommonDialogListener {
         public Stub() {
             attachInterface(this, "com.bytedance.sdk.openadsdk.ICommonDialogListener");
@@ -61,19 +61,19 @@ public interface ICommonDialogListener extends IInterface {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         private static class a implements ICommonDialogListener {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f6072a;
+            private IBinder f6074a;
 
             a(IBinder iBinder) {
-                this.f6072a = iBinder;
+                this.f6074a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6072a;
+                return this.f6074a;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -82,7 +82,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    this.f6072a.transact(1, obtain, obtain2, 0);
+                    this.f6074a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -96,7 +96,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    this.f6072a.transact(2, obtain, obtain2, 0);
+                    this.f6074a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -110,7 +110,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    this.f6072a.transact(3, obtain, obtain2, 0);
+                    this.f6074a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

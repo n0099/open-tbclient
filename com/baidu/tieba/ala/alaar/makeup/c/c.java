@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alaar.makeup.c;
 
 import com.baidu.live.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class c<T> extends b<T> {
     public c() {
     }
@@ -11,12 +11,12 @@ public abstract class c<T> extends b<T> {
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.c.b
-    protected long x(String str, long j) {
-        return d.xf().getLong(str, j);
+    protected long w(String str, long j) {
+        return d.xc().getLong(str, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int aE(String str, int i) {
-        return d.xf().getInt(str, i);
+    public int aG(String str, int i) {
+        return d.xc().getInt(str, i);
     }
 }

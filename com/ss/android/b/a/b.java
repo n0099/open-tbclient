@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import com.ss.android.a.a.b.c;
 import com.ss.android.a.a.b.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface b {
     Dialog a(Context context, String str, boolean z, c cVar, com.ss.android.a.a.b.b bVar, com.ss.android.a.a.b.a aVar, d dVar, int i);
 

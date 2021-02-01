@@ -7,61 +7,60 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.lib.util.j;
-import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.util.k;
+import com.baidu.tbadk.util.l;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personExtra.h;
 import com.baidu.tieba.personExtra.i;
 import tbclient.SmartApp;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SmartAppBrowseHistoryActivity extends BaseActivity {
-    private FrameLayout ent;
-    private NoNetworkView gxx;
-    private com.baidu.tbadk.l.h gzj;
-    private BdRecyclerView ikg;
+    private FrameLayout epC;
+    private NoNetworkView gAh;
+    private com.baidu.tbadk.l.h gBT;
+    private BdRecyclerView ipO;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
-    private TextView mpE;
-    private SmartAppBrowseHistoryAdapter mpF;
-    private h mpG;
-    private i mpH;
-    private h.a mpI = new h.a() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.1
+    private TextView myE;
+    private SmartAppBrowseHistoryAdapter myF;
+    private h myG;
+    private i myH;
+    private h.a myI = new h.a() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.1
         @Override // com.baidu.tieba.personExtra.h.a
         public void a(boolean z, a aVar) {
             if (!z || aVar == null) {
-                SmartAppBrowseHistoryActivity.this.wu(true);
-                SmartAppBrowseHistoryActivity.this.GB(0);
-            } else if (SmartAppBrowseHistoryActivity.this.mpF != null) {
-                SmartAppBrowseHistoryActivity.this.wu(x.isEmpty(aVar.duZ()));
-                SmartAppBrowseHistoryActivity.this.GB(x.getCount(aVar.duZ()));
-                SmartAppBrowseHistoryActivity.this.mpF.bs(aVar.duZ());
-                SmartAppBrowseHistoryActivity.this.mpF.notifyDataSetChanged();
+                SmartAppBrowseHistoryActivity.this.wL(true);
+                SmartAppBrowseHistoryActivity.this.GT(0);
+            } else if (SmartAppBrowseHistoryActivity.this.myF != null) {
+                SmartAppBrowseHistoryActivity.this.wL(y.isEmpty(aVar.dxi()));
+                SmartAppBrowseHistoryActivity.this.GT(y.getCount(aVar.dxi()));
+                SmartAppBrowseHistoryActivity.this.myF.bn(aVar.dxi());
+                SmartAppBrowseHistoryActivity.this.myF.notifyDataSetChanged();
             }
         }
     };
-    private i.a mpJ = new i.a() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.2
+    private i.a myJ = new i.a() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.2
         @Override // com.baidu.tieba.personExtra.i.a
-        public void PD(String str) {
-            if (SmartAppBrowseHistoryActivity.this.mpF != null) {
-                SmartAppBrowseHistoryActivity.this.mpF.PE(str);
-                if (SmartAppBrowseHistoryActivity.this.mpF.getItemCount() == 0) {
-                    SmartAppBrowseHistoryActivity.this.wu(true);
+        public void Qu(String str) {
+            if (SmartAppBrowseHistoryActivity.this.myF != null) {
+                SmartAppBrowseHistoryActivity.this.myF.Qv(str);
+                if (SmartAppBrowseHistoryActivity.this.myF.getItemCount() == 0) {
+                    SmartAppBrowseHistoryActivity.this.wL(true);
                 }
-                SmartAppBrowseHistoryActivity.this.GB(SmartAppBrowseHistoryActivity.this.mpF.getItemCount());
-                SmartAppBrowseHistoryActivity.this.mpF.notifyDataSetChanged();
+                SmartAppBrowseHistoryActivity.this.GT(SmartAppBrowseHistoryActivity.this.myF.getItemCount());
+                SmartAppBrowseHistoryActivity.this.myF.notifyDataSetChanged();
             }
         }
     };
@@ -73,21 +72,21 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             if (view.getTag() instanceof SmartApp) {
                 SmartApp smartApp = (SmartApp) view.getTag();
                 if (!com.baidu.tieba.aiapps.a.b(smartApp.id, smartApp.link, "1191000600000000", smartApp.is_game)) {
-                    if (!at.isEmpty(smartApp.h5_url)) {
-                        be.bsB().b(SmartAppBrowseHistoryActivity.this.getPageContext(), new String[]{smartApp.h5_url});
+                    if (!au.isEmpty(smartApp.h5_url)) {
+                        bf.bsV().b(SmartAppBrowseHistoryActivity.this.getPageContext(), new String[]{smartApp.h5_url});
                     } else {
                         return;
                     }
                 }
-                aq aqVar = new aq("c13274");
-                aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
-                aqVar.dW("obj_source", "personal_center_list");
-                aqVar.w("obj_id", smartApp.swan_app_id.longValue());
-                aqVar.dW("obj_name", smartApp.name);
-                aqVar.an("obj_param1", smartApp.is_game.intValue());
-                TiebaStatic.log(aqVar);
-                if (SmartAppBrowseHistoryActivity.this.mpF != null) {
-                    SmartAppBrowseHistoryActivity.this.mpF.a(smartApp);
+                ar arVar = new ar("c13274");
+                arVar.v("uid", TbadkCoreApplication.getCurrentAccountId());
+                arVar.dR("obj_source", "personal_center_list");
+                arVar.v("obj_id", smartApp.swan_app_id.longValue());
+                arVar.dR("obj_name", smartApp.name);
+                arVar.ap("obj_param1", smartApp.is_game.intValue());
+                TiebaStatic.log(arVar);
+                if (SmartAppBrowseHistoryActivity.this.myF != null) {
+                    SmartAppBrowseHistoryActivity.this.myF.a(smartApp);
                 }
             }
         }
@@ -97,35 +96,35 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         public boolean onLongClick(View view) {
             if (view.getTag() instanceof SmartApp) {
                 SmartApp smartApp = (SmartApp) view.getTag();
-                if (SmartAppBrowseHistoryActivity.this.mpH == null) {
-                    SmartAppBrowseHistoryActivity.this.mpH = new i(SmartAppBrowseHistoryActivity.this.getPageContext());
-                    SmartAppBrowseHistoryActivity.this.mpH.create();
-                    SmartAppBrowseHistoryActivity.this.mpH.a(SmartAppBrowseHistoryActivity.this.mpJ);
+                if (SmartAppBrowseHistoryActivity.this.myH == null) {
+                    SmartAppBrowseHistoryActivity.this.myH = new i(SmartAppBrowseHistoryActivity.this.getPageContext());
+                    SmartAppBrowseHistoryActivity.this.myH.create();
+                    SmartAppBrowseHistoryActivity.this.myH.a(SmartAppBrowseHistoryActivity.this.myJ);
                 }
-                SmartAppBrowseHistoryActivity.this.mpH.b(smartApp);
-                SmartAppBrowseHistoryActivity.this.mpH.show();
+                SmartAppBrowseHistoryActivity.this.myH.b(smartApp);
+                SmartAppBrowseHistoryActivity.this.myH.show();
                 return true;
             }
             return false;
         }
     };
-    private View.OnClickListener ikb = new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.5
+    private View.OnClickListener ipJ = new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (j.isNetworkAvailableForImmediately()) {
-                if (SmartAppBrowseHistoryActivity.this.gzj != null) {
-                    SmartAppBrowseHistoryActivity.this.gzj.dettachView(SmartAppBrowseHistoryActivity.this.ent);
-                    SmartAppBrowseHistoryActivity.this.gzj = null;
+                if (SmartAppBrowseHistoryActivity.this.gBT != null) {
+                    SmartAppBrowseHistoryActivity.this.gBT.dettachView(SmartAppBrowseHistoryActivity.this.epC);
+                    SmartAppBrowseHistoryActivity.this.gBT = null;
                 }
                 SmartAppBrowseHistoryActivity.this.loadData();
-                SmartAppBrowseHistoryActivity.this.ikg.setVisibility(0);
+                SmartAppBrowseHistoryActivity.this.ipO.setVisibility(0);
             }
         }
     };
-    private View.OnClickListener mpK = new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.6
+    private View.OnClickListener myK = new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.6
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!k.isFastDoubleClick() && j.isNetworkAvailableForImmediately()) {
+            if (!l.isFastDoubleClick() && j.isNetworkAvailableForImmediately()) {
                 SmartAppBrowseHistoryActivity.this.loadData();
             }
         }
@@ -136,7 +135,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initView();
-        dvR();
+        dya();
     }
 
     private void initView() {
@@ -144,37 +143,37 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar_smart_app_browse_history);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.history_smart_app));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.gxx = (NoNetworkView) findViewById(R.id.smart_app_browse_history_no_network_view);
-        this.mNoDataView = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.dX(null, getString(R.string.no_history_now)), NoDataViewFactory.b.a(new NoDataViewFactory.a(getResources().getString(R.string.refresh), this.mpK)));
+        this.gAh = (NoNetworkView) findViewById(R.id.smart_app_browse_history_no_network_view);
+        this.mNoDataView = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.dS(null, getString(R.string.no_history_now)), NoDataViewFactory.b.a(new NoDataViewFactory.a(getResources().getString(R.string.refresh), this.myK)));
         this.mNoDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-        this.ent = (FrameLayout) findViewById(R.id.smart_app_browse_history_list_container);
-        this.ikg = (BdRecyclerView) findViewById(R.id.smart_app_browse_history_list);
-        this.ikg.setLayoutManager(new LinearLayoutManager(this));
-        this.mpF = new SmartAppBrowseHistoryAdapter(getActivity());
-        this.mpF.setOnItemClickListener(this.mOnItemClickListener);
-        this.mpF.d(this.mOnLongClickListener);
-        this.ikg.setAdapter(this.mpF);
-        this.mpE = new TextView(getActivity());
-        this.mpE.setLayoutParams(new RecyclerView.LayoutParams(-1, l.getDimens(getActivity(), R.dimen.tbds182)));
-        this.mpE.setGravity(17);
-        this.mpE.setText(R.string.list_has_no_more);
-        this.mpE.setTextSize(0, l.getDimens(getActivity(), R.dimen.tbds33));
+        this.epC = (FrameLayout) findViewById(R.id.smart_app_browse_history_list_container);
+        this.ipO = (BdRecyclerView) findViewById(R.id.smart_app_browse_history_list);
+        this.ipO.setLayoutManager(new LinearLayoutManager(this));
+        this.myF = new SmartAppBrowseHistoryAdapter(getActivity());
+        this.myF.setOnItemClickListener(this.mOnItemClickListener);
+        this.myF.d(this.mOnLongClickListener);
+        this.ipO.setAdapter(this.myF);
+        this.myE = new TextView(getActivity());
+        this.myE.setLayoutParams(new RecyclerView.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(getActivity(), R.dimen.tbds182)));
+        this.myE.setGravity(17);
+        this.myE.setText(R.string.list_has_no_more);
+        this.myE.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getActivity(), R.dimen.tbds33));
     }
 
-    private void dvR() {
+    private void dya() {
         if (j.isNetworkAvailableForImmediately()) {
             loadData();
             return;
         }
-        this.ikg.setVisibility(8);
-        if (this.gzj == null) {
-            this.gzj = new com.baidu.tbadk.l.h(getActivity(), this.ikb);
+        this.ipO.setVisibility(8);
+        if (this.gBT == null) {
+            this.gBT = new com.baidu.tbadk.l.h(getActivity(), this.ipJ);
         }
-        this.gzj.setLayoutMargin(getActivity().getResources().getDimensionPixelSize(R.dimen.tbds340));
-        this.gzj.setSubText(getString(R.string.neterror));
-        this.gzj.attachView(this.ent, true);
-        this.gzj.showRefreshButton();
-        this.gzj.onChangeSkinType();
+        this.gBT.setLayoutMargin(getActivity().getResources().getDimensionPixelSize(R.dimen.tbds340));
+        this.gBT.setSubText(getString(R.string.neterror));
+        this.gBT.attachView(this.epC, true);
+        this.gBT.showRefreshButton();
+        this.gBT.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -183,8 +182,8 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         if (this.mNoDataView != null) {
             this.mNoDataView.e(getPageContext());
         }
-        if (this.mpF != null) {
-            this.mpF.notifyDataSetChanged();
+        if (this.myF != null) {
+            this.myF.notifyDataSetChanged();
         }
     }
 
@@ -192,45 +191,45 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public void onStop() {
         super.onStop();
         if (this.mNoDataView != null) {
-            this.mNoDataView.btD();
+            this.mNoDataView.btX();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        if (this.mpG == null) {
-            this.mpG = new h();
-            this.mpG.a(this.mpI);
+        if (this.myG == null) {
+            this.myG = new h();
+            this.myG.a(this.myI);
         }
-        this.mpG.bEv();
+        this.myG.bEN();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wu(boolean z) {
+    public void wL(boolean z) {
         if (z) {
-            if (this.ikg != null) {
+            if (this.ipO != null) {
                 if (this.mNoDataView != null) {
                     this.mNoDataView.setVisibility(0);
                 }
-                this.ikg.removeHeaderView(this.mNoDataView);
-                this.ikg.addHeaderView(this.mNoDataView);
+                this.ipO.removeHeaderView(this.mNoDataView);
+                this.ipO.addHeaderView(this.mNoDataView);
             }
-        } else if (this.ikg != null) {
+        } else if (this.ipO != null) {
             if (this.mNoDataView != null) {
                 this.mNoDataView.setVisibility(8);
             }
-            this.ikg.removeHeaderView(this.mNoDataView);
+            this.ipO.removeHeaderView(this.mNoDataView);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GB(int i) {
-        if (l.getDimens(getActivity(), R.dimen.tbds177) * i >= l.getEquipmentHeight(getActivity()) - this.mNavigationBar.getHeight()) {
-            this.ikg.removeFooterView(this.mpE);
-            this.ikg.addFooterView(this.mpE);
+    public void GT(int i) {
+        if (com.baidu.adp.lib.util.l.getDimens(getActivity(), R.dimen.tbds177) * i >= com.baidu.adp.lib.util.l.getEquipmentHeight(getActivity()) - this.mNavigationBar.getHeight()) {
+            this.ipO.removeFooterView(this.myE);
+            this.ipO.addFooterView(this.myE);
             return;
         }
-        this.ikg.removeFooterView(this.mpE);
+        this.ipO.removeFooterView(this.myE);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -238,21 +237,21 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.gxx.onChangeSkinType(getPageContext(), i);
-        if (this.gzj != null) {
-            this.gzj.onChangeSkinType();
+        this.gAh.onChangeSkinType(getPageContext(), i);
+        if (this.gBT != null) {
+            this.gBT.onChangeSkinType();
         }
         if (this.mNoDataView != null) {
-            ao.setBackgroundResource(this.mNoDataView, R.color.CAM_X0201);
+            ap.setBackgroundResource(this.mNoDataView, R.color.CAM_X0201);
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
-        if (this.mpE != null) {
-            ao.setBackgroundResource(this.mpE, R.color.CAM_X0201);
-            ao.setViewTextColor(this.mpE, R.color.CAM_X0109);
+        if (this.myE != null) {
+            ap.setBackgroundResource(this.myE, R.color.CAM_X0201);
+            ap.setViewTextColor(this.myE, R.color.CAM_X0109);
         }
-        ao.setBackgroundColor(this.ikg, R.color.CAM_X0201);
-        if (this.mpF != null) {
-            this.mpF.notifyDataSetChanged();
+        ap.setBackgroundColor(this.ipO, R.color.CAM_X0201);
+        if (this.myF != null) {
+            this.myF.notifyDataSetChanged();
         }
     }
 }

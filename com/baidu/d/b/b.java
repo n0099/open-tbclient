@@ -1,7 +1,7 @@
 package com.baidu.d.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public static d ug() {
+    public static d ud() {
         return new c();
     }
 }

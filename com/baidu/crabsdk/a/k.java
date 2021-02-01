@@ -2,7 +2,7 @@ package com.baidu.crabsdk.a;
 
 import android.os.Handler;
 import android.os.HandlerThread;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 final class k {
     private Handler handler;
 

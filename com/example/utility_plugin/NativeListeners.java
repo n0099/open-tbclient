@@ -1,7 +1,6 @@
 package com.example.utility_plugin;
 
 import android.text.TextUtils;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -21,7 +20,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.b.g;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tbadk.data.n;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
@@ -76,11 +75,11 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.dCM().dCI()) {
+                if (a.dEW().dES()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.dCM().dCJ()) {
+                } else if (a.dEW().dET()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
@@ -315,7 +314,7 @@ public class NativeListeners {
             HashMap hashMap = new HashMap();
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
-                if (!x.isEmpty(gVar.mPostData)) {
+                if (!y.isEmpty(gVar.mPostData)) {
                     int i = 0;
                     while (true) {
                         int i2 = i;
@@ -377,7 +376,7 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                b.eWb = b.eWc;
+                b.eYr = b.eYs;
                 HashMap hashMap = new HashMap();
                 hashMap.put("uniqueKey", "AnimateToBarEntryForumSquare");
                 NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
@@ -447,8 +446,8 @@ public class NativeListeners {
     }
 
     private void dealBeforeAttachNotification(String str) {
-        if ("AnimateToBarEntryForumSquare".equals(str) && b.eWb == b.eWd) {
-            com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.example.utility_plugin.NativeListeners.24
+        if ("AnimateToBarEntryForumSquare".equals(str) && b.eYr == b.eYt) {
+            com.baidu.adp.lib.f.e.mA().postDelayed(new Runnable() { // from class: com.example.utility_plugin.NativeListeners.24
                 @Override // java.lang.Runnable
                 public void run() {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
@@ -573,181 +572,209 @@ public class NativeListeners {
         return null;
     }
 
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private MessageListener<?> getListererFromKey(String str) {
-        char c = 65535;
+        char c;
         switch (str.hashCode()) {
             case -2135388668:
                 if (str.equals("WritePostSuccess")) {
                     c = 18;
                     break;
                 }
+                c = 65535;
                 break;
             case -2111678678:
                 if (str.equals("AutoRefreshCategory")) {
                     c = 20;
                     break;
                 }
+                c = 65535;
                 break;
             case -1967337156:
                 if (str.equals("ChangeUserProfileBackground")) {
                     c = '\r';
                     break;
                 }
+                c = 65535;
                 break;
             case -1702113870:
                 if (str.equals("ThreadAgreeChanged")) {
                     c = '\t';
                     break;
                 }
+                c = 65535;
                 break;
             case -994250872:
                 if (str.equals("AppDidEnterBackground")) {
                     c = 1;
                     break;
                 }
+                c = 65535;
                 break;
             case -815635840:
                 if (str.equals("PersonDataChangedNotification")) {
                     c = 14;
                     break;
                 }
+                c = 65535;
                 break;
             case -739728061:
                 if (str.equals("AnimateToBarEntryForumSquare")) {
                     c = 23;
                     break;
                 }
+                c = 65535;
                 break;
             case -712625697:
                 if (str.equals("BookMarkUpdate")) {
                     c = 2;
                     break;
                 }
+                c = 65535;
                 break;
             case -336540695:
                 if (str.equals("ThreadWriteReplyListener")) {
                     c = 16;
                     break;
                 }
+                c = 65535;
                 break;
             case -241869128:
                 if (str.equals("FansCountUpdate")) {
                     c = 3;
                     break;
                 }
+                c = 65535;
                 break;
             case 79574153:
                 if (str.equals("KTBShareNumberPlus")) {
                     c = 15;
                     break;
                 }
+                c = 65535;
                 break;
             case 215365908:
                 if (str.equals("SyncComplete")) {
                     c = 5;
                     break;
                 }
+                c = 65535;
                 break;
             case 220510267:
                 if (str.equals("kUIApplicationSwitchTabNotification")) {
                     c = 21;
                     break;
                 }
+                c = 65535;
                 break;
             case 353880651:
                 if (str.equals("AutoRefreshBarEntry")) {
                     c = 17;
                     break;
                 }
+                c = 65535;
                 break;
             case 401543534:
                 if (str.equals("ChangeUserProfile")) {
                     c = '\f';
                     break;
                 }
+                c = 65535;
                 break;
             case 438746368:
                 if (str.equals("kUIApplicationEnterPersonalCenterByClickNotification")) {
                     c = 22;
                     break;
                 }
+                c = 65535;
                 break;
             case 463822814:
                 if (str.equals("ServiceCenterCheck")) {
                     c = 6;
                     break;
                 }
+                c = 65535;
                 break;
             case 483157862:
                 if (str.equals("LikeForumsSign")) {
                     c = 7;
                     break;
                 }
+                c = 65535;
                 break;
             case 541940592:
                 if (str.equals("MultiRemoveBlockFans")) {
                     c = 0;
                     break;
                 }
+                c = 65535;
                 break;
             case 757688464:
                 if (str.equals("ChangePortraitImage")) {
                     c = '\n';
                     break;
                 }
+                c = 65535;
                 break;
             case 790383375:
                 if (str.equals("ChangePendantImage")) {
                     c = 11;
                     break;
                 }
+                c = 65535;
                 break;
             case 1499680061:
                 if (str.equals("BarBroadcastCopyLink")) {
                     c = '\b';
                     break;
                 }
+                c = 65535;
                 break;
             case 1599848416:
                 if (str.equals("AccountInfoUpdated")) {
                     c = 19;
                     break;
                 }
+                c = 65535;
                 break;
             case 2016286899:
                 if (str.equals("ServiceCenterUpdate")) {
                     c = 4;
                     break;
                 }
+                c = 65535;
+                break;
+            default:
+                c = 65535;
                 break;
         }
         switch (c) {
             case 0:
-                this.mRemoveForbiddenListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.mRemoveForbiddenListener.setPriority(Integer.MAX_VALUE);
                 return this.mRemoveForbiddenListener;
             case 1:
-                this.mBackgroundListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.mBackgroundListener.setPriority(Integer.MAX_VALUE);
                 return this.mBackgroundListener;
             case 2:
-                this.bookMarksGiftAndFansListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.bookMarksGiftAndFansListener.setPriority(Integer.MAX_VALUE);
                 return this.bookMarksGiftAndFansListener;
             case 3:
-                this.bookMarksGiftAndFansListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.bookMarksGiftAndFansListener.setPriority(Integer.MAX_VALUE);
                 return this.bookMarksGiftAndFansListener;
             case 4:
-                this.feedBackRedTipListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.feedBackRedTipListener.setPriority(Integer.MAX_VALUE);
                 return this.feedBackRedTipListener;
             case 5:
-                this.syncFinishListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.syncFinishListener.setPriority(Integer.MAX_VALUE);
                 return this.syncFinishListener;
             case 6:
-                this.checkFeedBackListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.checkFeedBackListener.setPriority(Integer.MAX_VALUE);
                 return this.checkFeedBackListener;
             case 7:
-                this.mSignChangedListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.mSignChangedListener.setPriority(Integer.MAX_VALUE);
                 return this.mSignChangedListener;
             case '\b':
-                this.mCopyBarBroadcastLinkListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.mCopyBarBroadcastLinkListener.setPriority(Integer.MAX_VALUE);
                 return this.mCopyBarBroadcastLinkListener;
             case '\t':
                 return this.mThreadAgreeChangedListener;
@@ -766,12 +793,18 @@ public class NativeListeners {
             case 16:
                 return this.mThreadWriteReplyListener;
             case 17:
+                if (this.mLastMainTabIndex == -1) {
+                    this.mLastMainTabIndex = 1;
+                }
                 return this.mMainTabClickListener;
             case 18:
                 return this.mWritePostSuccessListener;
             case 19:
                 return this.mAccountChangedListener;
             case 20:
+                if (this.mLastMainTabIndex == -1) {
+                    this.mLastMainTabIndex = 2;
+                }
                 return this.mMainTabClickListener;
             case 21:
                 return this.mSendPrePageKeyToFlutterWhenTabChangedListener;

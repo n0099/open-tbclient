@@ -2,7 +2,7 @@ package com.baidu.live.im.data;
 
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class YuyinImForbiddenStateData implements Serializable {
     public int anchorBan;
     public int banState;
@@ -12,15 +12,15 @@ public class YuyinImForbiddenStateData implements Serializable {
     public int errno = 0;
     public String errMsg = "";
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        public int blY;
-        public String blZ;
+        public int bpt;
+        public String bpu;
 
         public void parseJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.blY = jSONObject.optInt("is_forever");
-                this.blZ = jSONObject.optString("count_down");
+                this.bpt = jSONObject.optInt("is_forever");
+                this.bpu = jSONObject.optString("count_down");
             }
         }
     }

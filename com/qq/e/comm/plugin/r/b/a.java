@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12375a;
+    private String f12377a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f12376b;
+    private int f12378b;
     private int c;
     private String d;
     private String e;
     private List<c> f = new ArrayList();
 
     public a(JSONObject jSONObject) {
-        this.f12375a = jSONObject.optString("pos_id");
-        this.f12376b = jSONObject.optInt("timeout");
+        this.f12377a = jSONObject.optString("pos_id");
+        this.f12378b = jSONObject.optInt("timeout");
         this.c = jSONObject.optInt("request_type");
         this.d = jSONObject.optString("no_ad_view_id");
         this.e = jSONObject.optString("pos_view_id");
@@ -33,11 +33,11 @@ public class a {
     }
 
     public String a() {
-        return this.f12375a;
+        return this.f12377a;
     }
 
     public int b() {
-        return this.f12376b;
+        return this.f12378b;
     }
 
     public int c() {

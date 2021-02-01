@@ -3,8 +3,8 @@ package com.xiaomi.push.service;
 public abstract class ax {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f14257a = "com.xiaomi.xmsf.push.UNINSTALL";
+    public static String f14259a = "com.xiaomi.xmsf.push.UNINSTALL";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f14258b = "com.xiaomi.xmsf.push.PACKAGE_DATA_CLEARED";
+    public static String f14260b = "com.xiaomi.xmsf.push.PACKAGE_DATA_CLEARED";
 }

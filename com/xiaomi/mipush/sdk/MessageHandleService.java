@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class MessageHandleService extends BaseService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ConcurrentLinkedQueue<a> f13789a = new ConcurrentLinkedQueue<>();
+    private static ConcurrentLinkedQueue<a> f13791a = new ConcurrentLinkedQueue<>();
 
     /* renamed from: a  reason: collision with other field name */
     private static ExecutorService f105a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
@@ -26,18 +26,18 @@ public class MessageHandleService extends BaseService {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Intent f13790a;
+        private Intent f13792a;
 
         /* renamed from: a  reason: collision with other field name */
         private PushMessageReceiver f106a;
 
         public a(Intent intent, PushMessageReceiver pushMessageReceiver) {
             this.f106a = pushMessageReceiver;
-            this.f13790a = intent;
+            this.f13792a = intent;
         }
 
         public Intent a() {
-            return this.f13790a;
+            return this.f13792a;
         }
 
         /* renamed from: a  reason: collision with other method in class */
@@ -56,7 +56,7 @@ public class MessageHandleService extends BaseService {
 
     public static void addJob(Context context, a aVar) {
         if (aVar != null) {
-            f13789a.add(aVar);
+            f13791a.add(aVar);
             b(context);
             startService(context);
         }
@@ -73,7 +73,7 @@ public class MessageHandleService extends BaseService {
     public static void c(Context context) {
         String[] stringArrayExtra;
         try {
-            a poll = f13789a.poll();
+            a poll = f13791a.poll();
             if (poll == null) {
                 return;
             }
@@ -167,7 +167,7 @@ public class MessageHandleService extends BaseService {
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a */
     protected boolean mo98a() {
-        return f13789a != null && f13789a.size() > 0;
+        return f13791a != null && f13791a.size() > 0;
     }
 
     @Override // com.xiaomi.mipush.sdk.BaseService, android.app.Service

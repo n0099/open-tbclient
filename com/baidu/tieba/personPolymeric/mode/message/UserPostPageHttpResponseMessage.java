@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import tbclient.User;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UserPostPageHttpResponseMessage extends TbHttpResponsedMessage {
     private int from;
     private boolean isHost;

@@ -7,37 +7,37 @@ import com.bun.miitmdid.utils.d;
 import com.bun.miitmdid.utils.sysParamters;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, String> f5737a = new HashMap();
+    private Map<String, String> f5739a = new HashMap();
 
     private Map<String, String> a() {
-        if (this.f5737a.isEmpty()) {
-            this.f5737a.put("av", sysParamters.ekR().b());
-            this.f5737a.put("sv", sysParamters.ekR().c());
-            this.f5737a.put(IXAdRequestInfo.TEST_MODE, sysParamters.ekR().d());
-            this.f5737a.put("mf", sysParamters.ekR().e());
-            this.f5737a.put(Config.PACKAGE_NAME, sysParamters.g());
+        if (this.f5739a.isEmpty()) {
+            this.f5739a.put("av", sysParamters.enk().b());
+            this.f5739a.put("sv", sysParamters.enk().c());
+            this.f5739a.put(IXAdRequestInfo.TEST_MODE, sysParamters.enk().d());
+            this.f5739a.put("mf", sysParamters.enk().e());
+            this.f5739a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
-        this.f5737a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
-        return this.f5737a;
+        this.f5739a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
+        return this.f5739a;
     }
 
     public boolean b(boolean z, String str, String str2, String str3, String str4) {
         try {
             String a2 = d.a(String.format("UDID=%s&OAID=%s&VAID=%s&AAID=%s", str, str2, str3, str4));
-            b hJ = b.hJ(com.bun.miitmdid.utils.b.a());
-            hJ.H(a());
-            hJ.ha("support", String.valueOf(z ? 1 : 0));
-            hJ.aX(a2);
-            hJ.Xs("http://sdk.api.bjshcw.com/stat");
-            hJ.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
+            b hM = b.hM(com.bun.miitmdid.utils.b.a());
+            hM.J(a());
+            hM.hh("support", String.valueOf(z ? 1 : 0));
+            hM.aX(a2);
+            hM.Yt("http://sdk.api.bjshcw.com/stat");
+            hM.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
                 @Override // com.bun.miitmdid.b.b.a
                 public void a(Exception exc, int i, String str5) {
                 }
-            }).ekM();
+            }).enf();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

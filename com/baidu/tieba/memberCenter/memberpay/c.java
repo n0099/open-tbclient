@@ -11,14 +11,14 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.memberpay.f;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c extends BaseAdapter {
-    private int aBW;
+    private int aDJ;
     private int dividerWidth;
     private int itemHeight;
     private LayoutInflater layoutInflater;
@@ -28,7 +28,7 @@ public class c extends BaseAdapter {
     public c(TbPageContext<?> tbPageContext) {
         this.layoutInflater = LayoutInflater.from(tbPageContext.getPageActivity());
         this.screenWidth = l.getEquipmentWidth(tbPageContext.getPageActivity());
-        this.aBW = (this.screenWidth - tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds120)) / 3;
+        this.aDJ = (this.screenWidth - tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds120)) / 3;
         this.itemHeight = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds360);
         this.dividerWidth = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds44);
     }
@@ -39,14 +39,14 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return x.getCount(this.mList);
+        return y.getCount(this.mList);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Ei */
+    /* renamed from: EA */
     public f.d getItem(int i) {
-        return (f.d) x.getItem(this.mList, i);
+        return (f.d) y.getItem(this.mList, i);
     }
 
     @Override // android.widget.Adapter
@@ -65,42 +65,42 @@ public class c extends BaseAdapter {
     }
 
     private void a(int i, f.d dVar, a aVar) {
-        if (dVar == null || dVar.lhV < 0) {
+        if (dVar == null || dVar.lqc < 0) {
             return;
         }
-        aVar.lhC.setText(bC(dVar.mTitle, 7));
+        aVar.lpJ.setText(bC(dVar.mTitle, 7));
         if (TextUtils.isEmpty(dVar.mDiscount)) {
-            aVar.lhB.setVisibility(4);
+            aVar.lpI.setVisibility(4);
         } else {
-            aVar.lhB.setVisibility(0);
-            aVar.lhB.setText(bC(dVar.mDiscount, 10));
+            aVar.lpI.setVisibility(0);
+            aVar.lpI.setText(bC(dVar.mDiscount, 10));
         }
-        aVar.lhA.setText("" + (dVar.lhV / 100));
+        aVar.lpH.setText("" + (dVar.lqc / 100));
         if (TextUtils.isEmpty(dVar.mTagName)) {
-            aVar.lhz.setVisibility(4);
+            aVar.lpG.setVisibility(4);
         } else {
-            aVar.lhz.setVisibility(0);
-            aVar.lhz.setText(dVar.mTagName);
+            aVar.lpG.setVisibility(0);
+            aVar.lpG.setText(dVar.mTagName);
         }
         if (i == 0) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.lhw.getLayoutParams();
-            layoutParams.width = this.aBW;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.lpD.getLayoutParams();
+            layoutParams.width = this.aDJ;
             layoutParams.height = this.itemHeight;
             layoutParams.leftMargin = this.dividerWidth;
-            aVar.lhw.setLayoutParams(layoutParams);
+            aVar.lpD.setLayoutParams(layoutParams);
         } else {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.lhw.getLayoutParams();
-            layoutParams2.width = this.aBW;
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.lpD.getLayoutParams();
+            layoutParams2.width = this.aDJ;
             layoutParams2.height = this.itemHeight;
             layoutParams2.leftMargin = 0;
-            aVar.lhw.setLayoutParams(layoutParams2);
+            aVar.lpD.setLayoutParams(layoutParams2);
         }
-        ao.setViewTextColor(aVar.lhy, R.color.CAM_X0301);
-        ao.setViewTextColor(aVar.lhz, R.color.CAM_X0101);
-        ao.setBackgroundResource(aVar.lhz, R.drawable.member_price_tag_bg_shape);
-        ao.setViewTextColor(aVar.lhA, R.color.CAM_X0301);
-        ao.setViewTextColor(aVar.lhB, R.color.CAM_X0109);
-        ao.setViewTextColor(aVar.lhC, R.color.CAM_X0105);
+        ap.setViewTextColor(aVar.lpF, R.color.CAM_X0301);
+        ap.setViewTextColor(aVar.lpG, R.color.CAM_X0101);
+        ap.setBackgroundResource(aVar.lpG, R.drawable.member_price_tag_bg_shape);
+        ap.setViewTextColor(aVar.lpH, R.color.CAM_X0301);
+        ap.setViewTextColor(aVar.lpI, R.color.CAM_X0109);
+        ap.setViewTextColor(aVar.lpJ, R.color.CAM_X0105);
         a(dVar, aVar);
     }
 
@@ -114,9 +114,9 @@ public class c extends BaseAdapter {
     private void a(f.d dVar, a aVar) {
         if (dVar != null && aVar != null) {
             if (dVar.isChecked) {
-                ao.setBackgroundResource(aVar.lhx, R.drawable.member_price_bg_shape_s);
+                ap.setBackgroundResource(aVar.lpE, R.drawable.member_price_bg_shape_s);
             } else {
-                ao.setBackgroundResource(aVar.lhx, R.drawable.member_price_bg_shape_n);
+                ap.setBackgroundResource(aVar.lpE, R.drawable.member_price_bg_shape_n);
             }
         }
     }
@@ -125,7 +125,7 @@ public class c extends BaseAdapter {
         if (dVar != null && this.mList != null) {
             for (int i = 0; i < this.mList.size(); i++) {
                 this.mList.get(i).isChecked = false;
-                if (this.mList.get(i).lhQ.equals(dVar.lhQ)) {
+                if (this.mList.get(i).lpX.equals(dVar.lpX)) {
                     this.mList.get(i).isChecked = true;
                 }
             }
@@ -133,7 +133,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public f.d ddD() {
+    public f.d dfD() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -150,24 +150,24 @@ public class c extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a {
-        private TextView lhA;
-        private TextView lhB;
-        private TextView lhC;
-        private RelativeLayout lhw;
-        private LinearLayout lhx;
-        private TextView lhy;
-        private TextView lhz;
+        private RelativeLayout lpD;
+        private LinearLayout lpE;
+        private TextView lpF;
+        private TextView lpG;
+        private TextView lpH;
+        private TextView lpI;
+        private TextView lpJ;
 
         public a(View view) {
-            this.lhw = (RelativeLayout) view.findViewById(R.id.root);
-            this.lhx = (LinearLayout) view.findViewById(R.id.container);
-            this.lhy = (TextView) view.findViewById(R.id.tv_price_money_label);
-            this.lhz = (TextView) view.findViewById(R.id.tv_price_tag);
-            this.lhA = (TextView) view.findViewById(R.id.tv_price_money);
-            this.lhB = (TextView) view.findViewById(R.id.tv_price_sale);
-            this.lhC = (TextView) view.findViewById(R.id.tv_month);
+            this.lpD = (RelativeLayout) view.findViewById(R.id.root);
+            this.lpE = (LinearLayout) view.findViewById(R.id.container);
+            this.lpF = (TextView) view.findViewById(R.id.tv_price_money_label);
+            this.lpG = (TextView) view.findViewById(R.id.tv_price_tag);
+            this.lpH = (TextView) view.findViewById(R.id.tv_price_money);
+            this.lpI = (TextView) view.findViewById(R.id.tv_price_sale);
+            this.lpJ = (TextView) view.findViewById(R.id.tv_month);
         }
     }
 }

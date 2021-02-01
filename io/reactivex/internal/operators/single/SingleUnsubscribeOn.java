@@ -33,7 +33,7 @@ public final class SingleUnsubscribeOn<T> extends w<T> {
             io.reactivex.disposables.b andSet = getAndSet(DisposableHelper.DISPOSED);
             if (andSet != DisposableHelper.DISPOSED) {
                 this.ds = andSet;
-                this.scheduler.E(this);
+                this.scheduler.D(this);
             }
         }
 

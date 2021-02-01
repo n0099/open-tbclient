@@ -2,7 +2,7 @@ package com.baidu.tieba.videoplay.verticalviewpager.transforms;
 
 import android.view.View;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DefaultTransformer implements ViewPager.PageTransformer {
     @Override // androidx.viewpager.widget.ViewPager.PageTransformer
     public void transformPage(View view, float f) {

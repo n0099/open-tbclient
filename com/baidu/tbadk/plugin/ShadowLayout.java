@@ -8,57 +8,57 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ShadowLayout extends FrameLayout {
-    private int dvd;
-    private int fIO;
-    private int fIP;
-    private int fIQ;
-    private int fIR;
+    private int dxk;
+    private int fKZ;
+    private int fLa;
+    private int fLb;
+    private int fLc;
     private int mShadowRadius;
     private Paint paint;
     private RectF rectF;
 
     public ShadowLayout(@NonNull Context context) {
         super(context);
-        sa();
+        rX();
     }
 
     public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        sa();
+        rX();
     }
 
     public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        sa();
+        rX();
     }
 
-    private void sa() {
+    private void rX() {
         setWillNotDraw(false);
         setLayerType(1, null);
-        this.fIO = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
-        setPadding(this.fIO, this.fIO, this.fIO, this.fIO);
-        this.fIR = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
+        this.fKZ = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
+        setPadding(this.fKZ, this.fKZ, this.fKZ, this.fKZ);
+        this.fLc = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
         this.mShadowRadius = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
-        this.fIP = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
-        this.fIQ = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
-        this.dvd = ao.getColor(R.color.plugin_button_shadow_blue);
+        this.fLa = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
+        this.fLb = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
+        this.dxk = ap.getColor(R.color.plugin_button_shadow_blue);
         this.paint = new Paint();
         this.paint.setColor(0);
-        this.paint.setShadowLayer(this.mShadowRadius, this.fIP, this.fIQ, this.dvd);
+        this.paint.setShadowLayer(this.mShadowRadius, this.fLa, this.fLb, this.dxk);
         this.rectF = new RectF();
     }
 
     public void setShadowColor(int i) {
-        this.dvd = ao.getColor(i);
-        bEd();
+        this.dxk = ap.getColor(i);
+        bEv();
     }
 
-    private void bEd() {
-        this.paint.setShadowLayer(this.mShadowRadius, this.fIP, this.fIQ, this.dvd);
+    private void bEv() {
+        this.paint.setShadowLayer(this.mShadowRadius, this.fLa, this.fLb, this.dxk);
         postInvalidate();
     }
 
@@ -69,6 +69,6 @@ public class ShadowLayout extends FrameLayout {
         this.rectF.right = getWidth() - getPaddingRight();
         this.rectF.bottom = getHeight() - getPaddingBottom();
         this.rectF.top = getPaddingTop();
-        canvas.drawRoundRect(this.rectF, this.fIR, this.fIR, this.paint);
+        canvas.drawRoundRect(this.rectF, this.fLc, this.fLc, this.paint);
     }
 }

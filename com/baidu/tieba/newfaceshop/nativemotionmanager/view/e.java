@@ -5,9 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e {
     private View mHeaderView;
     private View rootView;
@@ -26,18 +26,18 @@ public class e {
 
     public void onChangeSkinType(int i) {
         if (this.rootView != null) {
-            ao.setBackgroundColor(this.rootView, R.color.cp_bg_line_d_alpha90, i);
+            ap.setBackgroundColor(this.rootView, R.color.cp_bg_line_d_alpha90, i);
         }
         if (this.mHeaderView != null) {
-            ao.setBackgroundColor(this.mHeaderView, R.color.CAM_X0204, i);
+            ap.setBackgroundColor(this.mHeaderView, R.color.CAM_X0204, i);
         }
         if (this.title != null) {
-            ao.setViewTextColor(this.title, R.color.CAM_X0107, i);
+            ap.setViewTextColor(this.title, R.color.CAM_X0107, i);
         }
     }
 
-    public void s(final Integer num) {
-        com.baidu.adp.lib.f.e.mB().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.e.1
+    public void t(final Integer num) {
+        com.baidu.adp.lib.f.e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.e.1
             @Override // java.lang.Runnable
             public void run() {
                 if (num != null && num.intValue() != 0) {

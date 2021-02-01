@@ -10,7 +10,7 @@ import android.net.http.Headers;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class e {
     @SuppressLint({"StaticFieldLeak"})
     private static e d;
@@ -23,7 +23,7 @@ public class e {
     /* renamed from: a  reason: collision with root package name */
     public static final Object f1246a = new Object();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum a {
         ackId,
         type,
@@ -33,7 +33,7 @@ public class e {
         aliasId
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum b {
         connectionId,
         startTime,
@@ -45,7 +45,7 @@ public class e {
         aliasId
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum c {
         crashId,
         exception,
@@ -54,7 +54,7 @@ public class e {
         aliasId
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum d {
         dbId,
         tableName,
@@ -70,7 +70,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.pushservice.c.e$e  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class C0041e extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
@@ -118,7 +118,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     enum f {
         id,
         method,

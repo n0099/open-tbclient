@@ -7,16 +7,16 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Reflect {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Class<?> f8182a;
+    private final Class<?> f8184a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Object f8183b;
+    private final Object f8185b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ReflectException extends RuntimeException {
         private static final long serialVersionUID = -6213149635297151442L;
 
@@ -37,14 +37,14 @@ public class Reflect {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final Method f8184a;
+        private static final Method f8186a;
 
         /* renamed from: b  reason: collision with root package name */
-        private static final Method f8185b;
+        private static final Method f8187b;
         private static final Method c;
         private static final Method d;
         private static final Method e;
@@ -60,8 +60,8 @@ public class Reflect {
 
         static {
             try {
-                f8184a = Class.class.getDeclaredMethod("forName", String.class);
-                f8185b = Class.class.getDeclaredMethod("forName", String.class, Boolean.TYPE, ClassLoader.class);
+                f8186a = Class.class.getDeclaredMethod("forName", String.class);
+                f8187b = Class.class.getDeclaredMethod("forName", String.class, Boolean.TYPE, ClassLoader.class);
                 c = Class.class.getDeclaredMethod("getDeclaredField", String.class);
                 d = Class.class.getDeclaredMethod("getDeclaredFields", new Class[0]);
                 e = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
@@ -81,7 +81,7 @@ public class Reflect {
 
         static Class a(String str) {
             try {
-                return (Class) f8184a.invoke(null, str);
+                return (Class) f8186a.invoke(null, str);
             } catch (Exception e2) {
                 ClassNotFoundException classNotFoundException = new ClassNotFoundException();
                 classNotFoundException.initCause(e2);
@@ -165,7 +165,7 @@ public class Reflect {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         private b() {
         }
@@ -176,8 +176,8 @@ public class Reflect {
     }
 
     private Reflect(Class<?> cls, Object obj) {
-        this.f8182a = cls;
-        this.f8183b = obj;
+        this.f8184a = cls;
+        this.f8185b = obj;
     }
 
     public static Reflect a(Class<?> cls) {
@@ -350,7 +350,7 @@ public class Reflect {
                 } catch (NoSuchFieldException e2) {
                 }
             }
-            e.set(this.f8183b, b(obj));
+            e.set(this.f8185b, b(obj));
             return this;
         } catch (Exception e3) {
             throw new ReflectException(e3);
@@ -359,10 +359,10 @@ public class Reflect {
 
     public Reflect a(String str, Class<?>[] clsArr, Object... objArr) {
         try {
-            return a(a(str, clsArr), this.f8183b, objArr);
+            return a(a(str, clsArr), this.f8185b, objArr);
         } catch (NoSuchMethodException e) {
             try {
-                return a(b(str, clsArr), this.f8183b, objArr);
+                return a(b(str, clsArr), this.f8185b, objArr);
             } catch (NoSuchMethodException e2) {
                 throw new ReflectException(e2);
             }
@@ -392,7 +392,7 @@ public class Reflect {
     }
 
     public <T> T a() {
-        return (T) this.f8183b;
+        return (T) this.f8185b;
     }
 
     public Reflect b() {
@@ -406,14 +406,14 @@ public class Reflect {
     public Reflect c(String str) {
         try {
             Field e = e(str);
-            return a(e.getType(), e.get(this.f8183b));
+            return a(e.getType(), e.get(this.f8185b));
         } catch (Exception e2) {
             throw new ReflectException(e2);
         }
     }
 
     public Class<?> c() {
-        return this.f8182a;
+        return this.f8184a;
     }
 
     public Reflect d(String str) {
@@ -422,16 +422,16 @@ public class Reflect {
 
     public boolean equals(Object obj) {
         if (obj instanceof Reflect) {
-            return this.f8183b.equals(((Reflect) obj).a());
+            return this.f8185b.equals(((Reflect) obj).a());
         }
         return false;
     }
 
     public int hashCode() {
-        return this.f8183b.hashCode();
+        return this.f8185b.hashCode();
     }
 
     public String toString() {
-        return String.valueOf(this.f8183b);
+        return String.valueOf(this.f8185b);
     }
 }

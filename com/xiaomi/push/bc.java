@@ -6,7 +6,7 @@ public class bc {
     private static byte[] f203a;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13879a = System.getProperty("line.separator");
+    private static final String f13881a = System.getProperty("line.separator");
 
     /* renamed from: a  reason: collision with other field name */
     private static char[] f204a = new char[64];

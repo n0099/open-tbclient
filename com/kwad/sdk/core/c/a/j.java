@@ -3,7 +3,7 @@ package com.kwad.sdk.core.c.a;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.kwad.sdk.emotion.model.CDNUrl;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j implements com.kwad.sdk.core.c<CDNUrl> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c

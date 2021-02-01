@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TintableImageSourceView;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class AppCompatImageView extends ImageView implements TintableBackgroundView, TintableImageSourceView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
     private final AppCompatImageHelper mImageHelper;

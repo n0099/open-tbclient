@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.parser;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum Feature {
     AutoCloseSource,
     AllowComment,

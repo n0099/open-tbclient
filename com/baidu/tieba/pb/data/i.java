@@ -1,32 +1,19 @@
 package com.baidu.tieba.pb.data;
 
-import androidx.appcompat.widget.ActivityChooserView;
-import tbclient.PbPage.ForumHeadlineImgInfo;
+import com.baidu.adp.BdUniqueId;
+import tbclient.Item;
 /* loaded from: classes2.dex */
-public class i {
-    private long eLg = 0;
-    private String eLh = "";
-    private String imgUrl = "";
-    private int lCj = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private String lCk = "";
-    private String aLR = "";
+public class i implements com.baidu.adp.widget.ListView.n {
+    public static BdUniqueId TYPE = BdUniqueId.gen();
+    public Item item;
+    public String tid;
 
-    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        if (forumHeadlineImgInfo != null) {
-            this.eLg = forumHeadlineImgInfo.img_user_id.longValue();
-            this.eLh = forumHeadlineImgInfo.img_user_name;
-            this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.lCj = forumHeadlineImgInfo.rank_num.intValue();
-            this.lCk = forumHeadlineImgInfo.rank_up_info;
-            this.aLR = forumHeadlineImgInfo.rank_url;
-        }
+    public i(Item item) {
+        this.item = item;
     }
 
-    public String djx() {
-        return this.aLR;
-    }
-
-    public String getImgUrl() {
-        return this.imgUrl;
+    @Override // com.baidu.adp.widget.ListView.n
+    public BdUniqueId getType() {
+        return TYPE;
     }
 }

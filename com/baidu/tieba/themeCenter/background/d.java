@@ -10,18 +10,18 @@ import com.baidu.live.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
-import com.baidu.tbadk.core.util.bg;
-/* loaded from: classes8.dex */
+import com.baidu.tbadk.core.util.bh;
+/* loaded from: classes9.dex */
 public class d {
     private int mFrom = -1;
     private TbPageContext<?> mPageContext;
-    private int nwX;
-    public BdUniqueId nwY;
+    private int nGH;
+    public BdUniqueId nGI;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.nwY = null;
+        this.nGI = null;
         this.mPageContext = tbPageContext;
-        this.nwY = bdUniqueId;
+        this.nGI = bdUniqueId;
     }
 
     public void setFrom(int i) {
@@ -39,14 +39,14 @@ public class d {
     public void a(DressItemData dressItemData, boolean z) {
         if (dressItemData != null) {
             if (!TbadkCoreApplication.isLogin()) {
-                bg.skipToLoginActivity(this.mPageContext.getPageActivity());
+                bh.skipToLoginActivity(this.mPageContext.getPageActivity());
                 return;
             }
-            this.nwX = dressItemData.getPropsId();
+            this.nGH = dressItemData.getPropsId();
             BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
             backgroundSetRequestMessage.setFromDetail(z);
-            backgroundSetRequestMessage.setRequestUniqueId(this.nwY);
-            backgroundSetRequestMessage.setPropId(this.nwX);
+            backgroundSetRequestMessage.setRequestUniqueId(this.nGI);
+            backgroundSetRequestMessage.setPropId(this.nGH);
             MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_PERSONAL));
         }
@@ -60,7 +60,7 @@ public class d {
             i2 = 0;
         }
         if (!StringUtils.isNull(str)) {
-            if (i == com.baidu.tieba.themeCenter.c.nvS) {
+            if (i == com.baidu.tieba.themeCenter.c.nFC) {
                 String str2 = "";
                 if (this.mFrom == 1) {
                     str2 = MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY;
@@ -68,13 +68,13 @@ public class d {
                     str2 = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY;
                 }
                 com.baidu.tieba.themeCenter.b.a(this.mPageContext, z ? 4 : 2, str, i2, str2, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-            } else if (i == com.baidu.tieba.themeCenter.c.nvT) {
+            } else if (i == com.baidu.tieba.themeCenter.c.nFD) {
                 com.baidu.tieba.themeCenter.b.a(this.mPageContext, z ? 4 : 2, str, i2);
             }
         }
     }
 
     public int getPropId() {
-        return this.nwX;
+        return this.nGH;
     }
 }

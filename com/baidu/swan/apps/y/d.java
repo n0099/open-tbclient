@@ -5,42 +5,42 @@ import android.graphics.Rect;
 import android.util.Log;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
-    boolean crN;
-    long dmb;
-    private WeakReference<Bitmap> dmd;
-    boolean dme;
+    boolean ctE;
+    long don;
+    private WeakReference<Bitmap> dop;
+    boolean doq;
     String id;
     Rect rect;
     String url;
-    int dmc = 0;
+    int doo = 0;
     long startTime = System.currentTimeMillis();
-    int dma = 0;
+    int dom = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, String str2, long j, boolean z) {
         this.id = str;
         this.url = str2;
-        this.dmb = j;
-        this.dme = z;
+        this.don = j;
+        this.doq = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aCp() {
-        if (this.dmb > 0) {
-            this.dmb -= System.currentTimeMillis() - this.startTime;
+    public long aCL() {
+        if (this.don > 0) {
+            this.don -= System.currentTimeMillis() - this.startTime;
         }
-        return this.dmb;
+        return this.don;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void pause() {
-        if (this.dmb > 0) {
-            this.dmb -= System.currentTimeMillis() - this.startTime;
+        if (this.don > 0) {
+            this.don -= System.currentTimeMillis() - this.startTime;
             if (DEBUG) {
-                Log.d("SwanAppPageMonitor", "pause, left " + this.dmb + "ms");
+                Log.d("SwanAppPageMonitor", "pause, left " + this.don + "ms");
             }
         }
     }
@@ -51,22 +51,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aCq() {
-        this.dma = 1;
+    public void aCM() {
+        this.dom = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aCr() {
-        this.dma = 2;
+    public void aCN() {
+        this.dom = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isChecked() {
-        return this.dma == 2;
+        return this.dom == 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void q(Bitmap bitmap) {
-        this.dmd = new WeakReference<>(bitmap);
+    public void p(Bitmap bitmap) {
+        this.dop = new WeakReference<>(bitmap);
     }
 }

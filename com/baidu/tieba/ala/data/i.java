@@ -1,10 +1,11 @@
 package com.baidu.tieba.ala.data;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i {
-    public long gPZ;
-    public long gQa;
+    public long gSJ;
+    public long gSK;
+    public String gSy;
     public String id;
     public String portrait;
     public long startTime;
@@ -13,11 +14,12 @@ public class i {
 
     public void parserJson(JSONObject jSONObject) {
         this.id = jSONObject.optString("id");
-        this.gPZ = jSONObject.optLong("sys_time");
+        this.gSJ = jSONObject.optLong("sys_time");
         this.startTime = jSONObject.optLong("start_time");
-        this.gQa = jSONObject.optLong("balance");
+        this.gSK = jSONObject.optLong("balance");
         this.status = jSONObject.optInt("status");
         this.userName = jSONObject.optString("user_name");
         this.portrait = jSONObject.optString("bd_portrait");
+        this.gSy = jSONObject.optString("name_suffix");
     }
 }

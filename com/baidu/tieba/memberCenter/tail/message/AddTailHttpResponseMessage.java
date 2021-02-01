@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.tail.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.memberCenter.tail.data.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AddTailHttpResponseMessage extends HttpResponsedMessage {
     private b resultData;
 
@@ -12,7 +12,7 @@ public class AddTailHttpResponseMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: getResultData */
-    public b m37getResultData() {
+    public b m36getResultData() {
         return this.resultData;
     }
 

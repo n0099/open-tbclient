@@ -6,14 +6,14 @@ import java.util.List;
 public abstract class dc {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13932a;
+    private int f13934a;
 
     public dc(int i) {
-        this.f13932a = i;
+        this.f13934a = i;
     }
 
     public int a() {
-        return this.f13932a;
+        return this.f13934a;
     }
 
     public abstract String a(Context context, String str, List<ay> list);

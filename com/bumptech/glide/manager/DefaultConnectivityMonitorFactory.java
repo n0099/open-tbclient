@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import com.bumptech.glide.manager.ConnectivityMonitor;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class DefaultConnectivityMonitorFactory implements ConnectivityMonitorFactory {
     private static final String NETWORK_PERMISSION = "android.permission.ACCESS_NETWORK_STATE";
     private static final String TAG = "ConnectivityMonitor";

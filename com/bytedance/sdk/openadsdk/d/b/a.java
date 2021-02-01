@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.d.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static <T> T a(T t) {
         if (t == null) {

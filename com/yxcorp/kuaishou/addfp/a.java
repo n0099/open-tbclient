@@ -7,20 +7,20 @@ import android.util.Pair;
 import com.yxcorp.kuaishou.addfp.android.Orange;
 import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f14334b;
+    private Context f14336b;
     private String d;
     private String e;
     private String f;
     private boolean g;
-    private b qbt;
+    private b qlx;
     private static int c = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f14333a = "KWE_NS";
+    public static String f14335a = "KWE_NS";
 
     private a() {
         this.d = "";
@@ -36,7 +36,7 @@ public class a {
 
     private void a(Context context) {
         try {
-            com.yxcorp.kuaishou.addfp.a.a.b.eHf().a(context, new d(this, context));
+            com.yxcorp.kuaishou.addfp.a.a.b.eJv().a(context, new d(this, context));
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
         }
@@ -45,10 +45,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar) {
         try {
-            boolean a2 = new com.yxcorp.kuaishou.addfp.android.a.e(this.f14334b).a();
-            a(this.f14334b);
+            boolean a2 = new com.yxcorp.kuaishou.addfp.android.a.e(this.f14336b).a();
+            a(this.f14336b);
             a(a2);
-            this.f = com.yxcorp.kuaishou.addfp.android.a.a.eHl().c(this.f14334b, this.g, TextUtils.isEmpty(this.e));
+            this.f = com.yxcorp.kuaishou.addfp.android.a.a.eJB().c(this.f14336b, this.g, TextUtils.isEmpty(this.e));
             if (bVar != null) {
                 if (TextUtils.isEmpty(this.e) && TextUtils.isEmpty(this.f)) {
                     bVar.a(-2, "need check");
@@ -72,9 +72,9 @@ public class a {
 
     private void a(boolean z) {
         String str;
-        LinkedHashMap aaO;
+        LinkedHashMap abP;
         try {
-            Pair a2 = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).a();
+            Pair a2 = com.yxcorp.kuaishou.addfp.android.a.c.jf(this.f14336b).a();
             if (a2 != null && a2.second != null) {
                 String str2 = (String) ((ConcurrentHashMap) a2.second).get("cache_e");
                 if (!TextUtils.isEmpty(str2)) {
@@ -82,19 +82,19 @@ public class a {
                 }
             }
             if (TextUtils.isEmpty(this.e)) {
-                String a3 = Build.VERSION.SDK_INT < 29 ? com.yxcorp.kuaishou.addfp.android.a.d.a(this.f14334b, "k_w_o_d_out_dtt") : null;
+                String a3 = Build.VERSION.SDK_INT < 29 ? com.yxcorp.kuaishou.addfp.android.a.d.a(this.f14336b, "k_w_o_d_out_dtt") : null;
                 if (TextUtils.isEmpty(a3)) {
                     com.yxcorp.kuaishou.addfp.android.b.a.a();
-                    if (com.yxcorp.kuaishou.addfp.android.b.e.e(this.f14334b, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
-                        str = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).b("Lm91a2R0ZnQ=");
+                    if (com.yxcorp.kuaishou.addfp.android.b.e.d(this.f14336b, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                        str = com.yxcorp.kuaishou.addfp.android.a.c.jf(this.f14336b).b("Lm91a2R0ZnQ=");
                         if (TextUtils.isEmpty(a3) || !TextUtils.isEmpty(str)) {
-                            aaO = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaO(a3);
-                            if (aaO != null || aaO.size() == 0) {
-                                aaO = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaO(str);
+                            abP = com.yxcorp.kuaishou.addfp.android.a.c.jf(this.f14336b).abP(a3);
+                            if (abP != null || abP.size() == 0) {
+                                abP = com.yxcorp.kuaishou.addfp.android.a.c.jf(this.f14336b).abP(str);
                             }
-                            if (aaO != null || aaO.size() <= 0) {
+                            if (abP != null || abP.size() <= 0) {
                             }
-                            String str3 = (String) aaO.get(com.yxcorp.kuaishou.addfp.android.a.a.eHl().b());
+                            String str3 = (String) abP.get(com.yxcorp.kuaishou.addfp.android.a.a.eJB().b());
                             if (TextUtils.isEmpty(str3)) {
                                 return;
                             }
@@ -107,11 +107,11 @@ public class a {
                 str = "";
                 if (TextUtils.isEmpty(a3)) {
                 }
-                aaO = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaO(a3);
-                if (aaO != null) {
+                abP = com.yxcorp.kuaishou.addfp.android.a.c.jf(this.f14336b).abP(a3);
+                if (abP != null) {
                 }
-                aaO = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaO(str);
-                if (aaO != null) {
+                abP = com.yxcorp.kuaishou.addfp.android.a.c.jf(this.f14336b).abP(str);
+                if (abP != null) {
                 }
             }
         } catch (Throwable th) {
@@ -120,17 +120,17 @@ public class a {
     }
 
     public static String b(Context context, String str) {
-        return Orange.eHk().a(context, str.getBytes(), 20);
+        return Orange.eJA().a(context, str.getBytes(), 20);
     }
 
-    public static final a eHe() {
-        return e.eHe();
+    public static final a eJu() {
+        return e.eJu();
     }
 
     public void a(Context context, boolean z, b bVar) {
         try {
-            this.qbt = bVar;
-            this.f14334b = context;
+            this.qlx = bVar;
+            this.f14336b = context;
             this.g = z;
             Thread thread = new Thread(new c(this));
             thread.setName("adsence-dfp");
@@ -145,7 +145,7 @@ public class a {
 
     public boolean a(Context context, String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("DFP") && str.length() == 64) {
-            com.yxcorp.kuaishou.addfp.android.a.c.jc(context).a(str, "");
+            com.yxcorp.kuaishou.addfp.android.a.c.jf(context).a(str, "");
             return true;
         }
         return false;

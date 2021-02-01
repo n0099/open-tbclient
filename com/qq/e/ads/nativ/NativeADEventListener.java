@@ -1,7 +1,7 @@
 package com.qq.e.ads.nativ;
 
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface NativeADEventListener {
     void onADClicked();
 

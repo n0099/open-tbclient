@@ -2,7 +2,7 @@ package kotlin.internal.contracts;
 
 import kotlin.e;
 @e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum InvocationKind {
     AT_MOST_ONCE,
     AT_LEAST_ONCE,

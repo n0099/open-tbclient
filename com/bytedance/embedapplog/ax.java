@@ -6,28 +6,28 @@ import android.text.TextUtils;
 import com.bytedance.embedapplog.bi;
 import com.bytedance.embedapplog.bp;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class ax<SERVICE> implements bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f5790a;
-    private aw<Boolean> pcs = new aw<Boolean>() { // from class: com.bytedance.embedapplog.ax.1
+    private final String f5792a;
+    private aw<Boolean> pmH = new aw<Boolean>() { // from class: com.bytedance.embedapplog.ax.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
         /* renamed from: N */
         public Boolean M(Object... objArr) {
-            return Boolean.valueOf(bc.a((Context) objArr[0], ax.this.f5790a));
+            return Boolean.valueOf(bc.a((Context) objArr[0], ax.this.f5792a));
         }
     };
 
     protected abstract Intent c(Context context);
 
-    protected abstract bp.b<SERVICE, String> elz();
+    protected abstract bp.b<SERVICE, String> enS();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(String str) {
-        this.f5790a = str;
+        this.f5792a = str;
     }
 
     @Override // com.bytedance.embedapplog.bi
@@ -35,20 +35,20 @@ public abstract class ax<SERVICE> implements bi {
         if (context == null) {
             return false;
         }
-        return this.pcs.b(context).booleanValue();
+        return this.pmH.b(context).booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
-    public bi.a hP(Context context) {
-        return Xw((String) new bp(context, c(context), elz()).a());
+    public bi.a hS(Context context) {
+        return Yx((String) new bp(context, c(context), enS()).a());
     }
 
-    private bi.a Xw(String str) {
+    private bi.a Yx(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         bi.a aVar = new bi.a();
-        aVar.f5801b = str;
+        aVar.f5803b = str;
         return aVar;
     }
 }

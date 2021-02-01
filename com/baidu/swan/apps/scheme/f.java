@@ -2,7 +2,7 @@ package com.baidu.swan.apps.scheme;
 
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f {
     public static String getErrMessage(int i) {
         switch (i) {

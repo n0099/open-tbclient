@@ -1,9 +1,9 @@
 package com.baidu.tieba.ala.i;
 
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public static String fO(long j) {
+    public static String fU(long j) {
         int i;
         int i2;
         int i3 = (int) (j / 1000);

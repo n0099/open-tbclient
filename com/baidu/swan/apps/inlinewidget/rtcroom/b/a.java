@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.inlinewidget.rtcroom.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public static boolean cg(long j) {
+    public static boolean cm(long j) {
         return j > 0;
     }
 }

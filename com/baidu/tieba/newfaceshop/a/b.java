@@ -1,5 +1,5 @@
 package com.baidu.tieba.newfaceshop.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface b {
     void onFail(String str);
 

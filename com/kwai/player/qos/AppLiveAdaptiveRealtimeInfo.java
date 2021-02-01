@@ -3,7 +3,7 @@ package com.kwai.player.qos;
 import android.os.Bundle;
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AppLiveAdaptiveRealtimeInfo {
     private static final String LiveAdaptiveRealtimeInfo_audioBufferTime = "audioBufferTime";
     private static final String LiveAdaptiveRealtimeInfo_bandwidthCurrent = "bandwidthCurrent";

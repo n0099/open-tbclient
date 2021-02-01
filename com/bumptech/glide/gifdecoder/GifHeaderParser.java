@@ -3,13 +3,12 @@ package com.bumptech.glide.gifdecoder;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.view.ViewCompat;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class GifHeaderParser {
     static final int DEFAULT_FRAME_DELAY = 10;
     private static final int DESCRIPTOR_MASK_INTERLACE_FLAG = 64;
@@ -93,7 +92,7 @@ public class GifHeaderParser {
     }
 
     private void readContents() {
-        readContents(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        readContents(Integer.MAX_VALUE);
     }
 
     private void readContents(int i) {

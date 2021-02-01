@@ -1,82 +1,27 @@
 package com.baidu.live.view.web.a;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.live.adp.BdUniqueId;
-import com.baidu.live.gift.ac;
-import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.tbadk.extraparams.ResultCallback;
-import com.baidu.live.tbadk.scheme.SchemeCallback;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class s extends com.baidu.live.view.web.a {
-    private SchemeCallback schemeCallback;
-
-    public s(Context context, SchemeCallback schemeCallback) {
-        this.schemeCallback = schemeCallback;
-    }
-
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "sendTagGiftBridge";
+        return "ruleBridge";
     }
 
     @Override // com.baidu.live.view.web.a
-    public void hU(String str) {
-        Log.d("JsInterface", "@@ JsInterface-impl sendTagGiftBridge params = " + str);
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString("giftId");
-            String optString2 = jSONObject.optString("giftPrice");
-            String optString3 = jSONObject.optString("giftName");
-            int optInt = jSONObject.optInt("giftNum");
-            int optInt2 = jSONObject.optInt("giftType");
-            String optString4 = jSONObject.optString("giftUrl");
+    public void is(String str) {
+        if (str != null) {
             try {
-                if (!TextUtils.isEmpty(optString4)) {
-                    optString4 = URLDecoder.decode(optString4, "UTF-8");
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject != null) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913259, jSONObject));
                 }
-            } catch (UnsupportedEncodingException e) {
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.baidu.live.gift.g gVar = new com.baidu.live.gift.g();
-            gVar.fv(optString);
-            gVar.setGiftName(optString3);
-            gVar.setPrice(optString2);
-            gVar.fu(String.valueOf(optInt));
-            gVar.setSceneFrom(com.baidu.live.utils.q.TN());
-            gVar.cB(optInt2);
-            gVar.setThumbnailUrl(optString4);
-            BdUniqueId gen = BdUniqueId.gen();
-            final int id = gen.getId();
-            final String optString5 = jSONObject.optString("callBack");
-            if (this.schemeCallback != null) {
-                ExtraParamsManager.addH5SendTagGiftCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.s.1
-                    @Override // com.baidu.live.tbadk.extraparams.ResultCallback
-                    public void onCallback(JSONObject jSONObject2) {
-                        Log.i("haha", "@@ haha result=" + jSONObject2);
-                        try {
-                            if (jSONObject2.optInt("uniqueId", 0) == id) {
-                                s.this.schemeCallback.doJsCallback(jSONObject2.optInt("status", 0), jSONObject2.optString("message"), new JSONObject(), optString5);
-                            }
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                });
-            }
-            a(gen, gVar, optInt);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
         }
-    }
-
-    private void a(BdUniqueId bdUniqueId, com.baidu.live.gift.g gVar, int i) {
-        com.baidu.live.data.x Eb = ac.Eb();
-        ac.b(gVar, i, Eb.aFH.userId + "", Eb.aFH.userName, Eb.mLiveInfo.live_id + "", Eb.mLiveInfo.room_id + "", Eb.mLiveInfo.appId + "", Eb.mLiveInfo.feed_id + "", "", 0L, bdUniqueId);
     }
 }

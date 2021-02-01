@@ -8,16 +8,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class bf<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<K, List<WeakReference<V>>> f12577a = new HashMap();
+    private Map<K, List<WeakReference<V>>> f12579a = new HashMap();
 
     public Collection<V> a(K k) {
         List emptyList;
         synchronized (this) {
-            List<WeakReference<V>> list = this.f12577a.get(k);
+            List<WeakReference<V>> list = this.f12579a.get(k);
             if (list == null || list.isEmpty()) {
                 emptyList = Collections.emptyList();
             } else {
@@ -32,7 +32,7 @@ public class bf<K, V> {
                     }
                 }
                 if (arrayList.isEmpty()) {
-                    this.f12577a.remove(k);
+                    this.f12579a.remove(k);
                 }
                 emptyList = arrayList;
             }
@@ -42,10 +42,10 @@ public class bf<K, V> {
 
     public void a(K k, V v) {
         synchronized (this) {
-            List<WeakReference<V>> list = this.f12577a.get(k);
+            List<WeakReference<V>> list = this.f12579a.get(k);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f12577a.put(k, list);
+                this.f12579a.put(k, list);
             }
             list.add(new WeakReference<>(v));
         }
@@ -53,7 +53,7 @@ public class bf<K, V> {
 
     public void a(String str, V v) {
         synchronized (this) {
-            List<WeakReference<V>> list = this.f12577a.get(str);
+            List<WeakReference<V>> list = this.f12579a.get(str);
             if (list != null) {
                 Iterator<WeakReference<V>> it = list.iterator();
                 while (it.hasNext()) {

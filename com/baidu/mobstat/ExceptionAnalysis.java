@@ -10,26 +10,26 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class ExceptionAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ExceptionAnalysis f3596a = new ExceptionAnalysis();
+    private static ExceptionAnalysis f3599a = new ExceptionAnalysis();
     private Context c;
     private String e;
     public Callback mCallback;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3597b = false;
+    private boolean f3600b = false;
     private HeadObject d = new HeadObject();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
 
     public static ExceptionAnalysis getInstance() {
-        return f3596a;
+        return f3599a;
     }
 
     private ExceptionAnalysis() {
@@ -43,8 +43,8 @@ public class ExceptionAnalysis {
         if (context != null) {
             this.c = context.getApplicationContext();
         }
-        if (this.c != null && !this.f3597b) {
-            this.f3597b = true;
+        if (this.c != null && !this.f3600b) {
+            this.f3600b = true;
             ad.a().a(this.c);
             if (!z) {
                 NativeCrashHandler.init(this.c);

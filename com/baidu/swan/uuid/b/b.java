@@ -2,7 +2,7 @@ package com.baidu.swan.uuid.b;
 
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b {
     public static String toMd5(byte[] bArr, boolean z) {
         try {

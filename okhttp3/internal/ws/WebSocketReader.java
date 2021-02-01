@@ -1,13 +1,14 @@
 package okhttp3.internal.ws;
 
 import com.baidu.live.tbadk.log.LogConfig;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
 import java.net.ProtocolException;
 import java.util.concurrent.TimeUnit;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 final class WebSocketReader {
     boolean closed;
     final FrameCallback frameCallback;
@@ -22,7 +23,7 @@ final class WebSocketReader {
     private final Buffer controlFrameBuffer = new Buffer();
     private final Buffer messageFrameBuffer = new Buffer();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface FrameCallback {
         void onReadClose(int i, String str);
 
@@ -88,7 +89,7 @@ final class WebSocketReader {
             if (z4 == this.isClient) {
                 throw new ProtocolException(this.isClient ? "Server-sent frames must not be masked." : "Client-sent frames must be masked.");
             }
-            this.frameLength = readByte2 & 127;
+            this.frameLength = readByte2 & ThunderNetStateService.NetState.SYSNET_UNKNOWN;
             if (this.frameLength == 126) {
                 this.frameLength = this.source.readShort() & 65535;
             } else if (this.frameLength == 127) {

@@ -1,26 +1,26 @@
 package com.baidu.tieba.personPolymeric;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private static b mpZ = new b();
+    private static b myZ = new b();
     private long creatTime = 0;
-    private long mqa = 0;
-    private long mqb = 0;
-    private long fHj = 0;
+    private long mza = 0;
+    private long mzb = 0;
+    private long fJu = 0;
     private long beginTime = 0;
-    private long mqc = 0;
-    private long mqd = 0;
+    private long mzc = 0;
+    private long mzd = 0;
 
     private b() {
     }
 
     public void reset() {
         this.creatTime = 0L;
-        this.mqa = 0L;
-        this.mqb = 0L;
-        this.fHj = 0L;
+        this.mza = 0L;
+        this.mzb = 0L;
+        this.fJu = 0L;
         this.beginTime = 0L;
-        this.mqc = 0L;
-        this.mqd = 0L;
+        this.mzc = 0L;
+        this.mzd = 0L;
     }
 
     public String toString() {
@@ -30,18 +30,18 @@ public class b {
         stringBuffer.append(" creatTime:");
         stringBuffer.append(this.creatTime);
         stringBuffer.append(" refreshStartTime:");
-        stringBuffer.append(this.mqd);
+        stringBuffer.append(this.mzd);
         stringBuffer.append(" refrehTime:");
-        stringBuffer.append(this.mqc);
+        stringBuffer.append(this.mzc);
         stringBuffer.append(" drawTime:");
-        stringBuffer.append(this.fHj);
+        stringBuffer.append(this.fJu);
         stringBuffer.append(" profileTime:");
-        stringBuffer.append(this.mqb);
+        stringBuffer.append(this.mzb);
         return stringBuffer.toString();
     }
 
-    public static b dvU() {
-        return mpZ;
+    public static b dyd() {
+        return myZ;
     }
 
     public long getCreateTime() {
@@ -52,55 +52,55 @@ public class b {
         this.creatTime = j;
     }
 
-    public long beN() {
+    public long bfa() {
         return this.beginTime;
     }
 
-    public void dw(long j) {
+    public void dC(long j) {
         this.beginTime = j;
     }
 
-    public long dul() {
-        return this.fHj;
+    public long dwu() {
+        return this.fJu;
     }
 
-    public void ho(long j) {
-        this.fHj = j;
+    public void ht(long j) {
+        this.fJu = j;
     }
 
     public long getRefreshTime() {
-        return this.mqc;
+        return this.mzc;
     }
 
     public void setRefreshTime(long j) {
-        this.mqc = j;
+        this.mzc = j;
     }
 
-    public long dum() {
-        return this.mqd;
+    public long dwv() {
+        return this.mzd;
     }
 
-    public void hp(long j) {
-        if (this.mqd == 0) {
-            this.mqd = j;
+    public void hu(long j) {
+        if (this.mzd == 0) {
+            this.mzd = j;
         }
     }
 
-    public long dvV() {
-        return this.mqa;
+    public long dye() {
+        return this.mza;
     }
 
-    public void hr(long j) {
-        if (this.mqa == 0) {
-            this.mqa = j;
+    public void hw(long j) {
+        if (this.mza == 0) {
+            this.mza = j;
         }
     }
 
-    public long dvW() {
-        return this.mqb;
+    public long dyf() {
+        return this.mzb;
     }
 
-    public void hs(long j) {
-        this.mqb = j;
+    public void hx(long j) {
+        this.mzb = j;
     }
 }

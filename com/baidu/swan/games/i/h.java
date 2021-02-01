@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class h implements Runnable {
-    private final i edA;
-    private AtomicBoolean eew = new AtomicBoolean(false);
-    private List<h> eex = Collections.synchronizedList(new ArrayList());
+    private final i efH;
+    private AtomicBoolean egE = new AtomicBoolean(false);
+    private List<h> egF = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
-        this.edA = iVar;
+        this.efH = iVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -24,17 +24,17 @@ public class h implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            aWc();
+            aWo();
         } finally {
-            this.edA.c(this);
+            this.efH.c(this);
         }
     }
 
-    public void aWc() {
+    public void aWo() {
         this.mRunnable.run();
     }
 
-    public void aWd() {
+    public void aWp() {
         p.a(this, this.mTag);
     }
 
@@ -42,29 +42,29 @@ public class h implements Runnable {
         return this.mTag;
     }
 
-    public String[] aWe() {
+    public String[] aWq() {
         return this.mPaths;
     }
 
-    public boolean aWf() {
-        return this.eew.get();
+    public boolean aWr() {
+        return this.egE.get();
     }
 
-    public void aWg() {
-        this.eew.set(true);
+    public void aWs() {
+        this.egE.set(true);
     }
 
     public void a(h hVar) {
-        if (!this.eex.contains(hVar)) {
-            this.eex.add(hVar);
+        if (!this.egF.contains(hVar)) {
+            this.egF.add(hVar);
         }
     }
 
     public void b(h hVar) {
-        this.eex.remove(hVar);
+        this.egF.remove(hVar);
     }
 
-    public boolean aWh() {
-        return this.eex.isEmpty();
+    public boolean aWt() {
+        return this.egF.isEmpty();
     }
 }

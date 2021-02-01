@@ -2,19 +2,19 @@ package com.baidu.live.lottie.model.content;
 
 import android.graphics.PointF;
 import com.baidu.live.lottie.model.a.m;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PolystarShape implements b {
-    private final m<PointF, PointF> bpU;
-    private final com.baidu.live.lottie.model.a.b bpW;
-    private final Type bpc;
-    private final com.baidu.live.lottie.model.a.b bqo;
-    private final com.baidu.live.lottie.model.a.b bqp;
-    private final com.baidu.live.lottie.model.a.b bqq;
-    private final com.baidu.live.lottie.model.a.b bqr;
-    private final com.baidu.live.lottie.model.a.b bqs;
+    private final Type bsD;
+    private final com.baidu.live.lottie.model.a.b btQ;
+    private final com.baidu.live.lottie.model.a.b btR;
+    private final com.baidu.live.lottie.model.a.b btS;
+    private final com.baidu.live.lottie.model.a.b btT;
+    private final com.baidu.live.lottie.model.a.b btU;
+    private final m<PointF, PointF> btw;
+    private final com.baidu.live.lottie.model.a.b bty;
     private final String name;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Type {
         Star(1),
         Polygon(2);
@@ -38,50 +38,50 @@ public class PolystarShape implements b {
 
     public PolystarShape(String str, Type type, com.baidu.live.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.baidu.live.lottie.model.a.b bVar2, com.baidu.live.lottie.model.a.b bVar3, com.baidu.live.lottie.model.a.b bVar4, com.baidu.live.lottie.model.a.b bVar5, com.baidu.live.lottie.model.a.b bVar6) {
         this.name = str;
-        this.bpc = type;
-        this.bqo = bVar;
-        this.bpU = mVar;
-        this.bpW = bVar2;
-        this.bqp = bVar3;
-        this.bqq = bVar4;
-        this.bqr = bVar5;
-        this.bqs = bVar6;
+        this.bsD = type;
+        this.btQ = bVar;
+        this.btw = mVar;
+        this.bty = bVar2;
+        this.btR = bVar3;
+        this.btS = bVar4;
+        this.btT = bVar5;
+        this.btU = bVar6;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type Mq() {
-        return this.bpc;
+    public Type NO() {
+        return this.bsD;
     }
 
-    public com.baidu.live.lottie.model.a.b Mr() {
-        return this.bqo;
+    public com.baidu.live.lottie.model.a.b NP() {
+        return this.btQ;
     }
 
-    public m<PointF, PointF> LX() {
-        return this.bpU;
+    public m<PointF, PointF> Nv() {
+        return this.btw;
     }
 
-    public com.baidu.live.lottie.model.a.b LZ() {
-        return this.bpW;
+    public com.baidu.live.lottie.model.a.b Nx() {
+        return this.bty;
     }
 
-    public com.baidu.live.lottie.model.a.b Ms() {
-        return this.bqp;
+    public com.baidu.live.lottie.model.a.b NQ() {
+        return this.btR;
     }
 
-    public com.baidu.live.lottie.model.a.b Mt() {
-        return this.bqq;
+    public com.baidu.live.lottie.model.a.b NR() {
+        return this.btS;
     }
 
-    public com.baidu.live.lottie.model.a.b Mu() {
-        return this.bqr;
+    public com.baidu.live.lottie.model.a.b NS() {
+        return this.btT;
     }
 
-    public com.baidu.live.lottie.model.a.b Mv() {
-        return this.bqs;
+    public com.baidu.live.lottie.model.a.b NT() {
+        return this.btU;
     }
 
     @Override // com.baidu.live.lottie.model.content.b

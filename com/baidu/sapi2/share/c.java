@@ -13,11 +13,11 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.k;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f5064a;
+    private static String f5066a;
 
     c() {
     }
@@ -59,7 +59,7 @@ final class c {
     private static String a(Context context) {
         String str;
         String str2;
-        String str3 = f5064a;
+        String str3 = f5066a;
         if (str3 == null) {
             String deviceId = Build.VERSION.SDK_INT < 23 ? ((TelephonyManager) context.getSystemService("phone")).getDeviceId() : null;
             String str4 = Build.MODEL;
@@ -78,8 +78,8 @@ final class c {
             if (substring.length() < 16) {
                 substring = (substring + "----------------").substring(0, 16);
             }
-            f5064a = substring;
-            return f5064a;
+            f5066a = substring;
+            return f5066a;
         }
         return str3;
     }

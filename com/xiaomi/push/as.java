@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 class as implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f13863a;
+    private Context f13865a;
 
     /* renamed from: a  reason: collision with other field name */
     private Class<?> f190a;
@@ -18,12 +18,12 @@ class as implements ar {
     private Method f192a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private Method f13864b = null;
+    private Method f13866b = null;
     private Method c = null;
     private Method d = null;
 
     public as(Context context) {
-        this.f13863a = context;
+        this.f13865a = context;
         a(context);
     }
 
@@ -46,7 +46,7 @@ class as implements ar {
             this.f190a = t.a(context, "com.android.id.impl.IdProviderImpl");
             this.f191a = this.f190a.newInstance();
             this.f192a = this.f190a.getMethod("getUDID", Context.class);
-            this.f13864b = this.f190a.getMethod("getOAID", Context.class);
+            this.f13866b = this.f190a.getMethod("getOAID", Context.class);
             this.c = this.f190a.getMethod("getVAID", Context.class);
             this.d = this.f190a.getMethod("getAAID", Context.class);
         } catch (Exception e) {
@@ -61,7 +61,7 @@ class as implements ar {
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return a(this.f13863a, this.f192a);
+        return a(this.f13865a, this.f192a);
     }
 
     @Override // com.xiaomi.push.ar
@@ -72,16 +72,16 @@ class as implements ar {
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
     public String mo161b() {
-        return a(this.f13863a, this.f13864b);
+        return a(this.f13865a, this.f13866b);
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        return a(this.f13863a, this.c);
+        return a(this.f13865a, this.c);
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        return a(this.f13863a, this.d);
+        return a(this.f13865a, this.d);
     }
 }

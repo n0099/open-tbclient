@@ -12,14 +12,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f12354a;
+    private TextView f12356a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ProgressBar f12355b;
+    private ProgressBar f12357b;
     private a c;
 
     public b(Context context) {
@@ -44,11 +44,11 @@ public class b extends FrameLayout {
         layoutParams2.gravity = 80;
         view.setLayoutParams(layoutParams2);
         addView(view);
-        this.f12355b = new ProgressBar(context, null, 16842872);
+        this.f12357b = new ProgressBar(context, null, 16842872);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, (int) TypedValue.applyDimension(1, 1.34f, getResources().getDisplayMetrics()));
         layoutParams3.gravity = 80;
-        this.f12355b.setLayoutParams(layoutParams3);
-        this.f12355b.setMax(100);
+        this.f12357b.setLayoutParams(layoutParams3);
+        this.f12357b.setMax(100);
         ClipDrawable clipDrawable = new ClipDrawable(new ColorDrawable(0), 3, 1);
         ClipDrawable clipDrawable2 = new ClipDrawable(new ColorDrawable(Color.parseColor("#ff008de8")), 3, 1);
         clipDrawable.setLevel(10000);
@@ -56,24 +56,24 @@ public class b extends FrameLayout {
         layerDrawable.setId(0, 16908288);
         layerDrawable.setId(1, 16908303);
         layerDrawable.setId(2, 16908301);
-        this.f12355b.setProgressDrawable(layerDrawable);
-        addView(this.f12355b);
-        this.f12354a = new TextView(context);
+        this.f12357b.setProgressDrawable(layerDrawable);
+        addView(this.f12357b);
+        this.f12356a = new TextView(context);
         int applyDimension2 = (int) TypedValue.applyDimension(1, 55.0f, getResources().getDisplayMetrics());
         FrameLayout.LayoutParams layoutParams4 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams4.gravity = 17;
         layoutParams4.leftMargin = applyDimension2;
         layoutParams4.rightMargin = applyDimension2;
-        this.f12354a.setLayoutParams(layoutParams4);
-        this.f12354a.setTextSize(2, 15.33f);
-        this.f12354a.setTextColor(Color.parseColor("#ff2a2d33"));
-        this.f12354a.setSingleLine();
-        this.f12354a.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
-        addView(this.f12354a);
+        this.f12356a.setLayoutParams(layoutParams4);
+        this.f12356a.setTextSize(2, 15.33f);
+        this.f12356a.setTextColor(Color.parseColor("#ff2a2d33"));
+        this.f12356a.setSingleLine();
+        this.f12356a.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
+        addView(this.f12356a);
     }
 
     private void b(int i) {
-        ProgressBar progressBar = this.f12355b;
+        ProgressBar progressBar = this.f12357b;
         if (i < 0) {
             i = 0;
         } else if (i > 100) {
@@ -83,15 +83,15 @@ public class b extends FrameLayout {
     }
 
     public void a() {
-        if (this.f12355b.getVisibility() == 0) {
-            this.f12355b.setVisibility(8);
-            this.f12355b.setProgress(0);
+        if (this.f12357b.getVisibility() == 0) {
+            this.f12357b.setVisibility(8);
+            this.f12357b.setProgress(0);
         }
     }
 
     public void a(int i) {
-        if (this.f12355b.getVisibility() != 0) {
-            this.f12355b.setVisibility(0);
+        if (this.f12357b.getVisibility() != 0) {
+            this.f12357b.setVisibility(0);
         }
         b(i);
     }
@@ -102,6 +102,6 @@ public class b extends FrameLayout {
     }
 
     public void a(String str) {
-        this.f12354a.setText(str);
+        this.f12356a.setText(str);
     }
 }

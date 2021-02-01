@@ -4,14 +4,14 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.kwad.sdk.core.webview.jshandler.g;
 import com.vivo.push.PushClientConstants;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ae implements com.kwad.sdk.core.c<g.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
     public JSONObject a(g.a aVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "type", aVar.f9575a);
-        com.kwad.sdk.utils.o.a(jSONObject, "appName", aVar.f9576b);
+        com.kwad.sdk.utils.o.a(jSONObject, "type", aVar.f9577a);
+        com.kwad.sdk.utils.o.a(jSONObject, "appName", aVar.f9578b);
         com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, aVar.c);
         com.kwad.sdk.utils.o.a(jSONObject, "version", aVar.d);
         com.kwad.sdk.utils.o.a(jSONObject, "versionCode", aVar.e);
@@ -35,8 +35,8 @@ public class ae implements com.kwad.sdk.core.c<g.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f9575a = jSONObject.optInt("type");
-        aVar.f9576b = jSONObject.optString("appName");
+        aVar.f9577a = jSONObject.optInt("type");
+        aVar.f9578b = jSONObject.optString("appName");
         aVar.c = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
         aVar.d = jSONObject.optString("version");
         aVar.e = jSONObject.optInt("versionCode");

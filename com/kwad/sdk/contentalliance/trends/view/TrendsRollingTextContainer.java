@@ -13,14 +13,14 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.TrendInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TrendsRollingTextContainer extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f8889a;
+    public Handler f8891a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView[] f8890b;
+    public TextView[] f8892b;
     private int c;
     private int d;
     private List<TrendInfo> e;
@@ -31,7 +31,7 @@ public class TrendsRollingTextContainer extends FrameLayout {
 
     public TrendsRollingTextContainer(@NonNull Context context) {
         super(context);
-        this.f8890b = new TextView[2];
+        this.f8892b = new TextView[2];
         this.c = 0;
         this.d = 0;
         this.e = new ArrayList();
@@ -40,9 +40,9 @@ public class TrendsRollingTextContainer extends FrameLayout {
         this.h = new Runnable() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsRollingTextContainer.1
             @Override // java.lang.Runnable
             public void run() {
-                TrendsRollingTextContainer.this.b(TrendsRollingTextContainer.this.f8890b[TrendsRollingTextContainer.this.c]);
-                TrendsRollingTextContainer.this.f8889a.removeCallbacks(TrendsRollingTextContainer.this.i);
-                TrendsRollingTextContainer.this.f8889a.postDelayed(TrendsRollingTextContainer.this.i, 200L);
+                TrendsRollingTextContainer.this.b(TrendsRollingTextContainer.this.f8892b[TrendsRollingTextContainer.this.c]);
+                TrendsRollingTextContainer.this.f8891a.removeCallbacks(TrendsRollingTextContainer.this.i);
+                TrendsRollingTextContainer.this.f8891a.postDelayed(TrendsRollingTextContainer.this.i, 200L);
             }
         };
         this.i = new Runnable() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsRollingTextContainer.2
@@ -50,8 +50,8 @@ public class TrendsRollingTextContainer extends FrameLayout {
             public void run() {
                 if (TrendsRollingTextContainer.this.e.size() > 0) {
                     TrendsRollingTextContainer.d(TrendsRollingTextContainer.this);
-                    TrendsRollingTextContainer.this.f8890b[1 - TrendsRollingTextContainer.this.c].setText(((TrendInfo) TrendsRollingTextContainer.this.e.get(TrendsRollingTextContainer.this.d % TrendsRollingTextContainer.this.e.size())).name);
-                    TrendsRollingTextContainer.this.a(TrendsRollingTextContainer.this.f8890b[1 - TrendsRollingTextContainer.this.c]);
+                    TrendsRollingTextContainer.this.f8892b[1 - TrendsRollingTextContainer.this.c].setText(((TrendInfo) TrendsRollingTextContainer.this.e.get(TrendsRollingTextContainer.this.d % TrendsRollingTextContainer.this.e.size())).name);
+                    TrendsRollingTextContainer.this.a(TrendsRollingTextContainer.this.f8892b[1 - TrendsRollingTextContainer.this.c]);
                 }
             }
         };
@@ -60,7 +60,7 @@ public class TrendsRollingTextContainer extends FrameLayout {
 
     public TrendsRollingTextContainer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f8890b = new TextView[2];
+        this.f8892b = new TextView[2];
         this.c = 0;
         this.d = 0;
         this.e = new ArrayList();
@@ -69,9 +69,9 @@ public class TrendsRollingTextContainer extends FrameLayout {
         this.h = new Runnable() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsRollingTextContainer.1
             @Override // java.lang.Runnable
             public void run() {
-                TrendsRollingTextContainer.this.b(TrendsRollingTextContainer.this.f8890b[TrendsRollingTextContainer.this.c]);
-                TrendsRollingTextContainer.this.f8889a.removeCallbacks(TrendsRollingTextContainer.this.i);
-                TrendsRollingTextContainer.this.f8889a.postDelayed(TrendsRollingTextContainer.this.i, 200L);
+                TrendsRollingTextContainer.this.b(TrendsRollingTextContainer.this.f8892b[TrendsRollingTextContainer.this.c]);
+                TrendsRollingTextContainer.this.f8891a.removeCallbacks(TrendsRollingTextContainer.this.i);
+                TrendsRollingTextContainer.this.f8891a.postDelayed(TrendsRollingTextContainer.this.i, 200L);
             }
         };
         this.i = new Runnable() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsRollingTextContainer.2
@@ -79,8 +79,8 @@ public class TrendsRollingTextContainer extends FrameLayout {
             public void run() {
                 if (TrendsRollingTextContainer.this.e.size() > 0) {
                     TrendsRollingTextContainer.d(TrendsRollingTextContainer.this);
-                    TrendsRollingTextContainer.this.f8890b[1 - TrendsRollingTextContainer.this.c].setText(((TrendInfo) TrendsRollingTextContainer.this.e.get(TrendsRollingTextContainer.this.d % TrendsRollingTextContainer.this.e.size())).name);
-                    TrendsRollingTextContainer.this.a(TrendsRollingTextContainer.this.f8890b[1 - TrendsRollingTextContainer.this.c]);
+                    TrendsRollingTextContainer.this.f8892b[1 - TrendsRollingTextContainer.this.c].setText(((TrendInfo) TrendsRollingTextContainer.this.e.get(TrendsRollingTextContainer.this.d % TrendsRollingTextContainer.this.e.size())).name);
+                    TrendsRollingTextContainer.this.a(TrendsRollingTextContainer.this.f8892b[1 - TrendsRollingTextContainer.this.c]);
                 }
             }
         };
@@ -89,7 +89,7 @@ public class TrendsRollingTextContainer extends FrameLayout {
 
     public TrendsRollingTextContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f8890b = new TextView[2];
+        this.f8892b = new TextView[2];
         this.c = 0;
         this.d = 0;
         this.e = new ArrayList();
@@ -98,9 +98,9 @@ public class TrendsRollingTextContainer extends FrameLayout {
         this.h = new Runnable() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsRollingTextContainer.1
             @Override // java.lang.Runnable
             public void run() {
-                TrendsRollingTextContainer.this.b(TrendsRollingTextContainer.this.f8890b[TrendsRollingTextContainer.this.c]);
-                TrendsRollingTextContainer.this.f8889a.removeCallbacks(TrendsRollingTextContainer.this.i);
-                TrendsRollingTextContainer.this.f8889a.postDelayed(TrendsRollingTextContainer.this.i, 200L);
+                TrendsRollingTextContainer.this.b(TrendsRollingTextContainer.this.f8892b[TrendsRollingTextContainer.this.c]);
+                TrendsRollingTextContainer.this.f8891a.removeCallbacks(TrendsRollingTextContainer.this.i);
+                TrendsRollingTextContainer.this.f8891a.postDelayed(TrendsRollingTextContainer.this.i, 200L);
             }
         };
         this.i = new Runnable() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsRollingTextContainer.2
@@ -108,8 +108,8 @@ public class TrendsRollingTextContainer extends FrameLayout {
             public void run() {
                 if (TrendsRollingTextContainer.this.e.size() > 0) {
                     TrendsRollingTextContainer.d(TrendsRollingTextContainer.this);
-                    TrendsRollingTextContainer.this.f8890b[1 - TrendsRollingTextContainer.this.c].setText(((TrendInfo) TrendsRollingTextContainer.this.e.get(TrendsRollingTextContainer.this.d % TrendsRollingTextContainer.this.e.size())).name);
-                    TrendsRollingTextContainer.this.a(TrendsRollingTextContainer.this.f8890b[1 - TrendsRollingTextContainer.this.c]);
+                    TrendsRollingTextContainer.this.f8892b[1 - TrendsRollingTextContainer.this.c].setText(((TrendInfo) TrendsRollingTextContainer.this.e.get(TrendsRollingTextContainer.this.d % TrendsRollingTextContainer.this.e.size())).name);
+                    TrendsRollingTextContainer.this.a(TrendsRollingTextContainer.this.f8892b[1 - TrendsRollingTextContainer.this.c]);
                 }
             }
         };
@@ -137,19 +137,19 @@ public class TrendsRollingTextContainer extends FrameLayout {
     }
 
     private void d() {
-        this.f8889a = new Handler(getContext().getMainLooper());
+        this.f8891a = new Handler(getContext().getMainLooper());
     }
 
     private void e() {
-        this.f8890b[0] = (TextView) findViewById(R.id.ksad_trends_rolling_trend_name1);
-        this.f8890b[1] = (TextView) findViewById(R.id.ksad_trends_rolling_trend_name2);
+        this.f8892b[0] = (TextView) findViewById(R.id.ksad_trends_rolling_trend_name1);
+        this.f8892b[1] = (TextView) findViewById(R.id.ksad_trends_rolling_trend_name2);
     }
 
     private void f() {
         if (this.e.size() > 0) {
-            this.f8890b[this.c].setText(this.e.get(this.d % this.e.size()).name);
-            this.f8890b[this.c].setVisibility(0);
-            this.f8890b[1 - this.c].setVisibility(8);
+            this.f8892b[this.c].setText(this.e.get(this.d % this.e.size()).name);
+            this.f8892b[this.c].setVisibility(0);
+            this.f8892b[1 - this.c].setVisibility(8);
         }
     }
 
@@ -159,7 +159,7 @@ public class TrendsRollingTextContainer extends FrameLayout {
         this.f.setAnimationListener(new Animation.AnimationListener() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsRollingTextContainer.3
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                TrendsRollingTextContainer.this.f8890b[TrendsRollingTextContainer.this.c].setVisibility(8);
+                TrendsRollingTextContainer.this.f8892b[TrendsRollingTextContainer.this.c].setVisibility(8);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -168,7 +168,7 @@ public class TrendsRollingTextContainer extends FrameLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                TrendsRollingTextContainer.this.f8890b[TrendsRollingTextContainer.this.c].setVisibility(0);
+                TrendsRollingTextContainer.this.f8892b[TrendsRollingTextContainer.this.c].setVisibility(0);
             }
         });
         this.g = new AlphaAnimation(0.0f, 1.0f);
@@ -176,7 +176,7 @@ public class TrendsRollingTextContainer extends FrameLayout {
         this.g.setAnimationListener(new Animation.AnimationListener() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsRollingTextContainer.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                TrendsRollingTextContainer.this.f8890b[1 - TrendsRollingTextContainer.this.c].setVisibility(0);
+                TrendsRollingTextContainer.this.f8892b[1 - TrendsRollingTextContainer.this.c].setVisibility(0);
                 TrendsRollingTextContainer.this.c = 1 - TrendsRollingTextContainer.this.c;
                 TrendsRollingTextContainer.this.c();
             }
@@ -187,7 +187,7 @@ public class TrendsRollingTextContainer extends FrameLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                TrendsRollingTextContainer.this.f8890b[1 - TrendsRollingTextContainer.this.c].setVisibility(0);
+                TrendsRollingTextContainer.this.f8892b[1 - TrendsRollingTextContainer.this.c].setVisibility(0);
             }
         });
     }
@@ -224,15 +224,15 @@ public class TrendsRollingTextContainer extends FrameLayout {
     }
 
     public void b() {
-        this.f8889a.removeCallbacks(this.i);
-        this.f8889a.removeCallbacks(this.h);
+        this.f8891a.removeCallbacks(this.i);
+        this.f8891a.removeCallbacks(this.h);
         f();
     }
 
     public void c() {
         if (this.e.size() > 1) {
-            this.f8889a.removeCallbacks(this.h);
-            this.f8889a.postDelayed(this.h, 2000L);
+            this.f8891a.removeCallbacks(this.h);
+            this.f8891a.postDelayed(this.h, 2000L);
         }
     }
 

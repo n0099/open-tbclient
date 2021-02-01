@@ -26,35 +26,35 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.utils.r;
 import com.baidu.tieba.ala.data.m;
 import com.baidu.tieba.ala.g.i;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
-    private Button glU;
-    private Button glV;
-    private i glW;
-    private String glX;
-    private long glY;
+    private Button goD;
+    private Button goE;
+    private com.baidu.tieba.ala.g.i goF;
+    private String goG;
+    private long goH;
     private Context mContext;
     private View mRootView;
     private int mScreenWidth;
     private Handler mHandler = new Handler();
-    private boolean aTo = false;
-    private boolean aXA = false;
-    private boolean aXB = false;
-    private CustomMessageListener aTE = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.5
+    private boolean aWt = false;
+    private boolean baH = false;
+    private boolean baI = false;
+    private CustomMessageListener aWJ = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaDeleteWishActivity.this.closeActivity();
         }
     };
-    CustomMessageListener aTF = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.6
+    CustomMessageListener aWK = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaDeleteWishActivity.this.closeActivity();
         }
     };
-    private ViewTreeObserver.OnGlobalLayoutListener aXw = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.7
+    private ViewTreeObserver.OnGlobalLayoutListener baD = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.7
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(AlaDeleteWishActivity.this.getPageContext().getPageActivity());
@@ -83,15 +83,15 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
         super.onCreate(bundle);
         if (!isFinishing()) {
             this.mContext = this;
-            registerListener(this.aTF);
-            registerListener(this.aTE);
+            registerListener(this.aWK);
+            registerListener(this.aWJ);
             initView();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            this.aXA = false;
+            this.baH = false;
             this.mRootView.setVisibility(4);
-            this.glW = new i(getPageContext(), null, this, null);
-            this.glX = getIntent().getStringExtra("wish_id");
-            this.glY = getIntent().getLongExtra("index_id", 0L);
+            this.goF = new com.baidu.tieba.ala.g.i(getPageContext(), null, this, null);
+            this.goG = getIntent().getStringExtra("wish_id");
+            this.goH = getIntent().getLongExtra("index_id", 0L);
         }
     }
 
@@ -99,20 +99,20 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aTo) {
+        if (!this.aWt) {
             this.mRootView.setVisibility(0);
-            EL();
-            this.aTo = true;
+            Gb();
+            this.aWt = true;
         }
     }
 
-    private void EL() {
+    private void Gb() {
         Animation loadAnimation;
-        this.aXA = true;
+        this.baH = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0194a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0194a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.1
             @Override // android.view.animation.Animation.AnimationListener
@@ -121,7 +121,7 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaDeleteWishActivity.this.aXA = false;
+                AlaDeleteWishActivity.this.baH = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -131,13 +131,13 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void EM() {
+    private void Gc() {
         Animation loadAnimation;
-        if (!this.aXB && !this.aXA) {
+        if (!this.baI && !this.baH) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0194a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0194a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.2
                 @Override // android.view.animation.Animation.AnimationListener
@@ -154,28 +154,28 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aXB = true;
+            this.baI = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        EM();
+        Gc();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.ala_wish_list_delete_item_layout, (ViewGroup) null);
         setContentView(this.mRootView);
-        this.glU = (Button) this.mRootView.findViewById(a.f.ala_wish_list_delete_item_ok);
-        this.glV = (Button) this.mRootView.findViewById(a.f.ala_wish_list_delete_item_cancle);
-        this.glU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.3
+        this.goD = (Button) this.mRootView.findViewById(a.f.ala_wish_list_delete_item_ok);
+        this.goE = (Button) this.mRootView.findViewById(a.f.ala_wish_list_delete_item_cancle);
+        this.goD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaDeleteWishActivity.this.glW.HB(AlaDeleteWishActivity.this.glX);
+                AlaDeleteWishActivity.this.goF.If(AlaDeleteWishActivity.this.goG);
             }
         });
-        this.glV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.4
+        this.goE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaDeleteWishActivity.this.finish();
@@ -191,10 +191,10 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Ts();
+        UZ();
     }
 
-    private void Ts() {
+    private void UZ() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -212,7 +212,7 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
             }
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aXw);
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.baD);
             if (this.mRootView.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
                 if (screenDimensions[1] > screenDimensions[0]) {
@@ -236,25 +236,25 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.glW != null) {
-            this.glW.cla();
+        if (this.goF != null) {
+            this.goF.clY();
         }
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aXw);
-        this.aXw = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.baD);
+        this.baD = null;
     }
 
     @Override // com.baidu.tieba.ala.g.i.a
     public void a(m mVar) {
         Intent intent = new Intent();
-        intent.putExtra("index_id", this.glY);
+        intent.putExtra("index_id", this.goH);
         setResult(-1, intent);
         finish();
     }
 
     @Override // com.baidu.tieba.ala.g.i.a
-    public void aN(int i, String str) {
+    public void aS(int i, String str) {
         if (TextUtils.isEmpty(str)) {
             str = "删除心愿失败";
         }

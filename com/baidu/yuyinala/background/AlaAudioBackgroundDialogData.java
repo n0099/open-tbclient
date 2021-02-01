@@ -2,7 +2,7 @@ package com.baidu.yuyinala.background;
 
 import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaAudioBackgroundDialogData implements IBaseDialogData {
     private List<com.baidu.yuyinala.background.b.a> mBgList;
 

@@ -44,7 +44,7 @@ public class h {
             bArr2 = C(bArr2);
             com.baidu.lcp.sdk.d.d.d("PbProcessor", "payload is gzip compressed，length : " + bArr2.length);
         }
-        bVar.auX = bArr2;
+        bVar.auM = bArr2;
         if (parseFrom.hasNotify()) {
             RpcMetaPb.RpcNotifyMeta notify = parseFrom.getNotify();
             bVar.errorCode = 0;
@@ -52,7 +52,7 @@ public class h {
             bVar.serviceId = notify.getServiceId();
             bVar.methodId = notify.getMethodId();
             bVar.msgId = notify.getLogId();
-            bVar.auW = true;
+            bVar.auL = true;
             return bVar;
         } else if (parseFrom.hasResponse()) {
             RpcMetaPb.RpcResponseMeta response = parseFrom.getResponse();
@@ -61,7 +61,7 @@ public class h {
             bVar.serviceId = response.getServiceId();
             bVar.methodId = response.getMethodId();
             bVar.msgId = response.getLogId();
-            bVar.auW = false;
+            bVar.auL = false;
             if (bVar.errorCode == 0 && bVar.serviceId == 1) {
                 return a(bVar, bArr2);
             }
@@ -84,19 +84,19 @@ public class h {
             com.baidu.lcp.sdk.d.d.d("PbProcessor", "methodId ：" + bVar.methodId + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
             if (lcmResponse.getErrorCode() == 0) {
                 if (bVar.methodId == 1) {
-                    bVar.auZ = 0;
-                    bVar.auY = lcmResponse.getNextIntervalMs();
+                    bVar.auO = 0;
+                    bVar.auN = lcmResponse.getNextIntervalMs();
                 } else if (bVar.methodId == 2) {
-                    bVar.auZ = -1;
+                    bVar.auO = -1;
                 } else if (bVar.methodId == 3) {
-                    bVar.auY = lcmResponse.getNextIntervalMs();
+                    bVar.auN = lcmResponse.getNextIntervalMs();
                 } else if (bVar.methodId == 4) {
                     com.baidu.lcp.sdk.d.d.d("PbProcessor", "parseLcmResponse notify");
                 }
             } else {
                 bVar.errorCode = lcmResponse.getErrorCode();
                 bVar.errorMsg = lcmResponse.getErrorMsg();
-                bVar.auZ = -1;
+                bVar.auO = -1;
             }
         } else if (parseFrom.hasLcmNotify()) {
             com.baidu.lcp.sdk.d.d.d("PbProcessor", "lcmpb hasLcmNotify");

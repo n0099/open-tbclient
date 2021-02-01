@@ -8,38 +8,38 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class b {
     protected static WeakReference<TbPageContext<?>> mWeakContext = null;
-    protected static boolean eEX = false;
-    protected String eEU = "183322726";
-    protected boolean eEW = true;
-    protected transient List<String> eEV = new ArrayList(5);
+    protected static boolean eHe = false;
+    protected String eHb = "183322726";
+    protected boolean eHd = true;
+    protected transient List<String> eHc = new ArrayList(5);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bjK();
+    public abstract void bkf();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bjP();
+    public abstract void bkj();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bjQ();
+    public abstract void bkk();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bjR();
+    public abstract void bkl();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bjS();
+    public abstract void bkm();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void mH(int i);
+    public abstract void mK(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void removeCallBack();
@@ -64,16 +64,16 @@ public abstract class b {
         mWeakContext = new WeakReference<>(tbPageContext);
     }
 
-    public boolean bjO() {
-        return eEX;
+    public boolean bki() {
+        return eHe;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void iZ(boolean z) {
-        this.eEW = z;
+    public void jb(boolean z) {
+        this.eHd = z;
     }
 
-    public void bjL() {
+    public void resetContext() {
         if (mWeakContext != null) {
             mWeakContext.get();
             mWeakContext.clear();

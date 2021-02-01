@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class ContentLoadingProgressBar extends ProgressBar {
     private static final int MIN_DELAY = 500;
     private static final int MIN_SHOW_TIME = 500;

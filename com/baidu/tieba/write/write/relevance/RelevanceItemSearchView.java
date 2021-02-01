@@ -22,8 +22,8 @@ import com.baidu.adp.widget.design.TbTabLayout;
 import com.baidu.tbadk.core.message.EvaluateRelevanceItemSearchMessage;
 import com.baidu.tbadk.core.message.EvaluateRelevanceItemUpdatedMessage;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
@@ -31,30 +31,30 @@ import com.baidu.tieba.write.write.relevance.list.RelevanceItemListFragment;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, com.baidu.tbadk.suspended.a {
-    private final LinearLayout fvH;
-    private final NavigationBar ghr;
-    private ImageView iKV;
-    private final RelevanceItemSearchActivity ocP;
-    private TbTabLayout ocQ;
-    private CustomViewPager ocR;
-    private FragmentAdapter ocS;
-    private View ocT;
-    private EditText ocU;
-    private String[] ocO = {"游戏", "数码"};
-    private List<a> ocV = new ArrayList();
-    private CustomMessageListener obN = new CustomMessageListener(2921522) { // from class: com.baidu.tieba.write.write.relevance.RelevanceItemSearchView.1
+    private final LinearLayout fxX;
+    private final NavigationBar gjF;
+    private ImageView iQD;
+    private final RelevanceItemSearchActivity omH;
+    private TbTabLayout omI;
+    private CustomViewPager omJ;
+    private FragmentAdapter omK;
+    private View omL;
+    private EditText omM;
+    private String[] omG = {"游戏", "数码"};
+    private List<a> omN = new ArrayList();
+    private CustomMessageListener olG = new CustomMessageListener(2921522) { // from class: com.baidu.tieba.write.write.relevance.RelevanceItemSearchView.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemUpdatedMessage)) {
                 EvaluateRelevanceItemUpdatedMessage evaluateRelevanceItemUpdatedMessage = (EvaluateRelevanceItemUpdatedMessage) customResponsedMessage;
-                RelevanceItemSearchView.this.ocP.hideLoadingView(RelevanceItemSearchView.this.fvH);
-                if (!x.isEmpty(evaluateRelevanceItemUpdatedMessage.tabs)) {
+                RelevanceItemSearchView.this.omH.hideLoadingView(RelevanceItemSearchView.this.fxX);
+                if (!y.isEmpty(evaluateRelevanceItemUpdatedMessage.tabs)) {
                     String[] strArr = (String[]) evaluateRelevanceItemUpdatedMessage.tabs.toArray(new String[0]);
-                    if (!Arrays.equals(RelevanceItemSearchView.this.ocO, strArr)) {
-                        RelevanceItemSearchView.this.ocO = strArr;
+                    if (!Arrays.equals(RelevanceItemSearchView.this.omG, strArr)) {
+                        RelevanceItemSearchView.this.omG = strArr;
                         RelevanceItemSearchView.this.initData();
                     }
                 }
@@ -63,48 +63,48 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
     };
 
     public RelevanceItemSearchView(RelevanceItemSearchActivity relevanceItemSearchActivity, LinearLayout linearLayout, NavigationBar navigationBar) {
-        this.fvH = linearLayout;
-        this.ghr = navigationBar;
-        this.ocP = relevanceItemSearchActivity;
+        this.fxX = linearLayout;
+        this.gjF = navigationBar;
+        this.omH = relevanceItemSearchActivity;
         initUI();
         initListener();
         initData();
     }
 
     private void initListener() {
-        MessageManager.getInstance().registerListener(this.obN);
+        MessageManager.getInstance().registerListener(this.olG);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initData() {
         String[] strArr;
-        this.ocV.clear();
-        this.ocQ.removeAllTabs();
-        for (String str : this.ocO) {
-            this.ocQ.a(this.ocQ.qN());
+        this.omN.clear();
+        this.omI.removeAllTabs();
+        for (String str : this.omG) {
+            this.omI.a(this.omI.qL());
             a aVar = new a();
-            aVar.ocY = new RelevanceItemListFragment();
-            aVar.ocY.setCategory(str);
+            aVar.omQ = new RelevanceItemListFragment();
+            aVar.omQ.setCategory(str);
             aVar.title = str;
-            this.ocV.add(aVar);
+            this.omN.add(aVar);
         }
-        this.ocS.setData(this.ocV);
+        this.omK.setData(this.omN);
     }
 
     private void initUI() {
-        LayoutInflater.from(this.fvH.getContext()).inflate(R.layout.relevance_item_search_view, (ViewGroup) this.fvH, true);
-        this.ocP.showLoadingView(this.fvH);
-        dXr();
-        bEt();
-        cOO();
+        LayoutInflater.from(this.fxX.getContext()).inflate(R.layout.relevance_item_search_view, (ViewGroup) this.fxX, true);
+        this.omH.showLoadingView(this.fxX);
+        dZC();
+        bEL();
+        cQL();
         initViewPager();
     }
 
-    private void dXr() {
-        this.ocT = this.fvH.findViewById(R.id.search_container);
-        this.iKV = (ImageView) this.fvH.findViewById(R.id.search_icon);
-        this.ocU = (EditText) this.fvH.findViewById(R.id.search_text);
-        this.ocU.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.relevance.RelevanceItemSearchView.2
+    private void dZC() {
+        this.omL = this.fxX.findViewById(R.id.search_container);
+        this.iQD = (ImageView) this.fxX.findViewById(R.id.search_icon);
+        this.omM = (EditText) this.fxX.findViewById(R.id.search_text);
+        this.omM.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.relevance.RelevanceItemSearchView.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -115,72 +115,72 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                RelevanceItemSearchView.this.dXs();
+                RelevanceItemSearchView.this.dZD();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXs() {
-        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSearchMessage(this.ocU.getText().toString()));
+    public void dZD() {
+        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSearchMessage(this.omM.getText().toString()));
     }
 
     private void initViewPager() {
-        this.ocR = (CustomViewPager) this.fvH.findViewById(R.id.viewpager);
-        this.ocR.addOnPageChangeListener(this);
-        this.ocR.setViewPagerScroll(0);
-        this.ocS = new FragmentAdapter(this.ocP.getSupportFragmentManager());
-        this.ocR.setAdapter(this.ocS);
-        this.ocQ.setupWithViewPager(this.ocR);
+        this.omJ = (CustomViewPager) this.fxX.findViewById(R.id.viewpager);
+        this.omJ.addOnPageChangeListener(this);
+        this.omJ.setViewPagerScroll(0);
+        this.omK = new FragmentAdapter(this.omH.getSupportFragmentManager());
+        this.omJ.setAdapter(this.omK);
+        this.omI.setupWithViewPager(this.omJ);
     }
 
-    private void cOO() {
-        this.ocQ = (TbTabLayout) this.fvH.findViewById(R.id.tablayout);
-        this.ocQ.setTabTextSize(l.getDimens(this.ocP, R.dimen.tbds46));
-        this.ocQ.setSelectedTabTextSize(l.getDimens(this.ocP, R.dimen.tbds52));
-        this.ocQ.setSelectedIndicatorBottomMargin(l.getDimens(this.ocP, R.dimen.tbds11));
+    private void cQL() {
+        this.omI = (TbTabLayout) this.fxX.findViewById(R.id.tablayout);
+        this.omI.setTabTextSize(l.getDimens(this.omH, R.dimen.tbds46));
+        this.omI.setSelectedTabTextSize(l.getDimens(this.omH, R.dimen.tbds52));
+        this.omI.setSelectedIndicatorBottomMargin(l.getDimens(this.omH, R.dimen.tbds11));
     }
 
-    private void bEt() {
-        this.ghr.setCenterTextTitle(this.fvH.getResources().getString(R.string.releavance_item_category));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ghr.getLayoutParams();
-        layoutParams.height = l.getDimens(this.fvH.getContext(), R.dimen.tbds60);
-        layoutParams.topMargin = l.getDimens(this.fvH.getContext(), R.dimen.tbds15);
+    private void bEL() {
+        this.gjF.setCenterTextTitle(this.fxX.getResources().getString(R.string.releavance_item_category));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gjF.getLayoutParams();
+        layoutParams.height = l.getDimens(this.fxX.getContext(), R.dimen.tbds60);
+        layoutParams.topMargin = l.getDimens(this.fxX.getContext(), R.dimen.tbds15);
     }
 
-    public EditText dXt() {
-        return this.ocU;
+    public EditText dZE() {
+        return this.omM;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bEp() {
+    public boolean bEH() {
         return false;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bEq() {
+    public boolean bEI() {
         return true;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public void rs(int i) {
-        SvgManager.bsx().a(this.iKV, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-        ao.setViewTextColor(this.ocU, R.color.CAM_X0109);
-        ao.setBackgroundResource(this.ocT, R.drawable.enter_forum_search_bg);
-        SvgManager.bsx().a(this.iKV, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+    public void rx(int i) {
+        SvgManager.bsR().a(this.iQD, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+        ap.setViewTextColor(this.omM, R.color.CAM_X0109);
+        ap.setBackgroundResource(this.omL, R.drawable.enter_forum_search_bg);
+        SvgManager.bsR().a(this.iQD, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
         if (i == 2) {
-            this.ocU.setHintTextColor(ao.getColor(R.color.s_navbar_title_color));
+            this.omM.setHintTextColor(ap.getColor(R.color.s_navbar_title_color));
         } else {
-            this.ocU.setHintTextColor(ao.getColor(R.color.CAM_X0110));
+            this.omM.setHintTextColor(ap.getColor(R.color.CAM_X0110));
         }
-        ao.setNavbarTitleColor(this.ocU, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        this.ocQ.setTabTextColors(ao.getColor(R.color.CAM_X0108), ao.getColor(R.color.CAM_X0105));
-        this.ocQ.setSelectedTabTextBlod(true);
-        this.ocQ.setSelectedTabIndicatorColor(ao.getColor(R.color.CAM_X0302));
+        ap.setNavbarTitleColor(this.omM, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        this.omI.setTabTextColors(ap.getColor(R.color.CAM_X0108), ap.getColor(R.color.CAM_X0105));
+        this.omI.setSelectedTabTextBlod(true);
+        this.omI.setSelectedTabIndicatorColor(ap.getColor(R.color.CAM_X0302));
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent bEr() {
+    public Intent bEJ() {
         return null;
     }
 
@@ -197,58 +197,58 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.obN);
+        MessageManager.getInstance().unRegisterListener(this.olG);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class FragmentAdapter extends FragmentPagerAdapter {
-        private List<a> gvo;
-        private Long ocX;
+        private List<a> gxY;
+        private Long omP;
 
         public FragmentAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
-            this.gvo = new ArrayList();
+            this.gxY = new ArrayList();
         }
 
         public void setData(List<a> list) {
-            this.ocX = Long.valueOf(System.currentTimeMillis());
-            this.gvo.clear();
-            if (!x.isEmpty(list)) {
-                this.gvo.addAll(list);
+            this.omP = Long.valueOf(System.currentTimeMillis());
+            this.gxY.clear();
+            if (!y.isEmpty(list)) {
+                this.gxY.addAll(list);
             }
             notifyDataSetChanged();
         }
 
         @Override // androidx.fragment.app.FragmentPagerAdapter
         public Fragment getItem(int i) {
-            a aVar = this.gvo.get(i);
+            a aVar = this.gxY.get(i);
             if (aVar != null) {
-                return aVar.ocY;
+                return aVar.omQ;
             }
             return null;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return this.gvo.size();
+            return this.gxY.size();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         @Nullable
         public CharSequence getPageTitle(int i) {
-            a aVar = this.gvo.get(i);
+            a aVar = this.gxY.get(i);
             return aVar != null ? aVar.title : "";
         }
 
         @Override // androidx.fragment.app.FragmentPagerAdapter
         public long getItemId(int i) {
-            return super.getItemId(i) + this.ocX.longValue();
+            return super.getItemId(i) + this.omP.longValue();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a {
-        public RelevanceItemListFragment ocY;
+        public RelevanceItemListFragment omQ;
         public String title;
 
         public a() {

@@ -7,7 +7,7 @@ import android.os.Process;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static void a(Context context) {
         if (context != null) {

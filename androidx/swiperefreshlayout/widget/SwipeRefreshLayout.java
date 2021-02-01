@@ -28,7 +28,7 @@ import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.ListViewCompat;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
     private static final int ALPHA_ANIMATION_DURATION = 300;
     private static final int ANIMATE_TO_START_DURATION = 200;
@@ -92,12 +92,12 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
     private static final String LOG_TAG = SwipeRefreshLayout.class.getSimpleName();
     private static final int[] LAYOUT_ATTRS = {16842766};
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface OnChildScrollUpCallback {
         boolean canChildScrollUp(@NonNull SwipeRefreshLayout swipeRefreshLayout, @Nullable View view);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface OnRefreshListener {
         void onRefresh();
     }

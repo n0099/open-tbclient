@@ -13,7 +13,7 @@ import com.baidu.ala.recorder.audio.IAudioService;
 import com.baidu.android.imsdk.internal.IMConnection;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AlaAudioSession {
     private static final int CHECK_INTERVAL = 3000;
     private static final String TAG = AlaAudioSession.class.getSimpleName();
@@ -62,22 +62,23 @@ public class AlaAudioSession {
     }
 
     public boolean onCreate(AlaAudioConfig alaAudioConfig) {
-        if (alaAudioConfig != null) {
-            if (!this.mIsStop) {
-                logMessage("onCreate stop audioDevice");
-                stop();
-            }
-            this.mConfig = new AlaAudioConfig(alaAudioConfig);
-            if (StreamConfig.initConfig(this.mContext) < 0) {
-                BdLog.e("onCreate initConfig failed");
-            }
-            this.mType = 1;
-            if (alaAudioConfig.mode == 2) {
-                this.mType = StreamConfig.useOpenSLES() ? 3 : 2;
-            }
-            logMessage("onCreate mType = " + this.mType);
+        if (alaAudioConfig == null) {
+            return false;
         }
-        return false;
+        if (!this.mIsStop) {
+            logMessage("onCreate stop audioDevice");
+            stop();
+        }
+        this.mConfig = new AlaAudioConfig(alaAudioConfig);
+        if (StreamConfig.initConfig(this.mContext) < 0) {
+            BdLog.e("onCreate initConfig failed");
+        }
+        this.mType = 1;
+        if (alaAudioConfig.mode == 2) {
+            this.mType = StreamConfig.useOpenSLES() ? 3 : 2;
+        }
+        logMessage("onCreate mType = " + this.mType);
+        return true;
     }
 
     public void setDummyCapture(boolean z) {
@@ -235,7 +236,7 @@ public class AlaAudioSession {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class CaptureThread extends Thread {
         private IAudioService.FrameCallback callback;
         private byte[] mMuteBytes;

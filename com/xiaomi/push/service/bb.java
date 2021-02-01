@@ -14,7 +14,7 @@ import java.util.List;
 public class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    private static bb f14265a;
+    private static bb f14267a;
 
     /* renamed from: a  reason: collision with other field name */
     private static String f956a = null;
@@ -26,7 +26,7 @@ public class bb {
     private boolean f960a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Messenger f14266b;
+    private Messenger f14268b;
 
     /* renamed from: a  reason: collision with other field name */
     private List<Message> f959a = new ArrayList();
@@ -54,10 +54,10 @@ public class bb {
     }
 
     public static bb a(Context context) {
-        if (f14265a == null) {
-            f14265a = new bb(context);
+        if (f14267a == null) {
+            f14267a = new bb(context);
         }
-        return f14265a;
+        return f14267a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -68,7 +68,7 @@ public class bb {
                 this.f959a.remove(0);
             }
             this.f959a.add(a2);
-        } else if (this.f14266b == null) {
+        } else if (this.f14268b == null) {
             Context context = this.f957a;
             bd bdVar = new bd(this);
             Context context2 = this.f957a;
@@ -78,9 +78,9 @@ public class bb {
             this.f959a.add(a(intent));
         } else {
             try {
-                this.f14266b.send(a(intent));
+                this.f14268b.send(a(intent));
             } catch (RemoteException e) {
-                this.f14266b = null;
+                this.f14268b = null;
                 this.f961b = false;
             }
         }

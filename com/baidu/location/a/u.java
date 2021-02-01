@@ -1,14 +1,14 @@
 package com.baidu.location.a;
 
 import android.location.Location;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f2584a;
+    private static long f2582a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static com.baidu.location.b.a f2585b;
+    private static com.baidu.location.b.a f2583b;
     private static Location c;
     private static String d;
 
@@ -17,7 +17,7 @@ public class u {
     }
 
     public static void a(long j) {
-        f2584a = j;
+        f2582a = j;
     }
 
     public static void a(Location location) {
@@ -25,7 +25,7 @@ public class u {
     }
 
     public static void a(com.baidu.location.b.a aVar) {
-        f2585b = aVar;
+        f2583b = aVar;
     }
 
     public static void a(String str) {
@@ -33,11 +33,11 @@ public class u {
     }
 
     public static long b() {
-        return f2584a;
+        return f2582a;
     }
 
     public static com.baidu.location.b.a c() {
-        return f2585b;
+        return f2583b;
     }
 
     public static Location d() {

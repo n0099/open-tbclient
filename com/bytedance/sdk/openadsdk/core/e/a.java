@@ -29,11 +29,11 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements TTNativeAd {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6531a;
+    private int f6533a;
     protected final o g;
     protected final l h;
     protected final Context i;
@@ -341,9 +341,9 @@ public class a implements TTNativeAd {
         if (this.h == null || this.h.H() == 5) {
             return false;
         }
-        if (this.f6531a == 0) {
-            this.f6531a = aj.d(this.h.W());
+        if (this.f6533a == 0) {
+            this.f6533a = aj.d(this.h.W());
         }
-        return p.h().d(this.f6531a) == 1;
+        return p.h().d(this.f6533a) == 1;
     }
 }

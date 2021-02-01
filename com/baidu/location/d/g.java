@@ -13,21 +13,21 @@ import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class g extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2638a;
+    final /* synthetic */ String f2636a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ boolean f2639b;
+    final /* synthetic */ boolean f2637b;
     final /* synthetic */ e c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar, String str, boolean z) {
         this.c = eVar;
-        this.f2638a = str;
-        this.f2639b = z;
+        this.f2636a = str;
+        this.f2637b = z;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:110:0x0240 A[LOOP:0: B:3:0x001b->B:110:0x0240, LOOP_END] */
@@ -70,13 +70,13 @@ public class g extends Thread {
                     httpURLConnection.setDoInput(true);
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setUseCaches(false);
-                    httpURLConnection.setConnectTimeout(a.f2624b);
-                    httpURLConnection.setReadTimeout(a.f2624b);
+                    httpURLConnection.setConnectTimeout(a.f2622b);
+                    httpURLConnection.setReadTimeout(a.f2622b);
                     httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                     httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
                     httpURLConnection.setRequestProperty(Headers.ACCEPT_ENCODING, "gzip");
-                    if (!TextUtils.isEmpty(this.f2638a)) {
-                        httpURLConnection.setRequestProperty("Host", this.f2638a);
+                    if (!TextUtils.isEmpty(this.f2636a)) {
+                        httpURLConnection.setRequestProperty("Host", this.f2636a);
                     }
                     outputStream2 = httpURLConnection.getOutputStream();
                     try {
@@ -101,7 +101,7 @@ public class g extends Thread {
                                             byteArrayOutputStream2.write(bArr, 0, read);
                                         }
                                         this.c.j = new String(byteArrayOutputStream2.toByteArray(), "utf-8");
-                                        if (this.f2639b) {
+                                        if (this.f2637b) {
                                             this.c.m = byteArrayOutputStream2.toByteArray();
                                         }
                                         this.c.a(true);
@@ -118,27 +118,27 @@ public class g extends Thread {
                                             try {
                                                 outputStream.close();
                                             } catch (Exception e) {
-                                                Log.d(a.f2623a, "close os IOException!");
+                                                Log.d(a.f2621a, "close os IOException!");
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
                                             } catch (Exception e2) {
-                                                Log.d(a.f2623a, "close is IOException!");
+                                                Log.d(a.f2621a, "close is IOException!");
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e3) {
-                                                Log.d(a.f2623a, "close baos IOException!");
+                                                Log.d(a.f2621a, "close baos IOException!");
                                             }
                                         }
                                         throw th;
                                     }
                                 } catch (Error e4) {
-                                    Log.d(a.f2623a, "NetworkCommunicationError!");
+                                    Log.d(a.f2621a, "NetworkCommunicationError!");
                                     if (httpURLConnection != null) {
                                         httpURLConnection.disconnect();
                                     }
@@ -146,21 +146,21 @@ public class g extends Thread {
                                         try {
                                             outputStream2.close();
                                         } catch (Exception e5) {
-                                            Log.d(a.f2623a, "close os IOException!");
+                                            Log.d(a.f2621a, "close os IOException!");
                                         }
                                     }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
                                         } catch (Exception e6) {
-                                            Log.d(a.f2623a, "close is IOException!");
+                                            Log.d(a.f2621a, "close is IOException!");
                                         }
                                     }
                                     if (byteArrayOutputStream2 != null) {
                                         try {
                                             byteArrayOutputStream2.close();
                                         } catch (Exception e7) {
-                                            Log.d(a.f2623a, "close baos IOException!");
+                                            Log.d(a.f2621a, "close baos IOException!");
                                             z = false;
                                             httpURLConnection2 = httpURLConnection;
                                         }
@@ -170,7 +170,7 @@ public class g extends Thread {
                                     if (z) {
                                     }
                                 } catch (Exception e8) {
-                                    Log.d(a.f2623a, "NetworkCommunicationException!");
+                                    Log.d(a.f2621a, "NetworkCommunicationException!");
                                     if (httpURLConnection != null) {
                                         httpURLConnection.disconnect();
                                     }
@@ -178,21 +178,21 @@ public class g extends Thread {
                                         try {
                                             outputStream2.close();
                                         } catch (Exception e9) {
-                                            Log.d(a.f2623a, "close os IOException!");
+                                            Log.d(a.f2621a, "close os IOException!");
                                         }
                                     }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
                                         } catch (Exception e10) {
-                                            Log.d(a.f2623a, "close is IOException!");
+                                            Log.d(a.f2621a, "close is IOException!");
                                         }
                                     }
                                     if (byteArrayOutputStream2 != null) {
                                         try {
                                             byteArrayOutputStream2.close();
                                         } catch (Exception e11) {
-                                            Log.d(a.f2623a, "close baos IOException!");
+                                            Log.d(a.f2621a, "close baos IOException!");
                                             z = false;
                                             httpURLConnection2 = httpURLConnection;
                                         }
@@ -224,21 +224,21 @@ public class g extends Thread {
                             try {
                                 outputStream2.close();
                             } catch (Exception e14) {
-                                Log.d(a.f2623a, "close os IOException!");
+                                Log.d(a.f2621a, "close os IOException!");
                             }
                         }
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
                             } catch (Exception e15) {
-                                Log.d(a.f2623a, "close is IOException!");
+                                Log.d(a.f2621a, "close is IOException!");
                             }
                         }
                         if (byteArrayOutputStream2 != null) {
                             try {
                                 byteArrayOutputStream2.close();
                             } catch (Exception e16) {
-                                Log.d(a.f2623a, "close baos IOException!");
+                                Log.d(a.f2621a, "close baos IOException!");
                                 z = z2;
                                 httpURLConnection2 = httpURLConnection;
                             }

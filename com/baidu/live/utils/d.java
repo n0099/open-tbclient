@@ -7,17 +7,17 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.ar.constants.HttpConstants;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private static int bKc = 0;
-    private static boolean bKd = false;
-    private static boolean bKe = false;
+    private static int bNM = 0;
+    private static boolean bNN = false;
+    private static boolean bNO = false;
 
-    public static int TD() {
+    public static int Vk() {
         String str;
         String str2;
         String str3;
-        if (bKc == 0) {
+        if (bNM == 0) {
             String str4 = Build.MODEL;
             String str5 = Build.MANUFACTURER;
             String str6 = Build.BRAND;
@@ -37,56 +37,56 @@ public class d {
                 str3 = "";
             }
             if (str == null || str2 == null || str3 == null) {
-                bKc = 1;
+                bNM = 1;
             } else if (str.contains(RomUtils.MANUFACTURER_XIAOMI) || str2.contains(RomUtils.MANUFACTURER_XIAOMI) || str3.contains(RomUtils.MANUFACTURER_XIAOMI)) {
-                bKc = 2;
+                bNM = 2;
             } else if (str.contains("samsung") || str2.contains("samsung") || str3.contains("samsung")) {
-                bKc = 3;
+                bNM = 3;
             } else if (str.contains(RomUtils.MANUFACTURER_HUAWEI) || str2.contains(RomUtils.MANUFACTURER_HUAWEI) || str3.contains(RomUtils.MANUFACTURER_HUAWEI)) {
-                bKc = 4;
+                bNM = 4;
             } else if (str.contains(RomUtils.MANUFACTURER_VIVO) || str2.contains(RomUtils.MANUFACTURER_VIVO) || str3.contains(RomUtils.MANUFACTURER_VIVO)) {
-                bKc = 5;
+                bNM = 5;
             } else if (str.contains(RomUtils.MANUFACTURER_OPPO) || str2.contains(RomUtils.MANUFACTURER_OPPO) || str3.contains(RomUtils.MANUFACTURER_OPPO)) {
-                bKc = 6;
+                bNM = 6;
             } else if (str.contains(RomUtils.MANUFACTURER_MEIZU) || str2.contains(RomUtils.MANUFACTURER_MEIZU) || str3.contains(RomUtils.MANUFACTURER_MEIZU)) {
-                bKc = 7;
+                bNM = 7;
             } else if (str.contains("oneplus") || str2.contains("oneplus") || str3.contains("oneplus")) {
-                bKc = 8;
+                bNM = 8;
             } else {
-                bKc = 1;
+                bNM = 1;
             }
         }
-        return bKc;
+        return bNM;
     }
 
     public static boolean bd(Context context) {
-        if (bKd) {
-            return bKe;
+        if (bNN) {
+            return bNO;
         }
-        bKd = true;
-        switch (TD()) {
+        bNN = true;
+        switch (Vk()) {
             case 2:
-                bKe = bh(context);
+                bNO = bh(context);
                 break;
             case 3:
             case 7:
             default:
-                bKe = false;
+                bNO = false;
                 break;
             case 4:
-                bKe = be(context);
+                bNO = be(context);
                 break;
             case 5:
-                bKe = bf(context);
+                bNO = bf(context);
                 break;
             case 6:
-                bKe = bg(context);
+                bNO = bg(context);
                 break;
             case 8:
-                bKe = bj(context);
+                bNO = bj(context);
                 break;
         }
-        return bKe;
+        return bNO;
     }
 
     public static boolean be(Context context) {
@@ -145,16 +145,16 @@ public class d {
         return new Intent("android.intent.action.VIEW", Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null;
     }
 
-    public static boolean TE() {
+    public static boolean Vl() {
         String str;
-        if (TD() == 2) {
+        if (Vk() == 2) {
             String str2 = Build.MODEL;
             if (str2 != null) {
                 str = str2.toLowerCase();
             } else {
                 str = "";
             }
-            if (str.contains("mix 3")) {
+            if (str.contains("mix 3") || str.contains("redmi 7") || str.contains("zte a2121")) {
                 return true;
             }
         }

@@ -1,7 +1,6 @@
 package com.kwad.sdk.core.imageloader.cache.disc.impl.ext;
 
 import android.graphics.Bitmap;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.kwad.sdk.core.imageloader.cache.disc.DiskCache;
 import com.kwad.sdk.core.imageloader.cache.disc.impl.ext.DiskLruCache;
 import com.kwad.sdk.core.imageloader.cache.disc.naming.FileNameGenerator;
@@ -11,7 +10,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LruDiskCache implements DiskCache {
     public static final int DEFAULT_BUFFER_SIZE = 32768;
     public static final Bitmap.CompressFormat DEFAULT_COMPRESS_FORMAT = Bitmap.CompressFormat.PNG;
@@ -46,7 +45,7 @@ public class LruDiskCache implements DiskCache {
             throw new IllegalArgumentException("fileNameGenerator argument must be not null");
         }
         long j2 = j == 0 ? Long.MAX_VALUE : j;
-        int i2 = i == 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : i;
+        int i2 = i == 0 ? Integer.MAX_VALUE : i;
         this.reserveCacheDir = file2;
         this.fileNameGenerator = fileNameGenerator;
         initCache(file, file2, j2, i2);

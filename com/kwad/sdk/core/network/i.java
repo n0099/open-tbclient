@@ -8,45 +8,45 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.network.g;
 import com.kwad.sdk.export.proxy.AdHttpProxy;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    private h f9323a = null;
+    private h f9325a = null;
 
     @Override // com.kwad.sdk.core.network.a
     protected void a(R r, c cVar) {
         if (cVar == null) {
             com.kwad.sdk.core.d.a.d("Networking", "request responseBase is null");
-            if (this.f9323a != null) {
-                this.f9323a.a(r, f.f9321a.k, f.f9321a.l);
+            if (this.f9325a != null) {
+                this.f9325a.a(r, f.f9323a.k, f.f9323a.l);
             }
-        } else if (TextUtils.isEmpty(cVar.f9319b) || cVar.f9318a != 200) {
-            if (this.f9323a != null) {
-                this.f9323a.a(r, cVar.f9318a, "网络错误");
+        } else if (TextUtils.isEmpty(cVar.f9321b) || cVar.f9320a != 200) {
+            if (this.f9325a != null) {
+                this.f9325a.a(r, cVar.f9320a, "网络错误");
             }
         } else {
             try {
-                T b2 = b(cVar.f9319b);
+                T b2 = b(cVar.f9321b);
                 if (b2 == null) {
-                    if (this.f9323a != null) {
-                        this.f9323a.a(r, f.f9322b.k, f.f9322b.l);
+                    if (this.f9325a != null) {
+                        this.f9325a.a(r, f.f9324b.k, f.f9324b.l);
                     }
                 } else if (!b2.isResultOk()) {
-                    if (this.f9323a != null) {
-                        this.f9323a.a(r, b2.result, b2.errorMsg);
+                    if (this.f9325a != null) {
+                        this.f9325a.a(r, b2.result, b2.errorMsg);
                     }
                 } else if (b2.isDataEmpty()) {
-                    if (this.f9323a != null) {
-                        this.f9323a.a(r, f.c.k, f.c.l);
+                    if (this.f9325a != null) {
+                        this.f9325a.a(r, f.c.k, f.c.l);
                     }
-                } else if (this.f9323a != null) {
-                    this.f9323a.a(r, b2);
+                } else if (this.f9325a != null) {
+                    this.f9325a.a(r, b2);
                 }
             } catch (Exception e) {
-                if (this.f9323a != null) {
-                    this.f9323a.a(r, f.f9322b.k, f.f9322b.l);
+                if (this.f9325a != null) {
+                    this.f9325a.a(r, f.f9324b.k, f.f9324b.l);
                 }
                 com.kwad.sdk.core.d.a.a(e);
             }
@@ -54,7 +54,7 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     }
 
     public void a(@NonNull h hVar) {
-        this.f9323a = hVar;
+        this.f9325a = hVar;
         d();
     }
 
@@ -68,7 +68,7 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @Override // com.kwad.sdk.core.network.a
     public void e() {
         super.e();
-        this.f9323a = null;
+        this.f9325a = null;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x0063 -> B:23:0x004c). Please submit an issue!!! */
@@ -77,12 +77,12 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     protected void f() {
         c cVar;
         R b2 = b();
-        if (this.f9323a != null) {
-            this.f9323a.a(b2);
+        if (this.f9325a != null) {
+            this.f9325a.a(b2);
         }
         if (!com.ksad.download.d.b.a(KsAdSDKImpl.get().getContext())) {
-            if (this.f9323a != null) {
-                this.f9323a.a(b2, f.f9321a.k, f.f9321a.l);
+            if (this.f9325a != null) {
+                this.f9325a.a(b2, f.f9323a.k, f.f9323a.l);
                 return;
             }
             return;

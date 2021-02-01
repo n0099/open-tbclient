@@ -6,18 +6,18 @@ import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.library_loader.Linker;
 import java.util.HashMap;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class LegacyLinker extends Linker {
     static final /* synthetic */ boolean $assertionsDisabled;
     private boolean mInitialized = false;
-    private boolean oED = true;
-    private boolean oEE = false;
-    private boolean oEF = false;
-    private Bundle oEG = null;
-    private long oEH = -1;
-    private long oEI = -1;
-    private boolean oEJ = false;
-    private HashMap<String, Linker.LibInfo> oEK = null;
+    private boolean oOM = true;
+    private boolean oON = false;
+    private boolean oOO = false;
+    private Bundle oOP = null;
+    private long oOQ = -1;
+    private long oOR = -1;
+    private boolean oOS = false;
+    private HashMap<String, Linker.LibInfo> oOT = null;
 
     private static native boolean nativeCreateSharedRelro(String str, long j, Linker.LibInfo libInfo);
 
@@ -39,7 +39,7 @@ class LegacyLinker extends Linker {
 
     @CalledByNative
     public static void postCallbackOnMainThread(final long j) {
-        ThreadUtils.x(new Runnable() { // from class: com.baidu.turbonet.base.library_loader.LegacyLinker.1
+        ThreadUtils.v(new Runnable() { // from class: com.baidu.turbonet.base.library_loader.LegacyLinker.1
             @Override // java.lang.Runnable
             public void run() {
                 LegacyLinker.nativeRunCallbackOnUiThread(j);

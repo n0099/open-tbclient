@@ -1,6 +1,5 @@
 package okhttp3.internal.connection;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import java.io.IOException;
 import java.lang.ref.Reference;
 import java.net.ConnectException;
@@ -54,7 +53,7 @@ import okio.Okio;
 import okio.Source;
 import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
     private static final int MAX_TUNNEL_ATTEMPTS = 21;
     private static final String NPE_THROW_WITH_NULL = "throw with null exception";
@@ -298,7 +297,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                 contentLength = 0;
             }
             Source newFixedLengthSource = http1Codec.newFixedLengthSource(contentLength);
-            Util.skipAll(newFixedLengthSource, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, TimeUnit.MILLISECONDS);
+            Util.skipAll(newFixedLengthSource, Integer.MAX_VALUE, TimeUnit.MILLISECONDS);
             newFixedLengthSource.close();
             switch (build.code()) {
                 case 200:

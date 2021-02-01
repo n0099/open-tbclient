@@ -35,9 +35,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private Supplier<List<ProcessEventSceneHandler>> arg;
+    private Supplier<List<ProcessEventSceneHandler>> aqW;
     private Context mContext;
     private long mProcessLaunchTime;
     private String mProcessName;
@@ -51,11 +51,11 @@ public class b {
         this.mProcessName = com.baidu.pyramid.runtime.multiprocess.a.getProcessName();
         this.mProcessLaunchTime = System.currentTimeMillis();
         if (Build.VERSION.SDK_INT <= 19) {
-            uA();
+            ux();
         }
     }
 
-    private void uA() {
+    private void ux() {
         DefaultProcessEventSceneHandler.init();
         LogType.init();
         SnapshotUtil.init();
@@ -109,19 +109,19 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         onAttachExtra(this.mContext, jSONObject);
         logExtra.mJSONAttach = jSONObject.toString();
-        ForwardingProcessEventSceneHandler uB = uB();
-        if (uB != null) {
+        ForwardingProcessEventSceneHandler uy = uy();
+        if (uy != null) {
             HashSet hashSet2 = new HashSet(5);
             EventObject eventObject = new EventObject(LogType.NATIVE_CRASH, str);
-            Set<ProcessSnapshotType> requireGeneralSnapshots = uB.requireGeneralSnapshots(this.mContext, eventObject);
+            Set<ProcessSnapshotType> requireGeneralSnapshots = uy.requireGeneralSnapshots(this.mContext, eventObject);
             if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.mContext, requireGeneralSnapshots, obtainFileDirWithProcessName, this.mProcessName, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
                 hashSet2.addAll(obtainProcessSnapShots);
             }
-            Set<LogFile> customizedSnapshots = uB.getCustomizedSnapshots(this.mContext, obtainFileDirWithProcessName, eventObject);
+            Set<LogFile> customizedSnapshots = uy.getCustomizedSnapshots(this.mContext, obtainFileDirWithProcessName, eventObject);
             if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
                 hashSet2.addAll(customizedSnapshots);
             }
-            LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.mContext, uB, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
+            LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.mContext, uy, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
             if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
                 hashSet2.add(obtainFragmentSnapShot);
             }
@@ -150,18 +150,18 @@ public class b {
     }
 
     @NonNull
-    private ForwardingProcessEventSceneHandler uB() {
+    private ForwardingProcessEventSceneHandler uy() {
         ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler = new ForwardingProcessEventSceneHandler();
         if (Build.VERSION.SDK_INT > 19) {
             forwardingProcessEventSceneHandler.addEventHandleCallback(new DefaultProcessEventSceneHandler());
         }
-        if (this.arg != null && Build.VERSION.SDK_INT > 19) {
-            forwardingProcessEventSceneHandler.addEventHandleCallback(this.arg.get());
+        if (this.aqW != null && Build.VERSION.SDK_INT > 19) {
+            forwardingProcessEventSceneHandler.addEventHandleCallback(this.aqW.get());
         }
         return forwardingProcessEventSceneHandler;
     }
 
-    public void uC() {
+    public void uz() {
     }
 
     public void onAttachExtra(@NonNull Context context, @NonNull JSONObject jSONObject) {

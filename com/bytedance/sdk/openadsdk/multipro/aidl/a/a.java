@@ -7,7 +7,7 @@ import com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener;
 import com.bytedance.sdk.openadsdk.IListenerManager;
 import com.bytedance.sdk.openadsdk.IRewardAdInteractionListener;
 import com.bytedance.sdk.openadsdk.ITTAppDownloadListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class a extends IListenerManager.Stub {
     @Override // com.bytedance.sdk.openadsdk.IListenerManager
     public void registerRewardVideoListener(String str, IRewardAdInteractionListener iRewardAdInteractionListener) throws RemoteException {

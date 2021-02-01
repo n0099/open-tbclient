@@ -12,45 +12,45 @@ import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.Transformation;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EfficientProgressBar extends View {
-    private int dtR;
-    private int dtS;
-    private int dtT;
-    private long dtU;
-    private Transformation dtV;
-    private AnimationSet dtW;
-    private Drawable dtX;
-    private float dtY;
+    private int dwb;
+    private int dwc;
+    private int dwd;
+    private long dwe;
+    private Transformation dwf;
+    private AnimationSet dwg;
+    private Drawable dwh;
+    private float dwi;
     private Interpolator mInterpolator;
 
     public EfficientProgressBar(Context context) {
         super(context);
-        this.dtT = iv(66);
-        this.dtU = -1L;
-        this.dtV = new Transformation();
+        this.dwd = iy(66);
+        this.dwe = -1L;
+        this.dwf = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.dtY = -1.0f;
+        this.dwi = -1.0f;
         init();
     }
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dtT = iv(66);
-        this.dtU = -1L;
-        this.dtV = new Transformation();
+        this.dwd = iy(66);
+        this.dwe = -1L;
+        this.dwf = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.dtY = -1.0f;
+        this.dwi = -1.0f;
         init();
     }
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dtT = iv(66);
-        this.dtU = -1L;
-        this.dtV = new Transformation();
+        this.dwd = iy(66);
+        this.dwe = -1L;
+        this.dwf = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.dtY = -1.0f;
+        this.dwi = -1.0f;
         init();
     }
 
@@ -58,83 +58,83 @@ public class EfficientProgressBar extends View {
     }
 
     public void setProgressDrawable(Drawable drawable) {
-        this.dtX = drawable;
+        this.dwh = drawable;
     }
 
     public void setProgress(int i, boolean z) {
-        if (i != 100 || iw(this.dtR) != 100) {
-            this.dtR = iv(i);
+        if (i != 100 || iz(this.dwb) != 100) {
+            this.dwb = iy(i);
             if (i == 100) {
-                if (this.dtW == null) {
-                    gE(z);
+                if (this.dwg == null) {
+                    gG(z);
                 }
-            } else if (this.dtU == -1) {
+            } else if (this.dwe == -1) {
                 start();
             }
         }
     }
 
     public void reset() {
-        this.dtS = 0;
-        this.dtR = 0;
-        this.dtU = -1L;
-        this.dtW = null;
+        this.dwc = 0;
+        this.dwb = 0;
+        this.dwe = -1L;
+        this.dwg = null;
         A(0, false);
         setVisibility(4);
     }
 
     @TargetApi(11)
-    private void aGq() {
+    private void aGL() {
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         float f = -1.0f;
         if (width > 0) {
-            f = ((10000 - this.dtS) / 10000.0f) * width;
+            f = ((10000 - this.dwc) / 10000.0f) * width;
         }
         if (f > 0.0f) {
             if (Build.VERSION.SDK_INT >= 11) {
                 setTranslationX(-f);
             }
-            this.dtY = f;
+            this.dwi = f;
         }
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(View.MeasureSpec.getSize(i), (this.dtX == null ? 0 : this.dtX.getIntrinsicHeight()) + getPaddingBottom() + getPaddingTop());
+        setMeasuredDimension(View.MeasureSpec.getSize(i), (this.dwh == null ? 0 : this.dwh.getIntrinsicHeight()) + getPaddingBottom() + getPaddingTop());
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (z && this.dtX != null) {
-            this.dtX.setBounds(getPaddingLeft(), getPaddingTop(), (i3 - i) - getPaddingRight(), (i4 - i2) - getPaddingBottom());
+        if (z && this.dwh != null) {
+            this.dwh.setBounds(getPaddingLeft(), getPaddingTop(), (i3 - i) - getPaddingRight(), (i4 - i2) - getPaddingBottom());
         }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.dtX != null) {
-            if (this.dtW != null) {
-                if (this.dtW.getTransformation(getDrawingTime(), this.dtV)) {
-                    A((int) (this.dtV.getAlpha() * 10000.0f), false);
+        if (this.dwh != null) {
+            if (this.dwg != null) {
+                if (this.dwg.getTransformation(getDrawingTime(), this.dwf)) {
+                    A((int) (this.dwf.getAlpha() * 10000.0f), false);
                 } else {
-                    this.dtW = null;
+                    this.dwg = null;
                     reset();
                 }
-            } else if (this.dtU != -1 && this.dtS < this.dtT) {
+            } else if (this.dwe != -1 && this.dwc < this.dwd) {
                 long currentTimeMillis = System.currentTimeMillis();
-                int cL = cL(currentTimeMillis - this.dtU);
-                this.dtS += cL;
-                if (cL != 0) {
-                    this.dtU = currentTimeMillis;
-                    A(this.dtS, true);
+                int cR = cR(currentTimeMillis - this.dwe);
+                this.dwc += cR;
+                if (cR != 0) {
+                    this.dwe = currentTimeMillis;
+                    A(this.dwc, true);
                 }
             }
             int i = -1;
             if (getPaddingLeft() > 0) {
                 i = canvas.save();
-                canvas.clipRect(this.dtY + getPaddingLeft(), 0.0f, getWidth(), getHeight());
+                canvas.clipRect(this.dwi + getPaddingLeft(), 0.0f, getWidth(), getHeight());
             }
-            this.dtX.draw(canvas);
+            this.dwh.draw(canvas);
             if (i >= 0) {
                 canvas.restoreToCount(i);
             }
@@ -145,8 +145,8 @@ public class EfficientProgressBar extends View {
         if (i > 10000) {
             i = 10000;
         }
-        this.dtS = i;
-        aGq();
+        this.dwc = i;
+        aGL();
         if (z) {
             postInvalidateDelayed(50L);
         } else {
@@ -155,24 +155,24 @@ public class EfficientProgressBar extends View {
     }
 
     private void start() {
-        this.dtS = 0;
-        this.dtR = 0;
-        this.dtW = null;
-        this.dtU = System.currentTimeMillis();
-        A(this.dtS, false);
+        this.dwc = 0;
+        this.dwb = 0;
+        this.dwg = null;
+        this.dwe = System.currentTimeMillis();
+        A(this.dwc, false);
         setVisibility(0);
     }
 
-    private void gE(boolean z) {
+    private void gG(boolean z) {
         if (getVisibility() == 0) {
             if (z) {
-                this.dtW = new AnimationSet(false);
-                AlphaAnimation alphaAnimation = new AlphaAnimation(this.dtS / 10000.0f, 1.0f);
+                this.dwg = new AnimationSet(false);
+                AlphaAnimation alphaAnimation = new AlphaAnimation(this.dwc / 10000.0f, 1.0f);
                 alphaAnimation.setDuration(200L);
                 alphaAnimation.setInterpolator(this.mInterpolator);
-                this.dtW.addAnimation(alphaAnimation);
-                this.dtV.clear();
-                this.dtW.start();
+                this.dwg.addAnimation(alphaAnimation);
+                this.dwf.clear();
+                this.dwg.start();
                 invalidate();
                 return;
             }
@@ -180,15 +180,15 @@ public class EfficientProgressBar extends View {
         }
     }
 
-    private int cL(long j) {
-        return (int) ((iv(66) / 1500.0f) * ((float) j));
+    private int cR(long j) {
+        return (int) ((iy(66) / 1500.0f) * ((float) j));
     }
 
-    private int iv(int i) {
+    private int iy(int i) {
         return i * 100;
     }
 
-    private int iw(int i) {
+    private int iz(int i) {
         return i / 100;
     }
 }

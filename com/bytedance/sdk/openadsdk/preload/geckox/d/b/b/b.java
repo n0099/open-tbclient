@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.d.b.b;
 import android.util.Pair;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import com.bytedance.sdk.openadsdk.preload.geckox.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends com.bytedance.sdk.openadsdk.preload.a.d<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>, Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.a.d

@@ -3,12 +3,12 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLinkCallBackHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int fans;
-    private String ozp;
-    private int ozq;
-    private int ozr;
+    private String oIX;
+    private int oIY;
+    private int oIZ;
 
     public AlaLinkCallBackHttpResponseMessage() {
         super(1031027);
@@ -19,26 +19,26 @@ public class AlaLinkCallBackHttpResponseMessage extends BaseJsonHttpResponsedMes
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031027 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ozp = optJSONObject.optString("minute");
+            this.oIX = optJSONObject.optString("minute");
             this.fans = optJSONObject.optInt("fans");
-            this.ozq = optJSONObject.optInt(SdkStaticKeys.RANK_TYPE_CHARM);
-            this.ozr = optJSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY);
+            this.oIY = optJSONObject.optInt(SdkStaticKeys.RANK_TYPE_CHARM);
+            this.oIZ = optJSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY);
         }
     }
 
-    public boolean ecf() {
-        return this.ozr == 1 || this.ozr == 2 || this.ozr == 3;
+    public boolean eet() {
+        return this.oIZ == 1 || this.oIZ == 2 || this.oIZ == 3;
     }
 
-    public String ecg() {
-        return this.ozp;
+    public String eeu() {
+        return this.oIX;
     }
 
-    public int cXq() {
+    public int cZo() {
         return this.fans;
     }
 
-    public int ech() {
-        return this.ozq;
+    public int eev() {
+        return this.oIY;
     }
 }

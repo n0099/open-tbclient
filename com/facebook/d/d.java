@@ -1,16 +1,15 @@
 package com.facebook.d;
 
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 class d {
-    private static final Class<?> pnn = d.class;
+    private static final Class<?> pxC = d.class;
 
     d() {
     }
 
-    public static int PV(int i) {
+    public static int Qq(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -25,27 +24,27 @@ class d {
             case 6:
                 return 90;
             case 8:
-                return SubsamplingScaleImageView.ORIENTATION_270;
+                return 270;
         }
     }
 
     public static int h(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.pDz - 8;
+        int i2 = aVar.pNH - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.pDx, 274), aVar.pDx);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.pNF, 274), aVar.pNF);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        boolean pDx;
-        int pDy;
-        int pDz;
+        boolean pNF;
+        int pNG;
+        int pNH;
 
         private a() {
         }
@@ -55,17 +54,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.pDy = c.a(inputStream, 4, false);
+        aVar.pNG = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.pDy != 1229531648 && aVar.pDy != 1296891946) {
-            com.facebook.common.c.a.i(pnn, "Invalid TIFF header");
+        if (aVar.pNG != 1229531648 && aVar.pNG != 1296891946) {
+            com.facebook.common.c.a.i(pxC, "Invalid TIFF header");
             return 0;
         }
-        aVar.pDx = aVar.pDy == 1229531648;
-        aVar.pDz = c.a(inputStream, 4, aVar.pDx);
+        aVar.pNF = aVar.pNG == 1229531648;
+        aVar.pNH = c.a(inputStream, 4, aVar.pNF);
         int i3 = i2 - 4;
-        if (aVar.pDz < 8 || aVar.pDz - 8 > i3) {
-            com.facebook.common.c.a.i(pnn, "Invalid offset");
+        if (aVar.pNH < 8 || aVar.pNH - 8 > i3) {
+            com.facebook.common.c.a.i(pxC, "Invalid offset");
             return 0;
         }
         return i3;

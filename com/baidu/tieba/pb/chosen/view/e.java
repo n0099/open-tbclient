@@ -8,87 +8,87 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.R;
 import tbclient.ExcPbPage.ExcellentPbThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     private Context context;
-    private View lAI;
-    private TextView lAJ;
-    private ImageView lAK;
-    private TextView lAL;
-    private TextView lAM;
-    private a lAN;
-    public boolean lAO;
-    private Animation lAQ;
-    private long lAP = 0;
-    private boolean lAR = false;
+    private a lJA;
+    public boolean lJB;
+    private Animation lJD;
+    private View lJv;
+    private TextView lJw;
+    private ImageView lJx;
+    private TextView lJy;
+    private TextView lJz;
+    private long lJC = 0;
+    private boolean lJE = false;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void up(boolean z);
+        void uC(boolean z);
 
-        void x(long j, String str);
+        void y(long j, String str);
     }
 
     public e(Context context) {
         this.context = context;
-        this.lAI = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
-        this.lAJ = (TextView) this.lAI.findViewById(R.id.chosen_post_info_copyright);
-        this.lAK = (ImageView) this.lAI.findViewById(R.id.chosen_post_info_praise_icon);
-        this.lAL = (TextView) this.lAI.findViewById(R.id.chosen_post_info_praise_num);
-        this.lAM = (TextView) this.lAI.findViewById(R.id.chosen_post_info_original_post);
+        this.lJv = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
+        this.lJw = (TextView) this.lJv.findViewById(R.id.chosen_post_info_copyright);
+        this.lJx = (ImageView) this.lJv.findViewById(R.id.chosen_post_info_praise_icon);
+        this.lJy = (TextView) this.lJv.findViewById(R.id.chosen_post_info_praise_num);
+        this.lJz = (TextView) this.lJv.findViewById(R.id.chosen_post_info_original_post);
     }
 
-    public View diH() {
-        return this.lAI;
+    public View dkT() {
+        return this.lJv;
     }
 
     public void a(a aVar) {
-        this.lAN = aVar;
+        this.lJA = aVar;
     }
 
-    public void Fa(int i) {
-        if (this.lAJ != null) {
-            this.lAJ.setText(i);
+    public void Ft(int i) {
+        if (this.lJw != null) {
+            this.lJw.setText(i);
         }
     }
 
     public void R(View.OnClickListener onClickListener) {
-        if (this.lAM != null) {
-            this.lAM.setOnClickListener(onClickListener);
+        if (this.lJz != null) {
+            this.lJz.setOnClickListener(onClickListener);
         }
     }
 
-    public void hn(long j) {
+    public void hs(long j) {
         if (j >= 0) {
-            this.lAP = j;
-            if (this.lAL != null) {
-                this.lAL.setVisibility(0);
-                this.lAL.setText(this.context.getString(R.string.chosen_pb_praise_num, at.numFormatOver10000(j)));
+            this.lJC = j;
+            if (this.lJy != null) {
+                this.lJy.setVisibility(0);
+                this.lJy.setText(this.context.getString(R.string.chosen_pb_praise_num, au.numFormatOver10000(j)));
             }
-            if (this.lAL != null && this.lAL.getVisibility() == 8) {
-                this.lAL.setVisibility(0);
+            if (this.lJy != null && this.lJy.getVisibility() == 8) {
+                this.lJy.setVisibility(0);
             }
         }
     }
 
     public void a(final ExcellentPbThreadInfo excellentPbThreadInfo) {
         if (excellentPbThreadInfo != null) {
-            Fa(R.string.chosen_pb_copyright);
-            hn(excellentPbThreadInfo.zan.zansum.longValue());
-            ut(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.lAK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            Ft(R.string.chosen_pb_copyright);
+            hs(excellentPbThreadInfo.zan.zansum.longValue());
+            uG(excellentPbThreadInfo.zan.is_zan.booleanValue());
+            this.lJx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.lAR && bg.checkUpIsLogin(e.this.context)) {
-                        e.this.lAR = true;
-                        e.this.lAK.startAnimation(e.this.diJ());
-                        if (e.this.lAN != null) {
-                            e.this.lAN.up(e.this.lAO);
+                    if (!e.this.lJE && bh.checkUpIsLogin(e.this.context)) {
+                        e.this.lJE = true;
+                        e.this.lJx.startAnimation(e.this.dkV());
+                        if (e.this.lJA != null) {
+                            e.this.lJA.uC(e.this.lJB);
                         }
                     }
                 }
@@ -96,43 +96,43 @@ public class e {
             R(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.lAN != null) {
-                        e.this.lAN.x(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.lJA != null) {
+                        e.this.lJA.y(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
         }
     }
 
-    public void diI() {
-        this.lAR = false;
+    public void dkU() {
+        this.lJE = false;
     }
 
-    public void us(boolean z) {
-        ut(z);
+    public void uF(boolean z) {
+        uG(z);
         if (z) {
-            this.lAP++;
+            this.lJC++;
         } else {
-            this.lAP--;
+            this.lJC--;
         }
-        hn(this.lAP);
+        hs(this.lJC);
     }
 
-    private void ut(boolean z) {
-        this.lAO = z;
+    private void uG(boolean z) {
+        this.lJB = z;
         if (z) {
-            ao.setImageResource(this.lAK, R.drawable.btn_zambia_big_s);
+            ap.setImageResource(this.lJx, R.drawable.btn_zambia_big_s);
         } else {
-            ao.setImageResource(this.lAK, R.drawable.btn_zambia_big_n);
+            ap.setImageResource(this.lJx, R.drawable.btn_zambia_big_n);
         }
-        this.lAK.setVisibility(0);
+        this.lJx.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation diJ() {
-        if (this.lAQ == null) {
-            this.lAQ = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
+    public Animation dkV() {
+        if (this.lJD == null) {
+            this.lJD = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
         }
-        return this.lAQ;
+        return this.lJD;
     }
 }

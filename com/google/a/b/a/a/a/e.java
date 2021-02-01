@@ -3,7 +3,7 @@ package com.google.a.b.a.a.a;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public abstract class e extends com.google.a.a.b implements d {
     public e() {
         super("com.google.android.play.core.install.protocol.IInstallServiceCallback");

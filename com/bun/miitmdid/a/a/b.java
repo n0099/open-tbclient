@@ -1,7 +1,7 @@
 package com.bun.miitmdid.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5732a;
+    public String f5734a;
 }

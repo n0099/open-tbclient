@@ -2,17 +2,17 @@ package com.baidu.tieba.ext.bdplayer.a;
 
 import android.content.Context;
 import com.baidu.live.liveroom.e.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c implements e {
-    private String iMz;
+    private String iSg;
 
     public c(Context context, String str) {
-        d.gk(context);
-        this.iMz = str;
+        d.gl(context);
+        this.iSg = str;
     }
 
     @Override // com.baidu.live.liveroom.e.e
     public com.baidu.live.liveroom.e.d aZ(Context context) {
-        return new d(this.iMz);
+        return new d(this.iSg);
     }
 }

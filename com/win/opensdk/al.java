@@ -16,14 +16,14 @@ import org.json.JSONObject;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13723a = al.class.getSimpleName();
+    private static String f13725a = al.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f13724b = "https://pp.xdplt.com/";
-    public static final String java = f13724b + "behavior?";
+    private static String f13726b = "https://pp.xdplt.com/";
+    public static final String java = f13726b + "behavior?";
 
     /* renamed from: case  reason: not valid java name */
-    public static final String f21case = f13724b + "report?";
+    public static final String f21case = f13726b + "report?";
     private static String c = "https://cd.xdplt.com/";
     private static String d = "jy/da?";
     private static String e = "?";
@@ -35,7 +35,7 @@ public class al {
         return c;
     }
 
-    public static String eGG() {
+    public static String eIW() {
         return c + "jy/cf?";
     }
 
@@ -46,24 +46,24 @@ public class al {
         /* renamed from: case  reason: not valid java name */
         String f22case;
         String java;
-        Context pYJ;
-        protected r<bh> pZY;
+        Context qiN;
+        protected r<bh> qkc;
 
         public a(Context context) {
-            this.pYJ = context;
+            this.qiN = context;
         }
 
         public final a a(r<bh> rVar) {
-            this.pZY = rVar;
+            this.qkc = rVar;
             return this;
         }
 
-        public final void eGz() {
+        public final void eIP() {
             this.f22case = al.java() + al.d;
             al.a(this);
         }
 
-        public final void eGA() {
+        public final void eIQ() {
             this.f22case = al.java() + al.e;
             al.a(this);
         }
@@ -85,12 +85,12 @@ public class al {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static bh fm(JSONObject jSONObject) {
+    public static bh fn(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 if (jSONObject.length() != 0) {
                     bh bhVar = new bh();
-                    bhVar.f13726a = jSONObject.optString("traceid", "");
+                    bhVar.f13728a = jSONObject.optString("traceid", "");
                     bhVar.java = jSONObject.optString("pid", "");
                     bhVar.f25case = jSONObject.optString("bt", "");
                     JSONArray optJSONArray = jSONObject.optJSONArray("list");
@@ -100,7 +100,7 @@ public class al {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                             if (optJSONObject != null && optJSONObject.length() > 0) {
                                 Info info = new Info();
-                                info.setTraceid(bhVar.f13726a);
+                                info.setTraceid(bhVar.f13728a);
                                 info.setPid(bhVar.java);
                                 info.setId(optJSONObject.optString("id", ""));
                                 info.setLoad(optJSONObject.optString(TrackLoadSettingsAtom.TYPE, ""));
@@ -159,7 +159,7 @@ public class al {
                             }
                         }
                     }
-                    bhVar.pZN = arrayList;
+                    bhVar.qjR = arrayList;
                     return bhVar;
                 }
             } catch (Exception e2) {
@@ -170,49 +170,49 @@ public class al {
     }
 
     static /* synthetic */ void a(final a aVar) {
-        if (TextUtils.isEmpty(aVar.f22case) || aVar.pYJ == null || TextUtils.isEmpty(aVar.java)) {
+        if (TextUtils.isEmpty(aVar.f22case) || aVar.qiN == null || TextUtils.isEmpty(aVar.java)) {
             return;
         }
-        ba.D(new Runnable() { // from class: com.win.opensdk.al.1
+        ba.C(new Runnable() { // from class: com.win.opensdk.al.1
             @Override // java.lang.Runnable
             public final void run() {
-                HashMap<String, String> iM = ak.iM(a.this.pYJ);
-                iM.put("pid", a.this.java);
-                al.a(a.this, iM);
-                al.b(a.this, iM);
-                al.c(a.this, iM);
+                HashMap<String, String> iP = ak.iP(a.this.qiN);
+                iP.put("pid", a.this.java);
+                al.a(a.this, iP);
+                al.b(a.this, iP);
+                al.c(a.this, iP);
                 String str = "";
                 try {
-                    str = a.this.f22case + ak.R(iM);
+                    str = a.this.f22case + ak.T(iP);
                 } catch (UnsupportedEncodingException e2) {
                 }
                 ai.a(str, new r<am>() { // from class: com.win.opensdk.al.1.1
                     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
                     @Override // com.win.opensdk.r
                     public final /* synthetic */ void bH(am amVar) {
-                        bh fm = al.fm(amVar.pZZ);
-                        if (a.this.pZY != null) {
-                            if (fm == null) {
-                                a.this.pZY.cd(101, "");
-                            } else if (!TextUtils.isEmpty(a.this.java) && a.this.java.equalsIgnoreCase(fm.java)) {
-                                a.this.pZY.bH(fm);
+                        bh fn = al.fn(amVar.qkd);
+                        if (a.this.qkc != null) {
+                            if (fn == null) {
+                                a.this.qkc.ck(101, "");
+                            } else if (!TextUtils.isEmpty(a.this.java) && a.this.java.equalsIgnoreCase(fn.java)) {
+                                a.this.qkc.bH(fn);
                             } else {
-                                a.this.pZY.cd(2003, "");
+                                a.this.qkc.ck(2003, "");
                             }
                         }
                     }
 
                     @Override // com.win.opensdk.r
-                    public final void eGz() {
-                        if (a.this.pZY != null) {
-                            a.this.pZY.eGz();
+                    public final void eIP() {
+                        if (a.this.qkc != null) {
+                            a.this.qkc.eIP();
                         }
                     }
 
                     @Override // com.win.opensdk.r
-                    public final void cd(int i, String str2) {
-                        if (a.this.pZY != null) {
-                            a.this.pZY.cd(i, str2);
+                    public final void ck(int i, String str2) {
+                        if (a.this.qkc != null) {
+                            a.this.qkc.ck(i, str2);
                         }
                     }
                 });
@@ -224,22 +224,22 @@ public class al {
         if (!aVar.java.startsWith("602")) {
             return;
         }
-        hashMap.put("lo_timeout", String.valueOf(az.m60a(aVar.pYJ)));
+        hashMap.put("lo_timeout", String.valueOf(az.m60a(aVar.qiN)));
     }
 
     static /* synthetic */ void b(a aVar, HashMap hashMap) {
         try {
-            String[] split = az.f(aVar.pYJ).split(",");
+            String[] split = az.f(aVar.qiN).split(",");
             ArrayList<aa> arrayList = new ArrayList();
             arrayList.clear();
             for (String str : split) {
                 String[] split2 = str.split(":");
                 String str2 = split2[0];
                 String str3 = split2[1];
-                if (System.currentTimeMillis() - Long.parseLong(str3) < az.m68e(aVar.pYJ)) {
+                if (System.currentTimeMillis() - Long.parseLong(str3) < az.m68e(aVar.qiN)) {
                     aa aaVar = new aa();
                     aaVar.java = str2;
-                    aaVar.pZf = Long.parseLong(str3);
+                    aaVar.qjj = Long.parseLong(str3);
                     arrayList.add(aaVar);
                 }
             }
@@ -248,13 +248,13 @@ public class al {
                 String str5 = "";
                 for (aa aaVar2 : arrayList) {
                     str4 = str4 + aaVar2.java + ",";
-                    str5 = str5 + aaVar2.java + ":" + aaVar2.pZf + ",";
+                    str5 = str5 + aaVar2.java + ":" + aaVar2.qjj + ",";
                 }
                 if (!TextUtils.isEmpty(str4)) {
                     hashMap.put("a605", str4.substring(0, str4.length() - 1));
                 }
                 if (!TextUtils.isEmpty(str5)) {
-                    az.k(aVar.pYJ, str5.substring(0, str5.length() - 1), true);
+                    az.k(aVar.qiN, str5.substring(0, str5.length() - 1), true);
                 }
             }
         } catch (Exception e2) {
@@ -264,17 +264,17 @@ public class al {
 
     static /* synthetic */ void c(a aVar, HashMap hashMap) {
         try {
-            String[] split = az.g(aVar.pYJ).split(",");
+            String[] split = az.g(aVar.qiN).split(",");
             ArrayList<aa> arrayList = new ArrayList();
             arrayList.clear();
             for (String str : split) {
                 String[] split2 = str.split(":");
                 String str2 = split2[0];
                 String str3 = split2[1];
-                if (System.currentTimeMillis() - Long.parseLong(str3) <= az.m68e(aVar.pYJ)) {
+                if (System.currentTimeMillis() - Long.parseLong(str3) <= az.m68e(aVar.qiN)) {
                     aa aaVar = new aa();
                     aaVar.java = str2;
-                    aaVar.pZf = Long.parseLong(str3);
+                    aaVar.qjj = Long.parseLong(str3);
                     arrayList.add(aaVar);
                 }
             }
@@ -283,13 +283,13 @@ public class al {
                 String str5 = "";
                 for (aa aaVar2 : arrayList) {
                     str4 = str4 + aaVar2.java + ",";
-                    str5 = str5 + aaVar2.java + ":" + aaVar2.pZf + ",";
+                    str5 = str5 + aaVar2.java + ":" + aaVar2.qjj + ",";
                 }
                 if (!TextUtils.isEmpty(str4)) {
                     hashMap.put("a601", str4.substring(0, str4.length() - 1));
                 }
                 if (!TextUtils.isEmpty(str5)) {
-                    az.l(aVar.pYJ, str5.substring(0, str5.length() - 1), true);
+                    az.l(aVar.qiN, str5.substring(0, str5.length() - 1), true);
                 }
             }
         } catch (Exception e2) {

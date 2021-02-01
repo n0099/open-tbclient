@@ -4,84 +4,84 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bm;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.bo;
+import com.baidu.tbadk.core.data.cb;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l {
-    private List<com.baidu.adp.widget.ListView.a> bjZ = new LinkedList();
-    private BdTypeRecyclerView iIn;
-    private TbPageContext<?> jvh;
-    private f lqA;
-    private k lqB;
-    private g lqC;
-    private h lqD;
-    private b lqE;
-    private m lqF;
-    private i lqG;
-    private j lqw;
-    private c lqx;
-    private e lqy;
-    private d lqz;
+    private List<com.baidu.adp.widget.ListView.a> bns = new LinkedList();
+    private BdTypeRecyclerView iNV;
+    private TbPageContext<?> jAN;
+    private j lyB;
+    private c lyC;
+    private e lyD;
+    private d lyE;
+    private f lyF;
+    private k lyG;
+    private g lyH;
+    private h lyI;
+    private b lyJ;
+    private m lyK;
+    private i lyL;
     private BdUniqueId pageId;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jvh = tbPageContext;
+        this.jAN = tbPageContext;
         this.pageId = bdUniqueId;
-        this.iIn = bdTypeRecyclerView;
-        IY();
+        this.iNV = bdTypeRecyclerView;
+        Kw();
     }
 
-    private void IY() {
-        this.lqw = new j(this.jvh, bz.eOg, this.pageId);
-        this.lqw.a(this.iIn);
-        this.bjZ.add(this.lqw);
-        this.lqx = new c(this.jvh, bz.eOl, this.pageId);
-        this.lqx.a(this.iIn);
-        this.bjZ.add(this.lqx);
-        this.lqy = new e(this.jvh, bz.eOj, this.pageId);
-        this.lqy.a(this.iIn);
-        this.bjZ.add(this.lqy);
-        this.lqz = new d(this.jvh, bz.eOk, this.pageId);
-        this.lqz.a(this.iIn);
-        this.bjZ.add(this.lqz);
-        this.lqA = new f(this.jvh, bz.eOh, this.pageId);
-        this.lqA.a(this.iIn);
-        this.bjZ.add(this.lqA);
-        this.lqB = new k(this.jvh, bz.eOy, this.pageId);
-        this.lqB.a(this.iIn);
-        this.bjZ.add(this.lqB);
-        this.lqC = new g(this.jvh, bz.eOq, this.pageId);
-        this.lqC.a(this.iIn);
-        this.bjZ.add(this.lqC);
-        this.lqD = new h(this.jvh, bz.eOm, this.pageId);
-        this.lqD.a(this.iIn);
-        this.bjZ.add(this.lqD);
-        this.lqE = new b(this.jvh, bz.eOp, this.pageId);
-        this.lqE.a(this.iIn);
-        this.bjZ.add(this.lqE);
-        this.lqF = new m(this.jvh, bm.eKJ);
-        this.lqF.a(this.iIn);
-        this.bjZ.add(this.lqF);
-        this.lqG = new i(this.jvh, com.baidu.tieba.card.data.k.eOD);
-        this.bjZ.add(this.lqG);
-        this.iIn.addAdapters(this.bjZ);
+    private void Kw() {
+        this.lyB = new j(this.jAN, cb.eQs, this.pageId);
+        this.lyB.a(this.iNV);
+        this.bns.add(this.lyB);
+        this.lyC = new c(this.jAN, cb.eQx, this.pageId);
+        this.lyC.a(this.iNV);
+        this.bns.add(this.lyC);
+        this.lyD = new e(this.jAN, cb.eQv, this.pageId);
+        this.lyD.a(this.iNV);
+        this.bns.add(this.lyD);
+        this.lyE = new d(this.jAN, cb.eQw, this.pageId);
+        this.lyE.a(this.iNV);
+        this.bns.add(this.lyE);
+        this.lyF = new f(this.jAN, cb.eQt, this.pageId);
+        this.lyF.a(this.iNV);
+        this.bns.add(this.lyF);
+        this.lyG = new k(this.jAN, cb.eQK, this.pageId);
+        this.lyG.a(this.iNV);
+        this.bns.add(this.lyG);
+        this.lyH = new g(this.jAN, cb.eQC, this.pageId);
+        this.lyH.a(this.iNV);
+        this.bns.add(this.lyH);
+        this.lyI = new h(this.jAN, cb.eQy, this.pageId);
+        this.lyI.a(this.iNV);
+        this.bns.add(this.lyI);
+        this.lyJ = new b(this.jAN, cb.eQB, this.pageId);
+        this.lyJ.a(this.iNV);
+        this.bns.add(this.lyJ);
+        this.lyK = new m(this.jAN, bo.eMV);
+        this.lyK.a(this.iNV);
+        this.bns.add(this.lyK);
+        this.lyL = new i(this.jAN, com.baidu.tieba.card.data.k.eQP);
+        this.bns.add(this.lyL);
+        this.iNV.addAdapters(this.bns);
     }
 
-    public void ud(boolean z) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bjZ) {
+    public void uq(boolean z) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bns) {
             if (aVar instanceof a) {
-                ((a) aVar).uc(z);
+                ((a) aVar).up(z);
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.iIn.getAdapter().notifyDataSetChanged();
+        this.iNV.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(List<? extends n> list) {
-        this.iIn.setData(list);
+        this.iNV.setData(list);
     }
 }

@@ -1,42 +1,44 @@
 package com.qq.e.comm.plugin.c;
 
 import com.qq.e.comm.plugin.util.w;
+import com.yy.videoplayer.decoder.VideoConstant;
+import com.yy.videoplayer.decoder.YYVideoLibMgr;
 import org.json.JSONObject;
 import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class b implements com.qq.e.comm.plugin.c.a.b, k {
 
     /* renamed from: a  reason: collision with root package name */
-    private f f11924a;
+    private f f11926a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.ad.j f11925b;
+    private com.qq.e.comm.plugin.ad.j f11927b;
     private String c;
     private int d;
     private com.qq.e.comm.plugin.c.a.a e;
 
     /* renamed from: com.qq.e.comm.plugin.c.b$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     class AnonymousClass1 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ com.qq.e.comm.plugin.c.a.a f11926a;
+        final /* synthetic */ com.qq.e.comm.plugin.c.a.a f11928a;
 
         AnonymousClass1(com.qq.e.comm.plugin.c.a.a aVar) {
-            this.f11926a = aVar;
+            this.f11928a = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f11926a.a(b.a(b.this).i(), b.b(b.this));
+            this.f11928a.a(b.a(b.this).i(), b.b(b.this));
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.c.b$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     class AnonymousClass2 implements Runnable {
         AnonymousClass2() {
         }
@@ -48,7 +50,7 @@ class b implements com.qq.e.comm.plugin.c.a.b, k {
     }
 
     /* renamed from: com.qq.e.comm.plugin.c.b$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     class AnonymousClass3 implements Runnable {
         AnonymousClass3() {
         }
@@ -56,7 +58,7 @@ class b implements com.qq.e.comm.plugin.c.a.b, k {
         @Override // java.lang.Runnable
         public void run() {
             a d = b.d(b.this);
-            if (d == null || b.e(b.this).a().f12445a != 200) {
+            if (d == null || b.e(b.this).a().f12447a != 200) {
                 if (b.c(b.this) != null) {
                     w.a(new Runnable() { // from class: com.qq.e.comm.plugin.c.b.3.1
                         @Override // java.lang.Runnable
@@ -82,23 +84,23 @@ class b implements com.qq.e.comm.plugin.c.a.b, k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f11933a;
+        private final String f11935a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f11934b;
+        private final String f11936b;
 
         public a(String str, String str2) {
-            this.f11933a = str;
-            this.f11934b = str2;
+            this.f11935a = str;
+            this.f11936b = str2;
         }
 
         public a(JSONObject jSONObject) {
-            this.f11933a = jSONObject.optString("name");
-            this.f11934b = jSONObject.optString("iconurl");
+            this.f11935a = jSONObject.optString("name");
+            this.f11936b = jSONObject.optString("iconurl");
         }
     }
 
@@ -122,7 +124,7 @@ class b implements com.qq.e.comm.plugin.c.a.b, k {
     }
 
     static /* synthetic */ int b(b bVar) {
-        return gdtadv.getIresult(316, 1, bVar);
+        return gdtadv.getIresult(YYVideoLibMgr.MediaDecodeConfigKey.CCK_H265_HARDWARE_DECODE, 1, bVar);
     }
 
     static /* synthetic */ com.qq.e.comm.plugin.c.a.a c(b bVar) {
@@ -138,7 +140,7 @@ class b implements com.qq.e.comm.plugin.c.a.b, k {
     }
 
     static /* synthetic */ f e(b bVar) {
-        return (f) gdtadv.getobjresult(320, 1, bVar);
+        return (f) gdtadv.getobjresult(VideoConstant.THUMBNAIL_WIDTH, 1, bVar);
     }
 
     private void e() {

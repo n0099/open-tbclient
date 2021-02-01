@@ -7,7 +7,7 @@ import com.xiaomi.push.di;
 public class dk extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    al.b f13945a;
+    al.b f13947a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ di f299a;
@@ -24,18 +24,18 @@ public class dk extends al.b {
             return;
         }
         if (this.f299a.f287a.remove(bVar)) {
-            this.f13945a = bVar;
+            this.f13947a = bVar;
         }
-        if (this.f13945a != null) {
-            this.f13945a.b();
+        if (this.f13947a != null) {
+            this.f13947a.b();
         }
     }
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
     public void mo255c() {
-        if (this.f13945a != null) {
-            this.f13945a.mo255c();
+        if (this.f13947a != null) {
+            this.f13947a.mo255c();
         }
     }
 }

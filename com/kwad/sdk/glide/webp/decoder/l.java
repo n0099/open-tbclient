@@ -5,7 +5,7 @@ import com.kwad.sdk.glide.load.EncodeStrategy;
 import com.kwad.sdk.glide.load.engine.s;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class l implements com.kwad.sdk.glide.load.g<k> {
     @Override // com.kwad.sdk.glide.load.g
     public EncodeStrategy a(com.kwad.sdk.glide.load.e eVar) {

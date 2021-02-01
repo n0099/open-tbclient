@@ -5,10 +5,10 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ala.g;
-/* loaded from: classes9.dex */
+import com.baidu.tieba.ala.h;
+/* loaded from: classes10.dex */
 public class AlaGameFrsLiveNormalCardView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private b gTU;
+    private b gWE;
     private TbPageContext mPageContext;
 
     public AlaGameFrsLiveNormalCardView(TbPageContext<?> tbPageContext) {
@@ -18,20 +18,20 @@ public class AlaGameFrsLiveNormalCardView extends com.baidu.tieba.card.b<com.bai
     }
 
     private void initView() {
-        this.gTU = new b(this.mPageContext);
-        ((ViewGroup) getView()).addView(this.gTU.getView());
+        this.gWE = new b(this.mPageContext);
+        ((ViewGroup) getView()).addView(this.gWE.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.gTU != null) {
-            this.gTU.onChangeSkinType(tbPageContext, i);
+        if (this.gWE != null) {
+            this.gWE.onChangeSkinType(tbPageContext, i);
         }
     }
 
-    public void c(g gVar) {
-        if (this.gTU != null) {
-            this.gTU.d(gVar);
+    public void c(h hVar) {
+        if (this.gWE != null) {
+            this.gWE.d(hVar);
         }
     }
 
@@ -43,8 +43,8 @@ public class AlaGameFrsLiveNormalCardView extends com.baidu.tieba.card.b<com.bai
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.eHK != null && this.gTU != null) {
-            this.gTU.a(cVar.eHK);
+        if (cVar != null && cVar.eJQ != null && this.gWE != null) {
+            this.gWE.a(cVar.eJQ);
         }
     }
 
@@ -52,13 +52,13 @@ public class AlaGameFrsLiveNormalCardView extends com.baidu.tieba.card.b<com.bai
     public void onClick(View view) {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class AlaGameFrsNormalViewHolder extends TypeAdapter.ViewHolder {
-        public AlaGameFrsLiveNormalCardView gTV;
+        public AlaGameFrsLiveNormalCardView gWF;
 
         public AlaGameFrsNormalViewHolder(AlaGameFrsLiveNormalCardView alaGameFrsLiveNormalCardView) {
             super(alaGameFrsLiveNormalCardView.getView());
-            this.gTV = alaGameFrsLiveNormalCardView;
+            this.gWF = alaGameFrsLiveNormalCardView;
         }
     }
 }

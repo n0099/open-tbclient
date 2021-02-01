@@ -1,6 +1,5 @@
 package com.bytedance.sdk.a.b;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.bytedance.sdk.a.b.aa;
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -9,38 +8,38 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class q {
     private Runnable c;
     private ExecutorService d;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f5969a = 64;
+    private int f5971a = 64;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f5970b = 5;
-    private final Deque<aa.a> pjh = new ArrayDeque();
-    private final Deque<aa.a> pji = new ArrayDeque();
-    private final Deque<aa> pjj = new ArrayDeque();
+    private int f5972b = 5;
+    private final Deque<aa.a> ptx = new ArrayDeque();
+    private final Deque<aa.a> pty = new ArrayDeque();
+    private final Deque<aa> ptz = new ArrayDeque();
 
     public synchronized ExecutorService a() {
         if (this.d == null) {
-            this.d = new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new SynchronousQueue(), com.bytedance.sdk.a.b.a.c.bm("OkHttp Dispatcher", false));
+            this.d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), com.bytedance.sdk.a.b.a.c.bm("OkHttp Dispatcher", false));
         }
         return this.d;
     }
 
     private void c() {
-        if (this.pji.size() < this.f5969a && !this.pjh.isEmpty()) {
-            Iterator<aa.a> it = this.pjh.iterator();
+        if (this.pty.size() < this.f5971a && !this.ptx.isEmpty()) {
+            Iterator<aa.a> it = this.ptx.iterator();
             while (it.hasNext()) {
                 aa.a next = it.next();
-                if (a(next) < this.f5970b) {
+                if (a(next) < this.f5972b) {
                     it.remove();
-                    this.pji.add(next);
+                    this.pty.add(next);
                     a().execute(next);
                 }
-                if (this.pji.size() >= this.f5969a) {
+                if (this.pty.size() >= this.f5971a) {
                     return;
                 }
             }
@@ -49,7 +48,7 @@ public final class q {
 
     private int a(aa.a aVar) {
         int i = 0;
-        Iterator<aa.a> it = this.pji.iterator();
+        Iterator<aa.a> it = this.pty.iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
@@ -62,17 +61,17 @@ public final class q {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(aa aaVar) {
-        this.pjj.add(aaVar);
+        this.ptz.add(aaVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(aa.a aVar) {
-        a(this.pji, aVar, true);
+        a(this.pty, aVar, true);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(aa aaVar) {
-        a(this.pjj, aaVar, false);
+        a(this.ptz, aaVar, false);
     }
 
     private <T> void a(Deque<T> deque, T t, boolean z) {
@@ -94,6 +93,6 @@ public final class q {
     }
 
     public synchronized int b() {
-        return this.pji.size() + this.pjj.size();
+        return this.pty.size() + this.ptz.size();
     }
 }

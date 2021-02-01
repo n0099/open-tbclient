@@ -11,42 +11,42 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.message.AlaGetMyAssistWIshListResponseMessage;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e extends BdBaseModel {
-    private a hOk;
-    private HttpMessageListener hPo;
+    private a hSG;
+    private HttpMessageListener hTK;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void ab(ArrayList<com.baidu.tieba.ala.data.f> arrayList);
+        void aa(ArrayList<com.baidu.tieba.ala.data.f> arrayList);
 
-        void bo(int i, String str);
+        void bt(int i, String str);
     }
 
     public e(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.hPo = new HttpMessageListener(1021171) { // from class: com.baidu.tieba.ala.g.e.1
+        this.hTK = new HttpMessageListener(1021171) { // from class: com.baidu.tieba.ala.g.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021171 && (httpResponsedMessage instanceof AlaGetMyAssistWIshListResponseMessage)) {
                     AlaGetMyAssistWIshListResponseMessage alaGetMyAssistWIshListResponseMessage = (AlaGetMyAssistWIshListResponseMessage) httpResponsedMessage;
-                    if (e.this.hOk != null) {
+                    if (e.this.hSG != null) {
                         if (alaGetMyAssistWIshListResponseMessage.getError() != 0 || !alaGetMyAssistWIshListResponseMessage.isSuccess()) {
-                            e.this.hOk.bo(alaGetMyAssistWIshListResponseMessage.getError(), alaGetMyAssistWIshListResponseMessage.getErrorString());
+                            e.this.hSG.bt(alaGetMyAssistWIshListResponseMessage.getError(), alaGetMyAssistWIshListResponseMessage.getErrorString());
                         } else {
-                            e.this.hOk.ab(alaGetMyAssistWIshListResponseMessage.getData());
+                            e.this.hSG.aa(alaGetMyAssistWIshListResponseMessage.getData());
                         }
                     }
                 }
             }
         };
-        this.hOk = aVar;
-        aak();
-        registerListener(this.hPo);
+        this.hSG = aVar;
+        abY();
+        registerListener(this.hTK);
     }
 
-    private void aak() {
+    private void abY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021171, TbConfig.SERVER_HOST + "liveserver/wishlist/getsupportwishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -56,7 +56,7 @@ public class e extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void HA(String str) {
+    public void Ie(String str) {
         HttpMessage httpMessage = new HttpMessage(1021171);
         httpMessage.addParam("anchor_id", str);
         sendMessage(httpMessage);
@@ -73,7 +73,7 @@ public class e extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hPo);
+        MessageManager.getInstance().unRegisterListener(this.hTK);
         MessageManager.getInstance().unRegisterTask(1021171);
     }
 }

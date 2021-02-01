@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.tail.data;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TailEditActivityConfig extends IntentConfig {
     public static final String IS_NO_TAIL = "is_no_tail";
     public static final String TAIL_COLOR = "tail_color";

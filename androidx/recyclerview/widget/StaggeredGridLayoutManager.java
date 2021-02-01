@@ -12,7 +12,6 @@ import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
     static final boolean DEBUG = false;
     @Deprecated
@@ -917,7 +916,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
 
     private void fixStartGap(RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
         int startAfterPadding;
-        int minStart = getMinStart(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        int minStart = getMinStart(Integer.MAX_VALUE);
         if (minStart != Integer.MAX_VALUE && (startAfterPadding = minStart - this.mPrimaryOrientation.getStartAfterPadding()) > 0) {
             int scrollBy = startAfterPadding - scrollBy(startAfterPadding, recycler, state);
             if (z && scrollBy > 0) {
@@ -1409,7 +1408,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             i3 = this.mSpanCount;
         }
         if (layoutState.mLayoutDirection == 1) {
-            int i4 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i4 = Integer.MAX_VALUE;
             int startAfterPadding = this.mPrimaryOrientation.getStartAfterPadding();
             int i5 = i;
             while (i5 != i3) {
@@ -1749,7 +1748,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class LayoutParams extends RecyclerView.LayoutParams {
         public static final int INVALID_SPAN_ID = -1;
         boolean mFullSpan;
@@ -1792,7 +1791,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public class Span {
         static final int INVALID_LINE = Integer.MIN_VALUE;
         final int mIndex;
@@ -2088,7 +2087,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class LazySpanLookup {
         private static final int MIN_SIZE = 10;
         int[] mData;
@@ -2286,7 +2285,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes15.dex */
         public static class FullSpanItem implements Parcelable {
             public static final Parcelable.Creator<FullSpanItem> CREATOR = new Parcelable.Creator<FullSpanItem>() { // from class: androidx.recyclerview.widget.StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -2354,7 +2353,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: androidx.recyclerview.widget.StaggeredGridLayoutManager.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -2457,7 +2456,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public class AnchorInfo {
         boolean mInvalidateOffsets;
         boolean mLayoutFromEnd;

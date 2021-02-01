@@ -7,14 +7,14 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f13527a = System.currentTimeMillis();
+    public static final long f13529a = System.currentTimeMillis();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f13528b = "";
+    public static String f13530b = "";
 
     /* JADX WARN: Removed duplicated region for block: B:47:0x019a  */
     /*
@@ -24,10 +24,10 @@ public class h {
         String str;
         StringBuilder sb = new StringBuilder();
         sb.append("T:");
-        sb.append(f13527a);
+        sb.append(f13529a);
         sb.append(",");
         sb.append("LT:");
-        sb.append("" + (System.currentTimeMillis() - f13527a));
+        sb.append("" + (System.currentTimeMillis() - f13529a));
         sb.append(",");
         sb.append("F:");
         sb.append(z ? "1" : "0");
@@ -43,7 +43,7 @@ public class h {
         sb.append(",");
         sb.append("SC:");
         sb.append(z3 ? "1" : "0");
-        String b2 = f.f13522a.b(context);
+        String b2 = f.f13524a.b(context);
         if (!TextUtils.isEmpty(b2)) {
             sb.append(",");
             sb.append("CL:");
@@ -69,7 +69,7 @@ public class h {
             sb.append("TAT:");
             sb.append("1");
         }
-        if (TextUtils.isEmpty(f13528b)) {
+        if (TextUtils.isEmpty(f13530b)) {
             String str2 = "";
             int myPid = Process.myPid();
             try {
@@ -78,10 +78,10 @@ public class h {
                 }
             } catch (Throwable th) {
             }
-            f13528b = str2;
+            f13530b = str2;
             sb.append(",");
             sb.append("P:");
-            sb.append(f13528b);
+            sb.append(f13530b);
         }
         String a3 = g.a().a("3");
         if (!TextUtils.isEmpty(a3)) {

@@ -1,26 +1,26 @@
 package com.qq.e.comm.util;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class AdError {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f12753a;
+    private int f12755a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12754b;
+    private String f12756b;
 
     public AdError() {
     }
 
     public AdError(int i, String str) {
-        this.f12753a = i;
-        this.f12754b = str;
+        this.f12755a = i;
+        this.f12756b = str;
     }
 
     public int getErrorCode() {
-        return this.f12753a;
+        return this.f12755a;
     }
 
     public String getErrorMsg() {
-        return this.f12754b;
+        return this.f12756b;
     }
 }

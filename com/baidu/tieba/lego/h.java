@@ -5,8 +5,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.util.ab;
-import com.baidu.tbadk.util.ac;
+import com.baidu.tbadk.util.ae;
+import com.baidu.tbadk.util.af;
+import com.baidu.tbadk.util.m;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.squareup.wire.Wire;
 import java.io.IOException;
@@ -17,38 +18,38 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Lego.DataRes;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class h {
-    private final BdListView WT;
+    private final BdListView WO;
     private boolean hasMore;
     private String itemId;
-    private final com.baidu.tieba.lego.b.a kRr;
-    private long kRu;
-    private a kRx = null;
+    private final com.baidu.tieba.lego.b.a kZt;
+    private long kZw;
+    private a kZz = null;
     private final List<ICardInfo> mDataList = new LinkedList();
     private int mPn = 1;
-    private String kRy = "";
+    private String kZA = "";
     private boolean mIsLoading = false;
-    private boolean jSJ = false;
+    private boolean kak = false;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void bC(int i, String str);
+        void bI(int i, String str);
 
         void c(String str, String str2, String str3, List<com.baidu.tieba.lego.c.e> list);
 
-        void eH(List<com.baidu.tieba.lego.c.d> list);
+        void eF(List<com.baidu.tieba.lego.c.d> list);
 
         void onError(int i, String str);
 
         void onSuccess();
 
-        void q(long j, String str);
+        void r(long j, String str);
     }
 
     public h(BdListView bdListView, com.baidu.tieba.lego.b.a aVar) {
-        this.WT = bdListView;
-        this.kRr = aVar;
+        this.WO = bdListView;
+        this.kZt = aVar;
     }
 
     public List<ICardInfo> getDataList() {
@@ -59,69 +60,69 @@ public class h {
         return this.hasMore;
     }
 
-    public void r(long j, String str) {
+    public void s(long j, String str) {
         this.mPn = 1;
-        this.kRu = j;
+        this.kZw = j;
         this.itemId = str;
-        if (this.mDataList.size() == 0 && !this.jSJ) {
-            s(j, str);
+        if (this.mDataList.size() == 0 && !this.kak) {
+            t(j, str);
         } else {
-            l(j, str);
+            m(j, str);
         }
     }
 
-    public void bQy() {
-        if (!isLoading() && this.kRx != null) {
+    public void bRc() {
+        if (!isLoading() && this.kZz != null) {
             this.mPn++;
             setIsLoading(true);
-            this.kRx.bC(this.mPn, this.kRy);
+            this.kZz.bI(this.mPn, this.kZA);
         }
     }
 
     public void a(boolean z, DataRes dataRes, int i, String str) {
         setIsLoading(false);
         if (z) {
-            this.WT.completePullRefresh();
+            this.WO.completePullRefresh();
         }
         if (i != 0 || dataRes == null || !a(z, dataRes)) {
             if (this.mDataList.size() > 0) {
-                if (this.kRx != null) {
-                    this.kRx.onError(1, str);
+                if (this.kZz != null) {
+                    this.kZz.onError(1, str);
                     return;
                 }
                 return;
-            } else if (this.kRx != null) {
-                this.kRx.onError(2, str);
+            } else if (this.kZz != null) {
+                this.kZz.onError(2, str);
                 return;
             } else {
                 return;
             }
         }
-        if (this.kRx != null) {
-            this.kRx.onSuccess();
+        if (this.kZz != null) {
+            this.kZz.onSuccess();
         }
         if (z) {
             b(dataRes);
         }
     }
 
-    private void l(long j, String str) {
-        if (this.kRx != null) {
-            this.kRx.q(j, str);
+    private void m(long j, String str) {
+        if (this.kZz != null) {
+            this.kZz.r(j, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
-        this.jSJ = true;
+        this.kak = true;
         if (dataRes != null) {
-            if (a(true, dataRes) && this.kRx != null) {
-                this.kRx.onSuccess();
+            if (a(true, dataRes) && this.kZz != null) {
+                this.kZz.onSuccess();
             }
-            l(this.kRu, this.itemId);
+            m(this.kZw, this.itemId);
             return;
         }
-        l(this.kRu, this.itemId);
+        m(this.kZw, this.itemId);
     }
 
     private boolean a(boolean z, DataRes dataRes) {
@@ -153,8 +154,8 @@ public class h {
                     if (optJSONObject2 != null) {
                         com.baidu.tieba.lego.c.e eVar = new com.baidu.tieba.lego.c.e();
                         eVar.tag_name = optJSONObject2.optString("title");
-                        eVar.kXA = optJSONObject2.optLong("page_id");
-                        eVar.kXB = optJSONObject2.optInt("page_type");
+                        eVar.lfE = optJSONObject2.optLong("page_id");
+                        eVar.lfF = optJSONObject2.optInt("page_type");
                         eVar.rn = optJSONObject2.optInt("rn");
                         eVar.itemId = optJSONObject2.optString(LegoListActivityConfig.ITEM_ID);
                         eVar.params = optJSONObject2.optString("params");
@@ -162,7 +163,7 @@ public class h {
                         arrayList.add(eVar);
                     }
                 }
-                this.kRx.c(str2, str3, str, arrayList);
+                this.kZz.c(str2, str3, str, arrayList);
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("buttons");
             if (optJSONArray2 != null) {
@@ -177,7 +178,7 @@ public class h {
                         }
                     }
                 }
-                this.kRx.eH(arrayList2);
+                this.kZz.eF(arrayList2);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -189,9 +190,9 @@ public class h {
                 if (i4 >= dataRes.cards.size()) {
                     break;
                 }
-                ICardInfo MO = com.baidu.tieba.lego.card.b.MO(dataRes.cards.get(i4));
-                if (MO != null && MO.isValid()) {
-                    this.mDataList.add(MO);
+                ICardInfo NC = com.baidu.tieba.lego.card.b.NC(dataRes.cards.get(i4));
+                if (NC != null && NC.isValid()) {
+                    this.mDataList.add(NC);
                 }
                 i3 = i4 + 1;
             }
@@ -200,22 +201,22 @@ public class h {
             return false;
         }
         try {
-            this.kRy = this.mDataList.get(this.mDataList.size() - 1).getFlipId();
+            this.kZA = this.mDataList.get(this.mDataList.size() - 1).getFlipId();
         } catch (Exception e2) {
-            this.kRy = "";
+            this.kZA = "";
         }
-        this.kRr.eM(this.mDataList);
+        this.kZt.eK(this.mDataList);
         return true;
     }
 
-    private void s(final long j, final String str) {
-        final com.baidu.adp.lib.cache.l<byte[]> Aa = com.baidu.tbadk.core.c.a.bpZ().Aa("tb.lego_update");
-        ac.a(new ab<DataRes>() { // from class: com.baidu.tieba.lego.h.1
+    private void t(final long j, final String str) {
+        final com.baidu.adp.lib.cache.l<byte[]> Ar = com.baidu.tbadk.core.c.a.bqr().Ar("tb.lego_update");
+        af.a(new ae<DataRes>() { // from class: com.baidu.tieba.lego.h.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.ab
-            /* renamed from: cZh */
+            @Override // com.baidu.tbadk.util.ae
+            /* renamed from: dbf */
             public DataRes doInBackground() {
-                byte[] bArr = (byte[]) Aa.get(j + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(str) ? "" : str));
+                byte[] bArr = (byte[]) Ar.get(j + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(str) ? "" : str));
                 if (bArr == null || bArr.length == 0) {
                     return null;
                 }
@@ -226,9 +227,9 @@ public class h {
                     return null;
                 }
             }
-        }, new com.baidu.tbadk.util.l<DataRes>() { // from class: com.baidu.tieba.lego.h.2
+        }, new m<DataRes>() { // from class: com.baidu.tieba.lego.h.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.l
+            @Override // com.baidu.tbadk.util.m
             /* renamed from: c */
             public void onReturnDataInUI(DataRes dataRes) {
                 h.this.a(dataRes);
@@ -238,12 +239,12 @@ public class h {
 
     private void b(DataRes dataRes) {
         if (dataRes != null) {
-            com.baidu.tbadk.core.c.a.bpZ().Aa("tb.lego_update").asyncSetForever(this.kRu + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), dataRes.toByteArray());
+            com.baidu.tbadk.core.c.a.bqr().Ar("tb.lego_update").asyncSetForever(this.kZw + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), dataRes.toByteArray());
         }
     }
 
     public void a(a aVar) {
-        this.kRx = aVar;
+        this.kZz = aVar;
     }
 
     private boolean isLoading() {

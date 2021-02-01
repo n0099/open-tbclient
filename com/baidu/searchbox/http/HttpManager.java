@@ -1,7 +1,7 @@
 package com.baidu.searchbox.http;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class HttpManager extends AbstractHttpManager {
     public static volatile HttpManager httpManager;
     private static ExtraInfoDispatcher sExtraInfoDispatcher = new ExtraInfoDispatcher();

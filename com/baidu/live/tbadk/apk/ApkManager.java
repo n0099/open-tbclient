@@ -26,7 +26,7 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ApkManager {
     private final LinkedList<ApkData> mApkWaitingList;
     private Handler mHandler;
@@ -319,7 +319,7 @@ public class ApkManager {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private class ApkFileDownloadCallBack implements FileDownloadCallBack {
         Activity activity;
         ApkData apkData;
@@ -376,7 +376,7 @@ public class ApkManager {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class ApkManagerClassInstance {
         public static final ApkManager instance = new ApkManager();
 

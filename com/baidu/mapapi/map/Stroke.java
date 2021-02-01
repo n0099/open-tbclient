@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Stroke {
     public final int color;
     public final int strokeWidth;

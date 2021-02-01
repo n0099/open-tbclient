@@ -16,11 +16,10 @@ import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
-import androidx.appcompat.widget.ActivityChooserView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class z extends ac {
 
     /* renamed from: a  reason: collision with root package name */
@@ -32,8 +31,8 @@ public final class z extends ac {
     public int d = 0;
     public int e = 0;
     public int f = 0;
-    private int g = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private int h = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private int g = Integer.MAX_VALUE;
+    private int h = Integer.MAX_VALUE;
     private final long i = System.currentTimeMillis();
     private List j;
 
@@ -209,7 +208,7 @@ public final class z extends ac {
                 int lac = neighboringCellInfo.getLac();
                 int cid = neighboringCellInfo.getCid();
                 if (c.a(this.f1084a, this.f1085b, this.c, lac, cid)) {
-                    arrayList.add(a(this.f1085b, this.c, lac, cid, (neighboringCellInfo.getRssi() << 1) - 113, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, false, false));
+                    arrayList.add(a(this.f1085b, this.c, lac, cid, (neighboringCellInfo.getRssi() << 1) - 113, Integer.MAX_VALUE, Integer.MAX_VALUE, false, false));
                 }
             }
         } catch (Throwable th) {

@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.dressCenter.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MemberRecommendView extends FrameLayout {
-    private TbImageView jRc;
-    private int lgP;
+    private TbImageView jYE;
+    private int loW;
     private Context mContext;
     private View mRootView;
     private TextView mTitleView;
-    private TextView nvB;
-    private e nvC;
+    private TextView nFl;
+    private e nFm;
 
     public MemberRecommendView(Context context) {
         super(context);
@@ -50,18 +50,18 @@ public class MemberRecommendView extends FrameLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.member_extend_view, this);
-        this.jRc = (TbImageView) this.mRootView.findViewById(R.id.vip_icon);
-        this.jRc.setDefaultResource(R.drawable.icon_vip_orange);
-        this.jRc.setDefaultBgResource(R.drawable.transparent_bg);
+        this.jYE = (TbImageView) this.mRootView.findViewById(R.id.vip_icon);
+        this.jYE.setDefaultResource(R.drawable.icon_vip_orange);
+        this.jYE.setDefaultBgResource(R.drawable.transparent_bg);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.title_view);
-        this.nvB = (TextView) this.mRootView.findViewById(R.id.jump_button);
-        this.nvB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.MemberRecommendView.1
+        this.nFl = (TextView) this.mRootView.findViewById(R.id.jump_button);
+        this.nFl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.MemberRecommendView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
                 TbPageContext tbPageContext;
                 int i = 9;
-                switch (MemberRecommendView.this.lgP) {
+                switch (MemberRecommendView.this.loW) {
                     case 1:
                         TiebaStatic.log("c10261");
                         i = 8;
@@ -71,7 +71,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 3:
                     case 9:
                         TiebaStatic.log("c10266");
-                        if (MemberRecommendView.this.lgP != 9) {
+                        if (MemberRecommendView.this.loW != 9) {
                             str = "";
                             break;
                         } else {
@@ -82,13 +82,13 @@ public class MemberRecommendView extends FrameLayout {
                     case 5:
                         TiebaStatic.log("c10278");
                         i = 12;
-                        str = MemberRecommendView.this.lgP == 4 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND : MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
+                        str = MemberRecommendView.this.loW == 4 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND : MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
                         break;
                     case 6:
                     case 7:
                         TiebaStatic.log("c10762");
                         i = 19;
-                        str = MemberRecommendView.this.lgP == 7 ? MemberPayStatistic.REFER_PAGE_ALL_BUBBLE : MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
+                        str = MemberRecommendView.this.loW == 7 ? MemberPayStatistic.REFER_PAGE_ALL_BUBBLE : MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
                         break;
                     case 8:
                         i = 22;
@@ -100,7 +100,7 @@ public class MemberRecommendView extends FrameLayout {
                         i = 0;
                         break;
                 }
-                if (MemberRecommendView.this.nvC != null && (tbPageContext = (TbPageContext) j.K(MemberRecommendView.this.mContext)) != null) {
+                if (MemberRecommendView.this.nFm != null && (tbPageContext = (TbPageContext) j.K(MemberRecommendView.this.mContext)) != null) {
                     MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
                     memberPayActivityConfig.setReferPageClickZone(str, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
@@ -111,19 +111,19 @@ public class MemberRecommendView extends FrameLayout {
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.nvC = eVar;
-            this.jRc.startLoad(this.nvC.getIconUrl(), 10, false);
-            this.mTitleView.setText(this.nvC.dPd());
-            if (StringUtils.isNull(this.nvC.dPe())) {
-                this.nvB.setVisibility(8);
+            this.nFm = eVar;
+            this.jYE.startLoad(this.nFm.getIconUrl(), 10, false);
+            this.mTitleView.setText(this.nFm.dRo());
+            if (StringUtils.isNull(this.nFm.dRp())) {
+                this.nFl.setVisibility(8);
                 return;
             }
-            this.nvB.setVisibility(0);
-            this.nvB.setText(this.nvC.dPe());
+            this.nFl.setVisibility(0);
+            this.nFl.setText(this.nFm.dRp());
         }
     }
 
-    public void btV() {
+    public void bup() {
         TbPageContext tbPageContext = (TbPageContext) j.K(this.mContext);
         if (tbPageContext != null) {
             tbPageContext.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
@@ -132,14 +132,14 @@ public class MemberRecommendView extends FrameLayout {
     }
 
     public int getFromType() {
-        return this.lgP;
+        return this.loW;
     }
 
     public void setFromType(int i) {
-        this.lgP = i;
+        this.loW = i;
     }
 
     public View getButton() {
-        return this.nvB;
+        return this.nFl;
     }
 }

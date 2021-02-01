@@ -5,7 +5,7 @@ import tbclient.GetIconList.Custom;
 import tbclient.GetIconList.IconInfo;
 import tbclient.GetIconList.Setting;
 import tbclient.GetIconList.UserInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface a {
     List<Custom> getCustomList();
 

@@ -4,7 +4,7 @@ import com.qq.e.comm.util.GDTLogger;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class d {
     public static List<String> a(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();

@@ -6,8 +6,8 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
-    private final int QR;
-    private final int QS;
+    private final int QO;
+    private final int QP;
     private ByteBuffer mBuffer;
 
     public a() {
@@ -15,9 +15,9 @@ public class a extends OutputStream {
     }
 
     public a(int i, int i2) {
-        this.QR = i;
-        this.QS = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.QR);
+        this.QO = i;
+        this.QP = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.QO);
         this.mBuffer.clear();
     }
 
@@ -25,15 +25,15 @@ public class a extends OutputStream {
         return this.mBuffer;
     }
 
-    public Buffer nV() {
+    public Buffer nU() {
         return this.mBuffer.flip();
     }
 
-    public Buffer nW() {
+    public Buffer nV() {
         return this.mBuffer.clear();
     }
 
-    public int nX() {
+    public int remaining() {
         return this.mBuffer.remaining();
     }
 
@@ -41,7 +41,7 @@ public class a extends OutputStream {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.QS) + 1) * this.QS);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.QP) + 1) * this.QP);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);
@@ -74,7 +74,7 @@ public class a extends OutputStream {
         write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void nY() throws IOException {
+    public synchronized void nW() throws IOException {
         write(13);
         write(10);
     }

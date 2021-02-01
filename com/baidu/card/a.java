@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.data.a;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tbadk.core.data.a> implements p<T>, q {
-    protected ak agm;
-    private Boolean agn = false;
-    private com.baidu.tieba.card.aa<T> ago;
-    public InterfaceC0088a agp;
+    protected ak agd;
+    private Boolean agf = false;
+    private com.baidu.tieba.card.ab<T> agg;
+    public InterfaceC0088a agh;
     protected Context mContext;
 
     /* renamed from: com.baidu.card.a$a  reason: collision with other inner class name */
@@ -30,7 +30,7 @@ public abstract class a<T extends com.baidu.tbadk.core.data.a> implements p<T>, 
     }
 
     public void a(ak akVar) {
-        this.agm = akVar;
+        this.agd = akVar;
     }
 
     public void bq(int i) {
@@ -40,19 +40,19 @@ public abstract class a<T extends com.baidu.tbadk.core.data.a> implements p<T>, 
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void sQ() {
+    public void sN() {
     }
 
-    public com.baidu.tieba.card.aa<T> sR() {
-        return this.ago;
+    public com.baidu.tieba.card.ab<T> sO() {
+        return this.agg;
     }
 
-    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<T> aaVar) {
-        this.ago = aaVar;
+    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<T> abVar) {
+        this.agg = abVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.agm.a(i, bVar);
+        this.agd.a(i, bVar);
     }
 
     public void bs(int i) {
@@ -71,12 +71,12 @@ public abstract class a<T extends com.baidu.tbadk.core.data.a> implements p<T>, 
         }
     }
 
-    public Boolean sS() {
-        return this.agn;
+    public Boolean sP() {
+        return this.agf;
     }
 
     public void c(Boolean bool) {
-        this.agn = bool;
+        this.agf = bool;
     }
 
     private ThreadCardView f(View view, int i) {
@@ -92,7 +92,7 @@ public abstract class a<T extends com.baidu.tbadk.core.data.a> implements p<T>, 
     public void g(View view, int i) {
         ThreadCardView f = f(view, i);
         if (f != null) {
-            com.baidu.tbadk.core.elementsMaven.c.bv(f).od(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            com.baidu.tbadk.core.elementsMaven.c.br(f).og(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
         }
     }
 }

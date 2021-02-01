@@ -18,10 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(21)
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class MediaControllerCompatApi21 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface Callback {
         void onAudioInfoChanged(int i, int i2, int i3, int i4, int i5);
 
@@ -132,7 +132,7 @@ public class MediaControllerCompatApi21 {
         return ((MediaController) obj).getPackageName();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class TransportControls {
         public static void play(Object obj) {
             ((MediaController.TransportControls) obj).play();
@@ -190,7 +190,7 @@ public class MediaControllerCompatApi21 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class PlaybackInfo {
         private static final int FLAG_SCO = 4;
         private static final int STREAM_BLUETOOTH_SCO = 6;
@@ -258,7 +258,7 @@ public class MediaControllerCompatApi21 {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class CallbackProxy<T extends Callback> extends MediaController.Callback {
         protected final T mCallback;
 

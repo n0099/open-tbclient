@@ -15,7 +15,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class i implements a.a.a.b.a.b {
 
     /* renamed from: a  reason: collision with root package name */

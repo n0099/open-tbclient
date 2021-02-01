@@ -4,10 +4,11 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.mobstat.Config;
+import com.yy.videoplayer.decoder.VideoConstant;
 import org.apache.http.HttpStatus;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class n extends ch {
     private final Context e;
 
@@ -33,7 +34,7 @@ public class n extends ch {
             case 260:
             case 280:
             case 300:
-            case 320:
+            case VideoConstant.THUMBNAIL_WIDTH /* 320 */:
                 str = "xhdpi";
                 break;
             case 340:

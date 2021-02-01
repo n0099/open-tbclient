@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk;
 
 import com.ss.android.a.a.d.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface TTDownloadEventLogger {
     void onEvent(d dVar);
 

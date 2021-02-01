@@ -8,25 +8,25 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes.dex */
 public class a {
-    private static C0016a Ni = new C0016a();
+    private static C0016a Ng = new C0016a();
     private static final Object mSyncLock = new Object();
 
     public static void b(boolean z, long j) {
-        f mr = mr();
-        mr.ND++;
+        f mq = mq();
+        mq.Nz++;
         if (z) {
-            mr.NF++;
-            mr.NG += j;
+            mq.NC++;
+            mq.ND += j;
         }
     }
 
     public static void c(boolean z, long j) {
         synchronized (mSyncLock) {
-            f mr = mr();
-            mr.NH++;
+            f mq = mq();
+            mq.NF++;
             if (z) {
-                mr.NI++;
-                mr.NJ += j;
+                mq.NG++;
+                mq.NH += j;
             }
         }
     }
@@ -36,27 +36,27 @@ public class a {
             synchronized (mSyncLock) {
                 boolean isCdn = isCdn(str);
                 boolean z2 = false;
-                if (dVar != null && !StringUtils.isNull(dVar.Mg)) {
+                if (dVar != null && !StringUtils.isNull(dVar.Me)) {
                     z2 = true;
                 }
-                f mr = mr();
+                f mq = mq();
                 if (isCdn) {
-                    mr.Ob++;
+                    mq.NZ++;
                 }
                 if (z2) {
-                    mr.Oc++;
+                    mq.Oa++;
                 }
                 if (isCdn && z2) {
-                    mr.Od++;
+                    mq.Ob++;
                 }
-                mr.NK++;
+                mq.NI++;
                 if (z) {
-                    mr.NM++;
-                    mr.NN += j;
-                    mr.Oe += j2;
+                    mq.NJ++;
+                    mq.NK += j;
+                    mq.Oc += j2;
                 }
-                if (Ni.mw() > 100) {
-                    mq();
+                if (Ng.mv() > 100) {
+                    mp();
                 }
             }
         }
@@ -64,78 +64,78 @@ public class a {
 
     public static void d(boolean z, long j) {
         synchronized (mSyncLock) {
-            f mr = mr();
+            f mq = mq();
             if (z) {
-                mr.NP++;
-                mr.NQ += j;
+                mq.NM++;
+                mq.NN += j;
             }
         }
     }
 
     public static void e(boolean z, long j) {
         synchronized (mSyncLock) {
-            f mr = mr();
+            f mq = mq();
             if (z) {
-                mr.NR++;
-                mr.NT += j;
+                mq.NP++;
+                mq.NQ += j;
             }
         }
     }
 
     public static void f(boolean z, long j) {
         synchronized (mSyncLock) {
-            f mr = mr();
+            f mq = mq();
             if (z) {
-                mr.NW++;
-                mr.NX += j;
+                mq.NU++;
+                mq.NV += j;
             }
         }
     }
 
     public static void g(boolean z, long j) {
-        f mr = mr();
+        f mq = mq();
         if (z) {
-            mr.NU++;
-            mr.NV += j;
+            mq.NR++;
+            mq.NT += j;
         }
     }
 
     public static void b(boolean z, boolean z2, boolean z3) {
-        f mr = mr();
+        f mq = mq();
         if (z) {
-            mr.NY++;
+            mq.NW++;
         }
         if (z2) {
-            mr.NZ++;
+            mq.NX++;
         }
         if (z3) {
-            mr.Oa++;
+            mq.NY++;
         }
     }
 
     public static void h(boolean z, long j) {
-        f mr = mr();
+        f mq = mq();
         if (z) {
-            mr.totalCount++;
-            mr.totalTime += j;
+            mq.totalCount++;
+            mq.totalTime += j;
         }
     }
 
-    public static void mq() {
-        if (Ni.mw() > 10) {
-            if (Ni.mv()) {
-                a(Ni.Nm, 5);
+    public static void mp() {
+        if (Ng.mv() > 10) {
+            if (Ng.mu()) {
+                a(Ng.Nk, 5);
             }
-            if (Ni.mu()) {
-                a(Ni.Nl, 3);
+            if (Ng.mt()) {
+                a(Ng.Nj, 3);
             }
-            if (Ni.mt()) {
-                a(Ni.Nk, 2);
+            if (Ng.ms()) {
+                a(Ng.Ni, 2);
             }
-            if (Ni.ms()) {
-                a(Ni.Nj, 1);
+            if (Ng.mr()) {
+                a(Ng.Nh, 1);
             }
-            Ni.reset();
+            Ng.reset();
         }
     }
 
@@ -143,49 +143,49 @@ public class a {
         if (fVar != null && BdBaseApplication.getInst().isSmallFlow()) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem(BdStatsConstant.StatsType.PERFORMANCE);
             statsItem.append("action", "imgStat");
-            statsItem.append("memoryCount", String.valueOf(fVar.ND));
-            statsItem.append("memorySucCount", String.valueOf(fVar.NF));
-            statsItem.append("memoryTime", String.valueOf(fVar.NG));
-            statsItem.append("localCount", String.valueOf(fVar.NH));
-            statsItem.append("localSucCount", String.valueOf(fVar.NI));
-            statsItem.append("localTime", String.valueOf(fVar.NJ));
-            statsItem.append("netCount", String.valueOf(fVar.NK));
-            statsItem.append("netSucCount", String.valueOf(fVar.NM));
-            statsItem.append("netTime", String.valueOf(fVar.NN));
-            statsItem.append("taskCount", String.valueOf(fVar.NP));
-            statsItem.append("taskTime", String.valueOf(fVar.NQ));
-            statsItem.append("decodeCount", String.valueOf(fVar.NR));
-            statsItem.append("decodeTime", String.valueOf(fVar.NT));
-            statsItem.append("saveMemoryCount", String.valueOf(fVar.NU));
-            statsItem.append("saveMemoryTime", String.valueOf(fVar.NV));
-            statsItem.append("saveLocalCount", String.valueOf(fVar.NW));
-            statsItem.append("saveLocalTime", String.valueOf(fVar.NX));
-            statsItem.append("memoryHitCount", String.valueOf(fVar.NY));
-            statsItem.append("localHitCount", String.valueOf(fVar.NZ));
-            statsItem.append("netHitCount", String.valueOf(fVar.Oa));
-            statsItem.append("totalHitCount", String.valueOf(fVar.NY + fVar.NZ + fVar.Oa));
+            statsItem.append("memoryCount", String.valueOf(fVar.Nz));
+            statsItem.append("memorySucCount", String.valueOf(fVar.NC));
+            statsItem.append("memoryTime", String.valueOf(fVar.ND));
+            statsItem.append("localCount", String.valueOf(fVar.NF));
+            statsItem.append("localSucCount", String.valueOf(fVar.NG));
+            statsItem.append("localTime", String.valueOf(fVar.NH));
+            statsItem.append("netCount", String.valueOf(fVar.NI));
+            statsItem.append("netSucCount", String.valueOf(fVar.NJ));
+            statsItem.append("netTime", String.valueOf(fVar.NK));
+            statsItem.append("taskCount", String.valueOf(fVar.NM));
+            statsItem.append("taskTime", String.valueOf(fVar.NN));
+            statsItem.append("decodeCount", String.valueOf(fVar.NP));
+            statsItem.append("decodeTime", String.valueOf(fVar.NQ));
+            statsItem.append("saveMemoryCount", String.valueOf(fVar.NR));
+            statsItem.append("saveMemoryTime", String.valueOf(fVar.NT));
+            statsItem.append("saveLocalCount", String.valueOf(fVar.NU));
+            statsItem.append("saveLocalTime", String.valueOf(fVar.NV));
+            statsItem.append("memoryHitCount", String.valueOf(fVar.NW));
+            statsItem.append("localHitCount", String.valueOf(fVar.NX));
+            statsItem.append("netHitCount", String.valueOf(fVar.NY));
+            statsItem.append("totalHitCount", String.valueOf(fVar.NW + fVar.NX + fVar.NY));
             statsItem.append("totalCount", String.valueOf(fVar.totalCount));
             statsItem.append("totalTime", String.valueOf(fVar.totalTime));
-            statsItem.append("cdnCount", String.valueOf(fVar.Ob));
-            statsItem.append("ipCount", String.valueOf(fVar.Oc));
-            statsItem.append("cdnAndIpCount", String.valueOf(fVar.Od));
-            statsItem.append("imgSize", String.valueOf(fVar.Oe));
+            statsItem.append("cdnCount", String.valueOf(fVar.NZ));
+            statsItem.append("ipCount", String.valueOf(fVar.Oa));
+            statsItem.append("cdnAndIpCount", String.valueOf(fVar.Ob));
+            statsItem.append("imgSize", String.valueOf(fVar.Oc));
             statsItem.append("nettype", aw(i));
             BdStatisticsManager.getInstance().performance("image", statsItem);
         }
     }
 
-    private static f mr() {
+    private static f mq() {
         if (j.isWifiNet()) {
-            return Ni.Nm;
+            return Ng.Nk;
         }
         if (j.is4GNet()) {
-            return Ni.Nl;
+            return Ng.Nj;
         }
         if (j.is3GNet()) {
-            return Ni.Nk;
+            return Ng.Ni;
         }
-        return Ni.Nj;
+        return Ng.Nh;
     }
 
     public static boolean isCdn(String str) {
@@ -223,43 +223,43 @@ public class a {
     /* renamed from: com.baidu.adp.lib.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0016a {
+        f Nh;
+        f Ni;
         f Nj;
         f Nk;
-        f Nl;
-        f Nm;
 
         private C0016a() {
+            this.Nh = new f();
+            this.Ni = new f();
             this.Nj = new f();
             this.Nk = new f();
-            this.Nl = new f();
-            this.Nm = new f();
+        }
+
+        public boolean mr() {
+            return this.Nh.NI > 0;
         }
 
         public boolean ms() {
-            return this.Nj.NK > 0;
+            return this.Ni.NI > 0;
         }
 
         public boolean mt() {
-            return this.Nk.NK > 0;
+            return this.Nj.NI > 0;
         }
 
         public boolean mu() {
-            return this.Nl.NK > 0;
+            return this.Nk.NI > 0;
         }
 
-        public boolean mv() {
-            return this.Nm.NK > 0;
-        }
-
-        public int mw() {
-            return this.Nj.NK + this.Nk.NK + this.Nl.NK + this.Nm.NK;
+        public int mv() {
+            return this.Nh.NI + this.Ni.NI + this.Nj.NI + this.Nk.NI;
         }
 
         public void reset() {
+            this.Nh.reset();
+            this.Ni.reset();
             this.Nj.reset();
             this.Nk.reset();
-            this.Nl.reset();
-            this.Nm.reset();
         }
     }
 }

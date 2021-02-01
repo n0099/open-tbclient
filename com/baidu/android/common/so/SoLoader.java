@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -236,7 +237,7 @@ public final class SoLoader {
                 }
             }
             try {
-                fileChannel = new RandomAccessFile(file2, "rw").getChannel();
+                fileChannel = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth).getChannel();
             } catch (FileNotFoundException e2) {
                 e = e2;
                 fileChannel = null;

@@ -9,14 +9,14 @@ import com.ss.android.a.a.a.p;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference<Context> f7062a;
+    private final WeakReference<Context> f7064a;
 
     public c(Context context) {
-        this.f7062a = new WeakReference<>(context);
+        this.f7064a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.a.a.a.g
@@ -50,8 +50,8 @@ public class c implements g {
                 i = 0;
                 break;
         }
-        i eop = i.eop();
-        new j(i, str2, eop) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
+        i eqH = i.eqH();
+        new j(i, str2, eqH) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
             @Override // com.bytedance.sdk.adnet.core.Request
             protected Map<String, String> c() throws com.bytedance.sdk.adnet.err.a {
                 HashMap hashMap = new HashMap();
@@ -62,21 +62,21 @@ public class c implements g {
             }
         }.build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).d());
         try {
-            pVar2 = eop.get();
+            pVar2 = eqH.get();
         } catch (Throwable th) {
             pVar2 = null;
         }
         if (pVar2 != null && pVar2.a()) {
             if (pVar != null) {
-                pVar.a((String) pVar2.f6045a);
+                pVar.a((String) pVar2.f6047a);
                 return;
             }
             return;
         }
-        boolean z = TextUtils.isEmpty(pVar2 != null && pVar2.pla != null ? pVar2.pla.getMessage() : null) ? false : true;
+        boolean z = TextUtils.isEmpty(pVar2 != null && pVar2.pvp != null ? pVar2.pvp.getMessage() : null) ? false : true;
         if (pVar != null) {
             if (z) {
-                valueOf = pVar2.pla.getMessage();
+                valueOf = pVar2.pvp.getMessage();
             } else {
                 valueOf = pVar2 != null ? String.valueOf(pVar2.h) : "";
             }

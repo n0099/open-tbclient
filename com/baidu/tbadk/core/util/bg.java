@@ -1,260 +1,43 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.Context;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.os.Build;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tieba.R;
-import java.util.LinkedList;
+import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes.dex */
 public class bg {
-    private static int eZj = -1;
-    private static int eZk = -1;
-    private static boolean eZl = false;
-    private static com.baidu.adp.lib.d.a<Integer, Integer> eZm = new com.baidu.adp.lib.d.a<>(500);
-    private static Context mAppContext = null;
-
-    /* loaded from: classes.dex */
-    public interface a {
-        boolean bs(View view);
-    }
-
-    public static void fa(Context context) {
-        mAppContext = context;
-        eZl = true;
-    }
-
-    private static void bsC() {
-        if (mAppContext != null && mAppContext.getResources() != null) {
-            eZk = mAppContext.getResources().getColor(R.color.common_color_10097);
-            eZj = mAppContext.getResources().getColor(R.color.common_color_10004);
+    public static Rect getVisibilityRegion(Activity activity) {
+        Rect rect = new Rect();
+        View decorView = activity.getWindow().getDecorView();
+        int windowVisibility = decorView.getWindowVisibility();
+        decorView.getWindowVisibleDisplayFrame(rect);
+        if (windowVisibility != 8) {
+            rect.top = 0;
         }
+        int statusBarHeight = com.baidu.adp.lib.util.l.getStatusBarHeight(activity);
+        int dip2px = MenuKeyUtils.hasSmartBar() ? com.baidu.adp.lib.util.l.dip2px(activity, 48.0f) : 0;
+        int i = UtilHelper.canUseStyleImmersiveSticky() ? 0 : statusBarHeight;
+        rect.bottom -= dip2px;
+        rect.top += i;
+        return rect;
     }
 
-    private static int oF(int i) {
-        boolean z = true;
-        if (i != 1 && i != 4) {
-            z = false;
-        }
-        return jM(z);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static int jM(boolean z) {
-        if (eZl) {
-            eZl = false;
-            bsC();
-        }
-        return z ? eZj : eZk;
-    }
-
-    public static void bx(View view) {
-        if (view instanceof ViewGroup) {
-            k((ViewGroup) view, TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public static void by(View view) {
-        if (view != null) {
-            eZm.remove(Integer.valueOf(System.identityHashCode(view)));
-        }
-    }
-
-    public static void k(ViewGroup viewGroup, int i) {
-        int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = eZm.get(Integer.valueOf(identityHashCode));
-        if (num == null || i != num.intValue()) {
-            l(viewGroup, i);
-            eZm.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
-        }
-    }
-
-    public static void a(ViewGroup viewGroup, boolean z, a aVar) {
-        if (!z || !aVar.bs(viewGroup)) {
-            LinkedList linkedList = new LinkedList();
-            while (true) {
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    View childAt = viewGroup.getChildAt(i);
-                    if (!aVar.bs(childAt)) {
-                        if (childAt instanceof ViewGroup) {
-                            linkedList.addLast((ViewGroup) childAt);
-                        }
-                    } else {
-                        return;
-                    }
-                }
-                if (!linkedList.isEmpty()) {
-                    viewGroup = (ViewGroup) linkedList.removeFirst();
-                } else {
-                    return;
-                }
-            }
-        }
-    }
-
-    private static void l(ViewGroup viewGroup, final int i) {
-        final boolean z = i == 1 || i == 4;
-        a(viewGroup, true, new a() { // from class: com.baidu.tbadk.core.util.bg.1
-            @Override // com.baidu.tbadk.core.util.bg.a
-            public boolean bs(View view) {
-                Object tag = view.getTag();
-                if (tag != null) {
-                    if ("skin_text_group".equals(tag)) {
-                        bg.setTextColor((TextView) view, i);
-                        return false;
-                    } else if ("skin_text_content".equals(tag)) {
-                        bg.setTextColor((TextView) view, i);
-                        return false;
-                    } else if ("skin_text_num".equals(tag)) {
-                        bg.setGroupTextColor((TextView) view, i);
-                        return false;
-                    } else if ("skin_check_box".equals(tag)) {
-                        bg.a((CheckBox) view, i);
-                        return false;
-                    } else if ("skin_sidebar_content".equals(tag)) {
-                        ((TextView) view).setTextAppearance(TbadkCoreApplication.getInst().getApp(), z ? R.style.sidebar_content_1 : R.style.sidebar_content);
-                        return false;
-                    } else if ("skin_more_up".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bg.jM(z));
-                        }
-                        ao.setBackgroundResource(view, R.drawable.more_up);
-                        return false;
-                    } else if ("skin_more_middle".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bg.jM(z));
-                        }
-                        ao.setBackgroundResource(view, R.drawable.more_middle);
-                        return false;
-                    } else if ("skin_more_down".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bg.jM(z));
-                        }
-                        ao.setBackgroundResource(view, R.drawable.more_down);
-                        return false;
-                    } else if ("skin_more_all".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bg.jM(z));
-                        }
-                        ao.setBackgroundResource(view, R.drawable.more_all);
-                        return false;
-                    } else if ("skin_arrow".equals(tag)) {
-                        ao.setImageResource((ImageView) view, R.drawable.icon_ba_top_arrow_big);
-                        return false;
-                    } else if ("skin_list_line".equals(tag)) {
-                        bg.o(view, i);
-                        return false;
-                    } else {
-                        return false;
-                    }
-                }
-                return false;
-            }
-        });
-    }
-
-    public static void o(View view, int i) {
-        if (view != null) {
-            if (i == 1 || i == 4) {
-                view.setBackgroundColor(-14078923);
+    public static int[] getScreenFullSize(Activity activity) {
+        View findViewById;
+        int[] iArr = {activity.getWindow().getDecorView().getWidth(), activity.getWindow().getDecorView().getHeight()};
+        if (Build.VERSION.SDK_INT > 21 && (findViewById = activity.getWindow().getDecorView().findViewById(16908336)) != null && findViewById.getVisibility() == 0) {
+            if (iArr[0] > iArr[1]) {
+                iArr[0] = iArr[0] - findViewById.getWidth();
             } else {
-                view.setBackgroundColor(-1183760);
+                iArr[1] = iArr[1] - findViewById.getHeight();
             }
         }
-    }
-
-    @Deprecated
-    public static void skipToRegisterActivity(Context context) {
-        if (context != null) {
-            com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
-            skipToLoginActivity(context);
+        int[] screenDimensions = com.baidu.adp.lib.util.l.getScreenDimensions(activity);
+        if (iArr[0] == 0 || iArr[1] == 0) {
+            iArr[0] = screenDimensions[0];
+            iArr[1] = screenDimensions[1];
         }
-    }
-
-    public static void skipToLoginActivity(Context context) {
-        if (context != null) {
-            com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, true)));
-        }
-    }
-
-    public static void s(Context context, String str, String str2) {
-        if (context != null) {
-            com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, true, str, str2)));
-        }
-    }
-
-    public static boolean checkUpIsLogin(Context context) {
-        boolean isLogin = TbadkCoreApplication.isLogin();
-        if (!isLogin) {
-            skipToLoginActivity(context);
-        }
-        return isLogin;
-    }
-
-    public static boolean t(Context context, String str, String str2) {
-        boolean isLogin = TbadkCoreApplication.isLogin();
-        if (!isLogin) {
-            s(context, str, str2);
-        }
-        return isLogin;
-    }
-
-    public static boolean a(LoginActivityConfig loginActivityConfig) {
-        boolean isLogin = TbadkCoreApplication.isLogin();
-        if (!isLogin) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, loginActivityConfig));
-        }
-        return isLogin;
-    }
-
-    public static void setGroupTextColor(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1 || i == 4) {
-                textView.setTextColor(-11446171);
-            } else {
-                textView.setTextColor(-5065030);
-            }
-        }
-    }
-
-    public static void setTextColor(TextView textView, int i) {
-        if (textView != null) {
-            textView.setTextColor(oF(i));
-        }
-    }
-
-    public static void a(CheckBox checkBox, int i) {
-        if (checkBox != null) {
-            checkBox.setTextColor(oF(i));
-        }
-    }
-
-    public static void d(View view, int i, boolean z) {
-        if (view != null && view.getParent() != null) {
-            View view2 = (View) view.getParent().getParent();
-            if (view2 instanceof LinearLayout) {
-                LinearLayout linearLayout = (LinearLayout) view2;
-                linearLayout.setOrientation(1);
-                View view3 = new View(view.getContext());
-                if (z) {
-                    ao.setBackgroundColor(view3, i);
-                } else {
-                    view3.setBackgroundResource(i);
-                }
-                linearLayout.addView(view3, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
-            }
-        }
+        return iArr;
     }
 }

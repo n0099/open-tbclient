@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alaar.makeup.a;
 import com.baidu.live.ar.m;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.arface.bean.Makeup;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements m.a {
     private String mResPath;
     private String mType;
@@ -36,7 +36,7 @@ public class a implements m.a {
     }
 
     @Override // com.baidu.live.ar.m.a
-    public Object yZ() {
+    public Object zG() {
         Makeup makeup = new Makeup();
         makeup.setResPath(getResPath());
         makeup.setType(BeautyType.valueOf(getType()));

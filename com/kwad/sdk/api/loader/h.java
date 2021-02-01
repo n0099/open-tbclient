@@ -17,27 +17,27 @@ import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f8204a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
+    private static final String f8206a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
         void a(File file);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        final OutputStream f8207a;
+        final OutputStream f8209a;
 
         public b(File file, boolean z) {
-            this.f8207a = new FileOutputStream(file, z);
+            this.f8209a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
@@ -50,21 +50,21 @@ public class h {
 
         @Override // com.kwad.sdk.api.loader.h.d
         public void a(byte[] bArr, int i, int i2) {
-            this.f8207a.write(bArr, i, i2);
+            this.f8209a.write(bArr, i, i2);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.f8207a.close();
+            this.f8209a.close();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         boolean a(int i, int i2, Object obj);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface d extends Closeable {
         void a(int i, Map<String, List<String>> map);
 
@@ -311,7 +311,7 @@ public class h {
             long r8 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L200
             r4.<init>(r8)     // Catch: java.lang.Throwable -> L200
             java.io.File r8 = new java.io.File     // Catch: java.lang.Throwable -> L200
-            java.lang.String r6 = com.kwad.sdk.api.loader.h.f8204a     // Catch: java.lang.Throwable -> L200
+            java.lang.String r6 = com.kwad.sdk.api.loader.h.f8206a     // Catch: java.lang.Throwable -> L200
             java.lang.StringBuilder r9 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L200
             r9.<init>()     // Catch: java.lang.Throwable -> L200
             int r4 = r4.nextInt()     // Catch: java.lang.Throwable -> L200

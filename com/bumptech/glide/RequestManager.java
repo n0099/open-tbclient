@@ -29,7 +29,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Util;
 import java.io.File;
 import java.net.URL;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, LifecycleListener {
     private static final RequestOptions DECODE_TYPE_BITMAP = RequestOptions.decodeTypeOf(Bitmap.class).lock();
     private static final RequestOptions DECODE_TYPE_GIF = RequestOptions.decodeTypeOf(GifDrawable.class).lock();
@@ -75,7 +75,7 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
     }
 
     protected void setRequestOptions(@NonNull RequestOptions requestOptions) {
-        this.requestOptions = requestOptions.m53clone().autoClone();
+        this.requestOptions = requestOptions.m54clone().autoClone();
     }
 
     private void updateRequestOptions(@NonNull RequestOptions requestOptions) {
@@ -341,7 +341,7 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
         return super.toString() + "{tracker=" + this.requestTracker + ", treeNode=" + this.treeNode + "}";
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class RequestManagerConnectivityListener implements ConnectivityMonitor.ConnectivityListener {
         private final RequestTracker requestTracker;
 
@@ -357,7 +357,7 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class ClearTarget extends ViewTarget<View, Object> {
         ClearTarget(@NonNull View view) {
             super(view);

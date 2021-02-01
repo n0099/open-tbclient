@@ -3,83 +3,83 @@ package com.baidu.live.lottie.model.content;
 import androidx.annotation.Nullable;
 import com.baidu.live.lottie.model.content.ShapeStroke;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e implements b {
     private final float FQ;
     private final List<com.baidu.live.lottie.model.a.b> FR;
-    private final com.baidu.live.lottie.model.a.d bpX;
-    private final GradientType bqb;
-    private final com.baidu.live.lottie.model.a.c bqc;
-    private final com.baidu.live.lottie.model.a.f bqd;
-    private final com.baidu.live.lottie.model.a.f bqe;
-    private final com.baidu.live.lottie.model.a.b bqh;
-    private final ShapeStroke.LineCapType bqi;
-    private final ShapeStroke.LineJoinType bqj;
+    private final GradientType btD;
+    private final com.baidu.live.lottie.model.a.c btE;
+    private final com.baidu.live.lottie.model.a.f btF;
+    private final com.baidu.live.lottie.model.a.f btG;
+    private final com.baidu.live.lottie.model.a.b btJ;
+    private final ShapeStroke.LineCapType btK;
+    private final ShapeStroke.LineJoinType btL;
     @Nullable
-    private final com.baidu.live.lottie.model.a.b bqk;
+    private final com.baidu.live.lottie.model.a.b btM;
+    private final com.baidu.live.lottie.model.a.d btz;
     private final String name;
 
     public e(String str, GradientType gradientType, com.baidu.live.lottie.model.a.c cVar, com.baidu.live.lottie.model.a.d dVar, com.baidu.live.lottie.model.a.f fVar, com.baidu.live.lottie.model.a.f fVar2, com.baidu.live.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List<com.baidu.live.lottie.model.a.b> list, @Nullable com.baidu.live.lottie.model.a.b bVar2) {
         this.name = str;
-        this.bqb = gradientType;
-        this.bqc = cVar;
-        this.bpX = dVar;
-        this.bqd = fVar;
-        this.bqe = fVar2;
-        this.bqh = bVar;
-        this.bqi = lineCapType;
-        this.bqj = lineJoinType;
+        this.btD = gradientType;
+        this.btE = cVar;
+        this.btz = dVar;
+        this.btF = fVar;
+        this.btG = fVar2;
+        this.btJ = bVar;
+        this.btK = lineCapType;
+        this.btL = lineJoinType;
         this.FQ = f;
         this.FR = list;
-        this.bqk = bVar2;
+        this.btM = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType Mf() {
-        return this.bqb;
+    public GradientType ND() {
+        return this.btD;
     }
 
-    public com.baidu.live.lottie.model.a.c Mg() {
-        return this.bqc;
+    public com.baidu.live.lottie.model.a.c NE() {
+        return this.btE;
     }
 
-    public com.baidu.live.lottie.model.a.d Ma() {
-        return this.bpX;
+    public com.baidu.live.lottie.model.a.d Ny() {
+        return this.btz;
     }
 
-    public com.baidu.live.lottie.model.a.f Mh() {
-        return this.bqd;
+    public com.baidu.live.lottie.model.a.f NF() {
+        return this.btF;
     }
 
-    public com.baidu.live.lottie.model.a.f Mi() {
-        return this.bqe;
+    public com.baidu.live.lottie.model.a.f NG() {
+        return this.btG;
     }
 
-    public com.baidu.live.lottie.model.a.b Mj() {
-        return this.bqh;
+    public com.baidu.live.lottie.model.a.b NH() {
+        return this.btJ;
     }
 
-    public ShapeStroke.LineCapType Mk() {
-        return this.bqi;
+    public ShapeStroke.LineCapType NI() {
+        return this.btK;
     }
 
-    public ShapeStroke.LineJoinType Ml() {
-        return this.bqj;
+    public ShapeStroke.LineJoinType NJ() {
+        return this.btL;
     }
 
-    public List<com.baidu.live.lottie.model.a.b> jw() {
+    public List<com.baidu.live.lottie.model.a.b> jv() {
         return this.FR;
     }
 
     @Nullable
-    public com.baidu.live.lottie.model.a.b Mm() {
-        return this.bqk;
+    public com.baidu.live.lottie.model.a.b NK() {
+        return this.btM;
     }
 
-    public float jy() {
+    public float jx() {
         return this.FQ;
     }
 

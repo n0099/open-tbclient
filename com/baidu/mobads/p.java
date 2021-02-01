@@ -1,45 +1,45 @@
 package com.baidu.mobads;
 
-import android.annotation.SuppressLint;
-import android.view.KeyEvent;
-import com.baidu.mobads.component.XAdView;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
-public class p implements XAdView.Listener {
+import com.baidu.mobads.interfaces.event.IXAdEvent;
+import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
+import com.baidu.mobads.utils.XAdSDKFoundationFacade;
+/* loaded from: classes5.dex */
+class p implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ InterstitialAd f3426a;
+    final /* synthetic */ IOAdEvent f3433a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ o f3434b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(InterstitialAd interstitialAd) {
-        this.f3426a = interstitialAd;
+    public p(o oVar, IOAdEvent iOAdEvent) {
+        this.f3434b = oVar;
+        this.f3433a = iOAdEvent;
     }
 
-    @Override // com.baidu.mobads.component.XAdView.Listener
-    public void onWindowVisibilityChanged(int i) {
-    }
-
-    @Override // com.baidu.mobads.component.XAdView.Listener
-    public void onWindowFocusChanged(boolean z) {
-    }
-
-    @Override // com.baidu.mobads.component.XAdView.Listener
-    public void onLayoutComplete(int i, int i2) {
-    }
-
-    @Override // com.baidu.mobads.component.XAdView.Listener
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        com.baidu.mobads.production.f.a aVar;
-        aVar = this.f3426a.c;
-        return aVar.a(i, keyEvent);
-    }
-
-    @Override // com.baidu.mobads.component.XAdView.Listener
-    @SuppressLint({"MissingSuperCall"})
-    public void onDetachedFromWindow() {
-    }
-
-    @Override // com.baidu.mobads.component.XAdView.Listener
-    public void onAttachedToWindow() {
+    @Override // java.lang.Runnable
+    public void run() {
+        InterstitialAdListener interstitialAdListener;
+        InterstitialAdListener interstitialAdListener2;
+        InterstitialAdListener interstitialAdListener3;
+        InterstitialAdListener interstitialAdListener4;
+        InterstitialAdListener interstitialAdListener5;
+        if (IXAdEvent.AD_LOADED.equals(this.f3433a.getType())) {
+            interstitialAdListener5 = this.f3434b.f3415a.e;
+            interstitialAdListener5.onAdReady();
+        } else if (IXAdEvent.AD_ERROR.equals(this.f3433a.getType())) {
+            interstitialAdListener4 = this.f3434b.f3415a.e;
+            interstitialAdListener4.onAdFailed(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.f3433a.getData()));
+        } else if (IXAdEvent.AD_STOPPED.equals(this.f3433a.getType())) {
+            interstitialAdListener3 = this.f3434b.f3415a.e;
+            interstitialAdListener3.onAdDismissed();
+        } else if (IXAdEvent.AD_STARTED.equals(this.f3433a.getType())) {
+            interstitialAdListener2 = this.f3434b.f3415a.e;
+            interstitialAdListener2.onAdPresent();
+        } else if ("AdUserClick".equals(this.f3433a.getType())) {
+            interstitialAdListener = this.f3434b.f3415a.e;
+            interstitialAdListener.onAdClick(this.f3434b.f3415a);
+        }
     }
 }

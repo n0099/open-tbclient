@@ -4,24 +4,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tieba.card.aa;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.card.w;
 import com.baidu.tieba.card.x;
+import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes7.dex */
-public class a extends k<bz, CardViewHolder<w>> implements x {
-    private aa<bz> gzB;
+/* loaded from: classes8.dex */
+public class a extends k<cb, CardViewHolder<x>> implements y {
+    private ab<cb> gCl;
     private String mFrom;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.gzB = new aa<bz>() { // from class: com.baidu.tieba.hottopic.frs.a.1
+        this.gCl = new ab<cb>() { // from class: com.baidu.tieba.hottopic.frs.a.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
-            public void a(View view, bz bzVar, Object obj) {
+            @Override // com.baidu.tieba.card.ab
+            public void a(View view, cb cbVar, Object obj) {
             }
         };
         this.mPageContext = tbPageContext;
@@ -36,8 +36,8 @@ public class a extends k<bz, CardViewHolder<w>> implements x {
         }
     }
 
-    @Override // com.baidu.tieba.card.x
-    public String acB() {
+    @Override // com.baidu.tieba.card.y
+    public String csw() {
         return "FrsHottopicVideoDelegateAdapter";
     }
 
@@ -45,23 +45,23 @@ public class a extends k<bz, CardViewHolder<w>> implements x {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
-    public CardViewHolder<w> e(ViewGroup viewGroup) {
-        return new CardViewHolder<>(new w(this.mPageContext, viewGroup));
+    public CardViewHolder<x> e(ViewGroup viewGroup) {
+        return new CardViewHolder<>(new x(this.mPageContext, viewGroup));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bz bzVar, CardViewHolder<w> cardViewHolder) {
-        if (cardViewHolder == null || cardViewHolder.crP() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, cb cbVar, CardViewHolder<x> cardViewHolder) {
+        if (cardViewHolder == null || cardViewHolder.ctb() == null) {
             return null;
         }
-        cardViewHolder.crP().c(this.gzB);
-        cardViewHolder.crP().a(bzVar);
+        cardViewHolder.ctb().c(this.gCl);
+        cardViewHolder.ctb().a(cbVar);
         return cardViewHolder.getView();
     }
 
-    @Override // com.baidu.tieba.card.x
+    @Override // com.baidu.tieba.card.y
     public void setFrom(String str) {
         this.mFrom = str;
     }

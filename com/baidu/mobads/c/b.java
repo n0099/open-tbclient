@@ -1,18 +1,29 @@
 package com.baidu.mobads.c;
+
+import android.graphics.Bitmap;
+import android.util.LruCache;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
-public class b implements Runnable {
+/* loaded from: classes5.dex */
+public class b extends LruCache<String, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3310a;
+    final /* synthetic */ a f3299a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.f3310a = aVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(a aVar, int i) {
+        super(i);
+        this.f3299a = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        new Thread(new c(this)).start();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.util.LruCache
+    /* renamed from: a */
+    public int sizeOf(String str, Bitmap bitmap) {
+        if (bitmap == null) {
+            return 0;
+        }
+        return bitmap.getByteCount();
     }
 }

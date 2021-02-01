@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
 import androidx.annotation.Keep;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.math.MathUtils;
 import com.kwad.sdk.R;
 import com.kwad.sdk.lib.desigin.KSAppBarLayout;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
     private static final int DEFAULT_REBOUND_MAX_OFFSET = 150;
     private static final int REBOUND_ANIM_TIME = 200;
@@ -41,7 +40,7 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
     private int mReboundViewOriginHeight;
     private int mReboundViewOriginWidth;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface HeaderTopBottomOffsetChangeListener {
         void onHeaderTopBottomOffsetChange(int i, int i2);
     }
@@ -262,7 +261,7 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.lib.desigin.CustomAppBarLayoutBehavior, com.kwad.sdk.lib.desigin.KSHeaderBehavior
     public int setHeaderTopBottomOffset(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i) {
-        return setHeaderTopBottomOffset(kSCoordinatorLayout, kSAppBarLayout, i, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return setHeaderTopBottomOffset(kSCoordinatorLayout, kSAppBarLayout, i, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

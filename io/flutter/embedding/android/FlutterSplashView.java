@@ -14,7 +14,7 @@ import io.flutter.Log;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 final class FlutterSplashView extends FrameLayout {
     private static String TAG = "FlutterSplashView";
     @NonNull
@@ -161,7 +161,7 @@ final class FlutterSplashView extends FrameLayout {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static class SavedState extends View.BaseSavedState {
         public static Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: io.flutter.embedding.android.FlutterSplashView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -9,14 +9,14 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static final a bgw() {
-        return C0553a.ezI;
+    public static final a bgJ() {
+        return C0550a.eBO;
     }
 
     /* renamed from: com.baidu.tbadk.BdToken.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0553a {
-        private static final a ezI = new a();
+    private static class C0550a {
+        private static final a eBO = new a();
     }
 
     public synchronized long a(b bVar) {
@@ -48,7 +48,7 @@ public class a {
             if (bVar != null) {
                 SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
                 openedDatabase.beginTransaction();
-                int delete = openedDatabase.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.bgK())});
+                int delete = openedDatabase.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.bgX())});
                 openedDatabase.setTransactionSuccessful();
                 openedDatabase.endTransaction();
                 z = delete >= 0;
@@ -57,7 +57,7 @@ public class a {
         return z;
     }
 
-    public synchronized List<b> bgx() {
+    public synchronized List<b> bgK() {
         LinkedList linkedList;
         SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
         openedDatabase.beginTransaction();
@@ -81,25 +81,25 @@ public class a {
         }
         b bVar = new b();
         bVar.setActivityId(cursor.getInt(cursor.getColumnIndex("activityid")));
-        bVar.mw(cursor.getInt(cursor.getColumnIndex("missionid")));
-        bVar.yH(cursor.getString(cursor.getColumnIndex("activitysource")));
-        bVar.mx(cursor.getInt(cursor.getColumnIndex("calltype")));
-        bVar.my(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
-        bVar.yI(cursor.getString(cursor.getColumnIndex("browsetimepage")));
-        bVar.dy(cursor.getLong(cursor.getColumnIndex("browsetime")));
+        bVar.mz(cursor.getInt(cursor.getColumnIndex("missionid")));
+        bVar.yZ(cursor.getString(cursor.getColumnIndex("activitysource")));
+        bVar.mA(cursor.getInt(cursor.getColumnIndex("calltype")));
+        bVar.mB(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
+        bVar.za(cursor.getString(cursor.getColumnIndex("browsetimepage")));
+        bVar.dE(cursor.getLong(cursor.getColumnIndex("browsetime")));
         bVar.setThreadNum(cursor.getInt(cursor.getColumnIndex("threadnum")));
-        bVar.mz(cursor.getInt(cursor.getColumnIndex("forumnum")));
-        bVar.mA(cursor.getInt(cursor.getColumnIndex("cleartype")));
-        bVar.dz(cursor.getLong(cursor.getColumnIndex("cleartime")));
-        bVar.dA(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
+        bVar.mC(cursor.getInt(cursor.getColumnIndex("forumnum")));
+        bVar.mD(cursor.getInt(cursor.getColumnIndex("cleartype")));
+        bVar.dF(cursor.getLong(cursor.getColumnIndex("cleartime")));
+        bVar.dG(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
         bVar.setTid(cursor.getLong(cursor.getColumnIndex("tid")));
         bVar.setFid(cursor.getLong(cursor.getColumnIndex("fid")));
-        bVar.yJ(cursor.getString(cursor.getColumnIndex("threadtext")));
-        bVar.yK(cursor.getString(cursor.getColumnIndex("threadimg")));
-        bVar.dB(cursor.getInt(cursor.getColumnIndex("threadforum")));
-        bVar.mB(cursor.getInt(cursor.getColumnIndex("totalLimit")));
-        bVar.mC(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
-        bVar.aE(bVar.getTaskType(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
+        bVar.zb(cursor.getString(cursor.getColumnIndex("threadtext")));
+        bVar.zc(cursor.getString(cursor.getColumnIndex("threadimg")));
+        bVar.dH(cursor.getInt(cursor.getColumnIndex("threadforum")));
+        bVar.mE(cursor.getInt(cursor.getColumnIndex("totalLimit")));
+        bVar.mF(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
+        bVar.aI(bVar.getTaskType(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
         bVar.setToken(cursor.getString(cursor.getColumnIndex("token")));
         return bVar;
     }
@@ -110,26 +110,26 @@ public class a {
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("activityid", Integer.valueOf(bVar.getActivityId()));
-        contentValues.put("missionid", Integer.valueOf(bVar.bgK()));
-        contentValues.put("activitysource", bVar.bgL());
-        contentValues.put("calltype", Integer.valueOf(bVar.bgN()));
+        contentValues.put("missionid", Integer.valueOf(bVar.bgX()));
+        contentValues.put("activitysource", bVar.bgY());
+        contentValues.put("calltype", Integer.valueOf(bVar.bha()));
         contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(bVar.getTaskType()));
-        contentValues.put("browsetimepage", bVar.bgO());
-        contentValues.put("browsetime", Long.valueOf(bVar.bgQ()));
+        contentValues.put("browsetimepage", bVar.bhb());
+        contentValues.put("browsetime", Long.valueOf(bVar.bhd()));
         contentValues.put("threadnum", Integer.valueOf(bVar.getThreadNum()));
-        contentValues.put("forumnum", Integer.valueOf(bVar.bgR()));
-        contentValues.put("cleartype", Integer.valueOf(bVar.bgS()));
-        contentValues.put("cleartime", Long.valueOf(bVar.bgT()));
-        contentValues.put("specificcleartime", Long.valueOf(bVar.bgU()));
+        contentValues.put("forumnum", Integer.valueOf(bVar.bhe()));
+        contentValues.put("cleartype", Integer.valueOf(bVar.bhf()));
+        contentValues.put("cleartime", Long.valueOf(bVar.bhg()));
+        contentValues.put("specificcleartime", Long.valueOf(bVar.bhh()));
         contentValues.put("tid", Long.valueOf(bVar.getTid()));
         contentValues.put("fid", Long.valueOf(bVar.getFid()));
-        contentValues.put("threadtext", bVar.bgV());
-        contentValues.put("threadimg", bVar.bgW());
-        contentValues.put("threadforum", Long.valueOf(bVar.bgX()));
-        contentValues.put("totalLimit", Integer.valueOf(bVar.bgY()));
+        contentValues.put("threadtext", bVar.bhi());
+        contentValues.put("threadimg", bVar.bhj());
+        contentValues.put("threadforum", Long.valueOf(bVar.bhk()));
+        contentValues.put("totalLimit", Integer.valueOf(bVar.bhl()));
         contentValues.put("completedLimitCount", Integer.valueOf(bVar.getTag()));
         contentValues.put("token", bVar.getToken());
-        contentValues.put("executingMissionList", bVar.bgC());
+        contentValues.put("executingMissionList", bVar.bgP());
         return contentValues;
     }
 
@@ -144,15 +144,15 @@ public class a {
 
     private long b(SQLiteDatabase sQLiteDatabase, b bVar) {
         try {
-            return sQLiteDatabase.update("activity_mission_info", d(bVar), "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.bgK())});
+            return sQLiteDatabase.update("activity_mission_info", d(bVar), "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.bgX())});
         } catch (Throwable th) {
             th.printStackTrace();
             return -1L;
         }
     }
 
-    public synchronized void bk(List<b> list) {
-        if (!com.baidu.tbadk.core.util.x.isEmpty(list)) {
+    public synchronized void bf(List<b> list) {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list)) {
             SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
             openedDatabase.beginTransaction();
             for (b bVar : list) {
@@ -163,8 +163,8 @@ public class a {
         }
     }
 
-    public synchronized void bl(List<b> list) {
-        if (!com.baidu.tbadk.core.util.x.isEmpty(list)) {
+    public synchronized void bg(List<b> list) {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list)) {
             SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
             openedDatabase.beginTransaction();
             for (b bVar : list) {

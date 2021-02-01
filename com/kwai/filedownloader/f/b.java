@@ -1,34 +1,33 @@
 package com.kwai.filedownloader.f;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final AtomicInteger f10925a = new AtomicInteger(1);
+        private static final AtomicInteger f10927a = new AtomicInteger(1);
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f10926b;
+        private final String f10928b;
         private final AtomicInteger d = new AtomicInteger(1);
         private final ThreadGroup c = Thread.currentThread().getThreadGroup();
 
         a(String str) {
-            this.f10926b = f.i(str);
+            this.f10928b = f.i(str);
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(this.c, runnable, this.f10926b + this.d.getAndIncrement(), 0L);
+            Thread thread = new Thread(this.c, runnable, this.f10928b + this.d.getAndIncrement(), 0L);
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
@@ -50,6 +49,6 @@ public class b {
     }
 
     public static ThreadPoolExecutor a(String str) {
-        return new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 15L, TimeUnit.SECONDS, new SynchronousQueue(), new a(str));
+        return new ThreadPoolExecutor(0, Integer.MAX_VALUE, 15L, TimeUnit.SECONDS, new SynchronousQueue(), new a(str));
     }
 }

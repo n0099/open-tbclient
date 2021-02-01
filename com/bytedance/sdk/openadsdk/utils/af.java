@@ -2,8 +2,9 @@ package com.bytedance.sdk.openadsdk.utils;
 
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.bytedance.sdk.openadsdk.AdSlot;
+import com.yy.videoplayer.decoder.VideoConstant;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class af {
     public static AdSlot a(String str) {
         try {
@@ -20,7 +21,7 @@ public class af {
         AdSlot.Builder builder = new AdSlot.Builder();
         try {
             int optInt = jSONObject.optInt("width", 640);
-            int optInt2 = jSONObject.optInt("height", 320);
+            int optInt2 = jSONObject.optInt("height", VideoConstant.THUMBNAIL_WIDTH);
             double optDouble = jSONObject.optDouble("expressWidth", 0.0d);
             double optDouble2 = jSONObject.optDouble("expressHeight", 0.0d);
             builder.setAdCount(jSONObject.optInt("adCount", 1));

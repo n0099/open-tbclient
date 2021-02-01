@@ -3,7 +3,7 @@ package com.alibaba.fastjson.asm;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ClassReader {
 
     /* renamed from: b  reason: collision with root package name */

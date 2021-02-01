@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.IMessageProcess;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.Message;
 import com.baidu.live.adp.framework.task.MessageTask;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class Client<M extends Message<?>, T extends MessageTask> implements IMessageProcess<M, T> {
     protected MessageManager mMessageManager;
 

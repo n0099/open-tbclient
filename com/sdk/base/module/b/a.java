@@ -6,13 +6,13 @@ import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.c.g;
 import com.sdk.base.module.manager.SDKManager;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class a<T> extends com.sdk.base.framework.d.a<T> {
     public a(Context context, com.sdk.base.framework.b.a<T> aVar, e eVar) {
         super(context, aVar, eVar);
         if (!f.d) {
-            this.f12823b = g.f12821b.a();
-            this.c = g.f12820a.a();
+            this.f12825b = g.f12823b.a();
+            this.c = g.f12822a.a();
             return;
         }
         String testHost = SDKManager.getTestHost();
@@ -20,12 +20,12 @@ public class a<T> extends com.sdk.base.framework.d.a<T> {
         if (c.b(statisticalTestHost).booleanValue()) {
             this.c = statisticalTestHost;
         } else {
-            this.c = g.f12820a.a();
+            this.c = g.f12822a.a();
         }
         if (c.b(testHost).booleanValue()) {
-            this.f12823b = testHost;
+            this.f12825b = testHost;
         } else {
-            this.f12823b = g.f12821b.a();
+            this.f12825b = g.f12823b.a();
         }
     }
 }

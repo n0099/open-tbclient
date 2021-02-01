@@ -12,14 +12,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class av {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f5787a;
+    private static String f5789a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f5788b = ":push";
+    private static String f5790b = ":push";
 
     public static boolean a(Object obj, Object obj2) {
         return obj == obj2 || (obj != null && obj.equals(obj2));
@@ -30,13 +30,13 @@ public class av {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x002e, code lost:
-        com.bytedance.embedapplog.av.f5787a = r0.processName;
+        com.bytedance.embedapplog.av.f5789a = r0.processName;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String a(Context context) {
-        String str = f5787a;
+        String str = f5789a;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
@@ -53,11 +53,11 @@ public class av {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            f5787a = a();
-            if (au.f5786b) {
-                au.a("getProcessName, " + f5787a, null);
+            f5789a = a();
+            if (au.f5788b) {
+                au.a("getProcessName, " + f5789a, null);
             }
-            return f5787a;
+            return f5789a;
         }
         return str;
     }
@@ -143,7 +143,7 @@ public class av {
 
     public static boolean b(Context context) {
         String a2 = a(context);
-        return a2 != null && a2.endsWith(f5788b);
+        return a2 != null && a2.endsWith(f5790b);
     }
 
     public static JSONObject e(JSONObject jSONObject, JSONObject jSONObject2) {

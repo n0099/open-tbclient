@@ -1,25 +1,25 @@
 package com.baidu.crabsdk.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 final class m implements Runnable {
-    final /* synthetic */ long aoG;
-    final /* synthetic */ long aoH;
-    final /* synthetic */ long aoI;
-    final /* synthetic */ long aoJ;
-    final /* synthetic */ l aoK;
+    final /* synthetic */ l aoA;
+    final /* synthetic */ long aow;
+    final /* synthetic */ long aox;
+    final /* synthetic */ long aoy;
+    final /* synthetic */ long aoz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, long j, long j2, long j3, long j4) {
-        this.aoK = lVar;
-        this.aoG = j;
-        this.aoH = j2;
-        this.aoI = j3;
-        this.aoJ = j4;
+        this.aoA = lVar;
+        this.aow = j;
+        this.aox = j2;
+        this.aoy = j3;
+        this.aoz = j4;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         i iVar;
-        iVar = this.aoK.aoF;
-        iVar.c(this.aoG, this.aoH, this.aoI, this.aoJ);
+        iVar = this.aoA.aov;
+        iVar.c(this.aow, this.aox, this.aoy, this.aoz);
     }
 }

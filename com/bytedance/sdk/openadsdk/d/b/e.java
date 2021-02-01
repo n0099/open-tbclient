@@ -1,9 +1,9 @@
 package com.bytedance.sdk.openadsdk.d.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f6957a = c();
+    private static final int f6959a = c();
 
     private static int c() {
         return a(System.getProperty("java.version"));
@@ -50,10 +50,10 @@ public final class e {
     }
 
     public static int a() {
-        return f6957a;
+        return f6959a;
     }
 
     public static boolean b() {
-        return f6957a >= 9;
+        return f6959a >= 9;
     }
 }

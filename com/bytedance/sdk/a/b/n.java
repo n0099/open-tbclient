@@ -3,20 +3,20 @@ package com.bytedance.sdk.a.b;
 import java.util.Arrays;
 import java.util.List;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class n {
-    private static final k[] pjd = {k.piN, k.piR, k.piO, k.piS, k.piY, k.piX, k.pio, k.piy, k.pip, k.piz, k.phT, k.phU, k.phr, k.phv, k.pgV};
-    public static final n pje = new a(true).a(pjd).a(ad.TLS_1_3, ad.TLS_1_2, ad.TLS_1_1, ad.TLS_1_0).AI(true).enz();
-    public static final n pjf = new a(pje).a(ad.TLS_1_0).AI(true).enz();
-    public static final n pjg = new a(false).enz();
+    private static final k[] ptt = {k.ptc, k.ptg, k.ptd, k.pth, k.ptn, k.ptm, k.psD, k.psN, k.psE, k.psO, k.psl, k.psm, k.prJ, k.prN, k.prn};
+    public static final n ptu = new a(true).a(ptt).a(ad.TLS_1_3, ad.TLS_1_2, ad.TLS_1_1, ad.TLS_1_0).Bb(true).epS();
+    public static final n ptv = new a(ptu).a(ad.TLS_1_0).Bb(true).epS();
+    public static final n ptw = new a(false).epS();
     final boolean d;
     final boolean e;
     final String[] f;
     final String[] g;
 
     n(a aVar) {
-        this.d = aVar.f5965a;
-        this.f = aVar.f5966b;
+        this.d = aVar.f5967a;
+        this.f = aVar.f5968b;
         this.g = aVar.c;
         this.e = aVar.d;
     }
@@ -58,27 +58,27 @@ public final class n {
         String[] enabledCipherSuites;
         String[] enabledProtocols;
         if (this.f != null) {
-            enabledCipherSuites = com.bytedance.sdk.a.b.a.c.a(k.f5963a, sSLSocket.getEnabledCipherSuites(), this.f);
+            enabledCipherSuites = com.bytedance.sdk.a.b.a.c.a(k.f5965a, sSLSocket.getEnabledCipherSuites(), this.f);
         } else {
             enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
         }
         if (this.g != null) {
-            enabledProtocols = com.bytedance.sdk.a.b.a.c.a(com.bytedance.sdk.a.b.a.c.peO, sSLSocket.getEnabledProtocols(), this.g);
+            enabledProtocols = com.bytedance.sdk.a.b.a.c.a(com.bytedance.sdk.a.b.a.c.ppe, sSLSocket.getEnabledProtocols(), this.g);
         } else {
             enabledProtocols = sSLSocket.getEnabledProtocols();
         }
         String[] supportedCipherSuites = sSLSocket.getSupportedCipherSuites();
-        int a2 = com.bytedance.sdk.a.b.a.c.a(k.f5963a, supportedCipherSuites, "TLS_FALLBACK_SCSV");
+        int a2 = com.bytedance.sdk.a.b.a.c.a(k.f5965a, supportedCipherSuites, "TLS_FALLBACK_SCSV");
         if (z && a2 != -1) {
             enabledCipherSuites = com.bytedance.sdk.a.b.a.c.b(enabledCipherSuites, supportedCipherSuites[a2]);
         }
-        return new a(this).ag(enabledCipherSuites).ah(enabledProtocols).enz();
+        return new a(this).ag(enabledCipherSuites).ah(enabledProtocols).epS();
     }
 
     public boolean e(SSLSocket sSLSocket) {
         if (this.d) {
-            if (this.g == null || com.bytedance.sdk.a.b.a.c.b(com.bytedance.sdk.a.b.a.c.peO, this.g, sSLSocket.getEnabledProtocols())) {
-                return this.f == null || com.bytedance.sdk.a.b.a.c.b(k.f5963a, this.f, sSLSocket.getEnabledCipherSuites());
+            if (this.g == null || com.bytedance.sdk.a.b.a.c.b(com.bytedance.sdk.a.b.a.c.ppe, this.g, sSLSocket.getEnabledProtocols())) {
+                return this.f == null || com.bytedance.sdk.a.b.a.c.b(k.f5965a, this.f, sSLSocket.getEnabledCipherSuites());
             }
             return false;
         }
@@ -113,33 +113,33 @@ public final class n {
         return "ConnectionSpec(cipherSuites=" + (this.f != null ? b().toString() : "[all enabled]") + ", tlsVersions=" + (this.g != null ? c().toString() : "[all enabled]") + ", supportsTlsExtensions=" + this.e + ")";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f5965a;
+        boolean f5967a;
 
         /* renamed from: b  reason: collision with root package name */
-        String[] f5966b;
+        String[] f5968b;
         String[] c;
         boolean d;
 
         a(boolean z) {
-            this.f5965a = z;
+            this.f5967a = z;
         }
 
         public a(n nVar) {
-            this.f5965a = nVar.d;
-            this.f5966b = nVar.f;
+            this.f5967a = nVar.d;
+            this.f5968b = nVar.f;
             this.c = nVar.g;
             this.d = nVar.e;
         }
 
         public a a(k... kVarArr) {
-            if (this.f5965a) {
+            if (this.f5967a) {
                 String[] strArr = new String[kVarArr.length];
                 for (int i = 0; i < kVarArr.length; i++) {
-                    strArr[i] = kVarArr[i].piZ;
+                    strArr[i] = kVarArr[i].pto;
                 }
                 return ag(strArr);
             }
@@ -147,18 +147,18 @@ public final class n {
         }
 
         public a ag(String... strArr) {
-            if (this.f5965a) {
+            if (this.f5967a) {
                 if (strArr.length == 0) {
                     throw new IllegalArgumentException("At least one cipher suite is required");
                 }
-                this.f5966b = (String[]) strArr.clone();
+                this.f5968b = (String[]) strArr.clone();
                 return this;
             }
             throw new IllegalStateException("no cipher suites for cleartext connections");
         }
 
         public a a(ad... adVarArr) {
-            if (this.f5965a) {
+            if (this.f5967a) {
                 String[] strArr = new String[adVarArr.length];
                 for (int i = 0; i < adVarArr.length; i++) {
                     strArr[i] = adVarArr[i].f;
@@ -169,7 +169,7 @@ public final class n {
         }
 
         public a ah(String... strArr) {
-            if (this.f5965a) {
+            if (this.f5967a) {
                 if (strArr.length == 0) {
                     throw new IllegalArgumentException("At least one TLS version is required");
                 }
@@ -179,15 +179,15 @@ public final class n {
             throw new IllegalStateException("no TLS versions for cleartext connections");
         }
 
-        public a AI(boolean z) {
-            if (!this.f5965a) {
+        public a Bb(boolean z) {
+            if (!this.f5967a) {
                 throw new IllegalStateException("no TLS extensions for cleartext connections");
             }
             this.d = z;
             return this;
         }
 
-        public n enz() {
+        public n epS() {
             return new n(this);
         }
     }

@@ -2,7 +2,7 @@ package com.kwad.sdk.glide.load;
 
 import androidx.annotation.Nullable;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class HttpException extends IOException {
     public static final int UNKNOWN = -1;
     private static final long serialVersionUID = 1;

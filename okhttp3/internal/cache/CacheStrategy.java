@@ -12,7 +12,7 @@ import okhttp3.internal.Internal;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.http.HttpHeaders;
 import okhttp3.internal.http.StatusLine;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class CacheStrategy {
     @Nullable
     public final Response cacheResponse;
@@ -50,7 +50,7 @@ public final class CacheStrategy {
         return (response.cacheControl().noStore() || request.cacheControl().noStore()) ? false : true;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static class Factory {
         private int ageSeconds;
         final Response cacheResponse;

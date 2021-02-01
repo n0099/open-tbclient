@@ -4,12 +4,12 @@ import android.content.Context;
 import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.Nullable;
 import com.baidu.mobstat.Config;
 import java.util.Arrays;
+import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 abstract class CameraCapturer implements CameraVideoCapturer {
     private static final int MAX_OPEN_CAMERA_ATTEMPTS = 3;
     private static final int OPEN_CAMERA_DELAY_MS = 500;
@@ -174,7 +174,7 @@ abstract class CameraCapturer implements CameraVideoCapturer {
     private SwitchState switchState = SwitchState.IDLE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum SwitchState {
         IDLE,
         PENDING,

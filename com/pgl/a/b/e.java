@@ -4,11 +4,11 @@ import android.content.Context;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static List<String> f11388a = new ArrayList();
+    private static List<String> f11390a = new ArrayList();
 
     private static File a(Context context) {
         if (context == null || context.getFilesDir() == null) {
@@ -25,24 +25,24 @@ public class e {
     public static synchronized boolean a(Context context, String str) {
         boolean z = true;
         synchronized (e.class) {
-            if (!f11388a.contains(str)) {
+            if (!f11390a.contains(str)) {
                 try {
                     System.loadLibrary(str);
-                    f11388a.add(str);
+                    f11390a.add(str);
                 } catch (UnsatisfiedLinkError e) {
-                    File bz = bz(context, str);
-                    if (bz == null) {
+                    File by = by(context, str);
+                    if (by == null) {
                         z = false;
                     } else {
-                        if (bz.exists()) {
-                            bz.delete();
+                        if (by.exists()) {
+                            by.delete();
                         }
-                        if (f(context, str, bz) != null) {
+                        if (f(context, str, by) != null) {
                             z = false;
                         } else {
                             try {
-                                System.load(bz.getAbsolutePath());
-                                f11388a.add(str);
+                                System.load(by.getAbsolutePath());
+                                f11390a.add(str);
                             } catch (Throwable th) {
                                 z = false;
                             }
@@ -56,7 +56,7 @@ public class e {
         return z;
     }
 
-    private static File bz(Context context, String str) {
+    private static File by(Context context, String str) {
         String mapLibraryName = System.mapLibraryName(str);
         File a2 = a(context);
         if (a2 != null) {

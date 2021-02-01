@@ -3,7 +3,7 @@ package com.bytedance.sdk.a.b;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum ad {
     TLS_1_3("TLSv1.3"),
     TLS_1_2("TLSv1.2"),

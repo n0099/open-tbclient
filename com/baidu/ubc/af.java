@@ -41,10 +41,10 @@ public class af implements ab {
 
     public void onEvent(String str, String str2, int i) {
         int length;
-        if (DEBUG && !TextUtils.isEmpty(str2) && (length = str2.getBytes().length) > g.eff().efh()) {
+        if (DEBUG && !TextUtils.isEmpty(str2) && (length = str2.getBytes().length) > g.ehx().ehz()) {
             Log.e("UBCServiceManager", "UBC log too large, id=" + str + ", content=" + str2);
-            throw new RuntimeException(String.format("UBC log too large(size=%dKB / threshold=%d), log id=%s, please deal with. Any question connect UBC owner", Integer.valueOf(length), Integer.valueOf(g.eff().efh()), str));
-        } else if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
+            throw new RuntimeException(String.format("UBC log too large(size=%dKB / threshold=%d), log id=%s, please deal with. Any question connect UBC owner", Integer.valueOf(length), Integer.valueOf(g.ehx().ehz()), str));
+        } else if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
             if (UBC.getUBCContext() == null && TextUtils.isEmpty(str)) {
                 if (DEBUG) {
                     throw new IllegalArgumentException("UBC onEvent#eventId must not be null.");
@@ -54,7 +54,7 @@ public class af implements ab {
             if (DEBUG) {
                 Log.d("UBCServiceManager", "on event id:" + str + " value:" + str2);
             }
-            d.efb().o(str, str2, i);
+            d.eht().o(str, str2, i);
         } else {
             try {
                 getProxy().ubcOnEvent(str, str2, i);
@@ -65,12 +65,12 @@ public class af implements ab {
     }
 
     public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
             if (UBC.getUBCContext() != null || !TextUtils.isEmpty(str)) {
                 if (DEBUG) {
                     Log.d("UBCServiceManager", "on event id:" + str + " value:" + jSONObject.toString());
                 }
-                d.efb().a(str, jSONObject, i);
+                d.eht().a(str, jSONObject, i);
                 return;
             }
             return;
@@ -103,7 +103,7 @@ public class af implements ab {
 
     @Override // com.baidu.ubc.ab
     public Flow beginFlow(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
             if (TextUtils.isEmpty(str)) {
                 if (DEBUG) {
                     throw new IllegalArgumentException("UBC beginFlow#flowId must not be null.");
@@ -113,20 +113,20 @@ public class af implements ab {
             if (DEBUG) {
                 Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + str2);
             }
-            return d.efb().beginFlow(str, str2, i);
+            return d.eht().beginFlow(str, str2, i);
         }
         return z(str, str2, i);
     }
 
     public Flow beginFlow(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             if (DEBUG) {
                 Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + jSONObject);
             }
-            return d.efb().beginFlow(str, jSONObject, i);
+            return d.eht().beginFlow(str, jSONObject, i);
         }
         return z(str, jSONObject.toString(), i);
     }
@@ -137,21 +137,21 @@ public class af implements ab {
             Log.d("UBCServiceManager", "end flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
                 JSONArray jSONArray = new JSONArray();
                 if (flow.getSlotMaps() != null && (r3 = flow.getSlotMaps().entrySet().iterator()) != null) {
                     for (Map.Entry<String, Slot> entry : flow.getSlotMaps().entrySet()) {
                         Slot value = entry.getValue();
-                        if (value.beZ() && !value.bfa()) {
+                        if (value.bfm() && !value.bfn()) {
                             value.setEnd(System.currentTimeMillis());
                         }
-                        JSONObject bfb = entry.getValue().bfb();
-                        if (bfb != null) {
-                            jSONArray.put(bfb);
+                        JSONObject bfo = entry.getValue().bfo();
+                        if (bfo != null) {
+                            jSONArray.put(bfo);
                         }
                     }
                 }
-                d.efb().a(flow.getId(), flow.getHandle(), jSONArray);
+                d.eht().a(flow.getId(), flow.getHandle(), jSONArray);
                 return;
             }
             try {
@@ -168,8 +168,8 @@ public class af implements ab {
             Log.d("UBCServiceManager", " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
-                d.efb().a(flow.getId(), str, flow.getHandle(), str2, flow.getOption());
+            if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
+                d.eht().a(flow.getId(), str, flow.getHandle(), str2, flow.getOption());
                 return;
             }
             try {
@@ -186,8 +186,8 @@ public class af implements ab {
             Log.d("UBCServiceManager", " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
-                d.efb().a(flow.getId(), str, flow.getHandle(), str2, j, flow.getOption());
+            if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
+                d.eht().a(flow.getId(), str, flow.getHandle(), str2, j, flow.getOption());
                 return;
             }
             try {
@@ -204,8 +204,8 @@ public class af implements ab {
             Log.d("UBCServiceManager", " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
-                d.efb().i(flow.getId(), flow.getHandle(), str);
+            if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
+                d.eht().i(flow.getId(), flow.getHandle(), str);
                 return;
             }
             try {
@@ -242,7 +242,7 @@ public class af implements ab {
             Log.d("UBCServiceManager", " flow setValueWithDuration, mId:" + flow.getId() + " handle: " + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     float currentTimeMillis = ((float) (System.currentTimeMillis() - flow.getStartTime())) / 1000.0f;
@@ -256,7 +256,7 @@ public class af implements ab {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                d.efb().i(flow.getId(), flow.getHandle(), jSONObject.toString());
+                d.eht().i(flow.getId(), flow.getHandle(), jSONObject.toString());
                 return;
             }
             try {
@@ -275,14 +275,14 @@ public class af implements ab {
                 flow.getSlotMaps().put(str, new Slot(str, System.currentTimeMillis(), jSONObject));
                 return;
             }
-            slot.dk(jSONObject);
+            slot.dh(jSONObject);
         }
     }
 
     @Override // com.baidu.ubc.ab
     public void flowEndSlot(Flow flow, String str) {
         Slot slot;
-        if (flow != null && flow.getValid() && !TextUtils.isEmpty(str) && (slot = flow.getSlotMaps().get(str)) != null && slot.beZ() && !slot.bfa()) {
+        if (flow != null && flow.getValid() && !TextUtils.isEmpty(str) && (slot = flow.getSlotMaps().get(str)) != null && slot.bfm() && !slot.bfn()) {
             slot.setEnd(System.currentTimeMillis());
         }
     }
@@ -293,8 +293,8 @@ public class af implements ab {
             Log.d("UBCServiceManager", "cancel flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
-                d.efb().M(flow.getId(), flow.getHandle());
+            if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
+                d.eht().O(flow.getId(), flow.getHandle());
                 return;
             }
             try {
@@ -307,8 +307,8 @@ public class af implements ab {
 
     @Override // com.baidu.ubc.ab
     public String getUploadType(String str) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
-            return d.efb().getUploadType(str);
+        if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
+            return d.eht().getUploadType(str);
         }
         try {
             return UBC.getProxy().getUploadType(str);
@@ -319,8 +319,8 @@ public class af implements ab {
     }
 
     public void uploadLocalDatas() {
-        if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
-            d.efb().efc();
+        if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
+            d.eht().ehu();
             return;
         }
         try {
@@ -332,10 +332,10 @@ public class af implements ab {
 
     @Override // com.baidu.ubc.ab
     public void b(w wVar, boolean z, s sVar) {
-        d.efb().a(wVar, z, sVar);
+        d.eht().a(wVar, z, sVar);
     }
 
-    public boolean efz() {
+    public boolean ehR() {
         if (AppConfig.isDebug()) {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("KEY_UBC_SAMPLE", false);
         }
@@ -343,7 +343,7 @@ public class af implements ab {
     }
 
     @Override // com.baidu.ubc.ab
-    public boolean efw() {
+    public boolean ehO() {
         if (AppConfig.isDebug()) {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("KEY_UBC_DEBUG", AppConfig.isDebug());
         }

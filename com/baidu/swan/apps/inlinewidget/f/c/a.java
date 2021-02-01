@@ -4,50 +4,50 @@ import android.content.Context;
 import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.inlinewidget.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface a extends d {
 
     /* renamed from: com.baidu.swan.apps.inlinewidget.f.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0432a {
-        void avV();
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0429a {
+        void awt();
 
-        void ga(String str);
+        void gy(String str);
 
-        void hE(int i);
+        void hH(int i);
 
-        void hF(int i);
+        void hI(int i);
 
-        void nS(String str);
+        void ol(String str);
 
-        void nT(String str);
-
-        void nU(@NonNull String str);
+        void om(String str);
 
         void onEnded();
 
         void onError(int i);
 
         void onPrepared();
+
+        void oo(@NonNull String str);
     }
 
-    void a(@NonNull InterfaceC0432a interfaceC0432a);
+    void a(@NonNull InterfaceC0429a interfaceC0429a);
 
-    String awe();
+    String awC();
 
-    void awf();
+    void awD();
 
-    void awg();
+    void awE();
 
-    InterfaceC0432a awh();
+    InterfaceC0429a awF();
 
-    boolean awi();
+    boolean awG();
 
-    int awj();
+    int awH();
 
     boolean e(String str, String str2, String str3, boolean z);
 
-    void fL(boolean z);
+    void fN(boolean z);
 
     Context getContext();
 
@@ -59,15 +59,15 @@ public interface a extends d {
 
     int getVideoWidth();
 
-    void hG(int i);
+    void hJ(int i);
 
-    void hH(int i);
+    void hK(int i);
 
     boolean isPlaying();
 
-    void nZ(String str);
-
     void o(int i, int i2, int i3, int i4);
+
+    void ot(String str);
 
     void pause();
 

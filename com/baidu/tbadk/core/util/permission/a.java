@@ -6,22 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.base.f;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.dialog.a {
-    private TextView fat;
-    private TextView fau;
-    private TextView fav;
-    private String faw;
-    private InterfaceC0565a fax;
+    private TextView fcJ;
+    private TextView fcK;
+    private TextView fcL;
+    private String fcM;
+    private InterfaceC0562a fcN;
     private ViewGroup mRootView;
     private TextView mTitleView;
 
     /* renamed from: com.baidu.tbadk.core.util.permission.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0565a {
+    public interface InterfaceC0562a {
         void d(Activity activity, String str);
 
         void e(Activity activity, String str);
@@ -30,30 +30,30 @@ public class a extends com.baidu.tbadk.core.dialog.a {
     public a(Activity activity) {
         super(activity);
         initView();
-        nx(3);
-        jD(false);
-        jE(false);
+        nA(3);
+        jF(false);
+        jG(false);
         setAutoNight(false);
     }
 
     private void initView() {
         this.mRootView = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_permission_request, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_title);
-        this.fat = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
-        this.fau = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
-        this.fau.setText(R.string.close);
-        this.fav = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
-        this.fav.setText(R.string.go_on);
+        this.fcJ = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
+        this.fcK = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
+        this.fcK.setText(R.string.close);
+        this.fcL = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
+        this.fcL.setText(R.string.go_on);
         onChangeSkinType();
-        br(this.mRootView);
+        bn(this.mRootView);
     }
 
-    public void AY(String str) {
-        this.faw = str;
+    public void Bp(String str) {
+        this.fcM = str;
     }
 
-    public void a(InterfaceC0565a interfaceC0565a) {
-        this.fax = interfaceC0565a;
+    public void a(InterfaceC0562a interfaceC0562a) {
+        this.fcN = interfaceC0562a;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a
@@ -61,7 +61,7 @@ public class a extends com.baidu.tbadk.core.dialog.a {
         String string;
         String str;
         super.b(fVar);
-        String str2 = this.faw;
+        String str2 = this.fcM;
         char c = 65535;
         switch (str2.hashCode()) {
             case -63024214:
@@ -105,20 +105,20 @@ public class a extends com.baidu.tbadk.core.dialog.a {
                 break;
         }
         this.mTitleView.setText(str);
-        this.fat.setText(string);
-        this.fau.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.1
+        this.fcJ.setText(string);
+        this.fcK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.fax != null) {
-                    a.this.fax.d(a.this.mActivity, a.this.faw);
+                if (a.this.fcN != null) {
+                    a.this.fcN.d(a.this.mActivity, a.this.fcM);
                 }
             }
         });
-        this.fav.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.2
+        this.fcL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.fax != null) {
-                    a.this.fax.e(a.this.mActivity, a.this.faw);
+                if (a.this.fcN != null) {
+                    a.this.fcN.e(a.this.mActivity, a.this.fcM);
                 }
             }
         });
@@ -126,10 +126,10 @@ public class a extends com.baidu.tbadk.core.dialog.a {
     }
 
     public void onChangeSkinType() {
-        ao.setBackgroundResource(this.mRootView, R.drawable.bg_permission_request_dialog);
-        ao.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-        ao.setViewTextColor(this.fat, R.color.CAM_X0107);
-        ao.k(this.fau, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
-        ao.k(this.fav, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
+        ap.setBackgroundResource(this.mRootView, R.drawable.bg_permission_request_dialog);
+        ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
+        ap.setViewTextColor(this.fcJ, R.color.CAM_X0107);
+        ap.k(this.fcK, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
+        ap.k(this.fcL, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
     }
 }

@@ -4,12 +4,12 @@ import android.util.Log;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<com.baidu.swan.pms.model.e, Set<b>> cSd;
+    private HashMap<com.baidu.swan.pms.model.e, Set<b>> cUq;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(PMSDownloadType pMSDownloadType);
 
@@ -17,21 +17,21 @@ public class c {
     }
 
     private c() {
-        this.cSd = new HashMap<>();
+        this.cUq = new HashMap<>();
     }
 
     public synchronized void a(com.baidu.swan.pms.model.e eVar, PMSDownloadType pMSDownloadType) {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.cSd.get(eVar);
+        Set<b> set = this.cUq.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType);
                 }
             }
-            this.cSd.remove(eVar);
+            this.cUq.remove(eVar);
         }
     }
 
@@ -39,14 +39,14 @@ public class c {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadError:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.cSd.get(eVar);
+        Set<b> set = this.cUq.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType, aVar);
                 }
             }
-            this.cSd.remove(eVar);
+            this.cUq.remove(eVar);
         }
     }
 
@@ -55,23 +55,23 @@ public class c {
             Log.i("PMSDownloadRepeatSync", "registerResultListener:" + eVar);
         }
         if (eVar != null && bVar != null) {
-            Set<b> set = this.cSd.get(eVar);
+            Set<b> set = this.cUq.get(eVar);
             if (set != null) {
                 set.add(bVar);
             } else {
                 HashSet hashSet = new HashSet();
                 hashSet.add(bVar);
-                this.cSd.put(eVar, hashSet);
+                this.cUq.put(eVar, hashSet);
             }
         }
     }
 
-    public static c aqg() {
-        return a.cSe;
+    public static c aqE() {
+        return a.cUr;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     private static class a {
-        private static c cSe = new c();
+        private static c cUr = new c();
     }
 }

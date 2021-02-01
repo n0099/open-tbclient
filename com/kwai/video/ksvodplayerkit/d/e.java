@@ -1,7 +1,7 @@
 package com.kwai.video.ksvodplayerkit.d;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class e {
     public static d a(String str) {
         JSONObject jSONObject;
@@ -14,8 +14,8 @@ public final class e {
             return null;
         }
         d dVar = new d();
-        dVar.f11070a = jSONObject.optInt("maxConcurrentCount", dVar.f11070a);
-        dVar.f11071b = jSONObject.optLong("playerLoadThreshold", dVar.f11071b);
+        dVar.f11072a = jSONObject.optInt("maxConcurrentCount", dVar.f11072a);
+        dVar.f11073b = jSONObject.optLong("playerLoadThreshold", dVar.f11073b);
         dVar.c = jSONObject.optInt("speedKbpsThreshold", dVar.c);
         dVar.d = jSONObject.optLong("preloadBytesWifi", dVar.d);
         dVar.e = jSONObject.optLong("preloadBytes4G", dVar.e);

@@ -2,7 +2,7 @@ package com.kwai.player.vr;
 
 import android.animation.TimeInterpolator;
 import android.view.animation.DecelerateInterpolator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KwaiFlingConfig {
     private TimeInterpolator mInterpolator = new DecelerateInterpolator();
     private long mDuring = 400;

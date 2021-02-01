@@ -2,36 +2,36 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.c;
 
 import androidx.annotation.NonNull;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface b extends c {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
     }
 
-    void Iw();
+    void JU();
 
     void a(@NonNull a aVar);
 
     void a(com.baidu.swan.apps.inlinewidget.rtcroom.model.b bVar);
 
-    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> avK();
+    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> awi();
 
-    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> avL();
+    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> awj();
 
-    void avM();
+    void awk();
 
-    void avN();
+    void awl();
 
-    void avO();
+    void awm();
 
-    void avP();
+    void awn();
 
-    void avQ();
+    void awo();
 
-    void ch(long j);
+    void cn(long j);
 
-    void ci(long j);
+    void co(long j);
 
     void enableAgc(boolean z);
 
@@ -39,15 +39,15 @@ public interface b extends c {
 
     void enableZoom(boolean z);
 
-    void fF(boolean z);
-
-    void fG(boolean z);
-
     void fH(boolean z);
 
     void fI(boolean z);
 
     void fJ(boolean z);
+
+    void fK(boolean z);
+
+    void fL(boolean z);
 
     void g(long j, boolean z);
 
@@ -55,11 +55,11 @@ public interface b extends c {
 
     void hA(int i);
 
-    void hu(int i);
+    void hB(int i);
 
-    void hv(int i);
+    void hC(int i);
 
-    void hw(int i);
+    void hD(int i);
 
     void hx(int i);
 
@@ -67,9 +67,9 @@ public interface b extends c {
 
     void hz(int i);
 
-    void nN(String str);
+    void og(String str);
 
-    void nO(String str);
+    void oh(String str);
 
     void setCameraFace(boolean z);
 

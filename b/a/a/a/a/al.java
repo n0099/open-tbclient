@@ -8,7 +8,7 @@ import androidx.core.content.PermissionChecker;
 import com.baidu.webkit.internal.ETAG;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class al {
     private static w AV;
     private static volatile al Bt;

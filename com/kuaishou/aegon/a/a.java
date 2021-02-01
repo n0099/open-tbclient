@@ -1,21 +1,21 @@
 package com.kuaishou.aegon.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: com.kuaishou.aegon.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1062a<T> {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1066a<T> {
         T get();
     }
 
-    public static <T> T a(InterfaceC1062a<T> interfaceC1062a) {
+    public static <T> T a(InterfaceC1066a<T> interfaceC1066a) {
         try {
-            return interfaceC1062a.get();
+            return interfaceC1066a.get();
         } catch (UnsatisfiedLinkError e) {
             try {
-                return interfaceC1062a.get();
+                return interfaceC1066a.get();
             } catch (UnsatisfiedLinkError e2) {
-                return interfaceC1062a.get();
+                return interfaceC1066a.get();
             }
         }
     }

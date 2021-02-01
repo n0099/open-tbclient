@@ -5,21 +5,21 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class TbVideoViewSet {
-    private static TbVideoViewSet mzO = null;
-    private LRULinkedHashMap<String, TbCyberVideoView> mzN = new LRULinkedHashMap<>();
-    private boolean mzP;
+    private static TbVideoViewSet mIZ = null;
+    private LRULinkedHashMap<String, TbCyberVideoView> mIY = new LRULinkedHashMap<>();
+    private boolean mJa;
 
     /* loaded from: classes.dex */
     public interface a {
-        void dyn();
+        void dAv();
 
-        void dyo();
+        void dAw();
     }
 
     private TbVideoViewSet() {
@@ -28,39 +28,39 @@ public class TbVideoViewSet {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    TbVideoViewSet.this.avY();
+                    TbVideoViewSet.this.aww();
                 }
             }
         });
     }
 
-    public static TbVideoViewSet dym() {
-        if (mzO == null) {
+    public static TbVideoViewSet dAu() {
+        if (mIZ == null) {
             synchronized (TbVideoViewSet.class) {
-                if (mzO == null) {
-                    mzO = new TbVideoViewSet();
+                if (mIZ == null) {
+                    mIZ = new TbVideoViewSet();
                 }
             }
         }
-        return mzO;
+        return mIZ;
     }
 
-    public TbCyberVideoView PO(String str) {
-        if (at.isEmpty(str) || !this.mzN.containsKey(str)) {
+    public TbCyberVideoView QF(String str) {
+        if (au.isEmpty(str) || !this.mIY.containsKey(str)) {
             return null;
         }
-        return this.mzN.get(str);
+        return this.mIY.get(str);
     }
 
     public void a(TbCyberVideoView tbCyberVideoView, String str) {
         String str2;
-        if (this.mzN.containsKey(str) && tbCyberVideoView != this.mzN.get(str)) {
-            TbCyberVideoView tbCyberVideoView2 = this.mzN.get(str);
+        if (this.mIY.containsKey(str) && tbCyberVideoView != this.mIY.get(str)) {
+            TbCyberVideoView tbCyberVideoView2 = this.mIY.get(str);
             if (tbCyberVideoView2 != null && tbCyberVideoView2.isPlaying()) {
                 tbCyberVideoView2.stopPlayback();
             }
-        } else if (this.mzN.containsValue(tbCyberVideoView)) {
-            Iterator it = this.mzN.entrySet().iterator();
+        } else if (this.mIY.containsValue(tbCyberVideoView)) {
+            Iterator it = this.mIY.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     str2 = null;
@@ -72,31 +72,31 @@ public class TbVideoViewSet {
                     break;
                 }
             }
-            if (!this.mzP && !at.isEmpty(str2)) {
-                this.mzN.remove(str2);
+            if (!this.mJa && !au.isEmpty(str2)) {
+                this.mIY.remove(str2);
             }
         }
-        this.mzN.put(str, tbCyberVideoView);
+        this.mIY.put(str, tbCyberVideoView);
     }
 
-    public void PP(String str) {
+    public void QG(String str) {
         TbCyberVideoView tbCyberVideoView;
-        if (!this.mzP && this.mzN.containsKey(str) && (tbCyberVideoView = (TbCyberVideoView) this.mzN.remove(str)) != null) {
+        if (!this.mJa && this.mIY.containsKey(str) && (tbCyberVideoView = (TbCyberVideoView) this.mIY.remove(str)) != null) {
             tbCyberVideoView.stopPlayback();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void avY() {
-        Iterator it = this.mzN.entrySet().iterator();
+    public void aww() {
+        Iterator it = this.mIY.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             if (entry != null) {
                 TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) entry.getValue();
                 if (tbCyberVideoView != null) {
-                    this.mzP = true;
+                    this.mJa = true;
                     tbCyberVideoView.stopPlayback();
-                    this.mzP = false;
+                    this.mJa = false;
                 }
                 it.remove();
             }
@@ -118,10 +118,10 @@ public class TbVideoViewSet {
             TbCyberVideoView value;
             boolean z = size() > 3;
             if (z && (value = entry.getValue()) != null) {
-                TbVideoViewSet.this.mzP = true;
-                value.dyj();
+                TbVideoViewSet.this.mJa = true;
+                value.dAr();
                 value.stopPlayback();
-                TbVideoViewSet.this.mzP = false;
+                TbVideoViewSet.this.mJa = false;
             }
             return z;
         }

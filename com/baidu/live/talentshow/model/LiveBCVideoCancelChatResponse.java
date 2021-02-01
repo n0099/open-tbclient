@@ -3,7 +3,7 @@ package com.baidu.live.talentshow.model;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LiveBCVideoCancelChatResponse extends JsonHttpResponsedMessage {
     public LiveBCVideoCancelChatResponse() {
         super(1021223);

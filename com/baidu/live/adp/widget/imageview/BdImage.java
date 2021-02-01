@@ -20,7 +20,7 @@ import com.baidu.live.adp.widget.RoundCornerDecor23;
 import com.baidu.live.adp.widget.RoundCornerDecor40;
 import java.io.ByteArrayOutputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BdImage {
     private static final int BORDER_WIDTH = 1;
     public static final Object lockForSyncImageDecoder = new Object();
@@ -44,7 +44,7 @@ public class BdImage {
     public long timeStamp;
     private String url;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class PerfResourceLogData {
         public long costTime;
         public boolean isScuess;

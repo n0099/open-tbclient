@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IYuyinLiveLogger {
     void doAccessPlayYuyinLiveGuestLog(String str, String str2, int i, boolean z, String str3);
 

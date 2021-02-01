@@ -1,10 +1,11 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-    public String foL;
+    public String fre;
     public boolean isShowRedDot;
     public String tabCode;
     public String tabName;
@@ -14,8 +15,8 @@ public class x {
         if (jSONObject != null && jSONObject != null) {
             this.tabType = jSONObject.optInt("tab_type");
             this.tabName = jSONObject.optString("tab_name");
-            this.tabCode = jSONObject.optString("tab_code");
-            this.foL = jSONObject.optString("tab_version");
+            this.tabCode = jSONObject.optString(LowFlowsActivityConfig.TAB_CODE);
+            this.fre = jSONObject.optString("tab_version");
         }
     }
 

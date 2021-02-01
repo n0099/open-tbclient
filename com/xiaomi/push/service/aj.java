@@ -16,7 +16,7 @@ class aj {
     private static final String[] f924a = {"com.mi.globalbrowser", "com.android.browser"};
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f14235a = null;
+    private static String f14237a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a(Context context, String str) {
@@ -74,7 +74,7 @@ class aj {
         String str;
         int i = -1;
         while (true) {
-            str = i < 0 ? f14235a : f924a[i];
+            str = i < 0 ? f14237a : f924a[i];
             if (!TextUtils.isEmpty(str)) {
                 intent.setPackage(str);
                 try {
@@ -94,6 +94,6 @@ class aj {
             i = i2;
         }
         intent.setPackage(str);
-        f14235a = str;
+        f14237a = str;
     }
 }

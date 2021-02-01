@@ -21,16 +21,16 @@ public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static final int VIDEO_UPLOAD_BEAN = 11;
 
     /* renamed from: a  reason: collision with root package name */
-    private static FaceSDKBeansFactory f2266a;
+    private static FaceSDKBeansFactory f2264a;
 
     private FaceSDKBeansFactory() {
     }
 
     public static FaceSDKBeansFactory getInstance() {
-        if (f2266a == null) {
-            f2266a = new FaceSDKBeansFactory();
+        if (f2264a == null) {
+            f2264a = new FaceSDKBeansFactory();
         }
-        return f2266a;
+        return f2264a;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanFactory

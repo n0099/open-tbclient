@@ -7,17 +7,17 @@ import com.kwad.sdk.utils.ah;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.v;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d implements com.kwad.sdk.core.webview.a.a {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f9565a;
+        private String f9567a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f9566b;
+        private String f9568b;
         private String c;
         private String d;
         private String e;
@@ -35,8 +35,8 @@ public class d implements com.kwad.sdk.core.webview.a.a {
 
         public static a a() {
             a aVar = new a();
-            aVar.f9565a = ah.l(KsAdSDKImpl.get().getContext());
-            aVar.f9566b = "";
+            aVar.f9567a = ah.l(KsAdSDKImpl.get().getContext());
+            aVar.f9568b = "";
             aVar.c = String.valueOf(v.d(KsAdSDKImpl.get().getContext()));
             aVar.d = ah.g();
             aVar.e = ah.e();
@@ -57,8 +57,8 @@ public class d implements com.kwad.sdk.core.webview.a.a {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "appVersion", this.f9565a);
-            com.kwad.sdk.utils.o.a(jSONObject, "globalId", this.f9566b);
+            com.kwad.sdk.utils.o.a(jSONObject, "appVersion", this.f9567a);
+            com.kwad.sdk.utils.o.a(jSONObject, "globalId", this.f9568b);
             com.kwad.sdk.utils.o.a(jSONObject, "networkType", this.c);
             com.kwad.sdk.utils.o.a(jSONObject, HttpConstants.HTTP_MANUFACTURER, this.d);
             com.kwad.sdk.utils.o.a(jSONObject, "model", this.e);

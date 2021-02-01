@@ -1,6 +1,6 @@
 package com.google.zxing.common.reedsolomon;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class GenericGFPoly {
     private final int[] coefficients;
     private final GenericGF field;

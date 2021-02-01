@@ -1,5 +1,5 @@
 package com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    void eiE();
+    void ekY();
 }

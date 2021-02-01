@@ -10,7 +10,7 @@ import java.util.Set;
 public class gg implements gk {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14043a;
+    private String f14045a;
 
     /* renamed from: a  reason: collision with other field name */
     private List<gg> f466a;
@@ -19,7 +19,7 @@ public class gg implements gk {
     private String[] f467a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14044b;
+    private String f14046b;
 
     /* renamed from: b  reason: collision with other field name */
     private String[] f468b;
@@ -29,8 +29,8 @@ public class gg implements gk {
         this.f467a = null;
         this.f468b = null;
         this.f466a = null;
-        this.f14043a = str;
-        this.f14044b = str2;
+        this.f14045a = str;
+        this.f14046b = str2;
         this.f467a = strArr;
         this.f468b = strArr2;
     }
@@ -39,8 +39,8 @@ public class gg implements gk {
         this.f467a = null;
         this.f468b = null;
         this.f466a = null;
-        this.f14043a = str;
-        this.f14044b = str2;
+        this.f14045a = str;
+        this.f14046b = str2;
         this.f467a = strArr;
         this.f468b = strArr2;
         this.c = str3;
@@ -91,8 +91,8 @@ public class gg implements gk {
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putString("ext_ele_name", this.f14043a);
-        bundle.putString("ext_ns", this.f14044b);
+        bundle.putString("ext_ele_name", this.f14045a);
+        bundle.putString("ext_ns", this.f14046b);
         bundle.putString("ext_text", this.c);
         Bundle bundle2 = new Bundle();
         if (this.f467a != null && this.f467a.length > 0) {
@@ -114,7 +114,7 @@ public class gg implements gk {
 
     /* renamed from: a  reason: collision with other method in class */
     public String m338a() {
-        return this.f14043a;
+        return this.f14045a;
     }
 
     public String a(String str) {
@@ -141,7 +141,7 @@ public class gg implements gk {
     }
 
     public String b() {
-        return this.f14044b;
+        return this.f14046b;
     }
 
     public String c() {
@@ -151,9 +151,9 @@ public class gg implements gk {
     @Override // com.xiaomi.push.gk
     public String d() {
         StringBuilder sb = new StringBuilder();
-        sb.append("<").append(this.f14043a);
-        if (!TextUtils.isEmpty(this.f14044b)) {
-            sb.append(" ").append("xmlns=").append("\"").append(this.f14044b).append("\"");
+        sb.append("<").append(this.f14045a);
+        if (!TextUtils.isEmpty(this.f14046b)) {
+            sb.append(" ").append("xmlns=").append("\"").append(this.f14046b).append("\"");
         }
         if (this.f467a != null && this.f467a.length > 0) {
             for (int i = 0; i < this.f467a.length; i++) {
@@ -163,7 +163,7 @@ public class gg implements gk {
             }
         }
         if (!TextUtils.isEmpty(this.c)) {
-            sb.append(">").append(this.c).append("</").append(this.f14043a).append(">");
+            sb.append(">").append(this.c).append("</").append(this.f14045a).append(">");
         } else if (this.f466a == null || this.f466a.size() <= 0) {
             sb.append("/>");
         } else {
@@ -171,7 +171,7 @@ public class gg implements gk {
             for (gg ggVar : this.f466a) {
                 sb.append(ggVar.d());
             }
-            sb.append("</").append(this.f14043a).append(">");
+            sb.append("</").append(this.f14045a).append(">");
         }
         return sb.toString();
     }

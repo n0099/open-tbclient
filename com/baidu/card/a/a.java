@@ -1,12 +1,12 @@
 package com.baidu.card.a;
 
 import android.util.SparseArray;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private SparseArray<List<b>> ajw = new SparseArray<>();
+    private SparseArray<List<b>> ajl = new SparseArray<>();
 
     /* loaded from: classes.dex */
     public interface b {
@@ -14,20 +14,20 @@ public class a {
     }
 
     public void b(int i, b bVar) {
-        if (this.ajw == null) {
-            this.ajw = new SparseArray<>();
+        if (this.ajl == null) {
+            this.ajl = new SparseArray<>();
         }
-        List<b> list = this.ajw.get(i);
+        List<b> list = this.ajl.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.ajw.put(i, list);
+            this.ajl.put(i, list);
         }
         list.add(bVar);
     }
 
     public boolean b(C0089a c0089a) {
-        List<b> list = this.ajw.get(c0089a.ajx);
-        if (x.isEmpty(list)) {
+        List<b> list = this.ajl.get(c0089a.ajm);
+        if (y.isEmpty(list)) {
             return false;
         }
         for (b bVar : list) {
@@ -41,28 +41,28 @@ public class a {
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0089a {
-        private int ajx;
-        private Object ajy;
+        private int ajm;
+        private Object ajn;
 
         public C0089a(int i, Object obj) {
-            this.ajx = i;
-            this.ajy = obj;
+            this.ajm = i;
+            this.ajn = obj;
         }
 
         public C0089a(int i) {
-            this.ajx = i;
+            this.ajm = i;
         }
 
         public int getActionType() {
-            return this.ajx;
+            return this.ajm;
         }
 
         public void setExtraData(Object obj) {
-            this.ajy = obj;
+            this.ajn = obj;
         }
 
-        public Object tu() {
-            return this.ajy;
+        public Object tr() {
+            return this.ajn;
         }
     }
 }

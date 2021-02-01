@@ -1,6 +1,6 @@
 package com.baidu.tieba.hottopic.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k {
-    public static int kmS = 1;
-    public static int kmT = 2;
+    public static int kuZ = 1;
+    public static int kva = 2;
 }

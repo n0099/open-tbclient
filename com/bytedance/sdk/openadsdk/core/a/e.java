@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.d.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class e extends a {
     protected abstract void a_(View view, int i, int i2, int i3, int i4);
 

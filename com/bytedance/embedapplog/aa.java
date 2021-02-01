@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.AbstractBceClient;
 import java.util.ArrayList;
@@ -15,22 +14,22 @@ import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JSONObject f5770a;
+    public static JSONObject f5772a;
     private static final String[] d = {"GET", "POST"};
     private static final String[] e = {"aid", "app_version", "tt_data"};
 
     /* renamed from: b  reason: collision with root package name */
-    static final String[] f5771b = {"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", "iid", "device_platform"};
+    static final String[] f5773b = {"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", "iid", "device_platform"};
     public static final String[] c = {"tt_data", "device_platform"};
-    private static com.bytedance.embedapplog.util.a pcj = com.bytedance.embedapplog.util.a.NW(0);
+    private static com.bytedance.embedapplog.util.a pmy = com.bytedance.embedapplog.util.a.Or(0);
 
     private static String a(String str) {
         String[] strArr;
-        if (!TextUtils.isEmpty(str) && b.ekX()) {
+        if (!TextUtils.isEmpty(str) && b.enq()) {
             Uri parse = Uri.parse(str);
             String query = parse.getQuery();
             ArrayList<Pair> arrayList = new ArrayList();
@@ -45,7 +44,7 @@ public class aa {
             for (Pair pair : arrayList) {
                 buildUpon.appendQueryParameter((String) pair.first, (String) pair.second);
             }
-            buildUpon.appendQueryParameter("tt_info", new String(Base64.encode(b.Xt(query), 8)));
+            buildUpon.appendQueryParameter("tt_info", new String(Base64.encode(b.Yu(query), 8)));
             return buildUpon.build().toString();
         }
         return str;
@@ -85,7 +84,7 @@ public class aa {
             r6 = 200(0xc8, float:2.8E-43)
             r5 = 1
             r3 = 0
-            boolean r0 = com.bytedance.embedapplog.au.f5786b
+            boolean r0 = com.bytedance.embedapplog.au.f5788b
             if (r0 == 0) goto L96
             java.lang.StringBuilder r0 = new java.lang.StringBuilder
             r0.<init>()
@@ -185,7 +184,7 @@ public class aa {
             if (r4 == 0) goto L104
             r4.close()     // Catch: java.io.IOException -> L21d
         L104:
-            boolean r1 = com.bytedance.embedapplog.au.f5786b
+            boolean r1 = com.bytedance.embedapplog.au.f5788b
             if (r1 == 0) goto L11f
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -363,21 +362,21 @@ public class aa {
     }
 
     public static void a(int i) {
-        pcj = com.bytedance.embedapplog.util.a.NW(i);
+        pmy = com.bytedance.embedapplog.util.a.Or(i);
     }
 
-    public static com.bytedance.embedapplog.util.a elx() {
-        return pcj;
+    public static com.bytedance.embedapplog.util.a enQ() {
+        return pmy;
     }
 
     public static JSONObject w(String str, JSONObject jSONObject) {
         HashMap hashMap = new HashMap(2);
-        if (b.ekX()) {
+        if (b.enq()) {
             hashMap.put("Content-Type", "application/octet-stream;tt-data=a");
         } else {
             hashMap.put("Content-Type", AbstractBceClient.DEFAULT_CONTENT_TYPE);
         }
-        String a2 = a(1, a(str), hashMap, b.Xt(jSONObject.toString()));
+        String a2 = a(1, a(str), hashMap, b.Yu(jSONObject.toString()));
         if (a2 != null) {
             try {
                 return new JSONObject(a2);
@@ -440,7 +439,7 @@ public class aa {
         int i;
         int i2;
         HashMap hashMap = new HashMap(2);
-        if (b.ekX()) {
+        if (b.enq()) {
             hashMap.put("Content-Type", "application/octet-stream;tt-data=a");
         } else {
             hashMap.put("Content-Type", AbstractBceClient.DEFAULT_CONTENT_TYPE);
@@ -463,7 +462,7 @@ public class aa {
                         if ("ss_app_log".equals(jSONObject.optString("magic_tag"))) {
                             i2 = "success".equals(jSONObject.optString("message")) ? 200 : Integer.valueOf("101").intValue();
                         } else {
-                            i2 = Integer.valueOf(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY).intValue();
+                            i2 = Integer.valueOf("102").intValue();
                         }
                     }
                 } catch (JSONException e2) {
@@ -487,7 +486,7 @@ public class aa {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("server_time", optLong);
                     jSONObject2.put("local_time", System.currentTimeMillis() / 1000);
-                    f5770a = jSONObject2;
+                    f5772a = jSONObject2;
                 }
             } catch (Exception e4) {
                 au.a(e4);
@@ -525,7 +524,7 @@ public class aa {
     */
     public static JSONObject y(String str, JSONObject jSONObject) {
         JSONObject jSONObject2;
-        String a2 = a(1, str, null, b.Xt(jSONObject.toString()));
+        String a2 = a(1, str, null, b.Yu(jSONObject.toString()));
         if (a2 != null) {
             try {
                 jSONObject2 = new JSONObject(a2);
@@ -549,7 +548,7 @@ public class aa {
     */
     public static JSONObject z(String str, JSONObject jSONObject) {
         JSONObject jSONObject2;
-        String a2 = a(1, str, null, b.Xt(jSONObject.toString()));
+        String a2 = a(1, str, null, b.Yu(jSONObject.toString()));
         if (a2 != null) {
             try {
                 jSONObject2 = new JSONObject(a2);

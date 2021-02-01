@@ -20,7 +20,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.qdS.a((j) new FlatMapMaybeSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.qnW.a((j) new FlatMapMaybeSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
     /* loaded from: classes5.dex */
@@ -68,7 +68,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
                     oVar.a(innerObserver);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 this.s.cancel();
                 onError(th);
             }
@@ -158,7 +158,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(g.eHO());
+                aVar = new io.reactivex.internal.queue.a<>(g.eKe());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }

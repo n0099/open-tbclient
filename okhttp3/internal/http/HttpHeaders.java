@@ -1,6 +1,5 @@
 package okhttp3.internal.http;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import java.io.EOFException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +21,7 @@ import okio.ByteString;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.message.BasicHeaderValueFormatter;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class HttpHeaders {
     private static final ByteString QUOTED_STRING_DELIMITERS = ByteString.encodeUtf8(BasicHeaderValueFormatter.UNSAFE_CHARS);
     private static final ByteString TOKEN_DELIMITERS = ByteString.encodeUtf8("\t ,=");
@@ -298,7 +297,7 @@ public final class HttpHeaders {
         try {
             long parseLong = Long.parseLong(str);
             if (parseLong > 2147483647L) {
-                return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                return Integer.MAX_VALUE;
             }
             if (parseLong < 0) {
                 return 0;

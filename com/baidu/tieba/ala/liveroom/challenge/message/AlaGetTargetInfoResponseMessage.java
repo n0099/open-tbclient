@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.liveroom.challenge.message;
 import com.baidu.live.challenge.d;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaGetTargetInfoResponseMessage extends JsonHttpResponsedMessage {
-    private d hrg;
+    private d hvq;
 
     public AlaGetTargetInfoResponseMessage() {
         super(1021116);
@@ -17,12 +17,12 @@ public class AlaGetTargetInfoResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject2;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (optJSONObject2 = optJSONObject.optJSONObject("user_info")) != null) {
-            this.hrg = new d();
-            this.hrg.parseJson(optJSONObject2);
+            this.hvq = new d();
+            this.hvq.parseJson(optJSONObject2);
         }
     }
 
-    public d ccg() {
-        return this.hrg;
+    public d cdb() {
+        return this.hvq;
     }
 }

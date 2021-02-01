@@ -16,22 +16,22 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class f extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final String[] f13393a = {"key"};
+    protected static final String[] f13395a = {"key"};
 
     /* renamed from: b  reason: collision with root package name */
-    protected static f f13394b;
+    protected static f f13396b;
 
     public static synchronized f a() {
         f fVar;
         synchronized (f.class) {
-            if (f13394b == null) {
-                f13394b = new f(com.tencent.open.utils.e.a());
+            if (f13396b == null) {
+                f13396b = new f(com.tencent.open.utils.e.a());
             }
-            fVar = f13394b;
+            fVar = f13396b;
         }
         return fVar;
     }

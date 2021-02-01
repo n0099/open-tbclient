@@ -4,13 +4,13 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class m {
-    private a gXb;
-    private BdAlertDialog gXc;
+    private a gZL;
+    private BdAlertDialog gZM;
     private TbPageContext mPageContext;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void c(com.baidu.tieba.ala.guardclub.model.d dVar, int i);
     }
@@ -20,53 +20,53 @@ public class m {
     }
 
     public void a(a aVar) {
-        this.gXb = aVar;
+        this.gZL = aVar;
     }
 
     public void release() {
-        Ek();
+        FA();
     }
 
     public void b(final com.baidu.tieba.ala.guardclub.model.d dVar, final int i) {
-        if (TbadkCoreApplication.isLogin() && this.gXb != null) {
-            if (this.gXc == null) {
-                this.gXc = new BdAlertDialog(this.mPageContext.getPageActivity());
-                this.gXc.setMessageId(a.h.guard_club_exit_desc_msg);
-                this.gXc.setCancelable(true);
-                this.gXc.setCanceledOnTouchOutside(true);
-                this.gXc.setPositiveButton(a.h.guard_club_exit_confirm, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.m.1
+        if (TbadkCoreApplication.isLogin() && this.gZL != null) {
+            if (this.gZM == null) {
+                this.gZM = new BdAlertDialog(this.mPageContext.getPageActivity());
+                this.gZM.setMessageId(a.h.guard_club_exit_desc_msg);
+                this.gZM.setCancelable(true);
+                this.gZM.setCanceledOnTouchOutside(true);
+                this.gZM.setPositiveButton(a.h.guard_club_exit_confirm, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.m.1
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog) {
-                        if (m.this.gXb != null) {
-                            m.this.gXb.c(dVar, i);
+                        if (m.this.gZL != null) {
+                            m.this.gZL.c(dVar, i);
                         }
                         m.this.release();
                     }
                 });
-                this.gXc.setNegativeButton(a.h.guard_club_exit_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.m.2
+                this.gZM.setNegativeButton(a.h.guard_club_exit_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.m.2
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog) {
                         m.this.release();
                     }
                 });
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                    this.gXc.setPositiveButtonTextColor(this.mPageContext.getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
-                    this.gXc.setNagetiveButtonTextColor(this.mPageContext.getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
+                    this.gZM.setPositiveButtonTextColor(this.mPageContext.getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
+                    this.gZM.setNagetiveButtonTextColor(this.mPageContext.getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
                 } else {
-                    this.gXc.setPositiveButtonTextColor(-57754);
-                    this.gXc.setNagetiveButtonTextColor(-13421773);
+                    this.gZM.setPositiveButtonTextColor(-57754);
+                    this.gZM.setNagetiveButtonTextColor(-13421773);
                 }
             }
-            if (!this.gXc.isShowing()) {
-                this.gXc.create(this.mPageContext).show();
+            if (!this.gZM.isShowing()) {
+                this.gZM.create(this.mPageContext).show();
             }
         }
     }
 
-    private void Ek() {
-        if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing() && this.gXc != null) {
-            this.gXc.dismiss();
-            this.gXc = null;
+    private void FA() {
+        if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing() && this.gZM != null) {
+            this.gZM.dismiss();
+            this.gZM = null;
         }
     }
 }

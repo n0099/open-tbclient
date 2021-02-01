@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.e;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends Exception implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.ss.android.socialbase.downloader.e.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -14,33 +14,33 @@ public class a extends Exception implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Re */
+        /* renamed from: Rz */
         public a[] newArray(int i) {
             return new a[i];
         }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13139a;
+    private int f13141a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13140b;
+    private String f13142b;
 
     public a() {
     }
 
     public a(int i, String str) {
         super("[d-ex]:" + str);
-        this.f13140b = "[d-ex]:" + str;
-        this.f13139a = i;
+        this.f13142b = "[d-ex]:" + str;
+        this.f13141a = i;
     }
 
     public void a(String str) {
-        this.f13140b = str;
+        this.f13142b = str;
     }
 
     public a(int i, Throwable th) {
-        this(i, com.ss.android.socialbase.downloader.m.d.L(th));
+        this(i, com.ss.android.socialbase.downloader.m.d.K(th));
     }
 
     protected a(Parcel parcel) {
@@ -48,16 +48,16 @@ public class a extends Exception implements Parcelable {
     }
 
     public void a(Parcel parcel) {
-        this.f13139a = parcel.readInt();
-        this.f13140b = parcel.readString();
+        this.f13141a = parcel.readInt();
+        this.f13142b = parcel.readString();
     }
 
     public int a() {
-        return this.f13139a;
+        return this.f13141a;
     }
 
     public String b() {
-        return this.f13140b;
+        return this.f13142b;
     }
 
     @Override // android.os.Parcelable
@@ -67,12 +67,12 @@ public class a extends Exception implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f13139a);
-        parcel.writeString(this.f13140b);
+        parcel.writeInt(this.f13141a);
+        parcel.writeString(this.f13142b);
     }
 
     @Override // java.lang.Throwable
     public String toString() {
-        return "BaseException{errorCode=" + this.f13139a + ", errorMsg='" + this.f13140b + "'}";
+        return "BaseException{errorCode=" + this.f13141a + ", errorMsg='" + this.f13142b + "'}";
     }
 }

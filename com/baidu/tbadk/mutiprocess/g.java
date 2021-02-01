@@ -10,24 +10,24 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
-    private static g fFo = null;
-    private d fFr;
-    private boolean bjD = false;
-    private final c fFl = new c() { // from class: com.baidu.tbadk.mutiprocess.g.1
+    private static g fHA = null;
+    private d fHD;
+    private boolean bmV = false;
+    private final c fHx = new c() { // from class: com.baidu.tbadk.mutiprocess.g.1
         @Override // com.baidu.tbadk.mutiprocess.c
         public void b(a aVar) {
             g.this.d(aVar);
         }
     };
     private Handler mUIHandler = new Handler(Looper.getMainLooper());
-    private final com.baidu.tbadk.h.g fFs = new com.baidu.tbadk.h.g() { // from class: com.baidu.tbadk.mutiprocess.g.3
+    private final com.baidu.tbadk.h.g fHE = new com.baidu.tbadk.h.g() { // from class: com.baidu.tbadk.mutiprocess.g.3
         @Override // com.baidu.tbadk.h.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (activity instanceof TbPageContextSupport) {
@@ -35,8 +35,8 @@ public class g {
             }
         }
     };
-    private final Map<Class<? extends a>, b> fFp = new HashMap();
-    private final Map<Class<? extends a>, LinkedList<h>> fFq = new HashMap();
+    private final Map<Class<? extends a>, b> fHB = new HashMap();
+    private final Map<Class<? extends a>, LinkedList<h>> fHC = new HashMap();
 
     private g() {
     }
@@ -45,33 +45,33 @@ public class g {
         int myPid = Process.myPid();
         int pid = aVar.getPid();
         if (aVar.getType() == 2 && myPid == pid) {
-            bCN().d(aVar);
+            bDf().d(aVar);
         } else {
-            bCN().f(aVar);
+            bDf().f(aVar);
         }
     }
 
-    public static g bCN() {
-        if (fFo == null) {
+    public static g bDf() {
+        if (fHA == null) {
             synchronized (g.class) {
-                if (fFo == null) {
-                    fFo = new g();
+                if (fHA == null) {
+                    fHA = new g();
                 }
             }
         }
-        return fFo;
+        return fHA;
     }
 
     public void c(Application application) {
-        if (!this.bjD) {
+        if (!this.bmV) {
             if (application == null) {
                 throw new NullPointerException("MutiProcessManager Initialized, application is null");
             }
             f(application);
-            this.fFr = new e(application);
-            this.fFr.a(this.fFl);
-            this.fFr.startService();
-            this.bjD = true;
+            this.fHD = new e(application);
+            this.fHD.a(this.fHx);
+            this.fHD.startService();
+            this.bmV = true;
         }
     }
 
@@ -94,7 +94,7 @@ public class g {
         if (aVar != null) {
             Class<?> cls = aVar.getClass();
             try {
-                b bVar = this.fFp.get(cls);
+                b bVar = this.fHB.get(cls);
                 if (bVar != null) {
                     bVar.a(aVar);
                 }
@@ -102,8 +102,8 @@ public class g {
                 BdLog.detailException(cls.getName(), e);
             }
             try {
-                LinkedList<h> linkedList = this.fFq.get(cls);
-                if (!x.isEmpty(linkedList)) {
+                LinkedList<h> linkedList = this.fHC.get(cls);
+                if (!y.isEmpty(linkedList)) {
                     int myPid = Process.myPid();
                     for (h hVar : linkedList) {
                         if (hVar != null && (!hVar.isSelfListener() || (aVar.getPid() == myPid && hVar.getTag() != null && hVar.getTag().getId() == aVar.getTag()))) {
@@ -122,8 +122,8 @@ public class g {
     }
 
     private void f(a aVar) {
-        if (this.fFr != null) {
-            this.fFr.publishEvent(aVar);
+        if (this.fHD != null) {
+            this.fHD.publishEvent(aVar);
         }
     }
 
@@ -134,10 +134,10 @@ public class g {
         if (cls == null) {
             throw new NullPointerException("register IEvent class is null");
         }
-        if (this.fFp.containsKey(cls)) {
+        if (this.fHB.containsKey(cls)) {
             BdLog.e(cls + " has existed, Please unRegister old listener first！");
         } else {
-            this.fFp.put(cls, bVar);
+            this.fHB.put(cls, bVar);
         }
     }
 
@@ -148,10 +148,10 @@ public class g {
         if (cls == null) {
             throw new NullPointerException("register IEvent class is null");
         }
-        LinkedList<h> linkedList = this.fFq.get(cls);
+        LinkedList<h> linkedList = this.fHC.get(cls);
         if (linkedList == null) {
             linkedList = new LinkedList<>();
-            this.fFq.put(cls, linkedList);
+            this.fHC.put(cls, linkedList);
         }
         if (linkedList.contains(hVar)) {
             BdLog.e("listener has existed, Please unRegister old listener first！");
@@ -163,9 +163,9 @@ public class g {
 
     public void m(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            for (Map.Entry<Class<? extends a>, LinkedList<h>> entry : this.fFq.entrySet()) {
+            for (Map.Entry<Class<? extends a>, LinkedList<h>> entry : this.fHC.entrySet()) {
                 LinkedList<h> value = entry.getValue();
-                if (!x.isEmpty(value)) {
+                if (!y.isEmpty(value)) {
                     Iterator<h> it = value.iterator();
                     while (it.hasNext()) {
                         h next = it.next();
@@ -180,7 +180,7 @@ public class g {
 
     private void f(Application application) {
         try {
-            application.registerActivityLifecycleCallbacks(this.fFs);
+            application.registerActivityLifecycleCallbacks(this.fHE);
         } catch (Exception e) {
             e.printStackTrace();
         }

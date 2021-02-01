@@ -4,7 +4,7 @@ import com.baidu.adp.widget.ListView.n;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    public List<n> gaa;
-    public int kdA = 0;
-    public int kdB = 0;
+    public List<n> gcs;
+    public int klK = 0;
+    public int klL = 0;
 }

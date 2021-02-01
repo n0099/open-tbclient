@@ -14,14 +14,14 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryActivity> implements BdListView.e {
-    private e kuI;
-    private a kuJ;
-    private b kuK;
+    private e kCO;
+    private a kCP;
+    private b kCQ;
     private List<ResponseHistoryMessage.a> mDataList;
-    private int kuH = 0;
-    private boolean gwT = false;
+    private int kCN = 0;
+    private boolean gzD = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -33,42 +33,42 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     }
 
     private void initListener() {
-        this.kuJ = new a();
-        this.kuK = new b();
-        registerListener(this.kuJ);
-        registerListener(this.kuK);
+        this.kCP = new a();
+        this.kCQ = new b();
+        registerListener(this.kCP);
+        registerListener(this.kCQ);
     }
 
     private void initUI() {
-        this.kuI = new e(this);
-        this.kuI.c(this);
+        this.kCO = new e(this);
+        this.kCO.c(this);
     }
 
     private void initData(Bundle bundle) {
-        this.kuH = getIntent().getIntExtra("forum_id", 0);
-        MessageManager.getInstance().sendMessage(new RequestLocalHistoryMessage(String.valueOf(this.kuH)));
-        baY();
+        this.kCN = getIntent().getIntExtra("forum_id", 0);
+        MessageManager.getInstance().sendMessage(new RequestLocalHistoryMessage(String.valueOf(this.kCN)));
+        bbl();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void baY() {
+    public void bbl() {
         int i = 0;
         if (this.mDataList != null && !this.mDataList.isEmpty()) {
             i = this.mDataList.get(this.mDataList.size() - 1).id;
         }
-        this.gwT = true;
-        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.kuH, com.baidu.adp.lib.f.b.toLong(TbadkApplication.getCurrentAccount(), 0L), i));
+        this.gzD = true;
+        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.kCN, com.baidu.adp.lib.f.b.toLong(TbadkApplication.getCurrentAccount(), 0L), i));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.kuI.onChangeSkinType(i);
+        this.kCO.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends CustomMessageListener {
         public b() {
             super(CmdConfigCustom.CMD_QUERY_OFFICIAL_LOCAL_HISTORY);
@@ -83,7 +83,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 if (!responseLocalHistoryMessage.getData().isEmpty()) {
                     if (OfficialBarHistoryActivity.this.mDataList == null || OfficialBarHistoryActivity.this.mDataList.isEmpty()) {
                         OfficialBarHistoryActivity.this.mDataList = responseLocalHistoryMessage.getData();
-                        OfficialBarHistoryActivity.this.kuI.setData(OfficialBarHistoryActivity.this.mDataList);
+                        OfficialBarHistoryActivity.this.kCO.setData(OfficialBarHistoryActivity.this.mDataList);
                     }
                 }
             }
@@ -91,7 +91,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends com.baidu.adp.framework.listener.c {
         public a() {
             super(CmdConfigSocket.CMD_QUERY_OFFICIAL_BAR_HISTORY);
@@ -101,25 +101,25 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             OfficialBarHistoryActivity.this.hideProgressBar();
-            OfficialBarHistoryActivity.this.gwT = false;
+            OfficialBarHistoryActivity.this.gzD = false;
             if (socketResponsedMessage == null) {
                 OfficialBarHistoryActivity.this.showToast(R.string.neterror);
-                OfficialBarHistoryActivity.this.kuI.eq(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.kCO.eo(OfficialBarHistoryActivity.this.mDataList);
             } else if (socketResponsedMessage.getError() != 0) {
                 OfficialBarHistoryActivity.this.showToast(socketResponsedMessage.getErrorString());
-                OfficialBarHistoryActivity.this.kuI.eq(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.kCO.eo(OfficialBarHistoryActivity.this.mDataList);
             } else if (socketResponsedMessage.getCmd() != 208002 || !(socketResponsedMessage instanceof ResponseHistoryMessage)) {
-                OfficialBarHistoryActivity.this.kuI.eq(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.kCO.eo(OfficialBarHistoryActivity.this.mDataList);
                 OfficialBarHistoryActivity.this.showToast(R.string.neterror);
             } else {
                 ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
                 if (responseHistoryMessage.getMsg().isEmpty()) {
-                    OfficialBarHistoryActivity.this.kuI.eq(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.kCO.eo(OfficialBarHistoryActivity.this.mDataList);
                     return;
                 }
                 RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) responseHistoryMessage.getOrginalMessage();
                 if (requestHistoryMessage == null) {
-                    OfficialBarHistoryActivity.this.kuI.eq(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.kCO.eo(OfficialBarHistoryActivity.this.mDataList);
                     return;
                 }
                 if (requestHistoryMessage.getRequestId() != 0) {
@@ -127,15 +127,15 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 } else {
                     OfficialBarHistoryActivity.this.mDataList = responseHistoryMessage.getMsg();
                 }
-                OfficialBarHistoryActivity.this.kuI.setData(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.kCO.setData(OfficialBarHistoryActivity.this.mDataList);
                 if (responseHistoryMessage.getMsg().size() == 0) {
-                    OfficialBarHistoryActivity.this.kuI.eq(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.kCO.eo(OfficialBarHistoryActivity.this.mDataList);
                 } else {
                     new Handler().post(new Runnable() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!OfficialBarHistoryActivity.this.kuI.cSV()) {
-                                OfficialBarHistoryActivity.this.baY();
+                            if (!OfficialBarHistoryActivity.this.kCO.cUT()) {
+                                OfficialBarHistoryActivity.this.bbl();
                             }
                         }
                     });
@@ -146,8 +146,8 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!this.gwT) {
-            baY();
+        if (!this.gzD) {
+            bbl();
         }
     }
 }

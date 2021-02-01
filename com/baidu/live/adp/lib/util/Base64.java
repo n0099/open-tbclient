@@ -2,6 +2,7 @@ package com.baidu.live.adp.lib.util;
 
 import androidx.core.view.MotionEventCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -21,7 +22,7 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Base64 {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final int DONT_GUNZIP = 4;
@@ -1097,7 +1098,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class InputStream extends FilterInputStream {
         private boolean breakLines;
         private byte[] buffer;
@@ -1155,7 +1156,7 @@ public class Base64 {
                             if (read < 0) {
                                 break;
                             }
-                        } while (this.decodabet[read & 127] <= -5);
+                        } while (this.decodabet[read & ThunderNetStateService.NetState.SYSNET_UNKNOWN] <= -5);
                         if (read < 0) {
                             break;
                         }
@@ -1211,7 +1212,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class OutputStream extends FilterOutputStream {
         private byte[] b4;
         private boolean breakLines;
@@ -1260,7 +1261,7 @@ public class Base64 {
                     }
                     this.position = 0;
                 }
-            } else if (this.decodabet[i & 127] > -5) {
+            } else if (this.decodabet[i & ThunderNetStateService.NetState.SYSNET_UNKNOWN] > -5) {
                 byte[] bArr2 = this.buffer;
                 int i3 = this.position;
                 this.position = i3 + 1;
@@ -1269,7 +1270,7 @@ public class Base64 {
                     this.out.write(this.b4, 0, Base64.decode4to3(this.buffer, 0, this.b4, 0, this.options));
                     this.position = 0;
                 }
-            } else if (this.decodabet[i & 127] != -5) {
+            } else if (this.decodabet[i & ThunderNetStateService.NetState.SYSNET_UNKNOWN] != -5) {
                 throw new IOException("Invalid character in Base64 data.");
             }
         }

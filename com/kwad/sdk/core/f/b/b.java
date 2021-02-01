@@ -3,17 +3,17 @@ package com.kwad.sdk.core.f.b;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private IBinder f9149a;
+        private IBinder f9151a;
 
         public a(IBinder iBinder) {
-            this.f9149a = iBinder;
+            this.f9151a = iBinder;
         }
 
         public String a() {
@@ -22,7 +22,7 @@ public interface b extends IInterface {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                this.f9149a.transact(1, obtain, obtain2, 0);
+                this.f9151a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 str = obtain2.readString();
             } catch (Exception e) {
@@ -36,7 +36,7 @@ public interface b extends IInterface {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f9149a;
+            return this.f9151a;
         }
 
         public boolean b() {
@@ -45,7 +45,7 @@ public interface b extends IInterface {
             try {
                 try {
                     obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f9149a.transact(1, obtain, obtain2, 0);
+                    this.f9151a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     boolean z = obtain2.readInt() == 0;
                     obtain.recycle();

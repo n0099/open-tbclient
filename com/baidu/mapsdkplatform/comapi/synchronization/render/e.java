@@ -3,95 +3,95 @@ package com.baidu.mapsdkplatform.comapi.synchronization.render;
 import android.content.Context;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3146a = e.class.getSimpleName();
+    private static final String f3144a = e.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private f f3147b = f.a();
+    private f f3145b = f.a();
 
     public e(Context context, BaiduMap baiduMap) {
-        this.f3147b.a(baiduMap);
+        this.f3145b.a(baiduMap);
     }
 
     public void a() {
-        if (this.f3147b != null) {
-            this.f3147b.e();
+        if (this.f3145b != null) {
+            this.f3145b.e();
         }
     }
 
     public void a(int i) {
-        if (this.f3147b != null) {
-            this.f3147b.a(i);
+        if (this.f3145b != null) {
+            this.f3145b.a(i);
         }
     }
 
     public void a(d dVar) {
-        if (this.f3147b != null) {
-            this.f3147b.a(dVar);
+        if (this.f3145b != null) {
+            this.f3145b.a(dVar);
         }
     }
 
     public void b() {
-        if (this.f3147b != null) {
-            this.f3147b.f();
+        if (this.f3145b != null) {
+            this.f3145b.f();
         }
     }
 
     public void b(int i) {
-        if (this.f3147b != null) {
-            this.f3147b.d(i);
+        if (this.f3145b != null) {
+            this.f3145b.d(i);
         }
     }
 
     public Marker c() {
-        if (this.f3147b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3146a, "The mSyncRenderStrategic created failed");
+        if (this.f3145b == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3144a, "The mSyncRenderStrategic created failed");
             return null;
         }
-        return this.f3147b.b();
+        return this.f3145b.b();
     }
 
     public void c(int i) {
-        if (this.f3147b != null) {
-            this.f3147b.b(i);
+        if (this.f3145b != null) {
+            this.f3145b.b(i);
         }
     }
 
     public Marker d() {
-        if (this.f3147b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3146a, "The mSyncRenderStrategic created failed");
+        if (this.f3145b == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3144a, "The mSyncRenderStrategic created failed");
             return null;
         }
-        return this.f3147b.c();
+        return this.f3145b.c();
     }
 
     public void d(int i) {
-        if (this.f3147b != null) {
-            this.f3147b.c(i);
+        if (this.f3145b != null) {
+            this.f3145b.c(i);
         }
     }
 
     public Marker e() {
-        if (this.f3147b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3146a, "The mSyncRenderStrategic created failed");
+        if (this.f3145b == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3144a, "The mSyncRenderStrategic created failed");
             return null;
         }
-        return this.f3147b.d();
+        return this.f3145b.d();
     }
 
     public void f() {
-        if (this.f3147b != null) {
-            this.f3147b.g();
-            this.f3147b = null;
+        if (this.f3145b != null) {
+            this.f3145b.g();
+            this.f3145b = null;
         }
     }
 
     public void g() {
-        if (this.f3147b != null) {
-            this.f3147b.h();
+        if (this.f3145b != null) {
+            this.f3145b.h();
         }
     }
 }

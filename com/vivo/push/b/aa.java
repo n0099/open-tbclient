@@ -2,14 +2,14 @@ package com.vivo.push.b;
 
 import com.baidu.android.imsdk.IMConstants;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class aa extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, String> f13566a;
+    private HashMap<String, String> f13568a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f13567b;
+    private long f13569b;
 
     public aa() {
         super(IMConstants.IM_MSG_TYPE_SHIELD_ME);
@@ -17,27 +17,27 @@ public final class aa extends com.vivo.push.y {
 
     public aa(long j) {
         this();
-        this.f13567b = j;
+        this.f13569b = j;
     }
 
     public final void a(HashMap<String, String> hashMap) {
-        this.f13566a = hashMap;
+        this.f13568a = hashMap;
     }
 
     @Override // com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
-        aVar.a("ReporterCommand.EXTRA_PARAMS", this.f13566a);
-        aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f13567b);
+        aVar.a("ReporterCommand.EXTRA_PARAMS", this.f13568a);
+        aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f13569b);
     }
 
     @Override // com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
-        this.f13566a = (HashMap) aVar.c("ReporterCommand.EXTRA_PARAMS");
-        this.f13567b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f13567b);
+        this.f13568a = (HashMap) aVar.c("ReporterCommand.EXTRA_PARAMS");
+        this.f13569b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f13569b);
     }
 
     @Override // com.vivo.push.y
     public final String toString() {
-        return "ReporterCommand（" + this.f13567b + ")";
+        return "ReporterCommand（" + this.f13569b + ")";
     }
 }

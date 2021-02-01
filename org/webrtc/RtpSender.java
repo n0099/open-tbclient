@@ -1,7 +1,7 @@
 package org.webrtc;
 
-import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+import javax.annotation.Nullable;
+/* loaded from: classes10.dex */
 public class RtpSender {
     @Nullable
     private MediaStreamTrack cachedTrack;

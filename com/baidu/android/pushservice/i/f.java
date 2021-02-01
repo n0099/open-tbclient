@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.i;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class f {
     private static String a(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();

@@ -97,8 +97,6 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(FlutterPersonCenterEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterCrashRepairEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FunAdSdkSwitch.class);
-        SwitchManager.getInstance().registerSwitch(UploadOfflineWebCacheSwitch.class);
-        SwitchManager.getInstance().registerSwitch(ClearOfflineWebCacheSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterCrabReportEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterLifeCycleBugEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(UseHttpAutoRetrySwitch.class);

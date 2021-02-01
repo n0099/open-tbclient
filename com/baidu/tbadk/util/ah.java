@@ -1,69 +1,44 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.media.AudioManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
-import java.lang.ref.WeakReference;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class ah {
-    private static boolean fLp = false;
+    private boolean eTV;
+    private List<com.baidu.tieba.card.data.c> list = new LinkedList();
 
-    public static boolean a(WeakReference<Context> weakReference, boolean z) {
-        if (weakReference == null || weakReference.get() == null) {
-            return false;
-        }
-        AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
-        if (z) {
-            return audioManager.requestAudioFocus(null, 3, 2) == 1;
-        }
-        return audioManager.abandonAudioFocus(null) == 1;
-    }
-
-    public static void b(WeakReference<Context> weakReference) {
-        if (weakReference != null && weakReference.get() != null) {
-            fLp = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
-        }
-    }
-
-    public static boolean bFw() {
-        return fLp;
-    }
-
-    public static boolean rB(int i) {
-        boolean z = false;
-        switch (i) {
-            case 2:
-                int frsAutoPlay = TbadkCoreApplication.getInst().getFrsAutoPlay();
-                if (frsAutoPlay == 1 || !com.baidu.adp.lib.util.j.isWifiNet()) {
-                    return frsAutoPlay == 2 && com.baidu.adp.lib.util.j.isMobileNet();
+    public List<com.baidu.tieba.card.data.c> o(List<PbLinkData> list, List<PbGoodsData> list2) {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list)) {
+            for (int i = 0; i < list.size(); i++) {
+                PbLinkData pbLinkData = list.get(i);
+                if (pbLinkData.urlType == 2 && !this.eTV) {
+                    this.eTV = true;
                 }
-                return true;
-            case 3:
-            case 4:
-                return com.baidu.adp.lib.util.j.isWifiNet();
-            case 5:
-                if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (FrsHeadVideoAutoPlaySwitch.getIsOn() && com.baidu.adp.lib.util.j.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0)) {
-                    z = true;
-                }
-                return z;
-            default:
-                int homePageAutoPlay = TbadkCoreApplication.getInst().getHomePageAutoPlay();
-                if (homePageAutoPlay == 1 || !com.baidu.adp.lib.util.j.isWifiNet()) {
-                    return homePageAutoPlay == 2 && com.baidu.adp.lib.util.j.isMobileNet();
-                }
-                return true;
+                this.list.add(pbLinkData);
+            }
         }
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list2)) {
+            this.eTV = true;
+            for (int i2 = 0; i2 < list2.size(); i2++) {
+                this.list.add(list2.get(i2));
+            }
+        }
+        Collections.sort(this.list, new Comparator<com.baidu.tieba.card.data.c>() { // from class: com.baidu.tbadk.util.ah.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // java.util.Comparator
+            /* renamed from: a */
+            public int compare(com.baidu.tieba.card.data.c cVar, com.baidu.tieba.card.data.c cVar2) {
+                return cVar.sort() - cVar2.sort();
+            }
+        });
+        return this.list;
     }
 
-    public static boolean aL(int i, String str) {
-        return rB(i);
-    }
-
-    public static boolean bFx() {
-        if (!com.baidu.adp.lib.util.j.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
-            return com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
-        }
-        return true;
+    public boolean bFM() {
+        return this.eTV;
     }
 }

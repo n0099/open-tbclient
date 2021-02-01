@@ -5,14 +5,14 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7535a = null;
+    private static String f7537a = null;
 
     public static String a(Context context) {
-        String str = f7535a;
+        String str = f7537a;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
@@ -21,15 +21,15 @@ public class aa {
                         if (u.a()) {
                             u.b("Process", "processName = " + runningAppProcessInfo.processName);
                         }
-                        f7535a = runningAppProcessInfo.processName;
-                        return f7535a;
+                        f7537a = runningAppProcessInfo.processName;
+                        return f7537a;
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            f7535a = a();
-            return f7535a;
+            f7537a = a();
+            return f7537a;
         }
         return str;
     }

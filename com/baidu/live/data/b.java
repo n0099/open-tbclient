@@ -1,23 +1,23 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private int aEn;
-    private String aEo;
-    private String aEp;
+    private int aGa;
+    private String aGb;
+    private String aGc;
 
     public void parseJson(JSONObject jSONObject) {
-        this.aEn = jSONObject.optInt("tags_switch", 0);
-        this.aEo = jSONObject.optString("anchor_category_info");
-        this.aEp = jSONObject.optString("anchor_category_msg");
+        this.aGa = jSONObject.optInt("tags_switch", 0);
+        this.aGb = jSONObject.optString("anchor_category_info");
+        this.aGc = jSONObject.optString("anchor_category_msg");
     }
 
-    public String Au() {
-        return this.aEp;
+    public String Be() {
+        return this.aGc;
     }
 
-    public boolean Av() {
-        return this.aEn == 1;
+    public boolean Bf() {
+        return this.aGa == 1;
     }
 }

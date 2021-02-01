@@ -4,7 +4,7 @@ import android.util.JsonReader;
 import android.util.JsonToken;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class r {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <T> List<com.ksad.lottie.e.a<T>> a(JsonReader jsonReader, com.ksad.lottie.d dVar, float f, aj<T> ajVar) {
@@ -64,7 +64,7 @@ class r {
             i = i2 + 1;
         }
         com.ksad.lottie.e.a<?> aVar = list.get(size - 1);
-        if (aVar.f8001a == 0) {
+        if (aVar.f8003a == 0) {
             list.remove(aVar);
         }
     }

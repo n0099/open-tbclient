@@ -14,88 +14,88 @@ import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.base.IScrollableHelper;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.data.as;
+import com.baidu.live.data.aw;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickListener {
-    private as hFk;
-    private ImageView hLI;
-    private TextView hLJ;
-    private TextView hLK;
-    private Button hLL;
-    private a hLM;
-    private int hLN;
+    private aw hJw;
+    private ImageView hQc;
+    private TextView hQd;
+    private TextView hQe;
+    private Button hQf;
+    private a hQg;
+    private int hQh;
     private TextView mHelp;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void chA();
+        void cit();
     }
 
     public AlaLiveFaceVerifyView(Context context) {
         super(context);
-        this.hLN = 0;
+        this.hQh = 0;
         init();
     }
 
     public AlaLiveFaceVerifyView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hLN = 0;
+        this.hQh = 0;
         init();
     }
 
     public AlaLiveFaceVerifyView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hLN = 0;
+        this.hQh = 0;
         init();
     }
 
     private void init() {
         View.inflate(getContext(), a.g.ala_live_face_verify_layout, this);
-        this.hLL = (Button) findViewById(a.f.ala_live_face_btn);
-        this.hLI = (ImageView) findViewById(a.f.ala_live_face_verify_pre);
+        this.hQf = (Button) findViewById(a.f.ala_live_face_btn);
+        this.hQc = (ImageView) findViewById(a.f.ala_live_face_verify_pre);
         this.mHelp = (TextView) findViewById(a.f.ala_live_face_help);
-        this.hLJ = (TextView) findViewById(a.f.ala_live_face_error_tips);
-        this.hLK = (TextView) findViewById(a.f.ala_live_face_questions_text);
-        this.hLK.setMovementMethod(ScrollingMovementMethod.getInstance());
-        this.hLL.setOnClickListener(this);
-        this.hLI.setOnClickListener(this);
+        this.hQd = (TextView) findViewById(a.f.ala_live_face_error_tips);
+        this.hQe = (TextView) findViewById(a.f.ala_live_face_questions_text);
+        this.hQe.setMovementMethod(ScrollingMovementMethod.getInstance());
+        this.hQf.setOnClickListener(this);
+        this.hQc.setOnClickListener(this);
         this.mHelp.setOnClickListener(this);
     }
 
-    private void ckb() {
-        if (this.hLN <= 0) {
-            this.hLN = 0;
-        } else if (this.hLN > this.hFk.aLm.aLp.size()) {
-            this.hLN = this.hFk.aLm.aLp.size();
+    private void ckZ() {
+        if (this.hQh <= 0) {
+            this.hQh = 0;
+        } else if (this.hQh > this.hJw.aOi.aOl.size()) {
+            this.hQh = this.hJw.aOi.aOl.size();
         }
-        if (this.hLN == 0) {
-            this.hLI.setVisibility(4);
-            this.hLJ.setVisibility(0);
+        if (this.hQh == 0) {
+            this.hQc.setVisibility(4);
+            this.hQd.setVisibility(0);
         } else {
-            this.hLI.setVisibility(0);
-            this.hLJ.setVisibility(8);
+            this.hQc.setVisibility(0);
+            this.hQd.setVisibility(8);
         }
-        if (TextUtils.isEmpty(this.hFk.aLm.notify)) {
-            this.hLJ.setText(a.h.ala_live_face_question_tips);
+        if (TextUtils.isEmpty(this.hJw.aOi.notify)) {
+            this.hQd.setText(a.h.ala_live_face_question_tips);
         } else {
-            this.hLJ.setText(this.hFk.aLm.notify);
+            this.hQd.setText(this.hJw.aOi.notify);
         }
-        if (this.hLN < this.hFk.aLm.aLp.size()) {
+        if (this.hQh < this.hJw.aOi.aOl.size()) {
             StringBuilder sb = new StringBuilder();
-            sb.append(String.valueOf(this.hLN + 1)).append("/").append(this.hFk.aLm.aLp.size()).append(" ");
-            sb.append(this.hFk.aLm.aLp.get(this.hLN));
-            this.hLK.setText(sb.toString());
+            sb.append(String.valueOf(this.hQh + 1)).append("/").append(this.hJw.aOi.aOl.size()).append(" ");
+            sb.append(this.hJw.aOi.aOl.get(this.hQh));
+            this.hQe.setText(sb.toString());
         } else {
-            this.hLK.setText(a.h.ala_live_face_done_tips);
+            this.hQe.setText(a.h.ala_live_face_done_tips);
         }
-        this.hLK.scrollTo(0, 0);
-        this.hLL.setText(a.h.ala_live_face_next);
-        if (this.hFk.aLm.aLp.size() - 1 == this.hLN) {
-            this.hLL.setText(a.h.ala_live_face_done);
-        } else if (this.hFk.aLm.aLp.size() == this.hLN) {
-            this.hLL.setText(a.h.sdk_dialog_ok);
+        this.hQe.scrollTo(0, 0);
+        this.hQf.setText(a.h.ala_live_face_next);
+        if (this.hJw.aOi.aOl.size() - 1 == this.hQh) {
+            this.hQf.setText(a.h.ala_live_face_done);
+        } else if (this.hJw.aOi.aOl.size() == this.hQh) {
+            this.hQf.setText(a.h.sdk_dialog_ok);
         }
     }
 
@@ -104,11 +104,11 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
         return true;
     }
 
-    public void setData(as asVar) {
-        this.hFk = asVar;
-        if (this.hFk != null && this.hFk.aLm != null && this.hFk.aLm.aLp != null && this.hFk.aLm.aLp.size() > 0) {
-            this.hLN = 0;
-            ckb();
+    public void setData(aw awVar) {
+        this.hJw = awVar;
+        if (this.hJw != null && this.hJw.aOi != null && this.hJw.aOi.aOl != null && this.hJw.aOi.aOl.size() > 0) {
+            this.hQh = 0;
+            ckZ();
         }
     }
 
@@ -119,23 +119,23 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
             if (bbPageContext != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.d.c(bbPageContext.getPageActivity())));
             }
-        } else if (view == this.hLI) {
-            this.hLN--;
-            ckb();
-        } else if (view == this.hLL) {
-            if (this.hLN == this.hFk.aLm.aLp.size()) {
-                if (this.hLM != null) {
-                    this.hLM.chA();
+        } else if (view == this.hQc) {
+            this.hQh--;
+            ckZ();
+        } else if (view == this.hQf) {
+            if (this.hQh == this.hJw.aOi.aOl.size()) {
+                if (this.hQg != null) {
+                    this.hQg.cit();
                     return;
                 }
                 return;
             }
-            this.hLN++;
-            ckb();
+            this.hQh++;
+            ckZ();
         }
     }
 
     public void setOnFinishedListener(a aVar) {
-        this.hLM = aVar;
+        this.hQg = aVar;
     }
 }

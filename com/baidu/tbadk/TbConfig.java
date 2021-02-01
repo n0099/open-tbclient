@@ -287,6 +287,7 @@ public class TbConfig {
     public static final String MEMBER_PAY = "c/e/pay/andmember";
     public static final String MEMBER_PRIVILEGE = "c/e/pay/tmall";
     public static final String MERCATOR_LOCATION_URL = "c/s/getMercatorByLocation";
+    public static final String MORE_TREASURE_TROVE = "c/f/forum/moreTreasureTrove";
     public static final boolean MSG_DEFAULT_ATME_SWITCH = true;
     public static final boolean MSG_DEFAULT_CHAT_SWITCH = true;
     public static final boolean MSG_DEFAULT_FANS_SWITCH = true;
@@ -413,7 +414,7 @@ public class TbConfig {
     public static final String SIGN_ADDRESS = "c/c/forum/sign";
     public static final String SKIN_DETAIL_PAGE = "c/e/theme/getSkin";
     public static final String SMART_APP_URL = "c/f/frs/smartapplist";
-    public static final String SQUARE_SEARCH_PAGE = "n/apage-runtime/page/205?keyword=";
+    public static final String SQUARE_SEARCH_PAGE = "mo/q/hybrid/search?keyword=";
     public static final String STAT_CLIENT_START = "c/c/forum/statClientStartTimes";
     public static final String ST_PARAM_PERSON_INFO_SEND_MESSAGE = "3";
     public static final String ST_PARAM_TAB_MSG_CREATE_CHAT = "2";
@@ -469,6 +470,7 @@ public class TbConfig {
     public static final String URL_BJH_REPORT = "https://ufosdk.baidu.com/?m=Client&a=commonreport&appid=234410&nid=%1$s&platid=%2$s&remark=bjh";
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
     public static final String URL_CALL_FANS = "god/rights/callFans";
+    public static final String URL_CANCEL_FORBIDDEN_FORUM = "c/c/excellent/submitCancelDislike";
     public static final String URL_CANDIDATE_SEARCH = "c/f/bawu/search";
     public static final String URL_CHECK_BIG_V = "c/u/user/getvuserinfo";
     public static final String URL_CHECK_REAL_NAME = "c/s/checkRealName";
@@ -499,6 +501,7 @@ public class TbConfig {
     public static final String URL_GAME_VIDEO = "c/f/excellent/recomVertical";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_CONSENTLIST = "c/u/feed/getConsentList";
+    public static final String URL_GET_FORBIDDEN_FORUM = "c/u/user/getDislikeList";
     public static final String URL_GET_FORUM_MANAGER_RIGHTS = "c/f/forum/getForumMangerRights";
     public static final String URL_GET_GRAFFITI_LIST = "c/f/pb/graffiti";
     public static final String URL_GET_HOME_PAGE_DATA = "c/f/index/homePage";
@@ -795,7 +798,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.bCx().setPhotoMaxNum(i);
+            c.bCP().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

@@ -2,23 +2,23 @@ package com.bytedance.sdk.openadsdk.f.a;
 
 import androidx.annotation.NonNull;
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface k {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
 
         /* renamed from: com.bytedance.sdk.openadsdk.f.a.k$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public interface InterfaceC1014a {
+        /* loaded from: classes6.dex */
+        public interface InterfaceC1018a {
         }
 
-        void a(@NonNull String str, @NonNull InterfaceC1014a interfaceC1014a);
+        void a(@NonNull String str, @NonNull InterfaceC1018a interfaceC1018a);
 
         void a(@NonNull String str, @NonNull String str2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         boolean a(String str);
 

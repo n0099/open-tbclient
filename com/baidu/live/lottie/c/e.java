@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import android.util.JsonReader;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.baidu.live.lottie.model.content.a b(JsonReader jsonReader, com.baidu.live.lottie.e eVar, int i) throws IOException {

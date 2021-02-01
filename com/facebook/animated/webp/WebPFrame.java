@@ -5,7 +5,7 @@ import com.facebook.common.internal.d;
 import com.facebook.imagepipeline.animated.base.c;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebPFrame implements c {
     @d
     private long mNativeContext;

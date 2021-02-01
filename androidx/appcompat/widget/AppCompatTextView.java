@@ -22,7 +22,7 @@ import androidx.core.widget.AutoSizeableTextView;
 import androidx.core.widget.TextViewCompat;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class AppCompatTextView extends TextView implements TintableBackgroundView, AutoSizeableTextView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
     @Nullable

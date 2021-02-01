@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import androidx.annotation.Nullable;
 import com.airbnb.lottie.a.b.o;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l implements com.airbnb.lottie.model.content.b {
     @Nullable
     private final b FA;
@@ -29,37 +29,37 @@ public class l implements com.airbnb.lottie.model.content.b {
         this.FB = bVar3;
     }
 
-    public e je() {
+    public e jd() {
         return this.Fv;
     }
 
-    public m<PointF, PointF> jf() {
+    public m<PointF, PointF> je() {
         return this.Fw;
     }
 
-    public g jg() {
+    public g jf() {
         return this.Fx;
     }
 
-    public b jh() {
+    public b jg() {
         return this.Fy;
     }
 
-    public d ji() {
+    public d jh() {
         return this.Fz;
     }
 
     @Nullable
-    public b jj() {
+    public b ji() {
         return this.FA;
     }
 
     @Nullable
-    public b jk() {
+    public b jj() {
         return this.FB;
     }
 
-    public o jl() {
+    public o jk() {
         return new o(this);
     }
 

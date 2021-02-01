@@ -9,37 +9,37 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.zip.ZipException;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final k f13422a = new k(101010256);
+    private static final k f13424a = new k(101010256);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final l f13423b = new l(38651);
+    private static final l f13425b = new l(38651);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.open.utils.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1267a {
+    /* loaded from: classes15.dex */
+    public static class C1271a {
 
         /* renamed from: a  reason: collision with root package name */
-        Properties f13424a;
+        Properties f13426a;
 
         /* renamed from: b  reason: collision with root package name */
-        byte[] f13425b;
+        byte[] f13427b;
 
-        private C1267a() {
-            this.f13424a = new Properties();
+        private C1271a() {
+            this.f13426a = new Properties();
         }
 
         void a(byte[] bArr) throws IOException {
             if (bArr != null) {
                 ByteBuffer wrap = ByteBuffer.wrap(bArr);
-                int length = a.f13423b.a().length;
+                int length = a.f13425b.a().length;
                 byte[] bArr2 = new byte[length];
                 wrap.get(bArr2);
-                if (!a.f13423b.equals(new l(bArr2))) {
+                if (!a.f13425b.equals(new l(bArr2))) {
                     throw new ProtocolException("unknow protocl [" + Arrays.toString(bArr) + "]");
                 }
                 if (bArr.length - length > 2) {
@@ -49,11 +49,11 @@ public final class a {
                     if ((bArr.length - length) - 2 >= b2) {
                         byte[] bArr4 = new byte[b2];
                         wrap.get(bArr4);
-                        this.f13424a.load(new ByteArrayInputStream(bArr4));
+                        this.f13426a.load(new ByteArrayInputStream(bArr4));
                         int length2 = ((bArr.length - length) - b2) - 2;
                         if (length2 > 0) {
-                            this.f13425b = new byte[length2];
-                            wrap.get(this.f13425b);
+                            this.f13427b = new byte[length2];
+                            wrap.get(this.f13427b);
                         }
                     }
                 }
@@ -61,7 +61,7 @@ public final class a {
         }
 
         public String toString() {
-            return "ApkExternalInfo [p=" + this.f13424a + ", otherData=" + Arrays.toString(this.f13425b) + "]";
+            return "ApkExternalInfo [p=" + this.f13426a + ", otherData=" + Arrays.toString(this.f13427b) + "]";
         }
     }
 
@@ -74,9 +74,9 @@ public final class a {
             try {
                 byte[] a2 = a(randomAccessFile);
                 if (a2 != null) {
-                    C1267a c1267a = new C1267a();
-                    c1267a.a(a2);
-                    str2 = c1267a.f13424a.getProperty(str);
+                    C1271a c1271a = new C1271a();
+                    c1271a.a(a2);
+                    str2 = c1271a.f13426a.getProperty(str);
                     if (randomAccessFile != null) {
                         randomAccessFile.close();
                     }
@@ -105,7 +105,7 @@ public final class a {
         boolean z = true;
         long length = randomAccessFile.length() - 22;
         randomAccessFile.seek(length);
-        byte[] a2 = f13422a.a();
+        byte[] a2 = f13424a.a();
         int read = randomAccessFile.read();
         while (true) {
             if (read == -1) {

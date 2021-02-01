@@ -8,56 +8,56 @@ import com.baidu.tieba.video.editvideo.b.b;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     private Context mContext;
-    private com.baidu.tieba.video.editvideo.data.a nCA;
-    private b nCB;
-    b.a nCC;
+    private com.baidu.tieba.video.editvideo.data.a nMk;
+    private b nMl;
+    b.a nMm;
 
     public a(Context context) {
         this.mContext = context;
     }
 
     public void b(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.nCA = aVar;
+        this.nMk = aVar;
     }
 
-    public String dQn() {
-        return (this.nCA == null || "normal".equalsIgnoreCase(this.nCA.value)) ? "" : this.nCA.value;
+    public String dSy() {
+        return (this.nMk == null || "normal".equalsIgnoreCase(this.nMk.value)) ? "" : this.nMk.value;
     }
 
-    public void gy(String str, String str2) {
-        if ((this.nCB == null || !this.nCB.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            this.nCB = new b(this.mContext, str, dQq(), str2);
-            if (this.nCC != null) {
-                this.nCB.a(this.nCC);
+    public void gE(String str, String str2) {
+        if ((this.nMl == null || !this.nMl.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            this.nMl = new b(this.mContext, str, dSB(), str2);
+            if (this.nMm != null) {
+                this.nMl.a(this.nMm);
             }
-            this.nCB.dQr();
+            this.nMl.dSC();
         }
     }
 
-    public boolean dQo() {
-        if (this.nCB != null) {
-            return this.nCB.isRunning();
+    public boolean dSz() {
+        if (this.nMl != null) {
+            return this.nMl.isRunning();
         }
         return false;
     }
 
-    public void dQp() {
-        if (this.nCB != null) {
-            this.nCB.dQs();
+    public void dSA() {
+        if (this.nMl != null) {
+            this.nMl.dSD();
         }
     }
 
     public void a(b.a aVar) {
-        this.nCC = aVar;
-        if (this.nCB != null) {
-            this.nCB.a(this.nCC);
+        this.nMm = aVar;
+        if (this.nMl != null) {
+            this.nMl.a(this.nMm);
         }
     }
 
-    public static List<com.baidu.tieba.video.editvideo.data.a> gX(Context context) {
+    public static List<com.baidu.tieba.video.editvideo.data.a> ha(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             context = TbadkCoreApplication.getInst();
@@ -89,7 +89,7 @@ public class a {
         }
     }
 
-    private static String dQq() {
-        return com.baidu.tieba.video.c.nAC + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String dSB() {
+        return com.baidu.tieba.video.c.nKm + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

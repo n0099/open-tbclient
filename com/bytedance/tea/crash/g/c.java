@@ -4,11 +4,11 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f7664a = false;
+    private static boolean f7666a = false;
 
     public static boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -98,18 +98,18 @@ public class c {
     }
 
     public static boolean c() {
-        if (!f7664a) {
+        if (!f7666a) {
             try {
                 if (Class.forName("miui.os.Build") != null) {
-                    com.bytedance.tea.crash.upload.b.f7673a = true;
-                    f7664a = true;
-                    return com.bytedance.tea.crash.upload.b.f7673a;
+                    com.bytedance.tea.crash.upload.b.f7675a = true;
+                    f7666a = true;
+                    return com.bytedance.tea.crash.upload.b.f7675a;
                 }
             } catch (Exception e) {
             }
-            f7664a = true;
+            f7666a = true;
         }
-        return com.bytedance.tea.crash.upload.b.f7673a;
+        return com.bytedance.tea.crash.upload.b.f7675a;
     }
 
     public static boolean d() {

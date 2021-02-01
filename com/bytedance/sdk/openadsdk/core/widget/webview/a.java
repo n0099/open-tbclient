@@ -8,14 +8,14 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<Context> f6823a;
+    private WeakReference<Context> f6825a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f6824b = true;
+    private boolean f6826b = true;
     private boolean c = true;
     private boolean d = true;
     private boolean e = true;
@@ -28,7 +28,7 @@ public class a {
     }
 
     private a(Context context) {
-        this.f6823a = new WeakReference<>(context);
+        this.f6825a = new WeakReference<>(context);
     }
 
     public a a(boolean z) {
@@ -44,7 +44,7 @@ public class a {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x005e -> B:41:0x000c). Please submit an issue!!! */
     @SuppressLint({"SetJavaScriptEnabled"})
     public void a(WebView webView) {
-        if (webView != null && this.f6823a.get() != null) {
+        if (webView != null && this.f6825a.get() != null) {
             b(webView);
             WebSettings settings = webView.getSettings();
             a(settings);

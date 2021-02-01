@@ -7,9 +7,9 @@ import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class d {
-    private static byte[] U(String str, String str2) {
+    private static byte[] S(String str, String str2) {
         try {
             String substring = str2.substring(0, 16);
             String substring2 = str2.substring(str2.length() - 16, str2.length());
@@ -128,6 +128,6 @@ public final class d {
     }
 
     public static String e(String str, String str2) {
-        return Base64.encodeToString(U(str, str2), 0);
+        return Base64.encodeToString(S(str, str2), 0);
     }
 }

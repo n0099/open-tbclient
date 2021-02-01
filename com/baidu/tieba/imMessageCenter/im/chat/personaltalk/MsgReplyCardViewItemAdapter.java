@@ -28,10 +28,10 @@ public class MsgReplyCardViewItemAdapter extends MsgCommonItemAdapter<MsgReplyCa
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgReplyCardView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgReplyCardView cSH = msgViewHolder.cSH();
-        cSH.a(this.mPageContext, chatMessage, viewGroup);
-        cSH.a(this.krY);
-        cSH.setPosition(i);
+        MsgReplyCardView cUF = msgViewHolder.cUF();
+        cUF.a(this.mPageContext, chatMessage, viewGroup);
+        cUF.a(this.kAf);
+        cUF.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

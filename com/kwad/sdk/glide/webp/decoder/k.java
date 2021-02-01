@@ -16,14 +16,14 @@ import com.kwad.sdk.glide.webp.decoder.o;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f10384a;
+    private final a f10386a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f10385b;
+    private boolean f10387b;
     private boolean c;
     private boolean d;
     private boolean e;
@@ -35,18 +35,18 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
     private List<Animatable2Compat.AnimationCallback> k;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Drawable.ConstantState {
 
         /* renamed from: a  reason: collision with root package name */
-        final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10386a;
+        final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10388a;
 
         /* renamed from: b  reason: collision with root package name */
-        final o f10387b;
+        final o f10389b;
 
         public a(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, o oVar) {
-            this.f10386a = eVar;
-            this.f10387b = oVar;
+            this.f10388a = eVar;
+            this.f10389b = oVar;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
@@ -74,7 +74,7 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
         this.g = -1;
         this.e = true;
         this.g = -1;
-        this.f10384a = (a) com.kwad.sdk.glide.g.j.a(aVar);
+        this.f10386a = (a) com.kwad.sdk.glide.g.j.a(aVar);
     }
 
     private void i() {
@@ -83,19 +83,19 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
 
     private void j() {
         com.kwad.sdk.glide.g.j.a(!this.d, "You cannot start a recycled Drawable. Ensure thatyou clear any references to the Drawable when clearing the corresponding request.");
-        if (this.f10384a.f10387b.g() == 1) {
+        if (this.f10386a.f10389b.g() == 1) {
             invalidateSelf();
-        } else if (this.f10385b) {
+        } else if (this.f10387b) {
         } else {
-            this.f10385b = true;
-            this.f10384a.f10387b.a(this);
+            this.f10387b = true;
+            this.f10386a.f10389b.a(this);
             invalidateSelf();
         }
     }
 
     private void k() {
-        this.f10385b = false;
-        this.f10384a.f10387b.b(this);
+        this.f10387b = false;
+        this.f10386a.f10389b.b(this);
     }
 
     private Rect l() {
@@ -130,19 +130,19 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
     }
 
     public int a() {
-        return this.f10384a.f10387b.d();
+        return this.f10386a.f10389b.d();
     }
 
     public void a(com.kwad.sdk.glide.load.h<Bitmap> hVar, Bitmap bitmap) {
-        this.f10384a.f10387b.a(hVar, bitmap);
+        this.f10386a.f10389b.a(hVar, bitmap);
     }
 
     public Bitmap b() {
-        return this.f10384a.f10387b.a();
+        return this.f10386a.f10389b.a();
     }
 
     public ByteBuffer c() {
-        return this.f10384a.f10387b.f();
+        return this.f10386a.f10389b.f();
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
@@ -153,7 +153,7 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
     }
 
     public int d() {
-        return this.f10384a.f10387b.g();
+        return this.f10386a.f10389b.g();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -165,11 +165,11 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
             Gravity.apply(119, getIntrinsicWidth(), getIntrinsicHeight(), getBounds(), l());
             this.h = false;
         }
-        canvas.drawBitmap(this.f10384a.f10387b.i(), (Rect) null, l(), m());
+        canvas.drawBitmap(this.f10386a.f10389b.i(), (Rect) null, l(), m());
     }
 
     public int e() {
-        return this.f10384a.f10387b.e();
+        return this.f10386a.f10389b.e();
     }
 
     @Override // com.kwad.sdk.glide.webp.decoder.o.b
@@ -192,22 +192,22 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
 
     public void g() {
         this.d = true;
-        this.f10384a.f10387b.h();
+        this.f10386a.f10389b.h();
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable.ConstantState getConstantState() {
-        return this.f10384a;
+        return this.f10386a;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.f10384a.f10387b.c();
+        return this.f10386a.f10389b.c();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.f10384a.f10387b.b();
+        return this.f10386a.f10389b.b();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -222,7 +222,7 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
 
     @Override // android.graphics.drawable.Animatable
     public boolean isRunning() {
-        return this.f10385b;
+        return this.f10387b;
     }
 
     @Override // android.graphics.drawable.Drawable

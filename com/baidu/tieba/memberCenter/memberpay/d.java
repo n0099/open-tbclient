@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.memberpay;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
-    public int lhE;
+    public int lpL;
     public String name;
 }

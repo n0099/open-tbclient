@@ -6,34 +6,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private TextView eFr;
-    private View irN;
-    private View lAv;
-    private b lAw;
-    private b lAx;
-    private b lAy;
+    private TextView eHx;
+    private View ixr;
+    private View lJi;
+    private b lJj;
+    private b lJk;
+    private b lJl;
     private View rootView;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void Oq(String str);
+        void Ph(String str);
     }
 
     public c(Context context, a aVar) {
         this.rootView = LayoutInflater.from(context).inflate(R.layout.chosen_pb_comment_layout, (ViewGroup) null);
-        this.eFr = (TextView) this.rootView.findViewById(R.id.chosen_pb_comment_title);
-        this.irN = this.rootView.findViewById(R.id.chosen_pb_comment_line);
-        this.lAv = this.rootView.findViewById(R.id.comment_layout_blank_view);
-        this.lAw = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_first), aVar);
-        this.lAx = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_second), aVar);
-        this.lAy = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_third), aVar);
+        this.eHx = (TextView) this.rootView.findViewById(R.id.chosen_pb_comment_title);
+        this.ixr = this.rootView.findViewById(R.id.chosen_pb_comment_line);
+        this.lJi = this.rootView.findViewById(R.id.comment_layout_blank_view);
+        this.lJj = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_first), aVar);
+        this.lJk = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_second), aVar);
+        this.lJl = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_third), aVar);
     }
 
     public void a(Context context, List<Post> list, List<User> list2) {
@@ -41,32 +41,32 @@ public class c {
         boolean z2;
         boolean z3;
         if (list == null || list.isEmpty()) {
-            this.eFr.setVisibility(8);
-            this.lAw.uq(false);
-            this.lAx.uq(false);
-            this.lAy.uq(false);
-            this.irN.setVisibility(8);
+            this.eHx.setVisibility(8);
+            this.lJj.uD(false);
+            this.lJk.uD(false);
+            this.lJl.uD(false);
+            this.ixr.setVisibility(8);
             return;
         }
-        this.irN.setVisibility(0);
+        this.ixr.setVisibility(0);
         int size = list.size();
         if (size == 1) {
-            boolean a2 = this.lAw.a(context, list.get(0), a(list.get(0), list2));
-            this.lAx.uq(false);
-            this.lAy.uq(false);
+            boolean a2 = this.lJj.a(context, list.get(0), a(list.get(0), list2));
+            this.lJk.uD(false);
+            this.lJl.uD(false);
             z = false;
             z2 = false;
             z3 = a2;
         } else if (size == 2) {
-            boolean a3 = this.lAw.a(context, list.get(0), a(list.get(0), list2));
-            z2 = this.lAx.a(context, list.get(1), a(list.get(1), list2));
-            this.lAy.uq(false);
+            boolean a3 = this.lJj.a(context, list.get(0), a(list.get(0), list2));
+            z2 = this.lJk.a(context, list.get(1), a(list.get(1), list2));
+            this.lJl.uD(false);
             z = false;
             z3 = a3;
         } else if (size >= 3) {
-            z3 = this.lAw.a(context, list.get(0), a(list.get(0), list2));
-            boolean a4 = this.lAx.a(context, list.get(1), a(list.get(1), list2));
-            z = this.lAy.a(context, list.get(2), a(list.get(2), list2));
+            z3 = this.lJj.a(context, list.get(0), a(list.get(0), list2));
+            boolean a4 = this.lJk.a(context, list.get(1), a(list.get(1), list2));
+            z = this.lJl.a(context, list.get(2), a(list.get(2), list2));
             z2 = a4;
         } else {
             z = false;
@@ -74,9 +74,9 @@ public class c {
             z3 = false;
         }
         if (z3 || z2 || z) {
-            this.eFr.setVisibility(0);
+            this.eHx.setVisibility(0);
         } else {
-            this.eFr.setVisibility(8);
+            this.eHx.setVisibility(8);
         }
     }
 
@@ -97,13 +97,13 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        ao.setBackgroundResource(this.rootView, R.color.common_color_10187);
-        ao.setBackgroundColor(this.lAv, R.color.CAM_X0201);
-        ao.setViewTextColor(this.eFr, R.color.CAM_X0106, 1);
-        ao.setBackgroundColor(this.irN, R.color.CAM_X0204);
-        this.lAw.onChangeSkinType();
-        this.lAx.onChangeSkinType();
-        this.lAy.onChangeSkinType();
+        ap.setBackgroundResource(this.rootView, R.color.common_color_10187);
+        ap.setBackgroundColor(this.lJi, R.color.CAM_X0201);
+        ap.setViewTextColor(this.eHx, R.color.CAM_X0106, 1);
+        ap.setBackgroundColor(this.ixr, R.color.CAM_X0204);
+        this.lJj.onChangeSkinType();
+        this.lJk.onChangeSkinType();
+        this.lJl.onChangeSkinType();
     }
 
     public View getView() {

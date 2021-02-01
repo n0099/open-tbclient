@@ -6,7 +6,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.live.mode.LiveStatusResultData;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface d extends e {
     KsFragment a();
 

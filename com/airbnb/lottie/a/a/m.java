@@ -7,7 +7,7 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.PolystarShape;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class m implements j, l, a.InterfaceC0007a {
     private final com.airbnb.lottie.f BH;
     @Nullable
@@ -29,15 +29,15 @@ public class m implements j, l, a.InterfaceC0007a {
     public m(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, PolystarShape polystarShape) {
         this.BH = fVar;
         this.name = polystarShape.getName();
-        this.DZ = polystarShape.jC();
-        this.Ea = polystarShape.jD().jc();
-        this.DH = polystarShape.jf().jc();
-        this.Eb = polystarShape.jh().jc();
-        this.Ed = polystarShape.jF().jc();
-        this.Ef = polystarShape.jH().jc();
+        this.DZ = polystarShape.jB();
+        this.Ea = polystarShape.jC().jb();
+        this.DH = polystarShape.je().jb();
+        this.Eb = polystarShape.jg().jb();
+        this.Ed = polystarShape.jE().jb();
+        this.Ef = polystarShape.jG().jb();
         if (this.DZ == PolystarShape.Type.Star) {
-            this.Ec = polystarShape.jE().jc();
-            this.Ee = polystarShape.jG().jc();
+            this.Ec = polystarShape.jD().jb();
+            this.Ee = polystarShape.jF().jb();
         } else {
             this.Ec = null;
             this.Ee = null;
@@ -63,7 +63,7 @@ public class m implements j, l, a.InterfaceC0007a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
-    public void is() {
+    public void ir() {
         invalidate();
     }
 
@@ -79,7 +79,7 @@ public class m implements j, l, a.InterfaceC0007a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).iC() == ShapeTrimPath.Type.Simultaneously) {
+                if ((bVar instanceof r) && ((r) bVar).iB() == ShapeTrimPath.Type.Simultaneously) {
                     this.DC = (r) bVar;
                     this.DC.a(this);
                 }
@@ -91,17 +91,17 @@ public class m implements j, l, a.InterfaceC0007a {
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path iv() {
+    public Path iu() {
         if (this.DJ) {
             return this.path;
         }
         this.path.reset();
         switch (this.DZ) {
             case Star:
-                iA();
+                iz();
                 break;
             case Polygon:
-                iB();
+                iA();
                 break;
         }
         this.path.close();
@@ -115,7 +115,7 @@ public class m implements j, l, a.InterfaceC0007a {
         return this.name;
     }
 
-    private void iA() {
+    private void iz() {
         float f;
         float sin;
         double d;
@@ -218,7 +218,7 @@ public class m implements j, l, a.InterfaceC0007a {
         }
     }
 
-    private void iB() {
+    private void iA() {
         int floor = (int) Math.floor(this.Ea.getValue().floatValue());
         double radians = Math.toRadians((this.Eb == null ? 0.0d : this.Eb.getValue().floatValue()) - 90.0d);
         float f = (float) (6.283185307179586d / floor);

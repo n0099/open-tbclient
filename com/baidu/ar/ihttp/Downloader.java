@@ -3,6 +3,7 @@ package com.baidu.ar.ihttp;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.h.i;
 import com.baidu.ar.h.k;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.InputStream;
@@ -24,7 +25,7 @@ public final class Downloader {
         i.c(new File(str));
         byte[] bArr = new byte[8192];
         try {
-            randomAccessFile = new RandomAccessFile(str, "rw");
+            randomAccessFile = new RandomAccessFile(str, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             try {
                 randomAccessFile.seek(0L);
                 bufferedInputStream = new BufferedInputStream(inputStream, 8192);

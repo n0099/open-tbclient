@@ -2,7 +2,7 @@ package com.baidu.ala.rtc;
 
 import android.content.Context;
 import com.baidu.rtc.BaiduRtcRoom;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class BaseRtcRoom {
     protected String mAppId;
     protected BaiduRtcRoom mBaiduRtcRoom;

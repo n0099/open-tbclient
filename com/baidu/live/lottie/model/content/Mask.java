@@ -1,11 +1,11 @@
 package com.baidu.live.lottie.model.content;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Mask {
-    private final com.baidu.live.lottie.model.a.d bpX;
-    private final MaskMode bql;
-    private final com.baidu.live.lottie.model.a.h bqm;
+    private final MaskMode btN;
+    private final com.baidu.live.lottie.model.a.h btO;
+    private final com.baidu.live.lottie.model.a.d btz;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum MaskMode {
         MaskModeAdd,
         MaskModeSubtract,
@@ -13,20 +13,20 @@ public class Mask {
     }
 
     public Mask(MaskMode maskMode, com.baidu.live.lottie.model.a.h hVar, com.baidu.live.lottie.model.a.d dVar) {
-        this.bql = maskMode;
-        this.bqm = hVar;
-        this.bpX = dVar;
+        this.btN = maskMode;
+        this.btO = hVar;
+        this.btz = dVar;
     }
 
-    public MaskMode Mn() {
-        return this.bql;
+    public MaskMode NL() {
+        return this.btN;
     }
 
-    public com.baidu.live.lottie.model.a.h Mo() {
-        return this.bqm;
+    public com.baidu.live.lottie.model.a.h NM() {
+        return this.btO;
     }
 
-    public com.baidu.live.lottie.model.a.d Ma() {
-        return this.bpX;
+    public com.baidu.live.lottie.model.a.d Ny() {
+        return this.btz;
     }
 }

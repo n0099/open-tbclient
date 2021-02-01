@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c extends b {
     public c(j jVar) {
         super(jVar, "/swanAPI/isFavor");
@@ -17,7 +17,7 @@ public class c extends b {
     protected void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.mX(this.dEP) ? 1 : 0);
+            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.np(this.dGT) ? 1 : 0);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -31,8 +31,8 @@ public class c extends b {
             return false;
         }
         try {
-            this.dEP = this.dEQ ? eVar.getAppId() : new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.dEP);
+            this.dGT = this.dGU ? eVar.getAppId() : new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.dGT);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

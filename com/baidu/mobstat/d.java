@@ -15,11 +15,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    static d f3805a = new d();
+    static d f3808a = new d();
 
     public synchronized void a(Context context) {
         b(context);
@@ -106,14 +106,14 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f3806a;
+        private String f3809a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f3807b;
+        private String f3810b;
         private String c;
         private String d;
 
@@ -122,8 +122,8 @@ public class d {
             str2 = str2 == null ? "" : str2;
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
-            this.f3806a = str;
-            this.f3807b = str2;
+            this.f3809a = str;
+            this.f3810b = str2;
             this.c = str3;
             this.d = str4;
         }
@@ -131,8 +131,8 @@ public class d {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("n", this.f3806a);
-                jSONObject.put("v", this.f3807b);
+                jSONObject.put("n", this.f3809a);
+                jSONObject.put("v", this.f3810b);
                 jSONObject.put("c", this.c);
                 jSONObject.put("a", this.d);
                 return jSONObject;

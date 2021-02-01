@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class a extends com.baidu.android.pushservice.g.c {
 
     /* renamed from: a  reason: collision with root package name */

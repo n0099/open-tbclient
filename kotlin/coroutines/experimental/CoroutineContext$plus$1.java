@@ -4,7 +4,7 @@ import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class CoroutineContext$plus$1 extends Lambda implements kotlin.jvm.a.c<d, d.b, d> {
     public static final CoroutineContext$plus$1 INSTANCE = new CoroutineContext$plus$1();
 
@@ -18,16 +18,16 @@ final class CoroutineContext$plus$1 extends Lambda implements kotlin.jvm.a.c<d, 
         a aVar;
         p.o(dVar, "acc");
         p.o(bVar, "element");
-        d b2 = dVar.b(bVar.eIR());
-        if (b2 == e.qjb) {
+        d b2 = dVar.b(bVar.eLh());
+        if (b2 == e.qtf) {
             return bVar;
         }
-        c cVar = (c) b2.a(c.qiZ);
+        c cVar = (c) b2.a(c.qtd);
         if (cVar == null) {
             aVar = new a(b2, bVar);
         } else {
-            d b3 = b2.b(c.qiZ);
-            aVar = b3 == e.qjb ? new a(bVar, cVar) : new a(new a(b3, bVar), cVar);
+            d b3 = b2.b(c.qtd);
+            aVar = b3 == e.qtf ? new a(bVar, cVar) : new a(new a(b3, bVar), cVar);
         }
         return aVar;
     }

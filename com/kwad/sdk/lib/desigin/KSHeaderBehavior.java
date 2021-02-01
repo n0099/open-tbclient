@@ -8,11 +8,10 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.OverScroller;
 import androidx.annotation.Keep;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.math.MathUtils;
 import androidx.core.view.ViewCompat;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class KSHeaderBehavior<V extends View> extends KSViewOffsetBehavior<V> {
     private static final int INVALID_POINTER = -1;
     private int mActivePointerId;
@@ -24,7 +23,7 @@ public abstract class KSHeaderBehavior<V extends View> extends KSViewOffsetBehav
     private VelocityTracker mVelocityTracker;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class FlingRunnable implements Runnable {
         private final V mLayout;
         private final KSCoordinatorLayout mParent;
@@ -222,7 +221,7 @@ public abstract class KSHeaderBehavior<V extends View> extends KSViewOffsetBehav
     }
 
     public int setHeaderTopBottomOffset(KSCoordinatorLayout kSCoordinatorLayout, V v, int i) {
-        return setHeaderTopBottomOffset(kSCoordinatorLayout, v, i, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return setHeaderTopBottomOffset(kSCoordinatorLayout, v, i, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
     int setHeaderTopBottomOffset(KSCoordinatorLayout kSCoordinatorLayout, V v, int i, int i2, int i3) {

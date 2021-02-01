@@ -9,6 +9,7 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.task.AbstractTask;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.down.utils.Utils;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,7 +17,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WriteThread implements Runnable {
     private static final boolean DEBUG = false;
     public static final int MAX_DOWNLOAD_QUENE_COUNT = 1000;
@@ -207,7 +208,7 @@ public class WriteThread implements Runnable {
         }
         abstractTask.mFile = new File(abstractTask.mFilePath);
         abstractTask.mFilename = abstractTask.mFile.getName();
-        return new RandomAccessFile(abstractTask.mFilePath, "rw");
+        return new RandomAccessFile(abstractTask.mFilePath, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
     }
 
     public void closeOutputFile(String str) throws Exception {

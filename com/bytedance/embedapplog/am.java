@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class am extends ac {
     public long h;
     long i;
@@ -35,8 +35,8 @@ public class am extends ac {
     @Override // com.bytedance.embedapplog.ac
     protected JSONObject b() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("local_time_ms", this.f5774a);
-        jSONObject.put("tea_event_index", this.f5775b);
+        jSONObject.put("local_time_ms", this.f5776a);
+        jSONObject.put("tea_event_index", this.f5777b);
         jSONObject.put("session_id", this.c);
         jSONObject.put("stop_timestamp", this.i);
         jSONObject.put("duration", this.h / 1000);
@@ -51,7 +51,7 @@ public class am extends ac {
     }
 
     @Override // com.bytedance.embedapplog.ac
-    protected ac eQ(@NonNull JSONObject jSONObject) {
+    protected ac eR(@NonNull JSONObject jSONObject) {
         au.a(null);
         return this;
     }

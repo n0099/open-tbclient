@@ -10,6 +10,6 @@ import javax.annotation.meta.TypeQualifierDefault;
 @Nonnull
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public @interface EverythingIsNonNull {
 }

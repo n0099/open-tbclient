@@ -5,13 +5,13 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i extends com.baidu.live.yuyingift.yuyinhousegift.a.a {
-    private a bXX;
+    private a cca;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void XH();
+        void Zx();
     }
 
     public i(View view) {
@@ -19,18 +19,18 @@ public class i extends com.baidu.live.yuyingift.yuyinhousegift.a.a {
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.a.a
-    public AnimatorSet XG() {
+    public AnimatorSet Zw() {
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.mTarget, PropertyValuesHolder.ofFloat("scaleX", 0.0f, 1.8f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.0f, 1.8f, 1.0f));
         ofPropertyValuesHolder.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.yuyingift.yuyinhousegift.a.i.1
-            boolean bXT;
+            boolean cbW;
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (!this.bXT && ((Float) valueAnimator.getAnimatedValue()).floatValue() > 0.2d) {
-                    this.bXT = true;
-                    if (i.this.bXX != null) {
-                        i.this.bXX.XH();
+                if (!this.cbW && ((Float) valueAnimator.getAnimatedValue()).floatValue() > 0.2d) {
+                    this.cbW = true;
+                    if (i.this.cca != null) {
+                        i.this.cca.Zx();
                     }
                 }
             }
@@ -43,6 +43,6 @@ public class i extends com.baidu.live.yuyingift.yuyinhousegift.a.a {
     }
 
     public void a(a aVar) {
-        this.bXX = aVar;
+        this.cca = aVar;
     }
 }

@@ -2,7 +2,7 @@ package com.ss.android.socialbase.appdownloader.a;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h extends a {
     public h(Context context, String str) {
         super(context, str);
@@ -11,7 +11,7 @@ public class h extends a {
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
         Intent intent = new Intent("com.android.filemanager.FILE_OPEN");
-        intent.putExtra("FilePathToBeOpenAfterScan", this.f13008b);
+        intent.putExtra("FilePathToBeOpenAfterScan", this.f13010b);
         intent.putExtra("com.iqoo.secure", true);
         intent.putExtra("OpenParentAndLocationDestFile", true);
         intent.addFlags(268435456);

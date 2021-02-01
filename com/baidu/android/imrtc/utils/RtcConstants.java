@@ -1,7 +1,7 @@
 package com.baidu.android.imrtc.utils;
 
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RtcConstants {
     public static final int ACTION_IM_RTC_ACK = 102;
     public static final int ACTION_IM_RTC_ANSWER = 84;
@@ -46,7 +46,7 @@ public class RtcConstants {
     public static final int RTC_SERVICE_ID = 5;
     public static final int SUCCESS = 0;
     public static boolean LOG_DEBUG = false;
-    public static int RTC_VERSION = 102030;
+    public static int RTC_VERSION = 102060;
     public static long RTC_HEART_BEAT_TIME = 10000;
     public static int RTC_HEART_BEAT_RETRY_TIME = 3;
     public static int RTC_HEART_BEAT_STATUS = 0;
@@ -54,7 +54,7 @@ public class RtcConstants {
     public static volatile AtomicLong IM_RTC_SDK_SEQ_ID = new AtomicLong(-1);
     public static volatile long IM_RTC_SERVER_SEQ_ID = -1;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum RoomEventType {
         JOIN_ROOM(93),
         EXIT_ROOM(87),

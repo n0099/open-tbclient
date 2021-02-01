@@ -1,5 +1,5 @@
 package com.baidu.mobads;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public enum AdSize {
     Banner(0),
     Square(1),
@@ -9,19 +9,20 @@ public enum AdSize {
     InterstitialOther(10),
     InterstitialForVideoBeforePlay(12),
     InterstitialForVideoPausePlay(13),
+    RewardVideo(14),
     PrerollVideoNative(15),
     FeedNative(16),
     FeedH5TemplateNative(17);
     
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3264a;
+    private int f3263a;
 
     public int getValue() {
-        return this.f3264a;
+        return this.f3263a;
     }
 
     AdSize(int i) {
-        this.f3264a = i;
+        this.f3263a = i;
     }
 }

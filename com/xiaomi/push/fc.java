@@ -15,7 +15,7 @@ public final class fc {
     private static final String f392a = XMJobService.class.getCanonicalName();
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f14006a = 0;
+    private static int f14008a = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
@@ -119,15 +119,15 @@ public final class fc {
 
     public static synchronized void a(Context context, int i) {
         synchronized (fc.class) {
-            int i2 = f14006a;
+            int i2 = f14008a;
             if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
                 if (i == 2) {
-                    f14006a = 2;
+                    f14008a = 2;
                 } else {
-                    f14006a = 0;
+                    f14008a = 0;
                 }
             }
-            if (i2 != f14006a && f14006a == 2) {
+            if (i2 != f14008a && f14008a == 2) {
                 a();
                 f391a = new ff(context);
             }

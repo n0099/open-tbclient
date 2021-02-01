@@ -12,7 +12,7 @@ import com.baidu.ala.recorder.video.gles.GlUtil;
 import com.baidu.ala.recorder.video.gles.Texture2dProgram;
 import com.baidu.ala.recorder.video.gles.WindowSurface;
 @TargetApi(16)
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class ScreenTextureDrawer {
     public static final String TAG = ScreenTextureDrawer.class.getSimpleName();
     private static final boolean mVideoModelFit = false;

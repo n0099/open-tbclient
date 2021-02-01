@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BOSTokenRequest {
     private static final String ACCEPT = "accept";
     private static final String ACCEPT_VALUE = "application/json";

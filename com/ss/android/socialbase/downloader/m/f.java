@@ -2,11 +2,11 @@ package com.ss.android.socialbase.downloader.m;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f<K, T> extends LinkedHashMap<K, T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13239a;
+    private int f13241a;
 
     public f() {
         this(4, 4);
@@ -18,11 +18,11 @@ public class f<K, T> extends LinkedHashMap<K, T> {
     }
 
     public void a(int i) {
-        this.f13239a = i;
+        this.f13241a = i;
     }
 
     @Override // java.util.LinkedHashMap
     protected boolean removeEldestEntry(Map.Entry<K, T> entry) {
-        return size() > this.f13239a;
+        return size() > this.f13241a;
     }
 }

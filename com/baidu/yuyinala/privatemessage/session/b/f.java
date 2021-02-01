@@ -1,8 +1,8 @@
 package com.baidu.yuyinala.privatemessage.session.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
     public String bd_portrait;
-    public int oZa;
+    public int pjq;
     public String type;
     public String uk;
     public String user_nickname;

@@ -12,7 +12,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import org.chromium.support_lib_boundary.WebMessagePortBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class WebMessagePortImpl extends WebMessagePortCompat {
     private WebMessagePortBoundaryInterface mBoundaryInterface;
     private WebMessagePort mFrameworksImpl;

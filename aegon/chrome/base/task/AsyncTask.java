@@ -9,17 +9,17 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AsyncTask<Result> {
     public static final Executor THREAD_POOL_EXECUTOR;
     public final AtomicBoolean mTaskInvoked;
 
     /* renamed from: aegon.chrome.base.task.AsyncTask$1 */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class AnonymousClass1 implements Callable<Result> {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     class NamedFutureTask extends FutureTask<Result> {
         public final /* synthetic */ AsyncTask this$0;
 
@@ -44,7 +44,7 @@ public abstract class AsyncTask<Result> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class StealRunnableHandler implements RejectedExecutionHandler {
         public /* synthetic */ StealRunnableHandler(AnonymousClass1 anonymousClass1) {
         }

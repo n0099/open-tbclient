@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.tabfeed.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.at;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.data.av;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
@@ -27,7 +27,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: BJ */
+        /* renamed from: Cb */
         public SpecialColumnListData[] newArray(int i) {
             return new SpecialColumnListData[i];
         }
@@ -59,7 +59,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
                     i = i2 + 1;
                 } else {
                     this.mResultListData.addAll(arrayList);
-                    this.mListData.addAll(x.trimToSize(arrayList, 3));
+                    this.mListData.addAll(y.trimToSize(arrayList, 3));
                     return;
                 }
             }
@@ -78,16 +78,16 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bz bkV() {
+    public cb bln() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at bkX() {
+    public av blp() {
         return null;
     }
 
-    public List<SpecialColumnItemData> cQc() {
+    public List<SpecialColumnItemData> cSb() {
         return this.mListData;
     }
 
@@ -95,7 +95,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bRd() {
+    public List<SpecialColumnItemData> bRH() {
         return this.mResultListData;
     }
 

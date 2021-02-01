@@ -8,7 +8,6 @@ import android.media.MediaFormat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Surface;
-import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
@@ -19,18 +18,18 @@ import java.io.IOException;
 import java.nio.BufferOverflowException;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private ByteBuffer[] dkf;
-    private ByteBuffer[] dkg;
     private MediaCodec.BufferInfo mBufferInfo;
     private int mChannel;
     private String mFormat;
+    private ByteBuffer[] mInputBuffers;
     private MediaCodec mMediaCodec;
+    private ByteBuffer[] mOutputBuffers;
     private int mSampleRate;
-    private long dkh = 0;
-    private ByteArrayOutputStream agi = new ByteArrayOutputStream();
+    private long dmq = 0;
+    private ByteArrayOutputStream afZ = new ByteArrayOutputStream();
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public a(String str, int i, int i2, int i3) {
@@ -86,8 +85,8 @@ public class a {
                         this.mMediaCodec = MediaCodec.createByCodecName(selectCodec.getName());
                         this.mMediaCodec.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
                         this.mMediaCodec.start();
-                        this.dkf = this.mMediaCodec.getInputBuffers();
-                        this.dkg = this.mMediaCodec.getOutputBuffers();
+                        this.mInputBuffers = this.mMediaCodec.getInputBuffers();
+                        this.mOutputBuffers = this.mMediaCodec.getOutputBuffers();
                         this.mBufferInfo = new MediaCodec.BufferInfo();
                         return;
                     }
@@ -102,7 +101,7 @@ public class a {
         }
     }
 
-    public byte[] I(byte[] bArr) {
+    public byte[] H(byte[] bArr) {
         if (this.mMediaCodec == null || bArr == null) {
             if (DEBUG) {
                 Log.d("AudioRecorderManager", "wrong input or mediaCodec");
@@ -134,9 +133,9 @@ public class a {
         }
         switch (c) {
             case 0:
-                return J(bArr);
+                return I(bArr);
             case 1:
-                return K(bArr);
+                return J(bArr);
             case 2:
             default:
                 return bArr;
@@ -159,7 +158,7 @@ public class a {
         return null;
     }
 
-    private long cs(long j) {
+    private long cy(long j) {
         if (this.mSampleRate == 0) {
             return 0L;
         }
@@ -169,10 +168,10 @@ public class a {
     private byte[] p(int i, int i2, int i3, int i4) {
         int i5 = i + 7;
         byte[] bArr = new byte[i5];
-        int id = id(i3);
+        int ig = ig(i3);
         bArr[0] = -1;
         bArr[1] = -15;
-        bArr[2] = (byte) ((id << 2) + ((i2 - 1) << 6) + (i4 >> 2));
+        bArr[2] = (byte) ((ig << 2) + ((i2 - 1) << 6) + (i4 >> 2));
         bArr[3] = (byte) (((i4 & 3) << 6) + (i5 >> 11));
         bArr[4] = (byte) ((i5 & 2047) >> 3);
         bArr[5] = (byte) (((i5 & 7) << 5) + 31);
@@ -180,7 +179,7 @@ public class a {
         return bArr;
     }
 
-    private int id(int i) {
+    private int ig(int i) {
         switch (i) {
             case 7350:
                 return 12;
@@ -197,11 +196,11 @@ public class a {
                 return 7;
             case 24000:
                 return 6;
-            case StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K /* 32000 */:
+            case 32000:
                 return 5;
             case 44100:
                 return 4;
-            case StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K /* 48000 */:
+            case 48000:
                 return 3;
             case AudioEncoderCore.EncodeConfig.BIT_RATE /* 64000 */:
                 return 2;
@@ -212,20 +211,20 @@ public class a {
         }
     }
 
-    private byte[] J(byte[] bArr) {
+    private byte[] I(byte[] bArr) {
         if (this.mMediaCodec != null && bArr != null) {
             if (DEBUG) {
                 Log.d("AudioRecorderManager", "start AAC encode");
             }
             int dequeueInputBuffer = this.mMediaCodec.dequeueInputBuffer(-1L);
             if (dequeueInputBuffer >= 0) {
-                ByteBuffer byteBuffer = this.dkf[dequeueInputBuffer];
+                ByteBuffer byteBuffer = this.mInputBuffers[dequeueInputBuffer];
                 byteBuffer.clear();
                 try {
                     byteBuffer.put(bArr);
                     byteBuffer.limit(bArr.length);
-                    this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, cs(this.dkh), 0);
-                    this.dkh++;
+                    this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, cy(this.dmq), 0);
+                    this.dmq++;
                 } catch (IllegalArgumentException | BufferOverflowException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -235,7 +234,7 @@ public class a {
             int dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
             while (dequeueOutputBuffer >= 0) {
                 int i = this.mBufferInfo.size;
-                ByteBuffer byteBuffer2 = this.dkg[dequeueOutputBuffer];
+                ByteBuffer byteBuffer2 = this.mOutputBuffers[dequeueOutputBuffer];
                 try {
                     byteBuffer2.position(this.mBufferInfo.offset);
                     byteBuffer2.limit(this.mBufferInfo.offset + i);
@@ -243,7 +242,7 @@ public class a {
                     try {
                         byteBuffer2.get(p, 7, i);
                         byteBuffer2.position(this.mBufferInfo.offset);
-                        this.agi.write(p);
+                        this.afZ.write(p);
                         this.mMediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
                         dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
                     } catch (IOException | IllegalArgumentException | BufferUnderflowException e2) {
@@ -257,20 +256,20 @@ public class a {
                     }
                 }
             }
-            bArr = this.agi.toByteArray();
+            bArr = this.afZ.toByteArray();
             try {
-                this.agi.flush();
+                this.afZ.flush();
             } catch (IOException e4) {
                 if (DEBUG) {
                     e4.printStackTrace();
                 }
             }
-            this.agi.reset();
+            this.afZ.reset();
         }
         return bArr;
     }
 
-    private byte[] K(byte[] bArr) {
+    private byte[] J(byte[] bArr) {
         return bArr;
     }
 }

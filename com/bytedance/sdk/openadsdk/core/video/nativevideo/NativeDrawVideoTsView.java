@@ -11,7 +11,7 @@ import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.ak;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnClickListener {
     private boolean n;
 
@@ -26,7 +26,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void b() {
         this.d = false;
         this.i = "draw_ad";
-        p.h().s(String.valueOf(aj.d(this.f6720a.W())));
+        p.h().s(String.valueOf(aj.d(this.f6722a.W())));
         super.b();
     }
 
@@ -76,7 +76,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
         f();
         if (this.e != null) {
             if (this.e.getVisibility() != 0) {
-                com.bytedance.sdk.openadsdk.i.e.a(getContext()).a(this.f6720a.F().g(), this.f);
+                com.bytedance.sdk.openadsdk.i.e.a(getContext()).a(this.f6722a.F().g(), this.f);
             } else {
                 return;
             }

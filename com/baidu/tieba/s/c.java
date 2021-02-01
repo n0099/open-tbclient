@@ -14,13 +14,13 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c {
-    private static c nkh;
-    private SparseArray<HashSet<String>> nkk;
-    private a nkl;
+    private static c ntP;
+    private SparseArray<HashSet<String>> ntS;
+    private a ntT;
     Handler mUIHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.s.c.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -29,7 +29,7 @@ public class c {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.jBT = false;
+                        aVar.jHx = false;
                         aVar.isRunning = false;
                         aVar.count = 0;
                         return;
@@ -40,84 +40,84 @@ public class c {
             }
         }
     };
-    private CustomMessageListener eHt = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.s.c.2
+    private CustomMessageListener eJz = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.s.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (c.this.nkk != null) {
-                    c.this.nkk.clear();
+                if (c.this.ntS != null) {
+                    c.this.ntS.clear();
                 }
-                c.this.nki.dKf();
+                c.this.ntQ.dMq();
             }
         }
     };
-    private int nkj = com.baidu.tbadk.core.sharedPref.b.brx().getInt("card_show_statistic_max_count", 200);
-    private final b nki = new b();
+    private int ntR = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("card_show_statistic_max_count", 200);
+    private final b ntQ = new b();
 
     private c() {
-        MessageManager.getInstance().registerListener(this.eHt);
+        MessageManager.getInstance().registerListener(this.eJz);
     }
 
-    public static c dKg() {
-        if (nkh == null) {
+    public static c dMr() {
+        if (ntP == null) {
             synchronized (c.class) {
-                if (nkh == null) {
-                    nkh = new c();
+                if (ntP == null) {
+                    ntP = new c();
                 }
             }
         }
-        return nkh;
-    }
-
-    public void z(BdUniqueId bdUniqueId) {
-        l.checkMainThread();
-        if (bdUniqueId != null) {
-            this.nki.z(bdUniqueId);
-        }
+        return ntP;
     }
 
     public void A(BdUniqueId bdUniqueId) {
         l.checkMainThread();
         if (bdUniqueId != null) {
-            this.nki.A(bdUniqueId);
-            C(bdUniqueId);
+            this.ntQ.A(bdUniqueId);
         }
     }
 
-    public void C(BdUniqueId bdUniqueId) {
-        if (this.nkk != null) {
-            this.nkk.remove(bdUniqueId.getId());
+    public void B(BdUniqueId bdUniqueId) {
+        l.checkMainThread();
+        if (bdUniqueId != null) {
+            this.ntQ.B(bdUniqueId);
+            D(bdUniqueId);
         }
     }
 
-    public void b(BdUniqueId bdUniqueId, aq aqVar) {
-        this.nki.a(bdUniqueId, true);
-        TiebaStatic.log(aqVar);
+    public void D(BdUniqueId bdUniqueId) {
+        if (this.ntS != null) {
+            this.ntS.remove(bdUniqueId.getId());
+        }
     }
 
-    public void a(BdUniqueId bdUniqueId, String str, aq aqVar) {
-        if (bdUniqueId != null && aqVar != null) {
+    public void b(BdUniqueId bdUniqueId, ar arVar) {
+        this.ntQ.a(bdUniqueId, true);
+        TiebaStatic.log(arVar);
+    }
+
+    public void a(BdUniqueId bdUniqueId, String str, ar arVar) {
+        if (bdUniqueId != null && arVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (!this.nki.B(bdUniqueId)) {
+            if (!this.ntQ.C(bdUniqueId)) {
                 BdLog.e("error, bdUniqueId not register");
                 return;
             }
             if (TextUtils.isEmpty(str)) {
-                BdLog.e("id is null, statistic key is=" + aqVar.getKey());
+                BdLog.e("id is null, statistic key is=" + arVar.getKey());
             }
-            if (this.nkk == null) {
-                this.nkk = new SparseArray<>();
+            if (this.ntS == null) {
+                this.ntS = new SparseArray<>();
             }
-            HashSet<String> hashSet = this.nkk.get(bdUniqueId.getId());
+            HashSet<String> hashSet = this.ntS.get(bdUniqueId.getId());
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                this.nkk.put(bdUniqueId.getId(), hashSet);
+                this.ntS.put(bdUniqueId.getId(), hashSet);
             }
-            String str2 = aqVar.getKey() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
-            if (!hashSet.contains(str2) && !cIS()) {
+            String str2 = arVar.getKey() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
+            if (!hashSet.contains(str2) && !cKf()) {
                 hashSet.add(str2);
-                this.nki.a(bdUniqueId, aqVar);
+                this.ntQ.a(bdUniqueId, arVar);
                 if (BdLog.isDebugMode()) {
                     BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -125,29 +125,29 @@ public class c {
         }
     }
 
-    private boolean cIS() {
-        if (this.nkl == null) {
-            this.nkl = new a();
+    private boolean cKf() {
+        if (this.ntT == null) {
+            this.ntT = new a();
         }
-        if (this.nkl.jBT) {
+        if (this.ntT.jHx) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.nkl.isRunning) {
-            this.nkl.count++;
-            if (currentTimeMillis - this.nkl.jBS < 120000) {
-                if (this.nkl.count >= this.nkj) {
-                    this.nkl.jBT = true;
-                    a(this.nkl);
+        if (this.ntT.isRunning) {
+            this.ntT.count++;
+            if (currentTimeMillis - this.ntT.jHw < 120000) {
+                if (this.ntT.count >= this.ntR) {
+                    this.ntT.jHx = true;
+                    a(this.ntT);
                     return true;
                 }
             } else {
-                this.nkl.isRunning = false;
-                this.nkl.count = 0;
+                this.ntT.isRunning = false;
+                this.ntT.count = 0;
             }
         } else {
-            this.nkl.isRunning = true;
-            this.nkl.jBS = currentTimeMillis;
+            this.ntT.isRunning = true;
+            this.ntT.jHw = currentTimeMillis;
         }
         return false;
     }
@@ -164,7 +164,7 @@ public class c {
         if (BdLog.isDebugMode()) {
             BdLog.d("logStatisticByKey start write log ");
         }
-        this.nki.a(bdUniqueId, z);
+        this.ntQ.a(bdUniqueId, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -172,14 +172,14 @@ public class c {
     public class a {
         public int count;
         public boolean isRunning;
-        public long jBS;
-        public boolean jBT;
+        public long jHw;
+        public boolean jHx;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.jBS = 0L;
-            this.jBT = false;
+            this.jHw = 0L;
+            this.jHx = false;
         }
     }
 }

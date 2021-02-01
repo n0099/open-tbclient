@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static o<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> a(h<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> hVar, final n nVar) {
         nVar.a(hVar);
@@ -12,13 +12,13 @@ public class b {
             }
 
             @Override // com.facebook.imagepipeline.b.r
-            public void etn() {
-                n.this.etA();
+            public void evF() {
+                n.this.evS();
             }
 
             @Override // com.facebook.imagepipeline.b.r
-            public void eto() {
-                n.this.etz();
+            public void evG() {
+                n.this.evR();
             }
         });
     }

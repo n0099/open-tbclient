@@ -11,7 +11,7 @@ import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LayerContainer extends FrameLayout {
     private ArrayList<ILayer> mLayers;
     private FrameLayout.LayoutParams mLayoutParams;

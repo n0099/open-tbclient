@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.am;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.data.an;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.recapp.report.b;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
             if (getError() == 0 && threadListResIdl.data != null) {
-                if (x.getCount(threadListResIdl.data.user_list) > 0) {
+                if (y.getCount(threadListResIdl.data.user_list) > 0) {
                     this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
@@ -66,32 +66,32 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                     z = loadMoreRequestMessage.isBrandForum();
                     j = loadMoreRequestMessage.getForumId();
                 }
-                if (x.getCount(threadListResIdl.data.thread_list) > 0) {
+                if (y.getCount(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
                         ArrayList arrayList = new ArrayList();
                         for (int i3 = 0; i3 < list2.size(); i3++) {
                             ThreadInfo threadInfo = list2.get(i3);
-                            bz bzVar = new bz();
-                            ap.a(j, bzVar);
-                            bzVar.setUserMap(this.userMap);
-                            bzVar.a(threadInfo);
-                            bzVar.box();
-                            bzVar.eRc = z;
-                            if (!TextUtils.isEmpty(bzVar.boJ())) {
-                                am amVar = new am();
-                                amVar.zE(bzVar.boJ());
-                                this.threadList.add(amVar);
+                            cb cbVar = new cb();
+                            aq.a(j, cbVar);
+                            cbVar.setUserMap(this.userMap);
+                            cbVar.a(threadInfo);
+                            cbVar.boP();
+                            cbVar.eTo = z;
+                            if (!TextUtils.isEmpty(cbVar.bpb())) {
+                                an anVar = new an();
+                                anVar.zV(cbVar.bpb());
+                                this.threadList.add(anVar);
                             } else {
-                                this.threadList.add(bzVar);
+                                this.threadList.add(cbVar);
                                 JSONObject f = b.f(threadInfo);
                                 if (f != null) {
                                     arrayList.add(f);
                                 }
                             }
                         }
-                        b.dCd().q("FRS", arrayList);
+                        b.dEl().q("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;

@@ -1,15 +1,15 @@
 package com.baidu.tieba.aiapps.apps.barcode;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private static volatile b gjg;
+    private static volatile b glN;
 
-    public static synchronized b bMw() {
+    public static synchronized b bMX() {
         b bVar;
         synchronized (c.class) {
-            if (gjg == null) {
-                gjg = new b();
+            if (glN == null) {
+                glN = new b();
             }
-            bVar = gjg;
+            bVar = glN;
         }
         return bVar;
     }

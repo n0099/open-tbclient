@@ -5,13 +5,13 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface m extends IInterface {
     void a(com.ss.android.socialbase.downloader.g.c cVar) throws RemoteException;
 
     boolean b(com.ss.android.socialbase.downloader.g.c cVar) throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements m {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
@@ -25,7 +25,7 @@ public interface m extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof m)) {
                 return (m) queryLocalInterface;
             }
-            return new C1240a(iBinder);
+            return new C1244a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -56,19 +56,19 @@ public interface m extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.d.m$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C1240a implements m {
+        /* loaded from: classes6.dex */
+        private static class C1244a implements m {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13116a;
+            private IBinder f13118a;
 
-            C1240a(IBinder iBinder) {
-                this.f13116a = iBinder;
+            C1244a(IBinder iBinder) {
+                this.f13118a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13116a;
+                return this.f13118a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.m
@@ -83,7 +83,7 @@ public interface m extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(1, obtain, obtain2, 0);
+                    this.f13118a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -103,7 +103,7 @@ public interface m extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(2, obtain, obtain2, 0);
+                    this.f13118a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.adnet.core.Request;
 import com.bytedance.sdk.adnet.core.l;
 import com.bytedance.sdk.adnet.core.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e extends Request {
     public e(int i, String str) {
         this(i, str, null);

@@ -10,40 +10,40 @@ import android.widget.TextView;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 import com.bytedance.sdk.openadsdk.utils.ac;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private SSWebView f6791a;
+    private SSWebView f6793a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f6792b;
+    private Context f6794b;
     private TextView c;
     private String d;
     private a e;
     private String f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Dialog dialog);
     }
 
     public b(Context context) {
         super(context, ac.g(context, "DialogFullscreen"));
-        this.f6792b = context;
+        this.f6794b = context;
     }
 
     @Override // android.app.AlertDialog, android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(ac.f(this.f6792b, "tt_app_privacy_dialog"));
+        setContentView(ac.f(this.f6794b, "tt_app_privacy_dialog"));
         b();
         a();
     }
 
     protected void a() {
-        this.f6791a = (SSWebView) findViewById(ac.e(this.f6792b, "tt_privacy_webview"));
-        this.c = (TextView) findViewById(ac.e(this.f6792b, "tt_app_privacy_back_tv"));
+        this.f6793a = (SSWebView) findViewById(ac.e(this.f6794b, "tt_privacy_webview"));
+        this.c = (TextView) findViewById(ac.e(this.f6794b, "tt_app_privacy_back_tv"));
         this.c.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -52,10 +52,10 @@ public class b extends AlertDialog {
                 }
             }
         });
-        this.f6791a.getSettings().setJavaScriptEnabled(true);
-        this.f6791a.getSettings().setDisplayZoomControls(false);
-        this.f6791a.getSettings().setCacheMode(2);
-        this.f6791a.loadUrl(this.d);
+        this.f6793a.getSettings().setJavaScriptEnabled(true);
+        this.f6793a.getSettings().setDisplayZoomControls(false);
+        this.f6793a.getSettings().setCacheMode(2);
+        this.f6793a.loadUrl(this.d);
     }
 
     private void b() {

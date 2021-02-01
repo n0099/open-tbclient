@@ -19,29 +19,29 @@ import com.baidu.android.imsdk.chatmessage.messages.ImageMsg;
 import com.baidu.live.sdk.a;
 import com.baidu.sumeru.universalimageloader.core.ImageLoader;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class t extends e {
-    public ImageView jIy;
+    public ImageView jPv;
     public View mContentView;
     public View mConvertView;
-    private ImageView oPd;
-    public View oPe;
-    private TextView oPf;
+    private ImageView oZn;
+    public View oZo;
+    private TextView oZp;
 
     @SuppressLint({"InflateParams"})
     public t(Context context, LayoutInflater layoutInflater) {
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_img_item, (ViewGroup) null);
-        this.oNJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oNM = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.oNO = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
+        this.oXT = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oXW = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oXY = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
-        this.oPe = this.mConvertView.findViewById(a.f.bd_im_chating_msg_uploadingLayout);
-        this.oPf = (TextView) this.mConvertView.findViewById(a.f.progressTV);
-        this.jIy = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
-        this.oPd = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_cover);
-        this.oNP = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
-        this.oNQ = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
-        this.oNR = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
+        this.oZo = this.mConvertView.findViewById(a.f.bd_im_chating_msg_uploadingLayout);
+        this.oZp = (TextView) this.mConvertView.findViewById(a.f.progressTV);
+        this.jPv = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
+        this.oZn = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_cover);
+        this.oXZ = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.oYa = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.oYb = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
         this.mConvertView.setTag(this);
     }
 
@@ -65,27 +65,27 @@ public class t extends e {
         ImageMsg imageMsg = (ImageMsg) chatMsg;
         Pair<Integer, Integer> a2 = a(context, imageMsg);
         if (chatMsg.isReSend()) {
-            this.oPe.setVisibility(8);
-            this.oPd.setVisibility(8);
+            this.oZo.setVisibility(8);
+            this.oZn.setVisibility(8);
         } else {
             if (imageMsg.getProgress() > 0 && imageMsg.getProgress() < 100) {
-                this.oPf.setText(String.valueOf(imageMsg.getProgress()) + "%");
+                this.oZp.setText(String.valueOf(imageMsg.getProgress()) + "%");
             }
             if (chatMsg.isMsgSendSuccess()) {
-                this.oPe.setVisibility(8);
-                this.oPd.setVisibility(8);
+                this.oZo.setVisibility(8);
+                this.oZn.setVisibility(8);
             } else if (chatMsg.getStatus() == 1) {
                 if (a2 != null) {
                     layoutParams = new RelativeLayout.LayoutParams(((Integer) a2.first).intValue(), ((Integer) a2.second).intValue());
                 } else {
                     layoutParams = new RelativeLayout.LayoutParams(0, 0);
                 }
-                this.oPd.setLayoutParams(layoutParams);
-                this.oPd.setVisibility(0);
-                this.oPe.setVisibility(0);
+                this.oZn.setLayoutParams(layoutParams);
+                this.oZn.setVisibility(0);
+                this.oZo.setVisibility(0);
             } else if (chatMsg.getStatus() == 2) {
-                this.oPe.setVisibility(8);
-                this.oPd.setVisibility(8);
+                this.oZo.setVisibility(8);
+                this.oZn.setVisibility(8);
             }
         }
         super.b(context, chatMsg);
@@ -150,7 +150,7 @@ public class t extends e {
                 if (bitmap2 != bitmap) {
                     bitmap.recycle();
                     if (bitmap2 != null) {
-                        this.jIy.setImageBitmap(bitmap2);
+                        this.jPv.setImageBitmap(bitmap2);
                         return new Pair<>(Integer.valueOf(bitmap2.getWidth()), Integer.valueOf(bitmap2.getHeight()));
                     }
                     return null;
@@ -160,7 +160,7 @@ public class t extends e {
             if (bitmap2 != null) {
             }
         } else if (!TextUtils.isEmpty(imageMsg.getRemoteUrl())) {
-            a(context, imageMsg, this.jIy);
+            a(context, imageMsg, this.jPv);
             return null;
         } else {
             try {
@@ -170,7 +170,7 @@ public class t extends e {
                 }
                 if (a2 != null) {
                     Bitmap b2 = b(context, a2);
-                    this.jIy.setImageBitmap(b2);
+                    this.jPv.setImageBitmap(b2);
                     return new Pair<>(Integer.valueOf(b2.getWidth()), Integer.valueOf(b2.getHeight()));
                 }
                 return null;
@@ -202,7 +202,7 @@ public class t extends e {
         if (TextUtils.isEmpty(thumbUrl)) {
             thumbUrl = remoteUrl;
         }
-        com.baidu.yuyinala.privatemessage.implugin.util.b.hC(context);
-        ImageLoader.getInstance().displayImage(thumbUrl, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
+        com.baidu.yuyinala.privatemessage.implugin.util.b.hF(context);
+        ImageLoader.getInstance().displayImage(thumbUrl, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.emr());
     }
 }

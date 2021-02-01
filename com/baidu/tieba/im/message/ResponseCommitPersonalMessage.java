@@ -46,7 +46,7 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         }
         long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
         setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-        setMsgId(com.baidu.tieba.im.util.b.gY(longValue));
+        setMsgId(com.baidu.tieba.im.util.b.hd(longValue));
         setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
         setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
         setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));

@@ -14,7 +14,7 @@ import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class StatisticRecorder implements Recordable {
     private static final boolean DEBUG = false;
     private static final String TAG = "ElasticRecord";

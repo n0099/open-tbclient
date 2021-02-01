@@ -20,25 +20,25 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GameCloseGuidePopView extends RelativeLayout {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private RecommendItemModel elA;
-    private com.baidu.swan.games.view.recommend.a.c elB;
-    private View elw;
-    private View elx;
-    private View ely;
-    private a elz;
+    private View enF;
+    private View enG;
+    private View enH;
+    private a enI;
+    private RecommendItemModel enJ;
+    private com.baidu.swan.games.view.recommend.a.c enK;
     private Context mContext;
     private RecyclerView mRecyclerView;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void apF();
+        void aqd();
 
-        void apG();
+        void aqe();
 
-        void apH();
+        void aqf();
     }
 
     public GameCloseGuidePopView(Context context) {
@@ -50,45 +50,45 @@ public class GameCloseGuidePopView extends RelativeLayout {
 
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(a.g.swangame_game_close_guide_view, this);
-        this.elw = findViewById(a.f.tv_exit_game);
-        this.elx = findViewById(a.f.tv_more_game);
-        this.ely = findViewById(a.f.rl_guide_game_bg);
+        this.enF = findViewById(a.f.tv_exit_game);
+        this.enG = findViewById(a.f.tv_more_game);
+        this.enH = findViewById(a.f.rl_guide_game_bg);
         this.mRecyclerView = (RecyclerView) findViewById(a.f.rv_guide_game);
-        this.elw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.1
+        this.enF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GameCloseGuidePopView.this.elz != null) {
-                    GameCloseGuidePopView.this.elz.apG();
+                if (GameCloseGuidePopView.this.enI != null) {
+                    GameCloseGuidePopView.this.enI.aqe();
                 }
             }
         });
-        this.elx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.2
+        this.enG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GameCloseGuidePopView.this.elz != null) {
-                    if (GameCloseGuidePopView.this.elA != null && !TextUtils.isEmpty(GameCloseGuidePopView.this.elA.getScheme()) && !TextUtils.isEmpty(GameCloseGuidePopView.this.elA.getAppKey())) {
-                        SchemeRouter.invokeSchemeForInner(GameCloseGuidePopView.this.mContext, Uri.parse(GameCloseGuidePopView.this.elA.getScheme()));
-                        GameCloseGuidePopView.this.elB.c(3, "popview", GameCloseGuidePopView.this.elA.getAppKey(), "");
+                if (GameCloseGuidePopView.this.enI != null) {
+                    if (GameCloseGuidePopView.this.enJ != null && !TextUtils.isEmpty(GameCloseGuidePopView.this.enJ.getScheme()) && !TextUtils.isEmpty(GameCloseGuidePopView.this.enJ.getAppKey())) {
+                        SchemeRouter.invokeSchemeForInner(GameCloseGuidePopView.this.mContext, Uri.parse(GameCloseGuidePopView.this.enJ.getScheme()));
+                        GameCloseGuidePopView.this.enK.c(3, "popview", GameCloseGuidePopView.this.enJ.getAppKey(), "");
                     }
-                    GameCloseGuidePopView.this.elz.apH();
+                    GameCloseGuidePopView.this.enI.aqf();
                 }
             }
         });
-        this.ely.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.3
+        this.enH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GameCloseGuidePopView.this.elz != null) {
-                    GameCloseGuidePopView.this.elz.apF();
+                if (GameCloseGuidePopView.this.enI != null) {
+                    GameCloseGuidePopView.this.enI.aqd();
                 }
             }
         });
-        d.be(this.elw);
-        d.be(this.elx);
+        d.ba(this.enF);
+        d.ba(this.enG);
         this.mRecyclerView.setLayoutManager(new GridLayoutManager(this.mContext, 3));
     }
 
     private void initData() {
-        this.elB = new com.baidu.swan.games.view.recommend.a.c();
+        this.enK = new com.baidu.swan.games.view.recommend.a.c();
         com.baidu.swan.games.view.recommend.popview.a.a(new Callback() { // from class: com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.4
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
@@ -106,7 +106,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                             String optString = optJSONObject.optString("game_center");
                             if (!TextUtils.isEmpty(optString)) {
                                 Gson gson = new Gson();
-                                GameCloseGuidePopView.this.elA = (RecommendItemModel) gson.fromJson(optString, (Class<Object>) RecommendItemModel.class);
+                                GameCloseGuidePopView.this.enJ = (RecommendItemModel) gson.fromJson(optString, (Class<Object>) RecommendItemModel.class);
                                 JSONArray optJSONArray = optJSONObject.optJSONArray("app_list");
                                 if (optJSONArray != null) {
                                     final ArrayList arrayList = new ArrayList();
@@ -116,12 +116,12 @@ public class GameCloseGuidePopView extends RelativeLayout {
                                             arrayList.add((RecommendItemModel) gson.fromJson(optJSONArray.opt(i).toString(), (Class<Object>) RecommendItemModel.class));
                                         }
                                     }
-                                    final com.baidu.swan.games.view.recommend.model.a aVar = new com.baidu.swan.games.view.recommend.model.a(GameCloseGuidePopView.this.elA, arrayList);
+                                    final com.baidu.swan.games.view.recommend.model.a aVar = new com.baidu.swan.games.view.recommend.model.a(GameCloseGuidePopView.this.enJ, arrayList);
                                     GameCloseGuidePopView.this.post(new Runnable() { // from class: com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.4.1
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             GameCloseGuidePopView.this.mRecyclerView.setAdapter(new GameGuideAdapter(GameCloseGuidePopView.this.mContext, arrayList));
-                                            GameCloseGuidePopView.this.elB.b(3, aVar);
+                                            GameCloseGuidePopView.this.enK.b(3, aVar);
                                         }
                                     });
                                 }
@@ -138,6 +138,6 @@ public class GameCloseGuidePopView extends RelativeLayout {
     }
 
     public void setOnClickListener(a aVar) {
-        this.elz = aVar;
+        this.enI = aVar;
     }
 }

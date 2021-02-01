@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.network.target;
 
 import com.sina.weibo.sdk.network.base.WbResponse;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class SimpleTarget extends BaseTarget {
     public abstract void onSuccess(String str);
 

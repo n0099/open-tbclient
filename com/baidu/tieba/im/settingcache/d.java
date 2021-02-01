@@ -5,18 +5,19 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.util.ab;
-import com.baidu.tbadk.util.ac;
+import com.baidu.tbadk.util.ae;
+import com.baidu.tbadk.util.af;
+import com.baidu.tbadk.util.m;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class d extends a {
-    private static d kEa = new d();
+    private static d kMf = new d();
 
     private d() {
     }
 
-    public static d cVV() {
-        return kEa;
+    public static d cXT() {
+        return kMf;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,8 +29,8 @@ public class d extends a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.kDT) {
-            ChatSetting chatSetting = this.kDT.get(str3);
+        synchronized (this.kLY) {
+            ChatSetting chatSetting = this.kLY.get(str3);
             officialSettingItemData = (chatSetting == null || !(chatSetting instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) chatSetting;
         }
         if (officialSettingItemData == null) {
@@ -42,7 +43,7 @@ public class d extends a {
         return officialSettingItemData;
     }
 
-    public void cTt() {
+    public void cVr() {
         super.r(OfficialSettingItemData.class);
     }
 
@@ -56,8 +57,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> cVS() {
-        return com.baidu.tbadk.core.c.a.bpZ().Ab("tb.im_official_chat_setting");
+    protected l<String> cXQ() {
+        return com.baidu.tbadk.core.c.a.bqr().As("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -72,18 +73,18 @@ public class d extends a {
                 }
                 return;
             }
-            l<String> cVS = cVS();
+            l<String> cXQ = cXQ();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.kDT) {
-                this.kDT.put(str, officialSettingItemData);
+            synchronized (this.kLY) {
+                this.kLY.put(str, officialSettingItemData);
             }
-            cVS.setForever(str, jsonStrWithObject);
+            cXQ.setForever(str, jsonStrWithObject);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    public void a(ChatSetting chatSetting, com.baidu.tbadk.util.l<Void> lVar) {
+    public void a(ChatSetting chatSetting, m<Void> mVar) {
         if (chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
             final OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
             String myUid = officialSettingItemData.getMyUid();
@@ -95,18 +96,18 @@ public class d extends a {
                 return;
             }
             final String str = myUid + "@" + toUid;
-            synchronized (this.kDT) {
-                this.kDT.put(str, officialSettingItemData);
+            synchronized (this.kLY) {
+                this.kLY.put(str, officialSettingItemData);
             }
-            ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
+            af.b(new ae<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bLv */
+                @Override // com.baidu.tbadk.util.ae
+                /* renamed from: bLP */
                 public Void doInBackground() {
-                    d.this.cVS().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
+                    d.this.cXQ().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
                     return null;
                 }
-            }, lVar);
+            }, mVar);
         }
     }
 }

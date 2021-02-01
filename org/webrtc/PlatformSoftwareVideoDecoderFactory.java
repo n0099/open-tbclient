@@ -1,44 +1,11 @@
 package org.webrtc;
 
-import android.media.MediaCodecInfo;
-import androidx.annotation.Nullable;
-import java.util.Arrays;
+import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PlatformSoftwareVideoDecoderFactory extends MediaCodecVideoDecoderFactory {
-    private static final Predicate<MediaCodecInfo> defaultAllowedPredicate = new Predicate<MediaCodecInfo>() { // from class: org.webrtc.PlatformSoftwareVideoDecoderFactory.1
-        private String[] prefixWhitelist = (String[]) Arrays.copyOf(MediaCodecUtils.SOFTWARE_IMPLEMENTATION_PREFIXES, MediaCodecUtils.SOFTWARE_IMPLEMENTATION_PREFIXES.length);
-
-        @Override // org.webrtc.Predicate
-        public Predicate<T> and(Predicate<? super T> predicate) {
-            return Predicate_CC.$default$and(this, predicate);
-        }
-
-        @Override // org.webrtc.Predicate
-        public Predicate<T> negate() {
-            return Predicate_CC.$default$negate(this);
-        }
-
-        @Override // org.webrtc.Predicate
-        public Predicate<T> or(Predicate<? super T> predicate) {
-            return Predicate_CC.$default$or(this, predicate);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // org.webrtc.Predicate
-        public boolean test(MediaCodecInfo mediaCodecInfo) {
-            String name = mediaCodecInfo.getName();
-            for (String str : this.prefixWhitelist) {
-                if (name.startsWith(str)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-    };
-
     public PlatformSoftwareVideoDecoderFactory(@Nullable EglBase.Context context) {
-        super(context, defaultAllowedPredicate);
+        super(context, MediaCodecUtils.SOFTWARE_IMPLEMENTATION_PREFIXES, new String[0]);
     }
 
     @Override // org.webrtc.MediaCodecVideoDecoderFactory, org.webrtc.VideoDecoderFactory

@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class g extends b<com.baidu.swan.pms.model.g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
@@ -33,7 +33,7 @@ public class g extends b<com.baidu.swan.pms.model.g> {
     /* renamed from: l */
     public ContentValues al(com.baidu.swan.pms.model.g gVar) {
         ContentValues e = super.e(gVar);
-        e.put("independent", Integer.valueOf(gVar.esa ? 1 : 0));
+        e.put("independent", Integer.valueOf(gVar.euh ? 1 : 0));
         e.put("sub_pkg_name", gVar.pkgName);
         e.put("app_id", gVar.appId);
         return e;
@@ -46,7 +46,7 @@ public class g extends b<com.baidu.swan.pms.model.g> {
             int columnIndex3 = cursor.getColumnIndex("app_id");
             com.baidu.swan.pms.model.g gVar = new com.baidu.swan.pms.model.g();
             if (a(cursor, gVar)) {
-                gVar.esa = cursor.getInt(columnIndex) == 1;
+                gVar.euh = cursor.getInt(columnIndex) == 1;
                 gVar.pkgName = cursor.getString(columnIndex2);
                 gVar.appId = cursor.getString(columnIndex3);
                 return gVar;

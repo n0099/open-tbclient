@@ -1,5 +1,5 @@
 package com.baidu.minivideo.arface.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void onCompleted(String str);
 

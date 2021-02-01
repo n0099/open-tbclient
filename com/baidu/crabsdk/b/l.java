@@ -1,20 +1,20 @@
 package com.baidu.crabsdk.b;
 
 import java.io.IOException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 final class l implements Runnable {
-    final /* synthetic */ Process apj;
+    final /* synthetic */ Process aoZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(Process process) {
-        this.apj = process;
+        this.aoZ = process;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
             do {
-            } while (this.apj.getErrorStream().read(new byte[8192]) >= 0);
+            } while (this.aoZ.getErrorStream().read(new byte[8192]) >= 0);
         } catch (IOException e) {
             com.baidu.crabsdk.c.a.a("dummy", e);
         }

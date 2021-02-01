@@ -21,15 +21,15 @@ import com.baidu.wallet.core.SDKBaseActivity;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class BankCardResultActivity extends DxmPayBaseActivity implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f5627a = BankCardResultActivity.class.getSimpleName();
+    private static final String f5629a = BankCardResultActivity.class.getSimpleName();
     private static Pattern i = Pattern.compile("\\d{1,20}");
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f5628b;
+    private TextView f5630b;
     private View c;
     private View d;
     private SafeScrollView e;
@@ -46,9 +46,9 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (this.f5628b == view || ResUtils.id(getActivity(), "dialog_title_close") == id) {
+        if (this.f5630b == view || ResUtils.id(getActivity(), "dialog_title_close") == id) {
             String charSequence = b().toString();
-            if (this.f5628b == view) {
+            if (this.f5630b == view) {
                 PayStatisticsUtil.onEvent("takephotoClickNext");
                 BankcardDetectionController.getInstance().update(null, charSequence);
                 setResult(1243, null);
@@ -109,7 +109,7 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
 
     public void onModuleEvent(EventBus.Event event) {
         if (!"BankCardResult".equals(event.mEventKey)) {
-            LogUtil.e(f5627a, "invalid bankcad result key", (Throwable) null);
+            LogUtil.e(f5629a, "invalid bankcad result key", (Throwable) null);
             finish();
             overridePendingTransition(0, 0);
         }
@@ -125,7 +125,7 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
                 BankCardResultActivity.this.c();
             }
         });
-        this.f5628b = (TextView) findViewById(ResUtils.id(activity, "button_ok"));
+        this.f5630b = (TextView) findViewById(ResUtils.id(activity, "button_ok"));
         ((ImageView) this.e.findViewById(ResUtils.id(activity, "card_num_img"))).setImageBitmap(this.h.getDstRGBImage(false));
         this.g = this.h.cardNumberToString().split(" ");
         this.c = this.e.findViewById(ResUtils.id(activity, "dialog_title_close"));
@@ -195,7 +195,7 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class a implements InputFilter {
         a() {
         }
@@ -217,11 +217,11 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
                 return "";
             }
             if (a2 + i5 > 10) {
-                BankCardResultActivity.this.f5628b.setEnabled(true);
-                BankCardResultActivity.this.f5628b.setTextColor(-1);
+                BankCardResultActivity.this.f5630b.setEnabled(true);
+                BankCardResultActivity.this.f5630b.setTextColor(-1);
             } else {
-                BankCardResultActivity.this.f5628b.setEnabled(false);
-                BankCardResultActivity.this.f5628b.setTextColor(ResUtils.getColor(BankCardResultActivity.this.getActivity(), "bcd_disable_text"));
+                BankCardResultActivity.this.f5630b.setEnabled(false);
+                BankCardResultActivity.this.f5630b.setTextColor(ResUtils.getColor(BankCardResultActivity.this.getActivity(), "bcd_disable_text"));
             }
             return charSequence.subSequence(i, i2);
         }

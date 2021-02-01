@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -21,7 +21,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final HashMap<Integer, Integer[]> sBtnStyleMap = new HashMap<>(2);
-    private InterfaceC0561b eSD;
+    private InterfaceC0558b eUS;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.f<?> mContext;
@@ -49,7 +49,7 @@ public class b {
 
     /* renamed from: com.baidu.tbadk.core.dialog.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0561b {
+    public interface InterfaceC0558b {
         void a(b bVar, int i, View view);
     }
 
@@ -66,38 +66,38 @@ public class b {
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
     }
 
-    public b Ae(String str) {
+    public b Av(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public b nz(int i) {
-        return Ae(this.mActivity.getResources().getString(i));
+    public b nC(int i) {
+        return Av(this.mActivity.getResources().getString(i));
     }
 
-    public b a(CharSequence[] charSequenceArr, InterfaceC0561b interfaceC0561b) {
+    public b a(CharSequence[] charSequenceArr, InterfaceC0558b interfaceC0558b) {
         if (charSequenceArr != null && charSequenceArr.length > 0) {
-            return a(Arrays.asList(charSequenceArr), interfaceC0561b);
+            return a(Arrays.asList(charSequenceArr), interfaceC0558b);
         }
         return this;
     }
 
-    public b a(List<CharSequence> list, InterfaceC0561b interfaceC0561b) {
+    public b a(List<CharSequence> list, InterfaceC0558b interfaceC0558b) {
         if (list != null && list.size() > 0) {
             this.mItems = list;
-            if (interfaceC0561b != null) {
-                this.eSD = interfaceC0561b;
+            if (interfaceC0558b != null) {
+                this.eUS = interfaceC0558b;
             }
         }
         return this;
     }
 
-    public b nA(int i) {
+    public b nD(int i) {
         this.mAnimationStyleId = i;
         return this;
     }
 
-    public b nB(int i) {
+    public b nE(int i) {
         this.mDialogGravity = i;
         return this;
     }
@@ -125,7 +125,7 @@ public class b {
         return this;
     }
 
-    public b bqg() {
+    public b bqz() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -189,20 +189,20 @@ public class b {
         textView.setText(charSequence);
         if (i == this.mItems.size() - 1) {
             findViewById.setVisibility(8);
-            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
+            ap.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
         } else if (this.mItems.size() == 1) {
             findViewById.setVisibility(8);
-            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
+            ap.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
         } else if (i == 0 && StringUtils.isNull(this.mTitle)) {
-            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_first_bg_selector);
+            ap.setBackgroundResource(inflate, R.drawable.dialog_single_button_first_bg_selector);
         } else {
-            ao.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
+            ap.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.eSD != null) {
+        if (this.eUS != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.eSD.a(b.this, i, textView);
+                    b.this.eUS.a(b.this, i, textView);
                 }
             });
         }

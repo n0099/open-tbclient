@@ -12,13 +12,13 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class gq {
 
     /* renamed from: a  reason: collision with root package name */
-    private static gq f14063a;
+    private static gq f14065a;
 
     /* renamed from: a  reason: collision with other field name */
     private Map<String, Object> f484a = new ConcurrentHashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, Object> f14064b = new ConcurrentHashMap();
+    private Map<String, Object> f14066b = new ConcurrentHashMap();
 
     private gq() {
         m348a();
@@ -27,10 +27,10 @@ public class gq {
     public static synchronized gq a() {
         gq gqVar;
         synchronized (gq.class) {
-            if (f14063a == null) {
-                f14063a = new gq();
+            if (f14065a == null) {
+                f14065a = new gq();
             }
-            gqVar = f14063a;
+            gqVar = f14065a;
         }
         return gqVar;
     }
@@ -85,13 +85,13 @@ public class gq {
                                 newPullParser.next();
                                 String nextText3 = newPullParser.nextText();
                                 String a2 = a(nextText, nextText2);
-                                if (!this.f14064b.containsKey(a2)) {
+                                if (!this.f14066b.containsKey(a2)) {
                                     try {
                                         Class<?> cls = Class.forName(nextText3);
                                         if (go.class.isAssignableFrom(cls)) {
-                                            this.f14064b.put(a2, cls.newInstance());
+                                            this.f14066b.put(a2, cls.newInstance());
                                         } else if (gh.class.isAssignableFrom(cls)) {
-                                            this.f14064b.put(a2, cls);
+                                            this.f14066b.put(a2, cls);
                                         }
                                     } catch (ClassNotFoundException e) {
                                         e.printStackTrace();

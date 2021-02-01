@@ -11,11 +11,11 @@ import com.fun.ad.sdk.FunRippedAd;
 import com.qq.e.ads.splash.SplashAD;
 import com.qq.e.ads.splash.SplashADListener;
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class bp extends an {
-    public SplashAD pFM;
+    public SplashAD pPR;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class a implements SplashADListener {
         public a() {
         }
@@ -24,9 +24,9 @@ public class bp extends an {
         public void onADClicked() {
             m.a("GDTSplashAd onADClicked");
             bp bpVar = bp.this;
-            ah ahVar = bpVar.pFi;
+            ah ahVar = bpVar.pPn;
             if (ahVar != null) {
-                ((aa) ahVar).c(bpVar.f7752a.f7760a);
+                ((aa) ahVar).c(bpVar.f7754a.f7762a);
             }
         }
 
@@ -34,9 +34,9 @@ public class bp extends an {
         public void onADDismissed() {
             m.a("GDTSplashAd onADDismissed");
             bp bpVar = bp.this;
-            ah ahVar = bpVar.pFi;
+            ah ahVar = bpVar.pPn;
             if (ahVar != null) {
-                ((aa) ahVar).a(bpVar.f7752a.f7760a);
+                ((aa) ahVar).a(bpVar.f7754a.f7762a);
             }
         }
 
@@ -49,21 +49,21 @@ public class bp extends an {
         public void onADLoaded(long j) {
             m.a("GDTSplashAd onADLoaded");
             bp bpVar = bp.this;
-            bpVar.f7753b = false;
-            ak akVar = bpVar.pFh;
+            bpVar.f7755b = false;
+            ak akVar = bpVar.pPm;
             if (akVar != null) {
-                ((x) akVar).b(bpVar.f7752a.f7760a);
+                ((x) akVar).b(bpVar.f7754a.f7762a);
             }
-            AdRipper.ripGDTSplash(bp.this.pFM);
+            AdRipper.ripGDTSplash(bp.this.pPR);
         }
 
         @Override // com.qq.e.ads.splash.SplashADListener
         public void onADPresent() {
             m.a("GDTSplashAd onADPresent");
             bp bpVar = bp.this;
-            ah ahVar = bpVar.pFi;
+            ah ahVar = bpVar.pPn;
             if (ahVar != null) {
-                ((aa) ahVar).d(bpVar.f7752a.f7760a);
+                ((aa) ahVar).d(bpVar.f7754a.f7762a);
             }
         }
 
@@ -76,10 +76,10 @@ public class bp extends an {
         public void onNoAD(AdError adError) {
             m.a("GDTSplashAd onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg());
             bp bpVar = bp.this;
-            bpVar.f7753b = false;
-            ak akVar = bpVar.pFh;
+            bpVar.f7755b = false;
+            ak akVar = bpVar.pPm;
             if (akVar != null) {
-                ((x) akVar).a(bpVar.f7752a.f7760a, adError.getErrorCode(), adError.getErrorMsg());
+                ((x) akVar).a(bpVar.f7754a.f7762a, adError.getErrorCode(), adError.getErrorMsg());
             }
         }
     }
@@ -91,13 +91,13 @@ public class bp extends an {
     @Override // com.fun.ad.an
     public void a() {
         super.a();
-        this.pFM = null;
+        this.pPR = null;
     }
 
     @Override // com.fun.ad.an
-    public FunRippedAd exX() {
+    public FunRippedAd eAp() {
         AdRipper.RippedGDTAd rippedGDTSplashAd;
-        SplashAD splashAD = this.pFM;
+        SplashAD splashAD = this.pPR;
         if (splashAD == null || (rippedGDTSplashAd = AdRipper.getRippedGDTSplashAd(splashAD, false)) == null) {
             return null;
         }
@@ -115,25 +115,25 @@ public class bp extends an {
     @Override // com.fun.ad.an
     public void a(Context context, FunAdSlot funAdSlot, ak akVar) {
         super.a(context, funAdSlot, akVar);
-        if (!this.f7753b) {
-            this.f7753b = true;
+        if (!this.f7755b) {
+            this.f7755b = true;
             a aVar = new a();
             if (!(context instanceof Activity)) {
                 m.a("GDTSplashAd context is not activity");
-                this.f7753b = false;
-                ak akVar2 = this.pFh;
+                this.f7755b = false;
+                ak akVar2 = this.pPm;
                 if (akVar2 != null) {
-                    ((x) akVar2).a(this.f7752a.f7760a, 0, "Custom error message: context is not activity");
+                    ((x) akVar2).a(this.f7754a.f7762a, 0, "Custom error message: context is not activity");
                     return;
                 }
                 return;
             }
-            SplashAD splashAD = new SplashAD((Activity) context, this.f7752a.f7760a, aVar, 0);
-            this.pFM = splashAD;
+            SplashAD splashAD = new SplashAD((Activity) context, this.f7754a.f7762a, aVar, 0);
+            this.pPR = splashAD;
             splashAD.fetchAdOnly();
-            ak akVar3 = this.pFh;
+            ak akVar3 = this.pPm;
             if (akVar3 != null) {
-                ((x) akVar3).a(this.f7752a.f7760a);
+                ((x) akVar3).a(this.f7754a.f7762a);
             }
         }
     }
@@ -141,14 +141,14 @@ public class bp extends an {
     @Override // com.fun.ad.an
     public void a(Activity activity, FunAdView funAdView, ah ahVar) {
         super.a(activity, funAdView, ahVar);
-        SplashAD splashAD = this.pFM;
+        SplashAD splashAD = this.pPR;
         if (splashAD != null) {
             splashAD.showAd(funAdView);
             return;
         }
-        ah ahVar2 = this.pFi;
+        ah ahVar2 = this.pPn;
         if (ahVar2 != null) {
-            ((aa) ahVar2).a(this.f7752a.f7760a, 0, "Custom error message: mSplashAD is null when show");
+            ((aa) ahVar2).a(this.f7754a.f7762a, 0, "Custom error message: mSplashAD is null when show");
         }
     }
 }

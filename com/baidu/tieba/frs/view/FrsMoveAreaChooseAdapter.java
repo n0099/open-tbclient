@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.BdTopToast;
@@ -15,26 +15,26 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes2.dex */
 public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements View.OnClickListener {
-    private int gcz;
-    private FrsMoveAreaChooseView jJE;
-    private int jJG = -1;
-    private List<FrsTabInfo> jJF = com.baidu.tieba.frs.a.czZ().cAc();
-    private SparseArray<FrsTabInfo> jJH = new SparseArray<>();
+    private int geO;
+    private FrsMoveAreaChooseView jQB;
+    private int jQD = -1;
+    private List<FrsTabInfo> jQC = com.baidu.tieba.frs.a.cBk().cBn();
+    private SparseArray<FrsTabInfo> jQE = new SparseArray<>();
 
     public FrsMoveAreaChooseAdapter(FrsMoveAreaChooseView frsMoveAreaChooseView) {
-        this.gcz = -1;
-        this.jJE = frsMoveAreaChooseView;
-        if (!x.isEmpty(this.jJF)) {
+        this.geO = -1;
+        this.jQB = frsMoveAreaChooseView;
+        if (!y.isEmpty(this.jQC)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.jJF.size()) {
-                    FrsTabInfo frsTabInfo = this.jJF.get(i2);
-                    if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.czZ().cAb() || frsTabInfo.tab_type.intValue() == 3)) {
-                        if (frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.czZ().cAb()) {
-                            this.gcz = i2;
+                if (i2 < this.jQC.size()) {
+                    FrsTabInfo frsTabInfo = this.jQC.get(i2);
+                    if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.cBk().cBm() || frsTabInfo.tab_type.intValue() == 3)) {
+                        if (frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.cBk().cBm()) {
+                            this.geO = i2;
                         }
-                        this.jJH.append(i2, frsTabInfo);
+                        this.jQE.append(i2, frsTabInfo);
                     }
                     i = i2 + 1;
                 } else {
@@ -44,18 +44,18 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
         }
     }
 
-    public int cLp() {
-        return this.gcz;
+    public int cMy() {
+        return this.geO;
     }
 
-    public int cLq() {
-        return this.jJG;
+    public int cNe() {
+        return this.jQD;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: E */
+    /* renamed from: F */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cell_frs_area_choose_layout, viewGroup, false));
     }
@@ -65,61 +65,61 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
     /* renamed from: a */
     public void onBindViewHolder(@NonNull a aVar, int i) {
         FrsTabInfo frsTabInfo;
-        if (!x.isEmpty(this.jJF) && (frsTabInfo = (FrsTabInfo) x.getItem(this.jJF, i)) != null) {
-            aVar.jJI.setTag(Integer.valueOf(i));
-            aVar.jJI.setText(frsTabInfo.tab_name);
-            aVar.jJI.setOnClickListener(this);
-            b(aVar.jJI, i);
+        if (!y.isEmpty(this.jQC) && (frsTabInfo = (FrsTabInfo) y.getItem(this.jQC, i)) != null) {
+            aVar.jQF.setTag(Integer.valueOf(i));
+            aVar.jQF.setText(frsTabInfo.tab_name);
+            aVar.jQF.setOnClickListener(this);
+            b(aVar.jQF, i);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return x.getCount(this.jJF);
+        return y.getCount(this.jQC);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof Integer) {
             int intValue = ((Integer) view.getTag()).intValue();
-            if (this.jJH.get(intValue) != null) {
-                if (this.jJE != null && this.jJE.getContext() != null && this.jJE.getParent() != null) {
-                    if (intValue == this.gcz) {
-                        new BdTopToast(this.jJE.getContext()).yS(false).TQ(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip)).aR((ViewGroup) this.jJE.getParent());
+            if (this.jQE.get(intValue) != null) {
+                if (this.jQB != null && this.jQB.getContext() != null && this.jQB.getParent() != null) {
+                    if (intValue == this.geO) {
+                        new BdTopToast(this.jQB.getContext()).zn(false).UN(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip)).aR((ViewGroup) this.jQB.getParent());
                         return;
                     } else {
-                        new BdTopToast(this.jJE.getContext()).yS(false).TQ(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip)).aR((ViewGroup) this.jJE.getParent());
+                        new BdTopToast(this.jQB.getContext()).zn(false).UN(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip)).aR((ViewGroup) this.jQB.getParent());
                         return;
                     }
                 }
                 return;
             }
-            this.jJG = intValue;
-            if (this.jJE != null) {
-                this.jJE.onClick(view);
+            this.jQD = intValue;
+            if (this.jQB != null) {
+                this.jQB.onClick(view);
             }
             notifyDataSetChanged();
         }
     }
 
     private void b(TBSpecificationBtn tBSpecificationBtn, int i) {
-        if (i == this.jJG) {
+        if (i == this.jQD) {
             com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar.pM(R.color.CAM_X0304);
+            cVar.pR(R.color.CAM_X0304);
             tBSpecificationBtn.setConfig(cVar);
-            tBSpecificationBtn.btV();
+            tBSpecificationBtn.bup();
             tBSpecificationBtn.setUseDisableState(false);
-        } else if (this.jJH.get(i) != null) {
+        } else if (this.jQE.get(i) != null) {
             com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar2.pO(R.color.CAM_X0105);
+            cVar2.pT(R.color.CAM_X0105);
             tBSpecificationBtn.setConfig(cVar2);
-            tBSpecificationBtn.btV();
+            tBSpecificationBtn.bup();
             tBSpecificationBtn.setUseDisableState(true);
         } else {
             com.baidu.tbadk.core.view.commonBtn.c cVar3 = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar3.pO(R.color.CAM_X0105);
+            cVar3.pT(R.color.CAM_X0105);
             tBSpecificationBtn.setConfig(cVar3);
-            tBSpecificationBtn.btV();
+            tBSpecificationBtn.bup();
             tBSpecificationBtn.setUseDisableState(false);
         }
     }
@@ -127,11 +127,11 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a extends RecyclerView.ViewHolder {
-        TBSpecificationBtn jJI;
+        TBSpecificationBtn jQF;
 
         a(View view) {
             super(view);
-            this.jJI = (TBSpecificationBtn) view.findViewById(R.id.cell_frs_area_choose_name);
+            this.jQF = (TBSpecificationBtn) view.findViewById(R.id.cell_frs_area_choose_name);
         }
     }
 }

@@ -5,11 +5,11 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface g extends IInterface {
     void a(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar, int i) throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements g {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadAidlDepend");
@@ -23,7 +23,7 @@ public interface g extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof g)) {
                 return (g) queryLocalInterface;
             }
-            return new C1235a(iBinder);
+            return new C1239a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -48,19 +48,19 @@ public interface g extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.d.g$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C1235a implements g {
+        /* loaded from: classes6.dex */
+        private static class C1239a implements g {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13111a;
+            private IBinder f13113a;
 
-            C1235a(IBinder iBinder) {
-                this.f13111a = iBinder;
+            C1239a(IBinder iBinder) {
+                this.f13113a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13111a;
+                return this.f13113a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.g
@@ -82,7 +82,7 @@ public interface g extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeInt(i);
-                    this.f13111a.transact(1, obtain, obtain2, 0);
+                    this.f13113a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

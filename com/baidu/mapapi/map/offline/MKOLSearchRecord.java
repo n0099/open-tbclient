@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map.offline;
 
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MKOLSearchRecord {
     public ArrayList<MKOLSearchRecord> childCities;
     public int cityID;

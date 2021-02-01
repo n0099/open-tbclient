@@ -8,7 +8,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CrashUploadService extends IntentService {
     public CrashUploadService() {
         super("CrashUploadService");
@@ -25,14 +25,14 @@ public class CrashUploadService extends IntentService {
             String stringExtra2 = intent.getStringExtra("crash_json_value");
             String stringExtra3 = intent.getStringExtra("crash_info_file_path");
             String stringExtra4 = intent.getStringExtra("crash_dump_file_path");
-            com.bytedance.tea.crash.b.a.eoD().a(getApplication());
-            if (!TextUtils.isEmpty(stringExtra2) && !TextUtils.isEmpty(stringExtra) && !com.bytedance.tea.crash.b.a.eoD().a(stringExtra3) && a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
+            com.bytedance.tea.crash.b.a.eqV().a(getApplication());
+            if (!TextUtils.isEmpty(stringExtra2) && !TextUtils.isEmpty(stringExtra) && !com.bytedance.tea.crash.b.a.eqV().a(stringExtra3) && a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
                 if (cVar == com.bytedance.tea.crash.c.NATIVE) {
                     if (!com.bytedance.tea.crash.g.d.c(new File(stringExtra3).getParentFile(), true)) {
-                        com.bytedance.tea.crash.b.a.eoD().a(com.bytedance.tea.crash.b.a.a.XQ(stringExtra3));
+                        com.bytedance.tea.crash.b.a.eqV().a(com.bytedance.tea.crash.b.a.a.YR(stringExtra3));
                     }
                 } else if (!TextUtils.isEmpty(stringExtra3) && !com.bytedance.tea.crash.g.d.a(stringExtra3)) {
-                    com.bytedance.tea.crash.b.a.eoD().a(com.bytedance.tea.crash.b.a.a.XQ(stringExtra3));
+                    com.bytedance.tea.crash.b.a.eqV().a(com.bytedance.tea.crash.b.a.a.YR(stringExtra3));
                 }
             }
         }
@@ -50,10 +50,10 @@ public class CrashUploadService extends IntentService {
             e.printStackTrace();
         }
         if (cVar == com.bytedance.tea.crash.c.NATIVE) {
-            return b.aU(str, str2, str3);
+            return b.aV(str, str2, str3);
         }
         if (cVar == com.bytedance.tea.crash.c.LAUNCH) {
-            return b.hh(str, str2);
+            return b.ho(str, str2);
         }
         return b.L(str, str2, b.a());
     }

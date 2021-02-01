@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f1878a = 1000;
+    public static final long f1876a = 1000;
     private static final long e = Long.MAX_VALUE;
     private static final int f = 5;
     private static final int g = 128;
@@ -28,7 +28,7 @@ public final class a {
     private static final String d = a.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, a> f1879b = new HashMap<>();
+    public static HashMap<String, a> f1877b = new HashMap<>();
     private static a i = null;
     private final HashMap<Future<?>, Runnable> k = new HashMap<>();
     private final ThreadFactory l = new com.baidu.fsg.base.b.b(this);
@@ -45,9 +45,9 @@ public final class a {
     public static synchronized a a(String str) {
         a aVar;
         synchronized (a.class) {
-            if (f1879b.get(str) == null) {
+            if (f1877b.get(str) == null) {
                 i = new a();
-                f1879b.put(str, i);
+                f1877b.put(str, i);
             }
             aVar = i;
         }
@@ -55,7 +55,7 @@ public final class a {
     }
 
     public boolean a(c cVar, String str) {
-        if (cVar == null || cVar.f1884b == null) {
+        if (cVar == null || cVar.f1882b == null) {
             return false;
         }
         synchronized (this.j) {
@@ -96,9 +96,9 @@ public final class a {
             Iterator<c> it = c2.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (next.f1883a.equals(str2)) {
+                if (next.f1881a.equals(str2)) {
                     b(next);
-                    c2.remove(next.f1883a);
+                    c2.remove(next.f1881a);
                 }
             }
         }
@@ -108,7 +108,7 @@ public final class a {
         Iterator<c> it = arrayList.iterator();
         while (it.hasNext()) {
             c next = it.next();
-            if (TextUtils.equals(str, next.f1883a)) {
+            if (TextUtils.equals(str, next.f1881a)) {
                 return next;
             }
         }
@@ -126,10 +126,10 @@ public final class a {
 
     private boolean b(c cVar, String str) {
         boolean z = false;
-        if (cVar != null && cVar.f1884b != null) {
+        if (cVar != null && cVar.f1882b != null) {
             synchronized (this.j) {
                 ArrayList<c> c2 = c(str);
-                c a2 = a(cVar.f1883a, c2);
+                c a2 = a(cVar.f1881a, c2);
                 if (a2 != null) {
                     b(a2);
                     c2.remove(a2);
@@ -196,7 +196,7 @@ public final class a {
     private boolean a(c cVar, ArrayList<c> arrayList) {
         Iterator<c> it = arrayList.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(it.next().f1883a, cVar.f1883a)) {
+            if (TextUtils.equals(it.next().f1881a, cVar.f1881a)) {
                 return true;
             }
         }
@@ -205,11 +205,11 @@ public final class a {
 
     private void b(c cVar) {
         if (cVar.e) {
-            this.q.a(cVar.f1884b);
+            this.q.a(cVar.f1882b);
             return;
         }
         for (Future<?> future : this.k.keySet()) {
-            if (this.k.get(future) == cVar.f1884b && future != null && (!future.isCancelled() || !future.isDone())) {
+            if (this.k.get(future) == cVar.f1882b && future != null && (!future.isCancelled() || !future.isDone())) {
                 future.cancel(true);
             }
         }
@@ -233,12 +233,12 @@ public final class a {
             cVar.d = 0L;
         }
         if (cVar.e) {
-            this.q.execute(cVar.f1884b);
+            this.q.execute(cVar.f1882b);
             return;
         }
-        this.k.put(this.p.submit(cVar.f1884b), cVar.f1884b);
+        this.k.put(this.p.submit(cVar.f1882b), cVar.f1882b);
         if (c) {
-            Log.d(d, "execute task, " + cVar.f1883a + " execute time is " + System.currentTimeMillis());
+            Log.d(d, "execute task, " + cVar.f1881a + " execute time is " + System.currentTimeMillis());
         }
     }
 
@@ -262,13 +262,13 @@ public final class a {
     public class b implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        final LinkedList<Runnable> f1881a;
+        final LinkedList<Runnable> f1879a;
 
         /* renamed from: b  reason: collision with root package name */
-        Runnable f1882b;
+        Runnable f1880b;
 
         private b() {
-            this.f1881a = new LinkedList<>();
+            this.f1879a = new LinkedList<>();
         }
 
         /* synthetic */ b(a aVar, com.baidu.fsg.base.b.b bVar) {
@@ -277,23 +277,23 @@ public final class a {
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(Runnable runnable) {
-            this.f1881a.offer(new e(this, runnable));
-            if (this.f1882b == null) {
+            this.f1879a.offer(new e(this, runnable));
+            if (this.f1880b == null) {
                 a();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         public synchronized void a() {
-            Runnable poll = this.f1881a.poll();
-            this.f1882b = poll;
+            Runnable poll = this.f1879a.poll();
+            this.f1880b = poll;
             if (poll != null) {
-                a.this.p.execute(this.f1882b);
+                a.this.p.execute(this.f1880b);
             }
         }
 
         public synchronized void a(Runnable runnable) {
-            this.f1881a.remove(runnable);
+            this.f1879a.remove(runnable);
         }
     }
 
@@ -301,10 +301,10 @@ public final class a {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1883a;
+        public String f1881a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f1884b;
+        public Runnable f1882b;
         public long c;
         public long d;
         public boolean e;
@@ -315,8 +315,8 @@ public final class a {
             this.f = System.currentTimeMillis() + j;
             this.c = j2;
             this.e = z;
-            this.f1884b = runnable;
-            this.f1883a = str;
+            this.f1882b = runnable;
+            this.f1881a = str;
         }
     }
 }

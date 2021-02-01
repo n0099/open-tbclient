@@ -5,14 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class ForumRuleDelItemDialogView extends LinearLayout {
-    private TextView bIw;
-    private TextView iBo;
-    private TextView jqa;
-    private TextView jqb;
+    private TextView bMg;
+    private TextView iGY;
+    private TextView jvG;
+    private TextView jvH;
     private Context mContext;
     private LinearLayout mRootView;
 
@@ -24,31 +24,31 @@ public class ForumRuleDelItemDialogView extends LinearLayout {
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.jqa.setOnClickListener(onClickListener);
+            this.jvG.setOnClickListener(onClickListener);
         }
     }
 
     public void setpostButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.jqb.setOnClickListener(onClickListener);
+            this.jvH.setOnClickListener(onClickListener);
         }
     }
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.forum_rule_del_dialog, this);
         this.mRootView = (LinearLayout) findViewById(R.id.ll_main);
-        this.bIw = (TextView) this.mRootView.findViewById(R.id.dialog_title);
-        this.iBo = (TextView) this.mRootView.findViewById(R.id.dialog_content);
-        this.jqa = (TextView) this.mRootView.findViewById(R.id.next_time);
-        this.jqb = (TextView) this.mRootView.findViewById(R.id.del_tv);
-        this.bIw.setText(R.string.forum_rule_item_del_dialog_title);
-        this.iBo.setText(R.string.forum_rule_item_del_dialog_abstract);
-        this.jqa.setText(R.string.next_time);
-        this.jqb.setText(R.string.del_post);
-        ao.setBackgroundResource(this.mRootView, R.drawable.bg_frs_private_dialog);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.bIw).nV(R.color.CAM_X0105).nX(R.string.F_X02).nW(R.dimen.T_X06);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.iBo).nV(R.color.CAM_X0107).nW(R.dimen.T_X07);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.jqa).nV(R.color.CAM_X0105).od(R.string.J_X07).og(R.dimen.L_X02).nW(R.dimen.T_X08).of(R.color.CAM_X0902).setBackGroundColor(R.color.CAM_X0201);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.jqb).nV(R.color.CAM_X0302).od(R.string.J_X07).nW(R.dimen.T_X08).og(R.dimen.L_X02).oh(R.string.A_X07).of(R.color.CAM_X0302).setBackGroundColor(R.color.CAM_X0201);
+        this.bMg = (TextView) this.mRootView.findViewById(R.id.dialog_title);
+        this.iGY = (TextView) this.mRootView.findViewById(R.id.dialog_content);
+        this.jvG = (TextView) this.mRootView.findViewById(R.id.next_time);
+        this.jvH = (TextView) this.mRootView.findViewById(R.id.del_tv);
+        this.bMg.setText(R.string.forum_rule_item_del_dialog_title);
+        this.iGY.setText(R.string.forum_rule_item_del_dialog_abstract);
+        this.jvG.setText(R.string.next_time);
+        this.jvH.setText(R.string.del_post);
+        ap.setBackgroundResource(this.mRootView, R.drawable.bg_frs_private_dialog);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.bMg).nY(R.color.CAM_X0105).oa(R.string.F_X02).nZ(R.dimen.T_X06);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.iGY).nY(R.color.CAM_X0107).nZ(R.dimen.T_X07);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.jvG).nY(R.color.CAM_X0105).og(R.string.J_X07).ok(R.dimen.L_X02).nZ(R.dimen.T_X08).oj(R.color.CAM_X0902).setBackGroundColor(R.color.CAM_X0201);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.jvH).nY(R.color.CAM_X0302).og(R.string.J_X07).nZ(R.dimen.T_X08).ok(R.dimen.L_X02).ol(R.string.A_X07).oj(R.color.CAM_X0302).setBackGroundColor(R.color.CAM_X0201);
     }
 }

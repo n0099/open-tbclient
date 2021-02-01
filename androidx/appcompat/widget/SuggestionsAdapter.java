@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.WeakHashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickListener {
     private static final boolean DBG = false;
     static final int INVALID_INDEX = -1;
@@ -161,7 +161,7 @@ class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class ChildViewCache {
         public final ImageView mIcon1;
         public final ImageView mIcon2;

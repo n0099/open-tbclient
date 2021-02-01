@@ -12,14 +12,14 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.pass.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlignPartTextView extends AppCompatTextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f4119a;
+    private float f4122a;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f4120b;
+    private float f4123b;
     private int c;
     private List<String> d;
     private List<Integer> e;
@@ -36,7 +36,7 @@ public class AlignPartTextView extends AppCompatTextView {
     private int[] p;
     private int[] q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum Align {
         ALIGN_LEFT,
         ALIGN_CENTER,
@@ -45,7 +45,7 @@ public class AlignPartTextView extends AppCompatTextView {
 
     public AlignPartTextView(Context context) {
         super(context);
-        this.f4120b = 0.0f;
+        this.f4123b = 0.0f;
         this.d = new ArrayList();
         this.e = new ArrayList();
         this.f = Align.ALIGN_LEFT;
@@ -72,7 +72,7 @@ public class AlignPartTextView extends AppCompatTextView {
         this.c = getMeasuredWidth();
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
         float textSize = getTextSize() - (((fontMetrics.bottom - fontMetrics.descent) + fontMetrics.ascent) - fontMetrics.top);
-        float f = (getGravity() & 4096) == 0 ? textSize + ((this.f4119a - textSize) / 2.0f) : textSize;
+        float f = (getGravity() & 4096) == 0 ? textSize + ((this.f4122a - textSize) / 2.0f) : textSize;
         int paddingTop = getPaddingTop();
         int paddingLeft = getPaddingLeft();
         this.c = (this.c - paddingLeft) - getPaddingRight();
@@ -84,7 +84,7 @@ public class AlignPartTextView extends AppCompatTextView {
                 return;
             }
             float f2 = i3;
-            float f3 = (this.f4119a * f2) + f;
+            float f3 = (this.f4122a * f2) + f;
             String str = this.d.get(i3);
             float f4 = paddingLeft;
             float measureText = this.c - paint.measureText(str);
@@ -126,7 +126,7 @@ public class AlignPartTextView extends AppCompatTextView {
                     }
                 }
                 int i8 = i4 + 1;
-                canvas.drawText(str.substring(i4, i8), (i4 * length) + paint.measureText(str.substring(0, i4)) + f4, paddingTop + f3 + (this.f4120b * f2), paint);
+                canvas.drawText(str.substring(i4, i8), (i4 * length) + paint.measureText(str.substring(0, i4)) + f4, paddingTop + f3 + (this.f4123b * f2), paint);
                 i++;
                 i4 = i8;
             }
@@ -147,11 +147,11 @@ public class AlignPartTextView extends AppCompatTextView {
                 a(paint, str);
             }
             a(charSequence, paint.getTextSize(), (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight());
-            this.f4119a = (this.j * 1.0f) / this.k;
-            float f = this.f4119a;
-            this.f4120b = ((this.h - 1.0f) * f) + this.i;
+            this.f4122a = (this.j * 1.0f) / this.k;
+            float f = this.f4122a;
+            this.f4123b = ((this.h - 1.0f) * f) + this.i;
             this.m = true;
-            setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), ((int) ((f + this.f4120b) * (this.d.size() - this.k))) + this.l);
+            setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), ((int) ((f + this.f4123b) * (this.d.size() - this.k))) + this.l);
             List<String> list = this.n;
             if (list != null && list.size() > 0) {
                 this.p = new int[this.n.size()];
@@ -226,7 +226,7 @@ public class AlignPartTextView extends AppCompatTextView {
 
     public AlignPartTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4120b = 0.0f;
+        this.f4123b = 0.0f;
         this.d = new ArrayList();
         this.e = new ArrayList();
         this.f = Align.ALIGN_LEFT;

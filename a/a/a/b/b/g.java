@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a.d {
     public Executor c;
     public String d;
@@ -216,7 +216,7 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
         this.g = 101;
         a aVar = this.zo;
         aVar.zl.setStatus(101);
-        aVar.zl.ub().onStarted();
+        aVar.zl.tY().onStarted();
         this.zs = new b(this.zn.getUri(), this);
         this.c.execute(this.zs);
     }

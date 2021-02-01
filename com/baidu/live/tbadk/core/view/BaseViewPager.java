@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import com.baidu.live.tbadk.widget.TbViewPager;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BaseViewPager extends TbViewPager implements GestureDetector.OnGestureListener {
     public static final int SCROLL_NEXT = 0;
     public static final int SCROLL_PRE = 1;
@@ -14,7 +14,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
     private OnScrollOutListener mOnScrollOutListener;
     private boolean scrollFiltter;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OnScrollOutListener {
         void onScrollOut(int i);
     }

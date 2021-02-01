@@ -8,14 +8,14 @@ import android.hardware.SensorManager;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class n implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f2574a = new Object();
+    private static Object f2572a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private static n f2575b = null;
+    private static n f2573b = null;
     private float[] c;
     private int d = 0;
     private List<Float> e = new ArrayList();
@@ -40,11 +40,11 @@ public class n implements SensorEventListener {
 
     public static n a() {
         n nVar;
-        synchronized (f2574a) {
-            if (f2575b == null) {
-                f2575b = new n();
+        synchronized (f2572a) {
+            if (f2573b == null) {
+                f2573b = new n();
             }
-            nVar = f2575b;
+            nVar = f2573b;
         }
         return nVar;
     }

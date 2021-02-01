@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 public class a {
     private String content;
     private long id;
-    private int kws;
+    private int kEy;
     private String name;
     private String portrait;
     private int status;
@@ -48,11 +48,11 @@ public class a {
         this.status = i;
     }
 
-    public int cTl() {
-        return this.kws;
+    public int cVj() {
+        return this.kEy;
     }
 
-    public void Cy(int i) {
-        this.kws = i;
+    public void CQ(int i) {
+        this.kEy = i;
     }
 }

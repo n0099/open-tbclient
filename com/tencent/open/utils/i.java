@@ -11,16 +11,16 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class i {
     private static Handler c;
     private static HandlerThread d;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Object f13439b = new Object();
+    private static Object f13441b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Executor f13438a = c();
+    public static final Executor f13440a = c();
 
     private static Executor c() {
         Executor threadPoolExecutor;
@@ -62,22 +62,22 @@ public final class i {
         return new a();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     private static class a implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        final Queue<Runnable> f13440a;
+        final Queue<Runnable> f13442a;
 
         /* renamed from: b  reason: collision with root package name */
-        Runnable f13441b;
+        Runnable f13443b;
 
         private a() {
-            this.f13440a = new LinkedList();
+            this.f13442a = new LinkedList();
         }
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(final Runnable runnable) {
-            this.f13440a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
+            this.f13442a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -87,16 +87,16 @@ public final class i {
                     }
                 }
             });
-            if (this.f13441b == null) {
+            if (this.f13443b == null) {
                 a();
             }
         }
 
         protected synchronized void a() {
-            Runnable poll = this.f13440a.poll();
-            this.f13441b = poll;
+            Runnable poll = this.f13442a.poll();
+            this.f13443b = poll;
             if (poll != null) {
-                i.f13438a.execute(this.f13441b);
+                i.f13440a.execute(this.f13443b);
             }
         }
     }

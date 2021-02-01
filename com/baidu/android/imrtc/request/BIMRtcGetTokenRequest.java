@@ -19,7 +19,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     private static final String TAG = "BIMRtcGetTokenRequest";
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -41,7 +41,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
 
     @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
     public String getHost() {
-        return Utility.readIntData(this.mContext, Constants.KEY_ENV, 0) != 0 ? HttpConstants.TEST_URL + "rtc/rest/1.0/room/get_rtc_token" : "https://pim.baidu.com/rtc/rest/1.0/room/get_rtc_token";
+        return Utility.readIntData(this.mContext, Constants.KEY_ENV, 0) != 0 ? "http://rd-im-server.bcc-szth.baidu.com:8080/rtc/rest/1.0/room/get_rtc_token" : "https://pim.baidu.com/rtc/rest/1.0/room/get_rtc_token";
     }
 
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
@@ -138,6 +138,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
             bIMRTCGetTokeResult.useId = this.mRtcUserId;
             bIMRTCGetTokeResult.token = str3;
             bIMRTCGetTokeResult.rtcAppId = str4;
+            report(-11, i);
             this.mListener.onResult(i, str, bIMRTCGetTokeResult);
             trackRequest(i, "room/get_rtc_token");
         }
@@ -146,6 +147,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imrtc.request.HttpExecutor.ResponseHandler
     public void onFailure(int i, String str) {
         if (this.mListener != null) {
+            report(-11, i);
             this.mListener.onResult(i, str, new BIMRtcTokenListener.BIMRTCGetTokeResult());
             trackRequest(i, "room/get_rtc_token");
         }

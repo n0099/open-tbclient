@@ -14,18 +14,18 @@ import java.io.File;
 /* loaded from: classes3.dex */
 public final class bv {
     public static boolean a(Context context, Info info) {
-        PackageInfo bN;
+        PackageInfo bM;
         try {
-            String bO = bO(context, info.getOpen());
-            File file = new File(bO);
-            if (file.exists() && (bN = bN(context, bO)) != null) {
-                if (bN.versionCode == info.getDl_vsc()) {
+            String bN = bN(context, info.getOpen());
+            File file = new File(bN);
+            if (file.exists() && (bM = bM(context, bN)) != null) {
+                if (bM.versionCode == info.getDl_vsc()) {
                     return true;
                 }
-                if (info.getDl_vsc() == 0 && info.getDl_pkg().equals(bN.packageName)) {
+                if (info.getDl_vsc() == 0 && info.getDl_pkg().equals(bM.packageName)) {
                     return true;
                 }
-                w.iK(context).a(new x(info), bN.packageName, bN.versionCode, 1).eGz();
+                w.iN(context).a(new x(info), bM.packageName, bM.versionCode, 1).eIP();
                 file.delete();
                 return false;
             }
@@ -35,7 +35,7 @@ public final class bv {
         return false;
     }
 
-    private static PackageInfo bN(Context context, String str) {
+    private static PackageInfo bM(Context context, String str) {
         PackageInfo packageArchiveInfo;
         try {
             packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(str, 1);
@@ -53,7 +53,7 @@ public final class bv {
             try {
                 Intent b2 = b(info, context, str);
                 if (b2.getFlags() > 0) {
-                    w.iK(context).c(new x(info), str).eGz();
+                    w.iN(context).c(new x(info), str).eIP();
                     context.startActivity(b2);
                 }
             } catch (Exception e) {
@@ -68,12 +68,12 @@ public final class bv {
         try {
             try {
                 if (Build.VERSION.SDK_INT == 23) {
-                    hx("777", iP(context) + "/win/");
+                    hE("777", iS(context) + "/win/");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            hx("777", str);
+            hE("777", str);
             if (Build.VERSION.SDK_INT >= 24) {
                 intent.setAction("android.intent.action.INSTALL_PACKAGE");
                 intent.setFlags(RouterCallback.CODE_ERROR);
@@ -88,13 +88,13 @@ public final class bv {
             new StringBuilder("错误:").append(e2.getMessage());
             e2.printStackTrace();
             if (info != null) {
-                w.iK(context).h(new x(info), str).eGz();
+                w.iN(context).h(new x(info), str).eIP();
             }
         }
         return intent;
     }
 
-    private static void hx(String str, String str2) {
+    private static void hE(String str, String str2) {
         try {
             Runtime.getRuntime().exec("chmod " + str + " " + str2);
         } catch (Exception e) {
@@ -102,25 +102,25 @@ public final class bv {
         }
     }
 
-    public static boolean bK(Context context, String str) {
+    public static boolean bJ(Context context, String str) {
         try {
-            return new File(new StringBuilder().append(iP(context)).append(File.separator).append("win").append(File.separator).append(aaH(str)).toString()).exists();
+            return new File(new StringBuilder().append(iS(context)).append(File.separator).append("win").append(File.separator).append(abI(str)).toString()).exists();
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    public static String bO(Context context, String str) {
+    public static String bN(Context context, String str) {
         try {
-            return iP(context) + File.separator + "win" + File.separator + aaH(str);
+            return iS(context) + File.separator + "win" + File.separator + abI(str);
         } catch (Exception e) {
             e.printStackTrace();
             return "";
         }
     }
 
-    public static String aaH(String str) {
+    public static String abI(String str) {
         String str2;
         String[] split;
         try {
@@ -141,14 +141,14 @@ public final class bv {
         }
     }
 
-    public static String iP(Context context) {
-        if (iJ(context)) {
+    public static String iS(Context context) {
+        if (iM(context)) {
             return context.getExternalCacheDir().getPath();
         }
         return context.getCacheDir().getPath();
     }
 
-    private static boolean iJ(Context context) {
+    private static boolean iM(Context context) {
         return ContextCompat.checkSelfPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE") == 0;
     }
 }

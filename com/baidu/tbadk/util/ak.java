@@ -1,76 +1,69 @@
 package com.baidu.tbadk.util;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.media.ExifInterface;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.util.SelectImageHelper;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import android.media.AudioManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class ak {
-    public static int readPictureDegree(String str) {
-        try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
-                case 3:
-                    return 180;
-                case 4:
-                case 5:
-                case 7:
-                default:
-                    return 0;
-                case 6:
-                    return 90;
-                case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return 0;
+    private static boolean fND = false;
+
+    public static boolean a(WeakReference<Context> weakReference, boolean z) {
+        if (weakReference == null || weakReference.get() == null) {
+            return false;
+        }
+        AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
+        if (z) {
+            return audioManager.requestAudioFocus(null, 3, 2) == 1;
+        }
+        return audioManager.abandonAudioFocus(null) == 1;
+    }
+
+    public static void b(WeakReference<Context> weakReference) {
+        if (weakReference != null && weakReference.get() != null) {
+            fND = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
         }
     }
 
-    private static Bitmap photoResult(int i) {
-        try {
-            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.n.getFileDireciory(SelectImageHelper.TMP_IMAGE_NAME));
-            Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(SelectImageHelper.TMP_IMAGE_NAME, i);
-            if (readPictureDegree != 0 && subSampleBitmap != null) {
-                return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
-            }
-            return subSampleBitmap;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
+    public static boolean bFQ() {
+        return fND;
+    }
+
+    public static boolean rG(int i) {
+        boolean z = false;
+        switch (i) {
+            case 2:
+                int frsAutoPlay = TbadkCoreApplication.getInst().getFrsAutoPlay();
+                if (frsAutoPlay == 1 || !com.baidu.adp.lib.util.j.isWifiNet()) {
+                    return frsAutoPlay == 2 && com.baidu.adp.lib.util.j.isMobileNet();
+                }
+                return true;
+            case 3:
+            case 4:
+                return com.baidu.adp.lib.util.j.isWifiNet();
+            case 5:
+                if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (FrsHeadVideoAutoPlaySwitch.getIsOn() && com.baidu.adp.lib.util.j.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0)) {
+                    z = true;
+                }
+                return z;
+            default:
+                int homePageAutoPlay = TbadkCoreApplication.getInst().getHomePageAutoPlay();
+                if (homePageAutoPlay == 1 || !com.baidu.adp.lib.util.j.isWifiNet()) {
+                    return homePageAutoPlay == 2 && com.baidu.adp.lib.util.j.isMobileNet();
+                }
+                return true;
         }
     }
 
-    private static Bitmap AlbumImageResult(Context context, String str, int i) {
-        try {
-            return BitmapHelper.loadResizedBitmap(str, i, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
-        }
+    public static boolean aP(int i, String str) {
+        return rG(i);
     }
 
-    private static Bitmap AlbumImageResult(Context context, Uri uri, int i) {
-        try {
-            return BitmapHelper.subSampleBitmap(context, uri, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
+    public static boolean bFR() {
+        if (!com.baidu.adp.lib.util.j.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
+            return com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }
-    }
-
-    public static Bitmap ImageResult(int i, Context context, Uri uri, String str, int i2) {
-        if (i == 12001) {
-            return photoResult(i2);
-        }
-        if (!TextUtils.isEmpty(str)) {
-            return AlbumImageResult(context, str, i2);
-        }
-        return AlbumImageResult(context, uri, i2);
+        return true;
     }
 }

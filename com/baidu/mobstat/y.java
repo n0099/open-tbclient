@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static y f3843a;
+    private static y f3846a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f3844b;
+    private Context f3847b;
     private JSONObject c = new JSONObject();
     private long d = 24;
     private long e = 0;
@@ -30,18 +30,18 @@ public class y {
     private String q = "";
 
     public static y a(Context context) {
-        if (f3843a == null) {
+        if (f3846a == null) {
             synchronized (y.class) {
-                if (f3843a == null) {
-                    f3843a = new y(context);
+                if (f3846a == null) {
+                    f3846a = new y(context);
                 }
             }
         }
-        return f3843a;
+        return f3846a;
     }
 
     private y(Context context) {
-        this.f3844b = context;
+        this.f3847b = context;
         m();
         j();
         k();
@@ -95,7 +95,7 @@ public class y {
 
     public void j() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f3844b, ".config2").getBytes())));
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f3847b, ".config2").getBytes())));
             if (!TextUtils.isEmpty(str)) {
                 JSONObject jSONObject = new JSONObject(str);
                 try {
@@ -166,7 +166,7 @@ public class y {
 
     public void k() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f3844b, ".sign").getBytes())));
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f3847b, ".sign").getBytes())));
             if (!TextUtils.isEmpty(str)) {
                 JSONObject jSONObject = new JSONObject(str);
                 try {
@@ -186,12 +186,12 @@ public class y {
     }
 
     public void a(String str) {
-        bo.a(this.f3844b, ".config2", str, false);
+        bo.a(this.f3847b, ".config2", str, false);
         j();
     }
 
     public void b(String str) {
-        bo.a(this.f3844b, ".sign", str, false);
+        bo.a(this.f3847b, ".sign", str, false);
         k();
     }
 

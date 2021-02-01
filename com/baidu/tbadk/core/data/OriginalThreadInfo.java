@@ -29,15 +29,15 @@ public class OriginalThreadInfo {
     public Agree agree;
     public User author;
     public List<PbContent> content;
-    public boolean eLl = false;
-    public ArrayList<MediaData> eMh;
-    public List<AbstractData> eMi;
-    public AlaInfoData eMj;
-    public boolean eMk;
-    public ArrayList<VoiceData.VoiceModel> eMl;
-    public SpannableString eMm;
-    public boolean eMn;
-    public List<HeadItem> eMo;
+    public boolean eNx = false;
+    public List<HeadItem> eOA;
+    public ArrayList<MediaData> eOt;
+    public List<AbstractData> eOu;
+    public AlaInfoData eOv;
+    public boolean eOw;
+    public ArrayList<VoiceData.VoiceModel> eOx;
+    public SpannableString eOy;
+    public boolean eOz;
     public long forumId;
     public String forumName;
     public Item item;
@@ -59,7 +59,7 @@ public class OriginalThreadInfo {
 
     public void a(OriginThreadInfo originThreadInfo) {
         if (originThreadInfo == null) {
-            blY();
+            bmr();
             return;
         }
         this.forumName = originThreadInfo.fname;
@@ -72,50 +72,50 @@ public class OriginalThreadInfo {
         this.agree = originThreadInfo.agree;
         this.reply_num = originThreadInfo.reply_num;
         this.shared_num = originThreadInfo.shared_num;
-        if (!com.baidu.tbadk.core.util.x.isEmpty(originThreadInfo.media)) {
-            this.eMh = new ArrayList<>();
+        if (!com.baidu.tbadk.core.util.y.isEmpty(originThreadInfo.media)) {
+            this.eOt = new ArrayList<>();
             for (Media media : originThreadInfo.media) {
                 if (media != null) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.eMh.add(mediaData);
+                    this.eOt.add(mediaData);
                 }
             }
         } else {
-            this.eMh = null;
+            this.eOt = null;
         }
-        if (!com.baidu.tbadk.core.util.x.isEmpty(originThreadInfo._abstract)) {
-            this.eMi = new ArrayList();
+        if (!com.baidu.tbadk.core.util.y.isEmpty(originThreadInfo._abstract)) {
+            this.eOu = new ArrayList();
             for (Abstract r0 : originThreadInfo._abstract) {
                 if (r0 != null) {
                     AbstractData abstractData = new AbstractData();
                     abstractData.parser(r0);
-                    this.eMi.add(abstractData);
+                    this.eOu.add(abstractData);
                 }
             }
         } else {
-            this.eMi = null;
+            this.eOu = null;
         }
         if (originThreadInfo.ala_info != null) {
-            this.eMj = new AlaInfoData();
-            this.eMj.parserProtobuf(originThreadInfo.ala_info);
+            this.eOv = new AlaInfoData();
+            this.eOv.parserProtobuf(originThreadInfo.ala_info);
         } else {
-            this.eMj = null;
+            this.eOv = null;
         }
-        this.eLl = originThreadInfo.is_deleted.intValue() == 1;
-        this.eMk = originThreadInfo.is_ugc.intValue() == 1;
+        this.eNx = originThreadInfo.is_deleted.intValue() == 1;
+        this.eOw = originThreadInfo.is_ugc.intValue() == 1;
         if (originThreadInfo.ori_ugc_info != null) {
             this.oriUgcInfo = new BaijiahaoData();
             this.oriUgcInfo.parseProto(originThreadInfo.ori_ugc_info);
         }
         this.videoInfo = originThreadInfo.video_info;
-        this.eMn = originThreadInfo.is_new_style.intValue() == 1;
+        this.eOz = originThreadInfo.is_new_style.intValue() == 1;
         if (originThreadInfo.voice_info != null) {
-            this.eMl = new ArrayList<>();
+            this.eOx = new ArrayList<>();
             for (int i = 0; i < originThreadInfo.voice_info.size(); i++) {
                 VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                 voiceModel.parserProtobuf(originThreadInfo.voice_info.get(i));
-                this.eMl.add(voiceModel);
+                this.eOx.add(voiceModel);
             }
         }
         if (originThreadInfo.item != null && originThreadInfo.item.item_id.longValue() != 0) {
@@ -125,22 +125,22 @@ public class OriginalThreadInfo {
             this.itemData = new ItemData();
             this.itemData.parseProto(this.item);
         }
-        this.eMo = originThreadInfo.item_star;
-        if (!com.baidu.tbadk.core.util.x.isEmpty(this.eMo)) {
+        this.eOA = originThreadInfo.item_star;
+        if (!com.baidu.tbadk.core.util.y.isEmpty(this.eOA)) {
             this.itemStarData = new ItemStarData();
-            this.itemStarData.parseProto(this.eMo);
+            this.itemStarData.parseProto(this.eOA);
         }
         if (originThreadInfo.poll_info != null) {
             this.pollData = new PollData();
             this.pollData.parserProtobuf(originThreadInfo.poll_info);
         }
-        bma();
-        blW();
+        bmt();
+        bmp();
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
-            blY();
+            bmr();
             return;
         }
         try {
@@ -149,142 +149,142 @@ public class OriginalThreadInfo {
             this.threadId = jSONObject.optString("tid");
             this.title = jSONObject.optString("title");
             this.threadType = jSONObject.optInt("thread_type");
-            this.content = ay.R(jSONObject.optJSONArray("content"));
+            this.content = ba.Q(jSONObject.optJSONArray("content"));
             JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
             if (optJSONObject != null) {
-                this.eMj = new AlaInfoData();
-                this.eMj.parserJson(optJSONObject);
+                this.eOv = new AlaInfoData();
+                this.eOv.parserJson(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("media");
             if (optJSONArray != null) {
-                this.eMh = new ArrayList<>();
+                this.eOt = new ArrayList<>();
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserJson(optJSONArray.getJSONObject(i));
-                    this.eMh.add(mediaData);
+                    this.eOt.add(mediaData);
                 }
             } else {
-                this.eMh = null;
+                this.eOt = null;
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("abstract");
             if (optJSONArray2 != null) {
-                this.eMi = new ArrayList();
+                this.eOu = new ArrayList();
                 int length2 = optJSONArray2.length();
                 for (int i2 = 0; i2 < length2; i2++) {
                     AbstractData abstractData = new AbstractData();
                     abstractData.parserJson(optJSONArray2.getJSONObject(i2));
-                    this.eMi.add(abstractData);
+                    this.eOu.add(abstractData);
                 }
             } else {
-                this.eMi = null;
+                this.eOu = null;
             }
-            this.eLl = jSONObject.optInt("is_deleted") == 1;
-            this.eMk = jSONObject.optInt("is_ugc") == 1;
-            this.eMn = jSONObject.optInt("is_new_style") == 1;
+            this.eNx = jSONObject.optInt("is_deleted") == 1;
+            this.eOw = jSONObject.optInt("is_ugc") == 1;
+            this.eOz = jSONObject.optInt("is_new_style") == 1;
             JSONObject optJSONObject2 = jSONObject.optJSONObject("ori_ugc_info");
             if (optJSONObject2 != null) {
                 this.oriUgcInfo = new BaijiahaoData();
                 this.oriUgcInfo.parseJson(optJSONObject2);
             }
-            this.videoInfo = ci.dr(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
+            this.videoInfo = ck.dr(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
             JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
             if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                this.eMl = new ArrayList<>();
+                this.eOx = new ArrayList<>();
                 for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                     VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                     voiceModel.parseJson(optJSONArray3.optJSONObject(i3));
-                    this.eMl.add(voiceModel);
+                    this.eOx.add(voiceModel);
                 }
             }
-            blW();
+            bmp();
         } catch (Throwable th) {
             try {
                 BdLog.e(th.getMessage());
             } finally {
-                bma();
+                bmt();
             }
         }
     }
 
-    private void blW() {
-        this.eMm = new SpannableString(com.baidu.tbadk.widget.richText.e.a(this.content, this.eMo, true));
+    private void bmp() {
+        this.eOy = new SpannableString(com.baidu.tbadk.widget.richText.e.b(this.content, this.eOA, true));
     }
 
-    public static OriginalThreadInfo t(bz bzVar) {
-        if (bzVar == null) {
+    public static OriginalThreadInfo t(cb cbVar) {
+        if (cbVar == null) {
             return null;
         }
-        if (bzVar.eQQ != null) {
-            return bzVar.eQQ;
+        if (cbVar.eTc != null) {
+            return cbVar.eTc;
         }
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-        originalThreadInfo.forumName = bzVar.bnB();
-        originalThreadInfo.forumId = bzVar.getFid();
-        originalThreadInfo.threadId = bzVar.getTid();
-        originalThreadInfo.title = bzVar.getTitle();
-        originalThreadInfo.threadType = bzVar.getThreadType();
+        originalThreadInfo.forumName = cbVar.bnU();
+        originalThreadInfo.forumId = cbVar.getFid();
+        originalThreadInfo.threadId = cbVar.getTid();
+        originalThreadInfo.title = cbVar.getTitle();
+        originalThreadInfo.threadType = cbVar.getThreadType();
         ArrayList arrayList = new ArrayList();
         AbstractData abstractData = new AbstractData();
-        abstractData.text = bzVar.getAbstract();
+        abstractData.text = cbVar.getAbstract();
         arrayList.add(abstractData);
-        originalThreadInfo.eMi = arrayList;
+        originalThreadInfo.eOu = arrayList;
         ArrayList<MediaData> arrayList2 = new ArrayList<>();
         MediaData mediaData = new MediaData();
         arrayList2.add(mediaData);
-        originalThreadInfo.eMh = arrayList2;
-        originalThreadInfo.videoInfo = bzVar.bnO();
-        if (bzVar.isLinkThread() && bzVar.bpe() != null) {
-            ao bpe = bzVar.bpe();
-            originalThreadInfo.title = bpe.blN();
-            abstractData.text = bpe.blO();
-            mediaData.setPic(bpe.blP());
-        } else if (bzVar.boG() && bzVar.bnd() != null) {
-            mediaData.setPic(bzVar.bnd().getThreadImgUrl());
-        } else if (com.baidu.tbadk.core.util.x.getCount(bzVar.bnG()) > 0) {
-            originalThreadInfo.eMh = bzVar.bnG();
-        } else if (bzVar.bnO() != null && !StringUtils.isNull(bzVar.bnO().thumbnail_url)) {
-            mediaData.setPic(bzVar.bnO().thumbnail_url);
+        originalThreadInfo.eOt = arrayList2;
+        originalThreadInfo.videoInfo = cbVar.boh();
+        if (cbVar.isLinkThread() && cbVar.bpw() != null) {
+            ap bpw = cbVar.bpw();
+            originalThreadInfo.title = bpw.bmf();
+            abstractData.text = bpw.bmg();
+            mediaData.setPic(bpw.bmh());
+        } else if (cbVar.boY() && cbVar.bnw() != null) {
+            mediaData.setPic(cbVar.bnw().getThreadImgUrl());
+        } else if (com.baidu.tbadk.core.util.y.getCount(cbVar.bnZ()) > 0) {
+            originalThreadInfo.eOt = cbVar.bnZ();
+        } else if (cbVar.boh() != null && !StringUtils.isNull(cbVar.boh().thumbnail_url)) {
+            mediaData.setPic(cbVar.boh().thumbnail_url);
         }
-        originalThreadInfo.eMj = bzVar.bnQ();
-        originalThreadInfo.bma();
-        originalThreadInfo.itemData = bzVar.itemData;
-        originalThreadInfo.itemStarData = bzVar.itemStarData;
-        originalThreadInfo.oriUgcInfo = bzVar.getBaijiahaoData();
-        originalThreadInfo.pollData = bzVar.bpG();
+        originalThreadInfo.eOv = cbVar.boj();
+        originalThreadInfo.bmt();
+        originalThreadInfo.itemData = cbVar.itemData;
+        originalThreadInfo.itemStarData = cbVar.itemStarData;
+        originalThreadInfo.oriUgcInfo = cbVar.getBaijiahaoData();
+        originalThreadInfo.pollData = cbVar.bpY();
         return originalThreadInfo;
     }
 
-    public bz blX() {
-        bz bzVar = new bz();
-        bzVar.setTitle(this.title);
-        if (this.eMh != null) {
-            bzVar.B(new ArrayList<>(this.eMh));
+    public cb bmq() {
+        cb cbVar = new cb();
+        cbVar.setTitle(this.title);
+        if (this.eOt != null) {
+            cbVar.B(new ArrayList<>(this.eOt));
         }
-        bzVar.zR(this.forumName);
-        bzVar.setTid(this.threadId);
-        bzVar.a(this.eMj);
-        bzVar.setFid(this.forumId);
-        bzVar.setThreadType(this.threadType);
-        bzVar.isShareThread = true;
-        bzVar.setBaijiahaoData(this.oriUgcInfo);
-        bzVar.a(this.videoInfo);
-        bzVar.zZ(this.showPicUrl);
-        bzVar.eQQ = this;
-        return bzVar;
+        cbVar.Ai(this.forumName);
+        cbVar.setTid(this.threadId);
+        cbVar.a(this.eOv);
+        cbVar.setFid(this.forumId);
+        cbVar.setThreadType(this.threadType);
+        cbVar.isShareThread = true;
+        cbVar.setBaijiahaoData(this.oriUgcInfo);
+        cbVar.a(this.videoInfo);
+        cbVar.Aq(this.showPicUrl);
+        cbVar.eTc = this;
+        return cbVar;
     }
 
-    private void blY() {
+    private void bmr() {
         this.showType = 0;
         this.showText = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
         this.showPicUrl = null;
     }
 
-    public boolean blZ() {
-        return this.eMn;
+    public boolean bms() {
+        return this.eOz;
     }
 
-    public void bma() {
+    public void bmt() {
         switch (this.threadType) {
             case 40:
                 this.showType = 3;
@@ -301,10 +301,10 @@ public class OriginalThreadInfo {
                 this.showType = 0;
                 break;
         }
-        if (com.baidu.tbadk.core.util.x.getItem(this.eMh, 0) != null) {
-            this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.x.getItem(this.eMh, 0)).small_pic_url;
+        if (com.baidu.tbadk.core.util.y.getItem(this.eOt, 0) != null) {
+            this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.y.getItem(this.eOt, 0)).small_pic_url;
             if (StringUtils.isNull(this.showPicUrl)) {
-                this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.x.getItem(this.eMh, 0)).getPicUrl();
+                this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.y.getItem(this.eOt, 0)).getPicUrl();
             }
         }
         if (StringUtils.isNull(this.showPicUrl) && this.videoInfo != null) {
@@ -317,8 +317,8 @@ public class OriginalThreadInfo {
                 this.showType = 1;
             }
         }
-        if (com.baidu.tbadk.core.util.x.getItem(this.eMi, 0) != null && !StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.x.getItem(this.eMi, 0)).text)) {
-            this.showText = ((AbstractData) com.baidu.tbadk.core.util.x.getItem(this.eMi, 0)).text;
+        if (com.baidu.tbadk.core.util.y.getItem(this.eOu, 0) != null && !StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.eOu, 0)).text)) {
+            this.showText = ((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.eOu, 0)).text;
         } else if (!StringUtils.isNull(this.title)) {
             this.showText = this.title;
         } else {
@@ -326,14 +326,14 @@ public class OriginalThreadInfo {
         }
     }
 
-    public ActivityItemData bmb() {
+    public ActivityItemData bmu() {
         if (this.content != null && this.content.size() > 0) {
             int size = this.content.size();
             for (int i = 0; i < size; i++) {
                 PbContent pbContent = this.content.get(i);
-                if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && bmc() && pbContent.text != null && pbContent.text.length() >= 3) {
+                if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && bmv() && pbContent.text != null && pbContent.text.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
-                    activityItemData.link_url = com.baidu.tbadk.plugins.b.Dm(pbContent.text);
+                    activityItemData.link_url = com.baidu.tbadk.plugins.b.DD(pbContent.text);
                     activityItemData.activity_name = pbContent.text.substring(1, pbContent.text.length() - 2);
                     return activityItemData;
                 }
@@ -342,18 +342,18 @@ public class OriginalThreadInfo {
         return null;
     }
 
-    public boolean bmc() {
+    public boolean bmv() {
         return this.threadType == 40 || this.threadType == 50;
     }
 
-    public String bmd() {
+    public String bmw() {
         String str;
         if (!StringUtils.isNull(this.title)) {
             str = this.title;
-        } else if (com.baidu.tbadk.core.util.x.getItem(this.eMi, 0) == null || StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.x.getItem(this.eMi, 0)).text)) {
+        } else if (com.baidu.tbadk.core.util.y.getItem(this.eOu, 0) == null || StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.eOu, 0)).text)) {
             str = null;
         } else {
-            str = ((AbstractData) com.baidu.tbadk.core.util.x.getItem(this.eMi, 0)).text;
+            str = ((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.eOu, 0)).text;
         }
         if (TextUtils.isEmpty(str)) {
             return TbadkCoreApplication.getInst().getString(R.string.publisher_share_default_title);
@@ -361,15 +361,15 @@ public class OriginalThreadInfo {
         return str;
     }
 
-    public boolean bme() {
+    public boolean bmx() {
         return this.oriUgcInfo != null && this.oriUgcInfo.oriUgcType == 1;
     }
 
-    public boolean bmf() {
+    public boolean bmy() {
         return this.oriUgcInfo != null && this.oriUgcInfo.oriUgcType == 2;
     }
 
-    public boolean bmg() {
+    public boolean bmz() {
         if (this.oriUgcInfo == null) {
             return false;
         }
@@ -410,8 +410,8 @@ public class OriginalThreadInfo {
             return shareInfo;
         }
 
-        public static ShareInfo generateShareInfo(bz bzVar) {
-            return generateShareInfo(OriginalThreadInfo.t(bzVar));
+        public static ShareInfo generateShareInfo(cb cbVar) {
+            return generateShareInfo(OriginalThreadInfo.t(cbVar));
         }
     }
 }

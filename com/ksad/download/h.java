@@ -14,48 +14,48 @@ import okhttp3.Protocol;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.internal.Util;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h implements com.kwai.filedownloader.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final OkHttpClient f7919a;
+    private final OkHttpClient f7921a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Request.Builder f7920b;
+    private final Request.Builder f7922b;
     private Request c;
     private Response d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        private OkHttpClient f7921a;
+        private OkHttpClient f7923a;
 
         /* renamed from: b  reason: collision with root package name */
-        private OkHttpClient.Builder f7922b;
+        private OkHttpClient.Builder f7924b;
 
         public a() {
         }
 
         public a(boolean z) {
             if (z) {
-                this.f7922b = h.j();
+                this.f7924b = h.j();
             } else {
-                this.f7922b = h.i();
+                this.f7924b = h.i();
             }
         }
 
         @Override // com.kwai.filedownloader.f.c.b
         public com.kwai.filedownloader.a.b a(String str) {
-            if (this.f7921a == null) {
+            if (this.f7923a == null) {
                 synchronized (a.class) {
-                    if (this.f7921a == null) {
-                        this.f7921a = this.f7922b != null ? this.f7922b.build() : new OkHttpClient();
-                        this.f7922b = null;
+                    if (this.f7923a == null) {
+                        this.f7923a = this.f7924b != null ? this.f7924b.build() : new OkHttpClient();
+                        this.f7924b = null;
                     }
                 }
             }
-            return new h(str, this.f7921a);
+            return new h(str, this.f7923a);
         }
     }
 
@@ -64,8 +64,8 @@ public class h implements com.kwai.filedownloader.a.b {
     }
 
     private h(Request.Builder builder, OkHttpClient okHttpClient) {
-        this.f7920b = builder;
-        this.f7919a = okHttpClient;
+        this.f7922b = builder;
+        this.f7921a = okHttpClient;
     }
 
     private String b(String str) {
@@ -119,7 +119,7 @@ public class h implements com.kwai.filedownloader.a.b {
 
     @Override // com.kwai.filedownloader.a.b
     public void a(String str, String str2) {
-        this.f7920b.addHeader(str, str2);
+        this.f7922b.addHeader(str, str2);
     }
 
     @Override // com.kwai.filedownloader.a.b
@@ -130,7 +130,7 @@ public class h implements com.kwai.filedownloader.a.b {
     @Override // com.kwai.filedownloader.a.b
     public Map<String, List<String>> b() {
         if (this.c == null) {
-            this.c = this.f7920b.build();
+            this.c = this.f7922b.build();
         }
         return this.c.headers().toMultimap();
     }
@@ -146,9 +146,9 @@ public class h implements com.kwai.filedownloader.a.b {
     @Override // com.kwai.filedownloader.a.b
     public void d() {
         if (this.c == null) {
-            this.c = this.f7920b.build();
+            this.c = this.f7922b.build();
         }
-        this.d = this.f7919a.newCall(this.c).execute();
+        this.d = this.f7921a.newCall(this.c).execute();
     }
 
     @Override // com.kwai.filedownloader.a.b

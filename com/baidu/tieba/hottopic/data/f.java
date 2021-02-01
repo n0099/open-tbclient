@@ -3,24 +3,24 @@ package com.baidu.tieba.hottopic.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import tbclient.Hottopic.TopicInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId ivt = BdUniqueId.gen();
-    public int cBF;
-    public String eNh;
-    public String fci;
-    public String kgl;
-    public String kmp;
-    public String kmq;
-    public long kmr;
-    public int kms;
-    public int kmt;
-    public int kmu;
-    public String kmv;
-    public Long kmw;
-    public Integer kmx;
-    public h kmy;
-    public String kmz;
+    public static final BdUniqueId iBd = BdUniqueId.gen();
+    public int cEb;
+    public String ePt;
+    public String fey;
+    public String kot;
+    public int kuA;
+    public int kuB;
+    public String kuC;
+    public Long kuD;
+    public Integer kuE;
+    public h kuF;
+    public String kuG;
+    public String kuw;
+    public String kux;
+    public long kuy;
+    public int kuz;
     public long postNum;
     public String shareTitle;
     public String thumbnailUrl;
@@ -32,22 +32,22 @@ public class f implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return ivt;
+        return iBd;
     }
 
     public void a(TopicInfo topicInfo) {
         if (topicInfo != null) {
-            this.fci = String.valueOf(topicInfo.topic_id);
-            this.eNh = topicInfo.topic_name;
-            this.kmp = topicInfo.desc;
+            this.fey = String.valueOf(topicInfo.topic_id);
+            this.ePt = topicInfo.topic_name;
+            this.kuw = topicInfo.desc;
             this.postNum = topicInfo.total_post_num.longValue();
-            this.kmq = topicInfo.head_photo_url;
+            this.kux = topicInfo.head_photo_url;
             this.shareTitle = StringUtils.isNull(topicInfo.share_title) ? "" : topicInfo.share_title;
-            this.kgl = topicInfo.share_pic;
-            this.kmr = topicInfo.idx_num.longValue();
-            this.kmw = topicInfo.pmy_topic_id;
-            this.kmz = topicInfo.head_photo_jump_url;
-            this.kmx = topicInfo.pmy_source;
+            this.kot = topicInfo.share_pic;
+            this.kuy = topicInfo.idx_num.longValue();
+            this.kuD = topicInfo.pmy_topic_id;
+            this.kuG = topicInfo.head_photo_jump_url;
+            this.kuE = topicInfo.pmy_source;
             if (topicInfo.video_info != null && !StringUtils.isNull(topicInfo.video_info.video_url) && topicInfo.video_info.video_duration.intValue() > 0) {
                 this.videoMd5 = topicInfo.video_info.video_md5;
                 this.videoUrl = topicInfo.video_info.video_url;
@@ -55,15 +55,15 @@ public class f implements com.baidu.adp.widget.ListView.n {
                 this.videoWidth = topicInfo.video_info.video_width.intValue();
                 this.videoHeight = topicInfo.video_info.video_height.intValue();
                 this.thumbnailUrl = topicInfo.video_info.thumbnail_url;
-                this.kms = topicInfo.video_info.thumbnail_width.intValue();
-                this.kmt = topicInfo.video_info.thumbnail_height.intValue();
-                this.kmu = topicInfo.video_info.video_length.intValue();
-                this.cBF = topicInfo.video_info.play_count.intValue();
+                this.kuz = topicInfo.video_info.thumbnail_width.intValue();
+                this.kuA = topicInfo.video_info.thumbnail_height.intValue();
+                this.kuB = topicInfo.video_info.video_length.intValue();
+                this.cEb = topicInfo.video_info.play_count.intValue();
             }
-            this.kmv = topicInfo.tag_list_type;
+            this.kuC = topicInfo.tag_list_type;
             if (topicInfo.join_info != null) {
-                this.kmy = new h();
-                this.kmy.a(topicInfo.join_info);
+                this.kuF = new h();
+                this.kuF.a(topicInfo.join_info);
             }
         }
     }

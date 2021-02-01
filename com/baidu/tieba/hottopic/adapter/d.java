@@ -8,63 +8,63 @@ import com.baidu.tieba.hottopic.data.m;
 import com.baidu.tieba.hottopic.data.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
-    private BdTypeListView gwr;
-    private i kkl;
-    private g kkm;
-    private RelateCardForumAdapter kkn;
-    private e kko;
-    private f kkp;
-    private HomePageVideoThreadAdapter kkq;
-    private h kkr;
+    private List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
+    private BdTypeListView gzb;
+    private i kss;
+    private g kst;
+    private RelateCardForumAdapter ksu;
+    private e ksv;
+    private f ksw;
+    private HomePageVideoThreadAdapter ksx;
+    private h ksy;
 
     public d(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         a(hotTopicActivity, bdTypeListView);
     }
 
     private void a(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
-        this.kko = new e(hotTopicActivity, com.baidu.tieba.hottopic.data.g.TYPE);
-        this.kkl = new i(hotTopicActivity, m.kmU);
-        this.kkm = new g(hotTopicActivity, com.baidu.tieba.hottopic.data.i.kmC);
-        this.kkn = new RelateCardForumAdapter(hotTopicActivity, n.kmX);
+        this.ksv = new e(hotTopicActivity, com.baidu.tieba.hottopic.data.g.TYPE);
+        this.kss = new i(hotTopicActivity, m.kvb);
+        this.kst = new g(hotTopicActivity, com.baidu.tieba.hottopic.data.i.kuJ);
+        this.ksu = new RelateCardForumAdapter(hotTopicActivity, n.kve);
         TbPageContext pageContext = hotTopicActivity.getPageContext();
-        this.kkp = new f(pageContext, com.baidu.tieba.card.data.k.TYPE);
-        this.kkq = new HomePageVideoThreadAdapter(pageContext, l.eOy);
-        this.kkr = new h(pageContext, com.baidu.tieba.card.data.k.eOD);
-        this.bjZ.add(this.kkl);
-        this.bjZ.add(this.kkm);
-        this.bjZ.add(this.kkn);
-        this.bjZ.add(this.kko);
-        this.bjZ.add(this.kkp);
-        this.bjZ.add(this.kkq);
-        this.bjZ.add(this.kkr);
-        this.gwr = bdTypeListView;
-        this.gwr.addAdapters(this.bjZ);
+        this.ksw = new f(pageContext, com.baidu.tieba.card.data.k.TYPE);
+        this.ksx = new HomePageVideoThreadAdapter(pageContext, l.eQK);
+        this.ksy = new h(pageContext, com.baidu.tieba.card.data.k.eQP);
+        this.bns.add(this.kss);
+        this.bns.add(this.kst);
+        this.bns.add(this.ksu);
+        this.bns.add(this.ksv);
+        this.bns.add(this.ksw);
+        this.bns.add(this.ksx);
+        this.bns.add(this.ksy);
+        this.gzb = bdTypeListView;
+        this.gzb.addAdapters(this.bns);
     }
 
     public void a(com.baidu.tieba.hottopic.data.e eVar) {
         ArrayList<com.baidu.adp.widget.ListView.n> arrayList;
-        if (eVar.cRp() != null) {
-            arrayList = eVar.cRp();
+        if (eVar.cTo() != null) {
+            arrayList = eVar.cTo();
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.gwr != null) {
-            this.gwr.setData(arrayList);
+        if (this.gzb != null) {
+            this.gzb.setData(arrayList);
         }
     }
 
     public void setFromCDN(boolean z) {
-        if (this.kkp != null) {
-            this.kkp.setFromCDN(z);
+        if (this.ksw != null) {
+            this.ksw.setFromCDN(z);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.gwr.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.gwr.getAdapter().notifyDataSetChanged();
+        if (this.gzb.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.gzb.getAdapter().notifyDataSetChanged();
         }
     }
 }

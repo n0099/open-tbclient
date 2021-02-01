@@ -1,9 +1,8 @@
 package com.baidu.ueg.lib;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ueg.lib.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends b {
     private final int decodeSize;
     private final byte[] decodeTable;
@@ -220,7 +219,7 @@ public class a extends b {
     }
 
     public static byte[] encodeBase64(byte[] bArr, boolean z, boolean z2) {
-        return encodeBase64(bArr, z, z2, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return encodeBase64(bArr, z, z2, Integer.MAX_VALUE);
     }
 
     public static byte[] encodeBase64(byte[] bArr, boolean z, boolean z2, int i) {

@@ -12,7 +12,7 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class i {
     public static String a(Context context, String str, String str2, boolean z, boolean z2) throws Throwable {
         return b(context, str, str2, z, z2);
@@ -108,7 +108,7 @@ public final class i {
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             long currentTimeMillis = System.currentTimeMillis();
-            long j = eVar.f5238a.getLong("pu_cl_fd", 0L);
+            long j = eVar.f5240a.getLong("pu_cl_fd", 0L);
             if (j == 0) {
                 j = System.currentTimeMillis();
                 eVar.g();

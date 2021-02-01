@@ -1,14 +1,13 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class GroundOverlayOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2715a;
+    int f2713a;
     Bundle c;
     private BitmapDescriptor d;
     private LatLng e;
@@ -20,25 +19,25 @@ public final class GroundOverlayOptions extends OverlayOptions {
     private float k = 1.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f2716b = true;
+    boolean f2714b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         GroundOverlay groundOverlay = new GroundOverlay();
-        groundOverlay.x = this.f2716b;
-        groundOverlay.w = this.f2715a;
+        groundOverlay.x = this.f2714b;
+        groundOverlay.w = this.f2713a;
         groundOverlay.y = this.c;
         if (this.d == null) {
             throw new IllegalStateException("when you add ground overlay, you must set the image");
         }
-        groundOverlay.f2714b = this.d;
+        groundOverlay.f2712b = this.d;
         if (this.j != null || this.e == null) {
             if (this.e != null || this.j == null) {
                 throw new IllegalStateException("when you add ground overlay, you must set one of position or bounds");
             }
             groundOverlay.h = this.j;
-            groundOverlay.f2713a = 1;
+            groundOverlay.f2711a = 1;
         } else if (this.f <= 0 || this.g <= 0) {
             throw new IllegalArgumentException("when you add ground overlay, the width and height must greater than 0");
         } else {
@@ -47,7 +46,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
             groundOverlay.g = this.i;
             groundOverlay.d = this.f;
             groundOverlay.e = this.g;
-            groundOverlay.f2713a = 2;
+            groundOverlay.f2711a = 2;
         }
         groundOverlay.i = this.k;
         return groundOverlay;
@@ -63,7 +62,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
 
     public GroundOverlayOptions dimensions(int i) {
         this.f = i;
-        this.g = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.g = Integer.MAX_VALUE;
         return this;
     }
 
@@ -95,7 +94,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
     }
 
     public int getHeight() {
-        return this.g == Integer.MAX_VALUE ? (int) ((this.f * this.d.f2698a.getHeight()) / this.d.f2698a.getWidth()) : this.g;
+        return this.g == Integer.MAX_VALUE ? (int) ((this.f * this.d.f2696a.getHeight()) / this.d.f2696a.getWidth()) : this.g;
     }
 
     public BitmapDescriptor getImage() {
@@ -115,7 +114,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2715a;
+        return this.f2713a;
     }
 
     public GroundOverlayOptions image(BitmapDescriptor bitmapDescriptor) {
@@ -127,7 +126,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
     }
 
     public boolean isVisible() {
-        return this.f2716b;
+        return this.f2714b;
     }
 
     public GroundOverlayOptions position(LatLng latLng) {
@@ -154,12 +153,12 @@ public final class GroundOverlayOptions extends OverlayOptions {
     }
 
     public GroundOverlayOptions visible(boolean z) {
-        this.f2716b = z;
+        this.f2714b = z;
         return this;
     }
 
     public GroundOverlayOptions zIndex(int i) {
-        this.f2715a = i;
+        this.f2713a = i;
         return this;
     }
 }

@@ -1,17 +1,13 @@
 package com.baidu.mobads;
-
-import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface SplashAdListener {
+    void onADLoaded(RsplashType rsplashType, int i);
+
     void onAdClick();
 
     void onAdDismissed();
 
     void onAdFailed(String str);
 
-    void onAdLoaded(HashMap hashMap);
-
     void onAdPresent();
-
-    void onAdTypeReady(RsplashType rsplashType, int i);
 }

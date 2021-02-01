@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.Lego.DataRes;
 import tbclient.Lego.LegoResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LegoSocketResponse extends SocketResponsedMessage {
     private DataRes resultData;
 

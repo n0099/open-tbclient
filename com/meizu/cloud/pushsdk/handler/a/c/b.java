@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     public b(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

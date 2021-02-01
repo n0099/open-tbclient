@@ -2,10 +2,10 @@ package com.kwad.sdk.glide.load.engine;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.DataSource;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 interface e {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(com.kwad.sdk.glide.load.c cVar, Exception exc, com.kwad.sdk.glide.load.a.d<?> dVar, DataSource dataSource);
 

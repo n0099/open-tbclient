@@ -5,21 +5,21 @@ import com.baidu.android.util.devices.RomUtils;
 import com.yxcorp.kuaishou.addfp.a.b.f.g;
 import com.yxcorp.kuaishou.addfp.android.b.e;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ a f14337a;
+    private /* synthetic */ a f14339a;
 
     /* renamed from: b  reason: collision with root package name */
-    private /* synthetic */ Context f14338b;
-    private /* synthetic */ b qbv;
+    private /* synthetic */ Context f14340b;
+    private /* synthetic */ b qlz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, a aVar, Context context) {
-        this.qbv = bVar;
-        this.f14337a = aVar;
-        this.f14338b = context;
+        this.qlz = bVar;
+        this.f14339a = aVar;
+        this.f14340b = context;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -33,8 +33,8 @@ public final class c implements Runnable {
         com.yxcorp.kuaishou.addfp.a.b.a aVar6;
         char c = 0;
         try {
-            this.qbv.f14336a = this.f14337a;
-            String a2 = b.a(this.qbv);
+            this.qlz.f14338a = this.f14339a;
+            String a2 = b.a(this.qlz);
             switch (a2.hashCode()) {
                 case -1619859642:
                     if (a2.equals("blackshark")) {
@@ -147,60 +147,60 @@ public final class c implements Runnable {
             switch (c) {
                 case 0:
                 case 1:
-                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.i.b(this.f14338b);
+                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.i.b(this.f14340b);
                     break;
                 case 2:
-                    this.qbv.qbu = new e(this.f14338b);
+                    this.qlz.qly = new e(this.f14340b);
                     break;
                 case 3:
-                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.h.a(this.f14338b);
-                    aVar = this.qbv.qbu;
+                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.h.a(this.f14340b);
+                    aVar = this.qlz.qly;
                     ((com.yxcorp.kuaishou.addfp.a.b.h.a) aVar).a("100215079");
                     break;
                 case 4:
-                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.f14338b, b.eHf());
+                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.f14340b, b.eJv());
                     break;
                 case 5:
                 case 6:
-                    this.qbv.qbu = new g(this.f14338b, b.eHf());
+                    this.qlz.qly = new g(this.f14340b, b.eJv());
                     break;
                 case 7:
                 case '\b':
-                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f14338b, b.eHf());
+                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f14340b, b.eJv());
                     break;
                 case '\t':
-                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.f14338b, b.eHf());
+                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.f14340b, b.eJv());
                     break;
                 case '\n':
-                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.f14338b, b.eHf());
+                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.f14340b, b.eJv());
                     break;
                 case 11:
-                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.e.b(this.f14338b);
+                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.e.b(this.f14340b);
                     break;
                 case '\f':
                 case '\r':
                 case 14:
-                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.f14338b, b.eHf());
+                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.f14340b, b.eJv());
                     break;
             }
-            aVar2 = this.qbv.qbu;
+            aVar2 = this.qlz.qly;
             if (aVar2 == null) {
-                this.qbv.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
+                this.qlz.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
                 return;
             }
-            aVar3 = this.qbv.qbu;
+            aVar3 = this.qlz.qly;
             if (!aVar3.a()) {
-                aVar6 = this.qbv.qbu;
-                aVar6.a(b.eHf());
+                aVar6 = this.qlz.qly;
+                aVar6.a(b.eJv());
                 return;
             }
-            aVar4 = this.qbv.qbu;
+            aVar4 = this.qlz.qly;
             if (!aVar4.c()) {
-                this.qbv.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
+                this.qlz.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
                 return;
             }
-            b bVar = this.qbv;
-            aVar5 = this.qbv.qbu;
+            b bVar = this.qlz;
+            aVar5 = this.qlz.qly;
             bVar.a(true, aVar5);
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);

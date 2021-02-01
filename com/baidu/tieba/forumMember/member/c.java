@@ -4,25 +4,25 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private com.baidu.adp.lib.cache.l<byte[]> iVY;
+    private com.baidu.adp.lib.cache.l<byte[]> jbF;
 
     public c() {
-        bef();
+        bes();
     }
 
-    public void bef() {
-        if (this.iVY == null) {
-            this.iVY = com.baidu.tbadk.core.c.a.bpZ().Aa("tb.forum_member_info");
+    public void bes() {
+        if (this.jbF == null) {
+            this.jbF = com.baidu.tbadk.core.c.a.bqr().Ar("tb.forum_member_info");
         }
     }
 
-    public byte[] Jj(String str) {
+    public byte[] JU(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        l.b<byte[]> by = this.iVY != null ? this.iVY.by(str + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
+        l.b<byte[]> by = this.jbF != null ? this.jbF.by(str + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
         if (by == null || by.value == null) {
             return null;
         }
@@ -32,8 +32,8 @@ public class c {
     public void m(String str, byte[] bArr) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(str)) {
-            bef();
-            this.iVY.set(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
+            bes();
+            this.jbF.set(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

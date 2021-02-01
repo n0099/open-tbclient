@@ -11,10 +11,10 @@ import com.facebook.imagepipeline.common.TooManyBitmapsException;
 import com.facebook.imagepipeline.nativecode.Bitmaps;
 import java.util.Locale;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 abstract class b implements e {
-    protected static final byte[] pBb = {-1, -39};
-    private final com.facebook.imagepipeline.memory.a pBc = com.facebook.imagepipeline.memory.b.ewj();
+    protected static final byte[] pLj = {-1, -39};
+    private final com.facebook.imagepipeline.memory.a pLk = com.facebook.imagepipeline.memory.b.eyB();
 
     abstract Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options);
 
@@ -23,24 +23,24 @@ abstract class b implements e {
     @Override // com.facebook.imagepipeline.h.e
     public com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.f.e eVar, Bitmap.Config config, @Nullable Rect rect) {
         BitmapFactory.Options c = c(eVar.getSampleSize(), config);
-        com.facebook.common.references.a<PooledByteBuffer> evU = eVar.evU();
-        g.checkNotNull(evU);
+        com.facebook.common.references.a<PooledByteBuffer> eyn = eVar.eyn();
+        g.checkNotNull(eyn);
         try {
-            return ai(a(evU, c));
+            return ah(a(eyn, c));
         } finally {
-            com.facebook.common.references.a.c(evU);
+            com.facebook.common.references.a.c(eyn);
         }
     }
 
     @Override // com.facebook.imagepipeline.h.e
     public com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.f.e eVar, Bitmap.Config config, @Nullable Rect rect, int i) {
         BitmapFactory.Options c = c(eVar.getSampleSize(), config);
-        com.facebook.common.references.a<PooledByteBuffer> evU = eVar.evU();
-        g.checkNotNull(evU);
+        com.facebook.common.references.a<PooledByteBuffer> eyn = eVar.eyn();
+        g.checkNotNull(eyn);
         try {
-            return ai(a(evU, i, c));
+            return ah(a(eyn, i, c));
         } finally {
-            com.facebook.common.references.a.c(evU);
+            com.facebook.common.references.a.c(eyn);
         }
     }
 
@@ -60,21 +60,21 @@ abstract class b implements e {
     /* JADX INFO: Access modifiers changed from: protected */
     public static boolean b(com.facebook.common.references.a<PooledByteBuffer> aVar, int i) {
         PooledByteBuffer pooledByteBuffer = aVar.get();
-        return i >= 2 && pooledByteBuffer.Oz(i + (-2)) == -1 && pooledByteBuffer.Oz(i + (-1)) == -39;
+        return i >= 2 && pooledByteBuffer.OU(i + (-2)) == -1 && pooledByteBuffer.OU(i + (-1)) == -39;
     }
 
-    public com.facebook.common.references.a<Bitmap> ai(Bitmap bitmap) {
+    public com.facebook.common.references.a<Bitmap> ah(Bitmap bitmap) {
         try {
-            Bitmaps.ah(bitmap);
-            if (!this.pBc.ac(bitmap)) {
-                int ak = com.facebook.d.a.ak(bitmap);
+            Bitmaps.ag(bitmap);
+            if (!this.pLk.ab(bitmap)) {
+                int aj = com.facebook.d.a.aj(bitmap);
                 bitmap.recycle();
-                throw new TooManyBitmapsException(String.format(Locale.US, "Attempted to pin a bitmap of size %d bytes. The current pool count is %d, the current pool size is %d bytes. The current pool max count is %d, the current pool max size is %d bytes.", Integer.valueOf(ak), Integer.valueOf(this.pBc.getCount()), Long.valueOf(this.pBc.getSize()), Integer.valueOf(this.pBc.bXe()), Integer.valueOf(this.pBc.getMaxSize())));
+                throw new TooManyBitmapsException(String.format(Locale.US, "Attempted to pin a bitmap of size %d bytes. The current pool count is %d, the current pool size is %d bytes. The current pool max count is %d, the current pool max size is %d bytes.", Integer.valueOf(aj), Integer.valueOf(this.pLk.getCount()), Long.valueOf(this.pLk.getSize()), Integer.valueOf(this.pLk.bYe()), Integer.valueOf(this.pLk.getMaxSize())));
             }
-            return com.facebook.common.references.a.a(bitmap, this.pBc.ewh());
+            return com.facebook.common.references.a.a(bitmap, this.pLk.eyz());
         } catch (Exception e) {
             bitmap.recycle();
-            throw l.t(e);
+            throw l.s(e);
         }
     }
 }

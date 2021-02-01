@@ -3,9 +3,9 @@ package com.baidu.swan.veloce;
 import android.os.Bundle;
 /* loaded from: classes5.dex */
 public interface a {
-    void bfw();
+    void bfJ();
 
     Bundle h(String str, Bundle bundle);
 
-    void yE(String str);
+    void yW(String str);
 }

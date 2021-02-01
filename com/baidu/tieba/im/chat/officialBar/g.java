@@ -9,37 +9,37 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter;
 import com.baidu.tieba.im.message.chat.a;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g extends BaseAdapter {
-    private OfficialBarFeedMsglistAdapter.c ktK;
-    private boolean ktL;
-    private BdTypeListView kvD;
+    private OfficialBarFeedMsglistAdapter.c kBR;
+    private boolean kBS;
+    private BdTypeListView kDJ;
     private TbPageContext<OfficialBarFeedActivity> pageContext;
     private List<com.baidu.tieba.im.message.chat.b> mList = null;
-    private LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> kvC = null;
+    private LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> kDI = null;
 
     public g(TbPageContext<OfficialBarFeedActivity> tbPageContext, BdTypeListView bdTypeListView, OfficialBarFeedMsglistAdapter.c cVar) {
         this.pageContext = tbPageContext;
-        this.ktK = cVar;
-        this.kvD = bdTypeListView;
+        this.kBR = cVar;
+        this.kDJ = bdTypeListView;
     }
 
     private View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.im.message.chat.b bVar, MsgCommonItemAdapter.MsgViewHolder<b> msgViewHolder) {
-        b cSH = msgViewHolder.cSH();
-        a.C0758a cUW = bVar.cUW();
-        cUW.createTime = bVar.getCreateTime();
-        cSH.a(this.pageContext.getPageActivity().getBaseContext(), cUW, bVar.cUX(), this.kvC == null ? null : this.kvC.get(cUW.kBh), bVar.cUY(), bVar.cUV(), i);
-        aq aqVar = new aq(this.ktL ? "c13865" : "c13863");
-        aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-        aqVar.dW("tid", cUW.tid == null ? "" : cUW.tid);
-        aqVar.dW("fid", cUW.fid);
-        TiebaStatic.log(aqVar);
+        b cUF = msgViewHolder.cUF();
+        a.C0760a cWU = bVar.cWU();
+        cWU.createTime = bVar.getCreateTime();
+        cUF.a(this.pageContext.getPageActivity().getBaseContext(), cWU, bVar.cWV(), this.kDI == null ? null : this.kDI.get(cWU.kJm), bVar.cWW(), bVar.cWT(), i);
+        ar arVar = new ar(this.kBS ? "c13865" : "c13863");
+        arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+        arVar.dR("tid", cWU.tid == null ? "" : cWU.tid);
+        arVar.dR("fid", cWU.fid);
+        TiebaStatic.log(arVar);
         return view;
     }
 
@@ -53,7 +53,7 @@ public class g extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Ct */
+    /* renamed from: CL */
     public com.baidu.tieba.im.message.chat.b getItem(int i) {
         if (this.mList == null || this.mList.size() == 0 || i < 0 || i >= getCount()) {
             return null;
@@ -74,8 +74,8 @@ public class g extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         if (aVar == null) {
-            b bVar = new b(this.pageContext, this.ktL);
-            bVar.a(this.ktK);
+            b bVar = new b(this.pageContext, this.kBS);
+            bVar.a(this.kBR);
             view2 = bVar.getConvertView();
             aVar = new a(bVar.getConvertView(), bVar);
             view2.setTag(aVar);
@@ -96,24 +96,24 @@ public class g extends BaseAdapter {
 
     @RequiresApi(api = 16)
     public void b(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-        if (this.kvC == null) {
-            this.kvC = new LongSparseArray<>();
+        if (this.kDI == null) {
+            this.kDI = new LongSparseArray<>();
         }
-        this.kvC.clear();
+        this.kDI.clear();
         for (int i = 0; i < longSparseArray.size(); i++) {
-            this.kvC.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
+            this.kDI.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
         }
         notifyDataSetChanged();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     private class a extends MsgCommonItemAdapter.MsgViewHolder<b> {
         public a(View view, b bVar) {
             super(view, bVar);
         }
     }
 
-    public void sy(boolean z) {
-        this.ktL = z;
+    public void sL(boolean z) {
+        this.kBS = z;
     }
 }

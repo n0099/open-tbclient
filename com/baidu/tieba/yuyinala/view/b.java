@@ -17,104 +17,104 @@ import com.baidu.tieba.yuyinala.AlaRankListActivity;
 import com.baidu.tieba.yuyinala.data.g;
 import com.baidu.tieba.yuyinala.data.i;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private LinearLayout bZT;
-    private LinearLayout bta;
-    private CommonEmptyView btf;
-    private ArrayList<com.baidu.tieba.yuyinala.data.c> ieB;
-    private BdListView ieu;
+    private LinearLayout bwE;
+    private CommonEmptyView bwJ;
+    private LinearLayout cdZ;
+    private BdListView ijo;
+    private ArrayList<com.baidu.tieba.yuyinala.data.c> ijv;
     private String mRoomId;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.adapter.a oDH;
-    private com.baidu.tieba.yuyinala.view.a oDI;
-    private AlaRankListHeaderView oDJ;
-    private g oDK;
-    private TextView oDL;
-    private AlaRankListActivity ofd;
+    private com.baidu.tieba.yuyinala.adapter.a oNQ;
+    private com.baidu.tieba.yuyinala.view.a oNR;
+    private AlaRankListHeaderView oNS;
+    private g oNT;
+    private TextView oNU;
+    private AlaRankListActivity ooW;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void ep(View view);
+        void en(View view);
     }
 
     public b(AlaRankListActivity alaRankListActivity, String str) {
-        this.ofd = alaRankListActivity;
+        this.ooW = alaRankListActivity;
         this.mRoomId = str;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.ofd).inflate(a.g.yuyin_ala_rank_fragment_layout, (ViewGroup) null);
-        this.ieu = (BdListView) this.mRootView.findViewById(a.f.ala_rank_list_view);
-        this.oDH = new com.baidu.tieba.yuyinala.adapter.a(this.ofd, this.mRoomId);
-        this.ieu.setAdapter((ListAdapter) this.oDH);
-        this.oDJ = new AlaRankListHeaderView(this.ofd, this.mRoomId);
-        this.ieu.addHeaderView(this.oDJ);
-        this.bZT = (LinearLayout) LayoutInflater.from(this.ofd).inflate(a.g.yuyin_hour_rank_list_footer_view, (ViewGroup) null);
-        this.oDL = (TextView) this.bZT.findViewById(a.f.tv_footer);
-        this.ieu.addFooterView(this.bZT);
-        this.bZT.setVisibility(0);
-        this.bta = (LinearLayout) this.mRootView.findViewById(a.f.ala_rank_list_bottom_container);
-        this.oDI = new com.baidu.tieba.yuyinala.view.a(this.ofd, this.mRoomId);
-        this.bta.addView(this.oDI.getView(), new LinearLayout.LayoutParams(-1, -2));
-        this.btf = (CommonEmptyView) this.mRootView.findViewById(a.f.ala_rank_list_empty);
-        this.ieu.setEmptyView(this.btf);
-        this.oDI.a(new a() { // from class: com.baidu.tieba.yuyinala.view.b.1
+        this.mRootView = LayoutInflater.from(this.ooW).inflate(a.g.yuyin_ala_rank_fragment_layout, (ViewGroup) null);
+        this.ijo = (BdListView) this.mRootView.findViewById(a.f.ala_rank_list_view);
+        this.oNQ = new com.baidu.tieba.yuyinala.adapter.a(this.ooW, this.mRoomId);
+        this.ijo.setAdapter((ListAdapter) this.oNQ);
+        this.oNS = new AlaRankListHeaderView(this.ooW, this.mRoomId);
+        this.ijo.addHeaderView(this.oNS);
+        this.cdZ = (LinearLayout) LayoutInflater.from(this.ooW).inflate(a.g.yuyin_hour_rank_list_footer_view, (ViewGroup) null);
+        this.oNU = (TextView) this.cdZ.findViewById(a.f.tv_footer);
+        this.ijo.addFooterView(this.cdZ);
+        this.cdZ.setVisibility(0);
+        this.bwE = (LinearLayout) this.mRootView.findViewById(a.f.ala_rank_list_bottom_container);
+        this.oNR = new com.baidu.tieba.yuyinala.view.a(this.ooW, this.mRoomId);
+        this.bwE.addView(this.oNR.getView(), new LinearLayout.LayoutParams(-1, -2));
+        this.bwJ = (CommonEmptyView) this.mRootView.findViewById(a.f.ala_rank_list_empty);
+        this.ijo.setEmptyView(this.bwJ);
+        this.oNR.a(new a() { // from class: com.baidu.tieba.yuyinala.view.b.1
             @Override // com.baidu.tieba.yuyinala.view.b.a
-            public void ep(View view) {
+            public void en(View view) {
                 MessageManager.getInstance().dispatchResponsedMessage(new YuyinSupportRoomMessage(new SupportRoom()));
             }
         });
     }
 
     public void setDatas(ArrayList<com.baidu.tieba.yuyinala.data.c> arrayList) {
-        if (this.oDH != null) {
-            this.ieB = arrayList;
-            this.oDH.setData(arrayList);
+        if (this.oNQ != null) {
+            this.ijv = arrayList;
+            this.oNQ.setData(arrayList);
         }
     }
 
     public void c(i iVar) {
-        this.oDJ.b(iVar);
+        this.oNS.b(iVar);
     }
 
-    public void wt(int i) {
-        if (this.oDJ != null) {
-            this.oDJ.setHourHeaderInfoVisible(i);
+    public void wE(int i) {
+        if (this.oNS != null) {
+            this.oNS.setHourHeaderInfoVisible(i);
         }
     }
 
-    public void fp(int i) {
-        if (this.bZT != null) {
-            this.bZT.setVisibility(i);
+    public void fv(int i) {
+        if (this.cdZ != null) {
+            this.cdZ.setVisibility(i);
         }
     }
 
-    public void VL(String str) {
-        if (this.oDL != null) {
-            this.oDL.setText(str);
+    public void WK(String str) {
+        if (this.oNU != null) {
+            this.oNU.setText(str);
         }
     }
 
-    public void wu(int i) {
-        this.ieu.setVisibility(i);
+    public void wF(int i) {
+        this.ijo.setVisibility(i);
     }
 
     public void b(g gVar) {
         if (gVar == null) {
-            if (this.oDI != null) {
-                this.oDI.getView().setVisibility(8);
+            if (this.oNR != null) {
+                this.oNR.getView().setVisibility(8);
                 return;
             }
             return;
         }
-        this.oDK = gVar;
+        this.oNT = gVar;
         View view = null;
-        if (this.oDI != null) {
-            this.oDI.a(gVar);
-            this.oDI.getView().setVisibility(0);
-            view = this.oDI.getView();
+        if (this.oNR != null) {
+            this.oNR.a(gVar);
+            this.oNR.getView().setVisibility(0);
+            view = this.oNR.getView();
         }
         if (TbadkCoreApplication.getInst().isNotMobileBaidu()) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.view.b.2
@@ -125,35 +125,35 @@ public class b {
         }
     }
 
-    public void cov() {
-        if (this.oDI != null) {
-            this.oDI.getView().setVisibility(8);
+    public void cpA() {
+        if (this.oNR != null) {
+            this.oNR.getView().setVisibility(8);
         }
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.btf.reset();
-        this.btf.setTitle("网络不给力，请稍后重试");
-        this.btf.setRefreshButton("重新加载", onClickListener);
-        this.btf.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.btf.setTextColor(this.ofd.getResources().getColor(a.c.sdk_color_525252));
-        this.btf.setVisibility(0);
+        this.bwJ.reset();
+        this.bwJ.setTitle("网络不给力，请稍后重试");
+        this.bwJ.setRefreshButton("重新加载", onClickListener);
+        this.bwJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.bwJ.setTextColor(this.ooW.getResources().getColor(a.c.sdk_color_525252));
+        this.bwJ.setVisibility(0);
     }
 
-    public void Vq() {
-        this.btf.setVisibility(8);
+    public void WZ() {
+        this.bwJ.setVisibility(8);
     }
 
-    public void dI(boolean z) {
+    public void dQ(boolean z) {
         if (z) {
-            this.btf.reset();
-            this.btf.setTitle("还没有房间上榜哦~");
-            this.btf.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.btf.setTextColor(this.ofd.getResources().getColor(a.c.sdk_color_525252));
-            this.btf.setVisibility(0);
+            this.bwJ.reset();
+            this.bwJ.setTitle("还没有房间上榜哦~");
+            this.bwJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
+            this.bwJ.setTextColor(this.ooW.getResources().getColor(a.c.sdk_color_525252));
+            this.bwJ.setVisibility(0);
             return;
         }
-        this.btf.setVisibility(8);
+        this.bwJ.setVisibility(8);
     }
 
     public void release() {

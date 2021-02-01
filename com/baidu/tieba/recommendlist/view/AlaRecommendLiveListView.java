@@ -3,7 +3,7 @@ package com.baidu.tieba.recommendlist.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.live.adp.widget.listview.BdTypeListView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaRecommendLiveListView extends BdTypeListView {
     public AlaRecommendLiveListView(Context context) {
         super(context);
@@ -20,7 +20,7 @@ public class AlaRecommendLiveListView extends BdTypeListView {
         init();
     }
 
-    public void init() {
+    public final void init() {
         setDivider(null);
         setOverScrollMode(2);
         setSelector(17170445);

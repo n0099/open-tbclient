@@ -23,65 +23,65 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a implements b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected com.baidu.swan.games.f.d.b ecW;
-    public final String ecX;
-    private EventTarget ecY;
-    private EventTarget ecZ;
-    private com.baidu.swan.games.f.b.a eda;
-    private com.baidu.swan.games.f.b.b edb;
-    private com.baidu.swan.games.f.a.a edc;
-    private List<JSEvent> edd;
-    private boolean ede;
+    protected com.baidu.swan.games.f.d.b efd;
+    public final String efe;
+    private EventTarget eff;
+    private EventTarget efg;
+    private com.baidu.swan.games.f.b.a efh;
+    private com.baidu.swan.games.f.b.b efi;
+    private com.baidu.swan.games.f.a.a efj;
+    private List<JSEvent> efk;
+    private boolean efl;
     private Context mContext;
     protected V8Engine mV8Engine;
     private int mCurState = 0;
-    private boolean edf = false;
+    private boolean efm = false;
 
     @NonNull
-    public abstract EventTarget aVG();
+    public abstract EventTarget aVS();
 
     static {
-        com.baidu.swan.games.utils.so.d.aYM();
+        com.baidu.swan.games.utils.so.d.aYY();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull String str, @NonNull com.baidu.swan.games.f.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        this.ecX = str;
-        this.ecW = bVar;
+        this.efe = str;
+        this.efd = bVar;
         String initBasePath = getInitBasePath();
         if (!TextUtils.isEmpty(initBasePath)) {
-            this.ecY = aVG();
-            this.ecZ = aVH();
-            this.mV8Engine = new V8Engine(AppRuntime.getAppContext(), initBasePath, this.ecW.apQ(), v8ThreadDelegatePolicy, this.ecY, this.ecZ);
-            this.mV8Engine.setExternalV8BinFilesPath(com.baidu.swan.games.utils.so.d.aYR());
+            this.eff = aVS();
+            this.efg = aVT();
+            this.mV8Engine = new V8Engine(AppRuntime.getAppContext(), initBasePath, this.efd.aqo(), v8ThreadDelegatePolicy, this.eff, this.efg);
+            this.mV8Engine.setExternalV8BinFilesPath(com.baidu.swan.games.utils.so.d.aZd());
             this.mV8Engine.setFileSystemDelegatePolicy(new com.baidu.swan.games.f.c.d());
-            if (bVar.apP() != null) {
-                this.mV8Engine.setCodeCacheSetting(bVar.apP());
+            if (bVar.aqn() != null) {
+                this.mV8Engine.setCodeCacheSetting(bVar.aqn());
             }
-            this.eda = new com.baidu.swan.games.f.b.a(this.mV8Engine);
-            this.edc = new com.baidu.swan.games.f.a.a(this.mV8Engine);
-            this.edd = new ArrayList();
+            this.efh = new com.baidu.swan.games.f.b.a(this.mV8Engine);
+            this.efj = new com.baidu.swan.games.f.a.a(this.mV8Engine);
+            this.efk = new ArrayList();
             onCreate();
         }
     }
 
     @NonNull
-    public EventTarget aVH() {
+    public EventTarget aVT() {
         return new EventTargetImpl(this);
     }
 
-    public void aVI() {
+    public void aVU() {
         if (this.mV8Engine != null) {
             this.mV8Engine.setBdFileRealPath(n.getBasePath());
         }
     }
 
-    public void aVJ() {
+    public void aVV() {
         if (this.mV8Engine != null) {
-            this.mV8Engine.setMainPackageBasePath(com.baidu.swan.apps.v.f.azN().azu());
+            this.mV8Engine.setMainPackageBasePath(com.baidu.swan.apps.v.f.aAl().azS());
         }
     }
 
@@ -90,11 +90,11 @@ public abstract class a implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aVK() {
+    public void aVW() {
         if (DEBUG) {
             Log.d("SwanAppV8Engine", "initEngine start.");
         }
-        this.ecW.a(this);
+        this.efd.a(this);
         this.mV8Engine.startEngine();
         this.mV8Engine.addStatusHandler(new V8Engine.V8StatusListener() { // from class: com.baidu.swan.games.f.a.1
             @Override // com.baidu.searchbox.v8engine.V8Engine.V8StatusListener
@@ -124,11 +124,11 @@ public abstract class a implements b {
     }
 
     public void finish() {
-        if (!this.ede) {
+        if (!this.efl) {
             if (DEBUG) {
                 Log.d("SwanAppV8Engine", "finish called.");
             }
-            this.ede = true;
+            this.efl = true;
             onFinish();
             this.mV8Engine.destroyEngine(new V8ExecuteCallback() { // from class: com.baidu.swan.games.f.a.2
                 @Override // com.baidu.searchbox.v8engine.thread.V8ExecuteCallback
@@ -143,42 +143,42 @@ public abstract class a implements b {
     }
 
     public boolean isFinishing() {
-        return this.ede;
+        return this.efl;
     }
 
     @Override // com.baidu.swan.games.f.b
-    public com.baidu.swan.games.f.b.b aVL() {
-        if (this.edb == null) {
-            this.edb = new com.baidu.swan.games.f.b.b(this.mV8Engine);
+    public com.baidu.swan.games.f.b.b aVX() {
+        if (this.efi == null) {
+            this.efi = new com.baidu.swan.games.f.b.b(this.mV8Engine);
         }
-        return this.edb;
+        return this.efi;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public V8Engine aVM() {
+    public V8Engine aVY() {
         return this.mV8Engine;
     }
 
     @Override // com.baidu.swan.games.f.b
-    public EventTarget aVN() {
-        return this.ecY;
+    public EventTarget aVZ() {
+        return this.eff;
     }
 
     @Override // com.baidu.swan.games.f.b
-    public EventTarget aVO() {
-        return this.ecZ;
+    public EventTarget aWa() {
+        return this.efg;
     }
 
     @Override // com.baidu.swan.games.f.b
-    public com.baidu.swan.games.f.a.a aVP() {
-        return this.edc;
+    public com.baidu.swan.games.f.a.a aWb() {
+        return this.efj;
     }
 
     public boolean dispatchEvent(final JSEvent jSEvent) {
         if (DEBUG) {
             Log.d("SwanAppV8Engine", "dispatchEvent event: " + (jSEvent != null ? jSEvent.type : ""));
         }
-        if (this.ecY == null || !JSEvent.isValid(jSEvent)) {
+        if (this.eff == null || !JSEvent.isValid(jSEvent)) {
             if (DEBUG) {
                 Log.e("SwanAppV8Engine", "dispatchEvent globalObject or event is invalid.");
             }
@@ -191,46 +191,46 @@ public abstract class a implements b {
                     if (a.DEBUG) {
                         Log.d("SwanAppV8Engine", "dispatchEvent add to pending list.");
                     }
-                    a.this.edd.add(jSEvent);
+                    a.this.efk.add(jSEvent);
                     return;
                 }
-                a.this.ecY.dispatchEvent(jSEvent);
+                a.this.eff.dispatchEvent(jSEvent);
             }
         });
         return true;
     }
 
-    private void aVQ() {
+    private void aWc() {
         if (DEBUG) {
             Log.d("SwanAppV8Engine", "doPendingDispatch start.");
         }
         runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.f.a.4
             @Override // java.lang.Runnable
             public void run() {
-                for (JSEvent jSEvent : a.this.edd) {
+                for (JSEvent jSEvent : a.this.efk) {
                     if (a.DEBUG) {
                         Log.d("SwanAppV8Engine", "doPendingDispatch event type: " + jSEvent.type);
                     }
                     a.this.dispatchEvent(jSEvent);
                 }
-                a.this.edd.clear();
+                a.this.efk.clear();
             }
         });
     }
 
     @Override // com.baidu.swan.games.f.b
-    public void cZ(String str, String str2) {
-        this.eda.cZ(str, str2);
+    public void cT(String str, String str2) {
+        this.efh.cT(str, str2);
     }
 
     @Override // com.baidu.swan.apps.core.container.a
     public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
-        this.eda.evaluateJavascript(str, valueCallback);
+        this.efh.evaluateJavascript(str, valueCallback);
     }
 
     @Override // com.baidu.swan.apps.core.container.a
     public boolean isDestroyed() {
-        return this.ede;
+        return this.efl;
     }
 
     @Override // com.baidu.swan.apps.core.container.a
@@ -238,12 +238,12 @@ public abstract class a implements b {
         if (DEBUG) {
             Log.d("SwanAppV8Engine", "addJavascriptInterface object: " + obj + " ,name: " + str);
         }
-        this.eda.addJavascriptInterface(obj, str);
+        this.efh.addJavascriptInterface(obj, str);
     }
 
     @Override // com.baidu.swan.games.f.b
     public void throwJSException(JSExceptionType jSExceptionType, String str) {
-        this.eda.throwJSException(jSExceptionType, str);
+        this.efh.throwJSException(jSExceptionType, str);
     }
 
     @Override // com.baidu.searchbox.v8engine.JSRuntime
@@ -288,7 +288,7 @@ public abstract class a implements b {
     }
 
     @Override // com.baidu.swan.games.f.b
-    public boolean n(Runnable runnable) {
+    public boolean post(Runnable runnable) {
         runOnJSThread(runnable);
         return true;
     }
@@ -302,30 +302,30 @@ public abstract class a implements b {
     }
 
     public String getLogTag() {
-        return "[" + this.ecX + "] : ";
+        return "[" + this.efe + "] : ";
     }
 
-    private d aVR() {
-        return d.aVT();
+    private d aWd() {
+        return d.aWf();
     }
 
     private void onCreate() {
-        aVR().h(this);
+        aWd().h(this);
         this.mCurState = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onReady() {
-        aVR().i(this);
+        aWd().i(this);
         this.mCurState = 2;
-        this.ecW.b(this);
+        this.efd.b(this);
     }
 
     public void onPause() {
         if (this.mV8Engine != null) {
             this.mV8Engine.onPause();
         }
-        aVR().k(this);
+        aWd().k(this);
         this.mCurState = 4;
     }
 
@@ -333,30 +333,30 @@ public abstract class a implements b {
         if (this.mV8Engine != null) {
             this.mV8Engine.onResume();
         }
-        aVR().l(this);
+        aWd().l(this);
         this.mCurState = 5;
     }
 
     public void onLoad() {
-        aVR().j(this);
+        aWd().j(this);
         this.mCurState = 3;
-        this.edf = true;
-        aVQ();
+        this.efm = true;
+        aWc();
     }
 
     private void onFinish() {
-        aVR().m(this);
+        aWd().m(this);
         this.mCurState = 6;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onDestroy() {
-        aVR().n(this);
+        aWd().n(this);
         this.mCurState = 7;
     }
 
     public boolean isLoaded() {
-        return this.edf;
+        return this.efm;
     }
 
     @Override // com.baidu.swan.apps.core.container.a
@@ -364,7 +364,7 @@ public abstract class a implements b {
         return false;
     }
 
-    public boolean aVS() {
+    public boolean aWe() {
         return this.mCurState == 7;
     }
 
@@ -396,7 +396,7 @@ public abstract class a implements b {
 
     @Override // com.baidu.swan.games.f.b
     public String getInitBasePath() {
-        return this.ecW.getInitBasePath();
+        return this.efd.getInitBasePath();
     }
 
     public InspectorNativeClient initInspector(InspectorNativeChannel inspectorNativeChannel) {
@@ -420,7 +420,7 @@ public abstract class a implements b {
 
     @Override // com.baidu.swan.apps.core.container.a
     public void onJSLoaded() {
-        com.baidu.swan.apps.core.turbo.d.arG().fw(true);
+        com.baidu.swan.apps.core.turbo.d.ase().fy(true);
     }
 
     public JSONArray getPerformanceJson() {
@@ -432,6 +432,6 @@ public abstract class a implements b {
 
     @Override // com.baidu.swan.apps.core.container.a
     public String getContainerId() {
-        return this.ecX;
+        return this.efe;
     }
 }

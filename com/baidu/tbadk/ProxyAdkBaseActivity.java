@@ -34,8 +34,8 @@ import com.baidu.tbadk.core.a;
 import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.af;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.util.e;
 import com.baidu.tbadk.core.util.g.b;
 import com.baidu.tbadk.core.view.GuidPageView;
@@ -108,7 +108,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.brF();
+        this.customToast = e.brY();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -121,7 +121,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        bc.setCurrentActivity(getClass().getName());
+        bd.setCurrentActivity(getClass().getName());
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
         this.mIsLogin = TbadkCoreApplication.isLogin();
@@ -193,7 +193,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
 
     protected void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
-            d.ag(getPageContext().getPageActivity());
+            d.aa(getPageContext().getPageActivity());
         }
     }
 
@@ -362,19 +362,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i, false).bqk();
+        BdToast.b(getActivity(), str, i, false).bqD();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2, false).bqk();
+        BdToast.a(getActivity(), str, i, i2, false).bqD();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).bqk();
+        BdToast.a(getActivity(), str, defaultIcon).bqD();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).bqk();
+        BdToast.a(getActivity(), str, defaultIcon, i).bqD();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -493,7 +493,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        bc.setCurrentActivity(getClass().getName());
+        bd.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
@@ -592,7 +592,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.i
     public void onPreLoad(q qVar) {
         super.onPreLoad(qVar);
-        af.a(qVar, getUniqueId());
+        ag.a(qVar, getUniqueId());
         com.baidu.tbadk.core.util.g.c.a(qVar, getUniqueId(), this);
     }
 

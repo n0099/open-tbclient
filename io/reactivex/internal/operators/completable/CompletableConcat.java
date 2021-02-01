@@ -18,11 +18,11 @@ import org.a.d;
 /* loaded from: classes5.dex */
 public final class CompletableConcat extends a {
     final int prefetch;
-    final b<? extends e> qdN;
+    final b<? extends e> qnR;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
-        this.qdN.subscribe(new CompletableConcatSubscriber(cVar, this.prefetch));
+        this.qnR.subscribe(new CompletableConcatSubscriber(cVar, this.prefetch));
     }
 
     /* loaded from: classes5.dex */
@@ -70,7 +70,7 @@ public final class CompletableConcat extends a {
                     }
                 }
                 if (this.prefetch == Integer.MAX_VALUE) {
-                    this.queue = new io.reactivex.internal.queue.a(g.eHO());
+                    this.queue = new io.reactivex.internal.queue.a(g.eKe());
                 } else {
                     this.queue = new SpscArrayQueue(this.prefetch);
                 }
@@ -136,7 +136,7 @@ public final class CompletableConcat extends a {
                                 request();
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.O(th);
+                            io.reactivex.exceptions.a.N(th);
                             innerError(th);
                             return;
                         }

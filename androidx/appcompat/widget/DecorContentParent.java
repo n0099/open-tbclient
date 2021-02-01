@@ -8,7 +8,7 @@ import android.view.Window;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuPresenter;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface DecorContentParent {
     boolean canShowOverflowMenu();
 

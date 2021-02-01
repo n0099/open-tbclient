@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.downloader;
 
 import android.os.IBinder;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface o {
     void a(IBinder iBinder);
 

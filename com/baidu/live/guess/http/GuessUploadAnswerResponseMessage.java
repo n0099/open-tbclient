@@ -4,8 +4,9 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GuessUploadAnswerResponseMessage extends JsonHttpResponsedMessage {
+    private int doubleTicketNumber;
     private String msg;
     private int status;
 
@@ -13,6 +14,7 @@ public class GuessUploadAnswerResponseMessage extends JsonHttpResponsedMessage {
         super(1021218);
         this.msg = "";
         this.status = 0;
+        this.doubleTicketNumber = 0;
     }
 
     public int getStatus() {
@@ -34,6 +36,7 @@ public class GuessUploadAnswerResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject != null) {
                 this.status = optJSONObject.optInt("status", 0);
                 this.msg = optJSONObject.optString("msg", "");
+                this.doubleTicketNumber = optJSONObject.optInt("double_coupon_num");
             } else if (jSONObject.has(BaseJsonData.TAG_ERRNO) && jSONObject.has(BaseJsonData.TAG_ERRMSG)) {
                 setError(-1);
                 setErrorString(jSONObject.optString(BaseJsonData.TAG_ERRMSG));

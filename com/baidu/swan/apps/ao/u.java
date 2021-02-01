@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class u {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -87,12 +87,12 @@ public class u {
         }
     }
 
-    public static boolean S(Activity activity) {
+    public static boolean M(Activity activity) {
         if (activity == null || !y(activity.getIntent())) {
             return false;
         }
         try {
-            e.N(activity);
+            e.H(activity);
             return true;
         } catch (Exception e) {
             return true;

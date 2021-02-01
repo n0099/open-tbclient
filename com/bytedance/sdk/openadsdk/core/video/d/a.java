@@ -4,11 +4,11 @@ import android.os.Build;
 import android.view.View;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.kwad.sdk.collector.AppStatusRules;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f6717a = Build.VERSION.SDK_INT;
+    private static final int f6719a = Build.VERSION.SDK_INT;
 
     public static int a(long j, long j2) {
         return Math.min(Math.max(0, j2 > 0 ? (int) (((j * 1.0d) / j2) * 100.0d) : 0), 100);
@@ -44,9 +44,9 @@ public class a {
         if (view != null) {
             if (z) {
                 view.setSystemUiVisibility(0);
-            } else if (f6717a >= 19) {
+            } else if (f6719a >= 19) {
                 view.setSystemUiVisibility(3846);
-            } else if (f6717a >= 16) {
+            } else if (f6719a >= 16) {
                 view.setSystemUiVisibility(5);
             } else {
                 view.setSystemUiVisibility(1);

@@ -13,41 +13,41 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends Thread {
-    private a mYT;
-    private final String mYV;
-    private Process mYW;
-    private FileOutputStream mYY;
+    private a niC;
+    private final String niE;
+    private Process niF;
+    private FileOutputStream niH;
     private boolean mRunning = true;
-    private BufferedReader mYX = null;
+    private BufferedReader niG = null;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void dGx();
+        void dII();
     }
 
     public b(String str, String str2, boolean z) {
-        this.mYY = null;
+        this.niH = null;
         try {
-            this.mYY = new FileOutputStream(new File(str, str2 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH).format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
+            this.niH = new FileOutputStream(new File(str, str2 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH).format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
         } catch (FileNotFoundException e) {
             BdLog.e(Log.getStackTraceString(e));
         }
         if (z) {
-            this.mYV = "logcat -v threadtime *:v -d";
+            this.niE = "logcat -v threadtime *:v -d";
         } else {
-            this.mYV = "logcat -v threadtime *:v";
+            this.niE = "logcat -v threadtime *:v";
         }
     }
 
     public void a(a aVar) {
-        this.mYT = aVar;
+        this.niC = aVar;
     }
 
-    public void dGy() {
+    public void dIJ() {
         this.mRunning = false;
-        dGz();
+        dIK();
         interrupt();
     }
 
@@ -55,44 +55,44 @@ public class b extends Thread {
     public void run() {
         String readLine;
         try {
-            this.mYW = Runtime.getRuntime().exec(this.mYV);
-            this.mYX = new BufferedReader(new InputStreamReader(this.mYW.getInputStream()), 1024);
-            while (this.mRunning && (readLine = this.mYX.readLine()) != null && this.mRunning) {
-                if (readLine.length() != 0 && this.mYY != null) {
-                    this.mYY.write((readLine + "\n").getBytes());
+            this.niF = Runtime.getRuntime().exec(this.niE);
+            this.niG = new BufferedReader(new InputStreamReader(this.niF.getInputStream()), 1024);
+            while (this.mRunning && (readLine = this.niG.readLine()) != null && this.mRunning) {
+                if (readLine.length() != 0 && this.niH != null) {
+                    this.niH.write((readLine + "\n").getBytes());
                 }
             }
             BdLog.d("collector complete.");
         } catch (IOException e) {
             BdLog.e(Log.getStackTraceString(e));
         } finally {
-            dGz();
+            dIK();
         }
     }
 
-    private void dGz() {
-        if (this.mYW != null) {
-            this.mYW.destroy();
-            this.mYW = null;
+    private void dIK() {
+        if (this.niF != null) {
+            this.niF.destroy();
+            this.niF = null;
         }
-        if (this.mYX != null) {
+        if (this.niG != null) {
             try {
-                this.mYX.close();
-                this.mYX = null;
+                this.niG.close();
+                this.niG = null;
             } catch (IOException e) {
                 BdLog.e(Log.getStackTraceString(e));
             }
         }
-        if (this.mYY != null) {
+        if (this.niH != null) {
             try {
-                this.mYY.close();
+                this.niH.close();
             } catch (IOException e2) {
                 BdLog.e(Log.getStackTraceString(e2));
             }
-            this.mYY = null;
+            this.niH = null;
         }
-        if (this.mYT != null) {
-            this.mYT.dGx();
+        if (this.niC != null) {
+            this.niC.dII();
         }
     }
 }

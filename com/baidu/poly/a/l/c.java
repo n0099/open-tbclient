@@ -10,18 +10,18 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.poly.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends FrameLayout {
-    private boolean ckA;
-    private ImageView ckx;
-    private TextView cky;
-    private Animation ckz;
+    private ImageView coO;
+    private TextView coP;
+    private Animation coQ;
+    private boolean coR;
 
     public c(Context context) {
         this(context, null);
     }
 
-    private void abO() {
+    private void adC() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
@@ -33,30 +33,30 @@ public class c extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.view_toast_loading, (ViewGroup) this, true);
-        this.ckx = (ImageView) findViewById(b.e.toast_loading_view);
-        this.cky = (TextView) findViewById(b.e.toast_text_view);
-        this.ckz = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.coO = (ImageView) findViewById(b.e.toast_loading_view);
+        this.coP = (TextView) findViewById(b.e.toast_text_view);
+        this.coQ = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
         setClickable(true);
     }
 
     public boolean getIsLoading() {
-        return this.ckA;
+        return this.coR;
     }
 
     public void setLoading(boolean z) {
-        abO();
-        this.ckA = z;
+        adC();
+        this.coR = z;
         if (z) {
             setVisibility(0);
-            this.ckx.startAnimation(this.ckz);
+            this.coO.startAnimation(this.coQ);
             return;
         }
-        this.ckx.clearAnimation();
+        this.coO.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.cky.setText(str);
+        this.coP.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {

@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static List<String> a(int i, int i2) {
         Process process = null;
@@ -43,24 +43,24 @@ public class e {
         return copyOnWriteArrayList;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class a extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        private InputStream f7645a;
+        private InputStream f7647a;
 
         /* renamed from: b  reason: collision with root package name */
-        private List<String> f7646b;
+        private List<String> f7648b;
 
         a(InputStream inputStream, List<String> list) {
-            this.f7645a = inputStream;
-            this.f7646b = list;
+            this.f7647a = inputStream;
+            this.f7648b = list;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             int i = 32768;
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f7645a));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f7647a));
             while (true) {
                 try {
                     String readLine = bufferedReader.readLine();
@@ -71,7 +71,7 @@ public class e {
                         if (i < 0) {
                             break;
                         }
-                        this.f7646b.add(readLine);
+                        this.f7648b.add(readLine);
                     }
                 } catch (IOException e) {
                     return;
@@ -82,29 +82,29 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class b extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        private Process f7647a;
+        private Process f7649a;
 
         /* renamed from: b  reason: collision with root package name */
-        private long f7648b;
+        private long f7650b;
 
         public b(Process process, long j) {
-            this.f7647a = process;
-            this.f7648b = j;
+            this.f7649a = process;
+            this.f7650b = j;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             try {
-                sleep(this.f7648b);
+                sleep(this.f7650b);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (this.f7647a != null) {
-                this.f7647a.destroy();
+            if (this.f7649a != null) {
+                this.f7649a.destroy();
             }
         }
     }

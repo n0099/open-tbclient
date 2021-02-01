@@ -10,7 +10,7 @@ import androidx.core.internal.view.SupportMenu;
 import androidx.core.internal.view.SupportMenuItem;
 import androidx.core.internal.view.SupportSubMenu;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class MenuWrapperFactory {
     private MenuWrapperFactory() {
     }

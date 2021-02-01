@@ -8,39 +8,39 @@ import android.widget.ImageView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends g {
-    private com.baidu.live.challenge.a hqT;
-    private AlaChallengeWaveView hrI;
-    private AlaChallengeWaveView hrJ;
-    private HeadImageView hrK;
-    private HeadImageView hrL;
+    private AlaChallengeWaveView hvS;
+    private AlaChallengeWaveView hvT;
+    private HeadImageView hvU;
+    private HeadImageView hvV;
+    private com.baidu.live.challenge.a hvd;
 
     public a(Context context, n nVar) {
         super(context, nVar);
-        this.hrI = (AlaChallengeWaveView) this.mRootView.findViewById(a.f.ala_challenge_wave_left);
-        this.hrJ = (AlaChallengeWaveView) this.mRootView.findViewById(a.f.ala_challenge_wave_right);
-        this.hrI.setWaveArray(new float[]{AlaChallengeWaveView.hsZ, AlaChallengeWaveView.hsY, AlaChallengeWaveView.hsX});
-        this.hrJ.setWaveArray(new float[]{AlaChallengeWaveView.hsX, AlaChallengeWaveView.hsY, AlaChallengeWaveView.hsZ});
-        this.hrK = (HeadImageView) this.mRootView.findViewById(a.f.ala_challenge_direct_left_header);
-        this.hrK.setIsRound(true);
-        this.hrK.setAutoChangeStyle(false);
-        this.hrK.setDrawBorder(false);
-        this.hrK.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.hrK.setDefaultBgResource(a.e.icon_challenge_default_avatar);
-        this.hrK.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
-        this.hrL = (HeadImageView) this.mRootView.findViewById(a.f.ala_challenge_direct_right_header);
-        this.hrL.setIsRound(true);
-        this.hrL.setAutoChangeStyle(false);
-        this.hrL.setDrawBorder(false);
-        this.hrL.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.hrL.setDefaultBgResource(a.e.icon_challenge_default_avatar);
+        this.hvS = (AlaChallengeWaveView) this.mRootView.findViewById(a.f.ala_challenge_wave_left);
+        this.hvT = (AlaChallengeWaveView) this.mRootView.findViewById(a.f.ala_challenge_wave_right);
+        this.hvS.setWaveArray(new float[]{AlaChallengeWaveView.hxj, AlaChallengeWaveView.hxi, AlaChallengeWaveView.hxh});
+        this.hvT.setWaveArray(new float[]{AlaChallengeWaveView.hxh, AlaChallengeWaveView.hxi, AlaChallengeWaveView.hxj});
+        this.hvU = (HeadImageView) this.mRootView.findViewById(a.f.ala_challenge_direct_left_header);
+        this.hvU.setIsRound(true);
+        this.hvU.setAutoChangeStyle(false);
+        this.hvU.setDrawBorder(false);
+        this.hvU.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hvU.setDefaultBgResource(a.e.icon_challenge_default_avatar);
+        this.hvU.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
+        this.hvV = (HeadImageView) this.mRootView.findViewById(a.f.ala_challenge_direct_right_header);
+        this.hvV.setIsRound(true);
+        this.hvV.setAutoChangeStyle(false);
+        this.hvV.setDrawBorder(false);
+        this.hvV.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hvV.setDefaultBgResource(a.e.icon_challenge_default_avatar);
     }
 
     public void d(com.baidu.live.challenge.a aVar) {
         if (aVar != null) {
-            this.hqT = aVar;
-            this.hrL.startLoad(aVar.aDJ, 25, false);
+            this.hvd = aVar;
+            this.hvV.startLoad(aVar.aFw, 25, false);
         }
     }
 
@@ -50,18 +50,18 @@ public class a extends g {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    protected int ccr() {
+    protected int cdm() {
         return this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds510);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
     protected void hide() {
         super.hide();
-        if (this.hrI != null) {
-            this.hrI.endAnimation();
+        if (this.hvS != null) {
+            this.hvS.endAnimation();
         }
-        if (this.hrJ != null) {
-            this.hrJ.endAnimation();
+        if (this.hvT != null) {
+            this.hvT.endAnimation();
         }
     }
 }

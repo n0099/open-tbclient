@@ -7,11 +7,11 @@ import com.xiaomi.push.ai;
 public class bq extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bp f13890a;
+    final /* synthetic */ bp f13892a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(bp bpVar) {
-        this.f13890a = bpVar;
+        this.f13892a = bpVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -26,12 +26,12 @@ public class bq extends ai.a {
         cf cfVar2;
         Context context;
         com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-        cfVar = this.f13890a.f216a;
+        cfVar = this.f13892a.f216a;
         if (cfVar != null) {
-            cfVar2 = this.f13890a.f216a;
-            context = this.f13890a.f213a;
+            cfVar2 = this.f13892a.f216a;
+            context = this.f13892a.f213a;
             cfVar2.a(context);
-            this.f13890a.b("upload_time");
+            this.f13892a.b("upload_time");
         }
     }
 }

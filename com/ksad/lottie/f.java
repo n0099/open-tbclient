@@ -24,17 +24,17 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f extends Drawable implements Animatable, Drawable.Callback {
     private static final String c = f.class.getSimpleName();
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    com.ksad.lottie.a f8009a;
+    com.ksad.lottie.a f8011a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    m f8010b;
+    m f8012b;
     private d e;
     @Nullable
     private com.ksad.lottie.b.b j;
@@ -56,7 +56,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     private int p = 255;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(d dVar);
     }
@@ -107,7 +107,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
             return null;
         }
         if (this.m == null) {
-            this.m = new com.ksad.lottie.b.a(getCallback(), this.f8009a);
+            this.m = new com.ksad.lottie.b.a(getCallback(), this.f8011a);
         }
         return this.m;
     }
@@ -161,7 +161,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void a(com.ksad.lottie.a aVar) {
-        this.f8009a = aVar;
+        this.f8011a = aVar;
         if (this.m != null) {
             this.m.a(aVar);
         }
@@ -175,7 +175,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void a(m mVar) {
-        this.f8010b = mVar;
+        this.f8012b = mVar;
     }
 
     public void a(@Nullable String str) {
@@ -472,11 +472,11 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @Nullable
     public m o() {
-        return this.f8010b;
+        return this.f8012b;
     }
 
     public boolean p() {
-        return this.f8010b == null && this.e.h().size() > 0;
+        return this.f8012b == null && this.e.h().size() > 0;
     }
 
     public float q() {

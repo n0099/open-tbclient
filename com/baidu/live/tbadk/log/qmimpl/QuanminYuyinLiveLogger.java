@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class QuanminYuyinLiveLogger implements IYuyinLiveLogger {
     @Override // com.baidu.live.tbadk.log.IYuyinLiveLogger
     public void doShowYuyinLiveGuestLog(String str, String str2, int i, boolean z, String str3) {

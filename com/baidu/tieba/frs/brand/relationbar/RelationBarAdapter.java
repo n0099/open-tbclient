@@ -3,12 +3,12 @@ package com.baidu.tieba.frs.brand.relationbar;
 import android.content.Context;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes2.dex */
 public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> {
-    private List<OriForumInfo> jjb;
+    private List<OriForumInfo> joI;
     private Context mContext;
 
     public RelationBarAdapter(Context context) {
@@ -17,14 +17,14 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: C */
+    /* renamed from: D */
     public RelationBarHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new RelationBarHolder(new RelationBarCellView(this.mContext));
     }
 
     public void setData(List<OriForumInfo> list) {
-        if (!x.isEmpty(list)) {
-            this.jjb = list;
+        if (!y.isEmpty(list)) {
+            this.joI = list;
         }
     }
 
@@ -32,9 +32,9 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(RelationBarHolder relationBarHolder, int i) {
-        OriForumInfo oriForumInfo = (OriForumInfo) x.getItem(this.jjb, i);
+        OriForumInfo oriForumInfo = (OriForumInfo) y.getItem(this.joI, i);
         if (oriForumInfo != null) {
-            RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.cEm();
+            RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.cFz();
             relationBarCellView.setData(oriForumInfo);
             relationBarCellView.onChangeSkinType();
         }
@@ -42,6 +42,6 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return x.getCount(this.jjb);
+        return y.getCount(this.joI);
     }
 }

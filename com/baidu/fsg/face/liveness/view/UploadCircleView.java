@@ -14,10 +14,10 @@ import com.baidu.fsg.face.base.d.h;
 public class UploadCircleView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f2383a;
+    private Paint f2381a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Paint f2384b;
+    private Paint f2382b;
     private Paint c;
     private RectF d;
     private int e;
@@ -42,20 +42,20 @@ public class UploadCircleView extends View {
         this.h = h.a(context, 24.0f);
         this.e = Color.parseColor("#E1DDDD");
         this.f = Color.parseColor("#3C76FF");
-        this.f2383a = new Paint();
-        this.f2384b = new Paint();
+        this.f2381a = new Paint();
+        this.f2382b = new Paint();
         this.c = new Paint();
         this.d = new RectF();
-        this.f2383a.setColor(this.e);
-        this.f2383a.setStyle(Paint.Style.STROKE);
-        this.f2383a.setStrokeWidth(this.g);
-        this.f2383a.setAntiAlias(true);
-        this.f2383a.setStrokeCap(Paint.Cap.ROUND);
-        this.f2384b.setColor(this.f);
-        this.f2384b.setStyle(Paint.Style.STROKE);
-        this.f2384b.setStrokeWidth(this.g);
-        this.f2384b.setAntiAlias(true);
-        this.f2384b.setStrokeCap(Paint.Cap.ROUND);
+        this.f2381a.setColor(this.e);
+        this.f2381a.setStyle(Paint.Style.STROKE);
+        this.f2381a.setStrokeWidth(this.g);
+        this.f2381a.setAntiAlias(true);
+        this.f2381a.setStrokeCap(Paint.Cap.ROUND);
+        this.f2382b.setColor(this.f);
+        this.f2382b.setStyle(Paint.Style.STROKE);
+        this.f2382b.setStrokeWidth(this.g);
+        this.f2382b.setAntiAlias(true);
+        this.f2382b.setStrokeCap(Paint.Cap.ROUND);
         this.c.setStrokeWidth(0.0f);
         this.c.setColor(this.f);
         this.c.setTextSize(this.h);
@@ -66,9 +66,9 @@ public class UploadCircleView extends View {
     protected void onDraw(Canvas canvas) {
         float width = getWidth() / 2;
         float f = width - (this.g / 2);
-        canvas.drawCircle(width, width, f, this.f2383a);
+        canvas.drawCircle(width, width, f, this.f2381a);
         this.d.set(width - f, width - f, width + f, f + width);
-        canvas.drawArc(this.d, -90.0f, this.i, false, this.f2384b);
+        canvas.drawArc(this.d, -90.0f, this.i, false, this.f2382b);
         canvas.drawText(this.j, width - (this.c.measureText(this.j) / 2.0f), width, this.c);
     }
 

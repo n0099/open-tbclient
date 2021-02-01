@@ -4,14 +4,14 @@ import android.os.Process;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FileLock {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, Integer> f7519a = new HashMap();
+    private static final Map<String, Integer> f7521a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f7520b;
+    private final int f7522b;
     private final String c;
 
     private static native int nGetFD(String str) throws Exception;
@@ -32,7 +32,7 @@ public class FileLock {
 
     private FileLock(String str, int i) {
         this.c = str;
-        this.f7520b = i;
+        this.f7522b = i;
     }
 
     public static FileLock a(String str) {
@@ -82,12 +82,12 @@ public class FileLock {
 
     private static int d(String str) throws Exception {
         Integer num;
-        synchronized (f7519a) {
-            num = f7519a.get(str);
+        synchronized (f7521a) {
+            num = f7521a.get(str);
             if (num == null) {
                 new File(str).getParentFile().mkdirs();
                 num = Integer.valueOf(nGetFD(str));
-                f7519a.put(str, num);
+                f7521a.put(str, num);
             }
         }
         return num.intValue();
@@ -95,7 +95,7 @@ public class FileLock {
 
     public void a() {
         try {
-            nUnlockFile(this.f7520b);
+            nUnlockFile(this.f7522b);
         } catch (Exception e) {
             throw new RuntimeException("release lock failed，path:" + this.c);
         }
@@ -103,8 +103,8 @@ public class FileLock {
 
     public void b() {
         Integer remove;
-        synchronized (f7519a) {
-            remove = f7519a.remove(this.c);
+        synchronized (f7521a) {
+            remove = f7521a.remove(this.c);
         }
         try {
             nRelease(remove.intValue());

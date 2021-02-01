@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetCard.GetCardResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
     private com.baidu.tieba.themeCenter.a cardData;
 
@@ -35,13 +35,13 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
                 }
                 this.cardData.setTitle(getCardResIdl.data.title);
                 this.cardData.setDescription(getCardResIdl.data.description);
-                this.cardData.SU(getCardResIdl.data.pic_url);
-                this.cardData.SV(getCardResIdl.data.permission);
-                this.cardData.SW(getCardResIdl.data.props_state_img);
-                this.cardData.JJ(getCardResIdl.data.in_use.intValue());
+                this.cardData.TR(getCardResIdl.data.pic_url);
+                this.cardData.TS(getCardResIdl.data.permission);
+                this.cardData.TT(getCardResIdl.data.props_state_img);
+                this.cardData.Kd(getCardResIdl.data.in_use.intValue());
                 this.cardData.setFreeUserLevel(getCardResIdl.data.free_user_level.intValue());
                 this.cardData.setActivityUrl(getCardResIdl.data.activity_url);
-                this.cardData.JK(getCardResIdl.data.is_finished.intValue());
+                this.cardData.Ke(getCardResIdl.data.is_finished.intValue());
                 this.cardData.setDailyPrevilegeStatus(getCardResIdl.data.daily_previlege_status.intValue());
             }
         }

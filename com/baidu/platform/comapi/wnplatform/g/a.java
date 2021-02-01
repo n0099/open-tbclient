@@ -15,26 +15,26 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends ItemizedOverlay {
 
     /* renamed from: b  reason: collision with root package name */
-    private View f4406b;
+    private View f4409b;
     private ImageView c;
     private ImageView d;
     private Context e;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0287a {
+    /* loaded from: classes4.dex */
+    public static class C0291a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f4407a = new a();
+        static final a f4410a = new a();
     }
 
     public static a b() {
-        return C0287a.f4407a;
+        return C0291a.f4410a;
     }
 
     private a() {
@@ -75,16 +75,16 @@ public class a extends ItemizedOverlay {
 
     private BitmapDescriptor a(Context context, int i, int i2) {
         try {
-            this.f4406b = ((Activity) context).getLayoutInflater().inflate(R.array.aiapps_loading_tips_prepare, (ViewGroup) null);
-            this.c = (ImageView) this.f4406b.findViewById(R.dimen.abc_text_size_display_2_material);
+            this.f4409b = ((Activity) context).getLayoutInflater().inflate(R.array.aiapps_loading_tips_prepare, (ViewGroup) null);
+            this.c = (ImageView) this.f4409b.findViewById(R.dimen.abc_text_size_display_2_material);
             this.c.setImageResource(i);
-            this.d = (ImageView) this.f4406b.findViewById(R.dimen.abc_text_size_display_3_material);
+            this.d = (ImageView) this.f4409b.findViewById(R.dimen.abc_text_size_display_3_material);
             this.d.setImageResource(i2);
-            this.f4406b.setDrawingCacheEnabled(true);
-            this.f4406b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            this.f4406b.layout(0, 0, this.f4406b.getMeasuredWidth(), this.f4406b.getMeasuredHeight());
-            this.f4406b.buildDrawingCache();
-            return BitmapDescriptorFactory.fromBitmap(this.f4406b.getDrawingCache());
+            this.f4409b.setDrawingCacheEnabled(true);
+            this.f4409b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            this.f4409b.layout(0, 0, this.f4409b.getMeasuredWidth(), this.f4409b.getMeasuredHeight());
+            this.f4409b.buildDrawingCache();
+            return BitmapDescriptorFactory.fromBitmap(this.f4409b.getDrawingCache());
         } catch (Exception e) {
             return null;
         }

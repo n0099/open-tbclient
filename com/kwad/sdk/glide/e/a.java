@@ -5,34 +5,34 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<C1117a<?>> f9963a = new ArrayList();
+    private final List<C1121a<?>> f9965a = new ArrayList();
 
     /* renamed from: com.kwad.sdk.glide.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private static final class C1117a<T> {
+    /* loaded from: classes3.dex */
+    private static final class C1121a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        final com.kwad.sdk.glide.load.a<T> f9964a;
+        final com.kwad.sdk.glide.load.a<T> f9966a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final Class<T> f9965b;
+        private final Class<T> f9967b;
 
-        C1117a(@NonNull Class<T> cls, @NonNull com.kwad.sdk.glide.load.a<T> aVar) {
-            this.f9965b = cls;
-            this.f9964a = aVar;
+        C1121a(@NonNull Class<T> cls, @NonNull com.kwad.sdk.glide.load.a<T> aVar) {
+            this.f9967b = cls;
+            this.f9966a = aVar;
         }
 
         boolean a(@NonNull Class<?> cls) {
-            return this.f9965b.isAssignableFrom(cls);
+            return this.f9967b.isAssignableFrom(cls);
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0019, code lost:
-        r0 = (com.kwad.sdk.glide.load.a<T>) r0.f9964a;
+        r0 = (com.kwad.sdk.glide.load.a<T>) r0.f9966a;
      */
     @Nullable
     /*
@@ -40,13 +40,13 @@ public class a {
     */
     public synchronized <T> com.kwad.sdk.glide.load.a<T> a(@NonNull Class<T> cls) {
         com.kwad.sdk.glide.load.a<T> aVar;
-        Iterator<C1117a<?>> it = this.f9963a.iterator();
+        Iterator<C1121a<?>> it = this.f9965a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 aVar = null;
                 break;
             }
-            C1117a<?> next = it.next();
+            C1121a<?> next = it.next();
             if (next.a(cls)) {
                 break;
             }
@@ -55,6 +55,6 @@ public class a {
     }
 
     public synchronized <T> void a(@NonNull Class<T> cls, @NonNull com.kwad.sdk.glide.load.a<T> aVar) {
-        this.f9963a.add(new C1117a<>(cls, aVar));
+        this.f9965a.add(new C1121a<>(cls, aVar));
     }
 }

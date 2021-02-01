@@ -18,20 +18,20 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b {
     private static final Paint c;
     private static final Set<String> e;
     private static final Lock f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Paint f10749a = new Paint(6);
+    private static final Paint f10751a = new Paint(6);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Paint f10750b = new Paint(7);
+    private static final Paint f10752b = new Paint(7);
     private static final Paint d = new Paint(7);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static final class a implements Lock {
         a() {
         }
@@ -109,7 +109,7 @@ public final class b {
         f.lock();
         try {
             Canvas canvas = new Canvas(a3);
-            canvas.drawCircle(f2, f2, f2, f10750b);
+            canvas.drawCircle(f2, f2, f2, f10752b);
             canvas.drawBitmap(a2, (Rect) null, rectF, c);
             canvas.drawCircle(f2, f2, f2 - 0.0f, d);
             a(canvas);

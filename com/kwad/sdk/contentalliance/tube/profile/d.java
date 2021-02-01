@@ -13,7 +13,7 @@ import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.mvp.Presenter;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends com.kwad.sdk.contentalliance.tube.a.c<com.kwad.sdk.contentalliance.tube.profile.a.b> {
     private SceneImpl e;
     private TubeProfileParam f;
@@ -79,13 +79,13 @@ public class d extends com.kwad.sdk.contentalliance.tube.a.c<com.kwad.sdk.conten
     /* renamed from: f */
     public com.kwad.sdk.contentalliance.tube.profile.a.b c() {
         com.kwad.sdk.contentalliance.tube.profile.a.b bVar = new com.kwad.sdk.contentalliance.tube.profile.a.b();
-        bVar.f8954a = this;
+        bVar.f8956a = this;
         this.h = new com.kwad.sdk.core.i.a(this, this.c, 70);
         this.h.a();
         bVar.d = this.h;
         bVar.c = this.f;
         bVar.f = this.e;
-        bVar.f8955b = this.d;
+        bVar.f8957b = this.d;
         return bVar;
     }
 

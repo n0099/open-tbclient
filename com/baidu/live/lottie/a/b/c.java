@@ -1,7 +1,7 @@
 package com.baidu.live.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends f<Float> {
     public c(List<com.baidu.live.lottie.e.a<Float>> list) {
         super(list);
@@ -16,6 +16,6 @@ public class c extends f<Float> {
         if (aVar.HL == null || aVar.HM == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        return (this.bpt == null || (f2 = (Float) this.bpt.c(aVar.BS, aVar.HO.floatValue(), aVar.HL, aVar.HM, f, iI(), getProgress())) == null) ? Float.valueOf(com.baidu.live.lottie.d.e.lerp(aVar.HL.floatValue(), aVar.HM.floatValue(), f)) : f2;
+        return (this.bsU == null || (f2 = (Float) this.bsU.c(aVar.BT, aVar.HO.floatValue(), aVar.HL, aVar.HM, f, iH(), getProgress())) == null) ? Float.valueOf(com.baidu.live.lottie.d.e.lerp(aVar.HL.floatValue(), aVar.HM.floatValue(), f)) : f2;
     }
 }

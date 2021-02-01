@@ -7,20 +7,20 @@ import com.xiaomi.push.hq;
 public class ad implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MiTinyDataClient.a.C1277a f13798a;
+    final /* synthetic */ MiTinyDataClient.a.C1281a f13800a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ hq f118a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(MiTinyDataClient.a.C1277a c1277a, hq hqVar) {
-        this.f13798a = c1277a;
+    public ad(MiTinyDataClient.a.C1281a c1281a, hq hqVar) {
+        this.f13800a = c1281a;
         this.f118a = hqVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f13798a.f113a.add(this.f118a);
-        this.f13798a.a();
+        this.f13800a.f113a.add(this.f118a);
+        this.f13800a.a();
     }
 }

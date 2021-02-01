@@ -6,30 +6,30 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f10978a = new Object();
+    private static final Object f10980a = new Object();
     private static final Object c = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private v f10979b;
+    private v f10981b;
     private u d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final q f10980a = new q();
+        private static final q f10982a = new q();
     }
 
     public static q a() {
-        return a.f10980a;
+        return a.f10982a;
     }
 
     public static void a(Context context, c.a aVar) {
-        if (com.kwai.filedownloader.f.d.f10928a) {
+        if (com.kwai.filedownloader.f.d.f10930a) {
             com.kwai.filedownloader.f.d.c(q.class, "init Downloader with params: %s %s", context, aVar);
         }
         if (context == null) {
@@ -92,14 +92,14 @@ public class q {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v d() {
-        if (this.f10979b == null) {
-            synchronized (f10978a) {
-                if (this.f10979b == null) {
-                    this.f10979b = new aa();
+        if (this.f10981b == null) {
+            synchronized (f10980a) {
+                if (this.f10981b == null) {
+                    this.f10981b = new aa();
                 }
             }
         }
-        return this.f10979b;
+        return this.f10981b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

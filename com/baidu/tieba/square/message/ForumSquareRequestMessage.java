@@ -3,7 +3,7 @@ package com.baidu.tieba.square.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetForumSquare.DataReq;
 import tbclient.GetForumSquare.GetForumSquareReqIdl;
 /* loaded from: classes2.dex */
@@ -26,7 +26,7 @@ public class ForumSquareRequestMessage extends NetMessage {
             builder.rn = 20;
             builder.user_id = Long.valueOf(TbadkCoreApplication.getCurrentAccountId());
             if (z) {
-                t.b(builder, true);
+                v.b(builder, true);
             }
             GetForumSquareReqIdl.Builder builder2 = new GetForumSquareReqIdl.Builder();
             builder2.data = builder.build(false);

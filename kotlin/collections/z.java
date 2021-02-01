@@ -2,9 +2,9 @@ package kotlin.collections;
 
 import java.util.Iterator;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class z implements Iterator<Long> {
-    public abstract long ezf();
+    public abstract long eBx();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class z implements Iterator<Long> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eIN */
+    /* renamed from: eLd */
     public final Long next() {
-        return Long.valueOf(ezf());
+        return Long.valueOf(eBx());
     }
 }

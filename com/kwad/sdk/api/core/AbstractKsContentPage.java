@@ -7,7 +7,7 @@ import com.kwad.sdk.api.KsContentPage;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractKsContentPage implements KsContentPage {
     @Override // com.kwad.sdk.api.KsContentPage
     @NonNull

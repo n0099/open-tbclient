@@ -3,14 +3,14 @@ package com.baidu.platform.comapi.wnplatform.o.b.a;
 import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4444a = -1;
+    private int f4447a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f4445b = -1;
+    private int f4448b = -1;
     private float c = -1.0f;
     private int d = -1;
     private int e = -1;
@@ -19,8 +19,8 @@ public class a {
 
     public void a(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.f4444a = displayMetrics.widthPixels;
-        this.f4445b = displayMetrics.heightPixels;
+        this.f4447a = displayMetrics.widthPixels;
+        this.f4448b = displayMetrics.heightPixels;
         this.c = displayMetrics.density;
         this.d = (int) displayMetrics.xdpi;
         this.e = (int) displayMetrics.ydpi;
@@ -42,17 +42,17 @@ public class a {
     }
 
     public int a() {
-        if (this.f4444a == -1) {
+        if (this.f4447a == -1) {
             a(com.baidu.platform.comapi.wnplatform.o.b.a.a());
         }
-        return this.f4444a;
+        return this.f4447a;
     }
 
     public int b() {
-        if (this.f4445b == -1) {
+        if (this.f4448b == -1) {
             a(com.baidu.platform.comapi.wnplatform.o.b.a.a());
         }
-        return this.f4445b;
+        return this.f4448b;
     }
 
     public float c() {

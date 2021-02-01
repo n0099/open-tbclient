@@ -1,14 +1,14 @@
 package com.meizu.cloud.pushsdk.b.c;
 
 import com.meizu.cloud.pushsdk.b.c.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private final i f11176a;
+    private final i f11178a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f11177b;
+    private final int f11179b;
     private final String c;
     private final c d;
     private final l e;
@@ -16,11 +16,11 @@ public class k {
     private k g;
     private final k h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private i f11178a;
+        private i f11180a;
         private String c;
         private l e;
         private k f;
@@ -28,11 +28,11 @@ public class k {
         private k h;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f11179b = -1;
+        private int f11181b = -1;
         private c.a d = new c.a();
 
         public a a(int i) {
-            this.f11179b = i;
+            this.f11181b = i;
             return this;
         }
 
@@ -42,7 +42,7 @@ public class k {
         }
 
         public a a(i iVar) {
-            this.f11178a = iVar;
+            this.f11180a = iVar;
             return this;
         }
 
@@ -57,19 +57,19 @@ public class k {
         }
 
         public k a() {
-            if (this.f11178a == null) {
+            if (this.f11180a == null) {
                 throw new IllegalStateException("request == null");
             }
-            if (this.f11179b < 0) {
-                throw new IllegalStateException("code < 0: " + this.f11179b);
+            if (this.f11181b < 0) {
+                throw new IllegalStateException("code < 0: " + this.f11181b);
             }
             return new k(this);
         }
     }
 
     private k(a aVar) {
-        this.f11176a = aVar.f11178a;
-        this.f11177b = aVar.f11179b;
+        this.f11178a = aVar.f11180a;
+        this.f11179b = aVar.f11181b;
         this.c = aVar.c;
         this.d = aVar.d.a();
         this.e = aVar.e;
@@ -79,7 +79,7 @@ public class k {
     }
 
     public int a() {
-        return this.f11177b;
+        return this.f11179b;
     }
 
     public l b() {
@@ -87,6 +87,6 @@ public class k {
     }
 
     public String toString() {
-        return "Response{protocol=, code=" + this.f11177b + ", message=" + this.c + ", url=" + this.f11176a.a() + '}';
+        return "Response{protocol=, code=" + this.f11179b + ", message=" + this.c + ", url=" + this.f11178a.a() + '}';
     }
 }

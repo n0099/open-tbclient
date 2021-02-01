@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.category.message;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.category.b.b;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaCategoryResponseMessage extends JsonHttpResponsedMessage {
-    private b gKq;
+    private b gMW;
 
     public AlaCategoryResponseMessage() {
         super(1021187);
@@ -14,11 +14,11 @@ public class AlaCategoryResponseMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        this.gKq = new b();
-        this.gKq.dG(jSONObject.optJSONObject("data"));
+        this.gMW = new b();
+        this.gMW.dH(jSONObject.optJSONObject("data"));
     }
 
-    public b bSO() {
-        return this.gKq;
+    public b bTr() {
+        return this.gMW;
     }
 }

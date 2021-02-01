@@ -6,46 +6,46 @@ import android.os.Bundle;
 import com.baidu.ubs.analytics.c.a;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a oJT;
+    private a oUb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.oJT = aVar;
+        this.oUb = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.oJT.efK()) {
-            for (a.InterfaceC0947a interfaceC0947a : this.oJT.efK()) {
-                interfaceC0947a.T();
+        synchronized (this.oUb.eic()) {
+            for (a.InterfaceC0951a interfaceC0951a : this.oUb.eic()) {
+                interfaceC0951a.T();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.oJT.efK()) {
-            for (a.InterfaceC0947a interfaceC0947a : this.oJT.efK()) {
-                interfaceC0947a.U();
+        synchronized (this.oUb.eic()) {
+            for (a.InterfaceC0951a interfaceC0951a : this.oUb.eic()) {
+                interfaceC0951a.U();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.oJT.efK()) {
-            for (a.InterfaceC0947a interfaceC0947a : this.oJT.efK()) {
-                interfaceC0947a.a(activity);
+        synchronized (this.oUb.eic()) {
+            for (a.InterfaceC0951a interfaceC0951a : this.oUb.eic()) {
+                interfaceC0951a.a(activity);
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.oJT.efK()) {
-            Iterator<a.InterfaceC0947a> it = this.oJT.efK().iterator();
+        synchronized (this.oUb.eic()) {
+            Iterator<a.InterfaceC0951a> it = this.oUb.eic().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.oJT.efK()) {
-            Iterator<a.InterfaceC0947a> it = this.oJT.efK().iterator();
+        synchronized (this.oUb.eic()) {
+            Iterator<a.InterfaceC0951a> it = this.oUb.eic().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.oJT.efK()) {
-            Iterator<a.InterfaceC0947a> it = this.oJT.efK().iterator();
+        synchronized (this.oUb.eic()) {
+            Iterator<a.InterfaceC0951a> it = this.oUb.eic().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,9 +74,9 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.oJT.efK()) {
-            for (a.InterfaceC0947a interfaceC0947a : this.oJT.efK()) {
-                interfaceC0947a.onActivityDestroyed(activity);
+        synchronized (this.oUb.eic()) {
+            for (a.InterfaceC0951a interfaceC0951a : this.oUb.eic()) {
+                interfaceC0951a.onActivityDestroyed(activity);
             }
         }
     }

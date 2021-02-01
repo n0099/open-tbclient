@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.message;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.data.l;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaSnatchRedPacketResponseMessage extends JsonHttpResponsedMessage {
-    private l hPa;
+    private l hTw;
 
     public AlaSnatchRedPacketResponseMessage() {
         super(1021161);
@@ -16,12 +16,12 @@ public class AlaSnatchRedPacketResponseMessage extends JsonHttpResponsedMessage 
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.hPa = new l();
-            this.hPa.parserJson(optJSONObject);
+            this.hTw = new l();
+            this.hTw.parserJson(optJSONObject);
         }
     }
 
-    public l ckS() {
-        return this.hPa;
+    public l clQ() {
+        return this.hTw;
     }
 }

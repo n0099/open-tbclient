@@ -14,12 +14,12 @@ import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.f0;
 import com.fun.ad.m;
 import com.fun.ad.sdk.R;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class CSJNativeAdVerticalVideoView extends f0 {
     public FrameLayout g;
     public ImageView h;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class a implements TTFeedAd.VideoAdListener {
         public a() {
         }

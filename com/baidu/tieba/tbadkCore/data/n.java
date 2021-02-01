@@ -1,49 +1,49 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class n {
-    private Object nmF;
-    private boolean nmG = false;
-    private boolean nmH = false;
-    private boolean nmI = false;
-    public final long nmJ = System.currentTimeMillis();
+    private Object nwp;
+    private boolean nwq = false;
+    private boolean nwr = false;
+    private boolean nws = false;
+    public final long nwt = System.currentTimeMillis();
 
     public n(Object obj) {
-        this.nmF = obj;
+        this.nwp = obj;
     }
 
-    public Object dKW() {
-        return this.nmF;
+    public Object dNh() {
+        return this.nwp;
     }
 
     public void aR(Object obj) {
-        this.nmF = obj;
+        this.nwp = obj;
     }
 
-    public boolean dKX() {
-        return this.nmG;
+    public boolean dNi() {
+        return this.nwq;
     }
 
-    public boolean dKY() {
-        return this.nmH;
+    public boolean dNj() {
+        return this.nwr;
     }
 
-    public void xW(boolean z) {
-        this.nmH = z;
+    public void yp(boolean z) {
+        this.nwr = z;
     }
 
-    public void xX(boolean z) {
-        this.nmG = z;
+    public void yq(boolean z) {
+        this.nwq = z;
     }
 
-    public boolean dKZ() {
-        return this.nmI;
+    public boolean dNk() {
+        return this.nws;
     }
 
-    public void xY(boolean z) {
-        this.nmI = z;
+    public void yr(boolean z) {
+        this.nws = z;
     }
 
     public boolean isValid() {
-        return System.currentTimeMillis() - this.nmJ < 1020000;
+        return System.currentTimeMillis() - this.nwt < 1020000;
     }
 }

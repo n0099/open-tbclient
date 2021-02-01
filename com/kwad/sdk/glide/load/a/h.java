@@ -3,7 +3,7 @@ package com.kwad.sdk.glide.load.a;
 import android.content.res.AssetManager;
 import android.os.ParcelFileDescriptor;
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h extends b<ParcelFileDescriptor> {
     public h(AssetManager assetManager, String str) {
         super(assetManager, str);

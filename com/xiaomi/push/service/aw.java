@@ -10,7 +10,7 @@ import com.baidu.android.util.devices.RomUtils;
 public class aw {
 
     /* renamed from: a  reason: collision with root package name */
-    private static aw f14256a;
+    private static aw f14258a;
 
     /* renamed from: a  reason: collision with other field name */
     private int f948a = 0;
@@ -23,10 +23,10 @@ public class aw {
     }
 
     public static aw a(Context context) {
-        if (f14256a == null) {
-            f14256a = new aw(context);
+        if (f14258a == null) {
+            f14258a = new aw(context);
         }
-        return f14256a;
+        return f14258a;
     }
 
     @SuppressLint({"NewApi"})

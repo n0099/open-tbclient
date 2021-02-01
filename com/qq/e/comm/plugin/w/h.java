@@ -10,14 +10,14 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f12685a = "http://sdk.e.qq.com";
+    public static final String f12687a = "http://sdk.e.qq.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f12686b = "http://sdk.e.qq.com/getad";
+    public static final String f12688b = "http://sdk.e.qq.com/getad";
     public static final String c = "http://sdk.e.qq.com/disp";
     public static final String d = "http://sdk.e.qq.com/click";
     public static final String e = "http://sdk.e.qq.com/msg";

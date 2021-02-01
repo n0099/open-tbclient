@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface ITTAppDownloadListener extends IInterface {
     void onDownloadActive(long j, long j2, String str, String str2) throws RemoteException;
 
@@ -19,7 +19,7 @@ public interface ITTAppDownloadListener extends IInterface {
 
     void onInstalled(String str, String str2) throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements ITTAppDownloadListener {
         public Stub() {
             attachInterface(this, "com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
@@ -82,19 +82,19 @@ public interface ITTAppDownloadListener extends IInterface {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         private static class a implements ITTAppDownloadListener {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f6077a;
+            private IBinder f6079a;
 
             a(IBinder iBinder) {
-                this.f6077a = iBinder;
+                this.f6079a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6077a;
+                return this.f6079a;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
@@ -103,7 +103,7 @@ public interface ITTAppDownloadListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
-                    this.f6077a.transact(1, obtain, obtain2, 0);
+                    this.f6079a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -121,7 +121,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     obtain.writeLong(j2);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f6077a.transact(2, obtain, obtain2, 0);
+                    this.f6079a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -139,7 +139,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     obtain.writeLong(j2);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f6077a.transact(3, obtain, obtain2, 0);
+                    this.f6079a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -157,7 +157,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     obtain.writeLong(j2);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f6077a.transact(4, obtain, obtain2, 0);
+                    this.f6079a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -174,7 +174,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     obtain.writeLong(j);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f6077a.transact(5, obtain, obtain2, 0);
+                    this.f6079a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -190,7 +190,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f6077a.transact(6, obtain, obtain2, 0);
+                    this.f6079a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

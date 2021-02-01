@@ -23,10 +23,10 @@ import java.util.Random;
 public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private Button f2028a;
+    private Button f2026a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Button f2029b;
+    private Button f2027b;
     private Button c;
     protected View contentView;
     private Button d;
@@ -75,8 +75,8 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         setBackgroundDrawable(new BitmapDrawable());
         setAnimationStyle(ResUtils.style(this.mContext, "rim_base_safekeyboard_popwindown_anim"));
         this.j = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn0"));
-        this.f2028a = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
-        this.f2029b = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn2"));
+        this.f2026a = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
+        this.f2027b = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn2"));
         this.c = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn3"));
         this.d = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn4"));
         this.e = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn5"));
@@ -87,8 +87,8 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         this.mButtonX = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn_x"));
         this.k = (ImageButton) this.contentView.findViewById(ResUtils.id(this.mContext, "btn_del"));
         this.j.setOnClickListener(this);
-        this.f2028a.setOnClickListener(this);
-        this.f2029b.setOnClickListener(this);
+        this.f2026a.setOnClickListener(this);
+        this.f2027b.setOnClickListener(this);
         this.c.setOnClickListener(this);
         this.d.setOnClickListener(this);
         this.e.setOnClickListener(this);
@@ -121,10 +121,10 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         int[] a2 = a(z);
         this.j.setText("" + a2[0]);
         this.j.setTag(Integer.valueOf(a2[0]));
-        this.f2028a.setText("" + a2[1]);
-        this.f2028a.setTag(Integer.valueOf(a2[1]));
-        this.f2029b.setText("" + a2[2]);
-        this.f2029b.setTag(Integer.valueOf(a2[2]));
+        this.f2026a.setText("" + a2[1]);
+        this.f2026a.setTag(Integer.valueOf(a2[1]));
+        this.f2027b.setText("" + a2[2]);
+        this.f2027b.setTag(Integer.valueOf(a2[2]));
         this.c.setText("" + a2[3]);
         this.c.setTag(Integer.valueOf(a2[3]));
         this.d.setText("" + a2[4]);
@@ -198,16 +198,16 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        WeakReference<SafeKeyBoardPopupWindow> f2030a;
+        WeakReference<SafeKeyBoardPopupWindow> f2028a;
 
         public a(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
-            this.f2030a = new WeakReference<>(safeKeyBoardPopupWindow);
+            this.f2028a = new WeakReference<>(safeKeyBoardPopupWindow);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f2030a.get();
+            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f2028a.get();
             if (safeKeyBoardPopupWindow != null) {
                 if (!TextUtils.isEmpty(safeKeyBoardPopupWindow.mySafeEditText.getText())) {
                     int selectionStart = safeKeyBoardPopupWindow.mySafeEditText.getSelectionStart();

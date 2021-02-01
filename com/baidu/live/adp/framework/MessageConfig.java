@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework;
 
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface MessageConfig {
     public static final int BASE_CMD_START = 1000;
     public static final int BASE_COMMON_ERROR = -1000;

@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends com.baidu.adp.widget.ListView.b {
-    private ImageView gTY;
-    private TextView gTZ;
+    private ImageView gWI;
+    private TextView gWJ;
     private View mBottomLine;
     private View.OnClickListener mClickListener;
     private Context mContext;
@@ -26,29 +26,29 @@ public class c extends com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public View createView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
-        this.gTZ = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
-        this.gTY = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
+        this.gWJ = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
+        this.gWI = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
         this.mTopLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_top_line);
         this.mBottomLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_bottom_line);
-        uo(TbadkCoreApplication.getInst().getSkinType());
+        uu(TbadkCoreApplication.getInst().getSkinType());
         return this.mRootView;
     }
 
-    public void uo(int i) {
+    public void uu(int i) {
         if (this.mRootView != null) {
-            ao.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
+            ap.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
         }
-        if (this.gTZ != null) {
-            ao.setViewTextColor(this.gTZ, R.color.CAM_X0304);
+        if (this.gWJ != null) {
+            ap.setViewTextColor(this.gWJ, R.color.CAM_X0304);
         }
-        if (this.gTY != null) {
-            ao.setImageResource(this.gTY, R.drawable.icon_inf_arrowblue_n);
+        if (this.gWI != null) {
+            ap.setImageResource(this.gWI, R.drawable.icon_inf_arrowblue_n);
         }
         if (this.mTopLine != null) {
-            ao.setBackgroundResource(this.mTopLine, R.color.CAM_X0204);
+            ap.setBackgroundResource(this.mTopLine, R.color.CAM_X0204);
         }
         if (this.mBottomLine != null) {
-            ao.setBackgroundResource(this.mBottomLine, R.color.CAM_X0204);
+            ap.setBackgroundResource(this.mBottomLine, R.color.CAM_X0204);
         }
     }
 

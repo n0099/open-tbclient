@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.e;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
@@ -29,8 +29,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class a {
     private static final String USER_ICON_WEBVIEW = e.SERVER_ADDRESS_WEB_VIEW + Config.USER_ICON_WEBVIEW;
-    private final com.baidu.tieba.pb.pb.a lUS;
-    public final View.OnClickListener iJX = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.1
+    private final com.baidu.tieba.pb.pb.a mdW;
+    public final View.OnClickListener iPF = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String str;
@@ -49,21 +49,21 @@ public class a {
                 alaInfoData = ((HeadImageView) view).getAlaInfo();
                 i = ((HeadImageView) view).getLiveStatus();
                 if (alaInfoData != null && (i == 1 || alaInfoData.live_status == 1)) {
-                    aq aqVar = new aq("c13715");
-                    aqVar.dW("fid", fid);
-                    aqVar.dW("fname", fName);
-                    aqVar.w("obj_param1", alaInfoData.user_info != null ? alaInfoData.user_info.user_id : 0L);
-                    aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-                    aqVar.dW("tid", tid);
-                    aqVar.an(TiebaInitialize.Params.OBJ_PARAM2, floor);
-                    TiebaStatic.log(aqVar);
-                } else if (!at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-                    aq aqVar2 = new aq("c13267");
-                    aqVar2.dW("uid", TbadkCoreApplication.getCurrentAccount());
-                    aqVar2.dW("fid", fid);
-                    aqVar2.dW("tid", tid);
-                    aqVar2.dW("obj_source", TbadkCoreApplication.getInst().getTaskId());
-                    TiebaStatic.log(aqVar2);
+                    ar arVar = new ar("c13715");
+                    arVar.dR("fid", fid);
+                    arVar.dR("fname", fName);
+                    arVar.v("obj_param1", alaInfoData.user_info != null ? alaInfoData.user_info.user_id : 0L);
+                    arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+                    arVar.dR("tid", tid);
+                    arVar.ap(TiebaInitialize.Params.OBJ_PARAM2, floor);
+                    TiebaStatic.log(arVar);
+                } else if (!au.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                    ar arVar2 = new ar("c13267");
+                    arVar2.dR("uid", TbadkCoreApplication.getCurrentAccount());
+                    arVar2.dR("fid", fid);
+                    arVar2.dR("tid", tid);
+                    arVar2.dR("obj_source", TbadkCoreApplication.getInst().getTaskId());
+                    TiebaStatic.log(arVar2);
                 }
             } else {
                 if (view.getTag(R.id.tag_user_id) instanceof String) {
@@ -80,13 +80,13 @@ public class a {
                 }
                 str3 = ((view.getTag() instanceof SparseArray) && (((SparseArray) view.getTag()).get(R.id.tag_user_id) instanceof String)) ? (String) ((SparseArray) view.getTag()).get(R.id.tag_user_id) : str;
             }
-            if (view.getTag(R.id.tag_statistic_item) instanceof aq) {
-                TiebaStatic.log((aq) view.getTag(R.id.tag_statistic_item));
+            if (view.getTag(R.id.tag_statistic_item) instanceof ar) {
+                TiebaStatic.log((ar) view.getTag(R.id.tag_statistic_item));
             }
             if (view.getTag(R.id.tag_nick_name_activity) != null && (view.getTag(R.id.tag_nick_name_activity) instanceof String)) {
                 String str5 = (String) view.getTag(R.id.tag_nick_name_activity);
-                if (!TextUtils.isEmpty(str5) && bg.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(a.this.lUS.getPageContext().getPageActivity(), null, str5, true)));
+                if (!TextUtils.isEmpty(str5) && bh.checkUpIsLogin(TbadkCoreApplication.getInst())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(a.this.mdW.getPageContext().getPageActivity(), null, str5, true)));
                     return;
                 }
             }
@@ -96,13 +96,13 @@ public class a {
                 str4 = (String) view.getTag(R.id.tag_virtual_user_url);
             }
             if (str4 != null) {
-                if (bg.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                    be.bsB().b(a.this.lUS.getPageContext(), new String[]{str4});
+                if (bh.checkUpIsLogin(TbadkCoreApplication.getInst())) {
+                    bf.bsV().b(a.this.mdW.getPageContext(), new String[]{str4});
                 }
             } else if (str3 != null) {
                 if (alaInfoData != null && (i == 1 || alaInfoData.live_status == 1)) {
                     if (alaInfoData.isChushou) {
-                        be.bsB().b(a.this.lUS.getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + alaInfoData.thirdRoomId + "&livetype=" + alaInfoData.thirdLiveType});
+                        bf.bsV().b(a.this.mdW.getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + alaInfoData.thirdRoomId + "&livetype=" + alaInfoData.thirdLiveType});
                         return;
                     } else if (alaInfoData.live_id > 0) {
                         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
@@ -113,42 +113,42 @@ public class a {
                         return;
                     }
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.lUS.getPageContext().getPageActivity(), str3, str2, a.this.lUS.djW(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.mdW.getPageContext().getPageActivity(), str3, str2, a.this.mdW.dmj(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     };
-    public final View.OnClickListener lUT = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.2
+    public final View.OnClickListener mdX = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag(R.id.tag_user_id) instanceof String) {
                 com.baidu.tbadk.browser.a.startWebActivity(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), a.USER_ICON_WEBVIEW + "?user_id=" + ((String) view.getTag(R.id.tag_user_id)), true, true, true);
-                TiebaStatic.log(new aq(CommonStatisticKey.USER_ICON_VISIT).an("obj_type", 2));
+                TiebaStatic.log(new ar(CommonStatisticKey.USER_ICON_VISIT).ap("obj_type", 2));
             }
         }
     };
-    public final View.OnClickListener lUU = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.3
+    public final View.OnClickListener mdY = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (bg.checkUpIsLogin(TbadkCoreApplication.getInst())) {
+            if (bh.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                 String str = null;
                 if (view.getTag() != null) {
                     str = (String) view.getTag();
                 }
                 if (str != null) {
-                    be.bsB().b(a.this.lUS.getPageContext(), new String[]{str});
+                    bf.bsV().b(a.this.mdW.getPageContext(), new String[]{str});
                 }
-                TiebaStatic.eventStat(a.this.lUS.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
+                TiebaStatic.eventStat(a.this.mdW.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
             }
         }
     };
-    public final TbRichTextView.h lUV = new TbRichTextView.h() { // from class: com.baidu.tieba.pb.pb.main.b.a.4
+    public final TbRichTextView.h mdZ = new TbRichTextView.h() { // from class: com.baidu.tieba.pb.pb.main.b.a.4
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.h
         public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_EMOTIONIMAGE, new EmotionImageActivityConfig(a.this.lUS.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_EMOTIONIMAGE, new EmotionImageActivityConfig(a.this.mdW.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
         }
     };
 
     public a(com.baidu.tieba.pb.pb.a aVar) {
-        this.lUS = aVar;
+        this.mdW = aVar;
     }
 }

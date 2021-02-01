@@ -8,15 +8,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BasicTaskItemView extends LinearLayout {
-    private View.OnClickListener ghB;
-    private View ldq;
-    private TbImageView ldu;
-    private TextView ldv;
-    private TextView ldw;
-    private TextView ldx;
-    private View ldy;
+    private View.OnClickListener gjP;
+    private TextView llA;
+    private View llB;
+    private View llt;
+    private TbImageView llx;
+    private TextView lly;
+    private TextView llz;
     private Context mContext;
     private View mRootView;
 
@@ -40,17 +40,17 @@ public class BasicTaskItemView extends LinearLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.index_task_item, this);
-        this.ldq = this.mRootView.findViewById(R.id.ly_desc);
-        this.ldu = (TbImageView) this.mRootView.findViewById(R.id.task_icon);
-        this.ldv = (TextView) this.mRootView.findViewById(R.id.txt_title);
-        this.ldw = (TextView) this.mRootView.findViewById(R.id.txt_desc);
-        this.ldx = (TextView) this.mRootView.findViewById(R.id.txt_status);
-        this.ldx.setOnClickListener(this.ghB);
-        this.ldq.setOnClickListener(this.ghB);
-        this.ldy = this.mRootView.findViewById(R.id.divider_line);
+        this.llt = this.mRootView.findViewById(R.id.ly_desc);
+        this.llx = (TbImageView) this.mRootView.findViewById(R.id.task_icon);
+        this.lly = (TextView) this.mRootView.findViewById(R.id.txt_title);
+        this.llz = (TextView) this.mRootView.findViewById(R.id.txt_desc);
+        this.llA = (TextView) this.mRootView.findViewById(R.id.txt_status);
+        this.llA.setOnClickListener(this.gjP);
+        this.llt.setOnClickListener(this.gjP);
+        this.llB = this.mRootView.findViewById(R.id.divider_line);
     }
 
     public void setOnCommenClickListener(View.OnClickListener onClickListener) {
-        this.ghB = onClickListener;
+        this.gjP = onClickListener;
     }
 }

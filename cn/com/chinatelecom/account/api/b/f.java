@@ -3,13 +3,13 @@ package cn.com.chinatelecom.account.api.b;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
     private static ExecutorService f1116a = Executors.newFixedThreadPool(3);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */

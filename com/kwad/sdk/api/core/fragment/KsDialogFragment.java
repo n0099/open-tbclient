@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KsDialogFragment extends KsFragment implements IDialogFragmentLifecycle {
     private DelegateDialogFragment mBase;
 

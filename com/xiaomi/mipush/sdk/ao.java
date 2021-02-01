@@ -8,7 +8,7 @@ import android.text.TextUtils;
 public class ao implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f13807a;
+    final /* synthetic */ Context f13809a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ an f126a;
@@ -20,7 +20,7 @@ public class ao implements Runnable {
     public ao(an anVar, String[] strArr, Context context) {
         this.f126a = anVar;
         this.f127a = strArr;
-        this.f13807a = context;
+        this.f13809a = context;
     }
 
     @Override // java.lang.Runnable
@@ -31,9 +31,9 @@ public class ao implements Runnable {
                     if (i > 0) {
                         Thread.sleep(((long) ((Math.random() * 2.0d) + 1.0d)) * 1000);
                     }
-                    PackageInfo packageInfo = this.f13807a.getPackageManager().getPackageInfo(this.f127a[i], 4);
+                    PackageInfo packageInfo = this.f13809a.getPackageManager().getPackageInfo(this.f127a[i], 4);
                     if (packageInfo != null) {
-                        this.f126a.a(this.f13807a, packageInfo);
+                        this.f126a.a(this.f13809a, packageInfo);
                     }
                 }
             } catch (Throwable th) {

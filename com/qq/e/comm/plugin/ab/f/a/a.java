@@ -30,24 +30,24 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.apache.http.HttpHost;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a extends c {
     private e d;
     private JSONObject e;
 
     /* renamed from: a  reason: collision with root package name */
-    private AtomicBoolean f11777a = new AtomicBoolean(false);
+    private AtomicBoolean f11779a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    private ConcurrentHashMap<String, String> f11778b = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, String> f11780b = new ConcurrentHashMap<>();
     private Map<Integer, String> c = new HashMap();
     private com.qq.e.comm.plugin.a.d.a f = new com.qq.e.comm.plugin.a.d.a() { // from class: com.qq.e.comm.plugin.ab.f.a.a.3
         @Override // com.qq.e.comm.plugin.a.d.a
         public void a(String str, int i, int i2, long j) {
-            if (i == 128 || TextUtils.isEmpty(str) || !a.this.f11778b.containsKey(str)) {
+            if (i == 128 || TextUtils.isEmpty(str) || !a.this.f11780b.containsKey(str)) {
                 return;
             }
-            String str2 = (String) a.this.f11778b.get(str);
+            String str2 = (String) a.this.f11780b.get(str);
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("code", 0);
@@ -65,14 +65,14 @@ public class a extends c {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.qq.e.comm.plugin.ab.f.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C1187a implements f.a {
+    /* loaded from: classes15.dex */
+    public static class C1191a implements f.a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f11785a;
+        private String f11787a;
 
-        public C1187a(String str) {
-            this.f11785a = str;
+        public C1191a(String str) {
+            this.f11787a = str;
         }
 
         @Override // com.qq.e.comm.plugin.a.f.a
@@ -80,7 +80,7 @@ public class a extends c {
             if (i != 0 || z) {
                 return;
             }
-            af.a(this.f11785a);
+            af.a(this.f11787a);
         }
 
         @Override // com.qq.e.comm.plugin.a.f.a
@@ -129,7 +129,7 @@ public class a extends c {
 
     private void a(com.qq.e.comm.plugin.ab.f.e eVar) {
         this.d = eVar;
-        if (this.f11777a.compareAndSet(false, true)) {
+        if (this.f11779a.compareAndSet(false, true)) {
             l.a().a(this.f);
         }
     }
@@ -150,16 +150,16 @@ public class a extends c {
     }
 
     private void a(com.qq.e.comm.plugin.ab.f.e eVar, String str, String str2) {
-        for (Map.Entry<String, String> entry : this.f11778b.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f11780b.entrySet()) {
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        String remove = this.f11778b.remove(str);
+        String remove = this.f11780b.remove(str);
         if (!TextUtils.isEmpty(remove)) {
             a(eVar, remove);
         }
-        this.f11778b.put(str, str2);
+        this.f11780b.put(str, str2);
     }
 
     public int a(Context context, JSONObject jSONObject) {
@@ -440,7 +440,7 @@ public class a extends c {
         } else {
             a(eVar, optString, str);
             a(eVar);
-            p.a.f11642a.a(new C1187a(this.c.get(2)), optString);
+            p.a.f11644a.a(new C1191a(this.c.get(2)), optString);
         }
     }
 

@@ -8,27 +8,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 /* loaded from: classes.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
-    private final DisplayMetrics eZs;
+    private final DisplayMetrics fbH;
 
     public a(DisplayMetrics displayMetrics) {
-        this.eZs = displayMetrics;
+        this.fbH = displayMetrics;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        if ("ImageViewerActivity".equalsIgnoreCase(activity.getClass().getSimpleName()) && this.eZs != null) {
-            b.bsF().a(activity, this.eZs.density, this.eZs.densityDpi);
+        if ("ImageViewerActivity".equalsIgnoreCase(activity.getClass().getSimpleName()) && this.fbH != null) {
+            b.bsZ().a(activity, this.fbH.density, this.fbH.densityDpi);
         } else {
-            b.bsF().fb(activity);
+            b.bsZ().fa(activity);
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(@NonNull Activity activity) {
-        if ("ImageViewerActivity".equalsIgnoreCase(activity.getClass().getSimpleName()) && this.eZs != null) {
-            b.bsF().a(activity, this.eZs.density, this.eZs.densityDpi);
+        if ("ImageViewerActivity".equalsIgnoreCase(activity.getClass().getSimpleName()) && this.fbH != null) {
+            b.bsZ().a(activity, this.fbH.density, this.fbH.densityDpi);
         } else {
-            b.bsF().fb(activity);
+            b.bsZ().fa(activity);
         }
     }
 

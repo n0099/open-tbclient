@@ -18,7 +18,7 @@ import com.baidu.tieba.ala.live.b.a;
 import com.baidu.tieba.ala.live.message.GetNuomiOrderHttpResponsedMessage;
 import com.baidu.tieba.ala.live.message.ResponseGetNuomiPayinfoMessage;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends a {
     private HttpMessageListener mHttpMessageListener;
 
@@ -57,10 +57,10 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void bWZ() {
+    public void bXZ() {
         HttpMessage httpMessage = new HttpMessage(1003412);
         httpMessage.setTag(getUniqueId());
-        httpMessage.addParam("pay_id", bXa());
+        httpMessage.addParam("pay_id", bYa());
         if (TbadkCoreApplication.getInst().getIsYuyinRoom()) {
             httpMessage.addParam("is_jiaoyou", 1);
         }
@@ -68,7 +68,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void GC(String str) {
+    public void Hh(String str) {
     }
 
     private static void registerTask() {
@@ -96,7 +96,7 @@ public class b extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(GetNuomiOrderHttpResponsedMessage getNuomiOrderHttpResponsedMessage) {
         String errorString;
-        HashMap<String, String> bWX = getNuomiOrderHttpResponsedMessage.bWX();
+        HashMap<String, String> bXX = getNuomiOrderHttpResponsedMessage.bXX();
         if (getNuomiOrderHttpResponsedMessage.hasError() || getNuomiOrderHttpResponsedMessage.getError() != 0) {
             if (StringUtils.isNull(getNuomiOrderHttpResponsedMessage.getErrorString())) {
                 errorString = this.mPageContext.getResources().getString(a.h.sdk_neterror);
@@ -104,10 +104,10 @@ public class b extends a {
                 errorString = getNuomiOrderHttpResponsedMessage.getErrorString();
             }
             a(getNuomiOrderHttpResponsedMessage.getError(), errorString, null, null, null, false);
-        } else if (bWX == null) {
+        } else if (bXX == null) {
             a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), null, null, null, false);
         } else {
-            a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), getNuomiOrderHttpResponsedMessage.getOrderId(), bWX, null, true);
+            a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), getNuomiOrderHttpResponsedMessage.getOrderId(), bXX, null, true);
         }
     }
 

@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.tasklist.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    void wp(int i);
+    void wA(int i);
 }

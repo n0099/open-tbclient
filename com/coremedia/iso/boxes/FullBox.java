@@ -1,5 +1,5 @@
 package com.coremedia.iso.boxes;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface FullBox extends Box {
     int getFlags();
 

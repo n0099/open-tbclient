@@ -4,7 +4,7 @@ import android.os.SystemClock;
 import com.baidu.a.a.a;
 import com.baidu.util.LogUtil;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class MiniGzip {
 
     /* renamed from: a  reason: collision with root package name */

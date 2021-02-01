@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.n;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface i {
     String a();
 

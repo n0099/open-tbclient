@@ -1,6 +1,5 @@
 package com.google.zxing.oned;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
@@ -12,7 +11,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class Code39Reader extends OneDReader {
     static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%";
     static final int ASTERISK_ENCODING;
@@ -137,7 +136,7 @@ public final class Code39Reader extends OneDReader {
         int length = iArr.length;
         int i2 = 0;
         while (true) {
-            int i3 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i3 = Integer.MAX_VALUE;
             for (int i4 : iArr) {
                 if (i4 < i3 && i4 > i2) {
                     i3 = i4;

@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tbadk.util.ah;
+import com.baidu.tbadk.util.ak;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.b;
@@ -37,32 +37,32 @@ import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 import org.json.JSONObject;
 import tbclient.Lego.DataRes;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LegoListActivity extends BaseFragmentActivity implements SwipeBackLayout.c, VoiceManager.c, b {
-    VoiceManager jaA;
-    LegoListFragment kSk;
-    LegoTabFragment kSl;
-    j kSm;
-    RelativeLayout kSn;
-    TbImageView kSp;
-    private String kSq;
-    private String kSr;
-    private String kSs;
-    private String kSt;
-    private c kSu;
+    VoiceManager jgg;
+    LegoListFragment lam;
+    LegoTabFragment lan;
+    j lao;
+    RelativeLayout lap;
+    TbImageView lar;
+    private String las;
     private long lastResumeTime;
+    private String lau;
+    private String lav;
+    private String law;
+    private c lax;
     String params;
     int rn;
-    long kRu = 0;
+    long kZw = 0;
     int pageType = 1;
     String itemId = "";
-    boolean kRD = false;
+    boolean kZF = false;
     boolean hasAnimation = false;
-    boolean kSo = false;
-    private WeakReference<Context> ken = null;
-    private boolean kSv = false;
-    private LegoBottomView kSw = null;
-    private CustomMessageListener kSx = new CustomMessageListener(CmdConfigCustom.CMD_LEGO_LOAD_DATA_SUCCESS) { // from class: com.baidu.tieba.lego.activity.LegoListActivity.1
+    boolean laq = false;
+    private WeakReference<Context> kmw = null;
+    private boolean lay = false;
+    private LegoBottomView laz = null;
+    private CustomMessageListener laA = new CustomMessageListener(CmdConfigCustom.CMD_LEGO_LOAD_DATA_SUCCESS) { // from class: com.baidu.tieba.lego.activity.LegoListActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -76,8 +76,8 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     if (jSONObject != null) {
+                        LegoListActivity.this.ex(jSONObject);
                         LegoListActivity.this.ew(jSONObject);
-                        LegoListActivity.this.ev(jSONObject);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -85,10 +85,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             }
         }
     };
-    public final View.OnClickListener jdo = new View.OnClickListener() { // from class: com.baidu.tieba.lego.activity.LegoListActivity.3
+    public final View.OnClickListener jiV = new View.OnClickListener() { // from class: com.baidu.tieba.lego.activity.LegoListActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == LegoListActivity.this.kSm.fJL) {
+            if (view == LegoListActivity.this.lao.fLW) {
                 LegoListActivity.this.finish();
             }
         }
@@ -103,78 +103,78 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         }
         if (getIntent() != null) {
             this.pageType = getIntent().getIntExtra("page_type", 1);
-            this.kRu = getIntent().getLongExtra("page_id", 0L);
+            this.kZw = getIntent().getLongExtra("page_id", 0L);
             if (getIntent().hasExtra(LegoListActivityConfig.ITEM_ID)) {
                 this.itemId = getIntent().getStringExtra(LegoListActivityConfig.ITEM_ID);
             }
-            this.kRD = getIntent().getIntExtra(LegoListActivityConfig.IS_IMMERSIVE, 0) == 1;
-            this.kSo = getIntent().getIntExtra(LegoListActivityConfig.IS_LANDINGPAGE, 0) == 1;
+            this.kZF = getIntent().getIntExtra(LegoListActivityConfig.IS_IMMERSIVE, 0) == 1;
+            this.laq = getIntent().getIntExtra(LegoListActivityConfig.IS_LANDINGPAGE, 0) == 1;
             this.hasAnimation = getIntent().getIntExtra(LegoListActivityConfig.HAS_ANIMATION, 0) == 1;
             this.rn = getIntent().getIntExtra("rn", 30);
             if (getIntent().hasExtra("params")) {
                 this.params = getIntent().getStringExtra("params");
             }
-            this.kSr = getIntent().getStringExtra(LegoListActivityConfig.NEXT_PAGE);
-            this.kSq = getIntent().getStringExtra(LegoListActivityConfig.ANIMATION_INFO);
-            if (!TextUtils.isEmpty(this.kSq)) {
-                this.kSq = URLDecoder.decode(this.kSq);
+            this.lau = getIntent().getStringExtra(LegoListActivityConfig.NEXT_PAGE);
+            this.las = getIntent().getStringExtra(LegoListActivityConfig.ANIMATION_INFO);
+            if (!TextUtils.isEmpty(this.las)) {
+                this.las = URLDecoder.decode(this.las);
             }
-            if (!TextUtils.isEmpty(this.kSr)) {
-                this.kSr = URLDecoder.decode(this.kSr);
+            if (!TextUtils.isEmpty(this.lau)) {
+                this.lau = URLDecoder.decode(this.lau);
             }
-            this.kSs = getIntent().getStringExtra(LegoListActivityConfig.PRE_LOAD);
-            if (!TextUtils.isEmpty(this.kSs)) {
-                this.kSs = URLDecoder.decode(this.kSs);
+            this.lav = getIntent().getStringExtra(LegoListActivityConfig.PRE_LOAD);
+            if (!TextUtils.isEmpty(this.lav)) {
+                this.lav = URLDecoder.decode(this.lav);
             }
-            this.kSt = getIntent().getStringExtra("source");
+            this.law = getIntent().getStringExtra("source");
         }
-        super.setHideStatusImmersiveStyle(this.kRD);
+        super.setHideStatusImmersiveStyle(this.kZF);
         super.onCreate(bundle);
         setContentView(R.layout.lego_list_activity);
-        registerListener(this.kSx);
+        registerListener(this.laA);
         e eVar = new e();
-        eVar.kXA = this.kRu;
-        eVar.kXB = this.pageType;
+        eVar.lfE = this.kZw;
+        eVar.lfF = this.pageType;
         eVar.itemId = this.itemId;
         eVar.rn = this.rn;
         eVar.params = this.params;
         eVar.refresh();
-        this.jaA = getVoiceManager();
-        this.jaA.onCreate(getPageContext());
-        this.kSm = new j(this);
-        this.kSp = (TbImageView) findViewById(R.id.float_btn);
-        this.kSw = (LegoBottomView) findViewById(R.id.lego_bottom_view);
-        this.kSn = (RelativeLayout) findViewById(R.id.navi_landingpage);
-        this.kSu = new c(getPageContext(), findViewById(R.id.layout_float_video));
-        this.kSu.setSwipeControlInterface(this);
-        this.kSu.hide();
+        this.jgg = getVoiceManager();
+        this.jgg.onCreate(getPageContext());
+        this.lao = new j(this);
+        this.lar = (TbImageView) findViewById(R.id.float_btn);
+        this.laz = (LegoBottomView) findViewById(R.id.lego_bottom_view);
+        this.lap = (RelativeLayout) findViewById(R.id.navi_landingpage);
+        this.lax = new c(getPageContext(), findViewById(R.id.layout_float_video));
+        this.lax.setSwipeControlInterface(this);
+        this.lax.hide();
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
         if (this.pageType == 1) {
-            this.kSl = new LegoTabFragment();
-            this.kSl.b(this.kSm);
-            this.kSl.hb(this.kRu);
-            this.kSl.setItemId(this.itemId);
-            this.kSl.setPrimary(true);
-            beginTransaction.replace(R.id.fl_lego, this.kSl);
+            this.lan = new LegoTabFragment();
+            this.lan.b(this.lao);
+            this.lan.hg(this.kZw);
+            this.lan.setItemId(this.itemId);
+            this.lan.setPrimary(true);
+            beginTransaction.replace(R.id.fl_lego, this.lan);
         } else {
-            LegoListFragment.cZo();
-            this.kSk = new LegoListFragment();
-            this.kSk.b(this.kSm);
-            this.kSk.b(this.kSn);
-            this.kSk.a(this.kSu);
-            this.kSk.hb(this.kRu);
-            this.kSk.setItemId(this.itemId);
-            this.kSk.setImmersive(this.kRD);
-            this.kSk.setPrimary(true);
-            this.kSk.MN(this.kSr);
-            this.kSk.fI(this.kSq, this.kSs);
-            this.kSk.tp(this.hasAnimation);
-            this.kSk.tq(this.kSo);
-            this.kSk.setFrom(this.kSt);
-            beginTransaction.replace(R.id.fl_lego, this.kSk);
+            LegoListFragment.dbm();
+            this.lam = new LegoListFragment();
+            this.lam.b(this.lao);
+            this.lam.b(this.lap);
+            this.lam.a(this.lax);
+            this.lam.hg(this.kZw);
+            this.lam.setItemId(this.itemId);
+            this.lam.setImmersive(this.kZF);
+            this.lam.setPrimary(true);
+            this.lam.NB(this.lau);
+            this.lam.fI(this.las, this.lav);
+            this.lam.tC(this.hasAnimation);
+            this.lam.tD(this.laq);
+            this.lam.setFrom(this.law);
+            beginTransaction.replace(R.id.fl_lego, this.lam);
         }
-        if (this.kRD) {
-            this.kSm.hide();
+        if (this.kZF) {
+            this.lao.hide();
         }
         beginTransaction.commitAllowingStateLoss();
     }
@@ -182,49 +182,49 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.kSu.a(this, configuration);
-        if (configuration.orientation == 2 && this.kSu.isShow()) {
-            if (this.kSw != null) {
-                this.kSw.setIsVideoLandscape(true);
-                this.kSw.setVisibility(8);
+        this.lax.a(this, configuration);
+        if (configuration.orientation == 2 && this.lax.isShow()) {
+            if (this.laz != null) {
+                this.laz.setIsVideoLandscape(true);
+                this.laz.setVisibility(8);
             }
-        } else if (this.kSw != null && this.kSw.isShow()) {
-            this.kSw.setIsVideoLandscape(false);
-            this.kSw.setVisibility(0);
+        } else if (this.laz != null && this.laz.isShow()) {
+            this.laz.setIsVideoLandscape(false);
+            this.laz.setVisibility(0);
         }
-        if (this.kSk != null) {
-            this.kSk.onConfigurationChanged(configuration);
+        if (this.lam != null) {
+            this.lam.onConfigurationChanged(configuration);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i != 4 || this.kSu == null || !this.kSu.isShow() || this.kSu.das()) {
+        if (i != 4 || this.lax == null || !this.lax.isShow() || this.lax.dcq()) {
             return super.onKeyDown(i, keyEvent);
         }
-        this.kSu.Ss();
+        this.lax.TZ();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ev(JSONObject jSONObject) {
+    public void ew(JSONObject jSONObject) {
         try {
             JSONObject optJSONObject = jSONObject.optJSONObject("bottom_card");
             if (optJSONObject != null) {
-                com.baidu.tieba.lego.card.b.cZu();
-                ICardInfo ex = com.baidu.tieba.lego.card.b.ex(optJSONObject);
-                if (ex != null && ex.isValid()) {
-                    this.kSw.a((BaseCardView) com.baidu.tieba.lego.card.b.cZu().a(getPageContext(), ex, 5), ex);
-                    this.kSw.setVisibility(0);
-                    this.kSw.setIsShow(true);
-                    if (this.kSk != null) {
-                        this.kSk.a(this.kSw);
+                com.baidu.tieba.lego.card.b.dbs();
+                ICardInfo ey = com.baidu.tieba.lego.card.b.ey(optJSONObject);
+                if (ey != null && ey.isValid()) {
+                    this.laz.a((BaseCardView) com.baidu.tieba.lego.card.b.dbs().a(getPageContext(), ey, 5), ey);
+                    this.laz.setVisibility(0);
+                    this.laz.setIsShow(true);
+                    if (this.lam != null) {
+                        this.lam.a(this.laz);
                     }
                 } else {
-                    this.kSw.setVisibility(8);
-                    this.kSw.setIsShow(false);
-                    if (this.kSk != null) {
-                        this.kSk.a((k) null);
+                    this.laz.setVisibility(8);
+                    this.laz.setIsShow(false);
+                    if (this.lam != null) {
+                        this.lam.a((k) null);
                     }
                 }
             }
@@ -234,7 +234,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ew(JSONObject jSONObject) {
+    public void ex(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("float_btn");
         if (optJSONObject != null) {
             String optString = optJSONObject.optString("icon_url");
@@ -243,13 +243,13 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             if (TbadkCoreApplication.getInst().getSkinType() != 1) {
                 optString2 = optString;
             }
-            this.kSp.setVisibility(0);
-            this.kSp.startLoad(optString2, 10, false);
-            this.kSp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.activity.LegoListActivity.2
+            this.lar.setVisibility(0);
+            this.lar.startLoad(optString2, 10, false);
+            this.lar.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.activity.LegoListActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (!TextUtils.isEmpty(optString3)) {
-                        v.h(LegoListActivity.this.getPageContext(), optString3);
+                        v.j(LegoListActivity.this.getPageContext(), optString3);
                     }
                 }
             });
@@ -260,9 +260,9 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.jaA = getVoiceManager();
-        if (this.jaA != null) {
-            this.jaA.onSaveInstanceState(getPageContext().getPageActivity());
+        this.jgg = getVoiceManager();
+        if (this.jgg != null) {
+            this.jgg.onSaveInstanceState(getPageContext().getPageActivity());
         }
     }
 
@@ -270,31 +270,31 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.jaA = getVoiceManager();
-        this.jaA.onStart(getPageContext());
+        this.jgg = getVoiceManager();
+        this.jgg.onStart(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.kSv = true;
-        this.jaA = getVoiceManager();
-        this.jaA.onResume(getPageContext());
+        this.lay = true;
+        this.jgg = getVoiceManager();
+        this.jgg.onResume(getPageContext());
         this.lastResumeTime = System.currentTimeMillis();
-        this.ken = new WeakReference<>(TbadkCoreApplication.getInst());
-        ah.a(this.ken, true);
+        this.kmw = new WeakReference<>(TbadkCoreApplication.getInst());
+        ak.a(this.kmw, true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.kSv = false;
-        this.jaA = getVoiceManager();
-        this.jaA.onPause(getPageContext());
-        if (this.lastResumeTime != 0 && this.kSo) {
-            r.dBe().dBa().b(this.kRu, this.itemId, this.kSt, System.currentTimeMillis() - this.lastResumeTime);
+        this.lay = false;
+        this.jgg = getVoiceManager();
+        this.jgg.onPause(getPageContext());
+        if (this.lastResumeTime != 0 && this.laq) {
+            r.dDm().dDi().b(this.kZw, this.itemId, this.law, System.currentTimeMillis() - this.lastResumeTime);
         }
     }
 
@@ -302,38 +302,38 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.jaA = getVoiceManager();
-        if (this.jaA != null) {
-            this.jaA.onStop(getPageContext());
+        this.jgg = getVoiceManager();
+        if (this.jgg != null) {
+            this.jgg.onStop(getPageContext());
         }
-        ah.a(this.ken, false);
+        ak.a(this.kmw, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.kSu != null) {
-            this.kSu.destroy();
+        if (this.lax != null) {
+            this.lax.destroy();
         }
-        this.jaA = getVoiceManager();
-        this.jaA.onDestory(getPageContext());
-        this.kSq = null;
-        if (this.kSw != null) {
-            this.kSw.destory();
-            this.kSw = null;
+        this.jgg = getVoiceManager();
+        this.jgg.onDestory(getPageContext());
+        this.las = null;
+        if (this.laz != null) {
+            this.laz.destory();
+            this.laz = null;
         }
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.kSm.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        this.lao.mNavigationBar.onChangeSkinType(getPageContext(), i);
         if (this.pageType == 1) {
-            if (this.kSl != null) {
-                this.kSl.onChangeSkinType(i);
+            if (this.lan != null) {
+                this.lan.onChangeSkinType(i);
             }
-        } else if (this.kSk != null) {
-            this.kSk.onChangeSkinType(i);
+        } else if (this.lam != null) {
+            this.lam.onChangeSkinType(i);
         }
     }
 
@@ -349,10 +349,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.jaA == null) {
-            this.jaA = VoiceManager.instance();
+        if (this.jgg == null) {
+            this.jgg = VoiceManager.instance();
         }
-        return this.jaA;
+        return this.jgg;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -362,15 +362,15 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
 
     @Override // android.app.Activity
     public void overridePendingTransition(int i, int i2) {
-        if (this.hasAnimation && !TextUtils.isEmpty(this.kSq)) {
+        if (this.hasAnimation && !TextUtils.isEmpty(this.las)) {
             super.overridePendingTransition(0, R.anim.landingpage_quit);
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onBackPressed() {
-        if (this.hasAnimation && !TextUtils.isEmpty(this.kSq) && this.kSk != null) {
-            this.kSk.endAnimation();
+        if (this.hasAnimation && !TextUtils.isEmpty(this.las) && this.lam != null) {
+            this.lam.endAnimation();
         } else {
             super.onBackPressed();
         }
@@ -378,19 +378,19 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
 
     @Override // com.baidu.tieba.lego.b
     public n getPlaySwitchController() {
-        if (this.kSk != null) {
-            return this.kSk.getPlaySwitchController();
+        if (this.lam != null) {
+            return this.lam.getPlaySwitchController();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.lego.b
-    public c cZe() {
-        return this.kSu;
+    public c dbc() {
+        return this.lax;
     }
 
     @Override // com.baidu.tieba.lego.b
-    public LegoListFragment cZf() {
-        return this.kSk;
+    public LegoListFragment dbd() {
+        return this.lam;
     }
 }

@@ -5,8 +5,8 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes3.dex */
 public final class an {
-    public static String hv(String str, String str2) {
-        if (aaD(str) || aaD(str2)) {
+    public static String hC(String str, String str2) {
+        if (abE(str) || abE(str2)) {
             return "";
         }
         byte[] bytes = str.getBytes("utf-8");
@@ -20,7 +20,7 @@ public final class an {
         return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
     }
 
-    private static boolean aaD(String str) {
+    private static boolean abE(String str) {
         return str == null || str.length() == 0;
     }
 }

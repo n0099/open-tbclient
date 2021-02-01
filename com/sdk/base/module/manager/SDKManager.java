@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.module.a.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public abstract class SDKManager {
     private static boolean closePermission;
     protected static Context mContext;
@@ -61,7 +61,7 @@ public abstract class SDKManager {
 
     @Keep
     public static void setDebug(boolean z) {
-        f.f12819b = z;
+        f.f12821b = z;
     }
 
     public static void setDebugHead(boolean z) {

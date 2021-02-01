@@ -17,7 +17,7 @@ import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.live.tbadk.data.Config;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -26,7 +26,7 @@ public class c {
     /* renamed from: b  reason: collision with root package name */
     private static final Object f1235b = new Object();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum a {
         actionId,
         actionName,
@@ -38,7 +38,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class b implements DatabaseErrorHandler {
         private b() {
         }
@@ -89,7 +89,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.pushservice.c.c$c  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class C0040c extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
@@ -153,7 +153,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum d {
         MsgInfoId,
         appId,
@@ -166,7 +166,7 @@ public class c {
         ackRet
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum e {
         PushInfoId,
         PushPriority,
@@ -182,7 +182,7 @@ public class c {
         PushSelfBindInfo
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum f {
         verifId,
         msgId,

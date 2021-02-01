@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GuidPageView extends ImageView {
     public GuidPageView(Context context) {
         super(context);

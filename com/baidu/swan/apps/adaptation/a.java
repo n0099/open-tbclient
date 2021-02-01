@@ -3,19 +3,19 @@ package com.baidu.swan.apps.adaptation;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.adaptation.a.i;
 import com.baidu.swan.bdprivate.a.u;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private i cAx;
+    private i cCT;
 
     @NonNull
-    public i afU() {
-        if (this.cAx == null) {
-            this.cAx = afV();
+    public i ags() {
+        if (this.cCT == null) {
+            this.cCT = agt();
         }
-        return this.cAx;
+        return this.cCT;
     }
 
-    public i afV() {
+    public i agt() {
         return new u();
     }
 }

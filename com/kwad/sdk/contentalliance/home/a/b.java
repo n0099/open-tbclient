@@ -3,7 +3,7 @@ package com.kwad.sdk.contentalliance.home.a;
 import androidx.annotation.MainThread;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface b {
     @MainThread
     int a(AdTemplate adTemplate);

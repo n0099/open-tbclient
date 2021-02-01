@@ -4,9 +4,9 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaGetRoomNameRenameHttpResponseMessage extends JsonHttpResponsedMessage {
-    private d oor;
+    private d oyh;
 
     public AlaGetRoomNameRenameHttpResponseMessage() {
         super(1031020);
@@ -17,16 +17,16 @@ public class AlaGetRoomNameRenameHttpResponseMessage extends JsonHttpResponsedMe
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031020) {
-            this.oor = new d();
+            this.oyh = new d();
             if (jSONObject.has(BdStatsConstant.StatsType.ERROR) && (optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR)) != null) {
-                this.oor.errno = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
-                this.oor.errmsg = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
-                this.oor.usermsg = optJSONObject.optString("usermsg");
+                this.oyh.errno = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
+                this.oyh.errmsg = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
+                this.oyh.usermsg = optJSONObject.optString("usermsg");
             }
         }
     }
 
-    public d dZt() {
-        return this.oor;
+    public d ebG() {
+        return this.oyh;
     }
 }

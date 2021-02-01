@@ -3,15 +3,15 @@ package com.baidu.platform.comapi.walknavi.d.a.d;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class c implements FileFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f4222a;
+    final /* synthetic */ b f4225a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f4222a = bVar;
+        this.f4225a = bVar;
     }
 
     @Override // java.io.FileFilter

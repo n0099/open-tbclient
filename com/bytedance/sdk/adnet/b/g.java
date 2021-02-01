@@ -7,7 +7,7 @@ import com.bytedance.sdk.adnet.core.l;
 import com.bytedance.sdk.adnet.core.p;
 import com.bytedance.sdk.adnet.core.r;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class g<T> extends Request<T> {
     private static final String c = String.format("application/json; charset=%s", "utf-8");
     private final Object d;

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LayerRootView extends RelativeLayout {
     public LayerRootView(@NonNull Context context) {
         super(context);

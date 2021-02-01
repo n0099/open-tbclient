@@ -11,7 +11,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class an {
     public static List<File> a(String str, String str2) throws IOException {
         return a(str, str2, (String) null);

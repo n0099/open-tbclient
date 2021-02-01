@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tieba.gift.giftTab.GiftTabActivity;
 import com.baidu.tieba.gift.myGiftList.MyGiftListActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GiftStatic {
     public static String Tag = "tag";
 

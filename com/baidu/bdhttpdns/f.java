@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 final class f {
-    private static volatile f aeT;
+    private static volatile f aeM;
 
     /* loaded from: classes6.dex */
     interface a {
@@ -19,21 +19,21 @@ final class f {
 
     /* loaded from: classes6.dex */
     private class b implements Runnable {
-        private a aeU;
+        private a aeN;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f1577b;
+        private String f1575b;
 
         public b(String str, a aVar) {
-            this.f1577b = str;
-            this.aeU = aVar;
+            this.f1575b = str;
+            this.aeN = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ArrayList<String> arrayList;
             ArrayList<String> arrayList2;
-            Map b2 = f.this.b(this.f1577b);
+            Map b2 = f.this.b(this.f1575b);
             if (b2 != null) {
                 arrayList = (ArrayList) b2.get("ipv6");
                 arrayList2 = (ArrayList) b2.get("ipv4");
@@ -41,7 +41,7 @@ final class f {
                 arrayList = null;
                 arrayList2 = null;
             }
-            this.aeU.a(((arrayList2 == null || arrayList2.isEmpty()) && (arrayList == null || arrayList.isEmpty())) ? -1 : 0, arrayList2, arrayList, 60L, this.f1577b);
+            this.aeN.a(((arrayList2 == null || arrayList2.isEmpty()) && (arrayList == null || arrayList.isEmpty())) ? -1 : 0, arrayList2, arrayList, 60L, this.f1575b);
         }
     }
 
@@ -88,15 +88,15 @@ final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static f ss() {
-        if (aeT == null) {
+    public static f sp() {
+        if (aeM == null) {
             synchronized (f.class) {
-                if (aeT == null) {
-                    aeT = new f();
+                if (aeM == null) {
+                    aeM = new f();
                 }
             }
         }
-        return aeT;
+        return aeM;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -104,7 +104,7 @@ final class f {
         if (str == null || str.isEmpty()) {
             return;
         }
-        m.sv().b().execute(new b(str, aVar));
+        m.ss().b().execute(new b(str, aVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -6,10 +6,10 @@ import android.text.TextUtils;
 public class ec extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f13960a = "";
+    public static String f13962a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f13961b = "";
+    public static String f13963b = "";
 
     public ec(Context context, int i) {
         super(context, i);
@@ -49,15 +49,15 @@ public class ec extends ed {
     /* renamed from: a */
     public String mo192a() {
         String str = "";
-        if (!TextUtils.isEmpty(f13960a)) {
-            str = "" + a(dv.f308a, f13960a);
-            f13960a = "";
+        if (!TextUtils.isEmpty(f13962a)) {
+            str = "" + a(dv.f308a, f13962a);
+            f13962a = "";
         }
-        if (TextUtils.isEmpty(f13961b)) {
+        if (TextUtils.isEmpty(f13963b)) {
             return str;
         }
-        String str2 = str + a(dv.f13956b, f13961b);
-        f13961b = "";
+        String str2 = str + a(dv.f13958b, f13963b);
+        f13963b = "";
         return str2;
     }
 }

@@ -15,46 +15,46 @@ import com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotion
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.view.f;
 import java.util.List;
-/* loaded from: classes8.dex */
-public class SingleThreadEmotionFragment extends BaseFragment implements a.InterfaceC0813a<List<EmotionPackageData>> {
-    private CustomMessageListener iRV = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH_SINGLE_THREAD_EMOTION_PACKAGE) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment.1
+/* loaded from: classes9.dex */
+public class SingleThreadEmotionFragment extends BaseFragment implements a.InterfaceC0814a<List<EmotionPackageData>> {
+    private CustomMessageListener iXC = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH_SINGLE_THREAD_EMOTION_PACKAGE) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (SingleThreadEmotionFragment.this.luK != null) {
-                SingleThreadEmotionFragment.this.luK.loadData();
+            if (SingleThreadEmotionFragment.this.lCO != null) {
+                SingleThreadEmotionFragment.this.lCO.loadData();
             }
         }
     };
-    private f luJ;
-    private SingleThreadEmotionModel luK;
+    private f lCN;
+    private SingleThreadEmotionModel lCO;
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.luJ = new f(getPageContext());
-        this.luK = new SingleThreadEmotionModel();
-        this.luK.a(this);
-        registerListener(this.iRV);
-        dgR();
-        return this.luJ.getView();
+        this.lCN = new f(getPageContext());
+        this.lCO = new SingleThreadEmotionModel();
+        this.lCO.a(this);
+        registerListener(this.iXC);
+        diS();
+        return this.lCN.getView();
     }
 
-    private void dgR() {
-        if (this.luK != null) {
-            this.luK.loadData();
+    private void diS() {
+        if (this.lCO != null) {
+            this.lCO.loadData();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a.InterfaceC0813a
-    /* renamed from: ai */
+    @Override // com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a.InterfaceC0814a
+    /* renamed from: aj */
     public void onSuccess(final List<EmotionPackageData> list) {
-        e.mB().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment.2
+        e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment.2
             @Override // java.lang.Runnable
             public void run() {
-                if (SingleThreadEmotionFragment.this.luJ != null) {
-                    SingleThreadEmotionFragment.this.luJ.fc(list);
-                    SingleThreadEmotionFragment.this.dgT();
+                if (SingleThreadEmotionFragment.this.lCN != null) {
+                    SingleThreadEmotionFragment.this.lCN.fa(list);
+                    SingleThreadEmotionFragment.this.diU();
                 }
             }
         });
@@ -63,21 +63,21 @@ public class SingleThreadEmotionFragment extends BaseFragment implements a.Inter
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.iRV != null) {
-            MessageManager.getInstance().unRegisterListener(this.iRV);
+        if (this.iXC != null) {
+            MessageManager.getInstance().unRegisterListener(this.iXC);
         }
-        if (this.luK != null) {
-            this.luK.dhb();
+        if (this.lCO != null) {
+            this.lCO.djc();
         }
     }
 
-    @Override // com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a.InterfaceC0813a
+    @Override // com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a.InterfaceC0814a
     public void onFail() {
-        e.mB().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment.3
+        e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment.3
             @Override // java.lang.Runnable
             public void run() {
-                if (SingleThreadEmotionFragment.this.luJ != null) {
-                    SingleThreadEmotionFragment.this.luJ.showNoDataView();
+                if (SingleThreadEmotionFragment.this.lCN != null) {
+                    SingleThreadEmotionFragment.this.lCN.showNoDataView();
                 }
             }
         });
@@ -86,19 +86,19 @@ public class SingleThreadEmotionFragment extends BaseFragment implements a.Inter
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.luJ != null) {
-            this.luJ.onChangeSkinType(i);
+        if (this.lCN != null) {
+            this.lCN.onChangeSkinType(i);
         }
     }
 
-    @Override // com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a.InterfaceC0813a
-    public void dgS() {
+    @Override // com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a.InterfaceC0814a
+    public void diT() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgT() {
-        if (this.luJ != null) {
-            this.luJ.hideLoadingView();
+    public void diU() {
+        if (this.lCN != null) {
+            this.lCN.hideLoadingView();
         }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class UbcAudioFlowStatisticManager {
     public static volatile UbcAudioFlowStatisticManager mInstance = new UbcAudioFlowStatisticManager();
     private String mEntry;
@@ -153,7 +153,7 @@ public class UbcAudioFlowStatisticManager {
         return jSONObject;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class FlowData {
         public Object flow;
         public JSONObject formattedValue;

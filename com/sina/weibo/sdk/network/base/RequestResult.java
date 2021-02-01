@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.network.base;
 
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RequestResult<T> {
     private Exception e;
     private ArrayList<Object> interceptResult;

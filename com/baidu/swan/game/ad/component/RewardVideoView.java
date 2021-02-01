@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.apps.media.b.a;
 import com.baidu.swan.apps.media.b.c;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class RewardVideoView extends RelativeLayout {
-    private a cBf;
+    private a cDB;
     private Context mContext;
     private boolean mIsMute;
 
@@ -30,16 +30,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void start(String str) {
-        c aQZ = aQZ();
-        aQZ.mSrc = str;
-        this.cBf.d(aQZ);
-        this.cBf.fP(false);
+        c aRp = aRp();
+        aRp.mSrc = str;
+        this.cDB.d(aRp);
+        this.cDB.fR(false);
     }
 
     public void mute(boolean z) {
-        if (this.cBf != null) {
+        if (this.cDB != null) {
             this.mIsMute = z;
-            this.cBf.mute(z);
+            this.cDB.mute(z);
         }
     }
 
@@ -48,16 +48,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public a getPlayer() {
-        return this.cBf;
+        return this.cDB;
     }
 
     private void initPlayer() {
-        e aIr = e.aIr();
-        if (aIr != null) {
-            this.cBf = new a(aIr.aIl(), aQZ());
+        e aIK = e.aIK();
+        if (aIK != null) {
+            this.cDB = new a(aIK.aIE(), aRp());
             FrameLayout frameLayout = new FrameLayout(this.mContext);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            this.cBf.f(frameLayout);
+            this.cDB.f(frameLayout);
         }
     }
 
@@ -67,15 +67,15 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    private c aQZ() {
+    private c aRp() {
         c cVar = new c();
-        cVar.dge = "SwanAdPlayer";
-        cVar.cJc = "SwanAdPlayer";
-        cVar.dgn = true;
+        cVar.diq = "SwanAdPlayer";
+        cVar.cLq = "SwanAdPlayer";
+        cVar.diB = true;
         cVar.mMute = this.mIsMute;
-        cVar.dkv = false;
-        cVar.dkE = false;
-        cVar.dkB = false;
+        cVar.dmF = false;
+        cVar.dmO = false;
+        cVar.dmL = false;
         return cVar;
     }
 }

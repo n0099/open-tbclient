@@ -2,7 +2,7 @@ package com.baidu.searchbox.aperf.bosuploader.uploadstrategy;
 
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseFileUpload {
     public abstract ResponseEntity uploadSync(@NonNull String str, @NonNull File file);
 }

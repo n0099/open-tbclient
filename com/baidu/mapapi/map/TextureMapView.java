@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.adp.framework.MessageConfig;
@@ -28,14 +27,15 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapsdkplatform.comapi.map.ac;
 import com.baidu.mapsdkplatform.comapi.map.ak;
 import com.baidu.webkit.net.BdNetTask;
+import com.yy.mediaframework.base.VideoEncoderConfig;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class TextureMapView extends ViewGroup {
     private static String i;
     private int A;
 
     /* renamed from: b  reason: collision with root package name */
-    private ac f2773b;
+    private ac f2771b;
     private BaiduMap c;
     private ImageView d;
     private Bitmap e;
@@ -59,12 +59,12 @@ public final class TextureMapView extends ViewGroup {
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2772a = TextureMapView.class.getSimpleName();
+    private static final String f2770a = TextureMapView.class.getSimpleName();
     private static int j = 0;
     private static final SparseArray<Integer> p = new SparseArray<>();
 
     static {
-        p.append(3, 2000000);
+        p.append(3, Integer.valueOf((int) VideoEncoderConfig.SCREEN_RECORD_ENCODE_ULTRA_HIGH_BITRATE));
         p.append(4, Integer.valueOf((int) MessageConfig.BASE_SEGMENT_LENGTH));
         p.append(5, 500000);
         p.append(6, Integer.valueOf((int) AlaRecorderLog.ErrCodeSeg.ERROR_BASE_RTMP));
@@ -145,7 +145,7 @@ public final class TextureMapView extends ViewGroup {
         com.baidu.mapsdkplatform.comapi.map.i.a();
         BMapManager.init();
         a(context, baiduMapOptions, i, j);
-        this.c = new BaiduMap(this.f2773b);
+        this.c = new BaiduMap(this.f2771b);
         a(context);
         b(context);
         if (baiduMapOptions != null && !baiduMapOptions.h) {
@@ -170,13 +170,13 @@ public final class TextureMapView extends ViewGroup {
     private void a(Context context, BaiduMapOptions baiduMapOptions, String str, int i2) {
         i = str;
         if (baiduMapOptions == null) {
-            this.f2773b = new ac(context, null, str, i2);
+            this.f2771b = new ac(context, null, str, i2);
         } else {
-            this.f2773b = new ac(context, baiduMapOptions.a(), str, i2);
+            this.f2771b = new ac(context, baiduMapOptions.a(), str, i2);
         }
-        addView(this.f2773b);
+        addView(this.f2771b);
         this.r = new s(this);
-        this.f2773b.b().a(this.r);
+        this.f2771b.b().a(this.r);
     }
 
     private void a(View view) {
@@ -193,9 +193,9 @@ public final class TextureMapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.f.a()) {
-            float f = this.f2773b.b().E().f3040a;
-            this.f.b(f > this.f2773b.b().f3053b);
-            this.f.a(f < this.f2773b.b().f3052a);
+            float f = this.f2771b.b().E().f3038a;
+            this.f.b(f > this.f2771b.b().f3051b);
+            this.f.a(f < this.f2771b.b().f3050a);
         }
     }
 
@@ -218,7 +218,7 @@ public final class TextureMapView extends ViewGroup {
         this.l.setTextSize(2, 11.0f);
         this.l.setTypeface(this.l.getTypeface(), 1);
         this.l.setLayoutParams(layoutParams);
-        this.l.setId(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this.l.setId(Integer.MAX_VALUE);
         this.k.addView(this.l);
         this.m = new TextView(context);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
@@ -287,12 +287,12 @@ public final class TextureMapView extends ViewGroup {
     }
 
     public final BaiduMap getMap() {
-        this.c.f2695b = this;
+        this.c.f2693b = this;
         return this.c;
     }
 
     public final int getMapLevel() {
-        return p.get((int) this.f2773b.b().E().f3040a).intValue();
+        return p.get((int) this.f2771b.b().E().f3038a).intValue();
     }
 
     public int getScaleControlViewHeight() {
@@ -328,7 +328,7 @@ public final class TextureMapView extends ViewGroup {
 
     public final void onDestroy() {
         if (this.o != null) {
-            this.f2773b.a(this.o.hashCode());
+            this.f2771b.a(this.o.hashCode());
         }
         if (this.e != null && !this.e.isRecycled()) {
             this.e.recycle();
@@ -360,8 +360,8 @@ public final class TextureMapView extends ViewGroup {
         }
         for (int i6 = 0; i6 < childCount; i6++) {
             View childAt = getChildAt(i6);
-            if (childAt == this.f2773b) {
-                this.f2773b.layout(0, 0, getWidth(), getHeight());
+            if (childAt == this.f2771b) {
+                this.f2771b.layout(0, 0, getWidth(), getHeight());
             } else if (childAt == this.d) {
                 int i7 = (int) (this.v + (5.0f * f2));
                 int i8 = (int) (this.w + (5.0f * f2));
@@ -433,7 +433,7 @@ public final class TextureMapView extends ViewGroup {
                 ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                 if (layoutParams instanceof MapViewLayoutParams) {
                     MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                    Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f2741b : this.f2773b.b().a(CoordUtil.ll2mc(mapViewLayoutParams.f2740a));
+                    Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f2739b : this.f2771b.b().a(CoordUtil.ll2mc(mapViewLayoutParams.f2738a));
                     a(childAt);
                     int measuredWidth2 = childAt.getMeasuredWidth();
                     int measuredHeight3 = childAt.getMeasuredHeight();
@@ -446,11 +446,11 @@ public final class TextureMapView extends ViewGroup {
     }
 
     public final void onPause() {
-        this.f2773b.d();
+        this.f2771b.d();
     }
 
     public final void onResume() {
-        this.f2773b.c();
+        this.f2771b.c();
     }
 
     public void onSaveInstanceState(Bundle bundle) {

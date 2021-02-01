@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.kwai.video.hodor.util.Timber;
 import com.kwai.video.player.IKwaiMediaPlayer;
 import com.kwai.video.player.PlayerSettingConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class KwaiPlayerVodBuilder extends KwaiPlayerBaseBuilder<KwaiPlayerVodBuilder> {
     private long mAbLoopEndMs;
     private long mAbLoopStartMs;

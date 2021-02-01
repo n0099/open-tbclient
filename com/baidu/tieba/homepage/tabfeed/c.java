@@ -8,5 +8,5 @@ public interface c extends f.c {
 
     void a(com.baidu.tieba.homepage.tabfeed.data.c cVar);
 
-    void cvM();
+    void cwY();
 }

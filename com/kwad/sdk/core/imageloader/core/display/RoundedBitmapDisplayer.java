@@ -14,12 +14,12 @@ import com.kwad.sdk.core.imageloader.core.assist.LoadedFrom;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageViewAware;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RoundedBitmapDisplayer implements BitmapDisplayer {
     protected final int cornerRadius;
     protected final int margin;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class RoundedDrawable extends Drawable {
         protected final BitmapShader bitmapShader;
         protected final float cornerRadius;

@@ -5,11 +5,11 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public final class ax {
-    public static boolean aaD(String str) {
+    public static boolean abE(String str) {
         return !TextUtils.isEmpty(str) && str.length() > 3;
     }
 
-    public static boolean bK(Context context, String str) {
+    public static boolean bJ(Context context, String str) {
         String m63b = az.m63b(context);
         if (TextUtils.isEmpty(m63b)) {
             return false;

@@ -17,10 +17,10 @@ import com.kwai.video.player.kwai_player.AspectKFlv;
 import com.kwai.video.player.kwai_player.AspectKwaiVodAdaptive;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface IKwaiMediaPlayer extends KwaiPlayerDebugInfoProvider, AppLiveReatimeInfoProvider, IMediaPlayer {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnLiveInterActiveListener {
         void onParseAdSei(long j, int i, String str);
 

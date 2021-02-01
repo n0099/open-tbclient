@@ -6,7 +6,7 @@ import android.graphics.RectF;
 import androidx.annotation.NonNull;
 import com.ksad.lottie.model.content.j;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends a {
     private final com.ksad.lottie.a.a.c e;
 
@@ -20,7 +20,7 @@ public class e extends a {
     @Override // com.ksad.lottie.model.layer.a, com.ksad.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.e.a(rectF, this.f8093a);
+        this.e.a(rectF, this.f8095a);
     }
 
     @Override // com.ksad.lottie.model.layer.a

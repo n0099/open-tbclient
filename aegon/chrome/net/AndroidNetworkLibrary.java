@@ -46,14 +46,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AndroidNetworkLibrary {
     public static Boolean sHaveAccessNetworkState;
     public static Boolean sHaveAccessWifiState;
     public static final Set<InetAddress> sAutoDohServers = new HashSet();
     public static final Set<String> sAutoDohDotServers = new HashSet();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class NetworkSecurityPolicyProxy {
         public static NetworkSecurityPolicyProxy sInstance = new NetworkSecurityPolicyProxy();
 
@@ -71,7 +71,7 @@ public class AndroidNetworkLibrary {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class SetFileDescriptor {
         public static final Method sFileDescriptorSetInt;
 
@@ -96,10 +96,10 @@ public class AndroidNetworkLibrary {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class SocketFd extends Socket {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         private static class SocketImplFd extends SocketImpl {
             public SocketImplFd(FileDescriptor fileDescriptor) {
                 ((SocketImpl) this).fd = fileDescriptor;

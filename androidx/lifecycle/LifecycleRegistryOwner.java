@@ -2,7 +2,7 @@ package androidx.lifecycle;
 
 import androidx.annotation.NonNull;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface LifecycleRegistryOwner extends LifecycleOwner {
     @Override // androidx.lifecycle.LifecycleOwner
     @NonNull

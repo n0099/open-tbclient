@@ -19,14 +19,14 @@ import com.kwad.sdk.core.response.b.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EpisodePhotoView extends com.kwad.sdk.widget.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f8997a;
+    private ImageView f8999a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f8998b;
+    private TextView f9000b;
     private AdTemplate c;
     private PhotoInfo d;
     private FrameLayout e;
@@ -53,7 +53,7 @@ public class EpisodePhotoView extends com.kwad.sdk.widget.a {
         if (TextUtils.isEmpty(g)) {
             g = d.d(this.d);
         }
-        KSImageLoader.loadImage(this.f8997a, g, this.c, KSImageLoader.IMGOPTION_TUBE);
+        KSImageLoader.loadImage(this.f8999a, g, this.c, KSImageLoader.IMGOPTION_TUBE);
     }
 
     private void d() {
@@ -73,9 +73,9 @@ public class EpisodePhotoView extends com.kwad.sdk.widget.a {
     }
 
     protected void b() {
-        this.f8997a = (ImageView) findViewById(R.id.ksad_tube_trend_episode_cover);
+        this.f8999a = (ImageView) findViewById(R.id.ksad_tube_trend_episode_cover);
         this.e = (FrameLayout) findViewById(R.id.ksad_tube_trend_episode_more);
-        this.f8998b = (TextView) findViewById(R.id.ksad_tube_trend_episode_name);
+        this.f9000b = (TextView) findViewById(R.id.ksad_tube_trend_episode_name);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -125,11 +125,11 @@ public class EpisodePhotoView extends com.kwad.sdk.widget.a {
     public void setLookMoreVisibility(boolean z) {
         if (z) {
             this.e.setVisibility(0);
-            this.f8998b.setVisibility(8);
+            this.f9000b.setVisibility(8);
             return;
         }
         this.e.setVisibility(8);
-        this.f8998b.setVisibility(0);
+        this.f9000b.setVisibility(0);
     }
 
     public void setRadius(float f) {
@@ -145,7 +145,7 @@ public class EpisodePhotoView extends com.kwad.sdk.widget.a {
         }
         d();
         c();
-        this.f8998b.setText(d.B(this.d));
-        this.f8998b.setVisibility(0);
+        this.f9000b.setText(d.B(this.d));
+        this.f9000b.setVisibility(0);
     }
 }

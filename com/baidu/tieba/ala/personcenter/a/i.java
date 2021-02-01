@@ -10,20 +10,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.l, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a>> {
-    private TextView gJc;
-    private String gvV;
+    private TextView gLI;
+    private String gyF;
     private TbPageContext mPageContext;
     private String user_id;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.l.hVr);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.l.hZM);
         this.mPageContext = tbPageContext;
     }
 
@@ -39,26 +39,26 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.l lVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a> cardViewHolder) {
-        if (cardViewHolder.crP() == null) {
+        if (cardViewHolder.ctb() == null) {
             return null;
         }
-        a(lVar, cardViewHolder.crP());
-        cardViewHolder.crP().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
+        a(lVar, cardViewHolder.ctb());
+        cardViewHolder.ctb().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                i.this.ZF();
+                i.this.abu();
             }
         });
-        return cardViewHolder.crP().getView();
+        return cardViewHolder.ctb().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.l lVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = lVar.getPersonCenterData();
         if (personCenterData != null && aVar != null) {
-            this.gJc = aVar.cmq();
-            this.user_id = personCenterData.clR().user_id;
+            this.gLI = aVar.cno();
+            this.user_id = personCenterData.cmP().user_id;
             a(personCenterData, aVar);
-            aVar.wk(8);
+            aVar.wv(8);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_privilege));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -88,13 +88,13 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZF() {
+    public void abu() {
         AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
-        a(this.gJc, this.gvV, false);
-        aq aqVar = new aq("c13333");
-        aqVar.dW("uid", TbadkApplication.getCurrentAccount());
-        TiebaStatic.log(aqVar);
-        String string = com.baidu.tbadk.core.sharedPref.b.brx().getString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+        a(this.gLI, this.gyF, false);
+        ar arVar = new ar("c13333");
+        arVar.dR("uid", TbadkApplication.getCurrentAccount());
+        TiebaStatic.log(arVar);
+        String string = com.baidu.tbadk.core.sharedPref.b.brQ().getString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
         if (string != null) {
             if (string.endsWith("/")) {
                 string = string.substring(0, string.length() - 1);

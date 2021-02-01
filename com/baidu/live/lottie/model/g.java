@@ -6,13 +6,13 @@ import androidx.annotation.VisibleForTesting;
 import androidx.collection.LruCache;
 import com.baidu.android.common.logging.Log;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private static final g bpM = new g();
+    private static final g bto = new g();
     private final LruCache<String, com.baidu.live.lottie.e> Fo = new LruCache<>(Log.FILE_LIMETE);
 
-    public static g LT() {
-        return bpM;
+    public static g Nr() {
+        return bto;
     }
 
     @VisibleForTesting
@@ -20,7 +20,7 @@ public class g {
     }
 
     @Nullable
-    public com.baidu.live.lottie.e gP(@Nullable String str) {
+    public com.baidu.live.lottie.e ho(@Nullable String str) {
         if (str == null) {
             return null;
         }

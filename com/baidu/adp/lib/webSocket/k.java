@@ -17,8 +17,8 @@ public class k {
         public String mQuery;
         public String mPath = "/";
         public String mOrigin = null;
-        public String[] RC = null;
-        public List<BasicNameValuePair> RD = null;
+        public String[] RA = null;
+        public List<BasicNameValuePair> RB = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b(String str) {
@@ -39,82 +39,82 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class d extends h {
-        public SocketException RE;
+        public SocketException RC;
 
         public d(SocketException socketException) {
-            this.RE = socketException;
+            this.RC = socketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class e extends h {
-        public String RF;
+        public String RD;
         public int mStatusCode;
 
         public e(int i, String str) {
             this.mStatusCode = i;
-            this.RF = str;
+            this.RD = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class p extends h {
-        public String RF;
+        public String RD;
         public int mStatusCode;
 
         public p(int i, String str) {
             this.mStatusCode = i;
-            this.RF = str;
+            this.RD = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class l extends h {
-        public WebSocketException RI;
+        public WebSocketException RG;
 
         public l(WebSocketException webSocketException) {
-            this.RI = webSocketException;
+            this.RG = webSocketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class f extends h {
-        public Exception RG;
+        public Exception RE;
 
         public f(Exception exc) {
-            this.RG = exc;
+            this.RE = exc;
         }
     }
 
     /* loaded from: classes.dex */
     public static class s extends h {
-        public String RK;
+        public String RI;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public s(String str) {
-            this.RK = str;
+            this.RI = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class m extends h {
-        public byte[] RB;
+        public byte[] Rz;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public m(byte[] bArr) {
-            this.RB = bArr;
+            this.Rz = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a extends h {
-        public byte[] RB;
+        public byte[] Rz;
         public long allDataReadTime;
         public long firstByteReachTime;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(byte[] bArr, long j, long j2) {
-            this.RB = bArr;
+            this.Rz = bArr;
             this.firstByteReachTime = j;
             this.allDataReadTime = j2;
         }
@@ -122,11 +122,11 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class i extends h {
-        com.baidu.adp.lib.webSocket.c RH;
+        com.baidu.adp.lib.webSocket.c RF;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public i(com.baidu.adp.lib.webSocket.c cVar) {
-            this.RH = cVar;
+            this.RF = cVar;
         }
     }
 
@@ -150,41 +150,41 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class j extends h {
-        public byte[] RB;
+        public byte[] Rz;
 
         j() {
-            this.RB = null;
+            this.Rz = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public j(byte[] bArr) {
-            this.RB = bArr;
+            this.Rz = bArr;
         }
     }
 
     /* renamed from: com.baidu.adp.lib.webSocket.k$k  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0019k extends h {
-        public byte[] RB;
+        public byte[] Rz;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C0019k() {
-            this.RB = null;
+            this.Rz = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C0019k(byte[] bArr) {
-            this.RB = bArr;
+            this.Rz = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class o extends h {
-        com.baidu.adp.lib.webSocket.c RJ;
+        com.baidu.adp.lib.webSocket.c RH;
 
         public o(com.baidu.adp.lib.webSocket.c cVar) {
-            this.RJ = null;
-            this.RJ = cVar;
+            this.RH = null;
+            this.RH = cVar;
         }
     }
 

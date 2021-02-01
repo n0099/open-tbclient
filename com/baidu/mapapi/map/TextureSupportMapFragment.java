@@ -7,14 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TextureSupportMapFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2774a = TextureSupportMapFragment.class.getSimpleName();
+    private static final String f2772a = TextureSupportMapFragment.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private TextureMapView f2775b;
+    private TextureMapView f2773b;
     private BaiduMapOptions c;
 
     public TextureSupportMapFragment() {
@@ -33,14 +33,14 @@ public class TextureSupportMapFragment extends Fragment {
     }
 
     public BaiduMap getBaiduMap() {
-        if (this.f2775b == null) {
+        if (this.f2773b == null) {
             return null;
         }
-        return this.f2775b.getMap();
+        return this.f2773b.getMap();
     }
 
     public TextureMapView getMapView() {
-        return this.f2775b;
+        return this.f2773b;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -65,8 +65,8 @@ public class TextureSupportMapFragment extends Fragment {
 
     @Override // androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f2775b = new TextureMapView(getActivity(), this.c);
-        return this.f2775b;
+        this.f2773b = new TextureMapView(getActivity(), this.c);
+        return this.f2773b;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -77,7 +77,7 @@ public class TextureSupportMapFragment extends Fragment {
     @Override // androidx.fragment.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.f2775b.onDestroy();
+        this.f2773b.onDestroy();
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -88,13 +88,13 @@ public class TextureSupportMapFragment extends Fragment {
     @Override // androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        this.f2775b.onPause();
+        this.f2773b.onPause();
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        this.f2775b.onResume();
+        this.f2773b.onResume();
     }
 
     @Override // androidx.fragment.app.Fragment

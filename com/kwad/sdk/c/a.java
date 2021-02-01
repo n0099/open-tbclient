@@ -18,11 +18,11 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.utils.x;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends c {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f8246b;
+    private boolean f8248b;
     private AdBaseFrameLayout c;
     private long d;
     private Activity e;
@@ -31,18 +31,18 @@ public class a extends c {
     private boolean h;
     private boolean i;
     private AdTemplate j;
-    private InterfaceC1067a k;
+    private InterfaceC1071a k;
     private Handler l;
 
     /* renamed from: com.kwad.sdk.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1067a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1071a {
         void a();
     }
 
     public a(@Nullable JSONObject jSONObject) {
         super(jSONObject);
-        this.f8246b = false;
+        this.f8248b = false;
         this.l = new Handler(Looper.getMainLooper());
     }
 
@@ -81,7 +81,7 @@ public class a extends c {
         super.a(frameLayout, adBaseFrameLayout, adTemplate, bVar, i);
         this.j = adTemplate;
         this.c = adBaseFrameLayout;
-        this.f = (ImageView) this.f8253a.findViewById(R.id.ksad_end_close_btn);
+        this.f = (ImageView) this.f8255a.findViewById(R.id.ksad_end_close_btn);
         this.f.setVisibility(8);
         f().setBackgroundColor(-1);
         if (f() instanceof KsAdWebView) {
@@ -100,7 +100,7 @@ public class a extends c {
 
                 @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
                 public void a(int i2, String str, String str2) {
-                    a.this.f8246b = true;
+                    a.this.f8248b = true;
                 }
 
                 @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
@@ -112,7 +112,7 @@ public class a extends c {
                 @Override // com.kwad.sdk.core.page.widget.webview.c, android.webkit.WebViewClient
                 public void onReceivedError(WebView webView, int i2, String str, String str2) {
                     super.onReceivedError(webView, i2, str, str2);
-                    a.this.f8246b = true;
+                    a.this.f8248b = true;
                 }
             });
         }
@@ -124,13 +124,13 @@ public class a extends c {
         });
     }
 
-    public void a(InterfaceC1067a interfaceC1067a) {
-        this.k = interfaceC1067a;
+    public void a(InterfaceC1071a interfaceC1071a) {
+        this.k = interfaceC1071a;
     }
 
     @Override // com.kwad.sdk.c.c
     protected boolean b() {
-        return !this.f8246b;
+        return !this.f8248b;
     }
 
     @Override // com.kwad.sdk.c.c

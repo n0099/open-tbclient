@@ -1,51 +1,50 @@
 package com.baidu.swan.apps.res.ui.wheelview3d.d;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import java.util.TimerTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends TimerTask {
-    private final WheelView3d dyI;
-    private int dyM = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private int dyN = 0;
+    private final WheelView3d dAN;
+    private int dAR = Integer.MAX_VALUE;
+    private int dAS = 0;
     private int offset;
 
     public c(WheelView3d wheelView3d, int i) {
-        this.dyI = wheelView3d;
+        this.dAN = wheelView3d;
         this.offset = i;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
-        if (this.dyM == Integer.MAX_VALUE) {
-            this.dyM = this.offset;
+        if (this.dAR == Integer.MAX_VALUE) {
+            this.dAR = this.offset;
         }
-        this.dyN = (int) (this.dyM * 0.1f);
-        if (this.dyN == 0) {
-            if (this.dyM < 0) {
-                this.dyN = -1;
+        this.dAS = (int) (this.dAR * 0.1f);
+        if (this.dAS == 0) {
+            if (this.dAR < 0) {
+                this.dAS = -1;
             } else {
-                this.dyN = 1;
+                this.dAS = 1;
             }
         }
-        if (Math.abs(this.dyM) <= 1) {
-            this.dyI.aHk();
-            this.dyI.getHandler().sendEmptyMessage(3000);
+        if (Math.abs(this.dAR) <= 1) {
+            this.dAN.aHD();
+            this.dAN.getHandler().sendEmptyMessage(3000);
             return;
         }
-        this.dyI.setTotalScrollY(this.dyI.getTotalScrollY() + this.dyN);
-        if (!this.dyI.aHm()) {
-            float itemHeight = this.dyI.getItemHeight();
-            float f = (-this.dyI.getInitPosition()) * itemHeight;
-            float itemsCount = itemHeight * ((this.dyI.getItemsCount() - 1) - this.dyI.getInitPosition());
-            if (this.dyI.getTotalScrollY() <= f || this.dyI.getTotalScrollY() >= itemsCount) {
-                this.dyI.setTotalScrollY(this.dyI.getTotalScrollY() - this.dyN);
-                this.dyI.aHk();
-                this.dyI.getHandler().sendEmptyMessage(3000);
+        this.dAN.setTotalScrollY(this.dAN.getTotalScrollY() + this.dAS);
+        if (!this.dAN.aHF()) {
+            float itemHeight = this.dAN.getItemHeight();
+            float f = (-this.dAN.getInitPosition()) * itemHeight;
+            float itemsCount = itemHeight * ((this.dAN.getItemsCount() - 1) - this.dAN.getInitPosition());
+            if (this.dAN.getTotalScrollY() <= f || this.dAN.getTotalScrollY() >= itemsCount) {
+                this.dAN.setTotalScrollY(this.dAN.getTotalScrollY() - this.dAS);
+                this.dAN.aHD();
+                this.dAN.getHandler().sendEmptyMessage(3000);
                 return;
             }
         }
-        this.dyI.getHandler().sendEmptyMessage(1000);
-        this.dyM -= this.dyN;
+        this.dAN.getHandler().sendEmptyMessage(1000);
+        this.dAR -= this.dAS;
     }
 }

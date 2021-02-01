@@ -10,9 +10,9 @@ import com.airbnb.lottie.a.b.p;
 import com.airbnb.lottie.j;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends a {
-    private final List<a> BR;
+    private final List<a> BS;
     @Nullable
     private com.airbnb.lottie.a.b.a<Float, Float> GK;
     private final RectF GL;
@@ -22,18 +22,18 @@ public class b extends a {
         super(fVar, layer);
         a aVar;
         a aVar2;
-        this.BR = new ArrayList();
+        this.BS = new ArrayList();
         this.rect = new RectF();
         this.GL = new RectF();
-        com.airbnb.lottie.model.a.b kj = layer.kj();
-        if (kj != null) {
-            this.GK = kj.jc();
+        com.airbnb.lottie.model.a.b ki = layer.ki();
+        if (ki != null) {
+            this.GK = ki.jb();
             a(this.GK);
             this.GK.b(this);
         } else {
             this.GK = null;
         }
-        LongSparseArray longSparseArray = new LongSparseArray(dVar.hW().size());
+        LongSparseArray longSparseArray = new LongSparseArray(dVar.hV().size());
         int size = list.size() - 1;
         a aVar3 = null;
         while (size >= 0) {
@@ -41,13 +41,13 @@ public class b extends a {
             if (a2 == null) {
                 aVar2 = aVar3;
             } else {
-                longSparseArray.put(a2.jS().getId(), a2);
+                longSparseArray.put(a2.jR().getId(), a2);
                 if (aVar3 != null) {
                     aVar3.b(a2);
                     aVar2 = null;
                 } else {
-                    this.BR.add(0, a2);
-                    switch (r0.kd()) {
+                    this.BS.add(0, a2);
+                    switch (r0.kc()) {
                         case Add:
                         case Invert:
                             aVar2 = a2;
@@ -63,7 +63,7 @@ public class b extends a {
         }
         for (int i = 0; i < longSparseArray.size(); i++) {
             a aVar4 = (a) longSparseArray.get(longSparseArray.keyAt(i));
-            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.jS().ke())) != null) {
+            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.jR().kd())) != null) {
                 aVar4.c(aVar);
             }
         }
@@ -73,15 +73,15 @@ public class b extends a {
     void d(Canvas canvas, Matrix matrix, int i) {
         com.airbnb.lottie.c.beginSection("CompositionLayer#draw");
         int save = canvas.save();
-        this.GL.set(0.0f, 0.0f, this.Gy.ka(), this.Gy.kb());
+        this.GL.set(0.0f, 0.0f, this.Gy.jZ(), this.Gy.ka());
         matrix.mapRect(this.GL);
-        for (int size = this.BR.size() - 1; size >= 0; size--) {
+        for (int size = this.BS.size() - 1; size >= 0; size--) {
             boolean z = true;
             if (!this.GL.isEmpty()) {
                 z = canvas.clipRect(this.GL);
             }
             if (z) {
-                this.BR.get(size).c(canvas, matrix, i);
+                this.BS.get(size).c(canvas, matrix, i);
             }
         }
         if (save > 0) {
@@ -94,8 +94,8 @@ public class b extends a {
     public void d(RectF rectF, Matrix matrix) {
         super.d(rectF, matrix);
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.BR.size() - 1; size >= 0; size--) {
-            this.BR.get(size).d(this.rect, this.Gx);
+        for (int size = this.BS.size() - 1; size >= 0; size--) {
+            this.BS.get(size).d(this.rect, this.Gx);
             if (rectF.isEmpty()) {
                 rectF.set(this.rect);
             } else {
@@ -108,14 +108,14 @@ public class b extends a {
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         super.setProgress(f);
         if (this.GK != null) {
-            f = (this.GK.getValue().floatValue() * 1000.0f) / this.BH.getComposition().hS();
+            f = (this.GK.getValue().floatValue() * 1000.0f) / this.BH.getComposition().hR();
         }
-        if (this.Gy.jX() != 0.0f) {
-            f /= this.Gy.jX();
+        if (this.Gy.jW() != 0.0f) {
+            f /= this.Gy.jW();
         }
-        float jY = f - this.Gy.jY();
-        for (int size = this.BR.size() - 1; size >= 0; size--) {
-            this.BR.get(size).setProgress(jY);
+        float jX = f - this.Gy.jX();
+        for (int size = this.BS.size() - 1; size >= 0; size--) {
+            this.BS.get(size).setProgress(jX);
         }
     }
 
@@ -124,8 +124,8 @@ public class b extends a {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.BR.size()) {
-                this.BR.get(i3).a(eVar, i, list, eVar2);
+            if (i3 < this.BS.size()) {
+                this.BS.get(i3).a(eVar, i, list, eVar2);
                 i2 = i3 + 1;
             } else {
                 return;

@@ -5,25 +5,25 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class j {
-    private static final Set<Integer> dML = new HashSet();
-    private static final Set<Integer> dMM = new HashSet();
-    private static final Set<Integer> dMN = new HashSet();
+    private static final Set<Integer> dOP = new HashSet();
+    private static final Set<Integer> dOQ = new HashSet();
+    private static final Set<Integer> dOR = new HashSet();
 
     static {
-        dML.add(2);
-        dML.add(3);
-        dML.add(4);
-        dML.add(5);
-        dML.add(6);
-        dMM.add(7);
-        dMM.add(1);
-        dMN.addAll(dML);
-        dMN.addAll(dMM);
+        dOP.add(2);
+        dOP.add(3);
+        dOP.add(4);
+        dOP.add(5);
+        dOP.add(6);
+        dOQ.add(7);
+        dOQ.add(1);
+        dOR.addAll(dOP);
+        dOR.addAll(dOQ);
     }
 
-    public static Date aNs() {
+    public static Date aNL() {
         return new Date();
     }
 
@@ -43,7 +43,7 @@ public final class j {
         }
     }
 
-    public static Date cK(String str, String str2) {
+    public static Date cE(String str, String str2) {
         if (str == null) {
             return null;
         }
@@ -92,7 +92,7 @@ public final class j {
         }
     }
 
-    public static String i(long j, String str) {
+    public static String j(long j, String str) {
         try {
             return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss").format(new Date(j));
         } catch (NumberFormatException e) {

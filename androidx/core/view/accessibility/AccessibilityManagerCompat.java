@@ -6,22 +6,22 @@ import android.view.accessibility.AccessibilityManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class AccessibilityManagerCompat {
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public interface AccessibilityStateChangeListener {
         @Deprecated
         void onAccessibilityStateChanged(boolean z);
     }
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static abstract class AccessibilityStateChangeListenerCompat implements AccessibilityStateChangeListener {
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public interface TouchExplorationStateChangeListener {
         void onTouchExplorationStateChanged(boolean z);
     }
@@ -42,7 +42,7 @@ public final class AccessibilityManagerCompat {
         return accessibilityManager.removeAccessibilityStateChangeListener(new AccessibilityStateChangeListenerWrapper(accessibilityStateChangeListener));
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     private static class AccessibilityStateChangeListenerWrapper implements AccessibilityManager.AccessibilityStateChangeListener {
         AccessibilityStateChangeListener mListener;
 
@@ -100,7 +100,7 @@ public final class AccessibilityManagerCompat {
     }
 
     @RequiresApi(19)
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     private static class TouchExplorationStateChangeListenerWrapper implements AccessibilityManager.TouchExplorationStateChangeListener {
         final TouchExplorationStateChangeListener mListener;
 

@@ -51,7 +51,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BIMRtcManager {
     private static final String TAG = "BIMRtcManager";
     private static Context mContext;
@@ -65,7 +65,7 @@ public class BIMRtcManager {
     private static Timer mCallTimeoutTimer = new Timer();
     private static volatile Map<String, Integer> mActionSyncSeqIdMap = new ConcurrentHashMap();
     private static volatile AtomicInteger RTC_HEART_BEAT_FAILED_COUNT = new AtomicInteger(0);
-    private static volatile BIMRtcEvent mBIMRtcEvent = new BIMRtcEvent();
+    public static volatile BIMRtcEvent mBIMRtcEvent = new BIMRtcEvent();
     private Runnable trackRequestRunnable = new Runnable() { // from class: com.baidu.android.imrtc.BIMRtcManager.2
         @Override // java.lang.Runnable
         public void run() {
@@ -118,14 +118,16 @@ public class BIMRtcManager {
 
     public void createRoom(String str, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         trackRequest("room/create", "c_client_request", -1, "");
+        mBIMRtcEvent.requestAction = -10;
+        mBIMRtcEvent.requestRoomId = "room/create";
         BIMRtcCreateRoomRequest bIMRtcCreateRoomRequest = new BIMRtcCreateRoomRequest(mContext, str, bIMRtcTokenListener);
-        HttpExecutor.requestExecute(bIMRtcCreateRoomRequest, bIMRtcCreateRoomRequest);
+        HttpExecutor.getInstance().execute(bIMRtcCreateRoomRequest, bIMRtcCreateRoomRequest);
     }
 
     public void generateToken(String str, String str2, long j, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         trackRequest("room/get_rtc_token", "c_client_request", -1, "");
         BIMRtcGetTokenRequest bIMRtcGetTokenRequest = new BIMRtcGetTokenRequest(mContext, str, str2, j, bIMRtcTokenListener);
-        HttpExecutor.requestExecute(bIMRtcGetTokenRequest, bIMRtcGetTokenRequest);
+        HttpExecutor.getInstance().execute(bIMRtcGetTokenRequest, bIMRtcGetTokenRequest);
     }
 
     public void join(String str, IStatusListener iStatusListener) {
@@ -275,8 +277,6 @@ public class BIMRtcManager {
                     } else {
                         this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
                         this.mRtcHandler.postDelayed(this.heartBeatRunnable, RtcConstants.RTC_HEART_BEAT_TIME);
-                        this.mRtcHandler.removeCallbacks(this.trackRequestRunnable);
-                        this.mRtcHandler.postDelayed(this.trackRequestRunnable, RtcConstants.RTC_TRACK_UPLOAD_DURATION);
                         break;
                     }
                 case 86:
@@ -285,14 +285,10 @@ public class BIMRtcManager {
                     RtcConstants.IM_RTC_SDK_SEQ_ID.set(-1L);
                     mActionSyncSeqIdMap.clear();
                     this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
-                    this.mRtcHandler.removeCallbacks(this.trackRequestRunnable);
-                    BIMRtcTrackManager.uploadRtcActionData(mContext);
                     break;
                 case 92:
                     this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
                     this.mRtcHandler.postDelayed(this.heartBeatRunnable, RtcConstants.RTC_HEART_BEAT_TIME);
-                    this.mRtcHandler.removeCallbacks(this.trackRequestRunnable);
-                    this.mRtcHandler.postDelayed(this.trackRequestRunnable, RtcConstants.RTC_TRACK_UPLOAD_DURATION);
                     break;
             }
             notifyRtcActionAndInfo(false, i, bIMRtcInfo);
@@ -331,10 +327,14 @@ public class BIMRtcManager {
             }
             jSONObject.put("other_uks", sb.toString());
             jSONObject.put("cseq_id", RtcConstants.IM_RTC_SDK_SEQ_ID.get());
-            jSONObject.put("sseq_id", bIMRtcInfo == null ? RtcConstants.IM_RTC_SERVER_SEQ_ID : bIMRtcInfo.getSeq());
+            long j = RtcConstants.IM_RTC_SERVER_SEQ_ID;
+            if (bIMRtcInfo != null) {
+                j = bIMRtcInfo instanceof BIMAckRtcInfo ? ((BIMAckRtcInfo) bIMRtcInfo).getAckSeqId() : bIMRtcInfo.getSeq();
+            }
+            jSONObject.put("sseq_id", j);
             jSONObject.put("step", str);
             if (TextUtils.isEmpty(str2)) {
-                str2 = "-1";
+                str2 = bIMRtcInfo instanceof BIMAckRtcInfo ? "" + ((BIMAckRtcInfo) bIMRtcInfo).getSyncAction() : "-1";
             }
             jSONObject.put("ext", str2);
             return jSONObject.toString();
@@ -343,7 +343,12 @@ public class BIMRtcManager {
         }
     }
 
+    public static void imRtcReport(String str, String str2) {
+        trackRequest("231", str, -1, str2);
+    }
+
     public static void notifyParse(@NonNull JSONObject jSONObject) {
+        trackRequest(null, 231, -1, "c_get_sync info begin", -1, jSONObject.toString());
         BIMRtcInfo parseJson = BIMRtcNotifyMsg.parseJson(mContext, jSONObject);
         if (parseJson == null) {
             LogUtils.i(TAG, "notifyParse info == null ");
@@ -351,11 +356,15 @@ public class BIMRtcManager {
             mBIMRtcEvent.serverSedId = -2L;
             mBIMRtcEvent.serverRoomId = "-2";
             trackRequest(parseJson, 231, -2, "c_get_sync info is null", -2, jSONObject.toString());
+            BIMRtcTrackManager.uploadRtcActionData(mContext);
             return;
         }
         trackRequest(parseJson, 231, parseJson.getAction(), "c_get_sync", -1);
         checkServerSeqId(parseJson);
         getInstance(mContext).ackEvent(parseJson);
+        if (parseJson.getAction() == 81) {
+            BIMRtcTrackManager.uploadRtcActionData(mContext);
+        }
         mBIMRtcEvent.serverAction = parseJson.getAction();
         mBIMRtcEvent.serverSedId = RtcConstants.IM_RTC_SERVER_SEQ_ID;
         mBIMRtcEvent.serverRoomId = parseJson.getRtcRoomId();
@@ -425,10 +434,18 @@ public class BIMRtcManager {
         if (!mRtcListeners.contains(bIMRtcListener)) {
             mRtcListeners.add(bIMRtcListener);
         }
+        if (this.mRtcHandler != null) {
+            this.mRtcHandler.removeCallbacks(this.trackRequestRunnable);
+            this.mRtcHandler.postDelayed(this.trackRequestRunnable, RtcConstants.RTC_TRACK_UPLOAD_DURATION);
+        }
     }
 
     public void unRegisterRtcListener(@NonNull BIMRtcListener bIMRtcListener) {
         mRtcListeners.remove(bIMRtcListener);
+        if (this.mRtcHandler != null) {
+            this.mRtcHandler.removeCallbacks(this.trackRequestRunnable);
+            BIMRtcTrackManager.uploadRtcActionData(mContext);
+        }
     }
 
     private static void notifyRtcActionAndInfo(boolean z, int i, BIMRtcInfo bIMRtcInfo) {

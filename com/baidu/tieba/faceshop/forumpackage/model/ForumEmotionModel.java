@@ -13,16 +13,16 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionData;
 import com.baidu.tieba.faceshop.forumpackage.data.b;
 import com.baidu.tieba.faceshop.forumpackage.message.ForumEmotionCenterResponseMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ForumEmotionModel extends BdBaseModel {
     public static final int NUM_PER_PAGE = 10;
     public static final int PAGE_START = 1;
     private boolean hasMore;
-    private final HttpMessageListener iUF;
-    private final b iUo;
+    private final b iZV;
+    private final HttpMessageListener jam;
     private int pn;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(ForumEmotionData forumEmotionData);
 
@@ -35,8 +35,8 @@ public class ForumEmotionModel extends BdBaseModel {
         super(tbPageContext);
         this.pn = 1;
         this.hasMore = true;
-        this.iUo = new b();
-        this.iUF = new HttpMessageListener(1003389) { // from class: com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel.1
+        this.iZV = new b();
+        this.jam = new HttpMessageListener(1003389) { // from class: com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -70,9 +70,9 @@ public class ForumEmotionModel extends BdBaseModel {
             }
         };
         registerTask();
-        this.iUF.setTag(getUniqueId());
-        this.iUF.setSelfListener(true);
-        registerListener(this.iUF);
+        this.jam.setTag(getUniqueId());
+        this.jam.setSelfListener(true);
+        registerListener(this.jam);
     }
 
     private void registerTask() {
@@ -86,7 +86,7 @@ public class ForumEmotionModel extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(1003389);
         httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, this.pn);
         httpMessage.addParam("rn", 10);
-        httpMessage.addParam("forum_type", this.iUo.cza() == 1 ? "like_forum" : "all_forum");
+        httpMessage.addParam("forum_type", this.iZV.cAl() == 1 ? "like_forum" : "all_forum");
         httpMessage.setExtra(aVar);
         sendMessage(httpMessage);
     }
@@ -108,7 +108,7 @@ public class ForumEmotionModel extends BdBaseModel {
         this.pn = i;
         httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, i);
         httpMessage.addParam("rn", 10);
-        httpMessage.addParam("forum_type", this.iUo.cza() == 1 ? "like_forum" : "all_forum");
+        httpMessage.addParam("forum_type", this.iZV.cAl() == 1 ? "like_forum" : "all_forum");
         httpMessage.setExtra(aVar);
         sendMessage(httpMessage);
     }
@@ -117,7 +117,7 @@ public class ForumEmotionModel extends BdBaseModel {
         return this.hasMore;
     }
 
-    public b czb() {
-        return this.iUo;
+    public b cAm() {
+        return this.iZV;
     }
 }

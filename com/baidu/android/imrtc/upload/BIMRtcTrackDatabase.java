@@ -7,11 +7,11 @@ import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.upload.action.track.Request;
-import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BIMRtcTrackDatabase {
     private static final String DB_NAME = "bimrtc_track.db";
     private static final int DB_VERSION = 1;
@@ -24,7 +24,7 @@ public class BIMRtcTrackDatabase {
     public static final Object myLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum RequestEnum {
         id,
         method,
@@ -80,7 +80,7 @@ public class BIMRtcTrackDatabase {
                     contentValues.put(RequestEnum.ext.name(), request.ext);
                     contentValues.put(RequestEnum.aliasId.name(), Long.valueOf(request.aliasId));
                     db.insert("request", null, contentValues);
-                    com.baidu.android.imrtc.utils.LogUtils.e(TAG, "method :" + request.method + ", requestId :" + request.requestId + ", errorCode :" + request.errorCode + ", ext :" + request.ext);
+                    LogUtils.d(TAG, "method :" + request.method + ", requestId :" + request.requestId + ", errorCode :" + request.errorCode + ", ext :" + request.ext);
                     db.close();
                 } catch (Exception e) {
                     LogUtils.e(TAG, "BIMRtcTrack insert Request exception : " + e);
@@ -269,7 +269,7 @@ public class BIMRtcTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         private static final String SQL_TABLE_CREATE_REQUEST = "CREATE TABLE request (" + RequestEnum.id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RequestEnum.method.name() + " TEXT, " + RequestEnum.requestId.name() + " TEXT, " + RequestEnum.timestamp.name() + " LONG, " + RequestEnum.responseTime.name() + " LONG, " + RequestEnum.errorCode.name() + " LONG, " + RequestEnum.ext.name() + " TEXT, " + RequestEnum.aliasId.name() + " LONG NOT NULL);";
         private Context context;

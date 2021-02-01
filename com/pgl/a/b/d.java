@@ -1,9 +1,9 @@
 package com.pgl.a.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f11387a = "";
+    public static String f11389a = "";
 
     public static final void a(String str) {
     }

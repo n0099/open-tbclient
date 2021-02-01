@@ -9,12 +9,12 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     private BaseActivity mActivity;
-    private final a nbW;
+    private final a nlE;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(boolean z, PostPrefixData postPrefixData);
 
@@ -23,11 +23,11 @@ public class b {
 
     public b(BaseActivity baseActivity, a aVar) {
         this.mActivity = baseActivity;
-        this.nbW = aVar;
-        dHs();
+        this.nlE = aVar;
+        dJD();
     }
 
-    public void RC(String str) {
+    public void Sz(String str) {
         if (this.mActivity != null) {
             HttpMessage httpMessage = new HttpMessage(1002701);
             httpMessage.addParam("fname", str);
@@ -35,7 +35,7 @@ public class b {
         }
     }
 
-    public void dHs() {
+    public void dJD() {
         if (this.mActivity != null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002701, TbConfig.SERVER_ADDRESS + Config.SHARE_GET_FORUM_PREFIX_URL);
@@ -45,16 +45,16 @@ public class b {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (b.this.nbW != null) {
+                    if (b.this.nlE != null) {
                         if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002701) {
-                            b.this.nbW.onFailure();
+                            b.this.nlE.onFailure();
                             return;
                         }
                         int statusCode = httpResponsedMessage.getStatusCode();
                         int error = httpResponsedMessage.getError();
                         if (statusCode == 200 && error == 0 && (httpResponsedMessage instanceof ForumPrefixResponsedMessage)) {
                             ForumPrefixResponsedMessage forumPrefixResponsedMessage = (ForumPrefixResponsedMessage) httpResponsedMessage;
-                            b.this.nbW.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
+                            b.this.nlE.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
                         }
                     }
                 }

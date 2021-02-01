@@ -9,7 +9,7 @@ import tbclient.GetMemberInfo.ManagerApplyInfo;
 import tbclient.GetMemberInfo.MemberGodInfo;
 import tbclient.MemberGroupInfo;
 import tbclient.PriManagerApplyInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
     private boolean isNeedUpdateCache;
     private boolean mIsBawuShow;

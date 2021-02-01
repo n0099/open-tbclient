@@ -3,24 +3,24 @@ package com.baidu.tieba.signall;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.ah;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class d implements ag {
+/* loaded from: classes8.dex */
+public class d implements ah {
     private String avatar;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int gEj;
+    private int gGT;
     private boolean isSigned;
-    private int ndF;
-    private int ndG;
-    private int ndH;
-    private boolean ndI;
-    private boolean ndJ;
-    private boolean ndK;
-    private int ndL;
+    private int nnn;
+    private int nno;
+    private int nnp;
+    private boolean nnq;
+    private boolean nnr;
+    private boolean nns;
+    private int nnt;
     private int userLevel;
 
     public int getForumId() {
@@ -35,82 +35,82 @@ public class d implements ag {
         return this.avatar;
     }
 
-    public int dIw() {
-        return this.ndF;
+    public int dKH() {
+        return this.nnn;
     }
 
-    public int dIx() {
-        return this.gEj;
+    public int dKI() {
+        return this.gGT;
     }
 
-    public int bKd() {
+    public int bKx() {
         return this.userLevel;
     }
 
-    public int dIy() {
-        return this.ndG;
+    public int dKJ() {
+        return this.nno;
     }
 
-    public int dIz() {
-        return this.ndH;
+    public int dKK() {
+        return this.nnp;
     }
 
-    public void IP(int i) {
-        this.ndF = i;
+    public void Jj(int i) {
+        this.nnn = i;
     }
 
-    public void IQ(int i) {
-        this.gEj = i;
+    public void Jk(int i) {
+        this.gGT = i;
     }
 
     public void setUserLevel(int i) {
         this.userLevel = i;
     }
 
-    public boolean bRD() {
+    public boolean bSg() {
         return this.isSigned;
     }
 
-    public void xJ(boolean z) {
+    public void yc(boolean z) {
         this.isSigned = z;
-        this.ndF = 1;
+        this.nnn = 1;
     }
 
-    public boolean dIA() {
-        return this.ndJ;
+    public boolean dKL() {
+        return this.nnr;
     }
 
-    public void xK(boolean z) {
-        this.ndJ = z;
-        this.ndF = 0;
+    public void yd(boolean z) {
+        this.nnr = z;
+        this.nnn = 0;
     }
 
-    public boolean dIB() {
-        return this.ndK;
+    public boolean dKM() {
+        return this.nns;
     }
 
-    public void xL(boolean z) {
-        this.ndK = z;
+    public void ye(boolean z) {
+        this.nns = z;
     }
 
-    public int dIC() {
-        return this.ndL;
+    public int dKN() {
+        return this.nnt;
     }
 
-    public void IR(int i) {
-        this.ndL = i;
+    public void Jl(int i) {
+        this.nnt = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean dID() {
-        return this.ndI;
+    public boolean dKO() {
+        return this.nnq;
     }
 
-    public void xM(boolean z) {
-        this.ndI = z;
+    public void yf(boolean z) {
+        this.nnq = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -118,19 +118,19 @@ public class d implements ag {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.ndF = jSONObject.optInt("is_sign_in");
-            this.gEj = jSONObject.optInt("cont_sign_num");
+            this.nnn = jSONObject.optInt("is_sign_in");
+            this.gGT = jSONObject.optInt("cont_sign_num");
             this.userLevel = jSONObject.optInt(IntentConfig.USER_LEVEL);
-            this.ndG = jSONObject.optInt("user_exp");
-            this.ndH = jSONObject.optInt("need_exp");
-            if (this.ndF != 0) {
+            this.nno = jSONObject.optInt("user_exp");
+            this.nnp = jSONObject.optInt("need_exp");
+            if (this.nnn != 0) {
                 this.isSigned = true;
-                this.ndJ = false;
+                this.nnr = false;
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.ag
+    @Override // com.baidu.tbadk.core.util.ah
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();

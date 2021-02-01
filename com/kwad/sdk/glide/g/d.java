@@ -5,14 +5,14 @@ import androidx.annotation.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Queue;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends InputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Queue<d> f10018a = k.a(0);
+    private static final Queue<d> f10020a = k.a(0);
 
     /* renamed from: b  reason: collision with root package name */
-    private InputStream f10019b;
+    private InputStream f10021b;
     private IOException c;
 
     d() {
@@ -21,8 +21,8 @@ public class d extends InputStream {
     @NonNull
     public static d a(@NonNull InputStream inputStream) {
         d poll;
-        synchronized (f10018a) {
-            poll = f10018a.poll();
+        synchronized (f10020a) {
+            poll = f10020a.poll();
         }
         if (poll == null) {
             poll = new d();
@@ -38,40 +38,40 @@ public class d extends InputStream {
 
     @Override // java.io.InputStream
     public int available() {
-        return this.f10019b.available();
+        return this.f10021b.available();
     }
 
     public void b() {
         this.c = null;
-        this.f10019b = null;
-        synchronized (f10018a) {
-            f10018a.offer(this);
+        this.f10021b = null;
+        synchronized (f10020a) {
+            f10020a.offer(this);
         }
     }
 
     void b(@NonNull InputStream inputStream) {
-        this.f10019b = inputStream;
+        this.f10021b = inputStream;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f10019b.close();
+        this.f10021b.close();
     }
 
     @Override // java.io.InputStream
     public void mark(int i) {
-        this.f10019b.mark(i);
+        this.f10021b.mark(i);
     }
 
     @Override // java.io.InputStream
     public boolean markSupported() {
-        return this.f10019b.markSupported();
+        return this.f10021b.markSupported();
     }
 
     @Override // java.io.InputStream
     public int read() {
         try {
-            return this.f10019b.read();
+            return this.f10021b.read();
         } catch (IOException e) {
             this.c = e;
             return -1;
@@ -81,7 +81,7 @@ public class d extends InputStream {
     @Override // java.io.InputStream
     public int read(byte[] bArr) {
         try {
-            return this.f10019b.read(bArr);
+            return this.f10021b.read(bArr);
         } catch (IOException e) {
             this.c = e;
             return -1;
@@ -91,7 +91,7 @@ public class d extends InputStream {
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) {
         try {
-            return this.f10019b.read(bArr, i, i2);
+            return this.f10021b.read(bArr, i, i2);
         } catch (IOException e) {
             this.c = e;
             return -1;
@@ -100,13 +100,13 @@ public class d extends InputStream {
 
     @Override // java.io.InputStream
     public synchronized void reset() {
-        this.f10019b.reset();
+        this.f10021b.reset();
     }
 
     @Override // java.io.InputStream
     public long skip(long j) {
         try {
-            return this.f10019b.skip(j);
+            return this.f10021b.skip(j);
         } catch (IOException e) {
             this.c = e;
             return 0L;

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
     @Nullable
     public static com.bytedance.sdk.openadsdk.core.d.a a(JSONObject jSONObject, AdSlot adSlot) {
@@ -123,8 +123,8 @@ public class c {
         JSONObject optJSONObject4 = jSONObject.optJSONObject("click_area");
         if (optJSONObject4 != null) {
             com.bytedance.sdk.openadsdk.core.d.e eVar = new com.bytedance.sdk.openadsdk.core.d.e();
-            eVar.f6491a = optJSONObject4.optBoolean("click_upper_content_area", true);
-            eVar.f6492b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
+            eVar.f6493a = optJSONObject4.optBoolean("click_upper_content_area", true);
+            eVar.f6494b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
             eVar.c = optJSONObject4.optBoolean("click_lower_content_area", true);
             eVar.d = optJSONObject4.optBoolean("click_lower_non_content_area", true);
             eVar.e = optJSONObject4.optBoolean("click_button_area", true);

@@ -14,223 +14,223 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i implements h {
-    private String amM;
-    private int cqj;
-    private int eKH;
-    private boolean lmD;
-    private String lmE;
-    private List<b> lmF;
-    private int lmG;
-    private long lmH;
-    private long lmI;
-    private long lmJ;
-    private String lmo;
-    private int lmp;
-    private long lmv;
-    private long lmw;
-    private long lmx;
-    private boolean lmz;
+    private String amC;
+    private int eMT;
+    private int ezR;
+    private long luC;
+    private long luD;
+    private long luE;
+    private boolean luG;
+    private boolean luK;
+    private String luL;
+    private List<b> luM;
+    private int luN;
+    private long luO;
+    private long luP;
+    private long luQ;
+    private String luv;
+    private int luw;
     private int mError;
     private String mSource;
     private String mVideoUrl;
-    private boolean lmA = true;
-    private boolean lmB = false;
-    private boolean lmC = false;
-    private boolean lmK = false;
-    private boolean lmL = false;
+    private boolean luH = true;
+    private boolean luI = false;
+    private boolean luJ = false;
+    private boolean luR = false;
+    private boolean luS = false;
     private String mUuid = UUID.randomUUID().toString();
-    private Map<String, Long> lmr = new HashMap();
-    private List<com.baidu.tieba.n.b> lmq = new ArrayList();
-    private long lms = 0;
-    private long lmt = 0;
-    private long lmu = 0;
-    private ArrayList<Integer> lmy = new ArrayList<>();
+    private Map<String, Long> luy = new HashMap();
+    private List<com.baidu.tieba.n.b> lux = new ArrayList();
+    private long luz = 0;
+    private long luA = 0;
+    private long luB = 0;
+    private ArrayList<Integer> luF = new ArrayList<>();
 
     public i(String str, String str2, String str3) {
-        this.cqj = 0;
-        this.cqj = 0;
-        this.amM = str;
+        this.ezR = 0;
+        this.ezR = 0;
+        this.amC = str;
         this.mVideoUrl = str2;
-        this.lmo = str3;
-        deT();
+        this.luv = str3;
+        dgT();
     }
 
     @Override // com.baidu.tieba.l.h
-    public void deL() {
-        this.lms = System.currentTimeMillis();
-        this.lmq.add(new com.baidu.tieba.n.a(3));
-        this.cqj = 0;
+    public void dgL() {
+        this.luz = System.currentTimeMillis();
+        this.lux.add(new com.baidu.tieba.n.a(3));
+        this.ezR = 0;
     }
 
     @Override // com.baidu.tieba.l.h
-    public void tN(boolean z) {
-        this.lmz = z;
-        this.lmq.add(new com.baidu.tieba.n.a(1));
-        this.cqj = 1;
+    public void ua(boolean z) {
+        this.luG = z;
+        this.lux.add(new com.baidu.tieba.n.a(1));
+        this.ezR = 1;
     }
 
     @Override // com.baidu.tieba.l.h
     public void ao(boolean z, boolean z2) {
-        this.lmK = z;
-        this.lmL = z2;
+        this.luR = z;
+        this.luS = z2;
     }
 
     @Override // com.baidu.tieba.l.h
-    public void Er(int i) {
-        if (this.cqj != 4 && this.cqj != 5 && this.cqj != 7 && this.cqj != 8) {
-            this.lmp = i;
-            this.lmA = true;
-            long currentTimeMillis = System.currentTimeMillis() - this.lms;
+    public void EJ(int i) {
+        if (this.ezR != 4 && this.ezR != 5 && this.ezR != 7 && this.ezR != 8) {
+            this.luw = i;
+            this.luH = true;
+            long currentTimeMillis = System.currentTimeMillis() - this.luz;
             if (currentTimeMillis > 86400000) {
                 currentTimeMillis = 10000;
             }
-            this.lmr.put("loadingTime", Long.valueOf(currentTimeMillis));
-            this.lms = 0L;
-            this.lmq.add(new com.baidu.tieba.n.a(102));
-            this.cqj = 3;
+            this.luy.put("loadingTime", Long.valueOf(currentTimeMillis));
+            this.luz = 0L;
+            this.lux.add(new com.baidu.tieba.n.a(102));
+            this.ezR = 3;
         }
     }
 
     @Override // com.baidu.tieba.l.h
-    public void Es(int i) {
-        if (this.cqj != 4 && this.cqj != 5 && this.cqj != 7 && this.cqj != 8) {
-            this.lmp = i;
-            this.lmA = true;
-            this.lmB = true;
-            this.lmr.put("loadingTime", 1L);
-            this.lms = 0L;
-            this.lmq.add(new com.baidu.tieba.n.a(103));
-            this.cqj = 3;
+    public void EK(int i) {
+        if (this.ezR != 4 && this.ezR != 5 && this.ezR != 7 && this.ezR != 8) {
+            this.luw = i;
+            this.luH = true;
+            this.luI = true;
+            this.luy.put("loadingTime", 1L);
+            this.luz = 0L;
+            this.lux.add(new com.baidu.tieba.n.a(103));
+            this.ezR = 3;
         }
     }
 
     @Override // com.baidu.tieba.l.h
-    public void Et(int i) {
-        if (this.cqj == 5) {
-            deN();
-        } else if (this.cqj == 3) {
-            this.lmp = i;
-            this.lmt = System.currentTimeMillis();
-            this.lmq.add(new com.baidu.tieba.n.a(200));
-            this.cqj = 4;
+    public void EL(int i) {
+        if (this.ezR == 5) {
+            dgN();
+        } else if (this.ezR == 3) {
+            this.luw = i;
+            this.luA = System.currentTimeMillis();
+            this.lux.add(new com.baidu.tieba.n.a(200));
+            this.ezR = 4;
         }
     }
 
     @Override // com.baidu.tieba.l.h
-    public void H(long j, int i) {
-        this.lmv++;
-        this.lmw += j;
-        this.lmy.add(Integer.valueOf(i));
+    public void F(long j, int i) {
+        this.luC++;
+        this.luD += j;
+        this.luF.add(Integer.valueOf(i));
     }
 
     @Override // com.baidu.tieba.l.h
-    public void deM() {
-        if (this.cqj == 4 || this.cqj == 3) {
-            if (this.lmt != 0) {
+    public void dgM() {
+        if (this.ezR == 4 || this.ezR == 3) {
+            if (this.luA != 0) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.lmu = (currentTimeMillis - this.lmt) + this.lmu;
-                this.lmt = 0L;
+                this.luB = (currentTimeMillis - this.luA) + this.luB;
+                this.luA = 0L;
             }
-            this.lmq.add(new com.baidu.tieba.n.a(203));
-            this.cqj = 5;
+            this.lux.add(new com.baidu.tieba.n.a(203));
+            this.ezR = 5;
         }
     }
 
-    public void deN() {
-        if (this.cqj == 5) {
-            this.lmt = System.currentTimeMillis();
-            this.lmq.add(new com.baidu.tieba.n.a(204));
-            this.cqj = 4;
-        }
-    }
-
-    @Override // com.baidu.tieba.l.h
-    public void NQ(String str) {
-        if (this.cqj != 8 && this.cqj != 7 && this.cqj != 6 && this.cqj != -1) {
-            this.mSource = VideoPlatformStatic.DX(str);
-            deO();
-            this.lmq.add(new com.baidu.tieba.n.a(205));
-            this.cqj = 8;
-            atQ();
+    public void dgN() {
+        if (this.ezR == 5) {
+            this.luA = System.currentTimeMillis();
+            this.lux.add(new com.baidu.tieba.n.a(204));
+            this.ezR = 4;
         }
     }
 
     @Override // com.baidu.tieba.l.h
-    public String NR(String str) {
-        if (this.cqj == 8 || this.cqj == 7 || this.cqj == 6 || this.cqj == -1) {
+    public void OE(String str) {
+        if (this.ezR != 8 && this.ezR != 7 && this.ezR != 6 && this.ezR != -1) {
+            this.mSource = VideoPlatformStatic.Ev(str);
+            dgO();
+            this.lux.add(new com.baidu.tieba.n.a(205));
+            this.ezR = 8;
+            auo();
+        }
+    }
+
+    @Override // com.baidu.tieba.l.h
+    public String OF(String str) {
+        if (this.ezR == 8 || this.ezR == 7 || this.ezR == 6 || this.ezR == -1) {
             return this.mUuid;
         }
-        this.mSource = VideoPlatformStatic.DX(str);
-        deO();
-        this.lmr.put("stallDuration", Long.valueOf(this.lmw));
-        this.lmq.add(new com.baidu.tieba.n.a(206));
-        this.cqj = 6;
-        atQ();
+        this.mSource = VideoPlatformStatic.Ev(str);
+        dgO();
+        this.luy.put("stallDuration", Long.valueOf(this.luD));
+        this.lux.add(new com.baidu.tieba.n.a(206));
+        this.ezR = 6;
+        auo();
         return this.mUuid;
     }
 
     @Override // com.baidu.tieba.l.h
-    public boolean NS(String str) {
-        if (this.cqj == 8 || this.cqj == 7 || this.cqj == 6 || this.cqj == -1 || this.cqj == 1) {
+    public boolean OG(String str) {
+        if (this.ezR == 8 || this.ezR == 7 || this.ezR == 6 || this.ezR == -1 || this.ezR == 1) {
             return false;
         }
-        this.mSource = VideoPlatformStatic.DX(str);
-        deO();
-        this.lmq.add(new com.baidu.tieba.n.a(207));
-        this.cqj = 7;
-        atQ();
+        this.mSource = VideoPlatformStatic.Ev(str);
+        dgO();
+        this.lux.add(new com.baidu.tieba.n.a(207));
+        this.ezR = 7;
+        auo();
         return true;
     }
 
-    private void deO() {
-        if (this.lmt != 0) {
-            this.lmu += System.currentTimeMillis() - this.lmt;
+    private void dgO() {
+        if (this.luA != 0) {
+            this.luB += System.currentTimeMillis() - this.luA;
         }
-        this.lmr.put("playDuration", Long.valueOf(this.lmu));
-        this.lmr.put("stallCount", Long.valueOf(this.lmv));
-        this.lmr.put("stallDuration", Long.valueOf(this.lmw));
-        if (!this.lmr.containsKey("loadingTime")) {
-            this.lmr.put("loadingTime", 0L);
+        this.luy.put("playDuration", Long.valueOf(this.luB));
+        this.luy.put("stallCount", Long.valueOf(this.luC));
+        this.luy.put("stallDuration", Long.valueOf(this.luD));
+        if (!this.luy.containsKey("loadingTime")) {
+            this.luy.put("loadingTime", 0L);
         }
-        this.lms = 0L;
-        this.lmt = 0L;
-        this.lmu = 0L;
-        this.lmv = 0L;
-        this.lmw = 0L;
-        this.lmx = 0L;
+        this.luz = 0L;
+        this.luA = 0L;
+        this.luB = 0L;
+        this.luC = 0L;
+        this.luD = 0L;
+        this.luE = 0L;
     }
 
-    public void atQ() {
-        if (!this.lmD) {
-            int byE = com.baidu.tbadk.coreExtra.model.g.byE();
-            if ((com.baidu.tbadk.coreExtra.model.g.byD() || !this.lmA) && byE != 3) {
-                this.lmD = true;
+    public void auo() {
+        if (!this.luK) {
+            int byW = com.baidu.tbadk.coreExtra.model.g.byW();
+            if ((com.baidu.tbadk.coreExtra.model.g.byV() || !this.luH) && byW != 3) {
+                this.luK = true;
                 new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.l.i.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public Void doInBackground(Void... voidArr) {
-                        int byE2 = com.baidu.tbadk.coreExtra.model.g.byE();
+                        int byW2 = com.baidu.tbadk.coreExtra.model.g.byW();
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("baseInfo", i.this.bKr());
-                            jSONObject.put("kpiInfo", i.this.deP());
-                            if (byE2 == 0 || (byE2 == 4 && i.this.lmA)) {
-                                JSONObject deR = i.this.deR();
-                                deR.put("running", i.this.deS());
-                                jSONObject.put("debugInfo", deR);
-                            } else if (byE2 == 2) {
-                                jSONObject.put("debugInfo", i.this.deR());
-                            } else if (byE2 == 1) {
+                            jSONObject.put("baseInfo", i.this.bKL());
+                            jSONObject.put("kpiInfo", i.this.dgP());
+                            if (byW2 == 0 || (byW2 == 4 && i.this.luH)) {
+                                JSONObject dgR = i.this.dgR();
+                                dgR.put("running", i.this.dgS());
+                                jSONObject.put("debugInfo", dgR);
+                            } else if (byW2 == 2) {
+                                jSONObject.put("debugInfo", i.this.dgR());
+                            } else if (byW2 == 1) {
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        com.baidu.tieba.u.e.dPo().i(jSONObject, i.this.lmA ? false : true);
-                        if (i.this.lmF != null) {
-                            i.this.lmF.clear();
+                        com.baidu.tieba.u.e.dRz().i(jSONObject, i.this.luH ? false : true);
+                        if (i.this.luM != null) {
+                            i.this.luM.clear();
                             return null;
                         }
                         return null;
@@ -241,49 +241,49 @@ public class i implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject bKr() {
-        JSONObject bKr = VideoPlatformStatic.bKr();
-        if (this.lmF != null) {
+    public JSONObject bKL() {
+        JSONObject bKL = VideoPlatformStatic.bKL();
+        if (this.luM != null) {
             try {
-                int size = this.lmF.size();
+                int size = this.luM.size();
                 for (int i = 0; i < size; i++) {
-                    this.lmF.get(i).eB(bKr);
+                    this.luM.get(i).eC(bKL);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        return bKr;
+        return bKL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject deP() {
+    public JSONObject dgP() {
         JSONObject jSONObject = new JSONObject();
         try {
-            for (Map.Entry<String, Long> entry : this.lmr.entrySet()) {
+            for (Map.Entry<String, Long> entry : this.luy.entrySet()) {
                 jSONObject.put(entry.getKey(), entry.getValue());
             }
-            if (!this.lmr.containsKey("loadingTime")) {
+            if (!this.luy.containsKey("loadingTime")) {
                 jSONObject.put("loadingTime", 0L);
             }
-            if (!this.lmr.containsKey("playDuration")) {
+            if (!this.luy.containsKey("playDuration")) {
                 jSONObject.put("playDuration", 0L);
             }
-            if (!this.lmr.containsKey("stallCount")) {
+            if (!this.luy.containsKey("stallCount")) {
                 jSONObject.put("stallCount", 0);
             }
-            if (!this.lmr.containsKey("stallDuration")) {
+            if (!this.luy.containsKey("stallDuration")) {
                 jSONObject.put("stallDuration", 0L);
             }
-            jSONObject.put("isCacheHit", this.lmz ? 1 : 0);
-            jSONObject.put("playSuccess", this.lmA ? 1 : 0);
-            jSONObject.put("startPlayTimeInfo", deQ());
-            jSONObject.put("retryError", this.lmC ? 1 : 0);
+            jSONObject.put("isCacheHit", this.luG ? 1 : 0);
+            jSONObject.put("playSuccess", this.luH ? 1 : 0);
+            jSONObject.put("startPlayTimeInfo", dgQ());
+            jSONObject.put("retryError", this.luJ ? 1 : 0);
             jSONObject.put(BdStatsConstant.StatsType.ERROR, this.mError);
-            if (this.lmF != null) {
-                int size = this.lmF.size();
+            if (this.luM != null) {
+                int size = this.luM.size();
                 for (int i = 0; i < size; i++) {
-                    this.lmF.get(i).eC(jSONObject);
+                    this.luM.get(i).eD(jSONObject);
                 }
             }
         } catch (Exception e) {
@@ -292,46 +292,46 @@ public class i implements h {
         return jSONObject;
     }
 
-    private JSONObject deQ() {
+    private JSONObject dgQ() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("preparedTime", this.lmH);
-            jSONObject.put("startTime", this.lmI);
-            jSONObject.put("totalTime", this.lmJ);
+            jSONObject.put("preparedTime", this.luO);
+            jSONObject.put("startTime", this.luP);
+            jSONObject.put("totalTime", this.luQ);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        deT();
+        dgT();
         return jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject deR() {
+    public JSONObject dgR() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("uuid", this.mUuid);
-            if (!StringUtils.isNull(this.lmo)) {
-                jSONObject.put("parentUuid", this.lmo);
+            if (!StringUtils.isNull(this.luv)) {
+                jSONObject.put("parentUuid", this.luv);
             }
-            jSONObject.put("tid", this.amM);
+            jSONObject.put("tid", this.amC);
             jSONObject.put("videoUrl", this.mVideoUrl);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("playerType", VideoPlatformStatic.sP(this.lmp));
-            jSONObject.put("urlType", this.eKH);
-            jSONObject.put("sub_error", this.lmG);
+            jSONObject.put("playerType", VideoPlatformStatic.sU(this.luw));
+            jSONObject.put("urlType", this.eMT);
+            jSONObject.put("sub_error", this.luN);
             jSONObject.put("current_pid", Process.myPid());
-            jSONObject.put("directPrepare", this.lmB ? 1 : 0);
+            jSONObject.put("directPrepare", this.luI ? 1 : 0);
             jSONObject.put("testType", TbSingleton.getInstance().getVideoTestType());
-            jSONObject.put("stallTypes", this.lmy);
-            jSONObject.put("pcdn_used", this.lmK ? "1" : "0");
-            jSONObject.put("p2p_used", this.lmL ? "1" : "0");
-            if (!StringUtils.isNull(this.lmE)) {
-                jSONObject.put("error_stack", this.lmE);
+            jSONObject.put("stallTypes", this.luF);
+            jSONObject.put("pcdn_used", this.luR ? "1" : "0");
+            jSONObject.put("p2p_used", this.luS ? "1" : "0");
+            if (!StringUtils.isNull(this.luL)) {
+                jSONObject.put("error_stack", this.luL);
             }
-            if (this.lmF != null) {
-                int size = this.lmF.size();
+            if (this.luM != null) {
+                int size = this.luM.size();
                 for (int i = 0; i < size; i++) {
-                    this.lmF.get(i).eD(jSONObject);
+                    this.luM.get(i).eE(jSONObject);
                 }
             }
         } catch (Exception e) {
@@ -341,28 +341,28 @@ public class i implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONArray deS() {
+    public JSONArray dgS() {
         JSONArray jSONArray = new JSONArray();
-        if (this.lmq == null) {
+        if (this.lux == null) {
             return jSONArray;
         }
-        int size = this.lmq.size();
+        int size = this.lux.size();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(this.lmq.get(i).dyJ());
+            jSONArray.put(this.lux.get(i).dAT());
         }
         return jSONArray;
     }
 
     @Override // com.baidu.tieba.l.h
     public void h(long j, long j2, long j3) {
-        this.lmH = j;
-        this.lmI = j2;
-        this.lmJ = j3;
+        this.luO = j;
+        this.luP = j2;
+        this.luQ = j3;
     }
 
-    private void deT() {
-        this.lmH = 0L;
-        this.lmI = 0L;
-        this.lmJ = 0L;
+    private void dgT() {
+        this.luO = 0L;
+        this.luP = 0L;
+        this.luQ = 0L;
     }
 }

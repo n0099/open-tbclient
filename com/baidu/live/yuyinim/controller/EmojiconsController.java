@@ -12,17 +12,17 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.view.emojiview.b;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class EmojiconsController implements ViewPager.OnPageChangeListener {
-    private LinearLayout bZe;
-    private ImageView[] bZf;
-    private int bZg = -1;
-    private ViewPager bZh;
-    private RelativeLayout bZi;
-    private LinearLayout bZj;
-    private int bZk;
+    private LinearLayout cdi;
+    private ImageView[] cdj;
+    private int cdk = -1;
+    private ViewPager cdl;
+    private RelativeLayout cdm;
+    private LinearLayout cdo;
+    private int cdp;
     private Context mContext;
     private View rootView;
 
@@ -31,49 +31,79 @@ public class EmojiconsController implements ViewPager.OnPageChangeListener {
     }
 
     public EmojiconsController(Context context, View view) {
-        this.bZk = -1;
+        this.cdp = -1;
         this.rootView = view;
         this.mContext = context;
-        this.bZi = (RelativeLayout) view.findViewById(a.f.bd_im_emoji_root);
-        this.bZj = (LinearLayout) view.findViewById(a.f.emojis_bar);
-        this.bZh = (ViewPager) view.findViewById(a.f.emojis_pager);
-        this.bZe = (LinearLayout) view.findViewById(a.f.emojis_viewgroup);
-        this.bZh.setOnPageChangeListener(this);
-        a aVar = new a(Arrays.asList(com.baidu.live.view.emojiview.a.b(this.mContext, b.bRe).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRf).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRg).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRh).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRi).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRj).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRk).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRl).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRm).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRn).Wf()));
-        this.bZh.setAdapter(aVar);
-        this.bZf = new ImageView[aVar.getCount()];
+        this.cdm = (RelativeLayout) view.findViewById(a.f.bd_im_emoji_root);
+        this.cdo = (LinearLayout) view.findViewById(a.f.emojis_bar);
+        this.cdl = (ViewPager) view.findViewById(a.f.emojis_pager);
+        this.cdi = (LinearLayout) view.findViewById(a.f.emojis_viewgroup);
+        this.cdl.setOnPageChangeListener(this);
+        a aVar = new a(ZG());
+        this.cdl.setAdapter(aVar);
+        this.cdj = new ImageView[aVar.getCount()];
         for (int i = 0; i < aVar.getCount(); i++) {
             ImageView imageView = new ImageView(this.mContext);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(com.baidu.live.yuyinim.b.a.dip2px(this.mContext, 6.0f), 0, com.baidu.live.yuyinim.b.a.dip2px(this.mContext, 6.0f), 0);
             imageView.setLayoutParams(layoutParams);
-            this.bZf[i] = imageView;
-            this.bZe.addView(this.bZf[i]);
+            this.cdj[i] = imageView;
+            this.cdi.addView(this.cdj[i]);
         }
-        if (this.bZk == -1) {
-            this.bZk = SharedPrefHelper.getInstance().getInt("audio_live_emoji_page", 0);
+        if (this.cdp == -1) {
+            this.cdp = SharedPrefHelper.getInstance().getInt("audio_live_emoji_page", 0);
         }
-        this.bZh.setCurrentItem(this.bZk);
-        onPageSelected(this.bZk);
+        this.cdl.setCurrentItem(this.cdp);
+        onPageSelected(this.cdp);
     }
 
-    private void fo(int i) {
-        for (int i2 = 0; i2 < this.bZf.length; i2++) {
+    private List<View> ZG() {
+        List<String> list = b.bUT;
+        ArrayList arrayList = new ArrayList();
+        boolean z = true;
+        int i = 0;
+        while (z) {
+            int i2 = i + 20;
+            if (i2 > list.size()) {
+                i2 = list.size();
+            }
+            List<String> subList = list.subList(i, i2);
+            boolean z2 = subList.size() < 20 ? false : z;
+            arrayList.add(com.baidu.live.view.emojiview.a.c(this.mContext, subList).XO());
+            i += 20;
+            z = z2;
+        }
+        return arrayList;
+    }
+
+    private void fu(int i) {
+        for (int i2 = 0; i2 < this.cdj.length; i2++) {
             if (i == i2) {
-                this.bZf[i2].setImageResource(a.e.bd_im_round_dot_select);
+                this.cdj[i2].setImageResource(a.e.bd_im_round_dot_select);
             } else {
-                this.bZf[i2].setImageResource(a.e.bd_im_round_dot_normal);
+                this.cdj[i2].setImageResource(a.e.bd_im_round_dot_normal);
             }
         }
     }
 
-    public void XQ() {
-        this.bZh.setAdapter(new a(Arrays.asList(com.baidu.live.view.emojiview.a.b(this.mContext, b.bRe).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRf).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRg).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRh).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRi).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRj).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRk).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRl).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRm).Wf(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bRn).Wf())));
-        if (this.bZk == -1) {
-            this.bZk = SharedPrefHelper.getInstance().getInt("audio_live_emoji_page", 0);
+    public void ZH() {
+        a aVar = new a(ZG());
+        this.cdl.setAdapter(aVar);
+        this.cdj = new ImageView[aVar.getCount()];
+        this.cdi.removeAllViews();
+        for (int i = 0; i < aVar.getCount(); i++) {
+            ImageView imageView = new ImageView(this.mContext);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(com.baidu.live.yuyinim.b.a.dip2px(this.mContext, 6.0f), 0, com.baidu.live.yuyinim.b.a.dip2px(this.mContext, 6.0f), 0);
+            imageView.setLayoutParams(layoutParams);
+            this.cdj[i] = imageView;
+            this.cdi.addView(this.cdj[i]);
         }
-        this.bZh.setCurrentItem(this.bZk);
-        onPageSelected(this.bZk);
+        if (this.cdp == -1) {
+            this.cdp = SharedPrefHelper.getInstance().getInt("audio_live_emoji_page", 0);
+        }
+        this.cdl.setCurrentItem(this.cdp);
+        onPageSelected(this.cdp);
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -82,15 +112,11 @@ public class EmojiconsController implements ViewPager.OnPageChangeListener {
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        if (this.bZg != i) {
-            this.bZg = i;
-            if (this.bZg >= 0) {
-                if (this.bZg > 0) {
-                    this.bZk = this.bZg;
-                    SharedPrefHelper.getInstance().putInt("audio_live_emoji_page", this.bZg);
-                }
-                fo(this.bZg);
-            }
+        this.cdk = i;
+        if (this.cdk >= 0) {
+            this.cdp = this.cdk;
+            SharedPrefHelper.getInstance().putInt("audio_live_emoji_page", this.cdk);
+            fu(this.cdk);
         }
     }
 
@@ -98,17 +124,17 @@ public class EmojiconsController implements ViewPager.OnPageChangeListener {
     public void onPageScrollStateChanged(int i) {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class a extends PagerAdapter {
-        private List<View> aXl;
+        private List<View> bas;
 
         public a(List<View> list) {
-            this.aXl = list;
+            this.bas = list;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return ListUtils.getCount(this.aXl);
+            return ListUtils.getCount(this.bas);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -121,7 +147,7 @@ public class EmojiconsController implements ViewPager.OnPageChangeListener {
             if (i < 0 || i >= getCount()) {
                 return null;
             }
-            View view = this.aXl.get(i);
+            View view = this.bas.get(i);
             viewGroup.addView(view);
             return view;
         }
@@ -129,7 +155,7 @@ public class EmojiconsController implements ViewPager.OnPageChangeListener {
         @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
             if (i >= 0 && i < getCount()) {
-                viewGroup.removeView(this.aXl.get(i));
+                viewGroup.removeView(this.bas.get(i));
             }
         }
     }

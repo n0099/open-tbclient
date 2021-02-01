@@ -1,14 +1,14 @@
 package com.baidu.live.yuyingift.c;
 
 import com.baidu.live.data.i;
-import com.baidu.live.data.k;
+import com.baidu.live.data.l;
 import com.baidu.live.gift.h;
 import com.baidu.live.yuyingift.c.b;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a implements b.a {
     @Override // com.baidu.live.yuyingift.c.b.a
-    public void a(boolean z, int i, String str, ArrayList<h> arrayList, ArrayList<i> arrayList2, ArrayList<k> arrayList3) {
+    public void a(boolean z, int i, String str, ArrayList<h> arrayList, ArrayList<i> arrayList2, ArrayList<l> arrayList3) {
     }
 
     @Override // com.baidu.live.yuyingift.c.b.a

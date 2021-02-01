@@ -1,7 +1,7 @@
 package com.baidu.sumeru.universalimageloader.cache.disc;
 
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface DiscCacheAware {
     void clear();
 

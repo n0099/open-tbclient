@@ -1,11 +1,11 @@
 package com.opensource.svgaplayer.b;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b {
     private final int length;
     private final int location;
 
-    public final int eBd() {
+    public final int eDu() {
         return this.length;
     }
 

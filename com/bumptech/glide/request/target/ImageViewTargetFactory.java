@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ImageViewTargetFactory {
     @NonNull
     public <Z> ViewTarget<ImageView, Z> buildTarget(@NonNull ImageView imageView, @NonNull Class<Z> cls) {

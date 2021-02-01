@@ -19,20 +19,20 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h extends Resources {
-    private Map<String, String> afx;
-    private Resources afy;
-    private Resources afz;
+    private Map<String, String> afq;
+    private Resources afr;
+    private Resources afs;
     private String mPackageName;
-    private static final String afw = Environment.getRootDirectory().toString() + File.separator + "baidu/flyflow/plugin_asset";
+    private static final String afp = Environment.getRootDirectory().toString() + File.separator + "baidu/flyflow/plugin_asset";
     private static final String TAG = h.class.getSimpleName();
-    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> afv = new HashMap<>();
+    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> afo = new HashMap<>();
 
     public h(Resources resources, AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration) {
         super(assetManager, displayMetrics, configuration);
-        this.afz = resources;
-        this.afx = new HashMap();
+        this.afs = resources;
+        this.afq = new HashMap();
     }
 
     public int bn(int i) {
@@ -41,19 +41,19 @@ public class h extends Resources {
             return 0;
         }
         try {
-            String resourceEntryName = this.afz.getResourceEntryName(i);
-            String resourceTypeName = this.afz.getResourceTypeName(i);
-            com.baidu.browser.core.util.e<String, Integer> eVar2 = afv.get(resourceTypeName);
+            String resourceEntryName = this.afs.getResourceEntryName(i);
+            String resourceTypeName = this.afs.getResourceTypeName(i);
+            com.baidu.browser.core.util.e<String, Integer> eVar2 = afo.get(resourceTypeName);
             if (eVar2 == null) {
                 com.baidu.browser.core.util.e<String, Integer> eVar3 = new com.baidu.browser.core.util.e<>(100);
-                afv.put(resourceTypeName, eVar3);
+                afo.put(resourceTypeName, eVar3);
                 eVar = eVar3;
             } else {
                 eVar = eVar2;
             }
             Integer num = eVar.get(resourceEntryName);
             if (num == null) {
-                num = Integer.valueOf(this.afy.getIdentifier(resourceEntryName, resourceTypeName, this.mPackageName));
+                num = Integer.valueOf(this.afr.getIdentifier(resourceEntryName, resourceTypeName, this.mPackageName));
                 if (num.intValue() != 0) {
                     eVar.put(resourceEntryName, num);
                 }
@@ -67,13 +67,13 @@ public class h extends Resources {
 
     @Override // android.content.res.Resources
     public Configuration getConfiguration() {
-        return this.afz.getConfiguration();
+        return this.afs.getConfiguration();
     }
 
     @Override // android.content.res.Resources
     public XmlResourceParser getAnimation(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getAnimation(bn) : this.afz.getAnimation(i);
+        return bn != 0 ? this.afr.getAnimation(bn) : this.afs.getAnimation(i);
     }
 
     @Override // android.content.res.Resources
@@ -84,7 +84,7 @@ public class h extends Resources {
     @Override // android.content.res.Resources
     public int getColor(int i, Resources.Theme theme) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getColor(bn) : this.afz.getColor(i);
+        return bn != 0 ? this.afr.getColor(bn) : this.afs.getColor(i);
     }
 
     @Override // android.content.res.Resources
@@ -95,138 +95,138 @@ public class h extends Resources {
     @Override // android.content.res.Resources
     public ColorStateList getColorStateList(int i, Resources.Theme theme) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getColorStateList(bn) : this.afz.getColorStateList(i);
+        return bn != 0 ? this.afr.getColorStateList(bn) : this.afs.getColorStateList(i);
     }
 
     @Override // android.content.res.Resources
     public float getDimension(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getDimension(bn) : this.afz.getDimension(i);
+        return bn != 0 ? this.afr.getDimension(bn) : this.afs.getDimension(i);
     }
 
     @Override // android.content.res.Resources
     public int getDimensionPixelOffset(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getDimensionPixelOffset(bn) : this.afz.getDimensionPixelOffset(i);
+        return bn != 0 ? this.afr.getDimensionPixelOffset(bn) : this.afs.getDimensionPixelOffset(i);
     }
 
     @Override // android.content.res.Resources
     public int getDimensionPixelSize(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getDimensionPixelSize(bn) : this.afz.getDimensionPixelSize(i);
+        return bn != 0 ? this.afr.getDimensionPixelSize(bn) : this.afs.getDimensionPixelSize(i);
     }
 
     @Override // android.content.res.Resources
     public Drawable getDrawable(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getDrawable(bn) : this.afz.getDrawable(i);
+        return bn != 0 ? this.afr.getDrawable(bn) : this.afs.getDrawable(i);
     }
 
     @Override // android.content.res.Resources
     @TargetApi(21)
     public Drawable getDrawable(int i, Resources.Theme theme) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getDrawable(bn, null) : this.afz.getDrawable(i, theme);
+        return bn != 0 ? this.afr.getDrawable(bn, null) : this.afs.getDrawable(i, theme);
     }
 
     @Override // android.content.res.Resources
     @TargetApi(15)
     public Drawable getDrawableForDensity(int i, int i2) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getDrawableForDensity(bn, i2) : this.afz.getDrawableForDensity(i, i2);
+        return bn != 0 ? this.afr.getDrawableForDensity(bn, i2) : this.afs.getDrawableForDensity(i, i2);
     }
 
     @Override // android.content.res.Resources
     public float getFraction(int i, int i2, int i3) {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getFraction(bn, i2, i3) : this.afz.getFraction(i, i2, i3);
+        return bn != 0 ? this.afr.getFraction(bn, i2, i3) : this.afs.getFraction(i, i2, i3);
     }
 
     @Override // android.content.res.Resources
     public int[] getIntArray(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getIntArray(bn) : this.afz.getIntArray(i);
+        return bn != 0 ? this.afr.getIntArray(bn) : this.afs.getIntArray(i);
     }
 
     @Override // android.content.res.Resources
     public int getInteger(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getInteger(bn) : this.afz.getInteger(i);
+        return bn != 0 ? this.afr.getInteger(bn) : this.afs.getInteger(i);
     }
 
     @Override // android.content.res.Resources
     public XmlResourceParser getLayout(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getLayout(bn) : this.afz.getLayout(i);
+        return bn != 0 ? this.afr.getLayout(bn) : this.afs.getLayout(i);
     }
 
     @Override // android.content.res.Resources
     public Movie getMovie(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getMovie(bn) : this.afz.getMovie(i);
+        return bn != 0 ? this.afr.getMovie(bn) : this.afs.getMovie(i);
     }
 
     @Override // android.content.res.Resources
     public CharSequence getQuantityText(int i, int i2) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getQuantityText(bn, i2) : this.afz.getQuantityText(i, i2);
+        return bn != 0 ? this.afr.getQuantityText(bn, i2) : this.afs.getQuantityText(i, i2);
     }
 
     @Override // android.content.res.Resources
     public String getQuantityString(int i, int i2) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getQuantityString(bn, i2) : this.afz.getQuantityString(i, i2);
+        return bn != 0 ? this.afr.getQuantityString(bn, i2) : this.afs.getQuantityString(i, i2);
     }
 
     @Override // android.content.res.Resources
     public String getQuantityString(int i, int i2, Object... objArr) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getQuantityString(bn, i2, objArr) : this.afz.getQuantityString(i, i2, objArr);
+        return bn != 0 ? this.afr.getQuantityString(bn, i2, objArr) : this.afs.getQuantityString(i, i2, objArr);
     }
 
     @Override // android.content.res.Resources
     public String getString(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getString(bn) : this.afz.getString(i);
+        return bn != 0 ? this.afr.getString(bn) : this.afs.getString(i);
     }
 
     @Override // android.content.res.Resources
     public String getString(int i, Object... objArr) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getString(bn, objArr) : this.afz.getString(i, objArr);
+        return bn != 0 ? this.afr.getString(bn, objArr) : this.afs.getString(i, objArr);
     }
 
     @Override // android.content.res.Resources
     public String[] getStringArray(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getStringArray(bn) : this.afz.getStringArray(i);
+        return bn != 0 ? this.afr.getStringArray(bn) : this.afs.getStringArray(i);
     }
 
     @Override // android.content.res.Resources
     public CharSequence getText(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getText(bn) : this.afz.getText(i);
+        return bn != 0 ? this.afr.getText(bn) : this.afs.getText(i);
     }
 
     @Override // android.content.res.Resources
     public CharSequence getText(int i, CharSequence charSequence) {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getText(bn, charSequence) : this.afz.getText(i, charSequence);
+        return bn != 0 ? this.afr.getText(bn, charSequence) : this.afs.getText(i, charSequence);
     }
 
     @Override // android.content.res.Resources
     public CharSequence[] getTextArray(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        return bn != 0 ? this.afy.getTextArray(bn) : this.afz.getTextArray(i);
+        return bn != 0 ? this.afr.getTextArray(bn) : this.afs.getTextArray(i);
     }
 
     @Override // android.content.res.Resources
     public void getValue(int i, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
         int bn = bn(i);
         if (bn != 0) {
-            this.afy.getValue(bn, typedValue, z);
+            this.afr.getValue(bn, typedValue, z);
         } else {
-            this.afz.getValue(i, typedValue, z);
+            this.afs.getValue(i, typedValue, z);
         }
     }
 
@@ -235,63 +235,63 @@ public class h extends Resources {
     public void getValueForDensity(int i, int i2, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
         int bn = bn(i);
         if (bn != 0) {
-            this.afy.getValueForDensity(bn, i2, typedValue, z);
+            this.afr.getValueForDensity(bn, i2, typedValue, z);
         } else {
-            this.afz.getValueForDensity(i, i2, typedValue, z);
+            this.afs.getValueForDensity(i, i2, typedValue, z);
         }
     }
 
     @Override // android.content.res.Resources
     public TypedArray obtainTypedArray(int i) throws Resources.NotFoundException {
-        return this.afz.obtainTypedArray(i);
+        return this.afs.obtainTypedArray(i);
     }
 
     @Override // android.content.res.Resources
     public boolean getBoolean(int i) throws Resources.NotFoundException {
-        return this.afz.getBoolean(i);
+        return this.afs.getBoolean(i);
     }
 
     @Override // android.content.res.Resources
     public XmlResourceParser getXml(int i) throws Resources.NotFoundException {
-        return this.afz.getXml(i);
+        return this.afs.getXml(i);
     }
 
     @Override // android.content.res.Resources
     public void getValue(String str, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        this.afz.getValue(str, typedValue, z);
+        this.afs.getValue(str, typedValue, z);
     }
 
     @Override // android.content.res.Resources
     public TypedArray obtainAttributes(AttributeSet attributeSet, int[] iArr) {
-        return this.afz.obtainAttributes(attributeSet, iArr);
+        return this.afs.obtainAttributes(attributeSet, iArr);
     }
 
     @Override // android.content.res.Resources
     public String getResourceName(int i) throws Resources.NotFoundException {
-        return this.afz.getResourceName(i);
+        return this.afs.getResourceName(i);
     }
 
     @Override // android.content.res.Resources
     public String getResourcePackageName(int i) throws Resources.NotFoundException {
-        return this.afz.getResourcePackageName(i);
+        return this.afs.getResourcePackageName(i);
     }
 
     @Override // android.content.res.Resources
     public String getResourceTypeName(int i) throws Resources.NotFoundException {
-        return this.afz.getResourceTypeName(i);
+        return this.afs.getResourceTypeName(i);
     }
 
     @Override // android.content.res.Resources
     public String getResourceEntryName(int i) throws Resources.NotFoundException {
-        return this.afz.getResourceEntryName(i);
+        return this.afs.getResourceEntryName(i);
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        if (bn != 0 && this.afy != null) {
+        if (bn != 0 && this.afr != null) {
             try {
-                InputStream openRawResource = this.afy.openRawResource(bn);
+                InputStream openRawResource = this.afr.openRawResource(bn);
                 if (openRawResource != null) {
                     return openRawResource;
                 }
@@ -299,15 +299,15 @@ public class h extends Resources {
                 e.printStackTrace();
             }
         }
-        return this.afz.openRawResource(i);
+        return this.afs.openRawResource(i);
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
         int bn = bn(i);
-        if (bn != 0 && this.afy != null) {
+        if (bn != 0 && this.afr != null) {
             try {
-                InputStream openRawResource = this.afy.openRawResource(bn, typedValue);
+                InputStream openRawResource = this.afr.openRawResource(bn, typedValue);
                 if (openRawResource != null) {
                     return openRawResource;
                 }
@@ -315,15 +315,15 @@ public class h extends Resources {
                 e.printStackTrace();
             }
         }
-        return this.afz.openRawResource(i, typedValue);
+        return this.afs.openRawResource(i, typedValue);
     }
 
     @Override // android.content.res.Resources
     public AssetFileDescriptor openRawResourceFd(int i) throws Resources.NotFoundException {
         int bn = bn(i);
-        if (bn != 0 && this.afy != null) {
+        if (bn != 0 && this.afr != null) {
             try {
-                AssetFileDescriptor openRawResourceFd = this.afy.openRawResourceFd(bn);
+                AssetFileDescriptor openRawResourceFd = this.afr.openRawResourceFd(bn);
                 if (openRawResourceFd != null) {
                     return openRawResourceFd;
                 }
@@ -331,6 +331,6 @@ public class h extends Resources {
                 e.printStackTrace();
             }
         }
-        return this.afz.openRawResourceFd(i);
+        return this.afs.openRawResourceFd(i);
     }
 }

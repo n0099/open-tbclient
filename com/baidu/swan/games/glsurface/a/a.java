@@ -2,35 +2,35 @@ package com.baidu.swan.games.glsurface.a;
 
 import android.view.MotionEvent;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
-    private com.baidu.swan.games.f.a efd;
+    private com.baidu.swan.games.f.a ehl;
 
     public void setV8Engine(com.baidu.swan.games.f.a aVar) {
-        this.efd = aVar;
+        this.ehl = aVar;
     }
 
-    public void ax(int i, int i2) {
-        b.az(i, i2);
+    public void au(int i, int i2) {
+        b.aw(i, i2);
     }
 
-    public void ay(int i, int i2) {
-        b.ay(i, i2);
+    public void av(int i, int i2) {
+        b.av(i, i2);
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.efd != null) {
-            boolean a2 = b.a(this.efd.aVN());
-            boolean a3 = b.a(this.efd.aVO());
+        if (this.ehl != null) {
+            boolean a2 = b.a(this.ehl.aVZ());
+            boolean a3 = b.a(this.ehl.aWa());
             JSEvent jSEvent = null;
             if (a2 || a3) {
                 jSEvent = b.D(motionEvent);
             }
-            r0 = a2 ? this.efd.dispatchEvent(jSEvent) : false;
-            if (a3 && this.efd.isLoaded()) {
-                this.efd.aVO().dispatchEvent(jSEvent);
+            r0 = a2 ? this.ehl.dispatchEvent(jSEvent) : false;
+            if (a3 && this.ehl.isLoaded()) {
+                this.ehl.aWa().dispatchEvent(jSEvent);
             }
-            b.ic(true);
+            b.ie(true);
         }
         return r0;
     }

@@ -1,14 +1,14 @@
 package com.bytedance.sdk.openadsdk.core.d;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f6503a;
+    public final int f6505a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f6504b;
+    public final int f6506b;
     public final int c;
     public final int d;
     public final long e;
@@ -19,26 +19,26 @@ public class j {
     public final int j;
 
     private j(@NonNull a aVar) {
-        this.f6503a = aVar.f;
-        this.f6504b = aVar.e;
+        this.f6505a = aVar.f;
+        this.f6506b = aVar.e;
         this.c = aVar.d;
         this.d = aVar.c;
-        this.e = aVar.f6506b;
-        this.f = aVar.f6505a;
+        this.e = aVar.f6508b;
+        this.f = aVar.f6507a;
         this.g = aVar.g;
         this.h = aVar.h;
         this.i = aVar.i;
         this.j = aVar.j;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private long f6505a;
+        private long f6507a;
 
         /* renamed from: b  reason: collision with root package name */
-        private long f6506b;
+        private long f6508b;
         private int c;
         private int d;
         private int e;
@@ -49,12 +49,12 @@ public class j {
         private int j;
 
         public a a(long j) {
-            this.f6505a = j;
+            this.f6507a = j;
             return this;
         }
 
         public a b(long j) {
-            this.f6506b = j;
+            this.f6508b = j;
             return this;
         }
 

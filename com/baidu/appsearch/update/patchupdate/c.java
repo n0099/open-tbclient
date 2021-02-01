@@ -2,7 +2,7 @@ package com.baidu.appsearch.update.patchupdate;
 
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class c implements d {
 
     /* renamed from: a  reason: collision with root package name */

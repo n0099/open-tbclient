@@ -54,11 +54,11 @@ public class AckHandlerThread extends HandlerThread {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(final Context context, final NewAckMessage newAckMessage) {
-        if (a.aur && newAckMessage != null) {
+        if (a.aug && newAckMessage != null) {
             BLCPRequest bLCPRequest = new BLCPRequest();
             bLCPRequest.serviceId = 2L;
             bLCPRequest.methodId = 95L;
-            bLCPRequest.auG = newAckMessage.getBody().getBytes();
+            bLCPRequest.auv = newAckMessage.getBody().getBytes();
             bLCPRequest.msgId = System.nanoTime();
             LogUtils.d(TAG, "ackRequest msgid:" + bLCPRequest.msgId);
             com.baidu.lcp.sdk.client.a.a(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2

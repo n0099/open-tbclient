@@ -1,7 +1,7 @@
 package androidx.lifecycle;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface LifecycleOwner {
     @NonNull
     Lifecycle getLifecycle();

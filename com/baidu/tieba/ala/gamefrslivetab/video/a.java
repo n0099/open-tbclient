@@ -7,12 +7,12 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tbadk.mainTab.b {
-    private AlaGameFrsLiveTabVideoFragment gUm = new AlaGameFrsLiveTabVideoFragment();
+    private AlaGameFrsLiveTabVideoFragment gWW = new AlaGameFrsLiveTabVideoFragment();
 
     public a() {
-        getFragmentTabStructure().frag = this.gUm;
+        getFragmentTabStructure().frag = this.gWW;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -37,20 +37,20 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     public void setForumId(String str) {
-        if (this.gUm != null) {
-            this.gUm.setForumId(str);
+        if (this.gWW != null) {
+            this.gWW.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.gUm != null) {
-            this.gUm.setForumName(str);
+        if (this.gWW != null) {
+            this.gWW.setForumName(str);
         }
     }
 
-    public void ng(boolean z) {
-        if (this.gUm != null) {
-            this.gUm.ng(z);
+    public void nl(boolean z) {
+        if (this.gWW != null) {
+            this.gWW.nl(z);
         }
     }
 }

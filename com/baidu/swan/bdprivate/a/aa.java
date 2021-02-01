@@ -1,6 +1,6 @@
 package com.baidu.swan.bdprivate.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class aa {
-    public String aSf;
+    public String aVj;
     public String displayName;
 }

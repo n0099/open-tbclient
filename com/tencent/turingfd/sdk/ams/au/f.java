@@ -7,25 +7,25 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f13522a = new f();
+    public static f f13524a = new f();
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Integer, Integer> f13523b = new HashMap();
+    public static Map<Integer, Integer> f13525b = new HashMap();
     public Map<Integer, Integer> c = new HashMap();
     public Map<Integer, Integer> d = new HashMap();
     public Map<Integer, Integer> e = new HashMap();
     public d f;
 
     static {
-        f13523b.put(Integer.valueOf(u.t.aO), 0);
-        f13523b.put(Integer.valueOf(u.g.aO), 1);
-        f13523b.put(10001, 0);
-        f13523b.put(Integer.valueOf(u.r.aO), 0);
-        f13523b.put(Integer.valueOf(u.R.aO), 0);
+        f13525b.put(Integer.valueOf(u.t.aO), 0);
+        f13525b.put(Integer.valueOf(u.g.aO), 1);
+        f13525b.put(10001, 0);
+        f13525b.put(Integer.valueOf(u.r.aO), 0);
+        f13525b.put(Integer.valueOf(u.R.aO), 0);
     }
 
     public String a() {
@@ -53,10 +53,10 @@ public class f {
     public void a(Context context) {
         synchronized (this) {
             this.c.clear();
-            for (Integer num : f13523b.keySet()) {
+            for (Integer num : f13525b.keySet()) {
             }
-            this.c.putAll(f13523b);
-            Map<Integer, Integer> a2 = e.f13521a.a(context);
+            this.c.putAll(f13525b);
+            Map<Integer, Integer> a2 = e.f13523a.a(context);
             for (Integer num2 : a2.keySet()) {
             }
             this.c.putAll(a2);
@@ -95,14 +95,14 @@ public class f {
         z zVar;
         boolean z;
         synchronized (this) {
-            if (Math.abs(System.currentTimeMillis() - j) <= e.f13521a.c(context) * 1000) {
+            if (Math.abs(System.currentTimeMillis() - j) <= e.f13523a.c(context) * 1000) {
                 z = false;
             } else {
                 byte[] bArr2 = new byte[0];
                 HashMap hashMap = new HashMap();
-                ab.a(ab.a(""), af.f13467a, hashMap, "1");
+                ab.a(ab.a(""), af.f13469a, hashMap, "1");
                 hashMap.put("101", str);
-                hashMap.put("2002", e.f13521a.e(context));
+                hashMap.put("2002", e.f13523a.e(context));
                 hashMap.put("207", str2);
                 try {
                     SparseArray<Object> e = TuringDIDService.aa.e(aj.d(), context, hashMap, i);
@@ -111,8 +111,8 @@ public class f {
                     bArr = bArr2;
                 }
                 if (bArr.length != 0) {
-                    a2 = ((be) this.f).f13509a.a(context, bArr, 8119, 18119);
-                    byte[] bArr3 = a2.f13505b != 0 ? new byte[0] : a2.c;
+                    a2 = ((be) this.f).f13511a.a(context, bArr, 8119, 18119);
+                    byte[] bArr3 = a2.f13507b != 0 ? new byte[0] : a2.c;
                     if (i == 1) {
                         try {
                             bArr3 = aj.b(TuringDIDService.aa.f(aj.d(), bArr3, i));
@@ -124,7 +124,7 @@ public class f {
                     az azVar = new az();
                     ao aoVar = new ao(bArr3);
                     azVar.c = aoVar.a(azVar.c, 0, true);
-                    azVar.d = (z) aoVar.a((bf) az.f13502a, 1, false);
+                    azVar.d = (z) aoVar.a((bf) az.f13504a, 1, false);
                     azVar.e = aoVar.a(azVar.e, 2, true);
                     if (azVar.c >= 0) {
                         if (azVar.c == 1) {
@@ -141,7 +141,7 @@ public class f {
                         }
                         if (zVar != null) {
                             Map<Integer, Integer> map = zVar.h;
-                            e eVar = e.f13521a;
+                            e eVar = e.f13523a;
                             if (map == null || map.size() == 0) {
                                 eVar.d(context);
                             } else {
@@ -161,7 +161,7 @@ public class f {
     }
 
     public String b(Context context) {
-        return e.f13521a.b(context);
+        return e.f13523a.b(context);
     }
 
     public void b(int i, int i2) {

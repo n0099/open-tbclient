@@ -8,7 +8,7 @@ import java.util.Map;
 public class gh extends gj {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f14045a;
+    private a f14047a;
 
     /* renamed from: a  reason: collision with other field name */
     private final Map<String, String> f469a;
@@ -17,10 +17,10 @@ public class gh extends gj {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f14046a = new a("get");
+        public static final a f14048a = new a("get");
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f14047b = new a("set");
+        public static final a f14049b = new a("set");
         public static final a c = new a("result");
         public static final a d = new a(BdStatsConstant.StatsType.ERROR);
         public static final a e = new a("command");
@@ -37,11 +37,11 @@ public class gh extends gj {
                 return null;
             }
             String lowerCase = str.toLowerCase();
-            if (f14046a.toString().equals(lowerCase)) {
-                return f14046a;
+            if (f14048a.toString().equals(lowerCase)) {
+                return f14048a;
             }
-            if (f14047b.toString().equals(lowerCase)) {
-                return f14047b;
+            if (f14049b.toString().equals(lowerCase)) {
+                return f14049b;
             }
             if (d.toString().equals(lowerCase)) {
                 return d;
@@ -61,31 +61,31 @@ public class gh extends gj {
     }
 
     public gh() {
-        this.f14045a = a.f14046a;
+        this.f14047a = a.f14048a;
         this.f469a = new HashMap();
     }
 
     public gh(Bundle bundle) {
         super(bundle);
-        this.f14045a = a.f14046a;
+        this.f14047a = a.f14048a;
         this.f469a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
-            this.f14045a = a.a(bundle.getString("ext_iq_type"));
+            this.f14047a = a.a(bundle.getString("ext_iq_type"));
         }
     }
 
     @Override // com.xiaomi.push.gj
     public Bundle a() {
         Bundle a2 = super.a();
-        if (this.f14045a != null) {
-            a2.putString("ext_iq_type", this.f14045a.toString());
+        if (this.f14047a != null) {
+            a2.putString("ext_iq_type", this.f14047a.toString());
         }
         return a2;
     }
 
     @Override // com.xiaomi.push.gj
     public a a() {
-        return this.f14045a;
+        return this.f14047a;
     }
 
     @Override // com.xiaomi.push.gj
@@ -108,7 +108,7 @@ public class gh extends gj {
             sb.append(gu.a(entry.getKey())).append("=\"");
             sb.append(gu.a(entry.getValue())).append("\" ");
         }
-        if (this.f14045a == null) {
+        if (this.f14047a == null) {
             sb.append("type=\"get\">");
         } else {
             sb.append("type=\"").append(a()).append("\">");
@@ -128,9 +128,9 @@ public class gh extends gj {
 
     public void a(a aVar) {
         if (aVar == null) {
-            this.f14045a = a.f14046a;
+            this.f14047a = a.f14048a;
         } else {
-            this.f14045a = aVar;
+            this.f14047a = aVar;
         }
     }
 

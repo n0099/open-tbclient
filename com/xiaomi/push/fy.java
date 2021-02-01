@@ -13,10 +13,10 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public final class fy {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f14032a;
+    private static int f14034a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f14033b;
+    private static int f14035b;
     private static int c = UnitedSchemeMainDispatcher.SCHEME_TIME_LIMIT;
     private static int d = 330000;
 
@@ -24,8 +24,8 @@ public final class fy {
     private static Vector<String> f456a = new Vector<>();
 
     static {
-        f14032a = 5000;
-        f14033b = 330000;
+        f14034a = 5000;
+        f14035b = 330000;
         try {
             for (ClassLoader classLoader : m331a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
@@ -42,9 +42,9 @@ public final class fy {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    f14032a = a(newPullParser, f14032a);
+                                    f14034a = a(newPullParser, f14034a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    f14033b = a(newPullParser, f14033b);
+                                    f14035b = a(newPullParser, f14035b);
                                 } else if (newPullParser.getName().equals("mechName")) {
                                     f456a.add(newPullParser.nextText());
                                 }
@@ -73,7 +73,7 @@ public final class fy {
     }
 
     public static int a() {
-        return f14033b;
+        return f14035b;
     }
 
     private static int a(XmlPullParser xmlPullParser, int i) {

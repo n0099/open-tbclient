@@ -4,40 +4,40 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends SQLiteOpenHelper {
-    private static volatile a pUg;
+    private static volatile a qek;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f13082b;
+    private boolean f13084b;
 
-    public static a eDB() {
-        if (pUg == null) {
+    public static a eFS() {
+        if (qek == null) {
             synchronized (a.class) {
-                if (pUg == null) {
-                    pUg = new a();
+                if (qek == null) {
+                    qek = new a();
                 }
             }
         }
-        return pUg;
+        return qek;
     }
 
     private a() {
-        super(com.ss.android.socialbase.downloader.downloader.b.eEd(), "downloader.db", (SQLiteDatabase.CursorFactory) null, 13);
-        this.f13082b = false;
+        super(com.ss.android.socialbase.downloader.downloader.b.eGu(), "downloader.db", (SQLiteDatabase.CursorFactory) null, 13);
+        this.f13084b = false;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public SQLiteDatabase getReadableDatabase() {
-        Context eEd = com.ss.android.socialbase.downloader.downloader.b.eEd();
-        if (!this.f13082b && eEd != null) {
+        Context eGu = com.ss.android.socialbase.downloader.downloader.b.eGu();
+        if (!this.f13084b && eGu != null) {
             try {
-                File file = new File("/data/data/" + eEd.getPackageName() + "/database/main/");
+                File file = new File("/data/data/" + eGu.getPackageName() + "/database/main/");
                 if (!file.exists()) {
                     file.mkdir();
                 }
                 super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                this.f13082b = true;
+                this.f13084b = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }

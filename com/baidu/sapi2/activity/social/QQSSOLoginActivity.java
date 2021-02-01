@@ -16,14 +16,14 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class QQSSOLoginActivity extends BaseSSOLoginActivity {
     private static final String DEFAULT_QQ_NOT_INSTALL_ERROR = "QQ未安装";
     private static final String TAG = QQSSOLoginActivity.class.getSimpleName();
     private IUiListener qqLoginListener;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface QqCallback {
         void onFailure();
 

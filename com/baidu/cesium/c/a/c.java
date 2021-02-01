@@ -1,14 +1,14 @@
 package com.baidu.cesium.c.a;
 
 import java.security.SecureRandom;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
-    public static final SecureRandom ano = new SecureRandom();
-    private e anp;
+    public static final SecureRandom ane = new SecureRandom();
+    private e anf;
 
     public c() {
-        this.anp = null;
-        this.anp = new e(new b(), 16);
+        this.anf = null;
+        this.anf = new e(new b(), 16);
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) {
@@ -24,13 +24,13 @@ public class c {
     }
 
     public void a(int i, byte[] bArr, byte[] bArr2) {
-        this.anp.a(i, bArr, bArr2, ano);
+        this.anf.a(i, bArr, bArr2, ane);
     }
 
     public final byte[] a(byte[] bArr) {
         if (bArr == null) {
             throw new IllegalArgumentException("Null input buffer");
         }
-        return this.anp.k(bArr, 0, bArr.length);
+        return this.anf.k(bArr, 0, bArr.length);
     }
 }

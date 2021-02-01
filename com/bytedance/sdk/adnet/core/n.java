@@ -2,9 +2,9 @@ package com.bytedance.sdk.adnet.core;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class n {
-    public static o hU(Context context) {
+    public static o hX(Context context) {
         return a(context, (com.bytedance.sdk.adnet.e.a) null);
     }
 

@@ -5,23 +5,23 @@ import com.baidu.fsg.base.b.a;
 class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Runnable f1890a;
+    final /* synthetic */ Runnable f1888a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ a.b f1891b;
+    final /* synthetic */ a.b f1889b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a.b bVar, Runnable runnable) {
-        this.f1891b = bVar;
-        this.f1890a = runnable;
+        this.f1889b = bVar;
+        this.f1888a = runnable;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.f1890a.run();
+            this.f1888a.run();
         } finally {
-            this.f1891b.a();
+            this.f1889b.a();
         }
     }
 }

@@ -3,14 +3,14 @@ package com.baidu.platform.comapi.wnplatform.i;
 import android.os.Bundle;
 import android.os.Handler;
 import com.baidu.mapsdkplatform.comapi.map.MessageCenter;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f4418a = null;
+    private a f4421a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f4419b = 1;
+    private int f4422b = 1;
     private Handler c = new c(this);
 
     public b() {
@@ -21,7 +21,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
         this.c = null;
-        this.f4418a = null;
+        this.f4421a = null;
         MessageCenter.registMessage(4099, this.c);
     }
 
@@ -39,7 +39,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(a aVar) {
-        this.f4418a = aVar;
+        this.f4421a = aVar;
     }
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4) {
@@ -47,8 +47,8 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public int a(int i, int i2, int i3, byte[] bArr) {
-        if (this.f4418a != null) {
-            this.f4418a.a();
+        if (this.f4421a != null) {
+            this.f4421a.a();
         }
         return com.baidu.platform.comapi.walknavi.b.a().D().a(i, i2, i3, bArr);
     }

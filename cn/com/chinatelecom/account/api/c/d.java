@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
@@ -38,7 +38,7 @@ public class d {
                 return Config.EXCEPTION_CRASH_TYPE;
             }
             if (str.startsWith("46001") || str.startsWith("46006") || str.startsWith("46009")) {
-                return com.baidu.fsg.base.statistics.j.f1951a;
+                return com.baidu.fsg.base.statistics.j.f1949a;
             }
         }
         return "";

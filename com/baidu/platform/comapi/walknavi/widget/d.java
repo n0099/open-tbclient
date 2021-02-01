@@ -7,22 +7,22 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f4387a;
+    private Activity f4390a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.baidu.platform.comapi.walknavi.g.a f4388b;
+    private com.baidu.platform.comapi.walknavi.g.a f4391b;
     private ImageView c;
     private TextView d;
     private View e;
     private View f;
 
     public d(Context context, com.baidu.platform.comapi.walknavi.g.a aVar, View view) {
-        this.f4387a = (Activity) context;
-        this.f4388b = aVar;
+        this.f4390a = (Activity) context;
+        this.f4391b = aVar;
         a(view);
     }
 
@@ -37,7 +37,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
     public void c() {
         if (this.e.getVisibility() == 8) {
             this.e.setVisibility(0);
-            Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f4387a, R.attr.absListViewStyle);
+            Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f4390a, R.attr.absListViewStyle);
             this.e.setAnimation(c);
             c.setAnimationListener(new e(this));
             c.start();
@@ -46,7 +46,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
 
     public void d() {
         if (this.e.getVisibility() == 0) {
-            Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f4387a, R.attr.actionBarDivider);
+            Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f4390a, R.attr.actionBarDivider);
             c.setAnimationListener(new f(this));
             this.e.startAnimation(c);
         }
@@ -58,8 +58,8 @@ public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
         } else {
             this.d.setVisibility(0);
         }
-        if (com.baidu.platform.comapi.bikenavi.a.a.f4143a) {
-            this.c.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f4387a, i));
+        if (com.baidu.platform.comapi.bikenavi.a.a.f4146a) {
+            this.c.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f4390a, i));
         } else {
             this.c.setImageResource(i);
         }

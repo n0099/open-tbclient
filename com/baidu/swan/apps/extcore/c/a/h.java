@@ -8,7 +8,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class h extends aa {
     public h(j jVar) {
         super(jVar, "/swanAPI/debug/setReplaceGameCoreConfig");
@@ -26,7 +26,7 @@ public class h extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            eVar.aID().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.h.1
+            eVar.aIW().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.h.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -35,9 +35,9 @@ public class h extends aa {
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
                         return;
                     }
-                    com.baidu.swan.apps.ad.a.a.gw(com.baidu.swan.apps.extcore.c.a.hk(b2.optInt("emitReplaceGameCore")));
+                    com.baidu.swan.apps.ad.a.a.gy(com.baidu.swan.apps.extcore.c.a.hn(b2.optInt("emitReplaceGameCore")));
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    com.baidu.swan.apps.ad.a.a.aod();
+                    com.baidu.swan.apps.ad.a.a.aoB();
                 }
             });
             return true;

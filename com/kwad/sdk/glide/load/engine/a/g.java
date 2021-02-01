@@ -5,11 +5,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.engine.a.h;
 import com.kwad.sdk.glide.load.engine.s;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g extends com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, s<?>> implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private h.a f10166a;
+    private h.a f10168a;
 
     public g(long j) {
         super(j);
@@ -42,15 +42,15 @@ public class g extends com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, s<?>> i
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.glide.g.g
     public void a(@NonNull com.kwad.sdk.glide.load.c cVar, @Nullable s<?> sVar) {
-        if (this.f10166a == null || sVar == null) {
+        if (this.f10168a == null || sVar == null) {
             return;
         }
-        this.f10166a.b(sVar);
+        this.f10168a.b(sVar);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.a.h
     public void a(@NonNull h.a aVar) {
-        this.f10166a = aVar;
+        this.f10168a = aVar;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.a.h

@@ -1,122 +1,132 @@
 package com.baidu.live.data;
 
-import android.graphics.Color;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
+import com.baidu.live.tbadk.statics.SdkStaticKeys;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ck {
-    private String aOI;
-    private String aOJ;
-    private String aOK;
-    private String aOL;
-    private String aOM;
-    private String aON;
-    private String aOO;
-    private String aOP;
-    public boolean aOQ;
-    private String aOR;
-    public int aOS;
-    public int aOT;
-    private int[] aOU;
-    private int[] aOV;
-    private int[] aOW;
-    private int[] aOX;
-    private int[] aOY;
-    public String id;
-    public String name;
-    public int price;
-    public int type;
+    private az aQV;
+    private az aQW;
+    private az aQX;
+    private az aQY;
+    private az aQZ;
+    private az aRa;
+    private az aRb;
+    private az aRc;
+    private az aRd;
 
-    public ck() {
-        this.aOQ = false;
-    }
-
-    public ck(int i, JSONObject jSONObject) {
-        int i2;
-        this.aOQ = false;
-        this.type = i;
-        this.id = jSONObject.optString("id");
-        this.price = jSONObject.optInt("price");
-        this.name = jSONObject.optString("name");
-        this.aOI = jSONObject.optString("barrage_start_color");
-        this.aOJ = jSONObject.optString("barrage_end_color");
-        this.aOK = jSONObject.optString("portrait_start_color");
-        this.aOL = jSONObject.optString("portrait_end_color");
-        this.aOM = jSONObject.optString("portrait_frame_start_color");
-        this.aON = jSONObject.optString("portrait_frame_end_color");
-        this.aOO = jSONObject.optString("btn_start_color");
-        this.aOP = jSONObject.optString("btn_end_color");
-        this.aOR = jSONObject.optString("btn_border_color");
-        this.aOS = jSONObject.optInt("btn_border_transprancy");
-        if (!StringUtils.isNull(this.aOR)) {
-            this.aOQ = true;
+    public static ck fB(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
         }
         try {
-            i2 = (int) (((this.aOS * 1.0f) / 100.0f) * 255.0f);
-        } catch (Exception e) {
-            i2 = 255;
+            JSONObject jSONObject = new JSONObject(str);
+            ck ckVar = new ck();
+            ckVar.parse(jSONObject);
+            return ckVar;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
         }
-        this.aOS = i2;
-        this.aOT = jSONObject.optInt("noble_level");
     }
 
-    public ck Bw() {
-        this.type = 1;
-        this.price = 100;
-        this.aOI = "#FF613EFB";
-        this.aOJ = "#FF44E3FF";
-        this.aOK = "#FF623DFE";
-        this.aOL = "#FF03E2F5";
-        this.aOM = "#FF61A0FF";
-        this.aON = "#FF73FFEF";
-        return this;
-    }
-
-    public int[] Bx() {
-        if (this.aOU == null || this.aOU.length != 2) {
-            this.aOU = j(this.aOO, this.aOP, "#FF623DFE", "#FF03E2F5");
+    public static String a(ck ckVar) {
+        if (ckVar == null) {
+            return null;
         }
-        return this.aOU;
-    }
-
-    public int[] By() {
-        if (this.aOY == null || this.aOY.length != 2) {
-            this.aOY = j(this.aOR, this.aOR, "#FFFFC926", "#FFFFC926");
-        }
-        return this.aOY;
-    }
-
-    public int[] Bz() {
-        if (this.aOV == null || this.aOV.length != 2) {
-            this.aOV = j(this.aOK, this.aOL, "#FF623DFE", "#FF03E2F5");
-        }
-        return this.aOV;
-    }
-
-    public int[] BA() {
-        if (this.aOW == null || this.aOW.length != 2) {
-            this.aOW = j(this.aOI, this.aOJ, "#FF613EFB", "#FF44E3FF");
-        }
-        return this.aOW;
-    }
-
-    public int[] BB() {
-        if (this.aOX == null || this.aOX.length != 2) {
-            this.aOX = j(this.aOM, this.aON, "#FF61A0FF", "#FF73FFEF");
-        }
-        return this.aOX;
-    }
-
-    private int[] j(String str, String str2, String str3, String str4) {
-        int parseColor;
-        int parseColor2;
+        JSONObject jSONObject = new JSONObject();
         try {
-            parseColor = Color.parseColor(str);
-            parseColor2 = Color.parseColor(str2);
-        } catch (Exception e) {
-            parseColor = Color.parseColor(str3);
-            parseColor2 = Color.parseColor(str4);
+            if (ckVar.aQV != null) {
+                jSONObject.put("change_mode", ckVar.aQV.toJson());
+            }
+            if (ckVar.aQW != null) {
+                jSONObject.put("match_success", ckVar.aQW.toJson());
+            }
+            if (ckVar.aQX != null) {
+                jSONObject.put(SdkStaticKeys.RANK_TYPE_CHARM, ckVar.aQX.toJson());
+            }
+            if (ckVar.aQY != null) {
+                jSONObject.put("red_package_rain", ckVar.aQY.toJson());
+            }
+            if (ckVar.aQZ != null) {
+                jSONObject.put("pk_start", ckVar.aQZ.toJson());
+            }
+            if (ckVar.aRa != null) {
+                jSONObject.put("pk_red_win", ckVar.aRa.toJson());
+            }
+            if (ckVar.aRb != null) {
+                jSONObject.put("pk_blue_win", ckVar.aRb.toJson());
+            }
+            if (ckVar.aRc != null) {
+                jSONObject.put(AlaStaticKeys.ALA_STATIC_VALUE_ICON, ckVar.aRc.toJson());
+            }
+            if (ckVar.aRd != null) {
+                jSONObject.put("new_frame", ckVar.aRd.toJson());
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return new int[]{parseColor, parseColor2};
+        return jSONObject.toString();
+    }
+
+    public void parse(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.aQV = new az();
+            this.aQV.parse(jSONObject.optJSONObject("change_mode"));
+            this.aQW = new az();
+            this.aQW.parse(jSONObject.optJSONObject("match_success"));
+            this.aQX = new az();
+            this.aQX.parse(jSONObject.optJSONObject(SdkStaticKeys.RANK_TYPE_CHARM));
+            this.aQY = new az();
+            this.aQY.parse(jSONObject.optJSONObject("red_package_rain"));
+            this.aQZ = new az();
+            this.aQZ.parse(jSONObject.optJSONObject("pk_start"));
+            this.aRa = new az();
+            this.aRa.parse(jSONObject.optJSONObject("pk_red_win"));
+            this.aRb = new az();
+            this.aRb.parse(jSONObject.optJSONObject("pk_blue_win"));
+            this.aRc = new az();
+            this.aRc.parse(jSONObject.optJSONObject(AlaStaticKeys.ALA_STATIC_VALUE_ICON));
+            this.aRd = new az();
+            this.aRd.parse(jSONObject.optJSONObject("new_frame"));
+        }
+    }
+
+    public az CC() {
+        return this.aQV;
+    }
+
+    public az CD() {
+        return this.aQW;
+    }
+
+    public az CE() {
+        return this.aQX;
+    }
+
+    public az CF() {
+        return this.aQY;
+    }
+
+    public az CG() {
+        return this.aQZ;
+    }
+
+    public az CH() {
+        return this.aRa;
+    }
+
+    public az CI() {
+        return this.aRb;
+    }
+
+    public az CJ() {
+        return this.aRc;
+    }
+
+    public az CK() {
+        return this.aRd;
     }
 }

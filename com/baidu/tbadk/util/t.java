@@ -1,106 +1,82 @@
 package com.baidu.tbadk.util;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class t {
-    public static void b(Object obj, boolean z) {
-        a(obj, z, false);
+    public static final boolean bFz() {
+        Object valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(Looper.myQueue(), "mMessages");
+        if (valueForField == null || !(valueForField instanceof Message)) {
+            return false;
+        }
+        Message message = (Message) valueForField;
+        int i = 0;
+        boolean z = false;
+        while (message != null && message.obj != null && !z && i < 10) {
+            int i2 = i + 1;
+            z = Q(message);
+            Object valueForField2 = com.baidu.adp.lib.OrmObject.a.a.getValueForField(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+            if (valueForField2 != null && (valueForField2 instanceof Message)) {
+                message = (Message) valueForField2;
+            } else {
+                message = null;
+            }
+            i = i2;
+        }
+        return z;
     }
 
-    public static void a(Object obj, boolean z, boolean z2) {
-        a(obj, z, z2, false);
+    private static final boolean Q(Message message) {
+        Object valueForField;
+        ComponentName component;
+        if (message == null) {
+            return false;
+        }
+        Object obj = message.obj;
+        return (obj == null || (valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(obj, "intent")) == null || !(valueForField instanceof Intent) || (component = ((Intent) valueForField).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 
-    public static void a(Object obj, boolean z, boolean z2, boolean z3) {
-        if (obj != null) {
-            try {
-                Field field = obj.getClass().getField("common");
-                if (!field.isAccessible()) {
-                    field.setAccessible(true);
-                }
-                CommonReq.Builder builder = new CommonReq.Builder();
-                builder._client_type = 2;
-                builder._client_version = TbConfig.getVersion();
-                builder._client_id = TbadkCoreApplication.getClientId();
-                if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                    builder.subapp_type = TbConfig.getSubappType();
-                }
-                if (!TbadkCoreApplication.getInst().isOfficial()) {
-                    builder.apid = "sw";
-                }
-                builder._phone_imei = TbadkCoreApplication.getInst().getImei();
-                builder.from = TbadkCoreApplication.getFrom();
-                builder.cuid = TbadkCoreApplication.getInst().getCuid();
-                builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-                builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
-                builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
-                builder._timestamp = Long.valueOf(System.currentTimeMillis());
-                builder.model = Build.MODEL;
-                builder._os_version = Build.VERSION.RELEASE;
-                builder.brand = Build.BRAND;
-                if (z) {
-                    if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                        builder.BDUSS = com.baidu.tbadk.mutiprocess.f.getBduss();
-                        if (!StringUtils.isNull(com.baidu.tbadk.mutiprocess.f.getStoken())) {
-                            builder.stoken = com.baidu.tbadk.mutiprocess.f.getStoken();
+    public static final boolean lz(boolean z) {
+        Message message;
+        Object valueForField;
+        Intent intent;
+        ComponentName component;
+        Object valueForField2 = com.baidu.adp.lib.OrmObject.a.a.getValueForField(Looper.myQueue(), "mMessages");
+        if (valueForField2 != null && (valueForField2 instanceof Message)) {
+            int i = 0;
+            Message message2 = (Message) valueForField2;
+            while (message2 != null && message2.obj != null && i < 10) {
+                int i2 = i + 1;
+                Object obj = message2.obj;
+                if (obj != null && (valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(obj, "intent")) != null && (valueForField instanceof Intent) && (component = (intent = (Intent) valueForField).getComponent()) != null) {
+                    try {
+                        Class.forName(component.getClassName());
+                    } catch (Throwable th) {
+                        TiebaStatic.log(new ar("check_change_intent_tologo").dR("obj_param1", (i2 == 1) + "").dR(TiebaInitialize.Params.OBJ_PARAM2, component.getClassName()));
+                        if (z && i2 == 1) {
+                            intent.setClassName(TbadkCoreApplication.getInst(), "com.baidu.tieba.LogoActivity");
+                            return false;
                         }
-                    } else {
-                        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                        if (currentAccountInfo != null) {
-                            builder.BDUSS = currentAccountInfo.getBDUSS();
-                            String c = com.baidu.tbadk.core.a.d.c(currentAccountInfo);
-                            if (!StringUtils.isNull(c)) {
-                                builder.stoken = c;
-                            }
-                        }
+                        return false;
                     }
                 }
-                if (z2) {
-                    if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                        builder.tbs = com.baidu.tbadk.mutiprocess.f.getTbs();
-                    } else {
-                        builder.tbs = TbadkCoreApplication.getInst().getTbs();
-                    }
+                Object valueForField3 = com.baidu.adp.lib.OrmObject.a.a.getValueForField(message2, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+                if (valueForField3 != null && (valueForField3 instanceof Message)) {
+                    message = (Message) valueForField3;
+                } else {
+                    message = null;
                 }
-                if (z3) {
-                    builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
-                }
-                builder.pversion = "1.0.3";
-                builder.lego_lib_version = TbConfig.getLegoLibVersion();
-                if (com.baidu.tbadk.core.sharedPref.b.brx().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
-                    builder.z_id = TbadkCoreApplication.getInst().getZid();
-                }
-                builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
-                builder.oaid = com.baidu.helios.b.aj(TbadkCoreApplication.getInst()).uF();
-                builder.sample_id = TbSingleton.getInstance().getSampleId();
-                builder.is_teenager = Integer.valueOf(com.baidu.tbadk.youngster.b.c.bIM() ? 1 : 0);
-                builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
-                builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
-                builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();
-                builder.q_type = Integer.valueOf(com.baidu.tbadk.core.k.bkB().getViewImageQuality());
-                builder.scr_h = Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-                builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-                builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-                builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-                builder.event_day = TbSingleton.getInstance().getData();
-                field.set(obj, builder.build(false));
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    th.printStackTrace();
-                }
+                i = i2;
+                message2 = message;
             }
         }
+        return true;
     }
 }

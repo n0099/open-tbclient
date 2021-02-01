@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.flutter.util.OpenFlutter;
 import com.baidu.tieba.flutter.util.OpenNative;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PageRouter {
     public static final String FLUTTER_PAGE_URL = "f2f://";
     public static final String NATIVE_PAGE_URL = "f2n://";

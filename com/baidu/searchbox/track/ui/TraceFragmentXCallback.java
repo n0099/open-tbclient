@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TraceFragmentXCallback extends BaseTraceFragmentCallback {
     private FragmentManager.FragmentLifecycleCallbacks mSupportFragmentCallbacks;
 

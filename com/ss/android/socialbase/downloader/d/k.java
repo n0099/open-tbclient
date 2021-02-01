@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface k extends IInterface {
     String a() throws RemoteException;
 
@@ -13,7 +13,7 @@ public interface k extends IInterface {
 
     int[] b() throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements k {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadAidlMonitorDepend");
@@ -27,7 +27,7 @@ public interface k extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof k)) {
                 return (k) queryLocalInterface;
             }
-            return new C1239a(iBinder);
+            return new C1243a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -64,19 +64,19 @@ public interface k extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.d.k$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C1239a implements k {
+        /* loaded from: classes6.dex */
+        private static class C1243a implements k {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13115a;
+            private IBinder f13117a;
 
-            C1239a(IBinder iBinder) {
-                this.f13115a = iBinder;
+            C1243a(IBinder iBinder) {
+                this.f13117a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13115a;
+                return this.f13117a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.k
@@ -86,7 +86,7 @@ public interface k extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlMonitorDepend");
                     obtain.writeString(str);
-                    this.f13115a.transact(1, obtain, obtain2, 0);
+                    this.f13117a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -100,7 +100,7 @@ public interface k extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlMonitorDepend");
-                    this.f13115a.transact(2, obtain, obtain2, 0);
+                    this.f13117a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -115,7 +115,7 @@ public interface k extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlMonitorDepend");
-                    this.f13115a.transact(3, obtain, obtain2, 0);
+                    this.f13117a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.createIntArray();
                 } finally {

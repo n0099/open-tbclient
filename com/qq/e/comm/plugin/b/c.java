@@ -21,7 +21,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class c extends f {
     private volatile int g;
     private final Runnable h;
@@ -65,7 +65,7 @@ class c extends f {
             a2.a(this.j.getLoginType());
             a2.e(this.j.getLoginOpenid());
             a2.c(this.j.getExtraInfo());
-            u.a(100402, 1, new com.qq.e.comm.plugin.y.c().a(this.f12017b), n.a(this.j));
+            u.a(100402, 1, new com.qq.e.comm.plugin.y.c().a(this.f12019b), n.a(this.j));
             GDTLogger.d("Banner 2.0: " + this.j.toString());
         }
         return a2;
@@ -73,7 +73,7 @@ class c extends f {
 
     public void a() {
         b();
-        loadAd(this.f12016a.c());
+        loadAd(this.f12018a.c());
     }
 
     public void a(LoadAdParams loadAdParams) {
@@ -132,7 +132,7 @@ class c extends f {
     public void loadAd(int i) {
         b.b(this.f);
         this.e = i;
-        com.qq.e.comm.plugin.w.e.a(a(i), new com.qq.e.comm.plugin.w.b(this.c, this.f12016a, this.f12017b), new e.a() { // from class: com.qq.e.comm.plugin.b.c.2
+        com.qq.e.comm.plugin.w.e.a(a(i), new com.qq.e.comm.plugin.w.b(this.c, this.f12018a, this.f12019b), new e.a() { // from class: com.qq.e.comm.plugin.b.c.2
             @Override // com.qq.e.comm.plugin.w.e.a
             public void a(com.qq.e.comm.plugin.k.a aVar) {
                 ai.a("LoadGDTNativeExpressADFail", aVar);

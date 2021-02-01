@@ -8,9 +8,9 @@ import com.baidu.adp.lib.util.l;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class c extends DiskFileOperate {
-    protected a Kl;
-    protected boolean Km;
-    protected long Kn;
+    protected a Kk;
+    protected boolean Kl;
+    protected long Km;
     protected Bitmap mBitmap;
     protected BitmapFactory.Options mOptions;
 
@@ -18,29 +18,29 @@ public class c extends DiskFileOperate {
         super(str, str2, action);
         this.mBitmap = null;
         this.mOptions = null;
-        this.Kl = null;
-        this.Km = true;
-        this.Kl = new a();
+        this.Kk = null;
+        this.Kl = true;
+        this.Kk = new a();
     }
 
     public void Z(boolean z) {
-        this.Km = z;
+        this.Kl = z;
     }
 
     public boolean isGif() {
-        return this.Kl.mIsGif;
+        return this.Kk.mIsGif;
     }
 
     public void setGif(boolean z) {
-        this.Kl.mIsGif = z;
+        this.Kk.mIsGif = z;
     }
 
     public boolean isHighQuality() {
-        return this.Kl.mIsHighQuality;
+        return this.Kk.mIsHighQuality;
     }
 
     public void setHighQuality(boolean z) {
-        this.Kl.mIsHighQuality = z;
+        this.Kk.mIsHighQuality = z;
     }
 
     public Bitmap getBitmap() {
@@ -57,16 +57,16 @@ public class c extends DiskFileOperate {
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public byte[] buildFormatData() {
-        if (this.mData == null || !this.Km) {
+        if (this.mData == null || !this.Kl) {
             return null;
         }
-        return this.Kl.toByteArray();
+        return this.Kk.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public boolean formatData(byte[] bArr) {
-        if (bArr != null && this.Kl.paserFromByte(bArr)) {
-            if (this.Kl.mValidTime == 0 || this.Kl.mValidTime >= System.currentTimeMillis()) {
+        if (bArr != null && this.Kk.paserFromByte(bArr)) {
+            if (this.Kk.mValidTime == 0 || this.Kk.mValidTime >= System.currentTimeMillis()) {
                 if (this.mOptions == null) {
                     this.mOptions = new BitmapFactory.Options();
                     this.mOptions.inPreferredConfig = Bitmap.Config.RGB_565;
@@ -92,13 +92,13 @@ public class c extends DiskFileOperate {
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public void ll() {
-        this.Kn = System.currentTimeMillis();
+    public void lk() {
+        this.Km = System.currentTimeMillis();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public void lm() {
-        com.baidu.adp.lib.e.a.f(isSuccess(), System.currentTimeMillis() - this.Kn);
+    public void ll() {
+        com.baidu.adp.lib.e.a.f(isSuccess(), System.currentTimeMillis() - this.Km);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

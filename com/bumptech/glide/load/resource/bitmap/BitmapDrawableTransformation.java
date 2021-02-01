@@ -10,7 +10,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class BitmapDrawableTransformation implements Transformation<BitmapDrawable> {
     private final Transformation<Drawable> wrapped;
 

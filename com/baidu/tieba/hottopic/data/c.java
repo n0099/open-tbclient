@@ -4,13 +4,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId klV = BdUniqueId.gen();
-    private long klR;
-    private String klS;
-    private int klW = -1;
-    private String klX;
+    public static final BdUniqueId kuc = BdUniqueId.gen();
+    private long ktY;
+    private String ktZ;
+    private int kud = -1;
+    private String kue;
     private long mId;
     private String mName;
     private int mTag;
@@ -18,7 +18,7 @@ public class c implements com.baidu.adp.widget.ListView.n {
     String rule_jump_url;
     String tips;
 
-    public String cRe() {
+    public String cTd() {
         return this.module_title;
     }
 
@@ -26,12 +26,12 @@ public class c implements com.baidu.adp.widget.ListView.n {
         return this.tips;
     }
 
-    public String cRf() {
+    public String cTe() {
         return this.rule_jump_url;
     }
 
-    public long cRg() {
-        return this.klR;
+    public long cTf() {
+        return this.ktY;
     }
 
     public int getTag() {
@@ -46,12 +46,12 @@ public class c implements com.baidu.adp.widget.ListView.n {
         return this.mName;
     }
 
-    public int cRh() {
-        return this.klW;
+    public int cTg() {
+        return this.kud;
     }
 
-    public void BY(int i) {
-        this.klW = i;
+    public void Cq(int i) {
+        this.kud = i;
     }
 
     public void a(TopicList topicList) {
@@ -59,9 +59,9 @@ public class c implements com.baidu.adp.widget.ListView.n {
             this.mId = topicList.topic_id.longValue();
             this.mName = topicList.topic_name;
             this.mTag = topicList.tag.intValue();
-            this.klR = topicList.discuss_num.longValue();
-            this.klS = topicList.topic_desc;
-            this.klX = topicList.topic_pic;
+            this.ktY = topicList.discuss_num.longValue();
+            this.ktZ = topicList.topic_desc;
+            this.kue = topicList.topic_pic;
         }
     }
 
@@ -77,6 +77,6 @@ public class c implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return klV;
+        return kuc;
     }
 }

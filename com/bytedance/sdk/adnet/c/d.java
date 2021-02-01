@@ -1,14 +1,14 @@
 package com.bytedance.sdk.adnet.c;
 
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f6004a = false;
+    public boolean f6006a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6005b = true;
+    public boolean f6007b = true;
     public Map<String, Integer> c = null;
     public Map<String, String> d = null;
     public int e = 10;
@@ -25,8 +25,8 @@ public class d {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(" localEnable: ").append(this.f6004a);
-        sb.append(" probeEnable: ").append(this.f6005b);
+        sb.append(" localEnable: ").append(this.f6006a);
+        sb.append(" probeEnable: ").append(this.f6007b);
         sb.append(" hostFilter: ").append(this.c != null ? this.c.size() : 0);
         sb.append(" hostMap: ").append(this.d != null ? this.d.size() : 0);
         sb.append(" reqTo: ").append(this.e).append("#").append(this.f).append("#").append(this.g);

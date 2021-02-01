@@ -3,42 +3,42 @@ package com.ksad.lottie.model;
 import android.graphics.PointF;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final PointF f8039a;
+    private final PointF f8041a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final PointF f8040b;
+    private final PointF f8042b;
     private final PointF c;
 
     public a() {
-        this.f8039a = new PointF();
-        this.f8040b = new PointF();
+        this.f8041a = new PointF();
+        this.f8042b = new PointF();
         this.c = new PointF();
     }
 
     public a(PointF pointF, PointF pointF2, PointF pointF3) {
-        this.f8039a = pointF;
-        this.f8040b = pointF2;
+        this.f8041a = pointF;
+        this.f8042b = pointF2;
         this.c = pointF3;
     }
 
     public PointF a() {
-        return this.f8039a;
+        return this.f8041a;
     }
 
     public void a(float f, float f2) {
-        this.f8039a.set(f, f2);
+        this.f8041a.set(f, f2);
     }
 
     public PointF b() {
-        return this.f8040b;
+        return this.f8042b;
     }
 
     public void b(float f, float f2) {
-        this.f8040b.set(f, f2);
+        this.f8042b.set(f, f2);
     }
 
     public PointF c() {

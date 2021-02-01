@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface KsFeedPage {
     @NonNull
     @KsAdSdkApi

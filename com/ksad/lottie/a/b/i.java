@@ -4,7 +4,7 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i extends f<PointF> {
     private final PointF c;
     private final float[] d;
@@ -28,9 +28,9 @@ public class i extends f<PointF> {
         h hVar = (h) aVar;
         Path a2 = hVar.a();
         if (a2 == null) {
-            return aVar.f8001a;
+            return aVar.f8003a;
         }
-        if (this.f7958b == null || (pointF = (PointF) this.f7958b.a(hVar.d, hVar.e.floatValue(), hVar.f8001a, hVar.f8002b, c(), f, f())) == null) {
+        if (this.f7960b == null || (pointF = (PointF) this.f7960b.a(hVar.d, hVar.e.floatValue(), hVar.f8003a, hVar.f8004b, c(), f, f())) == null) {
             if (this.e != hVar) {
                 this.f = new PathMeasure(a2, false);
                 this.e = hVar;

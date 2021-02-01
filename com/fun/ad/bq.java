@@ -6,17 +6,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class bq {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExecutorService f7774a = Executors.newSingleThreadExecutor();
+    public static ExecutorService f7776a = Executors.newSingleThreadExecutor();
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f7775b = Executors.newSingleThreadExecutor();
-    public static a pFO;
+    public static ExecutorService f7777b = Executors.newSingleThreadExecutor();
+    public static a pPT;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public interface a {
     }
 
@@ -49,13 +49,13 @@ public final class bq {
     }
 
     public static void a(Context context, bf bfVar) {
-        f7774a.execute(new bi(context, bfVar));
-        f7775b.execute(new bn(context));
+        f7776a.execute(new bi(context, bfVar));
+        f7777b.execute(new bn(context));
     }
 
     public static void a(Context context, String str, String str2, String str3) {
         bf bfVar = new bf();
-        bfVar.f7767b = "ac";
+        bfVar.f7769b = "ac";
         bfVar.c = str;
         bfVar.d = str2;
         bfVar.e = str3;
@@ -64,7 +64,7 @@ public final class bq {
 
     public static void j(Context context, String str, String str2, String str3) {
         bf bfVar = new bf();
-        bfVar.f7767b = "as";
+        bfVar.f7769b = "as";
         bfVar.c = str;
         bfVar.d = str2;
         bfVar.e = str3;
@@ -73,7 +73,7 @@ public final class bq {
 
     public static void k(Context context, String str, String str2, String str3) {
         bf bfVar = new bf();
-        bfVar.f7767b = "ao";
+        bfVar.f7769b = "ao";
         bfVar.c = str;
         bfVar.d = str2;
         bfVar.e = str3;

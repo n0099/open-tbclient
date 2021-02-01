@@ -4,22 +4,22 @@ import com.baidu.live.gift.g;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public String aKn;
-    public int aSC;
-    public int aSI;
-    public String aTK;
-    public String aTL;
-    public long aTM;
-    public int aUO;
-    public long aZD;
-    public String aZE;
-    public Map<Long, Long> aZF;
-    public g aZl;
-    public long bUZ;
-    public int bVa;
-    public String bjV;
+    public String aNa;
+    public int aVH;
+    public int aVN;
+    public String aWP;
+    public String aWQ;
+    public long aWR;
+    public int aXW;
+    public long bZb;
+    public int bZc;
+    public long bcK;
+    public String bcL;
+    public Map<Long, Long> bcM;
+    public g bct;
+    public String bno;
     public String liveId;
     public String mGiftName;
     public String otherParams;
@@ -29,38 +29,38 @@ public class b {
     public String userName;
 
     public b() {
-        this.aZF = new HashMap();
+        this.bcM = new HashMap();
     }
 
     public b(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, long j2, String str8, int i, long j3, int i2) {
-        this.aZF = new HashMap();
-        this.aZD = j;
-        this.aKn = gVar.CC();
+        this.bcM = new HashMap();
+        this.bcK = j;
+        this.aNa = gVar.DR();
         this.userId = str;
         this.userName = str2;
         this.liveId = str3;
         this.roomId = str4;
-        this.aTK = str5;
-        this.mGiftName = gVar.CD();
-        this.aUO = gVar.aSI;
-        this.aSC = gVar.CI();
+        this.aWP = str5;
+        this.mGiftName = gVar.DS();
+        this.aXW = gVar.aVN;
+        this.aVH = gVar.DY();
         this.sceneFrom = gVar.getSceneFrom();
-        this.aZl = gVar;
-        this.aZE = TbadkCoreApplication.getCurrentTbs();
+        this.bct = gVar;
+        this.bcL = TbadkCoreApplication.getCurrentTbs();
         this.otherParams = str6;
-        this.aTL = str7;
-        this.aTM = j2;
-        this.bjV = str8;
-        this.aSI = i;
-        this.bUZ = j3;
-        this.bVa = i2;
+        this.aWQ = str7;
+        this.aWR = j2;
+        this.bno = str8;
+        this.aVN = i;
+        this.bZb = j3;
+        this.bZc = i2;
     }
 
-    public boolean CO() {
-        return this.aSC == 6;
+    public boolean Ee() {
+        return this.aVH == 6;
     }
 
-    public boolean Fo() {
-        return this.aSC == 7;
+    public boolean GE() {
+        return this.aVH == 7;
     }
 }

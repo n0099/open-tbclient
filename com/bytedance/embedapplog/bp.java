@@ -8,18 +8,18 @@ import android.os.IBinder;
 import android.os.Looper;
 import androidx.annotation.Nullable;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 final class bp<SERVICE, RESULT> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final CountDownLatch f5807a = new CountDownLatch(1);
+    private final CountDownLatch f5809a = new CountDownLatch(1);
 
     /* renamed from: b  reason: collision with root package name */
-    private final Intent f5808b;
+    private final Intent f5810b;
     private final Context d;
-    private final b<SERVICE, RESULT> pcL;
+    private final b<SERVICE, RESULT> pmY;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     interface b<T, RESULT> {
         RESULT a(T t);
 
@@ -29,8 +29,8 @@ final class bp<SERVICE, RESULT> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(Context context, Intent intent, b<SERVICE, RESULT> bVar) {
         this.d = context;
-        this.f5808b = intent;
-        this.pcL = bVar;
+        this.f5810b = intent;
+        this.pmY = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,15 +39,15 @@ final class bp<SERVICE, RESULT> {
         RESULT result = null;
         if (Looper.getMainLooper() != Looper.myLooper()) {
             try {
-                aVar = new a(this.f5807a, this.pcL);
-                this.d.bindService(this.f5808b, aVar, 1);
-                this.f5807a.await();
+                aVar = new a(this.f5809a, this.pmY);
+                this.d.bindService(this.f5810b, aVar, 1);
+                this.f5809a.await();
             } catch (Throwable th) {
                 th = th;
                 aVar = null;
             }
             try {
-                result = this.pcL.a(aVar.f5809a);
+                result = this.pmY.a(aVar.f5811a);
                 a(aVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -74,30 +74,30 @@ final class bp<SERVICE, RESULT> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     class a implements ServiceConnection {
         @Nullable
 
         /* renamed from: a  reason: collision with root package name */
-        SERVICE f5809a;
+        SERVICE f5811a;
         private final CountDownLatch c;
-        private final b<SERVICE, RESULT> pcM;
+        private final b<SERVICE, RESULT> pmZ;
 
         a(CountDownLatch countDownLatch, b<SERVICE, RESULT> bVar) {
             this.c = countDownLatch;
-            this.pcM = bVar;
+            this.pmZ = bVar;
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, IGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            bb.b(bh.f5799a, "ServiceBlockBinder#onServiceConnected " + componentName);
+            bb.b(bh.f5801a, "ServiceBlockBinder#onServiceConnected " + componentName);
             try {
-                this.f5809a = this.pcM.e(iBinder);
+                this.f5811a = this.pmZ.e(iBinder);
             } catch (Throwable th) {
                 try {
                     th.printStackTrace();
-                    bb.b(bh.f5799a, "ServiceBlockBinder#onServiceConnected", th);
+                    bb.b(bh.f5801a, "ServiceBlockBinder#onServiceConnected", th);
                     try {
                         this.c.countDown();
                     } catch (Exception e) {
@@ -115,7 +115,7 @@ final class bp<SERVICE, RESULT> {
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            bb.b(bh.f5799a, "ServiceBlockBinder#onServiceDisconnected" + componentName);
+            bb.b(bh.f5801a, "ServiceBlockBinder#onServiceDisconnected" + componentName);
             try {
                 this.c.countDown();
             } catch (Exception e) {

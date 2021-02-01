@@ -1,5 +1,5 @@
 package com.baidu.ala.helper;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AlaLiveErrorCodeBase {
     public static final int ERROR_AUDIO_INIT_FAILED = 2;
     public static final int ERROR_AUTHEN_FAILED = 6;

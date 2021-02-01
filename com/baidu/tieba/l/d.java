@@ -1,7 +1,7 @@
 package com.baidu.tieba.l;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.o;
 import com.baidu.tieba.l.f;
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,9 +9,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
-    public static boolean j(File file, String str) {
+    public static boolean i(File file, String str) {
         return a(file, str, true);
     }
 
@@ -49,7 +49,7 @@ public class d {
         }
     }
 
-    public static void NH(String str) {
+    public static void Ov(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -58,7 +58,7 @@ public class d {
         }
     }
 
-    public static String ac(File file) {
+    public static String Z(File file) {
         FileInputStream fileInputStream;
         StringBuilder sb = new StringBuilder();
         try {
@@ -97,23 +97,23 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray NI(String str) {
+    public static JSONArray Ow(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
         }
         File file = new File(str);
         if (file.exists()) {
-            String ac = ac(file);
-            String[] split = ac.split("\n");
+            String Z = Z(file);
+            String[] split = Z.split("\n");
             if (split.length > 0) {
                 for (String str2 : split) {
                     d(str2, jSONArray);
                 }
             } else {
-                d(ac, jSONArray);
+                d(Z, jSONArray);
             }
-            n.deleteFile(file);
+            o.deleteFile(file);
             return jSONArray;
         }
         return jSONArray;
@@ -132,9 +132,9 @@ public class d {
         }
     }
 
-    public static void NJ(String str) {
+    public static void Ox(String str) {
         if (!StringUtils.isNull(str)) {
-            n.deleteFileOrDir(new File(f.a.lmn + f.a.lmd + str));
+            o.deleteFileOrDir(new File(f.a.luu + f.a.luk + str));
         }
     }
 }

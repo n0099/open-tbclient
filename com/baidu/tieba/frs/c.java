@@ -7,22 +7,22 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.BawuThrones;
 /* loaded from: classes.dex */
 public class c {
-    private v iZq;
-    private BawuThrones iZr;
+    private v jeX;
+    private BawuThrones jeY;
 
     private c() {
     }
 
-    public static c cAk() {
-        return a.iZs;
+    public static c cBv() {
+        return a.jeZ;
     }
 
     public void a(BawuThrones bawuThrones) {
-        this.iZr = bawuThrones;
+        this.jeY = bawuThrones;
     }
 
-    public BawuThrones cAl() {
-        return this.iZr;
+    public BawuThrones cBw() {
+        return this.jeY;
     }
 
     public void eX(String str, String str2) {
@@ -33,23 +33,23 @@ public class c {
     }
 
     public void b(TbPageContext tbPageContext, String str, String str2) {
-        if (this.iZq == null) {
-            this.iZq = new v();
+        if (this.jeX == null) {
+            this.jeX = new v();
         }
-        this.iZq.b(tbPageContext, str, str2);
+        this.jeX.b(tbPageContext, str, str2);
     }
 
     public void destory() {
-        this.iZr = null;
-        if (this.iZq != null) {
-            this.iZq.onDestory();
+        this.jeY = null;
+        if (this.jeX != null) {
+            this.jeX.onDestory();
         }
-        this.iZq = null;
+        this.jeX = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static c iZs = new c();
+        private static c jeZ = new c();
     }
 }

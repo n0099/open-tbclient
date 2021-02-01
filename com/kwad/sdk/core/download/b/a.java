@@ -10,46 +10,46 @@ import com.kwad.sdk.core.page.AdWebViewVideoActivityProxy;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: com.kwad.sdk.core.download.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1088a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1092a {
         void a();
     }
 
-    public static void a(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC1088a interfaceC1088a, @Nullable b bVar) {
+    public static void a(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC1092a interfaceC1092a, @Nullable b bVar) {
         AdInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate);
         com.kwad.sdk.home.download.a.a().a(true);
         if (d.a(context, adTemplate, 1) == 1) {
-            interfaceC1088a.a();
+            interfaceC1092a.a();
         } else if (!com.kwad.sdk.core.response.b.a.y(j)) {
             AdWebViewActivityProxy.launch(context, adTemplate);
-            interfaceC1088a.a();
+            interfaceC1092a.a();
         } else if (bVar != null) {
             bVar.a(context);
             if (j.status == DOWNLOADSTAUS.DOWNLOADING || j.status == DOWNLOADSTAUS.PROGRESS) {
                 return;
             }
-            interfaceC1088a.a();
+            interfaceC1092a.a();
         }
     }
 
-    public static void b(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC1088a interfaceC1088a, @Nullable b bVar) {
+    public static void b(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC1092a interfaceC1092a, @Nullable b bVar) {
         AdInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate);
         if (ao.a()) {
             return;
         }
         if (d.a(context, adTemplate, 1) == 1) {
-            interfaceC1088a.a();
+            interfaceC1092a.a();
         } else if (!com.kwad.sdk.core.response.b.a.y(j)) {
             if (com.kwad.sdk.core.response.b.a.P(j)) {
                 AdWebViewVideoActivityProxy.launch(context, adTemplate);
             } else {
                 AdWebViewActivityProxy.launch(context, adTemplate);
             }
-            interfaceC1088a.a();
+            interfaceC1092a.a();
         } else if (bVar != null) {
             if (!com.kwad.sdk.core.response.b.a.P(j) || TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.B(j))) {
                 bVar.a(context);
@@ -59,7 +59,7 @@ public class a {
             if (j.status == DOWNLOADSTAUS.DOWNLOADING || j.status == DOWNLOADSTAUS.PROGRESS) {
                 return;
             }
-            interfaceC1088a.a();
+            interfaceC1092a.a();
         }
     }
 }

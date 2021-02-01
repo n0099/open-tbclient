@@ -3,10 +3,10 @@ package com.kwad.sdk.glide.load.engine.a;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.engine.s;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface h {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void b(@NonNull s<?> sVar);
     }

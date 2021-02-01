@@ -1,23 +1,23 @@
 package com.baidu.pass.biometrics.base.utils;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ResUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f3980a;
+    private static Context f3983a;
 
     private ResUtils() {
     }
 
     public static String getString(int i) {
-        Context context = f3980a;
+        Context context = f3983a;
         return context != null ? context.getString(i) : "";
     }
 
     public static void setApplicationContext(Context context) {
         if (context != null) {
-            f3980a = context.getApplicationContext();
+            f3983a = context.getApplicationContext();
         }
     }
 }

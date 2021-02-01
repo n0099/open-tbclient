@@ -15,35 +15,35 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5140a = "qrlogin_enter";
+    public static final String f5142a = "qrlogin_enter";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Map<String, String> f5141b = new HashMap();
+    private static final Map<String, String> f5143b = new HashMap();
     private static List<String> c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ HttpHashMapWrap f5142a;
+        final /* synthetic */ HttpHashMapWrap f5144a;
 
         a(HttpHashMapWrap httpHashMapWrap) {
-            this.f5142a = httpHashMapWrap;
+            this.f5144a = httpHashMapWrap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            k.b(this.f5142a);
+            k.b(this.f5144a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class b extends HttpHandlerWrap {
         b(boolean z) {
             super(z);
@@ -56,9 +56,9 @@ public final class k {
     }
 
     static {
-        f5141b.put("pid", "111");
-        f5141b.put("type", "1023");
-        f5141b.put(Config.DEVICE_PART, Build.MODEL);
+        f5143b.put("pid", "111");
+        f5143b.put("type", "1023");
+        f5143b.put(Config.DEVICE_PART, Build.MODEL);
         c = new ArrayList();
         c.add("share_read");
         c.add("share_silent_account");
@@ -77,7 +77,7 @@ public final class k {
         if (!TextUtils.isEmpty(str)) {
             try {
                 HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-                httpHashMapWrap.putAll(f5141b);
+                httpHashMapWrap.putAll(f5143b);
                 httpHashMapWrap.put("name", str);
                 httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
                 httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");

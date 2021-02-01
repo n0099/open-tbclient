@@ -8,7 +8,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.lib.b.f;
 import com.kwad.sdk.lib.widget.recycler.a.b;
 import com.kwad.sdk.lib.widget.recycler.b.a;
-import com.kwad.sdk.lib.widget.recycler.b.a.C1137a;
+import com.kwad.sdk.lib.widget.recycler.b.a.C1141a;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,8 +17,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
-public abstract class c<Model, CallerContext extends a.C1137a<Model>> extends a<Model, com.kwad.sdk.lib.widget.recycler.b.a<Model, CallerContext>> {
+/* loaded from: classes3.dex */
+public abstract class c<Model, CallerContext extends a.C1141a<Model>> extends a<Model, com.kwad.sdk.lib.widget.recycler.b.a<Model, CallerContext>> {
     private static final ExecutorService c = new ThreadPoolExecutor(1, 1, 1, TimeUnit.MINUTES, new LinkedBlockingQueue());
     private KsFragment d;
     private RecyclerView e;
@@ -103,7 +103,7 @@ public abstract class c<Model, CallerContext extends a.C1137a<Model>> extends a<
         this.d = ksFragment;
         this.e = recyclerView;
         this.i = eVar;
-        this.f10434a = new com.kwad.sdk.lib.widget.b(a());
+        this.f10436a = new com.kwad.sdk.lib.widget.b(a());
     }
 
     private List<Model> a() {
@@ -136,7 +136,7 @@ public abstract class c<Model, CallerContext extends a.C1137a<Model>> extends a<
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Type inference failed for: r0v1, types: [java.lang.Object, MODEL] */
     public void a(CallerContext callercontext, int i) {
-        ?? r0 = this.f10434a.get(i);
+        ?? r0 = this.f10436a.get(i);
         callercontext.d = this.d;
         callercontext.e = this.e;
         callercontext.f = (com.kwad.sdk.lib.b.c<?, Model>) this.g;
@@ -158,8 +158,8 @@ public abstract class c<Model, CallerContext extends a.C1137a<Model>> extends a<
     /* renamed from: a */
     public void onBindViewHolder(com.kwad.sdk.lib.widget.recycler.b.a<Model, CallerContext> aVar, int i) {
         com.kwad.sdk.core.d.a.a("RecyclerAdapter", "onBindViewHolder position" + i);
-        a((c<Model, CallerContext>) aVar.f10451b, i);
-        aVar.f10450a.a(aVar.f10451b);
+        a((c<Model, CallerContext>) aVar.f10453b, i);
+        aVar.f10452a.a(aVar.f10453b);
     }
 
     protected boolean a(boolean z, boolean z2) {
@@ -173,12 +173,12 @@ public abstract class c<Model, CallerContext extends a.C1137a<Model>> extends a<
     /* renamed from: b */
     public com.kwad.sdk.lib.widget.recycler.b.a<Model, CallerContext> onCreateViewHolder(ViewGroup viewGroup, int i) {
         com.kwad.sdk.lib.widget.recycler.b.a<Model, CallerContext> aVar = new com.kwad.sdk.lib.widget.recycler.b.a<>(a(viewGroup, i), a(i), b());
-        this.f.add(aVar.f10450a);
+        this.f.add(aVar.f10452a);
         return aVar;
     }
 
     public boolean j() {
-        return this.h != null && this.h.f10443a;
+        return this.h != null && this.h.f10445a;
     }
 
     public void k() {

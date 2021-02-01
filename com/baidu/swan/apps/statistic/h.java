@@ -22,20 +22,20 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import okhttp3.HttpUrl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class h {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> dIV = com.facebook.common.internal.i.R("hmma.baidu.com");
-    private static final CopyOnWriteArrayList<String> dIW = new CopyOnWriteArrayList<>();
+    private static final Set<String> dKZ = com.facebook.common.internal.i.R("hmma.baidu.com");
+    private static final CopyOnWriteArrayList<String> dLa = new CopyOnWriteArrayList<>();
 
     static {
-        dIW.add("https://hmma.baidu.com/mini.gif");
-        dIW.add("https://dxp.baidu.com/mini");
-        dIW.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
+        dLa.add("https://hmma.baidu.com/mini.gif");
+        dLa.add("https://dxp.baidu.com/mini");
+        dLa.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
     }
 
-    public static a so(String str) {
-        return b.sg(str);
+    public static a sI(String str) {
+        return b.sA(str);
     }
 
     public static void a(final a aVar, final com.baidu.swan.apps.statistic.a.e eVar) {
@@ -57,20 +57,20 @@ public final class h {
             p.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.h.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (TextUtils.isEmpty(com.baidu.swan.apps.statistic.a.d.this.ayV())) {
-                        com.baidu.swan.apps.statistic.a.d.this.sB(com.baidu.swan.apps.runtime.d.aIn().aIj().aIv().ayV());
+                    if (TextUtils.isEmpty(com.baidu.swan.apps.statistic.a.d.this.azt())) {
+                        com.baidu.swan.apps.statistic.a.d.this.sU(com.baidu.swan.apps.runtime.d.aIG().aIC().aIO().azt());
                     }
                     b.onEvent("671", com.baidu.swan.apps.statistic.a.d.this.toJSONObject());
-                    com.baidu.swan.apps.console.c.br("SwanAppUBCStatistic", "671 event=" + com.baidu.swan.apps.statistic.a.d.this.toJSONObject().toString());
+                    com.baidu.swan.apps.console.c.bl("SwanAppUBCStatistic", "671 event=" + com.baidu.swan.apps.statistic.a.d.this.toJSONObject().toString());
                 }
             }, "SwanAppUBCStability");
         }
     }
 
     public static void onEvent(com.baidu.swan.apps.statistic.a.f fVar) {
-        ExtensionCore asc = com.baidu.swan.apps.core.turbo.d.arG().asc();
-        if (asc != null) {
-            fVar.t("extension_ver", asc.extensionCoreVersionName);
+        ExtensionCore asB = com.baidu.swan.apps.core.turbo.d.ase().asB();
+        if (asB != null) {
+            fVar.r("extension_ver", asB.extensionCoreVersionName);
         }
         a("606", fVar);
     }
@@ -99,17 +99,17 @@ public final class h {
 
     public static void a(boolean z, String str, String str2, int i) {
         final com.baidu.swan.apps.statistic.a.b bVar = new com.baidu.swan.apps.statistic.a.b();
-        b.a aIv = com.baidu.swan.apps.runtime.d.aIn().aIj().aIv();
-        if (com.baidu.swan.apps.runtime.d.aIn().aIj().available()) {
-            bVar.sA(aIv.ayI().getString("ubc"));
+        b.a aIO = com.baidu.swan.apps.runtime.d.aIG().aIC().aIO();
+        if (com.baidu.swan.apps.runtime.d.aIG().aIC().available()) {
+            bVar.sT(aIO.azg().getString("ubc"));
         }
         bVar.mType = "pay";
         bVar.mValue = z ? "success" : com.baidu.pass.biometrics.face.liveness.c.a.p;
         bVar.mSource = str;
-        bVar.mAppId = com.baidu.swan.apps.runtime.e.aIt();
-        bVar.mFrom = jr(i);
-        bVar.t("money", str2);
-        bVar.cl(aLm());
+        bVar.mAppId = com.baidu.swan.apps.runtime.e.aIM();
+        bVar.mFrom = ju(i);
+        bVar.r("money", str2);
+        bVar.ci(aLF());
         p.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.h.8
             @Override // java.lang.Runnable
             public void run() {
@@ -121,16 +121,16 @@ public final class h {
     public static void a(String str, String str2, ArrayList<String> arrayList) {
         int i = 0;
         String str3 = "";
-        if (com.baidu.swan.apps.runtime.d.aIn().aIj().available()) {
-            b.a aIv = com.baidu.swan.apps.runtime.d.aIn().aIj().aIv();
-            i = aIv.getAppFrameType();
-            str3 = aIv.ayI().getString("ubc");
+        if (com.baidu.swan.apps.runtime.d.aIG().aIC().available()) {
+            b.a aIO = com.baidu.swan.apps.runtime.d.aIG().aIC().aIO();
+            i = aIO.getAppFrameType();
+            str3 = aIO.azg().getString("ubc");
         }
         final com.baidu.swan.apps.statistic.a.b bVar = new com.baidu.swan.apps.statistic.a.b();
         bVar.mType = "pay";
         bVar.mSource = str;
-        bVar.mAppId = com.baidu.swan.apps.runtime.e.aIt();
-        bVar.mFrom = jr(i);
+        bVar.mAppId = com.baidu.swan.apps.runtime.e.aIM();
+        bVar.mFrom = ju(i);
         try {
             JSONObject jSONObject = new JSONObject(str3);
             if (!TextUtils.isEmpty(str2)) {
@@ -139,13 +139,13 @@ public final class h {
             if (arrayList != null) {
                 jSONObject.put("whitelist", arrayList);
             }
-            jSONObject.put("appname", com.baidu.swan.apps.runtime.e.aIr().getName());
-            bVar.ck(jSONObject);
+            jSONObject.put("appname", com.baidu.swan.apps.runtime.e.aIK().getName());
+            bVar.ch(jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();
-            bVar.sA(str3);
+            bVar.sT(str3);
         }
-        bVar.cl(aLm());
+        bVar.ci(aLF());
         p.a(new Runnable() { // from class: com.baidu.swan.apps.statistic.h.9
             @Override // java.lang.Runnable
             public void run() {
@@ -154,19 +154,19 @@ public final class h {
         }, "SwanAppUBCOnPay");
     }
 
-    public static void l(boolean z, String str) {
+    public static void p(boolean z, String str) {
         final com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
-        if (com.baidu.swan.apps.runtime.d.aIn().aIj().available()) {
-            eVar.sA(com.baidu.swan.apps.runtime.d.aIn().aIj().aIv().ayI().getString("ubc"));
+        if (com.baidu.swan.apps.runtime.d.aIG().aIC().available()) {
+            eVar.sT(com.baidu.swan.apps.runtime.d.aIG().aIC().aIO().azg().getString("ubc"));
         }
         eVar.mType = "show";
         eVar.mSource = str;
         eVar.mValue = z ? "success" : com.baidu.pass.biometrics.face.liveness.c.a.p;
-        eVar.mAppId = com.baidu.swan.apps.runtime.e.aIt();
+        eVar.mAppId = com.baidu.swan.apps.runtime.e.aIM();
         p.a(new Runnable() { // from class: com.baidu.swan.apps.statistic.h.10
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.statistic.a.e.this.cl(h.aLm());
+                com.baidu.swan.apps.statistic.a.e.this.ci(h.aLF());
                 b.onEvent("778", com.baidu.swan.apps.statistic.a.e.this.toJSONObject());
             }
         }, "SwanAppUBCOnPagesRoute");
@@ -186,7 +186,7 @@ public final class h {
 
     private static void a(final int i, final String str, final int i2, final String str2, @Nullable final String str3, @Nullable final String str4, final String str5, final long j, final long j2, @Nullable final NetworkStatRecord networkStatRecord) {
         if (SwanAppNetworkUtils.isNetworkConnected(null)) {
-            if (sp(str)) {
+            if (sJ(str)) {
                 if (DEBUG) {
                     Log.d("SwanAppUBCStatistic", "onRequest: ignore " + str);
                     return;
@@ -198,12 +198,12 @@ public final class h {
             if (i2 == 0) {
                 if (TextUtils.equals(str5, "1")) {
                     if (z) {
-                        com.baidu.swan.apps.core.f.j(str, j3);
+                        com.baidu.swan.apps.core.f.i(str, j3);
                     } else {
-                        com.baidu.swan.apps.core.f.Q(str, i);
+                        com.baidu.swan.apps.core.f.S(str, i);
                     }
                 } else if (TextUtils.equals(str5, "0")) {
-                    com.baidu.swan.apps.core.f.lP(str);
+                    com.baidu.swan.apps.core.f.mh(str);
                 }
             }
             if (z && j3 < 5000) {
@@ -213,7 +213,7 @@ public final class h {
                 }
                 return;
             }
-            com.baidu.swan.apps.process.messaging.client.a.aFo().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.statistic.h.11
+            com.baidu.swan.apps.process.messaging.client.a.aFJ().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.statistic.h.11
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.process.a.b.c.a
                 public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
@@ -231,20 +231,20 @@ public final class h {
                         cVar = new com.baidu.swan.apps.statistic.a.c(str, i3);
                     }
                     if (!TextUtils.isEmpty(str3)) {
-                        cVar.su(str3);
+                        cVar.sN(str3);
                     }
                     if (!TextUtils.isEmpty(str4)) {
-                        cVar.sv(str4);
+                        cVar.sO(str4);
                     }
                     cVar.mType = "request";
-                    if (com.baidu.swan.apps.runtime.d.aIn().aIj().available()) {
-                        cVar.mSource = com.baidu.swan.apps.runtime.d.aIn().aIj().aIv().ayC();
+                    if (com.baidu.swan.apps.runtime.d.aIG().aIC().available()) {
+                        cVar.mSource = com.baidu.swan.apps.runtime.d.aIG().aIC().aIO().aza();
                     }
-                    cVar.mAppId = com.baidu.swan.apps.runtime.e.aIt();
-                    cVar.mFrom = h.jr(i2);
+                    cVar.mAppId = com.baidu.swan.apps.runtime.e.aIM();
+                    cVar.mFrom = h.ju(i2);
                     JSONObject a2 = h.a(networkStatRecord);
                     if (a2 != null) {
-                        cVar.ck(a2);
+                        cVar.ch(a2);
                     }
                     p.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.h.11.1
                         @Override // java.lang.Runnable
@@ -254,8 +254,8 @@ public final class h {
                             }
                             JSONObject jSONObject = cVar.toJSONObject();
                             b.onEvent("834", jSONObject);
-                            h.f(cVar.aLq(), cVar.getRequestUrl(), jSONObject);
-                            com.baidu.swan.apps.console.c.br("SwanAppUBCStatistic", "834-request event=" + jSONObject.toString());
+                            h.f(cVar.aLJ(), cVar.getRequestUrl(), jSONObject);
+                            com.baidu.swan.apps.console.c.bl("SwanAppUBCStatistic", "834-request event=" + jSONObject.toString());
                         }
                     }, "SwanAppUBCRequest");
                 }
@@ -263,16 +263,16 @@ public final class h {
         }
     }
 
-    private static boolean sp(String str) {
+    private static boolean sJ(String str) {
         if (DEBUG) {
             Log.d("SwanAppUBCStatistic", "isIgnoreRequest: start with " + str);
         }
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        int size = dIW.size();
+        int size = dLa.size();
         for (int i = 0; i < size; i++) {
-            String str2 = dIW.get(i);
+            String str2 = dLa.get(i);
             if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
                 if (DEBUG) {
                     Log.d("SwanAppUBCStatistic", "isIgnoreRequest: ignore " + str);
@@ -337,7 +337,7 @@ public final class h {
                 if (DEBUG) {
                     Log.d("SwanAppUBCStatistic", "RequestForAvatar: onRequestForAvatar: miss. host is empty, url=" + str2);
                 }
-            } else if (dIV.contains(host)) {
+            } else if (dKZ.contains(host)) {
                 if (DEBUG) {
                     Log.d("SwanAppUBCStatistic", "RequestForAvatar: onRequestForAvatar: miss. host is ignored, host=" + host + " ,url=" + str2);
                 }
@@ -351,11 +351,11 @@ public final class h {
         }
     }
 
-    public static String aLl() {
-        return com.baidu.swan.apps.y.e.aCx() ? "1" : "0";
+    public static String aLE() {
+        return com.baidu.swan.apps.y.e.aCT() ? "1" : "0";
     }
 
-    public static void Z(String str, int i) {
+    public static void ab(String str, int i) {
         a(0, str, i, null, null, null, "0");
     }
 
@@ -369,7 +369,7 @@ public final class h {
 
     private static void a(final int i, final String str, final int i2, final String str2, @Nullable final String str3, @Nullable final String str4, final String str5) {
         if (i != 200) {
-            com.baidu.swan.apps.process.messaging.client.a.aFo().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.statistic.h.2
+            com.baidu.swan.apps.process.messaging.client.a.aFJ().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.statistic.h.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.process.a.b.c.a
                 public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
@@ -387,23 +387,23 @@ public final class h {
                         cVar = new com.baidu.swan.apps.statistic.a.c(str, i3);
                     }
                     if (!TextUtils.isEmpty(str3)) {
-                        cVar.su(str3);
+                        cVar.sN(str3);
                     }
                     if (!TextUtils.isEmpty(str4)) {
-                        cVar.sv(str4);
+                        cVar.sO(str4);
                     }
                     cVar.mType = "downloadFile";
-                    if (com.baidu.swan.apps.runtime.e.aIr() != null && com.baidu.swan.apps.runtime.e.aIr().afB() != null) {
-                        cVar.mSource = com.baidu.swan.apps.runtime.e.aIr().afB().ayC();
+                    if (com.baidu.swan.apps.runtime.e.aIK() != null && com.baidu.swan.apps.runtime.e.aIK().afZ() != null) {
+                        cVar.mSource = com.baidu.swan.apps.runtime.e.aIK().afZ().aza();
                     }
-                    cVar.mAppId = com.baidu.swan.apps.runtime.e.aIt();
-                    cVar.mFrom = h.jr(i2);
+                    cVar.mAppId = com.baidu.swan.apps.runtime.e.aIM();
+                    cVar.mFrom = h.ju(i2);
                     p.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.h.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             JSONObject jSONObject = cVar.toJSONObject();
                             b.onEvent("834", jSONObject);
-                            com.baidu.swan.apps.console.c.br("SwanAppUBCStatistic", "834-downloadFile event=" + jSONObject.toString());
+                            com.baidu.swan.apps.console.c.bl("SwanAppUBCStatistic", "834-downloadFile event=" + jSONObject.toString());
                         }
                     }, "SwanAppDownloadFile");
                 }
@@ -411,7 +411,7 @@ public final class h {
         }
     }
 
-    public static String jr(int i) {
+    public static String ju(int i) {
         switch (i) {
             case 1:
                 return "swangame";
@@ -421,17 +421,17 @@ public final class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static JSONObject aLm() {
-        b.a afB;
-        JSONObject ayU;
-        com.baidu.swan.apps.runtime.e aIr = com.baidu.swan.apps.runtime.e.aIr();
-        if (aIr == null || (afB = aIr.afB()) == null || (ayU = afB.ayU()) == null || !TextUtils.equals(ayU.optString("token"), "swanubc")) {
+    public static JSONObject aLF() {
+        b.a afZ;
+        JSONObject azs;
+        com.baidu.swan.apps.runtime.e aIK = com.baidu.swan.apps.runtime.e.aIK();
+        if (aIK == null || (afZ = aIK.afZ()) == null || (azs = afZ.azs()) == null || !TextUtils.equals(azs.optString("token"), "swanubc")) {
             return null;
         }
-        return ayU;
+        return azs;
     }
 
-    public static JSONObject sq(String str) {
+    public static JSONObject sK(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -461,14 +461,14 @@ public final class h {
         final com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mType = str;
         eVar.mValue = str2;
-        eVar.mAppId = com.baidu.swan.apps.runtime.e.aIt();
-        if (com.baidu.swan.apps.runtime.e.aIr() != null && com.baidu.swan.apps.runtime.e.aIr().afB() != null) {
-            b.a afB = com.baidu.swan.apps.runtime.e.aIr().afB();
-            eVar.mSource = afB.ayC();
-            eVar.mFrom = jr(afB.getAppFrameType());
+        eVar.mAppId = com.baidu.swan.apps.runtime.e.aIM();
+        if (com.baidu.swan.apps.runtime.e.aIK() != null && com.baidu.swan.apps.runtime.e.aIK().afZ() != null) {
+            b.a afZ = com.baidu.swan.apps.runtime.e.aIK().afZ();
+            eVar.mSource = afZ.aza();
+            eVar.mFrom = ju(afZ.getAppFrameType());
         }
         if (TextUtils.equals("click", str)) {
-            eVar.t("authorize", z ? "success" : com.baidu.pass.biometrics.face.liveness.c.a.p);
+            eVar.r("authorize", z ? "success" : com.baidu.pass.biometrics.face.liveness.c.a.p);
         }
         p.a(new Runnable() { // from class: com.baidu.swan.apps.statistic.h.3
             @Override // java.lang.Runnable
@@ -479,116 +479,116 @@ public final class h {
     }
 
     public static void d(com.baidu.swan.apps.statistic.a.e eVar) {
-        if (com.baidu.swan.apps.runtime.e.aIr() != null && com.baidu.swan.apps.runtime.e.aIr().afB() != null) {
-            b.a afB = com.baidu.swan.apps.runtime.e.aIr().afB();
-            eVar.mFrom = jr(afB.getAppFrameType());
-            eVar.mAppId = afB.getAppId();
-            eVar.mSource = afB.ayC();
+        if (com.baidu.swan.apps.runtime.e.aIK() != null && com.baidu.swan.apps.runtime.e.aIK().afZ() != null) {
+            b.a afZ = com.baidu.swan.apps.runtime.e.aIK().afZ();
+            eVar.mFrom = ju(afZ.getAppFrameType());
+            eVar.mAppId = afZ.getAppId();
+            eVar.mSource = afZ.aza();
         }
         a("914", eVar);
     }
 
     public static void e(com.baidu.swan.apps.statistic.a.e eVar) {
-        if (com.baidu.swan.apps.runtime.e.aIr() != null && com.baidu.swan.apps.runtime.e.aIr().afB() != null) {
-            b.a afB = com.baidu.swan.apps.runtime.e.aIr().afB();
-            eVar.mFrom = jr(afB.getAppFrameType());
-            eVar.mAppId = afB.getAppId();
-            eVar.mSource = afB.ayC();
+        if (com.baidu.swan.apps.runtime.e.aIK() != null && com.baidu.swan.apps.runtime.e.aIK().afZ() != null) {
+            b.a afZ = com.baidu.swan.apps.runtime.e.aIK().afZ();
+            eVar.mFrom = ju(afZ.getAppFrameType());
+            eVar.mAppId = afZ.getAppId();
+            eVar.mSource = afZ.aza();
         }
         a("936", eVar);
     }
 
-    public static void ss(String str) {
+    public static void sL(String str) {
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
-        eVar.mFrom = jr(0);
+        eVar.mFrom = ju(0);
         eVar.mType = str;
         a("956", eVar);
     }
 
-    public static void aa(String str, String str2, String str3) {
+    public static void ab(String str, String str2, String str3) {
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
-        if (com.baidu.swan.apps.runtime.e.aIr() != null && com.baidu.swan.apps.runtime.e.aIr().afB() != null) {
-            b.a afB = com.baidu.swan.apps.runtime.e.aIr().afB();
-            eVar.mFrom = jr(afB.getAppFrameType());
-            eVar.mAppId = afB.getAppId();
+        if (com.baidu.swan.apps.runtime.e.aIK() != null && com.baidu.swan.apps.runtime.e.aIK().afZ() != null) {
+            b.a afZ = com.baidu.swan.apps.runtime.e.aIK().afZ();
+            eVar.mFrom = ju(afZ.getAppFrameType());
+            eVar.mAppId = afZ.getAppId();
             eVar.mType = str;
             eVar.mSource = str2;
             eVar.mValue = str3;
-            eVar.t("appkey", afB.getAppKey());
+            eVar.r("appkey", afZ.getAppKey());
         }
         a("923", eVar);
     }
 
     public static void c(com.baidu.swan.apps.statistic.a.f fVar) {
-        if (fVar != null && com.baidu.swan.apps.runtime.e.aIr() != null && com.baidu.swan.apps.runtime.e.aIr().afB() != null) {
-            b.a afB = com.baidu.swan.apps.runtime.e.aIr().afB();
-            fVar.mFrom = jr(afB.getAppFrameType());
-            fVar.mAppId = afB.getAppId();
-            fVar.t("appkey", afB.getAppKey());
+        if (fVar != null && com.baidu.swan.apps.runtime.e.aIK() != null && com.baidu.swan.apps.runtime.e.aIK().afZ() != null) {
+            b.a afZ = com.baidu.swan.apps.runtime.e.aIK().afZ();
+            fVar.mFrom = ju(afZ.getAppFrameType());
+            fVar.mAppId = afZ.getAppId();
+            fVar.r("appkey", afZ.getAppKey());
             a("1032", fVar);
         }
     }
 
-    public static void aLn() {
-        com.baidu.swan.apps.runtime.d aIn = com.baidu.swan.apps.runtime.d.aIn();
-        com.baidu.swan.apps.runtime.e aIj = aIn.aIj();
-        b.a aIv = aIj.aIv();
-        if (aIn.aFD() && aIj.aIw()) {
-            Bundle ayI = aIv.ayI();
-            if (ayI.getLong("launch_flag_for_statistic") > 0) {
-                String valueOf = String.valueOf(System.currentTimeMillis() - aIj.aIv().ayw());
+    public static void aLG() {
+        com.baidu.swan.apps.runtime.d aIG = com.baidu.swan.apps.runtime.d.aIG();
+        com.baidu.swan.apps.runtime.e aIC = aIG.aIC();
+        b.a aIO = aIC.aIO();
+        if (aIG.aFY() && aIC.aIP()) {
+            Bundle azg = aIO.azg();
+            if (azg.getLong("launch_flag_for_statistic") > 0) {
+                String valueOf = String.valueOf(System.currentTimeMillis() - aIC.aIO().ayU());
                 com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-                fVar.mFrom = jr(aIv.getAppFrameType());
+                fVar.mFrom = ju(aIO.getAppFrameType());
                 fVar.mType = Config.LAUNCH;
                 fVar.mValue = "cancel";
-                fVar.dJz = valueOf;
-                fVar.b(aIv);
-                fVar.sA(ayI.getString("ubc"));
-                fVar.cl(sq(aIv.ayE()));
+                fVar.dLD = valueOf;
+                fVar.b(aIO);
+                fVar.sT(azg.getString("ubc"));
+                fVar.ci(sK(aIO.azc()));
                 onEvent(fVar);
                 com.baidu.swan.apps.statistic.a.f fVar2 = new com.baidu.swan.apps.statistic.a.f();
-                fVar2.mFrom = jr(aIv.getAppFrameType());
+                fVar2.mFrom = ju(aIO.getAppFrameType());
                 fVar2.mType = Config.LAUNCH;
                 fVar2.mValue = "realcancel";
-                fVar2.dJz = valueOf;
-                fVar2.b(aIv);
-                fVar2.cl(sq(aIv.ayE()));
-                fVar2.t(TiebaInitialize.LogFields.REASON, "cancel");
-                if (aIv.getAppFrameType() == 1) {
-                    fVar.t("errorList", com.baidu.swan.games.v.b.aXZ().aYa());
+                fVar2.dLD = valueOf;
+                fVar2.b(aIO);
+                fVar2.ci(sK(aIO.azc()));
+                fVar2.r(TiebaInitialize.LogFields.REASON, "cancel");
+                if (aIO.getAppFrameType() == 1) {
+                    fVar.r("errorList", com.baidu.swan.games.v.b.aYl().aYm());
                 }
-                fVar2.sA(ayI.getString("ubc"));
+                fVar2.sT(azg.getString("ubc"));
                 onEvent(fVar2);
-                ayI.remove("launch_flag_for_statistic");
+                azg.remove("launch_flag_for_statistic");
             }
             com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "custom_return", "", SearchFlowEvent.EventType.END));
         }
     }
 
-    public static void aLo() {
-        b.a aIv;
-        Bundle ayH;
-        if (com.baidu.swan.apps.runtime.d.aIn().aFD() && (ayH = (aIv = com.baidu.swan.apps.runtime.d.aIn().aIj().aIv()).ayH()) != null && ayH.getLong("launch_flag_for_statistic") > 0) {
-            long j = aIv.getLong("launch_time", 0L);
+    public static void aLH() {
+        b.a aIO;
+        Bundle azf;
+        if (com.baidu.swan.apps.runtime.d.aIG().aFY() && (azf = (aIO = com.baidu.swan.apps.runtime.d.aIG().aIC().aIO()).azf()) != null && azf.getLong("launch_flag_for_statistic") > 0) {
+            long j = aIO.getLong("launch_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            fVar.mFrom = jr(com.baidu.swan.apps.runtime.d.aIn().afr());
-            fVar.mAppId = aIv.getAppId();
-            if (com.baidu.swan.apps.ad.a.a.qA(aIv.ayR())) {
+            fVar.mFrom = ju(com.baidu.swan.apps.runtime.d.aIG().getFrameType());
+            fVar.mAppId = aIO.getAppId();
+            if (com.baidu.swan.apps.ad.a.a.qS(aIO.azp())) {
                 fVar.mSource = "remote-debug";
             } else {
-                fVar.mSource = aIv.ayC();
+                fVar.mSource = aIO.aza();
             }
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "success";
-            fVar.dJA = String.valueOf(currentTimeMillis - j);
-            fVar.t("status", "0");
-            e.b(fVar, aIv.ayE(), aIv.ayI().getString("ubc"));
-            ayH.putLong("launch_flag_for_statistic", 0L);
-            HybridUbcFlow pU = com.baidu.swan.apps.performance.i.pU("startup");
-            if (pU != null) {
-                if (!(pU.aDu() || pU.aDt())) {
-                    pU.q("value", "na_success");
+            fVar.dLE = String.valueOf(currentTimeMillis - j);
+            fVar.r("status", "0");
+            e.b(fVar, aIO.azc(), aIO.azg().getString("ubc"));
+            azf.putLong("launch_flag_for_statistic", 0L);
+            HybridUbcFlow qm = com.baidu.swan.apps.performance.i.qm("startup");
+            if (qm != null) {
+                if (!(qm.aDQ() || qm.aDP())) {
+                    qm.o("value", "na_success");
                 }
             }
         }
@@ -596,23 +596,23 @@ public final class h {
 
     public static void a(String str, boolean z, boolean z2) {
         final com.baidu.swan.apps.statistic.a.b bVar = new com.baidu.swan.apps.statistic.a.b();
-        b.a aIv = com.baidu.swan.apps.runtime.d.aIn().aIj().aIv();
-        if (com.baidu.swan.apps.runtime.d.aIn().aIj().available()) {
-            bVar.sA(aIv.ayI().getString("ubc"));
+        b.a aIO = com.baidu.swan.apps.runtime.d.aIG().aIC().aIO();
+        if (com.baidu.swan.apps.runtime.d.aIG().aIC().available()) {
+            bVar.sT(aIO.azg().getString("ubc"));
         }
         bVar.mType = "paylogin";
         bVar.mSource = str;
-        bVar.mAppId = aIv.getAppKey();
-        bVar.mFrom = jr(aIv.getAppFrameType());
+        bVar.mAppId = aIO.getAppKey();
+        bVar.mFrom = ju(aIO.getAppFrameType());
         bVar.mValue = z ? "success" : com.baidu.pass.biometrics.face.liveness.c.a.p;
-        bVar.t("nativeAppId", com.baidu.swan.apps.t.a.axk().getHostName());
-        bVar.t("paylogin", z2 ? "1" : "0");
-        com.baidu.swan.apps.core.d.e aoZ = com.baidu.swan.apps.v.f.azN().aoZ();
-        com.baidu.swan.apps.model.c aoy = aoZ == null ? null : aoZ.aoy();
-        if (aoy != null && !TextUtils.isEmpty(aoy.getPage())) {
-            bVar.t("page", aoy.getPage());
+        bVar.r("nativeAppId", com.baidu.swan.apps.t.a.axI().getHostName());
+        bVar.r("paylogin", z2 ? "1" : "0");
+        com.baidu.swan.apps.core.d.e apy = com.baidu.swan.apps.v.f.aAl().apy();
+        com.baidu.swan.apps.model.c aoW = apy == null ? null : apy.aoW();
+        if (aoW != null && !TextUtils.isEmpty(aoW.getPage())) {
+            bVar.r("page", aoW.getPage());
         }
-        bVar.cl(aLm());
+        bVar.ci(aLF());
         p.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.h.4
             @Override // java.lang.Runnable
             public void run() {
@@ -622,30 +622,30 @@ public final class h {
     }
 
     public static void b(int i, com.baidu.swan.apps.setting.oauth.e eVar) {
-        com.baidu.swan.apps.runtime.e aIs = com.baidu.swan.apps.runtime.e.aIs();
-        if (aIs == null) {
+        com.baidu.swan.apps.runtime.e aIL = com.baidu.swan.apps.runtime.e.aIL();
+        if (aIL == null) {
             if (DEBUG) {
                 Log.e("SwanAppUBCStatistic", "onAuthorizeFailed-swanApp is null");
                 return;
             }
             return;
         }
-        com.baidu.swan.apps.statistic.a.d sx = new com.baidu.swan.apps.statistic.a.d().js(i).a(aIs.afB()).sw(jr(aIs.afr())).sx(aIs.getAppId());
+        com.baidu.swan.apps.statistic.a.d sQ = new com.baidu.swan.apps.statistic.a.d().jv(i).a(aIL.afZ()).sP(ju(aIL.getFrameType())).sQ(aIL.getAppId());
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("appid", aIs.getAppId());
-            jSONObject.put("msg", com.baidu.swan.apps.setting.oauth.c.gk(i));
-            jSONObject.put("request_id", aIs.aID().getString("cur_request_id", ""));
+            jSONObject.put("appid", aIL.getAppId());
+            jSONObject.put("msg", com.baidu.swan.apps.setting.oauth.c.gn(i));
+            jSONObject.put("request_id", aIL.aIW().getString("cur_request_id", ""));
             if (eVar != null) {
                 jSONObject.put("scope", eVar.id);
-                jSONObject.put("scopeData", eVar.dGX);
+                jSONObject.put("scopeData", eVar.dJb);
             }
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        sx.ck(jSONObject);
-        b(sx);
+        sQ.ch(jSONObject);
+        b(sQ);
     }
 }

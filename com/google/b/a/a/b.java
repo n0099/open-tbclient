@@ -11,19 +11,19 @@ import android.os.Looper;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7883a = b.class.getSimpleName();
+    private static final String f7885a = b.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f7884b;
+    private boolean f7886b;
     private SensorManager c;
     private final ArrayList<SensorEventListener> f = new ArrayList<>();
     private int g;
-    private Looper pMm;
-    private SensorEventListener pMn;
+    private Looper pWr;
+    private SensorEventListener pWs;
 
     public b(SensorManager sensorManager, int i) {
         this.c = sensorManager;
@@ -31,7 +31,7 @@ public class b implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Sensor ezI() {
+    public Sensor eCa() {
         if (Build.MANUFACTURER.equals("HTC")) {
             return null;
         }
@@ -40,10 +40,10 @@ public class b implements d {
 
     @Override // com.google.b.a.a.d
     public void a() {
-        if (this.f7884b) {
+        if (this.f7886b) {
             return;
         }
-        this.pMn = new SensorEventListener() { // from class: com.google.b.a.a.b.1
+        this.pWs = new SensorEventListener() { // from class: com.google.b.a.a.b.1
             @Override // android.hardware.SensorEventListener
             public void onAccuracyChanged(Sensor sensor, int i) {
                 synchronized (b.this.f) {
@@ -68,18 +68,18 @@ public class b implements d {
             @Override // android.os.HandlerThread
             protected void onLooperPrepared() {
                 Handler handler = new Handler(Looper.myLooper());
-                b.this.c.registerListener(b.this.pMn, b.this.c.getDefaultSensor(1), b.this.g, handler);
-                Sensor ezI = b.this.ezI();
-                if (ezI == null) {
-                    Log.i(b.f7883a, "Uncalibrated gyroscope unavailable, default to regular gyroscope.");
-                    ezI = b.this.c.getDefaultSensor(4);
+                b.this.c.registerListener(b.this.pWs, b.this.c.getDefaultSensor(1), b.this.g, handler);
+                Sensor eCa = b.this.eCa();
+                if (eCa == null) {
+                    Log.i(b.f7885a, "Uncalibrated gyroscope unavailable, default to regular gyroscope.");
+                    eCa = b.this.c.getDefaultSensor(4);
                 }
-                b.this.c.registerListener(b.this.pMn, ezI, b.this.g, handler);
+                b.this.c.registerListener(b.this.pWs, eCa, b.this.g, handler);
             }
         };
         handlerThread.start();
-        this.pMm = handlerThread.getLooper();
-        this.f7884b = true;
+        this.pWr = handlerThread.getLooper();
+        this.f7886b = true;
     }
 
     @Override // com.google.b.a.a.d
@@ -92,12 +92,12 @@ public class b implements d {
 
     @Override // com.google.b.a.a.d
     public void b() {
-        if (this.f7884b) {
-            this.c.unregisterListener(this.pMn);
-            this.pMn = null;
-            this.pMm.quit();
-            this.pMm = null;
-            this.f7884b = false;
+        if (this.f7886b) {
+            this.c.unregisterListener(this.pWs);
+            this.pWs = null;
+            this.pWr.quit();
+            this.pWr = null;
+            this.f7886b = false;
         }
     }
 

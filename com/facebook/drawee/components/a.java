@@ -5,53 +5,53 @@ import android.os.Looper;
 import com.facebook.common.internal.g;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
-    private static a pqX = null;
-    private final Runnable pqZ = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a pBg = null;
+    private final Runnable pBi = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.erq();
-            for (InterfaceC1042a interfaceC1042a : a.this.pqY) {
-                interfaceC1042a.release();
+            a.etJ();
+            for (InterfaceC1046a interfaceC1046a : a.this.pBh) {
+                interfaceC1046a.release();
             }
-            a.this.pqY.clear();
+            a.this.pBh.clear();
         }
     };
-    private final Set<InterfaceC1042a> pqY = new HashSet();
+    private final Set<InterfaceC1046a> pBh = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1042a {
+    /* loaded from: classes15.dex */
+    public interface InterfaceC1046a {
         void release();
     }
 
-    public static synchronized a erp() {
+    public static synchronized a etI() {
         a aVar;
         synchronized (a.class) {
-            if (pqX == null) {
-                pqX = new a();
+            if (pBg == null) {
+                pBg = new a();
             }
-            aVar = pqX;
+            aVar = pBg;
         }
         return aVar;
     }
 
-    public void a(InterfaceC1042a interfaceC1042a) {
-        erq();
-        if (this.pqY.add(interfaceC1042a) && this.pqY.size() == 1) {
-            this.mUiHandler.post(this.pqZ);
+    public void a(InterfaceC1046a interfaceC1046a) {
+        etJ();
+        if (this.pBh.add(interfaceC1046a) && this.pBh.size() == 1) {
+            this.mUiHandler.post(this.pBi);
         }
     }
 
-    public void b(InterfaceC1042a interfaceC1042a) {
-        erq();
-        this.pqY.remove(interfaceC1042a);
+    public void b(InterfaceC1046a interfaceC1046a) {
+        etJ();
+        this.pBh.remove(interfaceC1046a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void erq() {
+    public static void etJ() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

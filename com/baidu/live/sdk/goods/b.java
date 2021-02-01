@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.d;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.sdk.goods.c.c;
 import com.baidu.live.sdk.goods.guide.HostLiveGoodsAuthGuide;
 import com.baidu.live.sdk.goods.view.HostLiveGoodsEnterView;
@@ -19,58 +19,58 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public class b implements com.baidu.live.n.a {
-    private x aBr;
-    private String buS;
-    private com.baidu.live.sdk.goods.b.b bvk;
-    private HostPreLiveGoodsEnterView bvn;
-    private HostLiveGoodsEnterView bvo;
-    private c bvp;
+/* loaded from: classes11.dex */
+public class b implements com.baidu.live.m.a {
+    private ab aDd;
+    private com.baidu.live.sdk.goods.b.b byM;
+    private HostPreLiveGoodsEnterView byP;
+    private HostLiveGoodsEnterView byQ;
+    private c byR;
+    private String byu;
     private TbPageContext mTbPageContext;
-    private boolean bvl = false;
-    private boolean bvm = false;
-    private com.baidu.live.sdk.goods.b.a bvq = new com.baidu.live.sdk.goods.b.a() { // from class: com.baidu.live.sdk.goods.b.1
+    private boolean byN = false;
+    private boolean byO = false;
+    private com.baidu.live.sdk.goods.b.a byS = new com.baidu.live.sdk.goods.b.a() { // from class: com.baidu.live.sdk.goods.b.1
         @Override // com.baidu.live.sdk.goods.b.a
         public void b(int i, String str, boolean z, boolean z2) {
-            if (b.this.bvn != null) {
+            if (b.this.byP != null) {
                 if (z2) {
-                    b.this.bvn.OH();
-                    b.this.a(b.this.bvn);
-                    b.this.Oq();
+                    b.this.byP.Qh();
+                    b.this.a(b.this.byP);
+                    b.this.PP();
                 } else {
-                    b.this.bvn.OI();
+                    b.this.byP.Qi();
                 }
             }
-            if (b.this.bvo != null) {
+            if (b.this.byQ != null) {
                 if (z2) {
-                    b.this.bvo.OH();
+                    b.this.byQ.Qh();
                 } else {
-                    b.this.bvo.OI();
+                    b.this.byQ.Qi();
                 }
             }
         }
 
         @Override // com.baidu.live.sdk.goods.b.a
         public void a(int i, String str, boolean z, long j, int i2, List<com.baidu.live.sdk.goods.a.a> list) {
-            if (b.this.bvn != null) {
-                b.this.bvn.dS(i2);
+            if (b.this.byP != null) {
+                b.this.byP.dW(i2);
             }
-            if (b.this.bvo != null) {
-                b.this.bvo.dS(i2);
+            if (b.this.byQ != null) {
+                b.this.byQ.dW(i2);
             }
         }
 
         @Override // com.baidu.live.sdk.goods.b.a
         public void a(boolean z, String str, String str2, String str3, int i) {
             if (z) {
-                b.this.Oq();
+                b.this.PP();
             } else if (!TextUtils.isEmpty(str)) {
                 BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), str);
             }
         }
     };
-    private View.OnClickListener bvr = new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.b.2
+    private View.OnClickListener byT = new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.live.sdk.goods.d.a.o(b.this.mTbPageContext.getPageActivity(), "", "");
@@ -78,148 +78,148 @@ public class b implements com.baidu.live.n.a {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.LIVE_ACTION, "shopmall"));
         }
     };
-    private View.OnClickListener bvs = new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.b.3
+    private View.OnClickListener byU = new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", "shopmall"));
-            b.this.Oq();
-            if (b.this.bvp != null) {
-                b.this.bvp.rV();
+            b.this.PP();
+            if (b.this.byR != null) {
+                b.this.byR.display();
             }
         }
     };
 
-    @Override // com.baidu.live.n.a
+    @Override // com.baidu.live.m.a
     public void c(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        if (this.bvk == null) {
-            this.bvk = new com.baidu.live.sdk.goods.b.b(tbPageContext);
+        if (this.byM == null) {
+            this.byM = new com.baidu.live.sdk.goods.b.b(tbPageContext);
         }
-        this.bvk.init();
-        this.bvk.a(this.bvq);
-        this.bvp = new c(tbPageContext);
-        this.bvp.setHost(true);
+        this.byM.init();
+        this.byM.a(this.byS);
+        this.byR = new c(tbPageContext);
+        this.byR.setHost(true);
     }
 
-    @Override // com.baidu.live.n.a
-    public com.baidu.live.core.a.a cs(boolean z) {
+    @Override // com.baidu.live.m.a
+    public com.baidu.live.core.a.a cB(boolean z) {
         if (z) {
-            if (this.bvn == null) {
-                this.bvn = new HostPreLiveGoodsEnterView(this.mTbPageContext.getPageActivity());
-                this.bvn.setOutClickListener(this.bvr);
+            if (this.byP == null) {
+                this.byP = new HostPreLiveGoodsEnterView(this.mTbPageContext.getPageActivity());
+                this.byP.setOutClickListener(this.byT);
             }
-            return this.bvn;
+            return this.byP;
         }
-        if (this.bvo == null) {
-            this.bvo = new HostLiveGoodsEnterView(this.mTbPageContext.getPageActivity());
-            this.bvo.setOutClickListener(this.bvs);
+        if (this.byQ == null) {
+            this.byQ = new HostLiveGoodsEnterView(this.mTbPageContext.getPageActivity());
+            this.byQ.setOutClickListener(this.byU);
         }
-        return this.bvo;
+        return this.byQ;
     }
 
-    @Override // com.baidu.live.n.a
-    public void KR() {
-        if (this.bvk != null) {
-            this.bvk.KR();
+    @Override // com.baidu.live.m.a
+    public void Mp() {
+        if (this.byM != null) {
+            this.byM.Mp();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(HostPreLiveGoodsEnterView hostPreLiveGoodsEnterView) {
-        if (!this.bvm) {
-            this.bvm = true;
-            if (!d.xf().getBoolean("has_show_goods_auth_guide", false)) {
+        if (!this.byO) {
+            this.byO = true;
+            if (!d.xc().getBoolean("has_show_goods_auth_guide", false)) {
                 new HostLiveGoodsAuthGuide(this.mTbPageContext.getPageActivity()).c(hostPreLiveGoodsEnterView.getGoodsImageView(), hostPreLiveGoodsEnterView.getTargetView());
             }
         }
     }
 
-    @Override // com.baidu.live.n.a
-    public void gK(String str) {
-        this.buS = str;
+    @Override // com.baidu.live.m.a
+    public void hj(String str) {
+        this.byu = str;
     }
 
-    @Override // com.baidu.live.n.a
-    public void f(x xVar) {
+    @Override // com.baidu.live.m.a
+    public void h(ab abVar) {
         View rootLayout;
-        this.aBr = xVar;
-        if (this.bvn != null && (rootLayout = this.bvn.getRootLayout()) != null && rootLayout.getParent() != null) {
+        this.aDd = abVar;
+        if (this.byP != null && (rootLayout = this.byP.getRootLayout()) != null && rootLayout.getParent() != null) {
             ((ViewGroup) rootLayout.getParent()).removeView(rootLayout);
-            this.bvn = null;
+            this.byP = null;
         }
-        if (this.bvp != null) {
-            this.bvp.Ov();
-            this.bvp.a(xVar);
+        if (this.byR != null) {
+            this.byR.PU();
+            this.byR.a(abVar);
         }
     }
 
-    @Override // com.baidu.live.n.a
-    public void i(x xVar) {
-        this.aBr = xVar;
-        if (this.bvp != null) {
-            this.bvp.a(xVar);
+    @Override // com.baidu.live.m.a
+    public void i(ab abVar) {
+        this.aDd = abVar;
+        if (this.byR != null) {
+            this.byR.a(abVar);
         }
-        if (this.bvo != null && this.bvk.Ou()) {
-            this.bvo.OH();
-            if (!this.bvl && xVar.mLiveInfo != null && xVar.aFH != null) {
-                this.bvl = true;
-                Oq();
+        if (this.byQ != null && this.byM.PT()) {
+            this.byQ.Qh();
+            if (!this.byN && abVar.mLiveInfo != null && abVar.aId != null) {
+                this.byN = true;
+                PP();
             }
         }
     }
 
-    @Override // com.baidu.live.n.a
+    @Override // com.baidu.live.m.a
     public void onResume() {
-        if (this.bvo != null || this.bvn != null) {
-            Oq();
+        if (this.byQ != null || this.byP != null) {
+            PP();
         }
-        if (this.bvp != null) {
-            this.bvp.onResume();
+        if (this.byR != null) {
+            this.byR.onResume();
         }
     }
 
-    @Override // com.baidu.live.n.a
+    @Override // com.baidu.live.m.a
     public void onPause() {
-        if (this.bvp != null) {
-            this.bvp.onPause();
+        if (this.byR != null) {
+            this.byR.onPause();
         }
     }
 
-    @Override // com.baidu.live.n.a
+    @Override // com.baidu.live.m.a
     public void release() {
-        if (this.bvk != null) {
-            this.bvk.cancelLoadData();
-            this.bvk.release();
+        if (this.byM != null) {
+            this.byM.cancelLoadData();
+            this.byM.release();
         }
-        if (this.bvp != null) {
-            this.bvp.release();
+        if (this.byR != null) {
+            this.byR.release();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Oq() {
+    public void PP() {
         long j;
         long j2;
         String str;
         String str2;
-        if (this.bvk != null) {
+        if (this.byM != null) {
             String str3 = "";
             String str4 = "";
-            if (this.aBr == null || this.aBr.mLiveInfo == null) {
+            if (this.aDd == null || this.aDd.mLiveInfo == null) {
                 j = 0;
                 j2 = 0;
             } else {
-                str3 = this.aBr.mLiveInfo.feed_id;
-                long j3 = this.aBr.mLiveInfo.live_id;
-                j = this.aBr.mLiveInfo.user_id;
+                str3 = this.aDd.mLiveInfo.feed_id;
+                long j3 = this.aDd.mLiveInfo.live_id;
+                j = this.aDd.mLiveInfo.user_id;
                 j2 = j3;
             }
-            if (TextUtils.isEmpty(this.buS)) {
+            if (TextUtils.isEmpty(this.byu)) {
                 str = "";
                 str2 = "";
             } else {
                 try {
-                    JSONObject jSONObject = new JSONObject(this.buS);
+                    JSONObject jSONObject = new JSONObject(this.byu);
                     str2 = jSONObject.optString("tab");
                     try {
                         str = jSONObject.optString("tag");
@@ -232,7 +232,7 @@ public class b implements com.baidu.live.n.a {
                     } catch (JSONException e2) {
                         e = e2;
                         e.printStackTrace();
-                        this.bvk.a(str3, j2, j, str2, str, str4);
+                        this.byM.a(str3, j2, j, str2, str, str4);
                     }
                 } catch (JSONException e3) {
                     e = e3;
@@ -240,7 +240,7 @@ public class b implements com.baidu.live.n.a {
                     str2 = "";
                 }
             }
-            this.bvk.a(str3, j2, j, str2, str, str4);
+            this.byM.a(str3, j2, j, str2, str, str4);
         }
     }
 }

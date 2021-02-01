@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e implements j, l, a.InterfaceC0007a {
     private final com.airbnb.lottie.f BH;
     @Nullable
@@ -21,8 +21,8 @@ public class e implements j, l, a.InterfaceC0007a {
     public e(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
         this.BH = fVar;
-        this.DG = aVar2.jm().jc();
-        this.DH = aVar2.jf().jc();
+        this.DG = aVar2.jl().jb();
+        this.DH = aVar2.je().jb();
         this.DI = aVar2;
         aVar.a(this.DG);
         aVar.a(this.DH);
@@ -31,7 +31,7 @@ public class e implements j, l, a.InterfaceC0007a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
-    public void is() {
+    public void ir() {
         invalidate();
     }
 
@@ -47,7 +47,7 @@ public class e implements j, l, a.InterfaceC0007a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).iC() == ShapeTrimPath.Type.Simultaneously) {
+                if ((bVar instanceof r) && ((r) bVar).iB() == ShapeTrimPath.Type.Simultaneously) {
                     this.DC = (r) bVar;
                     this.DC.a(this);
                 }
@@ -64,7 +64,7 @@ public class e implements j, l, a.InterfaceC0007a {
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path iv() {
+    public Path iu() {
         if (this.DJ) {
             return this.path;
         }

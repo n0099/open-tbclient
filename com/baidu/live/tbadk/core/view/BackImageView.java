@@ -5,7 +5,7 @@ import android.content.res.Configuration;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BackImageView extends ImageView {
     public BackImageView(Context context) {
         super(context);

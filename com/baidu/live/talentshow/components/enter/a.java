@@ -1,21 +1,21 @@
 package com.baidu.live.talentshow.components.enter;
 
 import android.view.View;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.sdk.a;
 import com.baidu.live.talentshow.d.d;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private x aBr;
-    private LiveBCChatEnterView bzm;
-    private b bzn;
-    private View.OnClickListener bzo = new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.enter.a.1
+    private ab aDd;
+    private LiveBCChatEnterView bCS;
+    private b bCT;
+    private View.OnClickListener bCU = new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.enter.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.dY(0);
-            if (a.this.bzn != null) {
-                a.this.bzn.Z(view);
+            a.this.ec(0);
+            if (a.this.bCT != null) {
+                a.this.bCT.Z(view);
             }
         }
     };
@@ -28,68 +28,68 @@ public class a {
         this.isHost = z;
     }
 
-    public void t(x xVar) {
-        this.aBr = xVar;
+    public void t(ab abVar) {
+        this.aDd = abVar;
     }
 
-    public void Qj() {
-        if (this.bzm != null) {
-            this.bzm.setEnterVisible(false);
+    public void RT() {
+        if (this.bCS != null) {
+            this.bCS.setEnterVisible(false);
         }
     }
 
     public View getEnterView() {
-        if (this.aBr == null) {
+        if (this.aDd == null) {
             return null;
         }
-        if (this.bzm == null) {
-            this.bzm = new LiveBCChatEnterView(this.mContext.getPageActivity());
-            this.bzm.setOnClickListener(this.bzo);
-            this.bzm.setEnterVisible(true);
+        if (this.bCS == null) {
+            this.bCS = new LiveBCChatEnterView(this.mContext.getPageActivity());
+            this.bCS.setOnClickListener(this.bCU);
+            this.bCS.setEnterVisible(true);
         }
         if (this.isHost) {
-            b(this.bzm);
+            b(this.bCS);
         } else {
-            a(this.bzm);
+            a(this.bCS);
         }
-        return this.bzm;
+        return this.bCS;
     }
 
-    public void dY(int i) {
-        if (this.bzm != null) {
+    public void ec(int i) {
+        if (this.bCS != null) {
             if (this.isHost) {
                 if (i > 0) {
-                    this.bzm.setRedDotVisible(true);
+                    this.bCS.setRedDotVisible(true);
                     return;
                 } else {
-                    this.bzm.setRedDotVisible(false);
+                    this.bCS.setRedDotVisible(false);
                     return;
                 }
             }
-            this.bzm.setRedDotVisible(false);
+            this.bCS.setRedDotVisible(false);
         }
     }
 
-    public void dZ(int i) {
+    public void ed(int i) {
         if (!this.isHost) {
-            ea(i);
+            ee(i);
         }
     }
 
-    private void ea(int i) {
-        if (this.bzm != null) {
-            if (i == d.bBZ || i == d.bBY || i == d.bCa) {
-                this.bzm.setEnterImageDrawable(a.e.liveshow_enter_connecting);
-            } else if (i == d.bCb) {
-                this.bzm.setEnterImageDrawable(a.e.liveshow_enter_connected);
+    private void ee(int i) {
+        if (this.bCS != null) {
+            if (i == d.bFI || i == d.bFH || i == d.bFJ) {
+                this.bCS.setEnterImageDrawable(a.e.liveshow_enter_connecting);
+            } else if (i == d.bFK) {
+                this.bCS.setEnterImageDrawable(a.e.liveshow_enter_connected);
             } else {
-                this.bzm.setEnterImageDrawable(a.e.liveshow_enter_idle);
+                this.bCS.setEnterImageDrawable(a.e.liveshow_enter_idle);
             }
         }
     }
 
     public void a(b bVar) {
-        this.bzn = bVar;
+        this.bCT = bVar;
     }
 
     private void a(LiveBCChatEnterView liveBCChatEnterView) {

@@ -10,17 +10,17 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class aj {
     private static final ByteBuffer c = ByteBuffer.allocate(0);
 
     /* renamed from: a  reason: collision with root package name */
-    private a f3655a;
+    private a f3658a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b f3656b;
+    private b f3659b;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -51,33 +51,33 @@ public class aj {
     }
 
     public aj(URI uri, a aVar) throws c {
-        this.f3655a = aVar;
+        this.f3658a = aVar;
         try {
-            this.f3656b = new b(uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
-            this.f3656b.c();
+            this.f3659b = new b(uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
+            this.f3659b.c();
         } catch (InterruptedException e) {
             throw new c(e);
         }
     }
 
     public void a() {
-        if (this.f3656b != null) {
-            this.f3656b.d();
+        if (this.f3659b != null) {
+            this.f3659b.d();
         }
     }
 
     public void a(JSONObject jSONObject) throws NotYetConnectedException {
-        if (this.f3656b != null) {
-            this.f3656b.a(jSONObject.toString().getBytes());
+        if (this.f3659b != null) {
+            this.f3659b.a(jSONObject.toString().getBytes());
         }
     }
 
     public boolean b() {
-        return (this.f3656b.f() || this.f3656b.g() || this.f3656b.e()) ? false : true;
+        return (this.f3659b.f() || this.f3659b.g() || this.f3659b.e()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public class b extends cc {
         public b(URI uri, int i, Socket socket) throws InterruptedException {
             super(uri, new cf(), null, i);
@@ -89,8 +89,8 @@ public class aj {
             if (bd.c().b()) {
                 bd.c().a("onOpen");
             }
-            if (aj.this.f3655a != null) {
-                aj.this.f3655a.a();
+            if (aj.this.f3658a != null) {
+                aj.this.f3658a.a();
             }
         }
 
@@ -116,7 +116,7 @@ public class aj {
                     if (!TextUtils.isEmpty(str2)) {
                         if (str2.equals("deploy")) {
                             try {
-                                aj.this.f3655a.a(((JSONObject) jSONObject.get("data")).toString());
+                                aj.this.f3658a.a(((JSONObject) jSONObject.get("data")).toString());
                                 return;
                             } catch (Exception e3) {
                                 return;
@@ -143,8 +143,8 @@ public class aj {
                             case 801024:
                                 bc.c().a("autotrace: connect confirm");
                                 am.a().a(3);
-                                if (aj.this.f3655a != null) {
-                                    aj.this.f3655a.b();
+                                if (aj.this.f3658a != null) {
+                                    aj.this.f3658a.b();
                                     return;
                                 }
                                 return;
@@ -161,8 +161,8 @@ public class aj {
             }
             bc.c().a("autotrace: connect closed, server:" + z + " reason:" + str);
             am.a().a(5, "remote:" + z + "|reason:" + str);
-            if (aj.this.f3655a != null) {
-                aj.this.f3655a.a(z);
+            if (aj.this.f3658a != null) {
+                aj.this.f3658a.a(z);
             }
         }
 
@@ -174,7 +174,7 @@ public class aj {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public class c extends IOException {
         public c(Throwable th) {
             super(th.getMessage());

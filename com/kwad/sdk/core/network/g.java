@@ -2,7 +2,7 @@ package com.kwad.sdk.core.network;
 
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface g {
     String a();
 

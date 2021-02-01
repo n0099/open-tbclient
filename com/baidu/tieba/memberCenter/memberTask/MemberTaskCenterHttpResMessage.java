@@ -8,7 +8,7 @@ import java.util.List;
 import tbclient.GetMemberTaskList.GetMemberTaskListResIdl;
 import tbclient.GetMemberTaskList.ImgInfo;
 import tbclient.GetMemberTaskList.UserPointInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MemberTaskCenterHttpResMessage extends TbHttpResponsedMessage {
     public List<ImgInfo> mImageList;
     public List<r> mTaskList;

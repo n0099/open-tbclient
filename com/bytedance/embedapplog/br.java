@@ -4,11 +4,11 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface br extends IInterface {
     String a(String str, String str2, String str3);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements br {
         public static br a(IBinder iBinder) {
             if (iBinder == null) {
@@ -18,7 +18,7 @@ public interface br extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof br)) {
                 return (br) queryLocalInterface;
             }
-            return new C0983a(iBinder);
+            return new C0987a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -39,19 +39,19 @@ public interface br extends IInterface {
         }
 
         /* renamed from: com.bytedance.embedapplog.br$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        static class C0983a implements br {
+        /* loaded from: classes6.dex */
+        static class C0987a implements br {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f5810a;
+            private IBinder f5812a;
 
-            C0983a(IBinder iBinder) {
-                this.f5810a = iBinder;
+            C0987a(IBinder iBinder) {
+                this.f5812a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f5810a;
+                return this.f5812a;
             }
 
             @Override // com.bytedance.embedapplog.br
@@ -63,7 +63,7 @@ public interface br extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    this.f5810a.transact(1, obtain, obtain2, 0);
+                    this.f5812a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {

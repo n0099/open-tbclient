@@ -12,9 +12,8 @@ import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SelectImageHelper {
     public static final int REQUEST_WRITE_EXTERNAL_STORGE_AND_CAMERA_PERMISSON = 1;
     public static final String TMP_IMAGE_NAME = "camera.jpg";
@@ -112,7 +111,7 @@ public class SelectImageHelper {
                 case 6:
                     return 90;
                 case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+                    return 270;
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

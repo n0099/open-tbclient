@@ -3,7 +3,7 @@ package com.baidu.helios.common.b.a;
 import android.database.Cursor;
 import java.io.Closeable;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static boolean a(ZipFile zipFile) {
         if (zipFile != null) {

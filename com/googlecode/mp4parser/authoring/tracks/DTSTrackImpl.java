@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DTSTrackImpl extends AbstractTrack {
     int bcCoreBitRate;
     int bcCoreChannelMask;
@@ -287,7 +287,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r21.bitrate = 1152;
      */
     /* JADX WARN: Code restructure failed: missing block: B:102:0x0209, code lost:
-        r21.bitrate = io.flutter.plugin.platform.PlatformPlugin.DEFAULT_SYSTEM_UI;
+        r21.bitrate = 1280;
      */
     /* JADX WARN: Code restructure failed: missing block: B:103:0x0211, code lost:
         r21.bitrate = 1344;
@@ -1160,7 +1160,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r21.samplerate = 16000;
      */
     /* JADX WARN: Code restructure failed: missing block: B:73:0x0147, code lost:
-        r21.samplerate = com.baidu.ala.helper.StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K;
+        r21.samplerate = 32000;
      */
     /* JADX WARN: Code restructure failed: missing block: B:74:0x014e, code lost:
         r21.samplerate = com.baidu.live.tbadk.core.data.RequestResponseCode.REQUEST_LOGIN_PB_AT;
@@ -1178,7 +1178,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r21.samplerate = 24000;
      */
     /* JADX WARN: Code restructure failed: missing block: B:79:0x0172, code lost:
-        r21.samplerate = com.baidu.ala.helper.StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+        r21.samplerate = 48000;
      */
     /* JADX WARN: Code restructure failed: missing block: B:80:0x017a, code lost:
         r21.bitrate = 32;
@@ -1214,7 +1214,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r21.bitrate = 256;
      */
     /* JADX WARN: Code restructure failed: missing block: B:92:0x01c2, code lost:
-        r21.bitrate = 320;
+        r21.bitrate = com.yy.videoplayer.decoder.VideoConstant.THUMBNAIL_WIDTH;
      */
     /* JADX WARN: Code restructure failed: missing block: B:93:0x01c9, code lost:
         r21.bitrate = 384;
@@ -1235,7 +1235,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r21.bitrate = 768;
      */
     /* JADX WARN: Code restructure failed: missing block: B:99:0x01f3, code lost:
-        r21.bitrate = com.baidu.tbadk.TbConfig.HEAD_IMG_SIZE;
+        r21.bitrate = 960;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

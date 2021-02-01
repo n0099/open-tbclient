@@ -5,7 +5,7 @@ import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.StringCodec;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class LifecycleChannel {
     private static final String TAG = "LifecycleChannel";
     @NonNull

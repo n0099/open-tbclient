@@ -21,12 +21,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static Set<b> j = Collections.synchronizedSet(new HashSet());
 
     /* renamed from: a  reason: collision with root package name */
-    private AdSlot f6630a;
+    private AdSlot f6632a;
     private Context c;
     private TTAdNative.NativeExpressAdListener d;
     private List<com.bytedance.sdk.openadsdk.core.d.l> f;
@@ -39,9 +39,9 @@ public class b {
     private ScheduledFuture<?> m = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private final q f6631b = p.f();
+    private final q f6633b = p.f();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -72,17 +72,17 @@ public class b {
         }
         this.i = i;
         this.e.set(true);
-        this.f6630a = adSlot;
+        this.f6632a = adSlot;
         this.d = nativeExpressAdListener;
         this.h = aVar;
-        a(this.f6630a, this.d);
+        a(this.f6632a, this.d);
     }
 
     private void a(AdSlot adSlot, TTAdNative.NativeExpressAdListener nativeExpressAdListener) {
         if (adSlot != null) {
             com.bytedance.sdk.openadsdk.core.d.m mVar = new com.bytedance.sdk.openadsdk.core.d.m();
             mVar.e = 2;
-            this.f6631b.a(adSlot, mVar, this.i, new q.b() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.1
+            this.f6633b.a(adSlot, mVar, this.i, new q.b() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.1
                 @Override // com.bytedance.sdk.openadsdk.core.q.b
                 public void a(int i, String str) {
                     b.this.a(i, str);
@@ -110,7 +110,7 @@ public class b {
                 if (lVar.ai() && lVar.M() != null && !lVar.M().isEmpty()) {
                     for (com.bytedance.sdk.openadsdk.core.d.k kVar : lVar.M()) {
                         if (!TextUtils.isEmpty(kVar.a())) {
-                            com.bytedance.sdk.openadsdk.i.e.a(this.c).f().a(kVar.a(), (b.InterfaceC1016b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), false);
+                            com.bytedance.sdk.openadsdk.i.e.a(this.c).f().a(kVar.a(), (b.InterfaceC1020b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), false);
                         }
                     }
                 }
@@ -118,7 +118,7 @@ public class b {
                     if (lVar.F() != null && lVar.F().h() != null) {
                         int d = aj.d(lVar.W());
                         if (p.h().a(String.valueOf(d)) && p.h().q(String.valueOf(d))) {
-                            com.bytedance.sdk.openadsdk.j.f.a.a().a(new com.bytedance.sdk.openadsdk.j.f.b().a(lVar.F().h()).a(com.baidu.fsg.base.statistics.b.f1935b).b(lVar.F().k()));
+                            com.bytedance.sdk.openadsdk.j.f.a.a().a(new com.bytedance.sdk.openadsdk.j.f.b().a(lVar.F().h()).a(com.baidu.fsg.base.statistics.b.f1933b).b(lVar.F().k()));
                         }
                     }
                 }
@@ -169,7 +169,7 @@ public class b {
         if (this.f != null && this.f.size() > 0) {
             str = aj.h(this.f.get(0).W());
         }
-        com.bytedance.sdk.openadsdk.h.a.d f = com.bytedance.sdk.openadsdk.h.a.d.b().a(this.i).c(this.f6630a.getCodeId()).f(str);
+        com.bytedance.sdk.openadsdk.h.a.d f = com.bytedance.sdk.openadsdk.h.a.d.b().a(this.i).c(this.f6632a.getCodeId()).f(str);
         f.b(i).g(com.bytedance.sdk.openadsdk.core.h.a(i));
         com.bytedance.sdk.openadsdk.h.a.a().h(f);
     }
@@ -191,9 +191,9 @@ public class b {
     public TTNativeExpressAd a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
         switch (this.i) {
             case 1:
-                return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.c, lVar, this.f6630a);
+                return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.c, lVar, this.f6632a);
             case 2:
-                return new com.bytedance.sdk.openadsdk.core.c.b(this.c, lVar, this.f6630a);
+                return new com.bytedance.sdk.openadsdk.core.c.b(this.c, lVar, this.f6632a);
             case 3:
             case 4:
             case 6:
@@ -203,11 +203,11 @@ public class b {
                 return null;
             case 5:
                 if (lVar.F() != null) {
-                    return new n(this.c, lVar, this.f6630a);
+                    return new n(this.c, lVar, this.f6632a);
                 }
-                return new k(this.c, lVar, this.f6630a);
+                return new k(this.c, lVar, this.f6632a);
             case 9:
-                return new m(this.c, lVar, this.f6630a);
+                return new m(this.c, lVar, this.f6632a);
         }
     }
 

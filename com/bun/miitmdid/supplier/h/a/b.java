@@ -7,19 +7,19 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.os.SystemClock;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f5756a;
+    private static Context f5758a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f5757b = false;
-    private static b pbK = null;
-    private static a pbL = null;
-    private static c pbM = null;
-    private static c pbN = null;
-    private static c pbO = null;
+    private static boolean f5759b = false;
+    private static b plZ = null;
+    private static a pma = null;
+    private static c pmb = null;
+    private static c pmc = null;
+    private static c pmd = null;
     private static Object h = new Object();
     private static HandlerThread i = null;
     private static Handler j = null;
@@ -47,16 +47,16 @@ public class b {
     private static void a(Context context, int i2, String str) {
         switch (i2) {
             case 0:
-                pbM = new c(pbK, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, pbM);
+                pmb = new c(plZ, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, pmb);
                 return;
             case 1:
-                pbN = new c(pbK, 1, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, pbN);
+                pmc = new c(plZ, 1, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, pmc);
                 return;
             case 2:
-                pbO = new c(pbK, 2, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, pbO);
+                pmd = new c(plZ, 2, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, pmd);
                 return;
             default:
                 return;
@@ -76,7 +76,7 @@ public class b {
     }
 
     public static void c() {
-        f5757b = "1".equals(a("persist.sys.identifierid.supported", "0"));
+        f5759b = "1".equals(a("persist.sys.identifierid.supported", "0"));
     }
 
     private static void f() {
@@ -90,7 +90,7 @@ public class b {
                     return;
                 }
                 try {
-                    String unused = b.k = b.pbL.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                    String unused = b.k = b.pma.a(message.getData().getInt("type"), message.getData().getString("appid"));
                 } catch (Exception e) {
                     String unused2 = b.k = "";
                     com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e);
@@ -102,15 +102,15 @@ public class b {
         };
     }
 
-    public static b hK(Context context) {
-        if (pbK == null) {
-            pbK = new b();
-            f5756a = context;
+    public static b hN(Context context) {
+        if (plZ == null) {
+            plZ = new b();
+            f5758a = context;
             f();
-            pbL = new a(f5756a);
+            pma = new a(f5758a);
             c();
         }
-        return pbK;
+        return plZ;
     }
 
     public String a(String str) {
@@ -119,8 +119,8 @@ public class b {
                 return m;
             }
             a(1, str);
-            if (pbN == null && m != null) {
-                a(f5756a, 1, str);
+            if (pmc == null && m != null) {
+                a(f5758a, 1, str);
             }
             return m;
         }
@@ -168,7 +168,7 @@ public class b {
     }
 
     public boolean a() {
-        return f5757b;
+        return f5759b;
     }
 
     public String b() {
@@ -177,8 +177,8 @@ public class b {
                 return l;
             }
             a(0, (String) null);
-            if (pbM == null) {
-                a(f5756a, 0, null);
+            if (pmb == null) {
+                a(f5758a, 0, null);
             }
             return l;
         }
@@ -191,8 +191,8 @@ public class b {
                 return n;
             }
             a(2, str);
-            if (pbO == null && n != null) {
-                a(f5756a, 2, str);
+            if (pmd == null && n != null) {
+                a(f5758a, 2, str);
             }
             return n;
         }

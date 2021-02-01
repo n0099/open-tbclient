@@ -7,7 +7,7 @@ import com.alibaba.fastjson.serializer.SerializeWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import org.springframework.web.socket.sockjs.frame.AbstractSockJsMessageCodec;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FastjsonSockJsMessageCodec extends AbstractSockJsMessageCodec {
     public String[] decode(String str) throws IOException {
         return (String[]) JSON.parseObject(str, String[].class);

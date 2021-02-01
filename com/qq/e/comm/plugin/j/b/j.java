@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class j extends a {
     private final long e;
 
@@ -25,14 +25,14 @@ class j extends a {
     protected int a(FileOutputStream fileOutputStream) throws IOException {
         byte[] bArr = new byte[8192];
         long j = this.e;
-        this.c.a(this.f12157b.length());
+        this.c.a(this.f12159b.length());
         while (j > 0) {
-            int read = this.f12156a.read(bArr, 0, (int) Math.min(j, bArr.length));
+            int read = this.f12158a.read(bArr, 0, (int) Math.min(j, bArr.length));
             if (read <= 0) {
                 break;
             }
             fileOutputStream.write(bArr, 0, read);
-            this.c.a(this.f12157b.length());
+            this.c.a(this.f12159b.length());
             j -= read;
         }
         if (j != 0) {

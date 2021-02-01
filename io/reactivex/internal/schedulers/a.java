@@ -8,21 +8,21 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class a extends v implements h {
-    static final b qgo;
-    static final RxThreadFactory qgp;
-    static final int qgq = ek(Runtime.getRuntime().availableProcessors(), Integer.getInteger("rx2.computation-threads", 0).intValue());
-    static final c qgr = new c(new RxThreadFactory("RxComputationShutdown"));
-    final ThreadFactory qgs;
-    final AtomicReference<b> qgt;
+    static final b qqs;
+    static final RxThreadFactory qqt;
+    static final int qqu = eh(Runtime.getRuntime().availableProcessors(), Integer.getInteger("rx2.computation-threads", 0).intValue());
+    static final c qqv = new c(new RxThreadFactory("RxComputationShutdown"));
+    final ThreadFactory qqw;
+    final AtomicReference<b> qqx;
 
     static {
-        qgr.dispose();
-        qgp = new RxThreadFactory("RxComputationThreadPool", Math.max(1, Math.min(10, Integer.getInteger("rx2.computation-priority", 5).intValue())), true);
-        qgo = new b(0, qgp);
-        qgo.shutdown();
+        qqv.dispose();
+        qqt = new RxThreadFactory("RxComputationThreadPool", Math.max(1, Math.min(10, Integer.getInteger("rx2.computation-priority", 5).intValue())), true);
+        qqs = new b(0, qqt);
+        qqs.shutdown();
     }
 
-    static int ek(int i, int i2) {
+    static int eh(int i, int i2) {
         return (i2 <= 0 || i2 > i) ? i : i2;
     }
 
@@ -30,46 +30,46 @@ public final class a extends v implements h {
     /* loaded from: classes5.dex */
     public static final class b implements h {
         long n;
-        final int qgy;
-        final c[] qgz;
+        final int qqC;
+        final c[] qqD;
 
         b(int i, ThreadFactory threadFactory) {
-            this.qgy = i;
-            this.qgz = new c[i];
+            this.qqC = i;
+            this.qqD = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.qgz[i2] = new c(threadFactory);
+                this.qqD[i2] = new c(threadFactory);
             }
         }
 
-        public c eIi() {
-            int i = this.qgy;
+        public c eKy() {
+            int i = this.qqC;
             if (i == 0) {
-                return a.qgr;
+                return a.qqv;
             }
-            c[] cVarArr = this.qgz;
+            c[] cVarArr = this.qqD;
             long j = this.n;
             this.n = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void shutdown() {
-            for (c cVar : this.qgz) {
+            for (c cVar : this.qqD) {
                 cVar.dispose();
             }
         }
 
         @Override // io.reactivex.internal.schedulers.h
         public void a(int i, h.a aVar) {
-            int i2 = this.qgy;
+            int i2 = this.qqC;
             if (i2 == 0) {
                 for (int i3 = 0; i3 < i; i3++) {
-                    aVar.a(i3, a.qgr);
+                    aVar.a(i3, a.qqv);
                 }
                 return;
             }
             int i4 = ((int) this.n) % i2;
             for (int i5 = 0; i5 < i; i5++) {
-                aVar.a(i5, new C1293a(this.qgz[i4]));
+                aVar.a(i5, new C1303a(this.qqD[i4]));
                 i4++;
                 if (i4 == i2) {
                     i4 = 0;
@@ -80,40 +80,40 @@ public final class a extends v implements h {
     }
 
     public a() {
-        this(qgp);
+        this(qqt);
     }
 
     public a(ThreadFactory threadFactory) {
-        this.qgs = threadFactory;
-        this.qgt = new AtomicReference<>(qgo);
+        this.qqw = threadFactory;
+        this.qqx = new AtomicReference<>(qqs);
         start();
     }
 
     @Override // io.reactivex.v
-    public v.c eHS() {
-        return new C1293a(this.qgt.get().eIi());
+    public v.c eKi() {
+        return new C1303a(this.qqx.get().eKy());
     }
 
     @Override // io.reactivex.internal.schedulers.h
     public void a(int i, h.a aVar) {
-        io.reactivex.internal.functions.a.ce(i, "number > 0 required");
-        this.qgt.get().a(i, aVar);
+        io.reactivex.internal.functions.a.cl(i, "number > 0 required");
+        this.qqx.get().a(i, aVar);
     }
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
-        return this.qgt.get().eIi().b(runnable, j, timeUnit);
+        return this.qqx.get().eKy().b(runnable, j, timeUnit);
     }
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        return this.qgt.get().eIi().a(runnable, j, j2, timeUnit);
+        return this.qqx.get().eKy().a(runnable, j, j2, timeUnit);
     }
 
     @Override // io.reactivex.v
     public void start() {
-        b bVar = new b(qgq, this.qgs);
-        if (!this.qgt.compareAndSet(qgo, bVar)) {
+        b bVar = new b(qqu, this.qqw);
+        if (!this.qqx.compareAndSet(qqs, bVar)) {
             bVar.shutdown();
         }
     }
@@ -121,24 +121,24 @@ public final class a extends v implements h {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: io.reactivex.internal.schedulers.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C1293a extends v.c {
+    public static final class C1303a extends v.c {
         volatile boolean disposed;
-        private final io.reactivex.internal.disposables.e qgu = new io.reactivex.internal.disposables.e();
-        private final io.reactivex.disposables.a qgv = new io.reactivex.disposables.a();
-        private final io.reactivex.internal.disposables.e qgw = new io.reactivex.internal.disposables.e();
-        private final c qgx;
+        private final c qqB;
+        private final io.reactivex.internal.disposables.e qqy = new io.reactivex.internal.disposables.e();
+        private final io.reactivex.disposables.a qqz = new io.reactivex.disposables.a();
+        private final io.reactivex.internal.disposables.e qqA = new io.reactivex.internal.disposables.e();
 
-        C1293a(c cVar) {
-            this.qgx = cVar;
-            this.qgw.a(this.qgu);
-            this.qgw.a(this.qgv);
+        C1303a(c cVar) {
+            this.qqB = cVar;
+            this.qqA.a(this.qqy);
+            this.qqA.a(this.qqz);
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (!this.disposed) {
                 this.disposed = true;
-                this.qgw.dispose();
+                this.qqA.dispose();
             }
         }
 
@@ -148,13 +148,13 @@ public final class a extends v implements h {
         }
 
         @Override // io.reactivex.v.c
-        public io.reactivex.disposables.b F(Runnable runnable) {
-            return this.disposed ? EmptyDisposable.INSTANCE : this.qgx.a(runnable, 0L, TimeUnit.MILLISECONDS, this.qgu);
+        public io.reactivex.disposables.b E(Runnable runnable) {
+            return this.disposed ? EmptyDisposable.INSTANCE : this.qqB.a(runnable, 0L, TimeUnit.MILLISECONDS, this.qqy);
         }
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
-            return this.disposed ? EmptyDisposable.INSTANCE : this.qgx.a(runnable, j, timeUnit, this.qgv);
+            return this.disposed ? EmptyDisposable.INSTANCE : this.qqB.a(runnable, j, timeUnit, this.qqz);
         }
     }
 

@@ -4,7 +4,7 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static void a(Closeable closeable) {
         if (closeable == null) {

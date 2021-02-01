@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class e extends com.baidu.swan.gamecenter.c.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -23,11 +23,11 @@ public class e extends com.baidu.swan.gamecenter.c.a {
             bVar.onFail(31010, "package name is empty");
         } else {
             com.baidu.swan.gamecenter.appmanager.d.c.a(optString, "openApp", null, null, null);
-            if (!com.baidu.swan.gamecenter.appmanager.install.a.au(AppRuntime.getAppContext(), optString)) {
+            if (!com.baidu.swan.gamecenter.appmanager.install.a.as(AppRuntime.getAppContext(), optString)) {
                 bVar.onFail(31011, "app is not installed");
                 com.baidu.swan.gamecenter.appmanager.d.c.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.c.a.p, String.valueOf(31011), null);
-            } else if (com.baidu.swan.gamecenter.appmanager.install.a.aw(AppRuntime.getAppContext(), optString)) {
-                bVar.aI(null);
+            } else if (com.baidu.swan.gamecenter.appmanager.install.a.au(AppRuntime.getAppContext(), optString)) {
+                bVar.aF(null);
                 com.baidu.swan.gamecenter.appmanager.d.c.a(optString, "openApp", "success", null, null);
             } else {
                 bVar.onFail(31019, "open app fail");

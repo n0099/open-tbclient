@@ -1,5 +1,5 @@
 package com.baidu.sumeru.universalimageloader.core.assist.deque;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class LIFOLinkedBlockingDeque<T> extends LinkedBlockingDeque<T> {
     private static final long serialVersionUID = -4114786347960826192L;
 

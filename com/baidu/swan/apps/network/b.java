@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends a implements f {
     public b(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/cancelRequest");
@@ -28,7 +28,7 @@ public class b extends a implements f {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal cancelTag");
             return false;
         }
-        SwanAppNetworkUtils.a(com.baidu.swan.a.c.a.bbL().getOkHttpClient(), optString);
+        SwanAppNetworkUtils.a(com.baidu.swan.a.c.a.bbY().getOkHttpClient(), optString);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }

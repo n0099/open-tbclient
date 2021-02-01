@@ -22,7 +22,7 @@ import com.baidu.swan.apps.console.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps.component.b.a<V, M> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.component.a.d.a<V extends android.view.View, M extends com.baidu.swan.apps.component.a.d.b> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -41,8 +41,8 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
     @NonNull
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a2 = super.a(m, m2);
-        if (m2.cIN != null && (m.cIN == null || !TextUtils.equals(m.cIN.toString(), m2.cIN.toString()))) {
-            a2.gs(4);
+        if (m2.cLb != null && (m.cLb == null || !TextUtils.equals(m.cLb.toString(), m2.cLb.toString()))) {
+            a2.gv(4);
         }
         return a2;
     }
@@ -50,7 +50,7 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull V v, @NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
         super.a((a<V, M>) v, (V) m, bVar);
-        if (bVar.gt(4)) {
+        if (bVar.gw(4)) {
             b(v, m);
             a((a<V, M>) v, (V) m);
             c(v, m);
@@ -58,14 +58,14 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
     }
 
     protected void b(@NonNull V v, @NonNull M m) {
-        if (m.cIN != null) {
+        if (m.cLb != null) {
             if (DEBUG) {
                 Log.d("Component-View", "renderPadding");
             }
-            JSONArray jSONArray = m.cIP;
+            JSONArray jSONArray = m.cLd;
             if (jSONArray != null) {
                 if (jSONArray.length() == 4) {
-                    v.setPadding(ah.O((float) jSONArray.optDouble(3, 0.0d)), ah.O((float) jSONArray.optDouble(0, 0.0d)), ah.O((float) jSONArray.optDouble(1, 0.0d)), ah.O((float) jSONArray.optDouble(2, 0.0d)));
+                    v.setPadding(ah.P((float) jSONArray.optDouble(3, 0.0d)), ah.P((float) jSONArray.optDouble(0, 0.0d)), ah.P((float) jSONArray.optDouble(1, 0.0d)), ah.P((float) jSONArray.optDouble(2, 0.0d)));
                 } else {
                     c.e("Component-View", "invalid padding array length: " + jSONArray.length());
                 }
@@ -74,13 +74,13 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
     }
 
     protected void a(@NonNull V v, @NonNull M m) {
-        if (m.cIN != null) {
+        if (m.cLb != null) {
             if (DEBUG) {
                 Log.d("Component-View", "renderBackground");
             }
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setColor(m.backgroundColor);
-            gradientDrawable.setCornerRadius(m.cIO);
+            gradientDrawable.setCornerRadius(m.cLc);
             gradientDrawable.setStroke(m.borderWidth, m.borderColor);
             v.setBackground(gradientDrawable);
         }
@@ -88,59 +88,59 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void c(@NonNull View view, @NonNull M m) {
-        if (m.cIN != null) {
+        if (m.cLb != null) {
             if (DEBUG) {
                 Log.d("Component-View", "renderAlpha");
             }
-            if (akz()) {
+            if (akX()) {
                 if (DEBUG) {
                     Log.d("Component-View", "renderAlpha with animation");
                 }
-                if (!akB()) {
+                if (!akZ()) {
                     c.w("Component-View", "performAlphaUpdateAnimation fail");
                 }
-            } else if (m.aZx >= 0.0f && m.aZx <= 1.0f) {
-                view.setAlpha(m.aZx);
+            } else if (m.alpha >= 0.0f && m.alpha <= 1.0f) {
+                view.setAlpha(m.alpha);
             } else {
-                c.w("Component-View", "alpha invalid: " + m.aZx);
+                c.w("Component-View", "alpha invalid: " + m.alpha);
             }
         }
     }
 
-    public final boolean akz() {
-        if (gp(4) && akK()) {
-            b bVar = (b) akG();
-            return (bVar.cIQ == null || TextUtils.isEmpty(bVar.cIQ.optString("duration"))) ? false : true;
+    public final boolean akX() {
+        if (gs(4) && ali()) {
+            b bVar = (b) ale();
+            return (bVar.cLe == null || TextUtils.isEmpty(bVar.cLe.optString("duration"))) ? false : true;
         }
         return false;
     }
 
-    public final boolean akA() {
-        return eR(true);
+    public final boolean akY() {
+        return eT(true);
     }
 
-    private boolean akB() {
-        return eR(false);
+    private boolean akZ() {
+        return eT(false);
     }
 
-    private boolean eR(boolean z) {
-        SwanAppComponentContainerView akI = akI();
-        b bVar = (b) akJ();
-        b bVar2 = (b) akG();
-        if (akI == null || bVar == null) {
+    private boolean eT(boolean z) {
+        SwanAppComponentContainerView alg = alg();
+        b bVar = (b) alh();
+        b bVar2 = (b) ale();
+        if (alg == null || bVar == null) {
             return false;
         }
-        if (bVar2.cIQ == null || TextUtils.isEmpty(bVar2.cIQ.optString("duration"))) {
+        if (bVar2.cLe == null || TextUtils.isEmpty(bVar2.cLe.optString("duration"))) {
             return false;
         }
         ArrayList arrayList = new ArrayList();
         if (z) {
-            arrayList.add(a(akI, bVar, bVar2, false));
-            arrayList.add(a(akI, bVar, bVar2, true));
+            arrayList.add(a(alg, bVar, bVar2, false));
+            arrayList.add(a(alg, bVar, bVar2, true));
         } else {
-            arrayList.add(a(akI, bVar, bVar2));
+            arrayList.add(a(alg, bVar, bVar2));
         }
-        AnimatorSet a2 = a(bVar2.duration, lt(bVar2.cIR), arrayList);
+        AnimatorSet a2 = a(bVar2.duration, lL(bVar2.cLf), arrayList);
         if (a2 != null) {
             a2.start();
         }
@@ -149,11 +149,11 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
 
     @Nullable
     private ValueAnimator a(@NonNull final SwanAppComponentContainerView swanAppComponentContainerView, @NonNull b bVar, @NonNull final b bVar2, final boolean z) {
-        if (bVar.cJg == null || bVar2.cJg == null) {
+        if (bVar.cLu == null || bVar2.cLu == null) {
             return null;
         }
-        int left = z ? bVar.cJg.getLeft() : bVar.cJg.aCg();
-        int left2 = z ? bVar2.cJg.getLeft() : bVar2.cJg.aCg();
+        int left = z ? bVar.cLu.getLeft() : bVar.cLu.getTop();
+        int left2 = z ? bVar2.cLu.getLeft() : bVar2.cLu.getTop();
         if (left != left2) {
             ValueAnimator ofInt = ValueAnimator.ofInt(left, left2);
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.component.a.d.a.1
@@ -167,8 +167,8 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
                         } else {
                             marginLayoutParams.topMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                         }
-                        bVar2.cJg.ij(marginLayoutParams.leftMargin);
-                        bVar2.cJg.ik(marginLayoutParams.topMargin);
+                        bVar2.cLu.im(marginLayoutParams.leftMargin);
+                        bVar2.cLu.in(marginLayoutParams.topMargin);
                         swanAppComponentContainerView.setLayoutParams(marginLayoutParams);
                     }
                 }
@@ -180,18 +180,18 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
 
     @Nullable
     private ValueAnimator a(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull b bVar, @NonNull b bVar2) {
-        if (bVar2.cIN == null) {
+        if (bVar2.cLb == null) {
             return null;
         }
-        float f = v.getFloat(bVar.cIN, "opacity", 1.0f);
-        float f2 = v.getFloat(bVar2.cIN, "opacity", f);
+        float f = v.getFloat(bVar.cLb, "opacity", 1.0f);
+        float f2 = v.getFloat(bVar2.cLb, "opacity", f);
         if (f == f2) {
             return null;
         }
         return ObjectAnimator.ofFloat(swanAppComponentContainerView, "alpha", f, f2);
     }
 
-    private Interpolator lt(@NonNull String str) {
+    private Interpolator lL(@NonNull String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -1965120668:

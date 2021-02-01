@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3104a = c.class.getSimpleName();
+    private static final String f3102a = c.class.getSimpleName();
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -19,7 +19,7 @@ public final class c {
             messageDigest.update(str.getBytes());
             return a(messageDigest.digest());
         } catch (NoSuchAlgorithmException e) {
-            a.a(f3104a, "NoSuchAlgorithmException happened when get MD5 string", e);
+            a.a(f3102a, "NoSuchAlgorithmException happened when get MD5 string", e);
             return null;
         }
     }

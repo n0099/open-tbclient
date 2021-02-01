@@ -11,7 +11,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
     private AdTemplate c;
     private SceneImpl d;
@@ -25,9 +25,9 @@ public class c extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
     protected i<g, AdResultData> a() {
         final l.a aVar = new l.a();
         f fVar = new f(this.d);
-        fVar.f9166b = this.d.getPageScene();
-        aVar.f9282a = fVar;
-        aVar.f9283b = new com.kwad.sdk.core.g.a.c();
+        fVar.f9168b = this.d.getPageScene();
+        aVar.f9284a = fVar;
+        aVar.f9285b = new com.kwad.sdk.core.g.a.c();
         aVar.c = String.valueOf(com.kwad.sdk.core.response.b.d.k(this.c.photoInfo));
         return new i<g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.c.1
             /* JADX DEBUG: Method merged with bridge method */

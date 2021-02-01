@@ -5,7 +5,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class a {
-    public static long JS(String str) {
+    public static long KD(String str) {
         if (StringUtils.isNull(str)) {
             return 0L;
         }
@@ -28,7 +28,7 @@ public class a {
         }
     }
 
-    public static int gp(long j) {
+    public static int gu(long j) {
         if (j < 0) {
             return -1;
         }
@@ -45,8 +45,8 @@ public class a {
             declaredField.setAccessible(true);
             declaredField2.setAccessible(true);
             Object obj = declaredField2.get(declaredField.get(editText));
-            Array.set(obj, 0, new C0726a(ao.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-            Array.set(obj, 1, new C0726a(ao.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
+            Array.set(obj, 0, new C0726a(ap.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
+            Array.set(obj, 1, new C0726a(ap.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
         } catch (Exception e) {
         }
     }
@@ -71,7 +71,7 @@ public class a {
         }
     }
 
-    public static String zo(int i) {
+    public static String zy(int i) {
         switch (i) {
             case 1:
                 return "一";

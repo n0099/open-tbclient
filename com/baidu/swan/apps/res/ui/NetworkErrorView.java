@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.android.app.event.EventBusWrapper;
 import com.baidu.swan.apps.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NetworkErrorView extends CommonEmptyView {
     public NetworkErrorView(Context context) {
         super(context);
@@ -24,7 +24,7 @@ public class NetworkErrorView extends CommonEmptyView {
     }
 
     private void init() {
-        this.dti.setVisibility(0);
+        this.dvt.setVisibility(0);
         setTitle(getContext().getString(a.h.aiapps_common_emptyview_detail_text));
     }
 
@@ -33,46 +33,46 @@ public class NetworkErrorView extends CommonEmptyView {
     }
 
     public void setEmptyViewVisiblity(int i) {
-        this.dtf.setVisibility(i);
+        this.dvq.setVisibility(i);
     }
 
     public void setEmptyButtonVisiblity(int i) {
-        this.dti.setVisibility(i);
+        this.dvt.setVisibility(i);
     }
 
     public void setNetworkButtonShow(boolean z) {
-        if (this.dth != null) {
-            this.dth.setVisibility(z ? 0 : 4);
+        if (this.dvs != null) {
+            this.dvs.setVisibility(z ? 0 : 4);
         }
     }
 
     public void setBottomLayout(View.OnClickListener onClickListener, View view, RelativeLayout.LayoutParams layoutParams) {
-        if (this.dtj != null && view != null) {
-            this.dtj.setVisibility(0);
-            this.dtj.addView(view);
+        if (this.dvu != null && view != null) {
+            this.dvu.setVisibility(0);
+            this.dvu.addView(view);
             if (layoutParams != null) {
-                this.dtj.setLayoutParams(layoutParams);
+                this.dvu.setLayoutParams(layoutParams);
             }
-            this.dtj.setOnClickListener(onClickListener);
+            this.dvu.setOnClickListener(onClickListener);
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         if (i == 0) {
-            aI(this);
+            aE(this);
         }
         super.setVisibility(i);
     }
 
-    public static void aI(View view) {
+    public static void aE(View view) {
         a aVar = new a(1);
         aVar.arg0 = 1;
         aVar.obj = view;
         EventBusWrapper.post(aVar);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public int arg0;
         public int messageId;

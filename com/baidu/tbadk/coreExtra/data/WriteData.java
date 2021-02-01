@@ -144,7 +144,7 @@ public class WriteData extends OrmObject implements Serializable {
     private String postPrefix;
     private int proZone;
     public String sourceFrom;
-    private long startPublishTime;
+    private transient long startPublishTime;
     private int statisticFrom;
     private String transmitForumData;
     private String vForumId;
@@ -312,7 +312,7 @@ public class WriteData extends OrmObject implements Serializable {
         if (com.baidu.adp.lib.util.k.isEmpty(this.mContent) && com.baidu.adp.lib.util.k.isEmpty(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 if (this.mVideoInfo == null || !this.mVideoInfo.isAvaliable()) {
-                    return !(this.mVoiceModel == null || this.mVoiceModel.voiceId == null || this.mVoiceModel.duration == -1) || this.mCategoryTo >= 0;
+                    return ((this.mVoiceModel == null || this.mVoiceModel.voiceId == null || this.mVoiceModel.duration == -1) && this.mCategoryTo < 0 && this.mWriteVoteData == null) ? false : true;
                 }
                 return true;
             }
@@ -326,7 +326,7 @@ public class WriteData extends OrmObject implements Serializable {
         try {
             jSONObject.put("mType", this.mType);
             jSONObject.put("mTitle", this.mTitle);
-            this.contentString = this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.buJ();
+            this.contentString = this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.bvd();
             jSONObject.put("mContent", this.contentString);
             jSONObject.put("mReplyUid", this.mReplyUid);
             jSONObject.put("mThreadId", this.mThreadId);
@@ -362,6 +362,7 @@ public class WriteData extends OrmObject implements Serializable {
                 jSONObject.put("evaluation_star", this.mEvaluationStar);
             }
             jSONObject.put(IntentConfig.IS_EVALUATE, this.isEvaluate);
+            jSONObject.put("vote_data", this.mWriteVoteData.toJsonObject());
         } catch (Exception e) {
         }
         return jSONObject.toString();
@@ -414,6 +415,12 @@ public class WriteData extends OrmObject implements Serializable {
             }
             writeData.mEvaluationStar = jSONObject.optInt("evaluation_star");
             writeData.isEvaluate = jSONObject.optBoolean(IntentConfig.IS_EVALUATE, false);
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("vote_data");
+            if (optJSONObject4 != null) {
+                WriteVoteData writeVoteData = new WriteVoteData();
+                writeVoteData.parseJson(optJSONObject4);
+                writeData.mWriteVoteData = writeVoteData;
+            }
             return writeData;
         } catch (Exception e) {
             return null;

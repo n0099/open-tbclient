@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.client.socket.coder;
 
 import com.baidu.live.adp.framework.client.socket.SocketConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CoderException extends Exception {
     private static final long serialVersionUID = -4477017113691535623L;
     private final int mErrorCode;

@@ -1,17 +1,17 @@
 package com.kwad.sdk.glide.webp.decoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class WebpFrameCacheStrategy {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final WebpFrameCacheStrategy f10364a = new a().a().d();
+    public static final WebpFrameCacheStrategy f10366a = new a().a().d();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final WebpFrameCacheStrategy f10365b = new a().c().d();
+    public static final WebpFrameCacheStrategy f10367b = new a().c().d();
     public static final WebpFrameCacheStrategy c = new a().b().d();
     private CacheControl d;
     private int e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum CacheControl {
         CACHE_NONE,
         CACHE_LIMITED,
@@ -19,27 +19,27 @@ public final class WebpFrameCacheStrategy {
         CACHE_ALL
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private CacheControl f10366a;
+        private CacheControl f10368a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f10367b;
+        private int f10369b;
 
         public a a() {
-            this.f10366a = CacheControl.CACHE_NONE;
+            this.f10368a = CacheControl.CACHE_NONE;
             return this;
         }
 
         public a b() {
-            this.f10366a = CacheControl.CACHE_ALL;
+            this.f10368a = CacheControl.CACHE_ALL;
             return this;
         }
 
         public a c() {
-            this.f10366a = CacheControl.CACHE_AUTO;
+            this.f10368a = CacheControl.CACHE_AUTO;
             return this;
         }
 
@@ -49,8 +49,8 @@ public final class WebpFrameCacheStrategy {
     }
 
     private WebpFrameCacheStrategy(a aVar) {
-        this.d = aVar.f10366a;
-        this.e = aVar.f10367b;
+        this.d = aVar.f10368a;
+        this.e = aVar.f10369b;
     }
 
     public boolean a() {

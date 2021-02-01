@@ -3,7 +3,7 @@ package com.baidu.sumeru.universalimageloader.cache.disc;
 import com.baidu.sumeru.universalimageloader.cache.disc.naming.FileNameGenerator;
 import com.baidu.sumeru.universalimageloader.core.DefaultConfigurationFactory;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseDiscCache implements DiscCacheAware {
     private static final String ERROR_ARG_NULL = "\"%s\" argument must be not null";
     protected File cacheDir;

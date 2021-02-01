@@ -1,7 +1,7 @@
 package com.baidu.swan.gamecenter.appmanager.a;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a extends com.baidu.swan.gamecenter.c.a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -15,15 +15,15 @@ public class a extends com.baidu.swan.gamecenter.c.a {
             bVar.onFail(202, "params may be error");
         } else {
             if (jSONObject.has("wifiResumeDownloadFlag")) {
-                com.baidu.swan.gamecenter.appmanager.download.b.aSX().hS(jSONObject.optBoolean("wifiResumeDownloadFlag", true));
+                com.baidu.swan.gamecenter.appmanager.download.b.aTj().hU(jSONObject.optBoolean("wifiResumeDownloadFlag", true));
             }
             if (jSONObject.has("install_guide_switch")) {
-                com.baidu.swan.gamecenter.appmanager.install.a.hT(jSONObject.optBoolean("install_guide_switch"));
+                com.baidu.swan.gamecenter.appmanager.install.a.hV(jSONObject.optBoolean("install_guide_switch"));
             }
             if (jSONObject.has("install_guide_count")) {
-                com.baidu.swan.gamecenter.appmanager.install.a.kP(jSONObject.optInt("install_guide_count"));
+                com.baidu.swan.gamecenter.appmanager.install.a.kS(jSONObject.optInt("install_guide_count"));
             }
-            bVar.aI(null);
+            bVar.aF(null);
         }
         return null;
     }

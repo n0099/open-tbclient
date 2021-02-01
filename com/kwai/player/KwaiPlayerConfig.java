@@ -1,7 +1,7 @@
 package com.kwai.player;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KwaiPlayerConfig {
     public static final int DEFAULT_LIVE_ADAPTIVE_QOS_TICK_DURATION = 2000;
     public static final int DEFAULT_QOS_TICK_DURATION = 10000;
@@ -18,7 +18,7 @@ public class KwaiPlayerConfig {
     private int mMinBufferTime;
     private long mQosDuration;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         private boolean mEnableQos = false;
         private long mQosDuration = 10000;
@@ -98,7 +98,7 @@ public class KwaiPlayerConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum EnumBufferStrategy {
         LINEAR_INCREASE_BUFFER_STRATEGY(1),
         LOG_INCREASE_BUFFER_STRATEGY(2);

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Callable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class b implements com.bytedance.sdk.openadsdk.b.a {
     protected abstract void a(List<File> list);
 
@@ -69,21 +69,21 @@ public abstract class b implements com.bytedance.sdk.openadsdk.b.a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class a implements Callable<Void> {
 
         /* renamed from: b  reason: collision with root package name */
-        private final File f6211b;
+        private final File f6213b;
 
         private a(File file) {
-            this.f6211b = file;
+            this.f6213b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() throws Exception {
-            b.this.b(this.f6211b);
+            b.this.b(this.f6213b);
             return null;
         }
     }

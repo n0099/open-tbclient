@@ -8,7 +8,7 @@ import com.kwad.sdk.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b {
     @NonNull
     public static ImageHeaderParser.ImageType a(@NonNull List<ImageHeaderParser> list, @Nullable InputStream inputStream, @NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {

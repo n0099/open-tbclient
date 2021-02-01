@@ -8,7 +8,7 @@ import com.xiaomi.push.service.ap;
 public class gz implements ap.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14074a;
+    private int f14076a;
 
     /* renamed from: a  reason: collision with other field name */
     private fs f496a;
@@ -38,15 +38,15 @@ public class gz implements ap.b.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         b();
-        if (this.f500a && this.f14074a != 11) {
+        if (this.f500a && this.f14076a != 11) {
             fi m362a = he.m360a().m362a();
-            switch (hb.f14077a[this.f499a.ordinal()]) {
+            switch (hb.f14079a[this.f499a.ordinal()]) {
                 case 1:
-                    if (this.f14074a != 17) {
-                        if (this.f14074a != 21) {
+                    if (this.f14076a != 17) {
+                        if (this.f14076a != 21) {
                             try {
                                 hc.a c = hc.c(he.a().a());
-                                m362a.f403a = c.f14078a.a();
+                                m362a.f403a = c.f14080a.a();
                                 m362a.c(c.f501a);
                                 break;
                             } catch (NullPointerException e) {
@@ -88,7 +88,7 @@ public class gz implements ap.b.a {
     public void a(ap.c cVar, ap.c cVar2, int i) {
         if (!this.f500a && cVar == ap.c.binding) {
             this.f499a = cVar2;
-            this.f14074a = i;
+            this.f14076a = i;
             this.f500a = true;
         }
         this.f497a.a(new ha(this, 4));

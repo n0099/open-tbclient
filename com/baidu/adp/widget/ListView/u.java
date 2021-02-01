@@ -5,14 +5,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class u extends a<v, NoDataItemViewHolder> {
     private int mSkinType;
 
     public u(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), v.Yp);
+        super(tbPageContext.getPageActivity(), v.Yl);
         this.mSkinType = 3;
     }
 
@@ -28,8 +28,8 @@ public class u extends a<v, NoDataItemViewHolder> {
     public View a(int i, View view, ViewGroup viewGroup, v vVar, NoDataItemViewHolder noDataItemViewHolder) {
         noDataItemViewHolder.mTextView.setText(vVar.showText);
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            ao.setImageResource(noDataItemViewHolder.mImageView, vVar.resId);
-            ao.setViewTextColor(noDataItemViewHolder.mTextView, R.color.CAM_X0109);
+            ap.setImageResource(noDataItemViewHolder.mImageView, vVar.resId);
+            ap.setViewTextColor(noDataItemViewHolder.mTextView, R.color.CAM_X0109);
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
         return view;

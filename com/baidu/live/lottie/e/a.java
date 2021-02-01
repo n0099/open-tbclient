@@ -4,9 +4,9 @@ import android.graphics.PointF;
 import android.view.animation.Interpolator;
 import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a<T> {
-    public final float BS;
+    public final float BT;
     @Nullable
     public final T HL;
     @Nullable
@@ -31,7 +31,7 @@ public class a<T> {
         this.HL = t;
         this.HM = t2;
         this.HN = interpolator;
-        this.BS = f;
+        this.BT = f;
         this.HO = f2;
     }
 
@@ -44,21 +44,21 @@ public class a<T> {
         this.HL = t;
         this.HM = t;
         this.HN = null;
-        this.BS = Float.MIN_VALUE;
+        this.BT = Float.MIN_VALUE;
         this.HO = Float.valueOf(Float.MAX_VALUE);
     }
 
-    public float jY() {
+    public float jX() {
         if (this.composition == null) {
             return 0.0f;
         }
         if (this.HP == Float.MIN_VALUE) {
-            this.HP = (this.BS - this.composition.hT()) / this.composition.ia();
+            this.HP = (this.BT - this.composition.hS()) / this.composition.hZ();
         }
         return this.HP;
     }
 
-    public float iL() {
+    public float iK() {
         if (this.composition == null) {
             return 1.0f;
         }
@@ -66,21 +66,21 @@ public class a<T> {
             if (this.HO == null) {
                 this.HQ = 1.0f;
             } else {
-                this.HQ = jY() + ((this.HO.floatValue() - this.BS) / this.composition.ia());
+                this.HQ = jX() + ((this.HO.floatValue() - this.BT) / this.composition.hZ());
             }
         }
         return this.HQ;
     }
 
-    public boolean kB() {
+    public boolean kA() {
         return this.HN == null;
     }
 
     public boolean l(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return f >= jY() && f < iL();
+        return f >= jX() && f < iK();
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.HL + ", endValue=" + this.HM + ", startFrame=" + this.BS + ", endFrame=" + this.HO + ", interpolator=" + this.HN + '}';
+        return "Keyframe{startValue=" + this.HL + ", endValue=" + this.HM + ", startFrame=" + this.BT + ", endFrame=" + this.HO + ", interpolator=" + this.HN + '}';
     }
 }

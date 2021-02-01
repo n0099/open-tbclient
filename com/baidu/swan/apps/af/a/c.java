@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -25,7 +25,7 @@ public class c {
                 throw new RuntimeException("Please init webSafeData first!");
             }
         } else {
-            final String Y = Y(str, "aiapps_folder/cloud_config", "web_domains.json");
+            final String Z = Z(str, "aiapps_folder/cloud_config", "web_domains.json");
             if (z) {
                 ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.af.a.c.1
                     @Override // java.lang.Runnable
@@ -33,17 +33,17 @@ public class c {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read webdomains from file async");
                         }
-                        c.a(aVar, c.rL(Y));
+                        c.a(aVar, c.se(Z));
                     }
                 }, "load-WebDomains", 2);
             } else {
-                a(aVar, rL(Y));
+                a(aVar, se(Z));
             }
         }
     }
 
-    public static boolean rK(String str) {
-        return new File(Y(str, "aiapps_folder/cloud_config", "web_domains.json")).exists();
+    public static boolean sd(String str) {
+        return new File(Z(str, "aiapps_folder/cloud_config", "web_domains.json")).exists();
     }
 
     public static void a(boolean z, String str, final String str2, @NonNull final a aVar) {
@@ -56,7 +56,7 @@ public class c {
                 throw new RuntimeException("Please init webSafeData first!");
             }
         } else {
-            final String Y = Y(str, "aiapps_folder/cloud_config", "server_domains.json");
+            final String Z = Z(str, "aiapps_folder/cloud_config", "server_domains.json");
             if (z) {
                 ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.af.a.c.2
                     @Override // java.lang.Runnable
@@ -64,11 +64,11 @@ public class c {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read serverDomains from file async");
                         }
-                        c.a(aVar, c.rL(Y), str2);
+                        c.a(aVar, c.se(Z), str2);
                     }
                 }, "load-ServerDomains", 2);
             } else {
-                a(aVar, rL(Y), str2);
+                a(aVar, se(Z), str2);
             }
         }
     }
@@ -80,7 +80,7 @@ public class c {
             }
             return;
         }
-        final String Y = Y("", "aiapps_folder/cloud_config", "global_web_actions.json");
+        final String Z = Z("", "aiapps_folder/cloud_config", "global_web_actions.json");
         if (z) {
             ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.af.a.c.3
                 @Override // java.lang.Runnable
@@ -88,20 +88,20 @@ public class c {
                     if (c.DEBUG) {
                         Log.d("WebSafeWhiteListMgr", "read web actions from file async");
                     }
-                    c.a(aVar, c.rL(Y));
+                    c.a(aVar, c.se(Z));
                 }
             }, "load-WebActions", 2);
         } else {
-            a(aVar, rL(Y));
+            a(aVar, se(Z));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String rL(String str) {
+    public static String se(String str) {
         if (DEBUG) {
             Log.d("WebSafeWhiteListMgr", "the request webSafeData file path:" + str);
         }
-        return com.baidu.swan.apps.s.a.od(str);
+        return com.baidu.swan.apps.s.a.ox(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -133,7 +133,7 @@ public class c {
             return;
         }
         try {
-            aVar.s(new JSONObject(str), str2);
+            aVar.r(new JSONObject(str), str2);
             if (DEBUG) {
                 Log.e("WebSafeWhiteListMgr", "read WebSafeData by loading file:token=" + aVar.token + ", data=" + aVar.data);
             }
@@ -151,9 +151,9 @@ public class c {
                 Log.w("WebSafeWhiteListMgr", "saveWebDomains: appId or data is empty");
             }
         } else {
-            String Y = Y(str, "aiapps_folder/cloud_config", "web_domains.json");
+            String Z = Z(str, "aiapps_folder/cloud_config", "web_domains.json");
             if (DEBUG) {
-                Log.d("WebSafeWhiteListMgr", "WebDomains file path: " + Y);
+                Log.d("WebSafeWhiteListMgr", "WebDomains file path: " + Z);
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -161,7 +161,7 @@ public class c {
                     jSONObject.put("token", str2);
                 }
                 jSONObject.put("data", jSONArray);
-                z = com.baidu.swan.apps.s.a.p(Y, jSONObject.toString(), false);
+                z = com.baidu.swan.apps.s.a.p(Z, jSONObject.toString(), false);
                 if (DEBUG) {
                     Log.d("WebSafeWhiteListMgr", "save WebDomains done: appId= " + str + ", token=" + str2 + ", data=" + jSONArray);
                 }
@@ -181,14 +181,14 @@ public class c {
                 Log.d("WebSafeWhiteListMgr", "save serverDomains: appId or data is empty");
             }
         } else {
-            String Y = Y(str, "aiapps_folder/cloud_config", "server_domains.json");
+            String Z = Z(str, "aiapps_folder/cloud_config", "server_domains.json");
             if (DEBUG) {
-                Log.d("WebSafeWhiteListMgr", "serverDomains file path: " + Y);
+                Log.d("WebSafeWhiteListMgr", "serverDomains file path: " + Z);
             }
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("data", jSONObject);
-                z = com.baidu.swan.apps.s.a.p(Y, jSONObject2.toString(), false);
+                z = com.baidu.swan.apps.s.a.p(Z, jSONObject2.toString(), false);
                 if (DEBUG) {
                     Log.d("WebSafeWhiteListMgr", "save Server Domains done: data = " + jSONObject);
                 }
@@ -208,9 +208,9 @@ public class c {
                 Log.w("WebSafeWhiteListMgr", "saveWebActions: data is empty");
             }
         } else {
-            String Y = Y("", "aiapps_folder/cloud_config", "global_web_actions.json");
+            String Z = Z("", "aiapps_folder/cloud_config", "global_web_actions.json");
             if (DEBUG) {
-                Log.d("WebSafeWhiteListMgr", "WebActions file path: " + Y);
+                Log.d("WebSafeWhiteListMgr", "WebActions file path: " + Z);
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -218,7 +218,7 @@ public class c {
                     jSONObject.put("token", str);
                 }
                 jSONObject.put("data", jSONArray);
-                z = com.baidu.swan.apps.s.a.p(Y, jSONObject.toString(), false);
+                z = com.baidu.swan.apps.s.a.p(Z, jSONObject.toString(), false);
                 if (DEBUG) {
                     Log.d("WebSafeWhiteListMgr", "save WebActions done: token=" + str + ", data=" + jSONArray);
                 }
@@ -231,7 +231,7 @@ public class c {
         return z;
     }
 
-    public static String Y(String str, String str2, String str3) {
+    public static String Z(String str, String str2, String str3) {
         String path = AppRuntime.getAppContext().getFilesDir().getPath();
         if (TextUtils.isEmpty(str)) {
             return path + File.separator + str2 + File.separator + str3;
@@ -254,7 +254,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public ArrayList<String> data = new ArrayList<>();
         public String token;
@@ -278,7 +278,7 @@ public class c {
             }
         }
 
-        public void s(JSONObject jSONObject, String str) {
+        public void r(JSONObject jSONObject, String str) {
             JSONArray optJSONArray;
             if (jSONObject != null && (optJSONArray = jSONObject.optJSONObject("data").optJSONArray(str)) != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();

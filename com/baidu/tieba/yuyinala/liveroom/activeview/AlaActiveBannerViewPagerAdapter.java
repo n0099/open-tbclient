@@ -5,20 +5,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.collection.SimpleArrayMap;
 import androidx.viewpager.widget.PagerAdapter;
-import com.baidu.live.data.p;
+import com.baidu.live.data.t;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.yuyinala.liveroom.activeview.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
-    private List<p> mOriginDatas;
-    private b.a ohM;
-    private List<p> mDatas = new ArrayList();
-    private SimpleArrayMap<Integer, a> ohQ = new SimpleArrayMap<>();
+    private List<t> mOriginDatas;
+    private b.a orG;
+    private List<t> mDatas = new ArrayList();
+    private SimpleArrayMap<Integer, a> orK = new SimpleArrayMap<>();
 
-    public void setData(List<p> list) {
+    public void setData(List<t> list) {
         this.mOriginDatas = list;
         this.mDatas = new ArrayList();
         ListUtils.addAll(this.mDatas, 0, list);
@@ -28,7 +28,7 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
         }
     }
 
-    public List<p> getOriginDatas() {
+    public List<t> ear() {
         return this.mOriginDatas;
     }
 
@@ -53,40 +53,40 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(final ViewGroup viewGroup, int i) {
-        a aVar = this.ohQ.get(Integer.valueOf(i));
+        a aVar = this.orK.get(Integer.valueOf(i));
         if (aVar == null) {
             View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyinala_active_view_item, (ViewGroup) null);
             aVar = new a(inflate, i);
-            this.ohQ.put(Integer.valueOf(i), aVar);
+            this.orK.put(Integer.valueOf(i), aVar);
             inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.activeview.AlaActiveBannerViewPagerAdapter.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (AlaActiveBannerViewPagerAdapter.this.ohM != null) {
-                        AlaActiveBannerViewPagerAdapter.this.ohM.b(viewGroup, view.getTag(a.f.ala_active_view_data), ((Integer) view.getTag(a.f.ala_active_view_position)).intValue());
+                    if (AlaActiveBannerViewPagerAdapter.this.orG != null) {
+                        AlaActiveBannerViewPagerAdapter.this.orG.b(viewGroup, view.getTag(a.f.ala_active_view_data), ((Integer) view.getTag(a.f.ala_active_view_position)).intValue());
                     }
                 }
             });
             viewGroup.addView(aVar.getRootView(), 0);
         }
-        Ls(i);
-        if (this.ohM != null) {
-            this.ohM.a(aVar.getRootView(), uV(i), i);
+        LN(i);
+        if (this.orG != null) {
+            this.orG.a(aVar.getRootView(), vg(i), i);
         }
         return aVar.getRootView();
     }
 
-    public void Ls(int i) {
-        p pVar = this.mDatas.get(i);
-        if (this.ohM != null && pVar.aFk && this.ohM.va(pVar.aFt)) {
-            pVar.aFk = false;
+    public void LN(int i) {
+        t tVar = this.mDatas.get(i);
+        if (this.orG != null && tVar.aHG && this.orG.vl(tVar.aHP)) {
+            tVar.aHG = false;
         }
-        a aVar = this.ohQ.get(Integer.valueOf(i));
+        a aVar = this.orK.get(Integer.valueOf(i));
         if (aVar != null) {
-            aVar.b(pVar);
+            aVar.b(tVar);
         }
     }
 
-    public p uV(int i) {
+    public t vg(int i) {
         if (this.mDatas == null || this.mDatas.size() <= i) {
             return null;
         }
@@ -94,6 +94,6 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
     }
 
     public void a(b.a aVar) {
-        this.ohM = aVar;
+        this.orG = aVar;
     }
 }

@@ -3,7 +3,7 @@ package com.bytedance.sdk.a.b.a.c;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class f {
     public static boolean a(String str) {
         return str.equals("POST") || str.equals("PATCH") || str.equals(HttpPut.METHOD_NAME) || str.equals(HttpDelete.METHOD_NAME) || str.equals("MOVE");

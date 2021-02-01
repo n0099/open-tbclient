@@ -10,27 +10,27 @@ import com.kwad.sdk.glide.load.b.n;
 import com.kwad.sdk.glide.load.b.o;
 import com.kwad.sdk.glide.load.b.r;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements n<g, InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Integer> f10059a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.model.stream.HttpGlideUrlLoader.Timeout", Integer.valueOf((int) TbConfig.NOTIFY_YUN_PUSH));
+    public static final com.kwad.sdk.glide.load.d<Integer> f10061a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.model.stream.HttpGlideUrlLoader.Timeout", Integer.valueOf((int) TbConfig.NOTIFY_YUN_PUSH));
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    private final m<g, g> f10060b;
+    private final m<g, g> f10062b;
 
     /* renamed from: com.kwad.sdk.glide.load.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1121a implements o<g, InputStream> {
+    /* loaded from: classes3.dex */
+    public static class C1125a implements o<g, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final m<g, g> f10061a = new m<>(500);
+        private final m<g, g> f10063a = new m<>(500);
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<g, InputStream> a(r rVar) {
-            return new a(this.f10061a);
+            return new a(this.f10063a);
         }
     }
 
@@ -39,21 +39,21 @@ public class a implements n<g, InputStream> {
     }
 
     public a(@Nullable m<g, g> mVar) {
-        this.f10060b = mVar;
+        this.f10062b = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<InputStream> a(@NonNull g gVar, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        if (this.f10060b != null) {
-            g a2 = this.f10060b.a(gVar, 0, 0);
+        if (this.f10062b != null) {
+            g a2 = this.f10062b.a(gVar, 0, 0);
             if (a2 == null) {
-                this.f10060b.a(gVar, 0, 0, gVar);
+                this.f10062b.a(gVar, 0, 0, gVar);
             } else {
                 gVar = a2;
             }
         }
-        return new n.a<>(gVar, new j(gVar, ((Integer) eVar.a(f10059a)).intValue()));
+        return new n.a<>(gVar, new j(gVar, ((Integer) eVar.a(f10061a)).intValue()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

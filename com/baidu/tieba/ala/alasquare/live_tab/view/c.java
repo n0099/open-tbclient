@@ -6,12 +6,12 @@ import android.widget.FrameLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.b.f> {
-    private TabLiveStageLiveView gBA;
+    private TabLiveStageLiveView gEk;
     private int mLastScreenWidth;
     private View mRootView;
 
@@ -23,11 +23,11 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
 
     private void initView() {
         this.mRootView = getView();
-        int[] fV = com.baidu.tieba.ala.alasquare.live_tab.c.fV(getContext());
-        int i = fV[0];
-        int i2 = fV[1];
-        this.gBA = (TabLiveStageLiveView) this.mRootView.findViewById(R.id.stage_live_view);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gBA.getLayoutParams();
+        int[] fU = com.baidu.tieba.ala.alasquare.live_tab.c.fU(getContext());
+        int i = fU[0];
+        int i2 = fU[1];
+        this.gEk = (TabLiveStageLiveView) this.mRootView.findViewById(R.id.stage_live_view);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gEk.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = (FrameLayout.LayoutParams) new ViewGroup.LayoutParams(i, i2);
         } else {
@@ -35,14 +35,14 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
             layoutParams.height = i2;
         }
         layoutParams.gravity = 1;
-        this.gBA.setLayoutParams(layoutParams);
+        this.gEk.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setBackgroundColor(getView(), R.color.CAM_X0201);
-        if (this.gBA != null) {
-            this.gBA.onChangeSkinType();
+        ap.setBackgroundColor(getView(), R.color.CAM_X0201);
+        if (this.gEk != null) {
+            this.gEk.onChangeSkinType();
         }
     }
 
@@ -54,22 +54,22 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.f fVar) {
-        if (fVar != null && fVar.gyf != null) {
+        if (fVar != null && fVar.gAP != null) {
             int equipmentWidth = l.getEquipmentWidth(this.mContext);
             if (equipmentWidth != this.mLastScreenWidth) {
-                int[] fV = com.baidu.tieba.ala.alasquare.live_tab.c.fV(getContext());
-                int i = fV[0];
-                int i2 = fV[1];
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gBA.getLayoutParams();
+                int[] fU = com.baidu.tieba.ala.alasquare.live_tab.c.fU(getContext());
+                int i = fU[0];
+                int i2 = fU[1];
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gEk.getLayoutParams();
                 layoutParams.width = i;
                 layoutParams.height = i2;
-                this.gBA.setLayoutParams(layoutParams);
+                this.gEk.setLayoutParams(layoutParams);
                 this.mLastScreenWidth = equipmentWidth;
             }
-            this.gBA.setData(fVar.gyf.gyg, 101);
-            aq aqVar = new aq("c13551");
-            aqVar.dW("entryname", "推荐");
-            TiebaStatic.log(aqVar);
+            this.gEk.setData(fVar.gAP.gAQ, 101);
+            ar arVar = new ar("c13551");
+            arVar.dR("entryname", "推荐");
+            TiebaStatic.log(arVar);
         }
     }
 

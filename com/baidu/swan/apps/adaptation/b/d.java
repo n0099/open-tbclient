@@ -2,7 +2,7 @@ package com.baidu.swan.apps.adaptation.b;
 
 import android.view.View;
 import android.widget.AbsoluteLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface d extends com.baidu.swan.apps.core.container.a {
     boolean canGoBack();
 

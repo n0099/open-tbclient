@@ -2,15 +2,15 @@ package com.baidu.platform.comapi.walknavi.g.b;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class w implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f4323a;
+    final /* synthetic */ c f4326a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(c cVar) {
-        this.f4323a = cVar;
+        this.f4326a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,7 +19,7 @@ public class w implements View.OnClickListener {
         com.baidu.platform.comapi.wnplatform.k.a.a().a("FootNaviPG.turnDire");
         com.baidu.platform.comapi.wnplatform.d.a.a("yang13", "loc click:" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.s());
         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() != com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE) {
-            i = this.f4323a.v;
+            i = this.f4326a.v;
             switch (i) {
                 case 1:
                     com.baidu.platform.comapi.walknavi.b.a().F().run("[3D车头向上]按钮点击");
@@ -36,6 +36,6 @@ public class w implements View.OnClickListener {
         }
         com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE);
         com.baidu.platform.comapi.walknavi.b.a().D().j();
-        this.f4323a.a(true);
+        this.f4326a.a(true);
     }
 }

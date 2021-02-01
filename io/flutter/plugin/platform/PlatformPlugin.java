@@ -15,7 +15,7 @@ import androidx.annotation.VisibleForTesting;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class PlatformPlugin {
     public static final int DEFAULT_SYSTEM_UI = 1280;
     private final Activity activity;
@@ -88,7 +88,7 @@ public class PlatformPlugin {
         this.activity = activity;
         this.platformChannel = platformChannel;
         this.platformChannel.setPlatformMessageHandler(this.mPlatformMessageHandler);
-        this.mEnabledOverlays = DEFAULT_SYSTEM_UI;
+        this.mEnabledOverlays = 1280;
     }
 
     public void destroy() {

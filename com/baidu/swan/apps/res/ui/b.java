@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.swan.apps.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
         if (context == null || viewGroup == null) {

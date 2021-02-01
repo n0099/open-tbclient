@@ -12,8 +12,8 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.EvaluateRelevanceItemSelectedMessage;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
@@ -24,20 +24,20 @@ import com.baidu.tieba.write.write.relevance.list.a;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
-public class RelevanceItemListController implements BdListView.e, BdRecyclerView.a, a.InterfaceC0902a {
-    private String feo;
-    private PbListView gxy;
-    private BdRecyclerView ikg;
+/* loaded from: classes8.dex */
+public class RelevanceItemListController implements BdListView.e, BdRecyclerView.a, a.InterfaceC0905a {
+    private String fgE;
+    private PbListView gAi;
+    private BdRecyclerView ipO;
     private final View mRoot;
-    private final RelevanceItemListFragment ocZ;
-    private final a oda;
+    private final RelevanceItemListFragment omR;
+    private final a omS;
     private List<ReleavanceItemListData.ItemListBean> mDataList = new ArrayList();
     private boolean hasMore = true;
     private RecyclerView.Adapter mAdapter = new RecyclerView.Adapter<ListViewHolder>() { // from class: com.baidu.tieba.write.write.relevance.list.RelevanceItemListController.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        /* renamed from: T */
+        /* renamed from: U */
         public ListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             return new ListViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.relevance_item_view, (ViewGroup) null));
         }
@@ -46,7 +46,7 @@ public class RelevanceItemListController implements BdListView.e, BdRecyclerView
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: a */
         public void onBindViewHolder(ListViewHolder listViewHolder, int i) {
-            listViewHolder.a((ReleavanceItemListData.ItemListBean) RelevanceItemListController.this.mDataList.get(i), RelevanceItemListController.this.feo);
+            listViewHolder.a((ReleavanceItemListData.ItemListBean) RelevanceItemListController.this.mDataList.get(i), RelevanceItemListController.this.fgE);
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -57,70 +57,70 @@ public class RelevanceItemListController implements BdListView.e, BdRecyclerView
 
     public RelevanceItemListController(RelevanceItemListFragment relevanceItemListFragment, View view, String str, BdUniqueId bdUniqueId) {
         this.mRoot = view;
-        this.ocZ = relevanceItemListFragment;
-        this.oda = new a(bdUniqueId, str);
+        this.omR = relevanceItemListFragment;
+        this.omS = new a(bdUniqueId, str);
         initUI();
     }
 
     private void initUI() {
-        this.ikg = (BdRecyclerView) this.mRoot.findViewById(R.id.item_list);
-        this.ikg.setLayoutManager(new XLinearLayoutManager(this.mRoot.getContext()));
-        this.ikg.setAdapter(this.mAdapter);
-        this.gxy = new PbListView(this.mRoot.getContext());
-        this.gxy.createView();
-        this.gxy.setContainerBackgroundColorResId(R.color.CAM_X0205);
-        this.gxy.setLineGone();
-        this.gxy.setTextColor(ao.getColor(R.color.CAM_X0107));
-        this.gxy.setTextSize(R.dimen.tbfontsize33);
-        this.gxy.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.ikg.setNextPage(this.gxy);
-        this.ikg.setOnItemClickListener(this);
-        this.ikg.setOnSrollToBottomListener(this);
-        this.oda.a(this);
+        this.ipO = (BdRecyclerView) this.mRoot.findViewById(R.id.item_list);
+        this.ipO.setLayoutManager(new XLinearLayoutManager(this.mRoot.getContext()));
+        this.ipO.setAdapter(this.mAdapter);
+        this.gAi = new PbListView(this.mRoot.getContext());
+        this.gAi.createView();
+        this.gAi.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.gAi.setLineGone();
+        this.gAi.setTextColor(ap.getColor(R.color.CAM_X0107));
+        this.gAi.setTextSize(R.dimen.tbfontsize33);
+        this.gAi.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.ipO.setNextPage(this.gAi);
+        this.ipO.setOnItemClickListener(this);
+        this.ipO.setOnSrollToBottomListener(this);
+        this.omS.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dXu() {
-        this.oda.dXx();
+    public void dZF() {
+        this.omS.dZI();
     }
 
-    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0902a
+    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0905a
     public void a(RelevanceItemSearchData relevanceItemSearchData) {
-        this.ocZ.dhq();
-        if (relevanceItemSearchData != null && !x.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
+        this.omR.djr();
+        if (relevanceItemSearchData != null && !y.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
             this.mDataList.addAll(relevanceItemSearchData.getData().getItem_list());
             this.mAdapter.notifyDataSetChanged();
         }
-        if (this.ikg.getVisibility() == 8) {
-            this.ikg.setVisibility(0);
+        if (this.ipO.getVisibility() == 8) {
+            this.ipO.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0902a
+    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0905a
     public void onError(int i, String str) {
         this.mDataList.clear();
         this.mAdapter.notifyDataSetChanged();
-        this.ikg.setVisibility(8);
-        this.ocZ.onError(str);
+        this.ipO.setVisibility(8);
+        this.omR.onError(str);
     }
 
-    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0902a
-    public void dXv() {
-        this.ocZ.cMT();
+    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0905a
+    public void dZG() {
+        this.omR.cOP();
     }
 
-    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0902a
-    public void dXw() {
+    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0905a
+    public void dZH() {
         this.hasMore = false;
-        this.ikg.setNextPage(this.gxy);
-        this.gxy.setText(this.ocZ.getResources().getString(R.string.list_no_more));
-        this.gxy.endLoadData();
-        this.gxy.showEmptyView(l.getDimens(this.ikg.getContext(), R.dimen.tbds44));
+        this.ipO.setNextPage(this.gAi);
+        this.gAi.setText(this.omR.getResources().getString(R.string.list_no_more));
+        this.gAi.endLoadData();
+        this.gAi.showEmptyView(l.getDimens(this.ipO.getContext(), R.dimen.tbds44));
     }
 
     @Override // com.baidu.adp.widget.ListView.BdRecyclerView.a
     public void a(ViewGroup viewGroup, View view, Object obj, int i, long j) {
-        if (!x.isEmpty(this.mDataList)) {
+        if (!y.isEmpty(this.mDataList)) {
             ReleavanceItemListData.ItemListBean itemListBean = this.mDataList.get(i);
             double d = 0.0d;
             double d2 = 0.0d;
@@ -133,53 +133,53 @@ public class RelevanceItemListController implements BdListView.e, BdRecyclerView
                 e.printStackTrace();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d, d2, i2, itemListBean.getTags()));
-            this.ocZ.getActivity().finish();
+            this.omR.getActivity().finish();
         }
     }
 
     public void onDestroy() {
-        this.oda.onDestroy();
+        this.omS.onDestroy();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (this.hasMore) {
-            this.oda.dXx();
-            Vo();
+            this.omS.dZI();
+            WX();
         }
     }
 
-    public void Vo() {
-        this.gxy.setTopExtraViewGone();
-        this.gxy.startLoadData();
-        this.gxy.setText(this.ikg.getContext().getString(R.string.list_loading));
-        this.gxy.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+    public void WX() {
+        this.gAi.setTopExtraViewGone();
+        this.gAi.startLoadData();
+        this.gAi.setText(this.ipO.getContext().getString(R.string.list_loading));
+        this.gAi.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
     }
 
-    public void Ut(String str) {
+    public void Vr(String str) {
         this.mDataList.clear();
         this.hasMore = true;
-        this.feo = str;
+        this.fgE = str;
         this.mAdapter.notifyDataSetChanged();
-        this.oda.Ut(str);
+        this.omS.Vr(str);
     }
 
     public BdRecyclerView getListView() {
-        return this.ikg;
+        return this.ipO;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ListViewHolder extends RecyclerView.ViewHolder {
-        private final View odc;
-        ItemCardView odd;
+        ItemCardView mbH;
+        private final View omU;
 
         public ListViewHolder(View view) {
             super(view);
-            this.odd = (ItemCardView) view.findViewById(R.id.item_rate_info);
-            this.odd.setBackGroundColor(R.color.transparent_1);
-            this.odd.setSizeStyle(1);
-            this.odc = view.findViewById(R.id.bottom_divider);
-            ao.setBackgroundColor(this.odc, R.color.CAM_X0203);
+            this.mbH = (ItemCardView) view.findViewById(R.id.item_rate_info);
+            this.mbH.setBackGroundColor(R.color.transparent_1);
+            this.mbH.setSizeStyle(1);
+            this.omU = view.findViewById(R.id.bottom_divider);
+            ap.setBackgroundColor(this.omU, R.color.CAM_X0203);
         }
 
         public void a(ReleavanceItemListData.ItemListBean itemListBean, String str) {
@@ -195,8 +195,8 @@ public class RelevanceItemListController implements BdListView.e, BdRecyclerView
                     e.printStackTrace();
                 }
                 tbRichTextEvaluateItemInfo.setTags(itemListBean.getTags());
-                this.odd.setHighLightText(str + "");
-                this.odd.setData(tbRichTextEvaluateItemInfo, 10);
+                this.mbH.setHighLightText(str + "");
+                this.mbH.setData(tbRichTextEvaluateItemInfo, 10);
             }
         }
     }

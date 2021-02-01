@@ -11,11 +11,11 @@ import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.ObjectStreamException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a {
 
     /* renamed from: com.baidu.android.pushservice.h.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class C0060a extends GeneratedMessageLite implements b {
 
         /* renamed from: a  reason: collision with root package name */
@@ -41,7 +41,7 @@ public final class a {
         private int k;
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes5.dex */
         public static final class C0061a extends GeneratedMessageLite implements b {
 
             /* renamed from: a  reason: collision with root package name */
@@ -62,7 +62,7 @@ public final class a {
             private int f;
 
             /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes14.dex */
+            /* loaded from: classes5.dex */
             public static final class C0062a extends GeneratedMessageLite.Builder<C0061a, C0062a> implements b {
 
                 /* renamed from: a  reason: collision with root package name */
@@ -337,12 +337,12 @@ public final class a {
         }
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$b */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes5.dex */
         public interface b extends MessageLiteOrBuilder {
         }
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$c */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes5.dex */
         public static final class c extends GeneratedMessageLite.Builder<C0060a, c> implements b {
 
             /* renamed from: a  reason: collision with root package name */
@@ -837,11 +837,11 @@ public final class a {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface b extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class c extends GeneratedMessageLite implements d {
 
         /* renamed from: a  reason: collision with root package name */
@@ -864,7 +864,7 @@ public final class a {
         private int h;
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$c$a  reason: collision with other inner class name */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes5.dex */
         public static final class C0063a extends GeneratedMessageLite.Builder<c, C0063a> implements d {
 
             /* renamed from: a  reason: collision with root package name */
@@ -1219,7 +1219,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface d extends MessageLiteOrBuilder {
     }
 }

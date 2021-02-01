@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.attention.AttentionView;
 import com.baidu.tieba.lately.LatelyView;
 import java.util.ArrayList;
@@ -13,18 +13,18 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class SelectForumPagerAdapter extends PagerAdapter {
     private TbPageContext<SelectForumActivity> mPageContext;
-    private int gcz = -1;
-    private List<d> gcy = new ArrayList();
+    private int geO = -1;
+    private List<d> geN = new ArrayList();
 
     public SelectForumPagerAdapter(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.gcy.add(new LatelyView(this.mPageContext.getPageActivity()));
-        this.gcy.add(new AttentionView(this.mPageContext.getPageActivity()));
+        this.geN.add(new LatelyView(this.mPageContext.getPageActivity()));
+        this.geN.add(new AttentionView(this.mPageContext.getPageActivity()));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return x.getCount(this.gcy);
+        return y.getCount(this.geN);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -34,7 +34,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        return x.getItem(this.gcy, i) == null ? "" : ((d) x.getItem(this.gcy, i)).getTitle();
+        return y.getItem(this.geN, i) == null ? "" : ((d) y.getItem(this.geN, i)).getTitle();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,7 +42,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @NonNull
     /* renamed from: r */
     public d instantiateItem(@NonNull ViewGroup viewGroup, int i) {
-        d dVar = (d) x.getItem(this.gcy, i);
+        d dVar = (d) y.getItem(this.geN, i);
         if (dVar instanceof View) {
             if (((View) dVar).getParent() != null) {
                 viewGroup.removeView((View) dVar);
@@ -55,17 +55,17 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.gcz != i) {
-            this.gcz = i;
-            d dVar = (d) x.getItem(this.gcy, i);
+        if (this.geO != i) {
+            this.geO = i;
+            d dVar = (d) y.getItem(this.geN, i);
             if (dVar != null) {
                 dVar.aB(null);
             }
         }
     }
 
-    public void bKf() {
-        for (d dVar : this.gcy) {
+    public void bKz() {
+        for (d dVar : this.geN) {
             dVar.onChangeSkinType();
         }
     }
@@ -76,7 +76,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     }
 
     public void onDestroy() {
-        for (d dVar : this.gcy) {
+        for (d dVar : this.geN) {
             dVar.onDestroy();
         }
     }

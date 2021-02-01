@@ -17,7 +17,7 @@ import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.ck;
+import com.baidu.live.data.cr;
 import com.baidu.live.gift.z;
 import com.baidu.live.im.b.c;
 import com.baidu.live.im.b.d;
@@ -27,30 +27,30 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.widget.flex.FlexAdapter;
 import com.baidu.live.tbadk.widget.flex.FlexLayout;
 import com.baidu.live.view.Switch;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends Dialog {
-    private InterfaceC0241a bZY;
-    private b bZZ;
-    private com.baidu.live.im.b.b bmO;
-    private c bmQ;
-    private FrameLayout bmR;
-    private FrameLayout bmS;
-    private Switch bmT;
-    private FlexLayout buA;
-    private BdPageContext buC;
-    private View buz;
+    private com.baidu.live.im.b.b bqp;
+    private c bqr;
+    private FrameLayout bqs;
+    private FrameLayout bqt;
+    private Switch bqu;
+    private View bxW;
+    private FlexLayout bxX;
+    private BdPageContext bxZ;
+    private InterfaceC0242a cee;
+    private b cef;
     private View mContentView;
 
     /* renamed from: com.baidu.live.yuyinquick.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0241a {
-        boolean IJ();
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0242a {
+        boolean KW();
 
-        int IP();
+        boolean Kh();
 
-        boolean Jy();
+        int Kn();
 
-        void b(int i, String str, ck ckVar);
+        void b(int i, String str, cr crVar);
 
         void onDismiss();
 
@@ -59,12 +59,12 @@ public class a extends Dialog {
 
     public a(@NonNull BdPageContext bdPageContext) {
         super(bdPageContext.getPageActivity(), a.i.sdk_TransparentDialog);
-        this.buC = bdPageContext;
+        this.bxZ = bdPageContext;
         init();
     }
 
-    public void a(InterfaceC0241a interfaceC0241a) {
-        this.bZY = interfaceC0241a;
+    public void a(InterfaceC0242a interfaceC0242a) {
+        this.cee = interfaceC0242a;
     }
 
     public void a(String[] strArr, boolean z) {
@@ -76,29 +76,29 @@ public class a extends Dialog {
                 @Override // java.lang.Runnable
                 public void run() {
                     ViewGroup.LayoutParams layoutParams;
-                    if (a.this.buA != null && (layoutParams = a.this.buA.getLayoutParams()) != null) {
-                        layoutParams.height = a.this.buA.realHeight;
-                        a.this.buA.setLayoutParams(layoutParams);
+                    if (a.this.bxX != null && (layoutParams = a.this.bxX.getLayoutParams()) != null) {
+                        layoutParams.height = a.this.bxX.realHeight;
+                        a.this.bxX.setLayoutParams(layoutParams);
                     }
-                    a.this.Fn();
+                    a.this.GD();
                 }
             });
         }
     }
 
-    public void NV() {
-        if (this.bmQ != null) {
-            this.bmQ.f(z.DO().DQ());
+    public void Pu() {
+        if (this.bqr != null) {
+            this.bqr.f(z.Fe().Fg());
         }
     }
 
     private void init() {
-        FP();
+        Hf();
         initView();
-        Dn();
+        ED();
     }
 
-    private void FP() {
+    private void Hf() {
         Window window = getWindow();
         if (window != null) {
             window.setBackgroundDrawableResource(17170445);
@@ -117,68 +117,68 @@ public class a extends Dialog {
         setCanceledOnTouchOutside(true);
         this.mContentView = LayoutInflater.from(getContext()).inflate(a.g.ala_yuyin_im_quick_input_list, (ViewGroup) null);
         setContentView(this.mContentView);
-        this.buz = findViewById(a.f.layout_barrage);
-        this.bmT = (Switch) findViewById(a.f.switch_barrage);
-        this.buA = (FlexLayout) findViewById(a.f.flex);
-        this.bmS = (FrameLayout) findViewById(a.f.barrage_preview);
-        this.bmR = (FrameLayout) findViewById(a.f.hlv_barrage_option);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501050, c.class, this.buC);
+        this.bxW = findViewById(a.f.layout_barrage);
+        this.bqu = (Switch) findViewById(a.f.switch_barrage);
+        this.bxX = (FlexLayout) findViewById(a.f.flex);
+        this.bqt = (FrameLayout) findViewById(a.f.barrage_preview);
+        this.bqs = (FrameLayout) findViewById(a.f.hlv_barrage_option);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501050, c.class, this.bxZ);
         if (runTask != null) {
-            this.bmQ = (c) runTask.getData();
+            this.bqr = (c) runTask.getData();
         }
-        if (this.bmQ != null) {
-            this.bmR.addView(this.bmQ.getView());
+        if (this.bqr != null) {
+            this.bqs.addView(this.bqr.getView());
         }
-        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2501051, com.baidu.live.im.b.b.class, this.buC);
+        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2501051, com.baidu.live.im.b.b.class, this.bxZ);
         if (runTask2 != null) {
-            this.bmO = (com.baidu.live.im.b.b) runTask2.getData();
+            this.bqp = (com.baidu.live.im.b.b) runTask2.getData();
         }
-        if (this.bmO != null) {
-            this.bmS.addView(this.bmO.getView());
-            this.bmS.setVisibility(8);
+        if (this.bqp != null) {
+            this.bqt.addView(this.bqp.getView());
+            this.bqt.setVisibility(8);
         }
-        this.bmT.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.yuyinquick.a.2
+        this.bqu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.yuyinquick.a.2
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                a.this.cl(z);
+                a.this.cu(z);
             }
         });
-        if (this.bmQ != null) {
-            this.bmQ.setSelectEnabled(false);
-            this.bmQ.setCallback(new e() { // from class: com.baidu.live.yuyinquick.a.3
+        if (this.bqr != null) {
+            this.bqr.setSelectEnabled(false);
+            this.bqr.setCallback(new e() { // from class: com.baidu.live.yuyinquick.a.3
                 @Override // com.baidu.live.im.b.e
-                public boolean Jy() {
-                    return a.this.bZY != null && a.this.bZY.Jy();
+                public boolean KW() {
+                    return a.this.cee != null && a.this.cee.KW();
                 }
 
                 @Override // com.baidu.live.im.b.e
-                public void dv(int i) {
-                    a.this.cm(false);
+                public void dB(int i) {
+                    a.this.cv(false);
                 }
 
                 @Override // com.baidu.live.im.b.e
-                public int IP() {
-                    if (a.this.bZY != null) {
-                        return a.this.bZY.IP();
+                public int Kn() {
+                    if (a.this.cee != null) {
+                        return a.this.cee.Kn();
                     }
                     return 0;
                 }
             });
         }
-        this.buA.setHorizontalSpacing(getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds20));
-        this.buA.setVerticalSpacing(getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds24));
-        this.buA.setOnItemClickListener(new FlexLayout.OnItemClickListener() { // from class: com.baidu.live.yuyinquick.a.4
+        this.bxX.setHorizontalSpacing(getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds20));
+        this.bxX.setVerticalSpacing(getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds24));
+        this.bxX.setOnItemClickListener(new FlexLayout.OnItemClickListener() { // from class: com.baidu.live.yuyinquick.a.4
             @Override // com.baidu.live.tbadk.widget.flex.FlexLayout.OnItemClickListener
             public void onItemClick(FlexLayout flexLayout, View view, int i) {
-                ck ckVar;
-                if (a.this.bZY != null) {
-                    if (a.this.buz.getVisibility() == 0 && a.this.bmT.isChecked() && a.this.bmQ != null) {
-                        ck selectInfo = a.this.bmQ.getSelectInfo();
-                        if (selectInfo != null && selectInfo.type == 16 && (a.this.bZY == null || !a.this.bZY.Jy())) {
+                cr crVar;
+                if (a.this.cee != null) {
+                    if (a.this.bxW.getVisibility() == 0 && a.this.bqu.isChecked() && a.this.bqr != null) {
+                        cr selectInfo = a.this.bqr.getSelectInfo();
+                        if (selectInfo != null && selectInfo.type == 16 && (a.this.cee == null || !a.this.cee.KW())) {
                             BdUtilHelper.showToast(a.this.getContext().getApplicationContext(), a.h.sdk_throne_disabled_alert);
                             return;
-                        } else if (selectInfo != null && selectInfo.type == 17 && selectInfo.aOT > a.this.bZY.IP()) {
-                            if (selectInfo.aOT == 7) {
+                        } else if (selectInfo != null && selectInfo.type == 17 && selectInfo.aRV > a.this.cee.Kn()) {
+                            if (selectInfo.aRV == 7) {
                                 BdUtilHelper.showToast(a.this.getContext().getApplicationContext(), a.h.sdk_noble_king_disabled_alert);
                                 return;
                             } else {
@@ -186,88 +186,88 @@ public class a extends Dialog {
                                 return;
                             }
                         } else {
-                            ckVar = selectInfo;
+                            crVar = selectInfo;
                         }
                     } else {
-                        ckVar = null;
+                        crVar = null;
                     }
-                    a.this.bZY.b(i, a.this.bZZ.getItem(i), ckVar);
+                    a.this.cee.b(i, a.this.cef.getItem(i), crVar);
                 }
             }
         });
     }
 
-    private void Dn() {
+    private void ED() {
         setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.live.yuyinquick.a.5
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
-                if (a.this.bZY != null) {
-                    a.this.bZY.onShow();
+                if (a.this.cee != null) {
+                    a.this.cee.onShow();
                 }
             }
         });
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.live.yuyinquick.a.6
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (a.this.bmO != null) {
-                    a.this.bmO.release();
+                if (a.this.bqp != null) {
+                    a.this.bqp.release();
                 }
-                if (a.this.bZY != null) {
-                    a.this.bZY.onDismiss();
+                if (a.this.cee != null) {
+                    a.this.cee.onDismiss();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cl(boolean z) {
-        if (z && this.bZY != null && !this.bZY.IJ()) {
-            this.bmT.setChecked(false, false);
-        } else if (this.bmQ != null) {
+    public void cu(boolean z) {
+        if (z && this.cee != null && !this.cee.Kh()) {
+            this.bqu.setChecked(false, false);
+        } else if (this.bqr != null) {
             if (z) {
-                this.bmQ.setSwitchStatus(true);
-                if (!TextUtils.isEmpty(d.Jp().Jt())) {
-                    this.bmQ.setSelectId(d.Jp().Jt());
+                this.bqr.setSwitchStatus(true);
+                if (!TextUtils.isEmpty(d.KN().KR())) {
+                    this.bqr.setSelectId(d.KN().KR());
                 } else {
-                    this.bmQ.setSelectPos(0);
+                    this.bqr.setSelectPos(0);
                 }
-                this.bmQ.setSelectEnabled(true);
-                cm(true);
+                this.bqr.setSelectEnabled(true);
+                cv(true);
                 return;
             }
-            this.bmQ.setSwitchStatus(false);
-            this.bmQ.setSelectEnabled(false);
-            this.bmS.setVisibility(8);
+            this.bqr.setSwitchStatus(false);
+            this.bqr.setSelectEnabled(false);
+            this.bqt.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cm(boolean z) {
-        if (z && this.bmO != null) {
-            this.bmO.setPreview();
+    public void cv(boolean z) {
+        if (z && this.bqp != null) {
+            this.bqp.setPreview();
         }
-        if (this.bmO != null && this.bmQ != null) {
-            this.bmO.setUIInfo(this.bmQ.getSelectInfo(), z);
+        if (this.bqp != null && this.bqr != null) {
+            this.bqp.setUIInfo(this.bqr.getSelectInfo(), z);
         }
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            this.bmS.setVisibility(8);
-        } else if (this.bmT != null && this.bmT.isChecked()) {
-            this.bmS.setVisibility(0);
+            this.bqt.setVisibility(8);
+        } else if (this.bqu != null && this.bqu.isChecked()) {
+            this.bqt.setVisibility(0);
         }
     }
 
     private void n(String[] strArr) {
-        if (this.bZZ == null) {
-            this.bZZ = new b(strArr);
-            this.buA.setAdapter(this.bZZ);
+        if (this.cef == null) {
+            this.cef = new b(strArr);
+            this.bxX.setAdapter(this.cef);
             return;
         }
-        this.bZZ.setDatas(strArr);
-        this.bZZ.notifyDataSetChanged();
+        this.cef.setDatas(strArr);
+        this.cef.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Fn() {
+    public void GD() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new LinearInterpolator());
@@ -276,7 +276,7 @@ public class a extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b extends FlexAdapter<String> {
         b(String[] strArr) {
             super(strArr);

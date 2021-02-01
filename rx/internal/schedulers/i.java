@@ -1,32 +1,32 @@
 package rx.internal.schedulers;
 
 import rx.g;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 class i implements rx.functions.a {
-    private final long qhs;
-    private final rx.functions.a qsK;
-    private final g.a qsL;
+    private final rx.functions.a qCN;
+    private final g.a qCO;
+    private final long qrw;
 
     public i(rx.functions.a aVar, g.a aVar2, long j) {
-        this.qsK = aVar;
-        this.qsL = aVar2;
-        this.qhs = j;
+        this.qCN = aVar;
+        this.qCO = aVar2;
+        this.qrw = j;
     }
 
     @Override // rx.functions.a
     public void call() {
-        if (!this.qsL.isUnsubscribed()) {
-            long now = this.qhs - this.qsL.now();
+        if (!this.qCO.isUnsubscribed()) {
+            long now = this.qrw - this.qCO.now();
             if (now > 0) {
                 try {
                     Thread.sleep(now);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
-                    rx.exceptions.a.t(e);
+                    rx.exceptions.a.s(e);
                 }
             }
-            if (!this.qsL.isUnsubscribed()) {
-                this.qsK.call();
+            if (!this.qCO.isUnsubscribed()) {
+                this.qCN.call();
             }
         }
     }

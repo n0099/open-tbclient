@@ -9,9 +9,9 @@ import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
 import com.baidu.tieba.addresslist.relationship.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends j {
-    private boolean gfZ;
+    private boolean gip;
 
     public b() {
         super(CmdConfigSocket.CMD_GET_ADDRESSLIST);
@@ -23,13 +23,13 @@ public class b extends j {
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
             com.baidu.tieba.addresslist.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-            this.gfZ = TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.START_OFFICIAL_BAR_CHAT);
+            this.gip = TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.START_OFFICIAL_BAR_CHAT);
             if (addressListData != null) {
                 for (e eVar : addressListData.getAddressList()) {
                     List<com.baidu.tbadk.coreExtra.relationship.a> contacts = eVar.getContacts();
                     ArrayList arrayList = new ArrayList();
                     for (com.baidu.tbadk.coreExtra.relationship.a aVar : contacts) {
-                        if (!this.gfZ && aVar.getUserType() == 1) {
+                        if (!this.gip && aVar.getUserType() == 1) {
                             arrayList.add(aVar);
                         }
                     }

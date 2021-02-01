@@ -4,11 +4,11 @@ import android.content.Context;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, d> f5199a = new HashMap();
+    private static Map<String, d> f5201a = new HashMap();
 
     public static void a(Context context, int i, File file, File file2) {
         if (file != null) {
@@ -19,10 +19,10 @@ public final class c {
                     }
                     new StringBuilder("f=").append(file).append(", b=").append(file2);
                     b.a();
-                    if (!f5199a.containsKey(file.getAbsolutePath())) {
+                    if (!f5201a.containsKey(file.getAbsolutePath())) {
                         d dVar = new d(context, i, file.getAbsolutePath(), file2.getAbsolutePath());
                         dVar.startWatching();
-                        f5199a.put(file.getAbsolutePath(), dVar);
+                        f5201a.put(file.getAbsolutePath(), dVar);
                     }
                 }
             } catch (Throwable th) {
@@ -36,10 +36,10 @@ public final class c {
             try {
                 new StringBuilder("f=").append(file.getAbsolutePath());
                 b.a();
-                d dVar = f5199a.get(file.getAbsolutePath());
+                d dVar = f5201a.get(file.getAbsolutePath());
                 if (dVar != null) {
                     dVar.stopWatching();
-                    f5199a.remove(file.getAbsolutePath());
+                    f5201a.remove(file.getAbsolutePath());
                     dVar.a();
                 }
             } catch (Throwable th) {

@@ -16,7 +16,7 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import org.apache.http.client.methods.HttpHead;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g extends com.bytedance.sdk.openadsdk.j.a {
     private final Socket m;
     private final c n;
@@ -24,7 +24,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
     private volatile com.bytedance.sdk.openadsdk.j.b p;
     private volatile boolean q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a(g gVar);
 
@@ -32,7 +32,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
     }
 
     g(a aVar) {
-        super(aVar.f7284a, aVar.f7285b);
+        super(aVar.f7286a, aVar.f7287b);
         this.q = true;
         this.m = aVar.c;
         this.n = aVar.d;
@@ -43,7 +43,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
         try {
             this.i = i.a(this.m.getInputStream());
             OutputStream outputStream = this.m.getOutputStream();
-            com.bytedance.sdk.openadsdk.j.a.a aVar = this.i.c.f7299a == 1 ? e.f7256a : e.f7257b;
+            com.bytedance.sdk.openadsdk.j.a.a aVar = this.i.c.f7301a == 1 ? e.f7258a : e.f7259b;
             if (aVar == null) {
                 if (e.c) {
                     Log.e("TAG_PROXY_ProxyTask", "cache is null");
@@ -51,11 +51,11 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
                 }
                 return null;
             }
-            this.f7217a = aVar;
-            this.g = this.i.c.f7300b;
+            this.f7219a = aVar;
+            this.g = this.i.c.f7302b;
             this.h = this.i.c.c;
             this.j = new l(this.i.c.g);
-            this.f = this.i.f7298b;
+            this.f = this.i.f7300b;
             if (e.c) {
                 Log.i("TAG_PROXY_ProxyTask", "request from MediaPlayer:    " + this.i.toString());
             }
@@ -65,14 +65,14 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
             if (e.c) {
                 Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(e));
             }
-            a(this.f7217a == null ? null : Boolean.valueOf(g()), this.g, e);
+            a(this.f7219a == null ? null : Boolean.valueOf(g()), this.g, e);
             return null;
         } catch (IOException e2) {
             com.bytedance.sdk.openadsdk.j.g.d.a(this.m);
             if (e.c) {
                 Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(e2));
             }
-            a(this.f7217a == null ? null : Boolean.valueOf(g()), this.g, e2);
+            a(this.f7219a == null ? null : Boolean.valueOf(g()), this.g, e2);
             return null;
         }
     }
@@ -85,8 +85,8 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
             if (this.n != null) {
                 this.n.a(this);
             }
-            this.f7217a.a(this.h);
-            if (e.h != 0 && ((a2 = this.f7218b.a(this.h, this.i.c.f7299a)) == null || this.f7217a.c(this.h).length() < a2.c)) {
+            this.f7219a.a(this.h);
+            if (e.h != 0 && ((a2 = this.f7220b.a(this.h, this.i.c.f7301a)) == null || this.f7219a.c(this.h).length() < a2.c)) {
                 this.o.a(g(), this.h);
             }
             try {
@@ -102,7 +102,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
                     Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(th));
                 }
             }
-            this.f7217a.b(this.h);
+            this.f7219a.b(this.h);
             this.o.a(g(), null);
             a();
             com.bytedance.sdk.openadsdk.j.g.d.a(this.m);
@@ -168,7 +168,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
     }
 
     private void a(b bVar, l.a aVar) throws com.bytedance.sdk.openadsdk.j.c.d, IOException, h.a, com.bytedance.sdk.openadsdk.j.c.a, com.bytedance.sdk.openadsdk.j.c.b, VAdError {
-        if (HttpHead.METHOD_NAME.equalsIgnoreCase(this.i.f7297a.f7303a)) {
+        if (HttpHead.METHOD_NAME.equalsIgnoreCase(this.i.f7299a.f7305a)) {
             b(bVar, aVar);
         } else {
             c(bVar, aVar);
@@ -176,7 +176,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
     }
 
     private void b(b bVar, l.a aVar) throws IOException, com.bytedance.sdk.openadsdk.j.c.d, VAdError {
-        byte[] a2 = a(this.f7218b.a(this.h, this.i.c.f7299a), bVar, aVar);
+        byte[] a2 = a(this.f7220b.a(this.h, this.i.c.f7301a), bVar, aVar);
         if (a2 != null) {
             bVar.a(a2, 0, a2.length);
         }
@@ -184,9 +184,9 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
 
     private void c(b bVar, l.a aVar) throws h.a, com.bytedance.sdk.openadsdk.j.c.d, IOException, com.bytedance.sdk.openadsdk.j.c.a, com.bytedance.sdk.openadsdk.j.c.b, VAdError {
         if (this.q) {
-            File c2 = this.f7217a.c(this.h);
+            File c2 = this.f7219a.c(this.h);
             long length = c2.length();
-            com.bytedance.sdk.openadsdk.j.b.a a2 = this.f7218b.a(this.h, this.i.c.f7299a);
+            com.bytedance.sdk.openadsdk.j.b.a a2 = this.f7220b.a(this.h, this.i.c.f7301a);
             int b2 = bVar.b();
             int i = (int) (length - b2);
             int i2 = a2 == null ? -1 : a2.c;
@@ -213,7 +213,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
             if (e.c) {
                 Log.i("TAG_PROXY_ProxyTask", "get header from db");
             }
-            return com.bytedance.sdk.openadsdk.j.g.d.a(aVar, bVar.b()).getBytes(com.bytedance.sdk.openadsdk.j.g.d.f7293a);
+            return com.bytedance.sdk.openadsdk.j.g.d.a(aVar, bVar.b()).getBytes(com.bytedance.sdk.openadsdk.j.g.d.f7295a);
         }
         com.bytedance.sdk.openadsdk.j.e.a a2 = a(aVar2, 0, -1, HttpHead.METHOD_NAME);
         if (a2 == null) {
@@ -224,11 +224,11 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
             if (a3 != null) {
                 throw new com.bytedance.sdk.openadsdk.j.c.c(a3 + ", rawKey: " + this.g + ", url: " + aVar2);
             }
-            com.bytedance.sdk.openadsdk.j.b.a a4 = com.bytedance.sdk.openadsdk.j.g.d.a(a2, this.f7218b, this.h, this.i.c.f7299a);
+            com.bytedance.sdk.openadsdk.j.b.a a4 = com.bytedance.sdk.openadsdk.j.g.d.a(a2, this.f7220b, this.h, this.i.c.f7301a);
             if (e.c) {
                 Log.w("TAG_PROXY_ProxyTask", "get header from network");
             }
-            return com.bytedance.sdk.openadsdk.j.g.d.a(a4, bVar.b()).getBytes(com.bytedance.sdk.openadsdk.j.g.d.f7293a);
+            return com.bytedance.sdk.openadsdk.j.g.d.a(a4, bVar.b()).getBytes(com.bytedance.sdk.openadsdk.j.g.d.f7295a);
         } finally {
             com.bytedance.sdk.openadsdk.j.g.d.a(a2.d());
         }
@@ -247,12 +247,12 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
                 return;
             }
         }
-        if (aVar == null && (aVar = this.f7218b.a(this.h, this.i.c.f7299a)) == null) {
+        if (aVar == null && (aVar = this.f7220b.a(this.h, this.i.c.f7301a)) == null) {
             if (e.c) {
                 Log.e("TAG_PROXY_ProxyTask", "failed to get video header info from db");
             }
             a((com.bytedance.sdk.openadsdk.j.b.a) null, bVar, aVar2);
-            aVar = this.f7218b.a(this.h, this.i.c.f7299a);
+            aVar = this.f7220b.a(this.h, this.i.c.f7301a);
             if (aVar == null) {
                 throw new com.bytedance.sdk.openadsdk.j.c.c("failed to get header, rawKey: " + this.g + ", url: " + aVar2);
             }
@@ -260,8 +260,8 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
         if (file.length() >= aVar.c || !((bVar3 = this.p) == null || bVar3.b() || bVar3.d())) {
             bVar2 = null;
         } else {
-            com.bytedance.sdk.openadsdk.j.b a3 = new b.a().a(this.f7217a).a(this.f7218b).a(this.g).b(this.h).a(new l(aVar2.f7309a)).a(this.f).a(this.i).a(new b.InterfaceC1018b() { // from class: com.bytedance.sdk.openadsdk.j.g.1
-                @Override // com.bytedance.sdk.openadsdk.j.b.InterfaceC1018b
+            com.bytedance.sdk.openadsdk.j.b a3 = new b.a().a(this.f7219a).a(this.f7220b).a(this.g).b(this.h).a(new l(aVar2.f7311a)).a(this.f).a(this.i).a(new b.InterfaceC1022b() { // from class: com.bytedance.sdk.openadsdk.j.g.1
+                @Override // com.bytedance.sdk.openadsdk.j.b.InterfaceC1022b
                 public void a(com.bytedance.sdk.openadsdk.j.b bVar4) {
                     g.this.c.addAndGet(bVar4.c.get());
                     g.this.d.addAndGet(bVar4.d.get());
@@ -393,7 +393,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
             if (a3 != null) {
                 throw new com.bytedance.sdk.openadsdk.j.c.c(a3 + ", rawKey: " + this.g + ", url: " + aVar);
             }
-            com.bytedance.sdk.openadsdk.j.b.a a4 = this.f7218b.a(this.h, f());
+            com.bytedance.sdk.openadsdk.j.b.a a4 = this.f7220b.a(this.h, f());
             int a5 = com.bytedance.sdk.openadsdk.j.g.d.a(a2);
             if (a4 != null && a4.c != a5) {
                 if (e.c) {
@@ -404,18 +404,18 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
             if (!bVar.a()) {
                 String a6 = com.bytedance.sdk.openadsdk.j.g.d.a(a2, b2);
                 e();
-                byte[] bytes = a6.getBytes(com.bytedance.sdk.openadsdk.j.g.d.f7293a);
+                byte[] bytes = a6.getBytes(com.bytedance.sdk.openadsdk.j.g.d.f7295a);
                 bVar.a(bytes, 0, bytes.length);
             }
             e();
-            File d2 = this.f7217a.d(this.h);
+            File d2 = this.f7219a.d(this.h);
             if (!this.q || d2 == null || d2.length() < bVar.b()) {
                 if (e.c) {
                     Log.w("TAG_PROXY_ProxyTask", "can't write to cache file in network task, cache file size: " + d2.length() + ", from: " + bVar.b());
                 }
                 hVar = null;
             } else {
-                com.bytedance.sdk.openadsdk.j.g.d.a(a2, this.f7218b, this.h, this.i.c.f7299a);
+                com.bytedance.sdk.openadsdk.j.g.d.a(a2, this.f7220b, this.h, this.i.c.f7301a);
                 try {
                     hVar2 = new h(d2, "rwd");
                     try {
@@ -427,7 +427,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
                             hVar2 = null;
                             if (e.c) {
                             }
-                            com.bytedance.sdk.openadsdk.j.b.a a7 = this.f7218b.a(this.h, f());
+                            com.bytedance.sdk.openadsdk.j.b.a a7 = this.f7220b.a(this.h, f());
                             if (a7 != null) {
                             }
                             bArr = new byte[8192];
@@ -482,7 +482,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
                 }
             }
             try {
-                com.bytedance.sdk.openadsdk.j.b.a a72 = this.f7218b.a(this.h, f());
+                com.bytedance.sdk.openadsdk.j.b.a a72 = this.f7220b.a(this.h, f());
                 int i3 = a72 != null ? 0 : a72.c;
                 bArr = new byte[8192];
                 d = a2.d();
@@ -537,19 +537,19 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final OutputStream f7287a;
+        private final OutputStream f7289a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f7288b;
+        private int f7290b;
         private boolean c;
 
         b(OutputStream outputStream, int i) {
-            this.f7287a = outputStream;
-            this.f7288b = i;
+            this.f7289a = outputStream;
+            this.f7290b = i;
         }
 
         boolean a() {
@@ -559,7 +559,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
         void a(byte[] bArr, int i, int i2) throws com.bytedance.sdk.openadsdk.j.c.d {
             if (!this.c) {
                 try {
-                    this.f7287a.write(bArr, i, i2);
+                    this.f7289a.write(bArr, i, i2);
                     this.c = true;
                 } catch (IOException e) {
                     throw new com.bytedance.sdk.openadsdk.j.c.d(e);
@@ -569,26 +569,26 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
 
         void b(byte[] bArr, int i, int i2) throws com.bytedance.sdk.openadsdk.j.c.d {
             try {
-                this.f7287a.write(bArr, i, i2);
-                this.f7288b += i2;
+                this.f7289a.write(bArr, i, i2);
+                this.f7290b += i2;
             } catch (IOException e) {
                 throw new com.bytedance.sdk.openadsdk.j.c.d(e);
             }
         }
 
         int b() {
-            return this.f7288b;
+            return this.f7290b;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        com.bytedance.sdk.openadsdk.j.a.a f7284a;
+        com.bytedance.sdk.openadsdk.j.a.a f7286a;
 
         /* renamed from: b  reason: collision with root package name */
-        com.bytedance.sdk.openadsdk.j.b.c f7285b;
+        com.bytedance.sdk.openadsdk.j.b.c f7287b;
         Socket c;
         c d;
 
@@ -597,7 +597,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
             if (cVar == null) {
                 throw new IllegalArgumentException("db == null");
             }
-            this.f7285b = cVar;
+            this.f7287b = cVar;
             return this;
         }
 
@@ -618,7 +618,7 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public g a() {
-            if (this.f7285b == null || this.c == null) {
+            if (this.f7287b == null || this.c == null) {
                 throw new IllegalArgumentException();
             }
             return new g(this);

@@ -17,21 +17,21 @@ import android.widget.ImageView;
 import android.widget.TextSwitcher;
 import com.baidu.live.guardclub.f;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private ImageView aBH;
-    private f gYA;
-    private GradientDrawable gYC;
-    private GradientDrawable gYD;
-    private AnimatorSet gYE;
-    private AnimatorSet gYF;
-    private ImageView gYx;
-    private TextSwitcher gYy;
+    private ImageView aDu;
+    private ImageView hbh;
+    private TextSwitcher hbi;
+    private f hbk;
+    private GradientDrawable hbm;
+    private GradientDrawable hbn;
+    private AnimatorSet hbo;
+    private AnimatorSet hbp;
     private boolean isHost;
     private Context mContext;
     private View mView;
-    private boolean gYz = true;
-    private boolean gYB = false;
+    private boolean hbj = true;
+    private boolean hbl = false;
 
     public b(Context context, boolean z, View.OnClickListener onClickListener) {
         this.mContext = context;
@@ -42,10 +42,10 @@ public class b {
     private void u(View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.live_guard_club_widget_entry, (ViewGroup) null);
         this.mView.setId(a.f.guard_club_entry_id);
-        this.gYx = (ImageView) this.mView.findViewById(a.f.iv_flag);
-        this.gYy = (TextSwitcher) this.mView.findViewById(a.f.ts_display);
-        this.aBH = (ImageView) this.mView.findViewById(a.f.iv_light);
-        aX(0, "");
+        this.hbh = (ImageView) this.mView.findViewById(a.f.iv_flag);
+        this.hbi = (TextSwitcher) this.mView.findViewById(a.f.ts_display);
+        this.aDu = (ImageView) this.mView.findViewById(a.f.iv_light);
+        bc(0, "");
         this.mView.setOnClickListener(onClickListener);
     }
 
@@ -54,110 +54,110 @@ public class b {
         if (!this.isHost) {
             if (z) {
                 if (fVar != null && fVar.guardLevel > 0) {
-                    if (this.gYA != null && TextUtils.equals(this.gYA.aHi, fVar.aHi) && TextUtils.equals(this.gYA.bgg, fVar.bgg)) {
-                        if (fVar.guardLevel != this.gYA.guardLevel) {
-                            this.gYy.setText("Lv." + fVar.guardLevel + "级");
+                    if (this.hbk != null && TextUtils.equals(this.hbk.aJM, fVar.aJM) && TextUtils.equals(this.hbk.bjp, fVar.bjp)) {
+                        if (fVar.guardLevel != this.hbk.guardLevel) {
+                            this.hbi.setText("Lv." + fVar.guardLevel + "级");
                             return;
                         }
                         return;
                     }
-                    this.gYA = fVar;
+                    this.hbk = fVar;
                     str = "Lv." + fVar.guardLevel + "级";
                 } else {
                     str = "Lv.1级";
                 }
             } else {
-                aX(0, "");
-                if (this.gYB || z) {
+                bc(0, "");
+                if (this.hbl || z) {
                     str = null;
                 } else {
-                    this.gYz = this.gYz ? false : true;
+                    this.hbj = this.hbj ? false : true;
                     return;
                 }
             }
-            this.gYB = z;
+            this.hbl = z;
             if (!TextUtils.isEmpty(str)) {
-                Gw(str);
+                GV(str);
             }
         }
     }
 
-    private Drawable bVy() {
-        if (this.gYC != null) {
-            return this.gYC;
+    private Drawable bWc() {
+        if (this.hbm != null) {
+            return this.hbm;
         }
-        this.gYC = new GradientDrawable();
-        this.gYC.setShape(0);
-        this.gYC.setCornerRadius(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds24));
+        this.hbm = new GradientDrawable();
+        this.hbm.setShape(0);
+        this.hbm.setCornerRadius(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds24));
         if (Build.VERSION.SDK_INT >= 16) {
-            this.gYC.setColors(new int[]{-10026753, -48044});
-            this.gYC.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            this.hbm.setColors(new int[]{-10026753, -48044});
+            this.hbm.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
         }
-        return this.gYC;
+        return this.hbm;
     }
 
-    private Drawable bVz() {
-        if (this.gYD != null) {
-            return this.gYD;
+    private Drawable bWd() {
+        if (this.hbn != null) {
+            return this.hbn;
         }
-        this.gYD = new GradientDrawable();
-        this.gYD.setShape(0);
-        this.gYD.setCornerRadius(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds24));
+        this.hbn = new GradientDrawable();
+        this.hbn.setShape(0);
+        this.hbn.setCornerRadius(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds24));
         if (Build.VERSION.SDK_INT >= 16) {
-            this.gYD.setColors(new int[]{-9549573, -831008});
-            this.gYD.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            this.hbn.setColors(new int[]{-9549573, -831008});
+            this.hbn.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
         }
-        return this.gYD;
+        return this.hbn;
     }
 
-    private void Gw(final String str) {
+    private void GV(final String str) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mView, "scaleX", 1.0f, 0.7f);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mView, "scaleY", 1.0f, 0.7f);
         ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.mView, "alpha", 1.0f, 0.2f);
-        this.gYE = new AnimatorSet();
-        this.gYE.setDuration(333L);
-        this.gYE.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.gYE.play(ofFloat).with(ofFloat2).with(ofFloat3);
+        this.hbo = new AnimatorSet();
+        this.hbo.setDuration(333L);
+        this.hbo.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.hbo.play(ofFloat).with(ofFloat2).with(ofFloat3);
         ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.mView, "scaleX", 0.7f, 1.0f);
         ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.mView, "scaleY", 0.7f, 1.0f);
         ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.mView, "alpha", 0.2f, 1.0f);
-        this.gYF = new AnimatorSet();
-        this.gYF.setDuration(666L);
-        this.gYF.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.gYF.play(ofFloat4).with(ofFloat5).with(ofFloat6);
-        this.gYF.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.guardclub.view.b.1
+        this.hbp = new AnimatorSet();
+        this.hbp.setDuration(666L);
+        this.hbp.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.hbp.play(ofFloat4).with(ofFloat5).with(ofFloat6);
+        this.hbp.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.guardclub.view.b.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                b.this.aX(1, str);
+                b.this.bc(1, str);
             }
         });
-        this.gYE.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.guardclub.view.b.2
+        this.hbo.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.guardclub.view.b.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                b.this.gYF.start();
+                b.this.hbp.start();
             }
         });
-        this.gYE.start();
+        this.hbo.start();
     }
 
     public void reset() {
-        this.gYz = true;
-        this.gYA = null;
-        this.gYB = false;
-        aX(0, "");
+        this.hbj = true;
+        this.hbk = null;
+        this.hbl = false;
+        bc(0, "");
     }
 
     public void onDestroy() {
-        this.gYz = true;
-        this.gYA = null;
-        this.gYB = false;
-        if (this.gYE != null) {
-            this.gYE.cancel();
+        this.hbj = true;
+        this.hbk = null;
+        this.hbl = false;
+        if (this.hbo != null) {
+            this.hbo.cancel();
         }
-        if (this.gYF != null) {
-            this.gYF.cancel();
+        if (this.hbp != null) {
+            this.hbp.cancel();
         }
     }
 
@@ -166,19 +166,19 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aX(int i, String str) {
+    public void bc(int i, String str) {
         switch (i) {
             case 0:
-                this.mView.setBackgroundDrawable(bVy());
-                this.gYx.setImageResource(a.e.gcb_icon_enter_not_join);
-                this.gYy.setCurrentText(this.mContext.getString(a.h.guard_club));
-                this.aBH.setVisibility(0);
+                this.mView.setBackgroundDrawable(bWc());
+                this.hbh.setImageResource(a.e.gcb_icon_enter_not_join);
+                this.hbi.setCurrentText(this.mContext.getString(a.h.guard_club));
+                this.aDu.setVisibility(0);
                 return;
             case 1:
-                this.mView.setBackgroundDrawable(bVz());
-                this.gYx.setImageResource(a.e.gcb_icon_enter_joined);
-                this.gYy.setCurrentText(str);
-                this.aBH.setVisibility(8);
+                this.mView.setBackgroundDrawable(bWd());
+                this.hbh.setImageResource(a.e.gcb_icon_enter_joined);
+                this.hbi.setCurrentText(str);
+                this.aDu.setVisibility(8);
                 return;
             default:
                 return;

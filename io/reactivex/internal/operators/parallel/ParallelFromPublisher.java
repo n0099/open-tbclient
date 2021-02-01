@@ -14,12 +14,12 @@ import org.a.d;
 /* loaded from: classes5.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
     final int prefetch;
-    final int qfT;
+    final int qpX;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int eIa() {
-        return this.qfT;
+    public int eKq() {
+        return this.qpX;
     }
 
     @Override // io.reactivex.parallel.a
@@ -116,7 +116,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                         } else {
                             return;
                         }
-                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.T(j2, j)));
+                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.X(j2, j)));
                     if (ParallelDispatcher.this.subscriberCount.get() == this.m) {
                         ParallelDispatcher.this.drain();
                     }
@@ -216,7 +216,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                                     i6 = i7;
                                 }
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.O(th2);
+                                io.reactivex.exceptions.a.N(th2);
                                 this.s.cancel();
                                 for (c<? super T> cVar3 : cVarArr) {
                                     cVar3.onError(th2);
@@ -285,7 +285,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                             jArr[i2] = 1 + j2;
                             i3 = 0;
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.O(th);
+                            io.reactivex.exceptions.a.N(th);
                             this.s.cancel();
                             for (c<? super T> cVar3 : cVarArr) {
                                 cVar3.onError(th);

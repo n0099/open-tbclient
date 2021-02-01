@@ -8,7 +8,7 @@ import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KSAnimationUtils {
     static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
     static final Interpolator FAST_OUT_SLOW_IN_INTERPOLATOR = new FastOutSlowInInterpolator();

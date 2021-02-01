@@ -9,7 +9,7 @@ import com.baidu.live.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.adp.framework.settings.SocketTaskSetting;
 import com.baidu.live.adp.framework.task.SocketMessageTask;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SocketManager extends Manager<SocketMessage, SocketMessageTask, SocketRule, SocketResponsedMessage> {
     private SocketClient mClient;
 

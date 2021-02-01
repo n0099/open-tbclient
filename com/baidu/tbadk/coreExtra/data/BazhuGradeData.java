@@ -5,11 +5,11 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.BazhuSign;
 /* loaded from: classes.dex */
-public class BazhuGradeData extends com.baidu.tbadk.core.data.n implements Serializable {
+public class BazhuGradeData extends com.baidu.tbadk.core.data.o implements Serializable {
     private String mDesc = "";
     private String mLevel = "";
 
-    @Override // com.baidu.tbadk.core.data.n
+    @Override // com.baidu.tbadk.core.data.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {

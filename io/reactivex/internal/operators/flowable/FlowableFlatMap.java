@@ -23,8 +23,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
-        if (!c.a(this.qdS, cVar, this.mapper)) {
-            this.qdS.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
+        if (!c.a(this.qnW, cVar, this.mapper)) {
+            this.qnW.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
         }
     }
 
@@ -107,7 +107,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.O(th);
+                            io.reactivex.exceptions.a.N(th);
                             this.errs.addThrowable(th);
                             drain();
                             return;
@@ -120,7 +120,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                         bVar.subscribe(innerSubscriber);
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.O(th2);
+                    io.reactivex.exceptions.a.N(th2);
                     this.upstream.cancel();
                     onError(th2);
                 }
@@ -446,7 +446,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.O(th);
+                                            io.reactivex.exceptions.a.N(th);
                                             innerSubscriber.dispose();
                                             this.errs.addThrowable(th);
                                             if (!this.delayErrors) {

@@ -4,22 +4,22 @@ import android.content.Context;
 import java.util.Map;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class s extends ch {
     private final Context e;
-    private final cn pch;
+    private final cn pmw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(Context context, cn cnVar) {
         super(true, false);
         this.e = context;
-        this.pch = cnVar;
+        this.pmw = cnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.embedapplog.ch
     public boolean a(JSONObject jSONObject) {
-        Map<String, String> a2 = ba.a(this.e, this.pch.elM());
+        Map<String, String> a2 = ba.a(this.e, this.pmw.eog());
         if (a2 != null) {
             jSONObject.put("oaid", new JSONObject(a2));
             return true;

@@ -2,18 +2,18 @@ package com.baidu.yuyinala.privatemessage.implugin.d;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccountManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static String mqF = "";
-    private static String oPR = "";
-    private static String oPS = "";
+    private static String mzF = "";
+    private static String pab = "";
+    private static String pac = "";
     private static String mDisplayName = "";
 
     public static String getBDUSS() {
         return SapiAccountManager.getInstance().getSession("bduss");
     }
 
-    public static String ehr() {
+    public static String ejL() {
         return SapiAccountManager.getInstance().getSession("uid");
     }
 

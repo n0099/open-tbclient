@@ -14,36 +14,36 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.utils.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private int hvc;
-    private InterfaceC0659a hvk;
-    private AnimatorSet hvl;
-    private ValueAnimator hvm;
-    private ValueAnimator hvn;
-    private int hvo;
-    private int hvp;
+    private int hzm;
+    private InterfaceC0661a hzu;
+    private AnimatorSet hzv;
+    private ValueAnimator hzw;
+    private ValueAnimator hzx;
+    private int hzy;
+    private int hzz;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0659a {
-        void cdc();
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0661a {
+        void cdX();
 
-        void cdd();
+        void cdY();
 
-        void cde();
+        void cdZ();
 
-        void cdf();
+        void cea();
     }
 
     public a(Context context) {
-        this.hvc = 0;
-        this.hvc = h.bm(context);
+        this.hzm = 0;
+        this.hzm = h.bm(context);
     }
 
-    public void bV(int i, int i2) {
-        this.hvo = i;
-        this.hvp = i2;
+    public void bS(int i, int i2) {
+        this.hzy = i;
+        this.hzz = i2;
     }
 
     private void a(AlaChallengeLiveView alaChallengeLiveView, int i, int i2, int i3) {
@@ -97,7 +97,7 @@ public class a {
 
     private ValueAnimator d(AlaChallengeLiveView alaChallengeLiveView) {
         final View leftTimeView = alaChallengeLiveView.getLeftTimeView();
-        int i = this.hvc;
+        int i = this.hzm;
         leftTimeView.setVisibility(0);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) leftTimeView.getLayoutParams();
         layoutParams.topMargin = i;
@@ -116,7 +116,7 @@ public class a {
 
     private void e(AlaChallengeLiveView alaChallengeLiveView) {
         View leftTimeView = alaChallengeLiveView.getLeftTimeView();
-        int i = this.hvc;
+        int i = this.hzm;
         int height = leftTimeView.getHeight();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) leftTimeView.getLayoutParams();
         layoutParams.topMargin = i - height;
@@ -169,25 +169,25 @@ public class a {
     public void j(AlaChallengeLiveView alaChallengeLiveView) {
         final View rivalAnimLiveLayout;
         if (alaChallengeLiveView != null && (rivalAnimLiveLayout = alaChallengeLiveView.getRivalAnimLiveLayout()) != null && rivalAnimLiveLayout.getAlpha() != 0.0f) {
-            if (this.hvn != null) {
-                this.hvn.cancel();
+            if (this.hzx != null) {
+                this.hzx.cancel();
             }
-            this.hvn = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.hvn.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.4
+            this.hzx = ValueAnimator.ofFloat(1.0f, 0.0f);
+            this.hzx.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.4
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     rivalAnimLiveLayout.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             });
-            this.hvn.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.5
+            this.hzx.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.5
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (a.this.hvk != null) {
-                        a.this.hvk.cdf();
+                    if (a.this.hzu != null) {
+                        a.this.hzu.cea();
                     }
                 }
 
@@ -199,8 +199,8 @@ public class a {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.hvn.setDuration(300L);
-            this.hvn.start();
+            this.hzx.setDuration(300L);
+            this.hzx.start();
         }
     }
 
@@ -208,48 +208,48 @@ public class a {
         View anchorAnimLiveLayout;
         if (alaChallengeLiveView != null && (anchorAnimLiveLayout = alaChallengeLiveView.getAnchorAnimLiveLayout()) != null && anchorAnimLiveLayout.getAlpha() != 0.0f) {
             anchorAnimLiveLayout.setAlpha(0.0f);
-            if (this.hvk != null) {
-                this.hvk.cde();
+            if (this.hzu != null) {
+                this.hzu.cdZ();
             }
         }
     }
 
-    public void EC() {
-        if (this.hvl != null) {
-            this.hvl.cancel();
+    public void FS() {
+        if (this.hzv != null) {
+            this.hzv.cancel();
         }
-        if (this.hvm != null) {
-            this.hvm.cancel();
+        if (this.hzw != null) {
+            this.hzw.cancel();
         }
-        if (this.hvn != null) {
-            this.hvn.cancel();
+        if (this.hzx != null) {
+            this.hzx.cancel();
         }
     }
 
     public void a(Activity activity, AlaChallengeLiveView alaChallengeLiveView) {
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(activity);
         int i = screenFullSize[0] / 2;
-        a(alaChallengeLiveView, i, h.eW(i), this.hvc);
+        a(alaChallengeLiveView, i, h.fa(i), this.hzm);
         a(alaChallengeLiveView, screenFullSize[0] / 2);
         ValueAnimator h = h(alaChallengeLiveView);
         ValueAnimator d = d(alaChallengeLiveView);
         ValueAnimator f = f(alaChallengeLiveView);
-        if (this.hvl != null) {
-            this.hvl.cancel();
+        if (this.hzv != null) {
+            this.hzv.cancel();
         }
-        this.hvl = new AnimatorSet();
-        this.hvl.setDuration(500L);
-        this.hvl.playTogether(h, d, f);
-        this.hvl.setStartDelay(200L);
-        this.hvl.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.6
+        this.hzv = new AnimatorSet();
+        this.hzv.setDuration(500L);
+        this.hzv.playTogether(h, d, f);
+        this.hzv.setStartDelay(200L);
+        this.hzv.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.6
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (a.this.hvk != null) {
-                    a.this.hvk.cdc();
+                if (a.this.hzu != null) {
+                    a.this.hzu.cdX();
                 }
             }
 
@@ -261,8 +261,8 @@ public class a {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.hvl.start();
-        alaChallengeLiveView.ccY();
+        this.hzv.start();
+        alaChallengeLiveView.cdT();
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("2678", UbcStatConstant.ContentType.UBC_TYPE_CHALLENGE_SCREEN_CHANGE, "liveroom", "left_big_to_small_end").setContentExt(null, null, null));
     }
 
@@ -272,15 +272,15 @@ public class a {
         e(alaChallengeLiveView);
         g(alaChallengeLiveView);
         i(alaChallengeLiveView);
-        alaChallengeLiveView.ccZ();
+        alaChallengeLiveView.cdU();
         c(alaChallengeLiveView);
         b(alaChallengeLiveView, screenFullSize[0], screenFullSize[1], 0);
-        if (this.hvk != null) {
-            this.hvk.cdd();
+        if (this.hzu != null) {
+            this.hzu.cdY();
         }
     }
 
-    public void a(InterfaceC0659a interfaceC0659a) {
-        this.hvk = interfaceC0659a;
+    public void a(InterfaceC0661a interfaceC0661a) {
+        this.hzu = interfaceC0661a;
     }
 }

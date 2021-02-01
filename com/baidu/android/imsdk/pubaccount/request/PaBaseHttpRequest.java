@@ -33,7 +33,7 @@ public abstract class PaBaseHttpRequest extends BaseHttpRequest {
             case 0:
                 return "https://pim.baidu.com/";
             case 1:
-                return Constants.URL_HTTP_RD;
+                return "http://rd-im-server.bcc-szth.baidu.com:8080/";
             case 2:
                 return Constants.URL_HTTP_QA;
             case 3:

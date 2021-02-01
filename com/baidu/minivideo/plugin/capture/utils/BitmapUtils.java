@@ -2,7 +2,7 @@ package com.baidu.minivideo.plugin.capture.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class BitmapUtils {
     public static Bitmap cropBitmapLeft(Bitmap bitmap, int i, boolean z) {
         Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, i, bitmap.getHeight());

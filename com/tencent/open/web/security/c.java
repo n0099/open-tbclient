@@ -6,8 +6,8 @@ import com.tencent.open.a;
 import com.tencent.open.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class c extends a.C1263a {
+/* loaded from: classes15.dex */
+public class c extends a.C1267a {
     private String d;
 
     public c(WebView webView, long j, String str, String str2) {
@@ -15,27 +15,27 @@ public class c extends a.C1263a {
         this.d = str2;
     }
 
-    @Override // com.tencent.open.a.C1263a
+    @Override // com.tencent.open.a.C1267a
     public void a(Object obj) {
         f.a("openSDK_LOG.SecureJsListener", "-->onComplete, result: " + obj);
     }
 
-    @Override // com.tencent.open.a.C1263a
+    @Override // com.tencent.open.a.C1267a
     public void a() {
         f.b("openSDK_LOG.SecureJsListener", "-->onNoMatchMethod...");
     }
 
-    @Override // com.tencent.open.a.C1263a
+    @Override // com.tencent.open.a.C1267a
     public void a(String str) {
         f.a("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);
         JSONObject jSONObject = new JSONObject();
         int i = 0;
-        if (!com.tencent.open.c.c.f13410a) {
+        if (!com.tencent.open.c.c.f13412a) {
             i = -4;
         }
         try {
             jSONObject.put("result", i);
-            jSONObject.put(IXAdRequestInfo.SN, this.f13370b);
+            jSONObject.put(IXAdRequestInfo.SN, this.f13372b);
             jSONObject.put("data", str);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class c extends a.C1263a {
     }
 
     private void b(String str) {
-        WebView webView = this.f13369a.get();
+        WebView webView = this.f13371a.get();
         if (webView != null) {
             StringBuffer stringBuffer = new StringBuffer("javascript:");
             stringBuffer.append("if(!!").append(this.d).append("){");

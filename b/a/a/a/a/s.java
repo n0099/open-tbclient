@@ -12,7 +12,7 @@ import com.kwad.sdk.collector.AppStatusRules;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class s extends Handler {
     private /* synthetic */ p AQ;
 

@@ -1,12 +1,12 @@
 package com.baidu.location;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Jni {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2520a = 0;
+    private static int f2518a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f2521b = 1;
+    private static int f2519b = 1;
     private static int c = 2;
     private static int d = 11;
     private static int e = 12;
@@ -39,9 +39,9 @@ public class Jni {
         }
         int i2 = -1;
         if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-            i2 = f2520a;
+            i2 = f2518a;
         } else if (str.equals("bd09ll")) {
-            i2 = f2521b;
+            i2 = f2519b;
         } else if (str.equals("gcj02")) {
             i2 = c;
         } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {

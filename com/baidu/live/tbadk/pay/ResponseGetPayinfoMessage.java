@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.pay;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ResponseGetPayinfoMessage extends JsonHttpResponsedMessage {
     private PayInfoResultData mPayInfoResultData;
 

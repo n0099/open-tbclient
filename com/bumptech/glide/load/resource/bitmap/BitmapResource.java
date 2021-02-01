@@ -8,7 +8,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class BitmapResource implements Initializable, Resource<Bitmap> {
     private final Bitmap bitmap;
     private final BitmapPool bitmapPool;

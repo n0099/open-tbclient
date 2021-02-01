@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class fs {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicInteger f14027a = new AtomicInteger(0);
+    private static final AtomicInteger f14029a = new AtomicInteger(0);
 
     /* renamed from: a  reason: collision with other field name */
     public static boolean f437a;
@@ -62,7 +62,7 @@ public abstract class fs {
     private int c = 2;
 
     /* renamed from: b  reason: collision with root package name */
-    protected final int f14028b = f14027a.getAndIncrement();
+    protected final int f14030b = f14029a.getAndIncrement();
     private long e = 0;
     protected long d = 0;
 
@@ -70,23 +70,23 @@ public abstract class fs {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private fx f14029a;
+        private fx f14031a;
 
         /* renamed from: a  reason: collision with other field name */
         private gf f451a;
 
         public a(fx fxVar, gf gfVar) {
-            this.f14029a = fxVar;
+            this.f14031a = fxVar;
             this.f451a = gfVar;
         }
 
         public void a(fl flVar) {
-            this.f14029a.a(flVar);
+            this.f14031a.a(flVar);
         }
 
         public void a(gj gjVar) {
             if (this.f451a == null || this.f451a.a(gjVar)) {
-                this.f14029a.a(gjVar);
+                this.f14031a.a(gjVar);
             }
         }
     }

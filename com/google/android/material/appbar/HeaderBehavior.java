@@ -7,11 +7,10 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.OverScroller;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.math.MathUtils;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     private static final int INVALID_POINTER = -1;
     private int activePointerId;
@@ -150,7 +149,7 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int setHeaderTopBottomOffset(CoordinatorLayout coordinatorLayout, V v, int i) {
-        return setHeaderTopBottomOffset(coordinatorLayout, v, i, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return setHeaderTopBottomOffset(coordinatorLayout, v, i, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
     int setHeaderTopBottomOffset(CoordinatorLayout coordinatorLayout, V v, int i, int i2, int i3) {
@@ -212,7 +211,7 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class FlingRunnable implements Runnable {
         private final V layout;
         private final CoordinatorLayout parent;

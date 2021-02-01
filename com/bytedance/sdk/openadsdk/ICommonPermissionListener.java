@@ -5,13 +5,13 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface ICommonPermissionListener extends IInterface {
     void onDenied(String str) throws RemoteException;
 
     void onGranted() throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements ICommonPermissionListener {
         public Stub() {
             attachInterface(this, "com.bytedance.sdk.openadsdk.ICommonPermissionListener");
@@ -54,19 +54,19 @@ public interface ICommonPermissionListener extends IInterface {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         private static class a implements ICommonPermissionListener {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f6073a;
+            private IBinder f6075a;
 
             a(IBinder iBinder) {
-                this.f6073a = iBinder;
+                this.f6075a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6073a;
+                return this.f6075a;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
@@ -75,7 +75,7 @@ public interface ICommonPermissionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
-                    this.f6073a.transact(1, obtain, obtain2, 0);
+                    this.f6075a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -90,7 +90,7 @@ public interface ICommonPermissionListener extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
                     obtain.writeString(str);
-                    this.f6073a.transact(2, obtain, obtain2, 0);
+                    this.f6075a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

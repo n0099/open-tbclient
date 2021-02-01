@@ -5,7 +5,7 @@ import android.graphics.RectF;
 import android.os.Build;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class CanvasCompat {
     private CanvasCompat() {
     }

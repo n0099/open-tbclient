@@ -6,14 +6,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AppScoreView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f10656a;
+    private ImageView f10658a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f10657b;
+    private ImageView f10659b;
 
     public AppScoreView(Context context) {
         this(context, null);
@@ -30,26 +30,26 @@ public class AppScoreView extends LinearLayout {
 
     private void a() {
         inflate(getContext(), R.layout.ksad_app_score, this);
-        this.f10656a = (ImageView) findViewById(R.id.ksad_score_fourth);
-        this.f10657b = (ImageView) findViewById(R.id.ksad_score_fifth);
+        this.f10658a = (ImageView) findViewById(R.id.ksad_score_fourth);
+        this.f10659b = (ImageView) findViewById(R.id.ksad_score_fifth);
     }
 
     public void setScore(float f) {
         if (f > 4.5d) {
-            this.f10656a.setImageResource(R.drawable.ksad_app_score_yellow);
-            this.f10657b.setImageResource(R.drawable.ksad_app_score_yellow);
+            this.f10658a.setImageResource(R.drawable.ksad_app_score_yellow);
+            this.f10659b.setImageResource(R.drawable.ksad_app_score_yellow);
         } else if (f > 4.0d) {
-            this.f10656a.setImageResource(R.drawable.ksad_app_score_yellow);
-            this.f10657b.setImageResource(R.drawable.ksad_app_score_half);
+            this.f10658a.setImageResource(R.drawable.ksad_app_score_yellow);
+            this.f10659b.setImageResource(R.drawable.ksad_app_score_half);
         } else if (f > 3.5d) {
-            this.f10656a.setImageResource(R.drawable.ksad_app_score_yellow);
-            this.f10657b.setImageResource(R.drawable.ksad_app_score_gray);
+            this.f10658a.setImageResource(R.drawable.ksad_app_score_yellow);
+            this.f10659b.setImageResource(R.drawable.ksad_app_score_gray);
         } else if (f > 3.0d) {
-            this.f10656a.setImageResource(R.drawable.ksad_app_score_half);
-            this.f10657b.setImageResource(R.drawable.ksad_app_score_gray);
+            this.f10658a.setImageResource(R.drawable.ksad_app_score_half);
+            this.f10659b.setImageResource(R.drawable.ksad_app_score_gray);
         } else if (f == 3.0d) {
-            this.f10656a.setImageResource(R.drawable.ksad_app_score_gray);
-            this.f10657b.setImageResource(R.drawable.ksad_app_score_gray);
+            this.f10658a.setImageResource(R.drawable.ksad_app_score_gray);
+            this.f10659b.setImageResource(R.drawable.ksad_app_score_gray);
         }
     }
 }

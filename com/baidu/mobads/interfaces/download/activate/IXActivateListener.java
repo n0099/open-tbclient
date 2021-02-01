@@ -1,5 +1,5 @@
 package com.baidu.mobads.interfaces.download.activate;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IXActivateListener {
     void onAppActivation(IXAppInfo iXAppInfo);
 

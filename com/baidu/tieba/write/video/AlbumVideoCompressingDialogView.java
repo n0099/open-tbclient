@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AlbumVideoCompressingDialogView extends FrameLayout {
-    private TextView fgm;
-    private AlbumCompressProgressView nXl;
+    private TextView fiF;
+    private AlbumCompressProgressView ohr;
 
     public AlbumVideoCompressingDialogView(Context context) {
         super(context);
@@ -28,14 +28,14 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.dailog_album_video_compress, this);
-        this.nXl = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
-        this.fgm = (TextView) findViewById(R.id.txt_compress_progress);
+        this.ohr = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
+        this.fiF = (TextView) findViewById(R.id.txt_compress_progress);
     }
 
     public void setPercent(int i) {
         if (i >= 0 && i <= 100) {
-            this.nXl.setProgress(i);
-            this.fgm.setText(i + "%");
+            this.ohr.setProgress(i);
+            this.fiF.setText(i + "%");
         }
     }
 

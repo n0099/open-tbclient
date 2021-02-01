@@ -1,13 +1,7 @@
 package com.baidu.mobads.openad.a;
-
-import android.content.Context;
-/* loaded from: classes14.dex */
-public abstract class a extends com.baidu.mobads.openad.c.c {
-
-    /* renamed from: b  reason: collision with root package name */
-    protected Context f3391b;
-
-    public a(Context context) {
-        this.f3391b = context;
+/* loaded from: classes5.dex */
+public class a extends b {
+    public a(String str, String str2) {
+        super(str, str2);
     }
 }

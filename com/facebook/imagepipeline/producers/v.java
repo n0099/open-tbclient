@@ -5,7 +5,7 @@ import android.content.res.AssetManager;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.IOException;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class v extends z {
     private final AssetManager mAssetManager;
 
@@ -64,11 +64,11 @@ public class v extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String exa() {
+    protected String ezs() {
         return "LocalAssetFetchProducer";
     }
 
     private static String i(ImageRequest imageRequest) {
-        return imageRequest.exF().getPath().substring(1);
+        return imageRequest.ezX().getPath().substring(1);
     }
 }

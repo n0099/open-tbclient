@@ -27,7 +27,7 @@ import com.qq.e.comm.plugin.y.u;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class f extends l implements RVADI2 {
     private final int e;
     private com.qq.e.comm.plugin.rewardvideo.b f;
@@ -44,7 +44,7 @@ public class f extends l implements RVADI2 {
     private final Object q;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public enum a {
         SUCCESS,
         FAILED,
@@ -52,15 +52,15 @@ public class f extends l implements RVADI2 {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class b extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private ADListener f12619a;
+        private ADListener f12621a;
 
         b(ADListener aDListener) {
             super(Looper.getMainLooper());
-            this.f12619a = aDListener;
+            this.f12621a = aDListener;
         }
 
         @Override // android.os.Handler
@@ -74,10 +74,10 @@ public class f extends l implements RVADI2 {
                 case 105:
                 case 106:
                 case 108:
-                    this.f12619a.onADEvent(new ADEvent(message.what));
+                    this.f12621a.onADEvent(new ADEvent(message.what));
                     return;
                 case 107:
-                    this.f12619a.onADEvent(new ADEvent(message.what, new Object[]{Integer.valueOf(message.arg1)}));
+                    this.f12621a.onADEvent(new ADEvent(message.what, new Object[]{Integer.valueOf(message.arg1)}));
                     return;
                 default:
                     return;
@@ -181,7 +181,7 @@ public class f extends l implements RVADI2 {
         synchronized (this.q) {
             this.p = a.DEFAULT;
             this.o = false;
-            this.j = new i(this.f12223a, this.f12224b, this.c, (JSONObject) list2.get(0), this.k, this);
+            this.j = new i(this.f12225a, this.f12226b, this.c, (JSONObject) list2.get(0), this.k, this);
             if (this.j.n() == null || TextUtils.isEmpty(this.j.n().G())) {
                 b(5002);
             } else {

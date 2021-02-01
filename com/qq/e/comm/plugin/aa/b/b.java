@@ -1,5 +1,5 @@
 package com.qq.e.comm.plugin.aa.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface b {
     void a(e eVar);
 

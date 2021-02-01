@@ -9,14 +9,14 @@ import com.sdk.base.framework.c.f;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f12833a = f.f12819b;
+    private static final boolean f12835a = f.f12821b;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f12834b = a.class.getSimpleName();
+    private static final String f12836b = a.class.getSimpleName();
 
     public static ArrayList<KInfo> a(Context context) {
         ArrayList<KInfo> arrayList = new ArrayList<>();
@@ -93,7 +93,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
             }
         } catch (Throwable th) {
-            c.b(f12834b, th.getMessage(), Boolean.valueOf(f12833a));
+            c.b(f12836b, th.getMessage(), Boolean.valueOf(f12835a));
         }
         return arrayList;
     }
@@ -157,7 +157,7 @@ public class a extends com.sdk.base.framework.f.a {
                         kInfo.setM(str4);
                         kInfo.setSid(0);
                         arrayList.add(kInfo);
-                        if (f12833a) {
+                        if (f12835a) {
                         }
                         return arrayList;
                     }
@@ -188,10 +188,10 @@ public class a extends com.sdk.base.framework.f.a {
             kInfo2.setSid(0);
             arrayList.add(kInfo2);
         } catch (Exception e4) {
-            c.b(f12834b, e4.getMessage(), Boolean.valueOf(f12833a));
+            c.b(f12836b, e4.getMessage(), Boolean.valueOf(f12835a));
         }
-        if (f12833a) {
-            c.a(f12834b, "应用层获取sim卡信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), Boolean.valueOf(f12833a));
+        if (f12835a) {
+            c.a(f12836b, "应用层获取sim卡信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), Boolean.valueOf(f12835a));
         }
         return arrayList;
     }

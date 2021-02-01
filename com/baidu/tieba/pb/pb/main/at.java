@@ -31,9 +31,9 @@ public class at {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            switch (com.baidu.tbadk.core.util.n.saveImageFileByUser(this.mUrl, this.mData, at.this.mPageContext.getPageActivity())) {
+            switch (com.baidu.tbadk.core.util.o.saveImageFileByUser(this.mUrl, this.mData, at.this.mPageContext.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.n.getSdErrorString();
+                    return com.baidu.tbadk.core.util.o.getSdErrorString();
                 case -1:
                 default:
                     return at.this.mPageContext.getString(R.string.save_fail);

@@ -13,14 +13,14 @@ import com.ksad.lottie.g;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f7965a = new Object();
+    private static final Object f7967a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f7966b;
+    private final Context f7968b;
     private String c;
     @Nullable
     private com.ksad.lottie.b d;
@@ -32,18 +32,18 @@ public class b {
             this.c += '/';
         }
         if (callback instanceof View) {
-            this.f7966b = ((View) callback).getContext();
+            this.f7968b = ((View) callback).getContext();
             this.e = map;
             a(bVar);
             return;
         }
         Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
         this.e = new HashMap();
-        this.f7966b = null;
+        this.f7968b = null;
     }
 
     private Bitmap a(String str, @Nullable Bitmap bitmap) {
-        synchronized (f7965a) {
+        synchronized (f7967a) {
             this.e.get(str).a(bitmap);
         }
         return bitmap;
@@ -84,7 +84,7 @@ public class b {
             if (TextUtils.isEmpty(this.c)) {
                 throw new IllegalStateException("You must set an images folder before loading an image. Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
             }
-            return a(str, BitmapFactory.decodeStream(this.f7966b.getAssets().open(this.c + b2), null, options));
+            return a(str, BitmapFactory.decodeStream(this.f7968b.getAssets().open(this.c + b2), null, options));
         } catch (IOException e2) {
             Log.w("LOTTIE", "Unable to open asset.", e2);
             return null;
@@ -92,7 +92,7 @@ public class b {
     }
 
     public void a() {
-        synchronized (f7965a) {
+        synchronized (f7967a) {
             for (Map.Entry<String, g> entry : this.e.entrySet()) {
                 g value = entry.getValue();
                 Bitmap c = value.c();
@@ -109,6 +109,6 @@ public class b {
     }
 
     public boolean a(Context context) {
-        return (context == null && this.f7966b == null) || this.f7966b.equals(context);
+        return (context == null && this.f7968b == null) || this.f7968b.equals(context);
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.live.lottie.model;
 import androidx.annotation.ColorInt;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public final double Fc;
     final int Fd;

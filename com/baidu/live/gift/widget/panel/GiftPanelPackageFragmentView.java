@@ -14,35 +14,34 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.gift.aa;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GiftPanelPackageFragmentView extends RelativeLayout {
-    private a beU;
-    private aa beV;
-    private TbImageView beW;
-    private TextView beX;
-    private TextView beY;
-    private GridView beZ;
-    private View bfa;
-    private ImageView bfc;
-    private TextView bfd;
-    private ImageView bfe;
-    private ImageView bff;
+    private a bic;
+    private aa bie;
+    private TbImageView bif;
+    private TextView bih;
+    private TextView bii;
+    private GridView bij;
+    private View bik;
+    private ImageView bil;
+    private TextView bim;
+    private ImageView bin;
+    private ImageView bio;
     private TextView mTitleTextView;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void FW();
+        void Hm();
 
         void b(String str, String str2, int i, String str3);
 
-        void gk(String str);
+        void gI(String str);
 
         void onBack();
     }
@@ -58,34 +57,34 @@ public class GiftPanelPackageFragmentView extends RelativeLayout {
     }
 
     public View getCountSelectView() {
-        return this.bfa;
+        return this.bik;
     }
 
     public void setCallback(a aVar) {
-        this.beU = aVar;
+        this.bic = aVar;
     }
 
     public aa getData() {
-        return this.beV;
+        return this.bie;
     }
 
     public void setData(aa aaVar) {
-        this.beV = aaVar;
+        this.bie = aaVar;
         if (aaVar != null) {
             if (this.mTitleTextView != null) {
-                if (aaVar.aSS != null && aaVar.aSS.aTg.equals("20")) {
+                if (aaVar.aVX != null && aaVar.aVX.aWl.equals("20")) {
                     this.mTitleTextView.setText("道具碎片");
                 } else {
                     this.mTitleTextView.setText("礼物碎片");
                 }
             }
-            if (this.beW != null && (TextUtils.isEmpty(this.beW.getUrl()) || !this.beW.getUrl().equals(aaVar.getThumbnail_url()))) {
-                this.beW.startLoad(!TextUtils.isEmpty(aaVar.getThumbnail_url()) ? aaVar.getThumbnail_url() : "", 10, false, false);
+            if (this.bif != null && (TextUtils.isEmpty(this.bif.getUrl()) || !this.bif.getUrl().equals(aaVar.getThumbnail_url()))) {
+                this.bif.startLoad(!TextUtils.isEmpty(aaVar.getThumbnail_url()) ? aaVar.getThumbnail_url() : "", 10, false, false);
             }
-            if (this.beX != null) {
-                this.beX.setText(!TextUtils.isEmpty(aaVar.CD()) ? aaVar.CD() : "");
+            if (this.bih != null) {
+                this.bih.setText(!TextUtils.isEmpty(aaVar.DS()) ? aaVar.DS() : "");
             }
-            if (this.beY != null) {
+            if (this.bii != null) {
                 String price = aaVar.getPrice();
                 try {
                     long parseLong = Long.parseLong(aaVar.getPrice());
@@ -99,53 +98,53 @@ public class GiftPanelPackageFragmentView extends RelativeLayout {
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
-                this.beY.setText(!TextUtils.isEmpty(price) ? String.format("价值 %s T豆", price) : "");
+                this.bii.setText(!TextUtils.isEmpty(price) ? String.format("价值 %s T豆", price) : "");
             }
             com.baidu.live.gift.b.a fragmentsAdapter = getFragmentsAdapter();
             if (fragmentsAdapter == null) {
                 fragmentsAdapter = new com.baidu.live.gift.b.a();
-                this.beZ.setAdapter((ListAdapter) fragmentsAdapter);
+                this.bij.setAdapter((ListAdapter) fragmentsAdapter);
             }
-            fragmentsAdapter.setData(aaVar.aUT);
-            int dimensionPixelOffset = (aaVar.aUT == null || aaVar.aUT.size() <= 4) ? getResources().getDimensionPixelOffset(a.d.sdk_ds144) : -1;
-            ViewGroup.LayoutParams layoutParams = this.beZ.getLayoutParams();
+            fragmentsAdapter.setData(aaVar.aYb);
+            int dimensionPixelOffset = (aaVar.aYb == null || aaVar.aYb.size() <= 4) ? getResources().getDimensionPixelOffset(a.d.sdk_ds144) : -1;
+            ViewGroup.LayoutParams layoutParams = this.bij.getLayoutParams();
             if (layoutParams.height != dimensionPixelOffset) {
                 layoutParams.height = dimensionPixelOffset;
-                this.beZ.setLayoutParams(layoutParams);
+                this.bij.setLayoutParams(layoutParams);
             }
             boolean z = getMaxSendNum() > 0;
-            if (this.bfa != null) {
-                this.bfa.setEnabled(z);
+            if (this.bik != null) {
+                this.bik.setEnabled(z);
             }
-            if (this.bfc != null) {
+            if (this.bil != null) {
                 if (z) {
-                    this.bfc.setColorFilter((ColorFilter) null);
+                    this.bil.setColorFilter((ColorFilter) null);
                 } else {
-                    this.bfc.setColorFilter(1291845632, PorterDuff.Mode.SRC_ATOP);
+                    this.bil.setColorFilter(1291845632, PorterDuff.Mode.SRC_ATOP);
                 }
             }
-            if (this.bfd != null) {
-                this.bfd.setAlpha(z ? 1.0f : 0.5f);
+            if (this.bim != null) {
+                this.bim.setAlpha(z ? 1.0f : 0.5f);
             }
-            if (this.bfe != null) {
-                this.bfe.setAlpha(z ? 1.0f : 0.5f);
+            if (this.bin != null) {
+                this.bin.setAlpha(z ? 1.0f : 0.5f);
             }
-            if (this.bff != null) {
-                this.bff.setImageResource(z ? a.e.live_gift_panel_fragment_composite_bg_normal : a.e.live_gift_panel_fragment_composite_bg_disabled);
-                this.bff.setEnabled(z);
+            if (this.bio != null) {
+                this.bio.setImageResource(z ? a.e.live_gift_panel_fragment_composite_bg_normal : a.e.live_gift_panel_fragment_composite_bg_disabled);
+                this.bio.setEnabled(z);
             }
         }
     }
 
     public void setCountSelectInputShowing(boolean z) {
-        if (this.bfe != null) {
-            this.bfe.setImageResource(z ? a.e.sdk_icon_tabbar_arrow_down : a.e.sdk_icon_tabbar_arrow_up);
+        if (this.bin != null) {
+            this.bin.setImageResource(z ? a.e.sdk_icon_tabbar_arrow_down : a.e.sdk_icon_tabbar_arrow_up);
         }
     }
 
     public void setCountSelectValue(String str) {
-        if (this.bfd != null) {
-            this.bfd.setText(str);
+        if (this.bim != null) {
+            this.bim.setText(str);
         }
     }
 
@@ -154,7 +153,7 @@ public class GiftPanelPackageFragmentView extends RelativeLayout {
         int i = 0;
         com.baidu.live.gift.b.a fragmentsAdapter = getFragmentsAdapter();
         if (fragmentsAdapter != null && (data = fragmentsAdapter.getData()) != null) {
-            int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i2 = Integer.MAX_VALUE;
             Iterator<aa.a> it = data.iterator();
             while (true) {
                 i = i2;
@@ -168,15 +167,15 @@ public class GiftPanelPackageFragmentView extends RelativeLayout {
     }
 
     public void setCompositeEnabled(boolean z) {
-        if (this.bff != null) {
-            this.bff.setEnabled(z);
+        if (this.bio != null) {
+            this.bio.setEnabled(z);
         }
     }
 
     public void reset() {
-        this.beW.startLoad("", 10, false, false);
-        this.beX.setText("");
-        this.beY.setText("");
+        this.bif.startLoad("", 10, false, false);
+        this.bih.setText("");
+        this.bii.setText("");
         com.baidu.live.gift.b.a fragmentsAdapter = getFragmentsAdapter();
         if (fragmentsAdapter != null) {
             fragmentsAdapter.reset();
@@ -188,74 +187,74 @@ public class GiftPanelPackageFragmentView extends RelativeLayout {
         setBackgroundResource(a.e.live_gift_panel_package_fragment_bg);
         setClickable(true);
         LayoutInflater.from(getContext()).inflate(a.g.live_gift_panel_package_fragment, (ViewGroup) this, true);
-        Ht();
-        Hu();
-        Hv();
+        IJ();
+        IK();
+        IL();
     }
 
-    private void Ht() {
+    private void IJ() {
         this.mTitleTextView = (TextView) findViewById(a.f.tv_title);
         findViewById(a.f.iv_back).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GiftPanelPackageFragmentView.this.beU != null) {
-                    GiftPanelPackageFragmentView.this.beU.onBack();
+                if (GiftPanelPackageFragmentView.this.bic != null) {
+                    GiftPanelPackageFragmentView.this.bic.onBack();
                 }
             }
         });
     }
 
-    private void Hu() {
-        this.beW = (TbImageView) findViewById(a.f.iv_target_thumb);
-        this.beX = (TextView) findViewById(a.f.tv_target_name);
-        this.beY = (TextView) findViewById(a.f.tv_target_price);
-        this.beZ = (GridView) findViewById(a.f.gv);
-        this.beW.setDefaultBgResource(a.c.sdk_transparent);
-        this.beW.setDefaultErrorResource(a.e.sdk_shape_transparent);
-        this.beZ.setNumColumns(4);
-        this.beZ.setVerticalSpacing(getResources().getDimensionPixelOffset(a.d.sdk_ds320) - (getResources().getDimensionPixelOffset(a.d.sdk_ds144) * 2));
-        this.beZ.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView.2
+    private void IK() {
+        this.bif = (TbImageView) findViewById(a.f.iv_target_thumb);
+        this.bih = (TextView) findViewById(a.f.tv_target_name);
+        this.bii = (TextView) findViewById(a.f.tv_target_price);
+        this.bij = (GridView) findViewById(a.f.gv);
+        this.bif.setDefaultBgResource(a.c.sdk_transparent);
+        this.bif.setDefaultErrorResource(a.e.sdk_shape_transparent);
+        this.bij.setNumColumns(4);
+        this.bij.setVerticalSpacing(getResources().getDimensionPixelOffset(a.d.sdk_ds320) - (getResources().getDimensionPixelOffset(a.d.sdk_ds144) * 2));
+        this.bij.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 com.baidu.live.gift.b.a fragmentsAdapter;
-                if (GiftPanelPackageFragmentView.this.beU != null && (fragmentsAdapter = GiftPanelPackageFragmentView.this.getFragmentsAdapter()) != null) {
-                    fragmentsAdapter.cL(i);
+                if (GiftPanelPackageFragmentView.this.bic != null && (fragmentsAdapter = GiftPanelPackageFragmentView.this.getFragmentsAdapter()) != null) {
+                    fragmentsAdapter.cQ(i);
                     aa.a item = fragmentsAdapter.getItem(i);
-                    if (item != null && !TextUtils.isEmpty(item.aUV)) {
-                        GiftPanelPackageFragmentView.this.beU.gk(item.aUV);
+                    if (item != null && !TextUtils.isEmpty(item.aYd)) {
+                        GiftPanelPackageFragmentView.this.bic.gI(item.aYd);
                     }
                 }
             }
         });
     }
 
-    private void Hv() {
-        this.bfa = findViewById(a.f.layout_count_select);
-        this.bfc = (ImageView) findViewById(a.f.iv_count_select_bg);
-        this.bfd = (TextView) findViewById(a.f.tv_count_select);
-        this.bfe = (ImageView) findViewById(a.f.iv_count_select_arrow);
-        this.bfa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView.3
+    private void IL() {
+        this.bik = findViewById(a.f.layout_count_select);
+        this.bil = (ImageView) findViewById(a.f.iv_count_select_bg);
+        this.bim = (TextView) findViewById(a.f.tv_count_select);
+        this.bin = (ImageView) findViewById(a.f.iv_count_select_arrow);
+        this.bik.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GiftPanelPackageFragmentView.this.beU != null) {
-                    GiftPanelPackageFragmentView.this.beU.FW();
+                if (GiftPanelPackageFragmentView.this.bic != null) {
+                    GiftPanelPackageFragmentView.this.bic.Hm();
                 }
             }
         });
-        this.bff = (ImageView) findViewById(a.f.iv_composite);
-        this.bff.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView.4
+        this.bio = (ImageView) findViewById(a.f.iv_composite);
+        this.bio.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
-                if (GiftPanelPackageFragmentView.this.beU != null && GiftPanelPackageFragmentView.this.beV != null) {
-                    a aVar = GiftPanelPackageFragmentView.this.beU;
-                    String CC = GiftPanelPackageFragmentView.this.beV.CC();
-                    if (GiftPanelPackageFragmentView.this.beV.aSS != null) {
-                        str = GiftPanelPackageFragmentView.this.beV.aSS.aTg;
+                if (GiftPanelPackageFragmentView.this.bic != null && GiftPanelPackageFragmentView.this.bie != null) {
+                    a aVar = GiftPanelPackageFragmentView.this.bic;
+                    String DR = GiftPanelPackageFragmentView.this.bie.DR();
+                    if (GiftPanelPackageFragmentView.this.bie.aVX != null) {
+                        str = GiftPanelPackageFragmentView.this.bie.aVX.aWl;
                     } else {
                         str = "";
                     }
-                    aVar.b(CC, str, JavaTypesHelper.toInt(GiftPanelPackageFragmentView.this.bfd.getText().toString(), 1), GiftPanelPackageFragmentView.this.beV.getThumbnail_url());
+                    aVar.b(DR, str, JavaTypesHelper.toInt(GiftPanelPackageFragmentView.this.bim.getText().toString(), 1), GiftPanelPackageFragmentView.this.bie.getThumbnail_url());
                 }
             }
         });
@@ -264,10 +263,10 @@ public class GiftPanelPackageFragmentView extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public com.baidu.live.gift.b.a getFragmentsAdapter() {
-        if (this.beZ == null) {
+        if (this.bij == null) {
             return null;
         }
-        ListAdapter adapter = this.beZ.getAdapter();
+        ListAdapter adapter = this.bij.getAdapter();
         return adapter instanceof com.baidu.live.gift.b.a ? (com.baidu.live.gift.b.a) adapter : null;
     }
 }

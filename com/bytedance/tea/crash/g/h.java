@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static File a(@NonNull Context context) {
         return new File(c(context), "CrashLogJava");

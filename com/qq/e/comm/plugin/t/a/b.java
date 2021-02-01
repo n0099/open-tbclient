@@ -10,13 +10,13 @@ import java.io.BufferedOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b implements a {
     private HttpURLConnection a(e eVar, HttpURLConnection httpURLConnection) {
         for (Map.Entry<String, String> entry : eVar.d().entrySet()) {
             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
         }
-        httpURLConnection.setRequestProperty("User-Agent", j.f12541a);
+        httpURLConnection.setRequestProperty("User-Agent", j.f12543a);
         if (eVar.g() > 0) {
             httpURLConnection.setConnectTimeout(eVar.g());
         } else {
@@ -55,8 +55,8 @@ public class b implements a {
     }
 
     @Override // com.qq.e.comm.plugin.t.a.a
-    public f a(a.InterfaceC1206a interfaceC1206a) throws Exception {
-        e a2 = interfaceC1206a.a();
+    public f a(a.InterfaceC1210a interfaceC1210a) throws Exception {
+        e a2 = interfaceC1210a.a();
         URL url = new URL(a2.f());
         return a2.a(a(a2, url, a(a2, (HttpURLConnection) url.openConnection())));
     }

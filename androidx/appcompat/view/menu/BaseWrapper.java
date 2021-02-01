@@ -1,5 +1,5 @@
 package androidx.appcompat.view.menu;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 class BaseWrapper<T> {
     final T mWrappedObject;
 

@@ -3,13 +3,13 @@ package com.bytedance.sdk.openadsdk.utils;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.webkit.WebView;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final a f7600a;
+    private static final a f7602a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class a {
         private a() {
         }
@@ -25,7 +25,7 @@ public class t {
     }
 
     @TargetApi(19)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class b extends a {
         private b() {
             super();
@@ -56,13 +56,13 @@ public class t {
 
     static {
         if (Build.VERSION.SDK_INT >= 19) {
-            f7600a = new b();
+            f7602a = new b();
         } else {
-            f7600a = new a();
+            f7602a = new a();
         }
     }
 
     public static void a(WebView webView, String str) {
-        f7600a.a(webView, str);
+        f7602a.a(webView, str);
     }
 }

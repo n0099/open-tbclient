@@ -10,7 +10,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http2.Hpack;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 final class Http2Writer implements Closeable {
     private static final Logger logger = Logger.getLogger(Http2.class.getName());
     private final boolean client;

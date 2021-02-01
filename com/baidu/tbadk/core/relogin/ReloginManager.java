@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.b;
 import com.baidu.tbadk.core.d.a;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.ap;
+import com.baidu.tbadk.core.data.aq;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
@@ -24,28 +24,28 @@ import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ReloginManager {
-    private static ReloginManager eWh = new ReloginManager();
-    private boolean eWg;
-    private final ArrayList<HttpMessage> eWi = new ArrayList<>();
-    private final HttpMessageListener eWj = new HttpMessageListener(1001101) { // from class: com.baidu.tbadk.core.relogin.ReloginManager.1
+    private static ReloginManager eYx = new ReloginManager();
+    private boolean eYw;
+    private final ArrayList<HttpMessage> eYy = new ArrayList<>();
+    private final HttpMessageListener eYz = new HttpMessageListener(1001101) { // from class: com.baidu.tbadk.core.relogin.ReloginManager.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof BgLoginHttpResponsedMessage)) {
-                ReloginManager.this.eWg = false;
+                ReloginManager.this.eYw = false;
                 BgLoginHttpResponsedMessage bgLoginHttpResponsedMessage = (BgLoginHttpResponsedMessage) httpResponsedMessage;
                 int statusCode = bgLoginHttpResponsedMessage.getStatusCode();
                 int error = bgLoginHttpResponsedMessage.getError();
                 a.a("account", -1L, 0, "login_auto_local_result", bgLoginHttpResponsedMessage.getError(), bgLoginHttpResponsedMessage.getErrorString(), new Object[0]);
                 if ((statusCode != 200 || error == 0) && statusCode == 200) {
-                    ReloginManager.this.brq();
+                    ReloginManager.this.brJ();
                     return;
                 }
                 ReloginManager.this.e(TbadkCoreApplication.getCurrentAccountObj());
                 if (bgLoginHttpResponsedMessage.getErrorString() != null) {
                     l.showToast(TbadkCoreApplication.getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
                 }
-                ReloginManager.this.eWi.clear();
+                ReloginManager.this.eYy.clear();
             }
         }
     };
@@ -55,7 +55,7 @@ public class ReloginManager {
 
     public void registerTask() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerListener(this.eWj);
+        messageManager.registerListener(this.eYz);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001101, TbConfig.LOGIN_FULL_ADDRESS);
         tbHttpMessageTask.setNeedGzip(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -65,24 +65,24 @@ public class ReloginManager {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static ReloginManager brp() {
-        return eWh;
+    public static ReloginManager brI() {
+        return eYx;
     }
 
     public void a(HttpMessage httpMessage) {
         a.a("account", -1L, 0, "login_auto_start", 0, "", new Object[0]);
         b(httpMessage);
-        if (!this.eWg) {
+        if (!this.eYw) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
-                currentAccountObj = b.bkF();
+                currentAccountObj = b.bkX();
             }
             if (currentAccountObj == null || TextUtils.isEmpty(currentAccountObj.getAccount())) {
                 e(currentAccountObj);
                 return;
             }
-            this.eWg = true;
-            if (!brs()) {
+            this.eYw = true;
+            if (!brL()) {
                 d(currentAccountObj);
             }
         }
@@ -103,13 +103,13 @@ public class ReloginManager {
 
     public void e(AccountData accountData) {
         a.a("account", -1L, 0, "login_auto_foreground", 0, "", new Object[0]);
-        b.bkD();
+        b.bkV();
         TbadkCoreApplication.getInst().handler.sendMessage(TbadkCoreApplication.getInst().handler.obtainMessage(1));
     }
 
     private void b(HttpMessage httpMessage) {
-        if (!this.eWi.contains(httpMessage)) {
-            this.eWi.add(httpMessage);
+        if (!this.eYy.contains(httpMessage)) {
+            this.eYy.add(httpMessage);
         }
     }
 
@@ -118,7 +118,7 @@ public class ReloginManager {
     }
 
     public void d(int i, BdUniqueId bdUniqueId) {
-        Iterator<HttpMessage> it = this.eWi.iterator();
+        Iterator<HttpMessage> it = this.eYy.iterator();
         while (it.hasNext()) {
             HttpMessage next = it.next();
             BdUniqueId tag = next.getTag();
@@ -130,21 +130,21 @@ public class ReloginManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void brq() {
+    public void brJ() {
         MessageManager messageManager = MessageManager.getInstance();
-        Iterator<HttpMessage> it = this.eWi.iterator();
+        Iterator<HttpMessage> it = this.eYy.iterator();
         while (it.hasNext()) {
             messageManager.sendMessage(it.next());
         }
-        this.eWi.clear();
+        this.eYy.clear();
     }
 
-    public boolean brr() {
-        return this.eWg;
+    public boolean brK() {
+        return this.eYw;
     }
 
-    public void jH(boolean z) {
-        this.eWg = z;
+    public void jK(boolean z) {
+        this.eYw = z;
     }
 
     /* loaded from: classes.dex */
@@ -159,31 +159,31 @@ public class ReloginManager {
             int error = getError();
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (statusCode == 200 && error == 0) {
-                ap apVar = new ap();
-                apVar.parserJson(jSONObject);
-                String userId = apVar.getUser().getUserId();
+                aq aqVar = new aq();
+                aqVar.parserJson(jSONObject);
+                String userId = aqVar.getUser().getUserId();
                 if (userId == null || userId.length() <= 0) {
                     setErrorString(TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.neterror));
                     return;
                 }
                 AccountData accountData = new AccountData();
-                String userName = apVar.getUser().getUserName();
-                String password = apVar.getUser().getPassword();
+                String userName = aqVar.getUser().getUserName();
+                String password = aqVar.getUser().getPassword();
                 accountData.setAccount(userName);
                 if (password != null) {
                     accountData.setPassword(password);
                 } else {
                     accountData.setPassword(currentAccountObj.getPassword());
                 }
-                accountData.setID(apVar.getUser().getUserId());
-                accountData.setBDUSS(apVar.getUser().getBDUSS());
-                accountData.setPortrait(apVar.getUser().getPortrait());
-                if (apVar.getUser() != null && apVar.getUser().getBaijiahaoInfo() != null && !StringUtils.isNull(apVar.getUser().getBaijiahaoInfo().avatar)) {
-                    accountData.setBjhAvatar(apVar.getUser().getBaijiahaoInfo().avatar);
+                accountData.setID(aqVar.getUser().getUserId());
+                accountData.setBDUSS(aqVar.getUser().getBDUSS());
+                accountData.setPortrait(aqVar.getUser().getPortrait());
+                if (aqVar.getUser() != null && aqVar.getUser().getBaijiahaoInfo() != null && !StringUtils.isNull(aqVar.getUser().getBaijiahaoInfo().avatar)) {
+                    accountData.setBjhAvatar(aqVar.getUser().getBaijiahaoInfo().avatar);
                 }
                 accountData.setIsActive(1);
-                if (apVar.getAnti() != null) {
-                    accountData.setTbs(apVar.getAnti().getTbs());
+                if (aqVar.getAnti() != null) {
+                    accountData.setTbs(aqVar.getAnti().getTbs());
                 }
                 a.a("account", -1L, 0, "relogin_manager_save_account_to_db", 0, "", new Object[0]);
                 b.b(accountData);
@@ -194,7 +194,7 @@ public class ReloginManager {
         }
     }
 
-    public boolean brs() {
+    public boolean brL() {
         return Build.VERSION.SDK_INT >= 9 && !TbConfig.USE_OLD_LOGIN && TbadkCoreApplication.getInst().isPassportV6ShouldOpen();
     }
 }

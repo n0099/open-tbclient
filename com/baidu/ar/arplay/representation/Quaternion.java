@@ -97,7 +97,7 @@ public class Quaternion extends Vector4f {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Quaternion m15clone() {
+    public Quaternion m16clone() {
         Quaternion quaternion = new Quaternion();
         quaternion.copyVec4(this);
         return quaternion;

@@ -5,27 +5,27 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, Lock> f7483a = new HashMap();
+    private static final Map<String, Lock> f7485a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private FileLock f7484b;
+    private FileLock f7486b;
     private String c;
 
     private a(String str, FileLock fileLock) {
         this.c = str;
-        this.f7484b = fileLock;
+        this.f7486b = fileLock;
     }
 
     public static a a(String str) throws Exception {
-        synchronized (f7483a) {
-            Lock lock = f7483a.get(str);
+        synchronized (f7485a) {
+            Lock lock = f7485a.get(str);
             if (lock == null) {
                 lock = new ReentrantLock();
-                f7483a.put(str, lock);
+                f7485a.put(str, lock);
             }
             if (lock.tryLock()) {
                 try {
@@ -46,10 +46,10 @@ public class a {
     }
 
     public void a() {
-        synchronized (f7483a) {
-            this.f7484b.a();
-            this.f7484b.b();
-            f7483a.get(this.c).unlock();
+        synchronized (f7485a) {
+            this.f7486b.a();
+            this.f7486b.b();
+            f7485a.get(this.c).unlock();
         }
     }
 }

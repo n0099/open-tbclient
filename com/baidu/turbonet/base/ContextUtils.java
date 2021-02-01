@@ -3,7 +3,7 @@ package com.baidu.turbonet.base;
 import android.content.Context;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ContextUtils {
     private static Context sApplicationContext;
 
@@ -17,18 +17,18 @@ public class ContextUtils {
         if (sApplicationContext != null && sApplicationContext != context) {
             a.d("ContextUtils", "Multiple contexts detected, ignoring new application context.");
         } else {
-            hh(context);
+            hk(context);
         }
     }
 
-    public static void edz() {
+    public static void efR() {
         if (sApplicationContext == null) {
             throw new RuntimeException("Cannot have native global application context be null.");
         }
         nativeInitNativeSideApplicationContext(sApplicationContext);
     }
 
-    private static void hh(Context context) {
+    private static void hk(Context context) {
         if (context == null) {
             throw new RuntimeException("Global application context cannot be set to null.");
         }

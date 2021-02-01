@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.UnreadTip.DataReq;
 import tbclient.UnreadTip.UnreadTipReqIdl;
 /* loaded from: classes2.dex */
@@ -16,7 +16,7 @@ public class ConcernUnreadTipReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                t.b(builder, true);
+                v.b(builder, true);
             }
             UnreadTipReqIdl.Builder builder2 = new UnreadTipReqIdl.Builder();
             builder2.data = builder.build(false);

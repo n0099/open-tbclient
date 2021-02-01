@@ -1,81 +1,36 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.util.ListUtils;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class aq {
-    public int aKT;
-    public ArrayList<ap> aKU;
-    public int aLa;
-    public int aLc;
-    public boolean aKV = false;
-    public String aKW = "";
-    public boolean aKX = false;
-    public String aKY = "";
-    public int aKZ = 0;
-    public int aLb = 0;
+    public String aHq;
+    public String aIu;
+    public int aKc;
+    public String aKd;
+    public String aKe;
+    public boolean aKf;
+    public int duration;
+    public String iconUrl;
+    public int interval;
+    public int limit;
+    public String picUrl;
 
-    public void parserJson(JSONObject jSONObject) {
-        this.aKT = jSONObject.optInt("received");
-        this.aKU = new ArrayList<>();
-        this.aKV = jSONObject.optInt("petal_task_switch", 0) == 1;
-        this.aKX = jSONObject.optInt("redpacket_task_switch", 0) == 1;
-        this.aKW = jSONObject.optString("task_url");
-        this.aKY = jSONObject.optString("task_pendant_url");
-        JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    ap apVar = new ap();
-                    apVar.parseJson(optJSONObject);
-                    a(apVar);
-                    this.aKU.add(apVar);
-                }
-            }
+    public void parseJson(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+            this.interval = optJSONObject.optInt("interval");
+            this.picUrl = optJSONObject.optString("pic_url");
+            this.aKc = optJSONObject.optInt("is_month_super_customer");
+            this.aHq = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            this.aKd = optJSONObject.optString("jump_url_audio");
+            this.limit = optJSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT);
+            this.duration = optJSONObject.optInt("duration");
+            this.aIu = optJSONObject.optString("toast_text");
+            this.iconUrl = optJSONObject.optString("icon_url");
+            this.aKe = optJSONObject.optString("btn_url");
+            this.aKf = optJSONObject.optInt("audio_show_switch") == 1;
         }
-    }
-
-    private void a(ap apVar) {
-        if (apVar.aKM == 8) {
-            if (apVar.aKQ != null) {
-                this.aKZ = apVar.aKQ.aLd;
-            }
-            this.aLa = apVar.status;
-        }
-        if (apVar.aKM == 1 && apVar.aKQ != null) {
-            if (apVar.aKQ != null) {
-                this.aLb = apVar.aKQ.aLd;
-            }
-            this.aLc = apVar.status;
-        }
-    }
-
-    public boolean Be() {
-        if (!ListUtils.isEmpty(this.aKU)) {
-            Iterator<ap> it = this.aKU.iterator();
-            while (it.hasNext()) {
-                if (it.next().Bd()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public ap Bf() {
-        if (!ListUtils.isEmpty(this.aKU)) {
-            Iterator<ap> it = this.aKU.iterator();
-            while (it.hasNext()) {
-                ap next = it.next();
-                if (next.Bb()) {
-                    return next;
-                }
-            }
-        }
-        return null;
     }
 }

@@ -9,17 +9,17 @@ import androidx.annotation.Nullable;
 import com.ksad.lottie.model.f;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     private final AssetManager d;
     @Nullable
     private com.ksad.lottie.a e;
 
     /* renamed from: a  reason: collision with root package name */
-    private final f<String> f7963a = new f<>();
+    private final f<String> f7965a = new f<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<f<String>, Typeface> f7964b = new HashMap();
+    private final Map<f<String>, Typeface> f7966b = new HashMap();
     private final Map<String, Typeface> c = new HashMap();
     private String f = ".ttf";
 
@@ -64,13 +64,13 @@ public class a {
     }
 
     public Typeface a(String str, String str2) {
-        this.f7963a.a(str, str2);
-        Typeface typeface = this.f7964b.get(this.f7963a);
+        this.f7965a.a(str, str2);
+        Typeface typeface = this.f7966b.get(this.f7965a);
         if (typeface != null) {
             return typeface;
         }
         Typeface a2 = a(a(str), str2);
-        this.f7964b.put(this.f7963a, a2);
+        this.f7966b.put(this.f7965a, a2);
         return a2;
     }
 

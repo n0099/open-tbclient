@@ -7,14 +7,14 @@ import com.baidu.mobstat.Session;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class SessionAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3631a = false;
+    private boolean f3634a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, a> f3632b = new HashMap();
+    private Map<String, a> f3635b = new HashMap();
     private a c = new a();
     private a d = new a();
     private boolean e = false;
@@ -27,7 +27,7 @@ public class SessionAnalysis {
     private LaunchInfo l;
     public Callback mCallback;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
@@ -98,7 +98,7 @@ public class SessionAnalysis {
     }
 
     public void onSessionStart(Context context, long j, boolean z) {
-        if (!this.f3631a) {
+        if (!this.f3634a) {
             DataCore.instance().init(context);
             try {
                 Thread.sleep(IMConnection.RETRY_DELAY_TIMES);
@@ -109,7 +109,7 @@ public class SessionAnalysis {
                 i = this.k.getLaunchType(context);
             }
             a(context, j, z, true, i);
-            this.f3631a = true;
+            this.f3634a = true;
         }
     }
 
@@ -125,7 +125,7 @@ public class SessionAnalysis {
                 this.e = true;
             }
             a2.c = true;
-            a2.f3634b = j;
+            a2.f3637b = j;
         }
     }
 
@@ -137,7 +137,7 @@ public class SessionAnalysis {
                 bc.c().c("[WARNING] 遗漏StatService.onPageStart(), 请检查邻近页面埋点: " + str);
                 return;
             }
-            a(context, a2.f3633a, str, a2.f3634b, j, str2, "", str3, false, extraInfo, z);
+            a(context, a2.f3636a, str, a2.f3637b, j, str2, "", str3, false, extraInfo, z);
             b(str);
             this.f = j;
         }
@@ -155,8 +155,8 @@ public class SessionAnalysis {
                 this.e = true;
             }
             aVar.c = true;
-            aVar.f3633a = str;
-            aVar.f3634b = j;
+            aVar.f3636a = str;
+            aVar.f3637b = j;
         }
     }
 
@@ -170,7 +170,7 @@ public class SessionAnalysis {
             }
             return;
         }
-        a(context, aVar.f3633a, str, aVar.f3634b, j, str2, str3, str, z, extraInfo, false);
+        a(context, aVar.f3636a, str, aVar.f3637b, j, str2, str3, str, z, extraInfo, false);
         aVar.c = false;
         this.f = j;
     }
@@ -184,8 +184,8 @@ public class SessionAnalysis {
             }
             a(context, this.f, j, 2, 2);
             a2.c = true;
-            a2.f3633a = str;
-            a2.f3634b = j;
+            a2.f3636a = str;
+            a2.f3637b = j;
         }
     }
 
@@ -196,7 +196,7 @@ public class SessionAnalysis {
                 bc.c().c("[WARNING] 遗漏StatService.onResume(Fragment), 请检查邻近页面埋点: " + str);
                 return;
             }
-            a(context, a2.f3633a, str, a2.f3634b, j, str2, str3, null, false, null, false);
+            a(context, a2.f3636a, str, a2.f3637b, j, str2, str3, null, false, null, false);
             b(str);
             this.f = j;
         }
@@ -224,10 +224,10 @@ public class SessionAnalysis {
     }
 
     private a a(String str) {
-        if (!this.f3632b.containsKey(str)) {
-            this.f3632b.put(str, new a(str));
+        if (!this.f3635b.containsKey(str)) {
+            this.f3635b.put(str, new a(str));
         }
-        return this.f3632b.get(str);
+        return this.f3635b.get(str);
     }
 
     private void a(Context context, long j, boolean z, boolean z2, int i) {
@@ -285,8 +285,8 @@ public class SessionAnalysis {
     }
 
     private void b(String str) {
-        if (!TextUtils.isEmpty(str) && this.f3632b.containsKey(str)) {
-            this.f3632b.remove(str);
+        if (!TextUtils.isEmpty(str) && this.f3635b.containsKey(str)) {
+            this.f3635b.remove(str);
         }
     }
 
@@ -295,21 +295,21 @@ public class SessionAnalysis {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f3633a;
+        String f3636a;
 
         /* renamed from: b  reason: collision with root package name */
-        long f3634b;
+        long f3637b;
         boolean c = false;
 
         public a() {
         }
 
         public a(String str) {
-            this.f3633a = str;
+            this.f3636a = str;
         }
     }
 }

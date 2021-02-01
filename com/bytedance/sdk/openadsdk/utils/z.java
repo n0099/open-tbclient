@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class z {
     public static void a(Object obj, String str) {
         if (obj == null) {

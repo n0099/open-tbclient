@@ -5,14 +5,14 @@ import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
     public String d;
     public String e;
     public int f = 2;
     private int n = 0;
 
-    public static e Q(String str, String str2) {
+    public static e O(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

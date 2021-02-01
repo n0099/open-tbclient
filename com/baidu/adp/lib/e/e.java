@@ -11,9 +11,9 @@ public interface e<T> {
 
     T b(String str, String str2, int i, int i2, b bVar, Object... objArr);
 
-    int mA();
+    boolean mx();
 
-    boolean my();
+    BdAsyncTaskParallel my();
 
-    BdAsyncTaskParallel mz();
+    int mz();
 }

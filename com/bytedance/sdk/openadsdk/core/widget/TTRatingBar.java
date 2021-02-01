@@ -8,14 +8,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.bytedance.sdk.openadsdk.utils.ac;
 import com.bytedance.sdk.openadsdk.utils.ak;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTRatingBar extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6777a;
+    private int f6779a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6778b;
+    private int f6780b;
     private int c;
     private float d;
     private float e;
@@ -26,8 +26,8 @@ public class TTRatingBar extends LinearLayout {
 
     public TTRatingBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f6777a = 5;
-        this.f6778b = 0;
+        this.f6779a = 5;
+        this.f6780b = 0;
         this.c = 0;
         setOrientation(0);
         this.g = ac.c(context, "tt_star_empty_bg");
@@ -39,19 +39,19 @@ public class TTRatingBar extends LinearLayout {
     }
 
     public int getStarFillNum() {
-        return this.f6777a;
+        return this.f6779a;
     }
 
     public void setStarFillNum(int i) {
-        this.f6777a = i;
+        this.f6779a = i;
     }
 
     public int getStarHalfNum() {
-        return this.f6778b;
+        return this.f6780b;
     }
 
     public void setStarHalfNum(int i) {
-        this.f6778b = i;
+        this.f6780b = i;
     }
 
     public int getStarEmptyNum() {

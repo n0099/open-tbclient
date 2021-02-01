@@ -16,27 +16,27 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.data.l;
 import com.baidu.tieba.play.o;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolder<l>> {
-    private aa<l> ago;
-    private s amu;
-    private BdUniqueId fEN;
-    private int fce;
-    private as iIR;
+    private ab<l> agg;
+    private s amk;
+    private BdUniqueId fGZ;
+    private int feu;
+    private as iOz;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(View view, l lVar) {
-        if (this.iIR != null && this.iIR.tt() != null && this.iIR.tt().dxG() != null) {
-            if (view.getId() == this.iIR.tt().dxG().getId()) {
-                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.fce);
+        if (this.iOz != null && this.iOz.tq() != null && this.iOz.tq().dzP() != null) {
+            if (view.getId() == this.iOz.tq().dzP().getId()) {
+                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.feu);
             } else if (view.getId() == R.id.thread_card_root) {
-                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.fce);
+                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.feu);
             }
         }
     }
@@ -44,9 +44,9 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ago = new aa<l>() { // from class: com.baidu.tieba.homepage.gamevideo.a.c.1
+        this.agg = new ab<l>() { // from class: com.baidu.tieba.homepage.gamevideo.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             public void a(View view, l lVar) {
                 c.this.b(view, lVar);
             }
@@ -55,7 +55,7 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
     }
 
     public void a(s sVar) {
-        this.amu = sVar;
+        this.amk = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,15 +64,15 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
     /* renamed from: be */
     public AutoVideoCardViewHolder<l> e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        this.iIR = new ac(this.mPageContext.getPageActivity());
-        this.iIR.setPageUniqueId(this.fEN);
-        this.iIR.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
-        this.iIR.setStageType("2001");
-        aVar.c(this.iIR);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amu);
+        this.iOz = new ac(this.mPageContext.getPageActivity());
+        this.iOz.setPageUniqueId(this.fGZ);
+        this.iOz.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
+        this.iOz.setStageType("2001");
+        aVar.c(this.iOz);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amk);
         AutoVideoCardViewHolder<l> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(a2);
-        autoVideoCardViewHolder.setPageId(this.fEN);
-        a2.a(this.ago);
+        autoVideoCardViewHolder.setPageId(this.fGZ);
+        a2.a(this.agg);
         a2.setSourceForPb(18);
         a(new w() { // from class: com.baidu.tieba.homepage.gamevideo.a.c.2
             @Override // com.baidu.adp.widget.ListView.w
@@ -81,11 +81,11 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
                     ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                     l lVar = (l) nVar;
                     lVar.objType = 1;
-                    if (c.this.ago != null) {
-                        c.this.ago.a(threadCardViewHolder.getView(), lVar);
+                    if (c.this.agg != null) {
+                        c.this.agg.a(threadCardViewHolder.getView(), lVar);
                     }
                     com.baidu.tieba.homepage.gamevideo.e.a.a(lVar, view.getContext(), 18, false, com.baidu.card.e.a((s) viewGroup2, view, i));
-                    threadCardViewHolder.tm().b(new a.C0089a(1));
+                    threadCardViewHolder.tj().b(new a.C0089a(1));
                 }
             }
         });
@@ -102,13 +102,13 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
         if (autoVideoCardViewHolder == null) {
             return null;
         }
-        lVar.wT(lVar.position + 1);
-        autoVideoCardViewHolder.tm().setPosition(i);
-        com.baidu.tieba.homepage.gamevideo.e.a.d(lVar, this.fce);
+        lVar.xd(lVar.position + 1);
+        autoVideoCardViewHolder.tj().setPosition(i);
+        com.baidu.tieba.homepage.gamevideo.e.a.d(lVar, this.feu);
         autoVideoCardViewHolder.setVideoStatsData(c(lVar));
         autoVideoCardViewHolder.b((AutoVideoCardViewHolder<l>) lVar);
-        autoVideoCardViewHolder.tm().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        autoVideoCardViewHolder.tm().a(this.ago);
+        autoVideoCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        autoVideoCardViewHolder.tj().a(this.agg);
         return autoVideoCardViewHolder.getView();
     }
 
@@ -117,36 +117,36 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
         if (lVar != null) {
             oVar = new o();
             oVar.mLocate = Constants.VIA_REPORT_TYPE_START_GROUP;
-            oVar.amM = lVar.tid;
-            if (lVar.bkV() != null) {
-                oVar.fKR = String.valueOf(lVar.bkV().getFid());
-                if (lVar.bkV().bnO() != null) {
-                    oVar.mzc = lVar.bkV().bnO().video_md5;
-                    oVar.mze = String.valueOf(lVar.bkV().bnO().is_vertical);
+            oVar.amC = lVar.tid;
+            if (lVar.bln() != null) {
+                oVar.fNd = String.valueOf(lVar.bln().getFid());
+                if (lVar.bln().boh() != null) {
+                    oVar.mIj = lVar.bln().boh().video_md5;
+                    oVar.mIl = String.valueOf(lVar.bln().boh().is_vertical);
                 }
             }
-            oVar.eLs = lVar.getExtra();
+            oVar.eNE = lVar.getExtra();
             oVar.mSource = lVar.getSource();
-            oVar.mzb = lVar.crw();
-            oVar.myY = lVar.getWeight();
+            oVar.mIi = lVar.csI();
+            oVar.mIf = lVar.getWeight();
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            oVar.mFloor = String.valueOf(lVar.crv());
-            oVar.mzf = String.valueOf(this.fce);
+            oVar.mFloor = String.valueOf(lVar.csH());
+            oVar.mIm = String.valueOf(this.feu);
         }
         return oVar;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fEN = bdUniqueId;
+        this.fGZ = bdUniqueId;
     }
 
-    public void Bx(int i) {
-        this.fce = i;
+    public void BN(int i) {
+        this.feu = i;
     }
 
     public void onPause() {
-        if (this.iIR != null) {
-            this.iIR.onPause();
+        if (this.iOz != null) {
+            this.iOz.onPause();
         }
     }
 }

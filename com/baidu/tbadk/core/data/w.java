@@ -1,54 +1,27 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class w {
-    private String eKL;
-    private int eKM;
-    private ArrayList<z> eKN = new ArrayList<>();
-    private int height;
-    private String obj_id;
-    private int width;
+public class w extends a implements com.baidu.tbadk.mvc.b.a {
+    public static final BdUniqueId eMV = BdUniqueId.gen();
+    public static final int[] eMW = {0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11};
+    private int mType = 6;
 
-    public ArrayList<z> blz() {
-        return this.eKN;
+    public void mU(int i) {
+        this.mType = i;
     }
 
-    public void x(ArrayList<z> arrayList) {
-        this.eKN = arrayList;
+    public int getItemViewType() {
+        return this.mType;
     }
 
-    public String blA() {
-        return this.obj_id;
+    @Override // com.baidu.tbadk.core.data.a
+    public cb bln() {
+        return null;
     }
 
-    public void a(ActivityHead activityHead) {
-        if (activityHead != null) {
-            this.eKM = activityHead.activity_type.intValue();
-            this.eKL = activityHead.activity_title;
-            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
-            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
-            this.obj_id = activityHead.obj_id;
-            br(activityHead.head_imgs);
-        }
-    }
-
-    public void br(List<HeadImgs> list) {
-        if (!com.baidu.tbadk.core.util.x.isEmpty(list)) {
-            for (HeadImgs headImgs : list) {
-                a(headImgs);
-            }
-        }
-    }
-
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            z zVar = new z();
-            zVar.b(headImgs);
-            this.eKN.add(zVar);
-        }
+    @Override // com.baidu.tbadk.core.data.a
+    public av blp() {
+        return null;
     }
 }

@@ -1,21 +1,21 @@
 package com.baidu.live.sdk.goods.c;
 
-import com.baidu.live.data.x;
-/* loaded from: classes10.dex */
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
 public interface a {
-    void Ei();
+    void Fy();
 
-    void Ov();
+    void PU();
 
-    void a(x xVar);
+    void a(ab abVar);
 
-    void co(int i);
+    void cr(int i);
+
+    void display();
 
     void onPause();
 
     void onResume();
-
-    void rV();
 
     void release();
 }

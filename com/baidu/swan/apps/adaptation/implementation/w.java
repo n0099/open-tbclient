@@ -3,43 +3,43 @@ package com.baidu.swan.apps.adaptation.implementation;
 import com.baidu.swan.apps.adaptation.a.ap;
 import com.baidu.webkit.internal.GlobalConstants;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class w implements ap {
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public void ahB() {
+    public void ahZ() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public void ahC() {
+    public void aia() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public long ahD() {
+    public long aib() {
         return -1L;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public void bR(long j) {
+    public void bX(long j) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public String bS(long j) {
-        if (!com.baidu.swan.apps.t.a.axl().aik()) {
-            if (com.baidu.swan.apps.core.k.a.ari()) {
-                return com.baidu.swan.apps.core.k.a.cUm + File.separator + GlobalConstants.LIB_ZEUS;
+    public String bY(long j) {
+        if (!com.baidu.swan.apps.t.a.axJ().aiI()) {
+            if (com.baidu.swan.apps.core.k.a.arG()) {
+                return com.baidu.swan.apps.core.k.a.cWz + File.separator + GlobalConstants.LIB_ZEUS;
             }
-            return com.baidu.swan.apps.core.k.a.cUo + File.separator + GlobalConstants.LIB_ZEUS;
+            return com.baidu.swan.apps.core.k.a.cWB + File.separator + GlobalConstants.LIB_ZEUS;
         }
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public boolean ahE() {
+    public boolean aic() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public String[] ahF() {
+    public String[] aid() {
         return null;
     }
 }

@@ -3,7 +3,7 @@ package com.kwad.sdk.utils;
 import androidx.annotation.NonNull;
 import com.baidu.webkit.internal.ETAG;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class aa {
     public static String a(@NonNull String str, Map<String, String> map) {
         if (map == null || map.size() <= 0) {

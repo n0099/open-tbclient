@@ -8,13 +8,13 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import com.kwad.sdk.utils.ap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends GestureDetector implements ap.a {
     private long A;
     private VelocityTracker B;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9022a;
+    private int f9024a;
     private int c;
     private int d;
     private int e;
@@ -41,7 +41,7 @@ public class c extends GestureDetector implements ap.a {
     private static final int h = ViewConfiguration.getTapTimeout();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f9021b = ViewConfiguration.getDoubleTapTimeout();
+    public static final int f9023b = ViewConfiguration.getDoubleTapTimeout();
 
     public c(Context context, GestureDetector.OnGestureListener onGestureListener) {
         this(context, onGestureListener, null);
@@ -49,7 +49,7 @@ public class c extends GestureDetector implements ap.a {
 
     public c(Context context, GestureDetector.OnGestureListener onGestureListener, Handler handler) {
         super(context, onGestureListener, handler);
-        this.A = f9021b;
+        this.A = f9023b;
         if (handler != null) {
             this.i = new ap(this, handler.getLooper());
         } else {
@@ -102,7 +102,7 @@ public class c extends GestureDetector implements ap.a {
             i = 300;
             i2 = scaledDoubleTapSlop;
         }
-        this.f9022a = scaledTouchSlop * scaledTouchSlop;
+        this.f9024a = scaledTouchSlop * scaledTouchSlop;
         this.c = i * i;
         this.d = i2 * i2;
     }
@@ -315,7 +315,7 @@ public class c extends GestureDetector implements ap.a {
                 int i3 = (int) (f3 - this.x);
                 int i4 = (int) (f4 - this.y);
                 int i5 = (i4 * i4) + (i3 * i3);
-                if (i5 > (z5 ? 0 : this.f9022a)) {
+                if (i5 > (z5 ? 0 : this.f9024a)) {
                     z2 = this.j.onScroll(this.s, motionEvent, f5, f6);
                     this.v = f3;
                     this.w = f4;

@@ -14,6 +14,7 @@ import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -38,7 +39,7 @@ public final class Util {
         public int step = 0;
     }
 
-    public static boolean qi() {
+    public static boolean qg() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -87,7 +88,7 @@ public final class Util {
         int e = e(bArr, 6);
         int e2 = e(bArr, 8);
         f fVar = new f();
-        fVar.d(((e2 >> 9) & 127) + 1980, (e2 >> 5) & 15, e2 & 31, (e >> 11) & 31, (e >> 5) & 63, (e & 31) << 1);
+        fVar.d(((e2 >> 9) & ThunderNetStateService.NetState.SYSNET_UNKNOWN) + 1980, (e2 >> 5) & 15, e2 & 31, (e >> 11) & 31, (e >> 5) & 63, (e & 31) << 1);
         return fVar;
     }
 
@@ -99,16 +100,16 @@ public final class Util {
     }
 
     public static final boolean M(long j) {
-        long qk = qk();
+        long qi = qi();
         if (j <= 0) {
-            return qk <= 0 || qk >= 31457280;
+            return qi <= 0 || qi >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < qk;
+        return (j2 <= 31457280 ? j2 : 31457280L) < qi;
     }
 
     public static a b(InputStream inputStream, File file) {
@@ -224,14 +225,14 @@ public final class Util {
     }
 
     public static File cR(String str) {
-        PluginSetting cw = PluginPackageManager.px().cw(str);
+        PluginSetting cw = PluginPackageManager.pv().cw(str);
         if (cw == null || cw.apkPath == null || cw.apkPath.length() <= ".apk".length()) {
             return null;
         }
         return new File(cw.apkPath.substring(0, cw.apkPath.length() - ".apk".length()));
     }
 
-    public static File qj() {
+    public static File qh() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -313,7 +314,7 @@ public final class Util {
         return applicationInfo.metaData.getString("replace_method_classes", null);
     }
 
-    public static VersionCompare K(String str, String str2) {
+    public static VersionCompare I(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -365,10 +366,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return qj() + File.separator + e(pluginSetting);
+        return qh() + File.separator + e(pluginSetting);
     }
 
-    public static long qk() {
+    public static long qi() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

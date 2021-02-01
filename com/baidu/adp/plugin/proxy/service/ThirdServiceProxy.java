@@ -17,17 +17,17 @@ public class ThirdServiceProxy extends ServiceProxy {
         String name = ThirdServiceProxy.class.getName();
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
         if (plugin2 == null || TextUtils.isEmpty(stringExtra2)) {
-            a.pg().g("plugin_use", "plugin_third_service_create_failed", stringExtra);
+            a.pe().g("plugin_use", "plugin_third_service_create_failed", stringExtra);
             return null;
         }
         try {
             ServiceProxy serviceProxy = (ServiceProxy) plugin2.getDexClassLoader().loadClass(name).newInstance();
             serviceProxy.onCreate();
-            d.oK().a(stringExtra2, new d.a(serviceProxy, intent));
+            d.oI().a(stringExtra2, new d.a(serviceProxy, intent));
             return serviceProxy;
         } catch (Exception e) {
             BdLog.e(e);
-            a.pg().g("plugin_use", "plugin_third_service exception: " + e.getMessage(), stringExtra);
+            a.pe().g("plugin_use", "plugin_third_service exception: " + e.getMessage(), stringExtra);
             return null;
         }
     }
@@ -35,7 +35,7 @@ public class ThirdServiceProxy extends ServiceProxy {
     @Override // com.baidu.adp.plugin.proxy.ServiceProxy, android.app.Service
     public IBinder onBind(Intent intent) {
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
-        d.a ck = d.oK().ck(stringExtra);
+        d.a ck = d.oI().ck(stringExtra);
         if (ck == null) {
             ThirdServiceProxy thirdServiceProxy = (ThirdServiceProxy) createServiceInstance(intent);
             if (thirdServiceProxy == null) {
@@ -45,18 +45,18 @@ public class ThirdServiceProxy extends ServiceProxy {
             new d.a(thirdServiceProxy, intent);
             return thirdServiceProxy.onBind(intent);
         }
-        d.oK().a(stringExtra, ck);
+        d.oI().a(stringExtra, ck);
         return super.onBind(intent);
     }
 
     @Override // com.baidu.adp.plugin.proxy.ServiceProxy, android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
-        if (d.oK().oL() == 0) {
-            d.oK().a(stringExtra, new d.a(this, intent));
+        if (d.oI().oJ() == 0) {
+            d.oI().a(stringExtra, new d.a(this, intent));
             super.onStartCommand(intent, i, i2);
             return 3;
-        } else if (d.oK().ck(stringExtra) == null) {
+        } else if (d.oI().ck(stringExtra) == null) {
             ThirdServiceProxy thirdServiceProxy = (ThirdServiceProxy) createServiceInstance(intent);
             if (thirdServiceProxy == null) {
                 BdLog.e("third_service_proxy_create_failed:" + stringExtra);

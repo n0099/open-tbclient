@@ -1,17 +1,13 @@
 package com.baidu.tbadk.core.data;
-
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    public String labelColor;
-    public int labelId;
-    public String labelName;
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.labelId = jSONObject.optInt("label_id");
-            this.labelName = jSONObject.optString("label_name");
-            this.labelColor = jSONObject.optString("label_rgb");
-        }
-    }
+    public int type = 0;
+    public int eMa = 0;
+    public int eMb = 1;
+    public int eMc = 1;
+    public int eMd = 0;
+    public int eMe = 0;
+    public int eMf = 1;
+    public int eMg = 0;
+    public int eMh = 0;
 }

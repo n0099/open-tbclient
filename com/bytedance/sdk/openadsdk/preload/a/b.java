@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.preload.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface b<IN> {
     <I> I a(Class<? extends d<I, ?>> cls);
 

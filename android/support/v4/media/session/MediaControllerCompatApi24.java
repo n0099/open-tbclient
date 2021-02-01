@@ -5,10 +5,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.RequiresApi;
 @RequiresApi(24)
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class MediaControllerCompatApi24 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class TransportControls {
         public static void prepare(Object obj) {
             ((MediaController.TransportControls) obj).prepare();

@@ -63,7 +63,7 @@ public final class SingleDoFinally<T> extends w<T> {
                 try {
                     this.onFinally.run();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.O(th);
+                    io.reactivex.exceptions.a.N(th);
                     io.reactivex.d.a.onError(th);
                 }
             }

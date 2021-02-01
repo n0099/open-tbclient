@@ -5,17 +5,17 @@ import android.util.Log;
 import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.io.FileOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class BdLog {
-    private static FileOutputStream afQ;
+    private static FileOutputStream afJ;
     private static boolean sDebug = true;
-    private static boolean afR = false;
-    private static String afS = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
-    private static String afT = afS + "baiduliulanqi_log.txt";
-    private static String afU = afS + "baiduliulanqi_lasttime_log.txt";
-    private static boolean afV = false;
+    private static boolean afK = false;
+    private static String afL = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+    private static String mLogFileName = afL + "baiduliulanqi_log.txt";
+    private static String afM = afL + "baiduliulanqi_lasttime_log.txt";
+    private static boolean afN = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private enum LogLevel {
         DEBUG,
         ERROR,
@@ -88,23 +88,23 @@ public final class BdLog {
                     break;
                 }
         }
-        if (afR) {
-            P(str, str2);
+        if (afK) {
+            N(str, str2);
         }
     }
 
-    private static void P(String str, String str2) {
+    private static void N(String str, String str2) {
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(afS);
+                File file = new File(afL);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (afQ == null) {
-                    afQ = new FileOutputStream(afT);
+                if (afJ == null) {
+                    afJ = new FileOutputStream(mLogFileName);
                 }
-                afQ.write((str + " : " + str2).getBytes("UTF-8"));
-                afQ.write("\n".getBytes());
+                afJ.write((str + " : " + str2).getBytes("UTF-8"));
+                afJ.write("\n".getBytes());
             } catch (Exception e) {
                 e.printStackTrace();
             }

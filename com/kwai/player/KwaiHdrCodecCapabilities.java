@@ -5,7 +5,7 @@ import android.content.Context;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import androidx.annotation.RequiresApi;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KwaiHdrCodecCapabilities {
     private static KwaiHdrCodecCapabilities sHdrCapabilitiesUtil = null;
     private boolean misInited = false;

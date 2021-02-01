@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.route;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 final class r implements Parcelable.Creator<WalkingRouteLine> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

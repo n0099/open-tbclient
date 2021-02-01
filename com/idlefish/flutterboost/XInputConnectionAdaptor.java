@@ -9,11 +9,10 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.InputMethodManager;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 class XInputConnectionAdaptor extends BaseInputConnection {
     private int mBatchCount;
     private final int mClient;
@@ -30,7 +29,7 @@ class XInputConnectionAdaptor extends BaseInputConnection {
         this.textInputChannel = textInputChannel;
         this.mEditable = editable;
         this.mBatchCount = 0;
-        this.mLayout = new DynamicLayout(this.mEditable, new TextPaint(), ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+        this.mLayout = new DynamicLayout(this.mEditable, new TextPaint(), Integer.MAX_VALUE, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
         this.mImm = (InputMethodManager) view.getContext().getSystemService("input_method");
     }
 

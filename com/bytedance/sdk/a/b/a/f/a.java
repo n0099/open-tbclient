@@ -2,9 +2,9 @@ package com.bytedance.sdk.a.b.a.f;
 
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    public static final a pgn = new a() { // from class: com.bytedance.sdk.a.b.a.f.a.1
+    public static final a pqF = new a() { // from class: com.bytedance.sdk.a.b.a.f.a.1
         @Override // com.bytedance.sdk.a.b.a.f.a
         public void a(File file) throws IOException {
             if (!file.delete() && file.exists()) {
@@ -18,7 +18,7 @@ public interface a {
         }
 
         @Override // com.bytedance.sdk.a.b.a.f.a
-        public long al(File file) {
+        public long ai(File file) {
             return file.length();
         }
 
@@ -35,7 +35,7 @@ public interface a {
 
     void a(File file, File file2) throws IOException;
 
-    long al(File file);
+    long ai(File file);
 
     boolean b(File file);
 }

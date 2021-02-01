@@ -10,14 +10,14 @@ import com.baidu.mapapi.search.core.RouteStep;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.core.VehicleInfo;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class TransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static final Parcelable.Creator<TransitRouteLine> CREATOR = new o();
 
     /* renamed from: b  reason: collision with root package name */
-    private TaxiInfo f2924b;
+    private TaxiInfo f2922b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<TransitStep> CREATOR = new p();
         private VehicleInfo d;
@@ -27,7 +27,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         private String h;
         private String i;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes4.dex */
         public enum TransitRouteStepType {
             BUSLINE,
             SUBWAY,
@@ -124,7 +124,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
     /* JADX INFO: Access modifiers changed from: protected */
     public TransitRouteLine(Parcel parcel) {
         super(parcel);
-        this.f2924b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.f2922b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
@@ -134,17 +134,17 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
 
     @Deprecated
     public TaxiInfo getTaxitInfo() {
-        return this.f2924b;
+        return this.f2922b;
     }
 
     public void setTaxitInfo(TaxiInfo taxiInfo) {
-        this.f2924b = taxiInfo;
+        this.f2922b = taxiInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.setType(RouteLine.TYPE.TRANSITSTEP);
         super.writeToParcel(parcel, i);
-        parcel.writeParcelable(this.f2924b, 1);
+        parcel.writeParcelable(this.f2922b, 1);
     }
 }

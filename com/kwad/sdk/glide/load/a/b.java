@@ -7,19 +7,19 @@ import com.kwad.sdk.glide.Priority;
 import com.kwad.sdk.glide.load.DataSource;
 import com.kwad.sdk.glide.load.a.d;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class b<T> implements d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f10041a;
+    private final String f10043a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final AssetManager f10042b;
+    private final AssetManager f10044b;
     private T c;
 
     public b(AssetManager assetManager, String str) {
-        this.f10042b = assetManager;
-        this.f10041a = str;
+        this.f10044b = assetManager;
+        this.f10043a = str;
     }
 
     protected abstract T a(AssetManager assetManager, String str);
@@ -28,7 +28,7 @@ public abstract class b<T> implements d<T> {
     @Override // com.kwad.sdk.glide.load.a.d
     public void a(@NonNull Priority priority, @NonNull d.a<? super T> aVar) {
         try {
-            this.c = a(this.f10042b, this.f10041a);
+            this.c = a(this.f10044b, this.f10043a);
             aVar.a((d.a<? super T>) ((T) this.c));
         } catch (IOException e) {
             if (Log.isLoggable("AssetPathFetcher", 3)) {

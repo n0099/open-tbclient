@@ -15,7 +15,7 @@ public class o {
     private static final Map<String, byte[]> f1000a = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArrayList<Pair<String, byte[]>> f14313a = new ArrayList<>();
+    private static ArrayList<Pair<String, byte[]>> f14315a = new ArrayList<>();
 
     public static void a(Context context, int i, String str) {
         synchronized (f1000a) {
@@ -58,9 +58,9 @@ public class o {
     public static void b(XMPushService xMPushService) {
         ArrayList<Pair<String, byte[]>> arrayList;
         try {
-            synchronized (f14313a) {
-                arrayList = f14313a;
-                f14313a = new ArrayList<>();
+            synchronized (f14315a) {
+                arrayList = f14315a;
+                f14315a = new ArrayList<>();
             }
             Iterator<Pair<String, byte[]>> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -74,10 +74,10 @@ public class o {
     }
 
     public static void b(String str, byte[] bArr) {
-        synchronized (f14313a) {
-            f14313a.add(new Pair<>(str, bArr));
-            if (f14313a.size() > 50) {
-                f14313a.remove(0);
+        synchronized (f14315a) {
+            f14315a.add(new Pair<>(str, bArr));
+            if (f14315a.size() > 50) {
+                f14315a.remove(0);
             }
         }
     }

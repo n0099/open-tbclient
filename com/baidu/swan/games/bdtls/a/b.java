@@ -2,26 +2,26 @@ package com.baidu.swan.games.bdtls.a;
 
 import com.baidu.swan.games.bdtls.model.h;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static byte[] a(h hVar) {
         if (hVar == null) {
             return null;
         }
-        ByteBuffer allocate = ByteBuffer.allocate(hVar.aUT() + 12 + hVar.aUU());
+        ByteBuffer allocate = ByteBuffer.allocate(hVar.aVf() + 12 + hVar.aVg());
         allocate.put((byte) -27);
         allocate.put((byte) -89);
-        if (hVar.aUP() == null || hVar.aUP().length != 2) {
+        if (hVar.aVb() == null || hVar.aVb().length != 2) {
             return null;
         }
-        allocate.put(hVar.aUP()[0]);
-        allocate.put(hVar.aUP()[1]);
-        allocate.put(hVar.aUR());
-        allocate.put(hVar.aUS());
-        if (hVar.aUV() == null || hVar.aUV().length == 0) {
+        allocate.put(hVar.aVb()[0]);
+        allocate.put(hVar.aVb()[1]);
+        allocate.put(hVar.aVd());
+        allocate.put(hVar.aVe());
+        if (hVar.aVh() == null || hVar.aVh().length == 0) {
             return null;
         }
-        int length = hVar.aUV().length;
+        int length = hVar.aVh().length;
         allocate.put((byte) ((length >> 8) & 255));
         allocate.put((byte) (length & 255));
         if (hVar.getContent() == null || hVar.getContent().length == 0) {
@@ -29,8 +29,8 @@ public class b {
         } else {
             allocate.putInt(hVar.getContent().length);
         }
-        if (hVar.aUV() != null) {
-            allocate.put(hVar.aUV());
+        if (hVar.aVh() != null) {
+            allocate.put(hVar.aVh());
         }
         if (hVar.getContent() != null) {
             allocate.put(hVar.getContent());
@@ -40,7 +40,7 @@ public class b {
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: int */
     /* JADX WARN: Multi-variable type inference failed */
-    public static h V(byte[] bArr) {
+    public static h U(byte[] bArr) {
         h hVar = null;
         if (bArr != null) {
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
@@ -55,10 +55,10 @@ public class b {
                 int i = wrap.getShort();
                 hVar.d((short) i);
                 int i2 = wrap.getInt();
-                hVar.kW(i2);
+                hVar.kZ(i2);
                 byte[] bArr2 = new byte[i];
                 wrap.get(bArr2, 0, i);
-                hVar.R(bArr2);
+                hVar.Q(bArr2);
                 if (i2 > 0) {
                     byte[] bArr3 = new byte[i2];
                     wrap.get(bArr3, 0, i2);

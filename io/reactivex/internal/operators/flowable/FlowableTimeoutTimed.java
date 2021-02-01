@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes5.dex */
 public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
-    final org.a.b<? extends T> qem;
+    final org.a.b<? extends T> qoq;
     final v scheduler;
     final long timeout;
     final TimeUnit unit;
@@ -25,17 +25,17 @@ public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operato
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        if (this.qem == null) {
-            TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.timeout, this.unit, this.scheduler.eHS());
+        if (this.qoq == null) {
+            TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.timeout, this.unit, this.scheduler.eKi());
             cVar.onSubscribe(timeoutSubscriber);
             timeoutSubscriber.startTimeout(0L);
-            this.qdS.a((j) timeoutSubscriber);
+            this.qnW.a((j) timeoutSubscriber);
             return;
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.timeout, this.unit, this.scheduler.eHS(), this.qem);
+        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.timeout, this.unit, this.scheduler.eKi(), this.qoq);
         cVar.onSubscribe(timeoutFallbackSubscriber);
         timeoutFallbackSubscriber.startTimeout(0L);
-        this.qdS.a((j) timeoutFallbackSubscriber);
+        this.qnW.a((j) timeoutFallbackSubscriber);
     }
 
     /* loaded from: classes5.dex */
@@ -120,16 +120,16 @@ public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operato
     /* loaded from: classes5.dex */
     public static final class c implements Runnable {
         final long idx;
-        final b qeJ;
+        final b qoN;
 
         c(long j, b bVar) {
             this.idx = j;
-            this.qeJ = bVar;
+            this.qoN = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.qeJ.onTimeout(this.idx);
+            this.qoN.onTimeout(this.idx);
         }
     }
 
@@ -221,17 +221,17 @@ public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operato
     /* loaded from: classes5.dex */
     static final class a<T> implements j<T> {
         final org.a.c<? super T> actual;
-        final SubscriptionArbiter qeI;
+        final SubscriptionArbiter qoM;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(org.a.c<? super T> cVar, SubscriptionArbiter subscriptionArbiter) {
             this.actual = cVar;
-            this.qeI = subscriptionArbiter;
+            this.qoM = subscriptionArbiter;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            this.qeI.setSubscription(dVar);
+            this.qoM.setSubscription(dVar);
         }
 
         @Override // org.a.c

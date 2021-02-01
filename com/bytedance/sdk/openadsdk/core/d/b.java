@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk.core.d;
 import com.baidu.ar.gesture.GestureAR;
 import com.bytedance.sdk.openadsdk.utils.u;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6485a;
+    private String f6487a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6486b;
+    private String f6488b;
     private String c;
     private int d;
     private int e;
@@ -26,19 +26,19 @@ public class b {
     }
 
     public String b() {
-        return this.f6485a;
+        return this.f6487a;
     }
 
     public void b(String str) {
-        this.f6485a = str;
+        this.f6487a = str;
     }
 
     public String c() {
-        return this.f6486b;
+        return this.f6488b;
     }
 
     public void c(String str) {
-        this.f6486b = str;
+        this.f6488b = str;
     }
 
     public String d() {

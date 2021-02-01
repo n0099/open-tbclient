@@ -6,11 +6,11 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface b extends IInterface {
     void a(Map map, Map map2) throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements b {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
@@ -24,7 +24,7 @@ public interface b extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
                 return (b) queryLocalInterface;
             }
-            return new C1228a(iBinder);
+            return new C1232a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -50,19 +50,19 @@ public interface b extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.c.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C1228a implements b {
+        /* loaded from: classes6.dex */
+        private static class C1232a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13083a;
+            private IBinder f13085a;
 
-            C1228a(IBinder iBinder) {
-                this.f13083a = iBinder;
+            C1232a(IBinder iBinder) {
+                this.f13085a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13083a;
+                return this.f13085a;
             }
 
             @Override // com.ss.android.socialbase.downloader.c.b
@@ -73,7 +73,7 @@ public interface b extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
                     obtain.writeMap(map);
                     obtain.writeMap(map2);
-                    this.f13083a.transact(1, obtain, obtain2, 0);
+                    this.f13085a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

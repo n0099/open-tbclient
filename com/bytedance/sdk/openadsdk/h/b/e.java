@@ -1,20 +1,20 @@
 package com.bytedance.sdk.openadsdk.h.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile e f7184a;
+    private static volatile e f7186a;
 
     public static e c() {
-        if (f7184a == null) {
+        if (f7186a == null) {
             synchronized (e.class) {
-                if (f7184a == null) {
-                    f7184a = new e();
+                if (f7186a == null) {
+                    f7186a = new e();
                 }
             }
         }
-        return f7184a;
+        return f7186a;
     }
 
     private e() {

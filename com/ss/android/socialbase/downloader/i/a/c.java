@@ -8,21 +8,21 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c implements e {
     private static final ArrayList<String> e = new ArrayList<>(6);
 
     /* renamed from: a  reason: collision with root package name */
-    protected final String f13167a;
+    protected final String f13169a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected final long f13168b;
+    protected final long f13170b;
     protected List<com.ss.android.socialbase.downloader.g.e> c;
     private int g;
     private long h;
     private boolean i;
     private boolean j;
-    private e pWg;
+    private e qgk;
     private Map<String, String> f = null;
     protected final Object d = new Object();
 
@@ -36,9 +36,9 @@ public class c implements e {
     }
 
     public c(String str, List<com.ss.android.socialbase.downloader.g.e> list, long j) {
-        this.f13167a = str;
+        this.f13169a = str;
         this.c = list;
-        this.f13168b = j;
+        this.f13170b = j;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -46,12 +46,12 @@ public class c implements e {
         if (this.f == null) {
             try {
                 this.j = true;
-                this.pWg = com.ss.android.socialbase.downloader.downloader.b.v(this.f13167a, this.c);
+                this.qgk = com.ss.android.socialbase.downloader.downloader.b.v(this.f13169a, this.c);
                 synchronized (this.d) {
-                    if (this.pWg != null) {
+                    if (this.qgk != null) {
                         this.f = new HashMap();
-                        a(this.pWg, this.f);
-                        this.g = this.pWg.b();
+                        a(this.qgk, this.f);
+                        this.g = this.qgk.b();
                         this.h = System.currentTimeMillis();
                         this.i = a(this.g);
                     }
@@ -60,10 +60,10 @@ public class c implements e {
                 }
             } catch (Throwable th) {
                 synchronized (this.d) {
-                    if (this.pWg != null) {
+                    if (this.qgk != null) {
                         this.f = new HashMap();
-                        a(this.pWg, this.f);
-                        this.g = this.pWg.b();
+                        a(this.qgk, this.f);
+                        this.g = this.qgk.b();
                         this.h = System.currentTimeMillis();
                         this.i = a(this.g);
                     }
@@ -102,8 +102,8 @@ public class c implements e {
         if (this.f != null) {
             return this.f.get(str);
         }
-        if (this.pWg != null) {
-            return this.pWg.a(str);
+        if (this.qgk != null) {
+            return this.qgk.a(str);
         }
         return null;
     }
@@ -115,8 +115,8 @@ public class c implements e {
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public void c() {
-        if (this.pWg != null) {
-            this.pWg.c();
+        if (this.qgk != null) {
+            this.qgk.c();
         }
     }
 
@@ -125,7 +125,7 @@ public class c implements e {
     }
 
     public boolean f() {
-        return System.currentTimeMillis() - this.h < b.f13165b;
+        return System.currentTimeMillis() - this.h < b.f13167b;
     }
 
     public boolean g() {

@@ -3,14 +3,14 @@ package com.baidu.mobads;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.ref.WeakReference;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class BaiduNativeAdPlacement {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3275a;
+    private String f3272a;
 
     /* renamed from: b  reason: collision with root package name */
-    private IXAdResponseInfo f3276b;
+    private IXAdResponseInfo f3273b;
     private boolean c;
     private boolean d;
     private boolean e = false;
@@ -29,12 +29,10 @@ public class BaiduNativeAdPlacement {
         return this.e;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void setAdView(BaiduNativeH5AdView baiduNativeH5AdView) {
         this.f = new WeakReference<>(baiduNativeH5AdView);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public BaiduNativeH5AdView getAdView() {
         if (this.f == null) {
             return null;
@@ -43,11 +41,11 @@ public class BaiduNativeAdPlacement {
     }
 
     public void setApId(String str) {
-        this.f3275a = str;
+        this.f3272a = str;
     }
 
     public String getApId() {
-        return this.f3275a;
+        return this.f3272a;
     }
 
     public static void setAppSid(String str) {
@@ -56,24 +54,24 @@ public class BaiduNativeAdPlacement {
 
     public void setAdResponse(IXAdResponseInfo iXAdResponseInfo) {
         this.d = false;
-        this.f3276b = iXAdResponseInfo;
+        this.f3273b = iXAdResponseInfo;
     }
 
     public boolean hasValidResponse() {
-        return this.f3276b != null && isAdAvailable();
+        return this.f3273b != null && isAdAvailable();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public IXAdResponseInfo getAdResponse() {
-        return this.f3276b;
+        return this.f3273b;
     }
 
     protected boolean isAdAvailable() {
         boolean z;
-        if (this.f3276b == null || this.f3276b.getPrimaryAdInstanceInfo() == null) {
+        if (this.f3273b == null || this.f3273b.getPrimaryAdInstanceInfo() == null) {
             z = false;
         } else {
-            z = System.currentTimeMillis() - this.f3276b.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
+            z = System.currentTimeMillis() - this.f3273b.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
         }
         return z && !this.c;
     }

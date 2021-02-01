@@ -7,7 +7,7 @@ import rx.exceptions.OnErrorFailedException;
 import rx.exceptions.OnErrorNotImplementedException;
 import rx.exceptions.UnsubscribeFailedException;
 import rx.j;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c<T> extends j<T> {
     private final j<? super T> actual;
     boolean done;
@@ -32,7 +32,7 @@ public class c<T> extends j<T> {
                 }
             } catch (Throwable th) {
                 try {
-                    rx.exceptions.a.O(th);
+                    rx.exceptions.a.N(th);
                     rx.c.c.onError(th);
                     throw new OnCompletedFailedException(th.getMessage(), th);
                 } catch (Throwable th2) {
@@ -48,10 +48,10 @@ public class c<T> extends j<T> {
 
     @Override // rx.e
     public void onError(Throwable th) {
-        rx.exceptions.a.O(th);
+        rx.exceptions.a.N(th);
         if (!this.done) {
             this.done = true;
-            aa(th);
+            Z(th);
         }
     }
 
@@ -67,8 +67,8 @@ public class c<T> extends j<T> {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    protected void aa(Throwable th) {
-        rx.c.f.eLt().eLu().E(th);
+    protected void Z(Throwable th) {
+        rx.c.f.eNJ().eNK().D(th);
         try {
             this.actual.onError(th);
             try {

@@ -4,26 +4,26 @@ import android.app.Application;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PassBiometricConfiguration {
     public static final String TARGET_TPL = "pp";
 
     /* renamed from: a  reason: collision with root package name */
-    private Application f3932a;
+    private Application f3935a;
     public final String appId;
     public final String appSignKey;
     public String passDomain;
     public boolean showPmnRationaleDialog;
     public final String tpl;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f3933a;
+        private String f3936a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f3934b;
+        private String f3937b;
         private String c;
         private String d;
         private boolean e = false;
@@ -35,7 +35,7 @@ public class PassBiometricConfiguration {
         }
 
         public PassBiometricConfiguration build() {
-            if (!TextUtils.isEmpty(this.f3933a) && !TextUtils.isEmpty(this.f3934b) && !TextUtils.isEmpty(this.c)) {
+            if (!TextUtils.isEmpty(this.f3936a) && !TextUtils.isEmpty(this.f3937b) && !TextUtils.isEmpty(this.c)) {
                 if (this.d == null) {
                     this.d = PassBioEnv.PASSPORT_DOMAIN;
                 }
@@ -50,8 +50,8 @@ public class PassBiometricConfiguration {
         }
 
         public Builder setProductLineInfo(String str, String str2, String str3) {
-            this.f3933a = str;
-            this.f3934b = str2;
+            this.f3936a = str;
+            this.f3937b = str2;
             this.c = str3;
             return this;
         }
@@ -72,16 +72,16 @@ public class PassBiometricConfiguration {
     }
 
     public Application getApplication() {
-        return this.f3932a;
+        return this.f3935a;
     }
 
     private PassBiometricConfiguration(Builder builder) {
-        this.tpl = builder.f3933a;
-        this.appId = builder.f3934b;
+        this.tpl = builder.f3936a;
+        this.appId = builder.f3937b;
         this.appSignKey = builder.c;
         this.passDomain = builder.d;
         debug(builder.f);
         this.showPmnRationaleDialog = builder.e;
-        this.f3932a = builder.g;
+        this.f3935a = builder.g;
     }
 }

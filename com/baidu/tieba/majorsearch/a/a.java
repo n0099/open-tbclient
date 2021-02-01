@@ -20,36 +20,36 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.SearchMajorActivity;
 import com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private String enU;
-    private SearchMajorActivity lcj;
-    private com.baidu.tieba.majorsearch.a lcw;
+    private String eqb;
+    private SearchMajorActivity lkn;
+    private com.baidu.tieba.majorsearch.a lkz;
     private View mRootView;
 
     public a(SearchMajorActivity searchMajorActivity) {
-        this.lcj = searchMajorActivity;
+        this.lkn = searchMajorActivity;
         init();
     }
 
     private void init() {
-        this.mRootView = LayoutInflater.from(this.lcj).inflate(R.layout.search_major_main, (ViewGroup) null);
-        this.lcj.setContentView(this.mRootView);
-        this.lcw = new com.baidu.tieba.majorsearch.a(this.mRootView, this.lcj);
-        dcP();
-        dcC();
-        this.enU = "";
-        dcQ();
+        this.mRootView = LayoutInflater.from(this.lkn).inflate(R.layout.search_major_main, (ViewGroup) null);
+        this.lkn.setContentView(this.mRootView);
+        this.lkz = new com.baidu.tieba.majorsearch.a(this.mRootView, this.lkn);
+        deP();
+        deA();
+        this.eqb = "";
+        deQ();
     }
 
-    public void dcP() {
+    public void deP() {
         View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.majorsearch.a.a.1
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
-                    l.hideSoftKeyPad(a.this.lcj.getPageContext().getPageActivity(), view);
+                    l.hideSoftKeyPad(a.this.lkn.getPageContext().getPageActivity(), view);
                 } else {
-                    a.this.dcQ();
+                    a.this.deQ();
                 }
             }
         };
@@ -57,7 +57,7 @@ public class a {
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    a.this.dcQ();
+                    a.this.deQ();
                     return true;
                 }
                 return false;
@@ -75,31 +75,31 @@ public class a {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
-                    a.this.enU = editable.toString();
-                    a.this.dcQ();
-                    a.this.lcw.pe(!StringUtils.isNull(editable.toString()));
+                    a.this.eqb = editable.toString();
+                    a.this.deQ();
+                    a.this.lkz.po(!StringUtils.isNull(editable.toString()));
                 }
             }
         };
-        this.lcw.a(onFocusChangeListener);
-        this.lcw.a(onEditorActionListener);
-        this.lcw.d(textWatcher);
+        this.lkz.a(onFocusChangeListener);
+        this.lkz.a(onEditorActionListener);
+        this.lkz.d(textWatcher);
     }
 
-    private void dcC() {
+    private void deA() {
         SearchMajorResultItemAdapter.a aVar = new SearchMajorResultItemAdapter.a() { // from class: com.baidu.tieba.majorsearch.a.a.4
             @Override // com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter.a
-            public void Nj(String str) {
+            public void NX(String str) {
                 Intent intent = new Intent();
                 intent.putExtra(IntentConfig.SEARCH_MAJOR_NAME, str);
-                a.this.lcj.Z(intent);
+                a.this.lkn.Z(intent);
             }
         };
         RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.majorsearch.a.a.5
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
                 if (i == 1 || i == 2) {
-                    l.hideSoftKeyPad(a.this.lcj.getPageContext().getPageActivity(), recyclerView);
+                    l.hideSoftKeyPad(a.this.lkn.getPageContext().getPageActivity(), recyclerView);
                 }
             }
 
@@ -107,51 +107,51 @@ public class a {
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             }
         };
-        this.lcw.a(aVar);
-        this.lcw.a(onScrollListener);
+        this.lkz.a(aVar);
+        this.lkz.a(onScrollListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dcQ() {
-        if (this.lcj != null) {
+    public void deQ() {
+        if (this.lkn != null) {
             if (j.isNetWorkAvailable()) {
-                if (this.enU != null) {
+                if (this.eqb != null) {
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_MAJOR);
-                    httpMessage.addParam("keyword", this.enU.trim());
-                    this.lcj.sendMessage(httpMessage);
+                    httpMessage.addParam("keyword", this.eqb.trim());
+                    this.lkn.sendMessage(httpMessage);
                 }
-            } else if (this.lcw != null) {
+            } else if (this.lkz != null) {
                 d(new ErrorData());
-                this.lcj.getRefreshView().rj(R.drawable.new_pic_emotion_05);
-                this.lcj.showNetRefreshViewNoClick(this.lcw.dcM(), null);
-                this.lcj.getRefreshView().CV(this.lcj.getString(R.string.im_error_default));
+                this.lkn.getRefreshView().ro(R.drawable.new_pic_emotion_05);
+                this.lkn.showNetRefreshViewNoClick(this.lkz.deM(), null);
+                this.lkn.getRefreshView().Dm(this.lkn.getString(R.string.im_error_default));
             }
         }
     }
 
-    public void eS(List<String> list) {
-        if (this.lcw != null) {
-            this.lcw.q(list, this.enU);
+    public void eQ(List<String> list) {
+        if (this.lkz != null) {
+            this.lkz.o(list, this.eqb);
         }
     }
 
     public void d(ErrorData errorData) {
-        if (this.lcw != null) {
-            this.lcw.c(errorData);
+        if (this.lkz != null) {
+            this.lkz.c(errorData);
         }
     }
 
     public void onResume() {
-        if (this.lcw != null) {
-            this.lcw.onResume();
+        if (this.lkz != null) {
+            this.lkz.onResume();
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.lcw.onChangeSkinType(i);
+        this.lkz.onChangeSkinType(i);
     }
 
-    public com.baidu.tieba.majorsearch.a dcR() {
-        return this.lcw;
+    public com.baidu.tieba.majorsearch.a deR() {
+        return this.lkz;
     }
 }

@@ -19,7 +19,7 @@ public class gx {
     private static al f487a = new al(true);
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile int f14070a = -1;
+    private static volatile int f14072a = -1;
 
     /* renamed from: a  reason: collision with other field name */
     private static long f486a = System.currentTimeMillis();
@@ -41,7 +41,7 @@ public class gx {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f14071a;
+        public int f14073a;
 
         /* renamed from: a  reason: collision with other field name */
         public long f492a;
@@ -50,7 +50,7 @@ public class gx {
         public String f493a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f14072b;
+        public int f14074b;
 
         /* renamed from: b  reason: collision with other field name */
         public long f494b;
@@ -61,28 +61,28 @@ public class gx {
         public a(String str, long j, int i, int i2, String str2, long j2) {
             this.f493a = "";
             this.f492a = 0L;
-            this.f14071a = -1;
-            this.f14072b = -1;
+            this.f14073a = -1;
+            this.f14074b = -1;
             this.f495b = "";
             this.f494b = 0L;
             this.f493a = str;
             this.f492a = j;
-            this.f14071a = i;
-            this.f14072b = i2;
+            this.f14073a = i;
+            this.f14074b = i2;
             this.f495b = str2;
             this.f494b = j2;
         }
 
         public boolean a(a aVar) {
-            return TextUtils.equals(aVar.f493a, this.f493a) && TextUtils.equals(aVar.f495b, this.f495b) && aVar.f14071a == this.f14071a && aVar.f14072b == this.f14072b && Math.abs(aVar.f492a - this.f492a) <= 5000;
+            return TextUtils.equals(aVar.f493a, this.f493a) && TextUtils.equals(aVar.f495b, this.f495b) && aVar.f14073a == this.f14073a && aVar.f14074b == this.f14074b && Math.abs(aVar.f492a - this.f492a) <= 5000;
         }
     }
 
     public static int a(Context context) {
-        if (f14070a == -1) {
-            f14070a = b(context);
+        if (f14072a == -1) {
+            f14072a = b(context);
         }
-        return f14070a;
+        return f14072a;
     }
 
     public static int a(String str) {
@@ -124,7 +124,7 @@ public class gx {
 
     /* renamed from: a  reason: collision with other method in class */
     public static void m356a(Context context) {
-        f14070a = b(context);
+        f14072a = b(context);
     }
 
     private static void a(Context context, String str, long j, boolean z, long j2) {
@@ -195,9 +195,9 @@ public class gx {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("package_name", aVar.f493a);
                     contentValues.put("message_ts", Long.valueOf(aVar.f492a));
-                    contentValues.put(HttpConstants.NETWORK_TYPE, Integer.valueOf(aVar.f14071a));
+                    contentValues.put(HttpConstants.NETWORK_TYPE, Integer.valueOf(aVar.f14073a));
                     contentValues.put("bytes", Long.valueOf(aVar.f494b));
-                    contentValues.put("rcv", Integer.valueOf(aVar.f14072b));
+                    contentValues.put("rcv", Integer.valueOf(aVar.f14074b));
                     contentValues.put("imsi", aVar.f495b);
                     writableDatabase.insert("traffic", null, contentValues);
                 }

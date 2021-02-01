@@ -1,38 +1,29 @@
 package com.baidu.live.data;
 
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class db {
-    public int aQA;
-    public int aQB;
-    public int aQC;
-    public int aQD;
-    public int aQE;
-    public int aQF;
-    public int aQu;
-    public int aQv;
-    public int aQw;
-    public int aQx;
-    public int aQy;
-    public int aQz;
+    public int aSX;
+    public int money;
+    public String new_props_id;
+    public int props_id;
+    public String wars_item;
+    public String wars_name;
 
-    public db F(JSONObject jSONObject) {
-        if (jSONObject == null) {
+    public String toJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("props_id", this.props_id);
+            jSONObject.put("money", this.money);
+            jSONObject.put("props_mon", this.aSX);
+            jSONObject.put("wars_name", this.wars_name);
+            jSONObject.put("wars_item", this.wars_item);
+            jSONObject.put("new_props_id", this.new_props_id);
+            return jSONObject.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
             return null;
         }
-        db dbVar = new db();
-        dbVar.aQu = jSONObject.optInt("pk_add_time_max", 300);
-        dbVar.aQv = jSONObject.optInt("pk_add_time_step", 5);
-        dbVar.aQw = jSONObject.optInt("pk_time_default", 20);
-        dbVar.aQx = jSONObject.optInt("pk_time_max", 30);
-        dbVar.aQy = jSONObject.optInt("pk_time_min", 5);
-        dbVar.aQz = jSONObject.optInt("punish_add_time_max", 300);
-        dbVar.aQA = jSONObject.optInt("punish_add_time_step", 5);
-        dbVar.aQB = jSONObject.optInt("punish_time_default", 20);
-        dbVar.aQC = jSONObject.optInt("punish_time_max", 30);
-        dbVar.aQD = jSONObject.optInt("punish_time_min", 5);
-        dbVar.aQE = jSONObject.optInt("settle_loading_time", 3);
-        dbVar.aQF = jSONObject.optInt("show_settle_loading", 1);
-        return dbVar;
     }
 }

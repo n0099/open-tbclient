@@ -10,7 +10,7 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class StringLoader<Data> implements ModelLoader<String, Data> {
     private final ModelLoader<Uri, Data> uriLoader;
 
@@ -53,7 +53,7 @@ public class StringLoader<Data> implements ModelLoader<String, Data> {
         return Uri.fromFile(new File(str));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class StreamFactory implements ModelLoaderFactory<String, InputStream> {
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         @NonNull
@@ -66,7 +66,7 @@ public class StringLoader<Data> implements ModelLoader<String, Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class FileDescriptorFactory implements ModelLoaderFactory<String, ParcelFileDescriptor> {
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         @NonNull
@@ -79,7 +79,7 @@ public class StringLoader<Data> implements ModelLoader<String, Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static final class AssetFileDescriptorFactory implements ModelLoaderFactory<String, AssetFileDescriptor> {
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         public ModelLoader<String, AssetFileDescriptor> build(@NonNull MultiModelLoaderFactory multiModelLoaderFactory) {

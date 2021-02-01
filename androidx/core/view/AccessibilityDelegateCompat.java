@@ -10,12 +10,12 @@ import android.view.accessibility.AccessibilityNodeProvider;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class AccessibilityDelegateCompat {
     private static final View.AccessibilityDelegate DEFAULT_DELEGATE = new View.AccessibilityDelegate();
     private final View.AccessibilityDelegate mBridge = new AccessibilityDelegateAdapter(this);
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     private static final class AccessibilityDelegateAdapter extends View.AccessibilityDelegate {
         private final AccessibilityDelegateCompat mCompat;
 

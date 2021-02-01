@@ -5,36 +5,36 @@ import android.os.IBinder;
 import android.os.Process;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public abstract class h {
-    private static final HashMap<String, h> cqY = new HashMap<>();
-    private static final ConcurrentHashMap<String, a> cqZ = new ConcurrentHashMap<>();
+    private static final HashMap<String, h> csN = new HashMap<>();
+    private static final ConcurrentHashMap<String, a> csO = new ConcurrentHashMap<>();
 
-    public abstract IBinder adU();
+    public abstract IBinder ael();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     private static class a {
-        public IBinder cra;
-        public boolean crb;
+        public IBinder csP;
+        public boolean csQ;
 
         private a() {
-            this.crb = false;
+            this.csQ = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static IBinder getService(String str) {
-        h hVar = cqY.get(str);
+        h hVar = csN.get(str);
         if (hVar != null) {
-            hVar.adV();
-            return hVar.adU();
+            hVar.aem();
+            return hVar.ael();
         }
-        a aVar = cqZ.get(str);
+        a aVar = csO.get(str);
         if (aVar != null) {
-            if (!aVar.crb && Binder.getCallingUid() != Process.myUid()) {
+            if (!aVar.csQ && Binder.getCallingUid() != Process.myUid()) {
                 throw new SecurityException();
             }
-            return aVar.cra;
+            return aVar.csP;
         }
         return null;
     }
@@ -44,7 +44,7 @@ public abstract class h {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        return cqZ.remove(str) != null;
+        return csO.remove(str) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,16 +52,16 @@ public abstract class h {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        if (cqY.get(str) != null) {
+        if (csN.get(str) != null) {
             throw new IllegalArgumentException();
         }
         a aVar = new a();
-        aVar.cra = iBinder;
-        aVar.crb = z;
-        cqZ.put(str, aVar);
+        aVar.csP = iBinder;
+        aVar.csQ = z;
+        csO.put(str, aVar);
     }
 
-    public void adV() {
+    public void aem() {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }

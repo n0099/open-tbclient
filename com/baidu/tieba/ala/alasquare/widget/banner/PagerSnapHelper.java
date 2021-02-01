@@ -5,15 +5,14 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PagerSnapHelper extends SnapHelper {
     @Nullable
-    private d gHT;
+    private d gKD;
     @Nullable
-    private d gHU;
+    private d gKE;
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
     @Nullable
@@ -126,7 +125,7 @@ public class PagerSnapHelper extends SnapHelper {
             } else {
                 end = dVar.getEnd() / 2;
             }
-            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i = Integer.MAX_VALUE;
             int i2 = 0;
             while (i2 < childCount) {
                 View childAt = layoutManager.getChildAt(i2);
@@ -148,7 +147,7 @@ public class PagerSnapHelper extends SnapHelper {
         View view = null;
         int childCount = layoutManager.getChildCount();
         if (childCount != 0) {
-            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i = Integer.MAX_VALUE;
             int i2 = 0;
             while (i2 < childCount) {
                 View childAt = layoutManager.getChildAt(i2);
@@ -167,17 +166,17 @@ public class PagerSnapHelper extends SnapHelper {
 
     @NonNull
     private d c(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gHT == null || this.gHT.mLayoutManager != layoutManager) {
-            this.gHT = d.b(layoutManager);
+        if (this.gKD == null || this.gKD.mLayoutManager != layoutManager) {
+            this.gKD = d.b(layoutManager);
         }
-        return this.gHT;
+        return this.gKD;
     }
 
     @NonNull
     private d d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gHU == null || this.gHU.mLayoutManager != layoutManager) {
-            this.gHU = d.a(layoutManager);
+        if (this.gKE == null || this.gKE.mLayoutManager != layoutManager) {
+            this.gKE = d.a(layoutManager);
         }
-        return this.gHU;
+        return this.gKE;
     }
 }

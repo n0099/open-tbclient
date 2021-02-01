@@ -10,28 +10,28 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b implements c {
     private View rootView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_rule_copy, (ViewGroup) null);
-    private ImageView fCU = (ImageView) this.rootView.findViewById(R.id.floating_view_icon);
-    private TextView fCW = (TextView) this.rootView.findViewById(R.id.floating_view_title);
-    private ImageView fCV = (ImageView) this.rootView.findViewById(R.id.floating_view_arrow);
-    private LinearLayout fCX = (LinearLayout) this.rootView.findViewById(R.id.floating_view_main);
+    private ImageView fFg = (ImageView) this.rootView.findViewById(R.id.floating_view_icon);
+    private TextView fFi = (TextView) this.rootView.findViewById(R.id.floating_view_title);
+    private ImageView fFh = (ImageView) this.rootView.findViewById(R.id.floating_view_arrow);
+    private LinearLayout fFj = (LinearLayout) this.rootView.findViewById(R.id.floating_view_main);
 
     public b(Context context) {
-        this.fCW.setText(R.string.frs_forum_rule_return_info);
-        btU();
+        this.fFi.setText(R.string.frs_forum_rule_return_info);
+        buo();
     }
 
     @Override // com.baidu.tbadk.k.c
-    public void btU() {
+    public void buo() {
         if (this.rootView != null) {
-            ao.setViewTextColor(this.fCW, R.color.CAM_X0101);
-            this.fCV.setImageDrawable(WebPManager.a(R.drawable.icon_pure_arrow12_right_n, ao.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-            com.baidu.tbadk.core.util.f.a.btb().oK(R.color.CAM_X0302).oJ(0).oT(211).ag(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).ai(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bz(this.fCX);
-            this.fCU.setImageDrawable(WebPManager.a(R.drawable.icon_mask_manage_postdelete_cancel32, WebPManager.ResourceStateType.NORMAL));
+            ap.setViewTextColor(this.fFi, R.color.CAM_X0101);
+            this.fFh.setImageDrawable(WebPManager.a(R.drawable.icon_pure_arrow12_right_n, ap.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            com.baidu.tbadk.core.util.f.a.btv().oP(R.color.CAM_X0302).oO(0).oY(211).ah(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).aj(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bv(this.fFj);
+            this.fFg.setImageDrawable(WebPManager.a(R.drawable.icon_mask_manage_postdelete_cancel32, WebPManager.ResourceStateType.NORMAL));
         }
     }
 

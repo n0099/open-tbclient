@@ -3,15 +3,15 @@ package com.kwad.sdk.glide.load.a;
 import androidx.annotation.NonNull;
 import java.io.FilterInputStream;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class g extends FilterInputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f10048a = {-1, -31, 0, 28, 69, 120, 105, 102, 0, 0, 77, 77, 0, 0, 0, 0, 0, 8, 0, 1, 1, 18, 0, 2, 0, 0, 0, 1, 0};
+    private static final byte[] f10050a = {-1, -31, 0, 28, 69, 120, 105, 102, 0, 0, 77, 77, 0, 0, 0, 0, 0, 8, 0, 1, 1, 18, 0, 2, 0, 0, 0, 1, 0};
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f10049b = f10048a.length;
-    private static final int c = f10049b + 2;
+    private static final int f10051b = f10050a.length;
+    private static final int c = f10051b + 2;
     private final byte d;
     private int e;
 
@@ -35,7 +35,7 @@ public final class g extends FilterInputStream {
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() {
-        int read = (this.e < 2 || this.e > c) ? super.read() : this.e == c ? this.d : f10048a[this.e - 2] & 255;
+        int read = (this.e < 2 || this.e > c) ? super.read() : this.e == c ? this.d : f10050a[this.e - 2] & 255;
         if (read != -1) {
             this.e++;
         }
@@ -54,7 +54,7 @@ public final class g extends FilterInputStream {
             min = super.read(bArr, i, 2 - this.e);
         } else {
             min = Math.min(c - this.e, i2);
-            System.arraycopy(f10048a, this.e - 2, bArr, i, min);
+            System.arraycopy(f10050a, this.e - 2, bArr, i, min);
         }
         if (min > 0) {
             this.e += min;

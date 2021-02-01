@@ -7,14 +7,14 @@ import android.widget.TextView;
 import com.qq.e.comm.plugin.a.l;
 import com.qq.e.comm.plugin.util.ai;
 import com.qq.e.comm.plugin.util.w;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class i extends RelativeLayout implements com.qq.e.comm.plugin.a.d.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public h f11856a;
+    public h f11858a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f11857b;
+    public TextView f11859b;
     private Context c;
     private com.qq.e.comm.plugin.s.a d;
     private int e;
@@ -25,14 +25,14 @@ public class i extends RelativeLayout implements com.qq.e.comm.plugin.a.d.a {
     private String j;
     private com.qq.e.comm.plugin.a.d.a k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        com.qq.e.comm.plugin.s.a f11860a;
+        com.qq.e.comm.plugin.s.a f11862a;
 
         /* renamed from: b  reason: collision with root package name */
-        int f11861b;
+        int f11863b;
         int c;
         int d;
         int f;
@@ -43,7 +43,7 @@ public class i extends RelativeLayout implements com.qq.e.comm.plugin.a.d.a {
         int h = -1;
 
         public a a(int i) {
-            this.f11861b = i;
+            this.f11863b = i;
             return this;
         }
 
@@ -53,7 +53,7 @@ public class i extends RelativeLayout implements com.qq.e.comm.plugin.a.d.a {
         }
 
         public a a(com.qq.e.comm.plugin.s.a aVar) {
-            this.f11860a = aVar;
+            this.f11862a = aVar;
             return this;
         }
 
@@ -124,39 +124,39 @@ public class i extends RelativeLayout implements com.qq.e.comm.plugin.a.d.a {
             case 16:
             case 32:
             case 64:
-                if (this.f11856a != null) {
-                    this.f11856a.a(100);
+                if (this.f11858a != null) {
+                    this.f11858a.a(100);
                 }
-                if (this.f11857b != null) {
-                    this.f11857b.setText(this.g);
+                if (this.f11859b != null) {
+                    this.f11859b.setText(this.g);
                     return;
                 }
                 return;
             case 1:
-                if (this.f11856a != null) {
-                    this.f11856a.a(100);
+                if (this.f11858a != null) {
+                    this.f11858a.a(100);
                 }
-                if (this.f11857b != null) {
-                    this.f11857b.setText(this.j);
+                if (this.f11859b != null) {
+                    this.f11859b.setText(this.j);
                     return;
                 }
                 return;
             case 4:
-                if (this.f11856a != null) {
-                    this.f11856a.a(i2);
+                if (this.f11858a != null) {
+                    this.f11858a.a(i2);
                 }
-                if (this.f11857b != null) {
-                    this.f11857b.setText(this.h);
-                    this.f11857b.setTextColor(this.e);
+                if (this.f11859b != null) {
+                    this.f11859b.setText(this.h);
+                    this.f11859b.setTextColor(this.e);
                     return;
                 }
                 return;
             case 8:
-                if (this.f11856a != null) {
-                    this.f11856a.a(100);
+                if (this.f11858a != null) {
+                    this.f11858a.a(100);
                 }
-                if (this.f11857b != null) {
-                    this.f11857b.setText(this.i);
+                if (this.f11859b != null) {
+                    this.f11859b.setText(this.i);
                     return;
                 }
                 return;
@@ -170,9 +170,9 @@ public class i extends RelativeLayout implements com.qq.e.comm.plugin.a.d.a {
         if (aVar == null) {
             return;
         }
-        this.f11856a = new h(this.c);
-        this.f11857b = new TextView(this.c);
-        this.d = aVar.f11860a;
+        this.f11858a = new h(this.c);
+        this.f11859b = new TextView(this.c);
+        this.d = aVar.f11862a;
         String a2 = a();
         if (!TextUtils.isEmpty(a2)) {
             l.a().a(a2, this);
@@ -187,25 +187,25 @@ public class i extends RelativeLayout implements com.qq.e.comm.plugin.a.d.a {
             this.j = aVar.i[4];
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(aVar.c, aVar.d);
-        this.f11856a.setLayoutParams(layoutParams);
+        this.f11858a.setLayoutParams(layoutParams);
         if (aVar.h != -1) {
-            this.f11856a.c(aVar.h);
+            this.f11858a.c(aVar.h);
         }
-        this.f11856a.a(aVar.f11861b);
-        this.f11856a.b(100);
-        this.f11856a.a(true);
-        this.f11857b.setLayoutParams(layoutParams);
-        this.f11857b.setBackgroundDrawable(null);
-        this.f11857b.setGravity(17);
-        this.f11857b.setTextColor(aVar.f);
-        this.f11857b.setTextSize(2, aVar.e);
+        this.f11858a.a(aVar.f11863b);
+        this.f11858a.b(100);
+        this.f11858a.a(true);
+        this.f11859b.setLayoutParams(layoutParams);
+        this.f11859b.setBackgroundDrawable(null);
+        this.f11859b.setGravity(17);
+        this.f11859b.setTextColor(aVar.f);
+        this.f11859b.setTextSize(2, aVar.e);
         if (this.d == null || !this.d.v()) {
-            this.f11857b.setText(this.f);
+            this.f11859b.setText(this.f);
         } else {
             a(l.a().a(a2), -1);
         }
-        addView(this.f11856a);
-        addView(this.f11857b);
+        addView(this.f11858a);
+        addView(this.f11859b);
     }
 
     @Override // com.qq.e.comm.plugin.a.d.a

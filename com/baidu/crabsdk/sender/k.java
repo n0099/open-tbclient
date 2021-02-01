@@ -14,19 +14,19 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class k {
-    private static SharedPreferences aqT = null;
-    private static final ScheduledThreadPoolExecutor aqU = new ScheduledThreadPoolExecutor(1);
-    private static final ScheduledThreadPoolExecutor aqV = new ScheduledThreadPoolExecutor(1);
+    private static SharedPreferences aqJ = null;
+    private static final ScheduledThreadPoolExecutor aqK = new ScheduledThreadPoolExecutor(1);
+    private static final ScheduledThreadPoolExecutor aqL = new ScheduledThreadPoolExecutor(1);
 
     private static long B(Context context, String str) {
         try {
-            if (aqT == null && context != null) {
-                aqT = context.getSharedPreferences("last_init_crab", 4);
+            if (aqJ == null && context != null) {
+                aqJ = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (aqT != null) {
-                return aqT.getLong(str, 0L);
+            if (aqJ != null) {
+                return aqJ.getLong(str, 0L);
             }
             return 0L;
         } catch (Exception e) {
@@ -36,7 +36,7 @@ public final class k {
     }
 
     public static void a(Context context, Throwable th) {
-        aqU.execute(new m(th, context));
+        aqK.execute(new m(th, context));
     }
 
     public static synchronized void a(boolean z, Context context) {
@@ -46,13 +46,13 @@ public final class k {
                 long currentTimeMillis = System.currentTimeMillis() - B(context, "time_upload_crash");
                 com.baidu.crabsdk.c.a.v("uploadCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
                 if (currentTimeMillis < 10000) {
-                    aqU.schedule(pVar, 10L, TimeUnit.SECONDS);
+                    aqK.schedule(pVar, 10L, TimeUnit.SECONDS);
                 } else {
-                    aqU.execute(pVar);
+                    aqK.execute(pVar);
                 }
                 e(context, "time_upload_crash");
             } else {
-                aqU.execute(pVar);
+                aqK.execute(pVar);
             }
         }
     }
@@ -168,7 +168,7 @@ public final class k {
                         } else {
                             com.baidu.crabsdk.c.a.dt("not connected to server!");
                         }
-                        f.aqO = true;
+                        f.aqE = true;
                     } else {
                         i.deleteFile(str2);
                         h.k(str2);
@@ -179,21 +179,21 @@ public final class k {
     }
 
     public static Future b(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
-        return aqV.submit(new o(onUploadFilesCallback, str, str2, str3, str4));
+        return aqL.submit(new o(onUploadFilesCallback, str, str2, str3, str4));
     }
 
     public static void b(Context context, Throwable th) {
-        aqU.execute(new n(context, th));
+        aqK.execute(new n(context, th));
     }
 
     private static void e(Context context, String str) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            if (aqT == null && context != null) {
-                aqT = context.getSharedPreferences("last_init_crab", 4);
+            if (aqJ == null && context != null) {
+                aqJ = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (aqT != null) {
-                aqT.edit().putLong(str, System.currentTimeMillis()).commit();
+            if (aqJ != null) {
+                aqJ.edit().putLong(str, System.currentTimeMillis()).commit();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -206,9 +206,9 @@ public final class k {
         long currentTimeMillis = System.currentTimeMillis() - B(context, "time_upload_native");
         com.baidu.crabsdk.c.a.v("uploadNativeCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
         if (currentTimeMillis < 10000) {
-            aqU.schedule(lVar, 10L, TimeUnit.SECONDS);
+            aqK.schedule(lVar, 10L, TimeUnit.SECONDS);
         } else {
-            aqU.execute(lVar);
+            aqK.execute(lVar);
         }
         e(context, "time_upload_native");
     }
@@ -410,7 +410,7 @@ public final class k {
     }
 
     public static void m(Context context) {
-        aqU.execute(new q(context));
+        aqK.execute(new q(context));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

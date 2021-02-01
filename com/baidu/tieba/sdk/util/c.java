@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends HttpResponsedRule {
     public c(int i) {
         super(i);

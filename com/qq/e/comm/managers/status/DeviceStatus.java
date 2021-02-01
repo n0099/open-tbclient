@@ -27,14 +27,14 @@ import com.qq.e.comm.util.StringUtil;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class DeviceStatus {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11563a;
+    private String f11565a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11564b;
+    private String f11566b;
     private int c;
     private int d;
     private int e;
@@ -215,13 +215,13 @@ public class DeviceStatus {
     }
 
     public String getLanguage() {
-        if (this.f11564b == null) {
-            this.f11564b = Locale.getDefault().getLanguage().toLowerCase(Locale.US);
-            if (this.f11564b.length() == 0) {
-                this.f11564b = h.f1947a;
+        if (this.f11566b == null) {
+            this.f11566b = Locale.getDefault().getLanguage().toLowerCase(Locale.US);
+            if (this.f11566b.length() == 0) {
+                this.f11566b = h.f1945a;
             }
         }
-        return this.f11564b;
+        return this.f11566b;
     }
 
     public String getLat() {
@@ -331,11 +331,11 @@ public class DeviceStatus {
 
     public String getUid() {
         if (GDTADManager.getInstance().getSM().getInteger("adidon", 1) == 1) {
-            if (this.f11563a == null) {
+            if (this.f11565a == null) {
                 String string = Settings.Secure.getString(this.n.getContentResolver(), "android_id");
-                this.f11563a = string == null ? "" : Md5Util.encode(string);
+                this.f11565a = string == null ? "" : Md5Util.encode(string);
             }
-            return this.f11563a;
+            return this.f11565a;
         }
         return "";
     }

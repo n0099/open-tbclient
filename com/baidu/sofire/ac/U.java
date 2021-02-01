@@ -39,7 +39,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class U extends Thread {
     public static final int FROM_DAILY_ALARM = 6;
     public static final int FROM_DEFAULT = 0;
@@ -102,7 +102,7 @@ public class U extends Thread {
     private static boolean sSetRetrmAlarm = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public class UpgradeResult {
         int networkId;
         int resultId;
@@ -244,11 +244,11 @@ public class U extends Thread {
                         throw new NetworkErrorException("blocked by Huawei Input");
                     }
                     sLastCheckTime = System.currentTimeMillis();
-                    if (com.baidu.sofire.i.e.g != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.i.e.f5254a)) {
+                    if (com.baidu.sofire.i.e.g != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.i.e.f5256a)) {
                         this.context.getApplicationContext().unregisterReceiver(com.baidu.sofire.i.e.g);
                     }
                     sMonitorNetworkWhenUpgradeNoNet = false;
-                    com.baidu.sofire.i.e.f5254a = false;
+                    com.baidu.sofire.i.e.f5256a = false;
                     if (this.mFrom != 1) {
                         this.mWholeJson = com.baidu.sofire.i.e.o(this.context);
                     }
@@ -280,7 +280,7 @@ public class U extends Thread {
                     this.loadedPluginDB.d();
                     if (!sPidRegister) {
                         e eVar2 = this.preference;
-                        eVar2.c.putInt("pdcg", this.preference.f5238a.getInt("pdcg", 0) + 1);
+                        eVar2.c.putInt("pdcg", this.preference.f5240a.getInt("pdcg", 0) + 1);
                         eVar2.c.commit();
                         e eVar3 = this.preference;
                         long currentTimeMillis2 = System.currentTimeMillis();
@@ -288,7 +288,7 @@ public class U extends Thread {
                             eVar3.c.putString("pdcgts", "");
                             eVar3.c.commit();
                         } else {
-                            String string = eVar3.f5238a.getString("pdcgts", "");
+                            String string = eVar3.f5240a.getString("pdcgts", "");
                             if (TextUtils.isEmpty(string)) {
                                 str = String.valueOf(currentTimeMillis2);
                             } else if (string.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).length < 20) {
@@ -302,7 +302,7 @@ public class U extends Thread {
                         sPidRegister = true;
                     }
                     e eVar4 = this.preference;
-                    eVar4.c.putInt("rtqe", this.preference.f5238a.getInt("rtqe", 0) + 1);
+                    eVar4.c.putInt("rtqe", this.preference.f5240a.getInt("rtqe", 0) + 1);
                     eVar4.c.commit();
                     List<ApkInfo> a2 = this.loadedPluginDB.a();
                     new StringBuilder("a=").append(a2);
@@ -346,7 +346,7 @@ public class U extends Thread {
                             int optInt2 = optJSONObject2.optInt("r");
                             if (z2) {
                                 e eVar5 = this.preference;
-                                if (optInt2 > eVar5.f5238a.getInt("opi", 0)) {
+                                if (optInt2 > eVar5.f5240a.getInt("opi", 0)) {
                                     eVar5.c.putInt("opi", optInt2);
                                     eVar5.c.commit();
                                 }
@@ -638,7 +638,7 @@ public class U extends Thread {
 
     private void handleThreadStart() {
         try {
-            long j = this.preference.f5238a.getLong("slruct", 0L);
+            long j = this.preference.f5240a.getLong("slruct", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (j > 0 && currentTimeMillis - j > 86400000) {
                 HashMap hashMap = new HashMap();
@@ -815,7 +815,7 @@ public class U extends Thread {
         }
         long currentTimeMillis = System.currentTimeMillis();
         e eVar = this.preference;
-        long j = eVar.f5238a.getLong("pu_ap_fd", 0L);
+        long j = eVar.f5240a.getLong("pu_ap_fd", 0L);
         if (j == 0) {
             j = System.currentTimeMillis();
             eVar.d();

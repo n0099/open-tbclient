@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.e;
 
 import java.io.InputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

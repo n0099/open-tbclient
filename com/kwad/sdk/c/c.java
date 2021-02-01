@@ -26,14 +26,14 @@ import com.kwad.sdk.core.webview.jshandler.o;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.ar;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected View f8253a;
+    protected View f8255a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AdBaseFrameLayout f8254b;
+    private AdBaseFrameLayout f8256b;
     private FrameLayout c;
     private WebView d;
     @Nullable
@@ -87,7 +87,7 @@ public class c {
     private void j() {
         this.c.removeAllViews();
         this.c.setVisibility(4);
-        this.f8253a = ao.a((ViewGroup) this.c, a(), true);
+        this.f8255a = ao.a((ViewGroup) this.c, a(), true);
         this.d = (WebView) this.c.findViewById(R.id.ksad_web_card_webView);
         this.d.setBackgroundColor(0);
         this.d.getBackground().setAlpha(0);
@@ -95,9 +95,9 @@ public class c {
 
     private void k() {
         this.k = new com.kwad.sdk.core.webview.a();
-        this.k.f9537b = this.g;
-        this.k.f9536a = this.f;
-        this.k.c = this.f8254b;
+        this.k.f9539b = this.g;
+        this.k.f9538a = this.f;
+        this.k.c = this.f8256b;
         this.k.e = this.c;
         this.k.f = this.d;
         this.k.d = this.e;
@@ -147,7 +147,7 @@ public class c {
 
     public void a(FrameLayout frameLayout, AdBaseFrameLayout adBaseFrameLayout, AdTemplate adTemplate, com.kwad.sdk.core.download.b.b bVar, int i) {
         this.h = bVar;
-        this.f8254b = adBaseFrameLayout;
+        this.f8256b = adBaseFrameLayout;
         this.c = frameLayout;
         this.f = i;
         this.g = adTemplate;

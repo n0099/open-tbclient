@@ -6,21 +6,21 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import com.baidu.tieba.tbadkCore.data.o;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends com.baidu.adp.widget.ListView.a<o, PbAppEmptyHolder> implements com.baidu.tieba.recapp.o {
-    protected BaseFragmentActivity iEK;
+    protected BaseFragmentActivity iKt;
 
     public e(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.iEK = baseFragmentActivity;
+        this.iKt = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cV */
+    /* renamed from: cW */
     public PbAppEmptyHolder e(ViewGroup viewGroup) {
-        View view = new View(this.iEK.getPageContext().getPageActivity());
+        View view = new View(this.iKt.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new PbAppEmptyHolder(view);
     }
@@ -30,13 +30,13 @@ public class e extends com.baidu.adp.widget.ListView.a<o, PbAppEmptyHolder> impl
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, o oVar, PbAppEmptyHolder pbAppEmptyHolder) {
         boolean z = false;
-        AppData dLa = oVar.dLa();
-        if (dLa != null) {
-            com.baidu.tbadk.core.data.c cVar = dLa.advertAppContext;
-            if (dLa.goods != null && dLa.goods.goods_style == -1001) {
+        AppData dNl = oVar.dNl();
+        if (dNl != null) {
+            com.baidu.tbadk.core.data.d dVar = dNl.advertAppContext;
+            if (dNl.goods != null && dNl.goods.goods_style == -1001) {
                 z = true;
             }
-            com.baidu.tbadk.core.data.c.b(cVar, oVar.getPosition(), z);
+            com.baidu.tbadk.core.data.d.b(dVar, oVar.getPosition(), z);
         }
         return pbAppEmptyHolder.getView();
     }

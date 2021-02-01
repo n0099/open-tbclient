@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KwaiSphereMesh extends KwaiBaseMesh {
     private static final String TAG = "KwaiSphereMesh";
     private static KwaiMesh kwaiMesh = new KwaiMesh();

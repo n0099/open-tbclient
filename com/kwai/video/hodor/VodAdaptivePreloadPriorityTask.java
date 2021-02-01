@@ -4,9 +4,8 @@ import androidx.annotation.NonNull;
 import com.kwai.video.cache.AwesomeCacheCallback;
 import com.kwai.video.hodor.anotations.AccessedByNative;
 import com.kwai.video.hodor.util.HeaderUtil;
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class VodAdaptivePreloadPriorityTask extends AbstractHodorPreloadTask {
     private AwesomeCacheCallback mAwesomeCacheCallback;
     @AccessedByNative
@@ -14,7 +13,7 @@ public class VodAdaptivePreloadPriorityTask extends AbstractHodorPreloadTask {
     private VodAdaptiveDataSpec mDataSpec = new VodAdaptiveDataSpec();
     private VodAdaptiveInit mVodAdaptiveInitValue;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class VodAdaptiveDataSpec {
         String headers;
         String manifestJson;
@@ -22,11 +21,11 @@ public class VodAdaptivePreloadPriorityTask extends AbstractHodorPreloadTask {
         long durMs = -1;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class VodAdaptiveInit {
         public String rateConfig = "";
         public int devResWidth = 720;
-        public int devResHeigh = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        public int devResHeigh = 1280;
         public int netType = 1;
         public int lowDevice = 0;
         public int signalStrength = 1;

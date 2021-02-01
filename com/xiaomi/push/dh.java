@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 class dh {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13935a = "/MiPushLog";
+    private static String f13937a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
     private int f281a;
@@ -41,7 +41,7 @@ class dh {
     private final SimpleDateFormat f282a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /* renamed from: b  reason: collision with root package name */
-    private int f13936b = 2097152;
+    private int f13938b = 2097152;
 
     /* renamed from: a  reason: collision with other field name */
     private ArrayList<File> f283a = new ArrayList<>();
@@ -80,7 +80,7 @@ class dh {
                     return;
                 }
                 bufferedWriter.write(cArr, i3, i4);
-                if (this.f281a > this.f13936b) {
+                if (this.f281a > this.f13938b) {
                     return;
                 }
             }
@@ -211,7 +211,7 @@ class dh {
             m252a(new File(file2, "xmsf.log.1"));
             m252a(new File(file2, "xmsf.log"));
         } else {
-            file2 = new File(context.getExternalFilesDir(null) + f13935a);
+            file2 = new File(context.getExternalFilesDir(null) + f13937a);
             m252a(new File(file2, "log0.txt"));
             m252a(new File(file2, "log1.txt"));
         }
@@ -242,7 +242,7 @@ class dh {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i) {
         if (i != 0) {
-            this.f13936b = i;
+            this.f13938b = i;
         }
     }
 }

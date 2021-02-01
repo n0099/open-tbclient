@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.storage.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface d {
-    void cQ(long j);
+    void cW(long j);
 
-    boolean cR(long j);
+    boolean cX(long j);
 
     long getMaxSize();
 }

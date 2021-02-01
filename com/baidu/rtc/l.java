@@ -1,7 +1,7 @@
 package com.baidu.rtc;
 
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class l extends VideoFrame {
     public l(VideoFrame.Buffer buffer, int i, long j) {
         super(buffer, i, j);

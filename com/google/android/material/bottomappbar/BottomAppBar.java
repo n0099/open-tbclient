@@ -38,7 +38,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedBehavior {
     private static final long ANIMATION_DURATION = 300;
     public static final int FAB_ALIGNMENT_MODE_CENTER = 0;
@@ -58,7 +58,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     private final BottomAppBarTopEdgeTreatment topEdgeTreatment;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public @interface FabAlignmentMode {
     }
 
@@ -475,7 +475,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         return new Behavior();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class Behavior extends HideBottomViewOnScrollBehavior<BottomAppBar> {
         private final Rect fabContentRect;
 
@@ -565,7 +565,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomappbar.BottomAppBar.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -5,7 +5,7 @@ import com.baidu.mobstat.Config;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a(int i, int i2, int i3, int i4) {

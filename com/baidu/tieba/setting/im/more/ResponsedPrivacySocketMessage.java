@@ -27,34 +27,34 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
         }
         if (getPrivateInfoResIdl.data != null) {
             if (getPrivateInfoResIdl.data.like != null) {
-                this.privacyData.Ia(getPrivateInfoResIdl.data.like.intValue());
+                this.privacyData.Iu(getPrivateInfoResIdl.data.like.intValue());
             }
             if (getPrivateInfoResIdl.data.group != null) {
-                this.privacyData.Ic(getPrivateInfoResIdl.data.group.intValue());
+                this.privacyData.Iw(getPrivateInfoResIdl.data.group.intValue());
             }
             if (getPrivateInfoResIdl.data.post != null) {
-                this.privacyData.HZ(getPrivateInfoResIdl.data.post.intValue());
+                this.privacyData.It(getPrivateInfoResIdl.data.post.intValue());
             }
             if (getPrivateInfoResIdl.data.location != null) {
-                this.privacyData.Id(getPrivateInfoResIdl.data.location.intValue());
+                this.privacyData.Ix(getPrivateInfoResIdl.data.location.intValue());
             }
             if (getPrivateInfoResIdl.data.user != null) {
                 this.privacyData.b(getPrivateInfoResIdl.data.user);
             }
             if (getPrivateInfoResIdl.data.live != null) {
-                this.privacyData.Ib(getPrivateInfoResIdl.data.live.intValue());
+                this.privacyData.Iv(getPrivateInfoResIdl.data.live.intValue());
             }
             if (getPrivateInfoResIdl.data.forum_num != null) {
-                this.privacyData.Ie(getPrivateInfoResIdl.data.forum_num.intValue());
+                this.privacyData.Iy(getPrivateInfoResIdl.data.forum_num.intValue());
             }
             if (getPrivateInfoResIdl.data.reply != null) {
-                this.privacyData.If(getPrivateInfoResIdl.data.reply.intValue());
+                this.privacyData.Iz(getPrivateInfoResIdl.data.reply.intValue());
             }
             if (getPrivateInfoResIdl.data.bazhu_show_inside != null) {
-                this.privacyData.Ig(getPrivateInfoResIdl.data.bazhu_show_inside.intValue());
+                this.privacyData.IA(getPrivateInfoResIdl.data.bazhu_show_inside.intValue());
             }
             if (getPrivateInfoResIdl.data.bazhu_show_outside != null) {
-                this.privacyData.Ih(getPrivateInfoResIdl.data.bazhu_show_outside.intValue());
+                this.privacyData.IB(getPrivateInfoResIdl.data.bazhu_show_outside.intValue());
             }
         }
     }

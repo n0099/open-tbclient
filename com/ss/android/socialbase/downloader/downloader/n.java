@@ -3,15 +3,15 @@ package com.ss.android.socialbase.downloader.downloader;
 import android.app.Notification;
 import com.ss.android.socialbase.downloader.d.ah;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface n {
-    boolean Ra(int i);
+    boolean Rv(int i);
 
-    com.ss.android.socialbase.downloader.d.d Rb(int i);
+    com.ss.android.socialbase.downloader.d.d Rw(int i);
 
-    com.ss.android.socialbase.downloader.d.r Rc(int i);
+    com.ss.android.socialbase.downloader.d.r Rx(int i);
 
-    ah Rd(int i);
+    ah Ry(int i);
 
     int a(String str, String str2);
 

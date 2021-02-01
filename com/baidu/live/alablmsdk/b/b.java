@@ -7,72 +7,72 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b implements b.a {
-    private int axA;
-    private int axB;
-    private a axC;
-    public com.baidu.live.alablmsdk.module.a axx;
-    private List<Integer> axy;
-    private List<com.baidu.live.alablmsdk.a.a.a> axz = new ArrayList();
+    public com.baidu.live.alablmsdk.module.a axK;
+    private List<Integer> axL;
+    private List<com.baidu.live.alablmsdk.a.a.a> axM = new ArrayList();
+    private int axN;
+    private int axO;
+    private a axP;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void a(com.baidu.live.alablmsdk.module.rtc.a aVar, int i);
+        void a(com.baidu.live.alablmsdk.module.rtc.c cVar, int i);
     }
 
     public b(a aVar) {
-        this.axC = aVar;
+        this.axP = aVar;
     }
 
     public void a(com.baidu.live.alablmsdk.module.a aVar) {
-        this.axx = aVar;
+        this.axK = aVar;
     }
 
-    public void w(HashMap<String, Object> hashMap) {
+    public void x(HashMap<String, Object> hashMap) {
         Object obj;
         if (hashMap != null && hashMap.containsKey("blm_rtc_stream_leaved_listen_seconds_key") && (obj = hashMap.get("blm_rtc_stream_leaved_listen_seconds_key")) != null) {
-            this.axy = (List) obj;
-            Collections.sort(this.axy);
-            Collections.reverse(this.axy);
-            xT();
-            xU();
+            this.axL = (List) obj;
+            Collections.sort(this.axL);
+            Collections.reverse(this.axL);
+            xV();
+            xW();
         }
     }
 
-    public void xT() {
-        if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.axy)) {
-            for (int i = 0; i < this.axy.size(); i++) {
+    public void xV() {
+        if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.axL)) {
+            for (int i = 0; i < this.axL.size(); i++) {
                 com.baidu.live.alablmsdk.a.a.a aVar = new com.baidu.live.alablmsdk.a.a.a();
-                aVar.time = this.axy.get(i).intValue();
-                aVar.awH = false;
-                this.axz.add(aVar);
+                aVar.time = this.axL.get(i).intValue();
+                aVar.aww = false;
+                this.axM.add(aVar);
             }
         }
     }
 
-    private void xU() {
-        this.axA = com.baidu.live.alablmsdk.a.a.t(this.axy);
-        if (this.axA <= 0) {
-            this.axB = 120;
+    private void xW() {
+        this.axN = com.baidu.live.alablmsdk.a.a.t(this.axL);
+        if (this.axN <= 0) {
+            this.axO = 120;
         } else {
-            this.axB = this.axA;
+            this.axO = this.axN;
         }
-        com.baidu.live.alablmsdk.a.b.a.ai(" handleCountDownTime maxCountDownTime " + this.axB, "");
+        com.baidu.live.alablmsdk.a.b.a.ag(" handleCountDownTime maxCountDownTime " + this.axO, "");
     }
 
-    private List<com.baidu.live.alablmsdk.a.a.a> xV() {
-        if (this.axz == null) {
+    private List<com.baidu.live.alablmsdk.a.a.a> xX() {
+        if (this.axM == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.axz.size()) {
+            if (i2 >= this.axM.size()) {
                 return arrayList;
             }
-            com.baidu.live.alablmsdk.a.a.a aVar = this.axz.get(i2);
+            com.baidu.live.alablmsdk.a.a.a aVar = this.axM.get(i2);
             if (aVar != null) {
                 arrayList.add(aVar.clone());
             }
@@ -80,89 +80,89 @@ public class b implements b.a {
         }
     }
 
-    public void xW() {
-        com.baidu.live.alablmsdk.a.b.a.ai(" current leave count down start", "");
-        if (this.axx != null) {
-            if (this.axx.axU != null) {
-                com.baidu.live.alablmsdk.module.rtc.a aVar = new com.baidu.live.alablmsdk.module.rtc.a();
-                aVar.axT = this.axx.axT;
-                if (this.axx.axU != null && this.axx.axU.ayc != null && TextUtils.isEmpty(this.axx.axU.ayc.order)) {
-                    aVar.order = this.axx.axU.ayc.order;
-                    com.baidu.live.alablmsdk.a.b.a.d(" current leave count down start , add order " + aVar.order);
+    public void xY() {
+        com.baidu.live.alablmsdk.a.b.a.ag(" current leave count down start", "");
+        if (this.axK != null) {
+            if (this.axK.ayl != null) {
+                com.baidu.live.alablmsdk.module.rtc.c cVar = new com.baidu.live.alablmsdk.module.rtc.c();
+                cVar.ayk = this.axK.ayk;
+                if (this.axK.ayl != null && this.axK.ayl.ayt != null && TextUtils.isEmpty(this.axK.ayl.ayt.order)) {
+                    cVar.order = this.axK.ayl.ayt.order;
+                    com.baidu.live.alablmsdk.a.b.a.d(" current leave count down start , add order " + cVar.order);
                 }
-                if (this.axx.axU.ayd == null) {
-                    com.baidu.live.alablmsdk.a.b.a.ew(" CurrentUserStateInfo mStreamLeaveCountDown null ");
-                    this.axx.axU.ayd = new com.baidu.live.alablmsdk.a.a.b(aVar.axT, 2, this.axB, 1L, aVar, false, xV(), this);
+                if (this.axK.ayl.ayu == null) {
+                    com.baidu.live.alablmsdk.a.b.a.eA(" CurrentUserStateInfo mStreamLeaveCountDown null ");
+                    this.axK.ayl.ayu = new com.baidu.live.alablmsdk.a.a.b(cVar.ayk, 2, this.axO, 1L, cVar, false, xX(), this);
                 }
-                this.axx.axU.ayd.startTimer();
+                this.axK.ayl.ayu.startTimer();
                 return;
             }
-            com.baidu.live.alablmsdk.a.b.a.ai(" current leave count down start error , user state info null", "");
+            com.baidu.live.alablmsdk.a.b.a.ag(" current leave count down start error , user state info null", "");
             return;
         }
-        com.baidu.live.alablmsdk.a.b.a.ai(" current leave count down start error, mCurrentChatInfo null ", "");
+        com.baidu.live.alablmsdk.a.b.a.ag(" current leave count down start error, mCurrentChatInfo null ", "");
     }
 
-    public void xX() {
-        com.baidu.live.alablmsdk.a.b.a.ai(" current leave count down stop", "");
-        if (this.axx != null) {
-            if (this.axx.axU != null) {
-                if (this.axx.axU.ayd != null) {
-                    this.axx.axU.ayd.cancelTimer();
+    public void xZ() {
+        com.baidu.live.alablmsdk.a.b.a.ag(" current leave count down stop", "");
+        if (this.axK != null) {
+            if (this.axK.ayl != null) {
+                if (this.axK.ayl.ayu != null) {
+                    this.axK.ayl.ayu.cancelTimer();
                     return;
                 }
                 return;
             }
-            com.baidu.live.alablmsdk.a.b.a.ai(" current leave count down stop error , user state info null", "");
+            com.baidu.live.alablmsdk.a.b.a.ag(" current leave count down stop error , user state info null", "");
             return;
         }
-        com.baidu.live.alablmsdk.a.b.a.ai(" current leave count down stop error, mCurrentChatInfo null ", "");
+        com.baidu.live.alablmsdk.a.b.a.ag(" current leave count down stop error, mCurrentChatInfo null ", "");
     }
 
     public void as(long j) {
-        com.baidu.live.alablmsdk.a.b.a.ai("other stream leave count down start , imUk=" + j, "");
-        if (this.axx != null && j != 0) {
-            d ay = this.axx.ay(j);
-            if (ay != null) {
-                if (ay.ayd == null) {
-                    com.baidu.live.alablmsdk.module.rtc.a aVar = new com.baidu.live.alablmsdk.module.rtc.a();
-                    aVar.axT = j;
-                    if (ay.ayc != null && !TextUtils.isEmpty(ay.ayc.order)) {
-                        aVar.order = ay.ayc.order;
-                        com.baidu.live.alablmsdk.a.b.a.d("other stream leave count down start , add order " + aVar.order);
+        com.baidu.live.alablmsdk.a.b.a.ag("other stream leave count down start , imUk=" + j, "");
+        if (this.axK != null && j != 0) {
+            d aC = this.axK.aC(j);
+            if (aC != null) {
+                if (aC.ayu == null) {
+                    com.baidu.live.alablmsdk.module.rtc.c cVar = new com.baidu.live.alablmsdk.module.rtc.c();
+                    cVar.ayk = j;
+                    if (aC.ayt != null && !TextUtils.isEmpty(aC.ayt.order)) {
+                        cVar.order = aC.ayt.order;
+                        com.baidu.live.alablmsdk.a.b.a.d("other stream leave count down start , add order " + cVar.order);
                     }
-                    ay.ayd = new com.baidu.live.alablmsdk.a.a.b(j, 2, this.axB, 1L, aVar, false, xV(), this);
+                    aC.ayu = new com.baidu.live.alablmsdk.a.a.b(j, 2, this.axO, 1L, cVar, false, xX(), this);
                 }
-                ay.ayd.startTimer();
+                aC.ayu.startTimer();
                 return;
             }
-            com.baidu.live.alablmsdk.a.b.a.ai(" other leave count down start error , no count down start", "");
+            com.baidu.live.alablmsdk.a.b.a.ag(" other leave count down start error , no count down start", "");
             return;
         }
-        com.baidu.live.alablmsdk.a.b.a.ai(" other leave count down start error, mCurrentChatInfo null ", "");
+        com.baidu.live.alablmsdk.a.b.a.ag(" other leave count down start error, mCurrentChatInfo null ", "");
     }
 
     public void at(long j) {
-        com.baidu.live.alablmsdk.a.b.a.ai("leave count down stop, imUk=" + j, "");
-        if (this.axx != null) {
-            d ay = this.axx.ay(j);
-            if (ay != null && ay.ayd != null) {
-                ay.ayd.cancelTimer();
+        com.baidu.live.alablmsdk.a.b.a.ag("leave count down stop, imUk=" + j, "");
+        if (this.axK != null) {
+            d aC = this.axK.aC(j);
+            if (aC != null && aC.ayu != null) {
+                aC.ayu.cancelTimer();
                 return;
             } else {
-                com.baidu.live.alablmsdk.a.b.a.ai(" other leave count down start error , no count down start", "");
+                com.baidu.live.alablmsdk.a.b.a.ag(" other leave count down start error , no count down start", "");
                 return;
             }
         }
-        com.baidu.live.alablmsdk.a.b.a.ai(" other leave count down start error, mCurrentChatInfo null ", "");
+        com.baidu.live.alablmsdk.a.b.a.ag(" other leave count down start error, mCurrentChatInfo null ", "");
     }
 
-    public void xY() {
-        com.baidu.live.alablmsdk.a.b.a.ew("stop other stream leave count down");
-        if (this.axx != null) {
-            this.axx.yk();
+    public void ya() {
+        com.baidu.live.alablmsdk.a.b.a.eA("stop other stream leave count down");
+        if (this.axK != null) {
+            this.axK.yy();
         } else {
-            com.baidu.live.alablmsdk.a.b.a.ai(" other leave count down start error, mCurrentChatInfo null ", "");
+            com.baidu.live.alablmsdk.a.b.a.ag(" other leave count down start error, mCurrentChatInfo null ", "");
         }
     }
 
@@ -172,24 +172,24 @@ public class b implements b.a {
 
     @Override // com.baidu.live.alablmsdk.a.a.b.a
     public void a(int i, Object obj, long j) {
-        com.baidu.live.alablmsdk.module.rtc.a aVar;
-        com.baidu.live.alablmsdk.a.b.a.ew(" onNodeCallback callback , time=" + j);
-        if (this.axC != null) {
-            if (!(obj instanceof com.baidu.live.alablmsdk.module.rtc.a)) {
-                aVar = null;
+        com.baidu.live.alablmsdk.module.rtc.c cVar;
+        com.baidu.live.alablmsdk.a.b.a.eA(" onNodeCallback callback , time=" + j);
+        if (this.axP != null) {
+            if (!(obj instanceof com.baidu.live.alablmsdk.module.rtc.c)) {
+                cVar = null;
             } else {
-                aVar = (com.baidu.live.alablmsdk.module.rtc.a) obj;
+                cVar = (com.baidu.live.alablmsdk.module.rtc.c) obj;
             }
-            com.baidu.live.alablmsdk.a.b.a.ew(" onNodeCallback callback leavedForSeconds , time=" + j);
-            this.axC.a(aVar, (int) j);
+            com.baidu.live.alablmsdk.a.b.a.eA(" onNodeCallback callback leavedForSeconds , time=" + j);
+            this.axP.a(cVar, (int) j);
         }
     }
 
     public void release() {
-        this.axC = null;
-        if (this.axx != null) {
-            this.axx.yj();
-            this.axx.yk();
+        this.axP = null;
+        if (this.axK != null) {
+            this.axK.yx();
+            this.axK.yy();
         }
     }
 }

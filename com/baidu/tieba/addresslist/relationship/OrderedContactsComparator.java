@@ -3,7 +3,7 @@ package com.baidu.tieba.addresslist.relationship;
 import android.text.TextUtils;
 import java.io.Serializable;
 import java.util.Comparator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OrderedContactsComparator implements Serializable, Comparator<e> {
     private static final String LAST_KEY = "#";
     private static final long serialVersionUID = 1284474050586872045L;

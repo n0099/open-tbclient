@@ -10,6 +10,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.down.utils.Constants;
 import com.baidu.location.Jni;
 import com.baidu.mobstat.Config;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -20,15 +21,15 @@ import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class p extends com.baidu.location.d.e {
     private static p q = null;
 
     /* renamed from: a  reason: collision with root package name */
-    String f2578a = null;
+    String f2576a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    String f2579b = null;
+    String f2577b = null;
     String c = null;
     String d = null;
     int e = 1;
@@ -148,14 +149,14 @@ public class p extends com.baidu.location.d.e {
         try {
             File file = new File(com.baidu.location.d.j.h() + "/grtcfrsa.dat");
             if (!file.exists()) {
-                File file2 = new File(com.baidu.location.d.i.f2642a);
+                File file2 = new File(com.baidu.location.d.i.f2640a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
                 if (!file.createNewFile()) {
                     return;
                 }
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 randomAccessFile.seek(2L);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.seek(8L);
@@ -168,7 +169,7 @@ public class p extends com.baidu.location.d.e {
                 randomAccessFile.writeBoolean(false);
                 randomAccessFile.close();
             }
-            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             randomAccessFile2.seek(200L);
             randomAccessFile2.writeBoolean(true);
             if (this.e == 1) {
@@ -190,7 +191,7 @@ public class p extends com.baidu.location.d.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.f2578a == null) {
+        if (this.f2576a == null) {
             return;
         }
         new t(this).start();
@@ -201,16 +202,16 @@ public class p extends com.baidu.location.d.e {
         if (this.c == null || new File(com.baidu.location.d.j.h() + File.separator + this.c).exists()) {
             return true;
         }
-        return a("http://" + this.f2578a + "/" + this.c, this.c);
+        return a("http://" + this.f2576a + "/" + this.c, this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        if (this.f2579b == null) {
+        if (this.f2577b == null) {
             return;
         }
-        File file = new File(com.baidu.location.d.j.h() + File.separator + this.f2579b);
-        if (file.exists() || !a("http://" + this.f2578a + "/" + this.f2579b, this.f2579b)) {
+        File file = new File(com.baidu.location.d.j.h() + File.separator + this.f2577b);
+        if (file.exists() || !a("http://" + this.f2576a + "/" + this.f2577b, this.f2577b)) {
             return;
         }
         String a2 = com.baidu.location.d.j.a(file, "SHA-256");
@@ -240,12 +241,12 @@ public class p extends com.baidu.location.d.e {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.d.b.a().f2626b == null) {
+        if (com.baidu.location.d.b.a().f2624b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.d.b.a().f2625a);
+            stringBuffer.append(com.baidu.location.d.b.a().f2623a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.d.b.a().f2626b);
+            stringBuffer.append(com.baidu.location.d.b.a().f2624b);
         }
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
@@ -286,9 +287,9 @@ public class p extends com.baidu.location.d.e {
             try {
                 JSONObject jSONObject = new JSONObject(this.j);
                 if ("up".equals(jSONObject.getString("res"))) {
-                    this.f2578a = jSONObject.getString("upath");
+                    this.f2576a = jSONObject.getString("upath");
                     if (jSONObject.has("u1")) {
-                        this.f2579b = jSONObject.getString("u1");
+                        this.f2577b = jSONObject.getString("u1");
                     }
                     if (jSONObject.has("u2")) {
                         this.c = jSONObject.getString("u2");

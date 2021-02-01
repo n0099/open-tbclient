@@ -12,7 +12,7 @@ import com.baidu.card.view.ThreadCardView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.a;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
@@ -21,37 +21,37 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ak<T extends com.baidu.tbadk.core.data.a> implements q, com.baidu.tieba.a.e {
-    private T agr;
-    private p<T> aig;
-    private ThreadCardView aih;
-    private RelativeLayout aii;
-    private LinearLayout aij;
-    private com.baidu.card.a<T> aik;
-    private com.baidu.card.a<T> ail;
-    private List<h> aim;
-    private com.baidu.card.a<T> ain;
-    private ArrayList<c> aio;
-    private q aip;
-    private al aiq;
-    private String air;
-    private com.baidu.tieba.card.aa<T> ais;
-    private com.baidu.card.a.a ait;
-    private int aiu;
-    private a.C0089a aiv;
+    private T agj;
+    private p<T> ahT;
+    private ThreadCardView ahU;
+    private RelativeLayout ahV;
+    private LinearLayout ahW;
+    private com.baidu.card.a<T> ahX;
+    private com.baidu.card.a<T> ahY;
+    private List<h> ahZ;
+    private com.baidu.card.a<T> aia;
+    private ArrayList<c> aib;
+    private q aic;
+    private al aie;
+    private String aif;
+    private com.baidu.tieba.card.ab<T> aig;
+    private com.baidu.card.a.a aih;
+    private int aii;
+    private a.C0089a aij;
     private Context context;
     private int mSkinType;
     private View mTopLine;
 
-    public com.baidu.card.a<T> tf() {
-        return this.ail;
+    public com.baidu.card.a<T> tc() {
+        return this.ahY;
     }
 
-    public com.baidu.card.a<T> tg() {
-        return this.ain;
+    public com.baidu.card.a<T> td() {
+        return this.aia;
     }
 
-    public List<h> th() {
-        return this.aim;
+    public List<h> te() {
+        return this.ahZ;
     }
 
     private ak(a aVar) {
@@ -68,37 +68,37 @@ public class ak<T extends com.baidu.tbadk.core.data.a> implements q, com.baidu.t
 
     private ak(a aVar, BaseCardInfo.SupportType supportType, ViewGroup viewGroup, com.baidu.adp.widget.ListView.s sVar) {
         this.mSkinType = 3;
-        this.aig = null;
-        this.aip = null;
-        this.ait = new com.baidu.card.a.a();
-        this.aiu = 0;
-        this.aiv = new a.C0089a(7);
+        this.ahT = null;
+        this.aic = null;
+        this.aih = new com.baidu.card.a.a();
+        this.aii = 0;
+        this.aij = new a.C0089a(7);
         this.context = aVar.context;
         View inflate = LayoutInflater.from(this.context).inflate(R.layout.thread_card_layout, viewGroup, false);
-        this.aih = (ThreadCardView) inflate.findViewById(R.id.thread_card_root);
-        this.aii = (RelativeLayout) this.aih.findViewById(R.id.card_decor_layer);
-        this.aij = (LinearLayout) this.aih.findViewById(R.id.body_root);
-        this.aij.setClipToPadding(false);
-        this.mTopLine = this.aih.findViewById(R.id.card_top_line);
-        this.aik = aVar.aix;
-        this.ail = aVar.aiy;
-        this.aim = aVar.aiz;
-        this.ain = aVar.aiA;
-        this.aio = aVar.aio;
-        this.aiq = aVar.aiq;
-        this.aih.setParent(viewGroup);
-        this.aih.setITypeListView(sVar);
+        this.ahU = (ThreadCardView) inflate.findViewById(R.id.thread_card_root);
+        this.ahV = (RelativeLayout) this.ahU.findViewById(R.id.card_decor_layer);
+        this.ahW = (LinearLayout) this.ahU.findViewById(R.id.body_root);
+        this.ahW.setClipToPadding(false);
+        this.mTopLine = this.ahU.findViewById(R.id.card_top_line);
+        this.ahX = aVar.ail;
+        this.ahY = aVar.aim;
+        this.ahZ = aVar.ain;
+        this.aia = aVar.aio;
+        this.aib = aVar.aib;
+        this.aie = aVar.aie;
+        this.ahU.setParent(viewGroup);
+        this.ahU.setITypeListView(sVar);
         initUI();
         if (supportType == BaseCardInfo.SupportType.TOP) {
-            if (this.aih.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.aih.getLayoutParams();
+            if (this.ahU.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.ahU.getLayoutParams();
                 marginLayoutParams.setMargins(marginLayoutParams.leftMargin, marginLayoutParams.topMargin + UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
-                this.aih.postInvalidate();
+                this.ahU.postInvalidate();
             }
-        } else if (supportType == BaseCardInfo.SupportType.FULL && (this.aih.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.aih.getLayoutParams();
+        } else if (supportType == BaseCardInfo.SupportType.FULL && (this.ahU.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.ahU.getLayoutParams();
             marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.topMargin + UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), marginLayoutParams2.rightMargin, marginLayoutParams2.bottomMargin);
-            this.aih.postInvalidate();
+            this.ahU.postInvalidate();
         }
         inflate.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.card.ak.1
             @Override // android.view.View.OnTouchListener
@@ -106,90 +106,90 @@ public class ak<T extends com.baidu.tbadk.core.data.a> implements q, com.baidu.t
                 switch (motionEvent.getAction()) {
                     case 0:
                     case 2:
-                        ak.this.aiv.setExtraData(true);
+                        ak.this.aij.setExtraData(true);
                         break;
                     case 1:
                     case 3:
-                        ak.this.aiv.setExtraData(false);
+                        ak.this.aij.setExtraData(false);
                         break;
                 }
-                ak.this.b(ak.this.aiv);
+                ak.this.b(ak.this.aij);
                 return false;
             }
         });
     }
 
     public View getView() {
-        return this.aih;
+        return this.ahU;
     }
 
     private void initUI() {
-        if (this.aiq != null) {
-            if (this.aij.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.aij.getLayoutParams()).setMargins(this.aiq.aiN, this.aiq.aiL, this.aiq.aiO, this.aiq.aiM);
-                this.aij.postInvalidate();
+        if (this.aie != null) {
+            if (this.ahW.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.ahW.getLayoutParams()).setMargins(this.aie.aiB, this.aie.aiz, this.aie.aiC, this.aie.aiA);
+                this.ahW.postInvalidate();
             }
-            if (this.aiq.aiH) {
-                tj();
+            if (this.aie.aiv) {
+                tg();
             }
-            if (this.aik != null) {
-                this.aik.a(this);
-                this.aij.addView(this.aik.getView());
-                this.aik.sQ();
+            if (this.ahX != null) {
+                this.ahX.a(this);
+                this.ahW.addView(this.ahX.getView());
+                this.ahX.sN();
             }
-            if (this.ail != null) {
-                this.ail.a(this);
+            if (this.ahY != null) {
+                this.ahY.a(this);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-                layoutParams.topMargin = this.aiq.aiI;
-                if (this.ail.sS().booleanValue()) {
-                    layoutParams.leftMargin = -this.aiq.aiN;
-                    layoutParams.rightMargin = -this.aiq.aiO;
+                layoutParams.topMargin = this.aie.aiw;
+                if (this.ahY.sP().booleanValue()) {
+                    layoutParams.leftMargin = -this.aie.aiB;
+                    layoutParams.rightMargin = -this.aie.aiC;
                 }
-                this.aij.addView(this.ail.getView(), layoutParams);
-                this.ail.sQ();
+                this.ahW.addView(this.ahY.getView(), layoutParams);
+                this.ahY.sN();
             }
-            if (this.aim != null) {
+            if (this.ahZ != null) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= this.aim.size()) {
+                    if (i2 >= this.ahZ.size()) {
                         break;
                     }
-                    h hVar = this.aim.get(i2);
+                    h hVar = this.ahZ.get(i2);
                     if (hVar != null) {
                         hVar.a(this);
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
                         layoutParams2.topMargin = hVar.getTopMargin();
-                        layoutParams2.bottomMargin = hVar.sY();
-                        if (hVar.sS().booleanValue()) {
-                            layoutParams2.leftMargin = -this.aiq.aiN;
-                            layoutParams2.rightMargin = -this.aiq.aiO;
+                        layoutParams2.bottomMargin = hVar.sV();
+                        if (hVar.sP().booleanValue()) {
+                            layoutParams2.leftMargin = -this.aie.aiB;
+                            layoutParams2.rightMargin = -this.aie.aiC;
                         }
-                        this.aij.addView(hVar.getView(), layoutParams2);
-                        hVar.sQ();
+                        this.ahW.addView(hVar.getView(), layoutParams2);
+                        hVar.sN();
                     }
                     i = i2 + 1;
                 }
             }
-            if (this.ain != null) {
+            if (this.aia != null) {
                 LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
-                layoutParams3.topMargin = this.aiq.aiK;
-                this.ain.a(this);
-                this.aij.addView(this.ain.getView(), layoutParams3);
-                this.ain.sQ();
+                layoutParams3.topMargin = this.aie.aiy;
+                this.aia.a(this);
+                this.ahW.addView(this.aia.getView(), layoutParams3);
+                this.aia.sN();
             }
-            if (!com.baidu.tbadk.core.util.x.isEmpty(this.aio)) {
-                Iterator<c> it = this.aio.iterator();
+            if (!com.baidu.tbadk.core.util.y.isEmpty(this.aib)) {
+                Iterator<c> it = this.aib.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next != null && next.sW() != null) {
-                        if (next.sT() == null) {
-                            this.aii.addView(next.sW(), next.sV());
+                    if (next != null && next.sT() != null) {
+                        if (next.sQ() == null) {
+                            this.ahV.addView(next.sT(), next.sS());
                         } else {
-                            this.aii.addView(next.sW(), next.sV(), next.sT());
+                            this.ahV.addView(next.sT(), next.sS(), next.sQ());
                         }
                         next.b(this);
-                        next.sQ();
+                        next.sN();
                     }
                 }
             }
@@ -197,77 +197,77 @@ public class ak<T extends com.baidu.tbadk.core.data.a> implements q, com.baidu.t
     }
 
     public void setSourceForPb(int i) {
-        this.aiu = i;
+        this.aii = i;
     }
 
-    public int ti() {
-        return this.aiu;
+    public int tf() {
+        return this.aii;
     }
 
     public void a(c cVar) {
-        if (cVar != null && cVar.sW() != null) {
-            this.aio.remove(cVar);
-            if (cVar.sW().getParent() != null) {
-                ((ViewGroup) cVar.sW().getParent()).removeView(cVar.sW());
-                cVar.sU();
+        if (cVar != null && cVar.sT() != null) {
+            this.aib.remove(cVar);
+            if (cVar.sT().getParent() != null) {
+                ((ViewGroup) cVar.sT().getParent()).removeView(cVar.sT());
+                cVar.sR();
                 cVar.b(null);
             }
         }
     }
 
     public void b(c cVar) {
-        if (cVar != null && cVar.sW() != null) {
+        if (cVar != null && cVar.sT() != null) {
             a(cVar);
-            cVar.sW().setVisibility(0);
-            if (cVar.sT() == null) {
-                this.aii.addView(cVar.sW(), cVar.sV());
+            cVar.sT().setVisibility(0);
+            if (cVar.sQ() == null) {
+                this.ahV.addView(cVar.sT(), cVar.sS());
             } else {
-                this.aii.addView(cVar.sW(), cVar.sV(), cVar.sT());
+                this.ahV.addView(cVar.sT(), cVar.sS(), cVar.sQ());
             }
             cVar.b(this);
-            cVar.sQ();
-            this.aio.add(cVar);
+            cVar.sN();
+            this.aib.add(cVar);
         }
     }
 
-    private void tj() {
+    private void tg() {
         c cVar = new c();
         cVar.H(new TbImageView(this.context));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(this.context, R.dimen.ds180), com.baidu.adp.lib.util.l.getDimens(this.context, R.dimen.ds50));
         layoutParams.addRule(11);
         layoutParams.addRule(10);
-        layoutParams.rightMargin = -this.aiq.aiO;
+        layoutParams.rightMargin = -this.aie.aiC;
         cVar.a(layoutParams);
         cVar.setInsertIndex(-1);
-        this.aio.add(cVar);
+        this.aib.add(cVar);
     }
 
     public void h(T t) {
-        this.agr = t;
-        if (this.aik != null) {
-            this.aik.C(t);
+        this.agj = t;
+        if (this.ahX != null) {
+            this.ahX.C(t);
         }
-        if (this.ail != null) {
-            this.ail.C(t);
+        if (this.ahY != null) {
+            this.ahY.C(t);
         }
-        if (!com.baidu.tbadk.core.util.x.isEmpty(this.aim)) {
-            int size = this.aim.size();
+        if (!com.baidu.tbadk.core.util.y.isEmpty(this.ahZ)) {
+            int size = this.ahZ.size();
             for (int i = 0; i < size; i++) {
-                h hVar = this.aim.get(i);
+                h hVar = this.ahZ.get(i);
                 hVar.C(t);
                 if (i == 0) {
-                    ay.a(hVar.getView(), ay.y(t.bkV()) && ay.z(t.bkV()) && ay.A(t.bkV()) && t.bkV().boF() < 1 && t.bkV().bnO() == null, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+                    az.a(hVar.getView(), az.y(t.bln()) && az.z(t.bln()) && az.A(t.bln()) && t.bln().boX() < 1 && t.bln().boh() == null, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
                 }
             }
         }
-        if (this.ain != null) {
-            this.ain.C(t);
+        if (this.aia != null) {
+            this.aia.C(t);
         }
-        if (this.aig != null) {
-            this.aig.C(t);
+        if (this.ahT != null) {
+            this.ahT.C(t);
         }
-        j(this.aij);
-        j(this.aii);
+        j(this.ahW);
+        j(this.ahV);
     }
 
     private void j(ViewGroup viewGroup) {
@@ -283,16 +283,16 @@ public class ak<T extends com.baidu.tbadk.core.data.a> implements q, com.baidu.t
     }
 
     public void a(int i, a.b bVar) {
-        this.ait.b(i, bVar);
+        this.aih.b(i, bVar);
     }
 
     public boolean b(a.C0089a c0089a) {
-        return this.ait.b(c0089a);
+        return this.aih.b(c0089a);
     }
 
     public void setPosition(int i) {
-        if (this.aih != null) {
-            this.aih.setPosition(i);
+        if (this.ahU != null) {
+            this.ahU.setPosition(i);
         }
     }
 
@@ -300,34 +300,34 @@ public class ak<T extends com.baidu.tbadk.core.data.a> implements q, com.baidu.t
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            if (this.agr != null && !this.agr.isSupportNone()) {
-                com.baidu.tbadk.core.util.ao.setBackgroundResource(this.aih, this.aiq.aiP);
+            if (this.agj != null && !this.agj.isSupportNone()) {
+                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.ahU, this.aie.aiD);
             }
-            if (this.aik != null) {
-                this.aik.onChangeSkinType(tbPageContext, i);
-                if (this.ain == null) {
-                    com.baidu.tbadk.core.elementsMaven.c.bv(this.aih).oc(1).od(R.string.J_X06).setBackGroundColor(this.aiq.aiP);
+            if (this.ahX != null) {
+                this.ahX.onChangeSkinType(tbPageContext, i);
+                if (this.aia == null) {
+                    com.baidu.tbadk.core.elementsMaven.c.br(this.ahU).of(1).og(R.string.J_X06).setBackGroundColor(this.aie.aiD);
                 }
             }
-            if (this.ail != null) {
-                this.ail.onChangeSkinType(tbPageContext, i);
+            if (this.ahY != null) {
+                this.ahY.onChangeSkinType(tbPageContext, i);
             }
-            for (h hVar : this.aim) {
+            for (h hVar : this.ahZ) {
                 if (hVar != null) {
                     hVar.onChangeSkinType(tbPageContext, i);
                 }
             }
-            if (this.ain != null) {
-                this.ain.onChangeSkinType(tbPageContext, i);
-                if (this.aik == null) {
-                    com.baidu.tbadk.core.elementsMaven.c.bv(this.aih).oc(2).od(R.string.J_X06).setBackGroundColor(this.aiq.aiP);
+            if (this.aia != null) {
+                this.aia.onChangeSkinType(tbPageContext, i);
+                if (this.ahX == null) {
+                    com.baidu.tbadk.core.elementsMaven.c.br(this.ahU).of(2).og(R.string.J_X06).setBackGroundColor(this.aie.aiD);
                 }
             }
-            if (this.aik != null && this.ain != null) {
-                com.baidu.tbadk.core.elementsMaven.c.bv(this.aih).od(R.string.J_X06).aM(this.aiq.aiP, R.color.CAM_X0206);
+            if (this.ahX != null && this.aia != null) {
+                com.baidu.tbadk.core.elementsMaven.c.br(this.ahU).og(R.string.J_X06).aJ(this.aie.aiD, R.color.CAM_X0206);
             }
-            if (!com.baidu.tbadk.core.util.x.isEmpty(this.aio)) {
-                Iterator<c> it = this.aio.iterator();
+            if (!com.baidu.tbadk.core.util.y.isEmpty(this.aib)) {
+                Iterator<c> it = this.aib.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
                     if (next != null && (next instanceof q)) {
@@ -335,56 +335,56 @@ public class ak<T extends com.baidu.tbadk.core.data.a> implements q, com.baidu.t
                     }
                 }
             }
-            if (this.aip != null) {
-                this.aip.onChangeSkinType(tbPageContext, i);
+            if (this.aic != null) {
+                this.aic.onChangeSkinType(tbPageContext, i);
             }
         }
     }
 
-    public void a(com.baidu.tieba.card.aa<T> aaVar) {
-        if (this.aik != null) {
-            this.aik.setOnCardSubClickListener(aaVar);
+    public void a(com.baidu.tieba.card.ab<T> abVar) {
+        if (this.ahX != null) {
+            this.ahX.setOnCardSubClickListener(abVar);
         }
-        if (this.ail != null) {
-            this.ail.setOnCardSubClickListener(aaVar);
+        if (this.ahY != null) {
+            this.ahY.setOnCardSubClickListener(abVar);
         }
-        for (h hVar : this.aim) {
+        for (h hVar : this.ahZ) {
             if (hVar != null) {
-                hVar.setOnCardSubClickListener(aaVar);
+                hVar.setOnCardSubClickListener(abVar);
             }
         }
-        if (this.ain != null) {
-            this.ain.setOnCardSubClickListener(aaVar);
+        if (this.aia != null) {
+            this.aia.setOnCardSubClickListener(abVar);
         }
-        this.ais = aaVar;
+        this.aig = abVar;
     }
 
     @Override // com.baidu.tieba.a.e
     public void setPage(String str) {
-        this.air = str;
+        this.aif = str;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        private com.baidu.card.a aiA;
-        private ArrayList<c> aio;
-        private al aiq;
-        private com.baidu.card.a aix;
-        private com.baidu.card.a aiy;
-        private List<h> aiz;
+        private ArrayList<c> aib;
+        private al aie;
+        private com.baidu.card.a ail;
+        private com.baidu.card.a aim;
+        private List<h> ain;
+        private com.baidu.card.a aio;
         private Context context;
 
         public a(Context context, boolean z) {
-            this.aix = null;
-            this.aiy = null;
-            this.aiA = null;
+            this.ail = null;
+            this.aim = null;
+            this.aio = null;
             this.context = context;
-            this.aio = new ArrayList<>();
-            this.aiq = new al();
+            this.aib = new ArrayList<>();
+            this.aie = new al();
             if (!z) {
-                this.aiq.by(0);
+                this.aie.by(0);
             }
-            this.aiz = new ArrayList();
+            this.ain = new ArrayList();
         }
 
         public a(Context context) {
@@ -392,26 +392,26 @@ public class ak<T extends com.baidu.tbadk.core.data.a> implements q, com.baidu.t
         }
 
         public a a(com.baidu.card.a aVar) {
-            this.aix = aVar;
+            this.ail = aVar;
             return this;
         }
 
         public a b(com.baidu.card.a aVar) {
-            this.aiA = aVar;
+            this.aio = aVar;
             return this;
         }
 
         public a a(h hVar) {
-            this.aiz.add(hVar);
+            this.ain.add(hVar);
             return this;
         }
 
         public a c(com.baidu.card.a aVar) {
-            this.aiy = aVar;
+            this.aim = aVar;
             return this;
         }
 
-        public ak tk() {
+        public ak th() {
             return new ak(this);
         }
 
@@ -423,8 +423,8 @@ public class ak<T extends com.baidu.tbadk.core.data.a> implements q, com.baidu.t
             return new ak(this, supportType, viewGroup, sVar);
         }
 
-        public al tl() {
-            return this.aiq;
+        public al ti() {
+            return this.aie;
         }
     }
 

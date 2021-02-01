@@ -4,7 +4,7 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class HeadObject {
     JSONObject A;
     JSONObject B;
@@ -12,7 +12,7 @@ public class HeadObject {
     int D;
 
     /* renamed from: b  reason: collision with root package name */
-    String f3602b;
+    String f3605b;
     String c;
     String h;
     String i;
@@ -34,7 +34,7 @@ public class HeadObject {
     String z;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f3601a = false;
+    boolean f3604a = false;
     String d = "0";
     String e = null;
     String f = null;
@@ -49,13 +49,13 @@ public class HeadObject {
     }
 
     private synchronized void a(Context context) {
-        if (!this.f3601a) {
+        if (!this.f3604a) {
             bo.e(context, "android.permission.READ_PHONE_STATE");
             bo.e(context, "android.permission.INTERNET");
             bo.e(context, "android.permission.ACCESS_NETWORK_STATE");
             bo.e(context, "android.permission.WRITE_SETTINGS");
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            this.f3602b = CooperService.instance().getOSVersion();
+            this.f3605b = CooperService.instance().getOSVersion();
             this.c = CooperService.instance().getOSSysVersion();
             this.n = CooperService.instance().getPhoneModel();
             this.o = CooperService.instance().getManufacturer();
@@ -126,7 +126,7 @@ public class HeadObject {
             this.x = android.os.Build.BOARD;
             this.y = android.os.Build.BRAND;
             this.C = CooperService.instance().getUserId(context);
-            this.f3601a = true;
+            this.f3604a = true;
         }
     }
 
@@ -136,7 +136,7 @@ public class HeadObject {
             try {
                 jSONObject.put(Config.OS, "Android" == 0 ? "" : "Android");
                 jSONObject.put("st", 0);
-                jSONObject.put("s", this.f3602b == null ? "" : this.f3602b);
+                jSONObject.put("s", this.f3605b == null ? "" : this.f3605b);
                 jSONObject.put("sv", this.c == null ? "" : this.c);
                 jSONObject.put("k", this.e == null ? "" : this.e);
                 jSONObject.put("pt", this.d == null ? "0" : this.d);

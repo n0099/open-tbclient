@@ -1,49 +1,83 @@
 package com.baidu.mobads;
 
-import com.baidu.mobads.interfaces.event.IXAdEvent;
-import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
-/* loaded from: classes14.dex */
-class w implements Runnable {
+import android.annotation.SuppressLint;
+import android.view.KeyEvent;
+import com.baidu.mobads.component.XAdView;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes5.dex */
+public class w implements XAdView.Listener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IOAdEvent f3526a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ v f3527b;
+    final /* synthetic */ SplashAd f3530a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(v vVar, IOAdEvent iOAdEvent) {
-        this.f3527b = vVar;
-        this.f3526a = iOAdEvent;
+    public w(SplashAd splashAd) {
+        this.f3530a = splashAd;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        VideoAdViewListener videoAdViewListener;
-        VideoAdViewListener videoAdViewListener2;
-        VideoAdViewListener videoAdViewListener3;
-        VideoAdViewListener videoAdViewListener4;
-        VideoAdViewListener videoAdViewListener5;
-        if (IXAdEvent.AD_LOADED.equals(this.f3526a.getType())) {
-            videoAdViewListener5 = this.f3527b.f3513a.c;
-            videoAdViewListener5.onVideoPrepared();
+    @Override // com.baidu.mobads.component.XAdView.Listener
+    public void onWindowVisibilityChanged(int i) {
+        com.baidu.mobads.production.f.a aVar;
+        com.baidu.mobads.production.f.a aVar2;
+        aVar = this.f3530a.f3285a;
+        if (aVar != null) {
+            aVar2 = this.f3530a.f3285a;
+            aVar2.b(i);
         }
-        if (IXAdEvent.AD_STARTED.equals(this.f3526a.getType())) {
-            videoAdViewListener4 = this.f3527b.f3513a.c;
-            videoAdViewListener4.onVideoStart();
+    }
+
+    @Override // com.baidu.mobads.component.XAdView.Listener
+    public void onWindowFocusChanged(boolean z) {
+        com.baidu.mobads.production.f.a aVar;
+        com.baidu.mobads.production.f.a aVar2;
+        aVar = this.f3530a.f3285a;
+        if (aVar != null) {
+            aVar2 = this.f3530a.f3285a;
+            aVar2.a(z);
         }
-        if (IXAdEvent.AD_CLICK_THRU.equals(this.f3526a.getType())) {
-            videoAdViewListener3 = this.f3527b.f3513a.c;
-            videoAdViewListener3.onVideoClickAd();
+    }
+
+    @Override // com.baidu.mobads.component.XAdView.Listener
+    public void onLayoutComplete(int i, int i2) {
+        com.baidu.mobads.production.f.a aVar;
+        com.baidu.mobads.production.f.a aVar2;
+        com.baidu.mobads.production.f.a aVar3;
+        aVar = this.f3530a.f3285a;
+        if (aVar != null) {
+            aVar2 = this.f3530a.f3285a;
+            aVar2.A = false;
+            aVar3 = this.f3530a.f3285a;
+            aVar3.c();
+            return;
         }
-        if (IXAdEvent.AD_STOPPED.equals(this.f3526a.getType())) {
-            videoAdViewListener2 = this.f3527b.f3513a.c;
-            videoAdViewListener2.onVideoFinish();
+        this.f3530a.a("展现失败，请检查splashAd参数是否正确");
+    }
+
+    @Override // com.baidu.mobads.component.XAdView.Listener
+    @SuppressLint({"MissingSuperCall"})
+    public void onDetachedFromWindow() {
+        com.baidu.mobads.production.f.a aVar;
+        com.baidu.mobads.production.f.a aVar2;
+        aVar = this.f3530a.f3285a;
+        if (aVar != null) {
+            aVar2 = this.f3530a.f3285a;
+            aVar2.o();
         }
-        if (IXAdEvent.AD_ERROR.equals(this.f3526a.getType())) {
-            String str = (String) this.f3526a.getData().get("message");
-            videoAdViewListener = this.f3527b.f3513a.c;
-            videoAdViewListener.onVideoError();
+    }
+
+    @Override // com.baidu.mobads.component.XAdView.Listener
+    public void onAttachedToWindow() {
+        com.baidu.mobads.production.f.a aVar;
+        com.baidu.mobads.production.f.a aVar2;
+        aVar = this.f3530a.f3285a;
+        if (aVar != null) {
+            aVar2 = this.f3530a.f3285a;
+            aVar2.n();
         }
+    }
+
+    @Override // com.baidu.mobads.component.XAdView.Listener
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        return false;
     }
 }

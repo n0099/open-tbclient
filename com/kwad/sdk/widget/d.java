@@ -12,29 +12,29 @@ import android.os.Build;
 import android.util.AttributeSet;
 import com.kwad.sdk.R;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f10857a = new float[8];
+    public float[] f10859a = new float[8];
 
     /* renamed from: b  reason: collision with root package name */
-    private float f10858b;
+    private float f10860b;
     private Path c;
     private Paint d;
     private RectF e;
     private boolean f;
 
     private float[] a() {
-        this.f10857a[0] = this.f10858b;
-        this.f10857a[1] = this.f10858b;
-        this.f10857a[2] = this.f10858b;
-        this.f10857a[3] = this.f10858b;
-        this.f10857a[4] = this.f10858b;
-        this.f10857a[5] = this.f10858b;
-        this.f10857a[6] = this.f10858b;
-        this.f10857a[7] = this.f10858b;
-        return this.f10857a;
+        this.f10859a[0] = this.f10860b;
+        this.f10859a[1] = this.f10860b;
+        this.f10859a[2] = this.f10860b;
+        this.f10859a[3] = this.f10860b;
+        this.f10859a[4] = this.f10860b;
+        this.f10859a[5] = this.f10860b;
+        this.f10859a[6] = this.f10860b;
+        this.f10859a[7] = this.f10860b;
+        return this.f10859a;
     }
 
     private Path b() {
@@ -44,7 +44,7 @@ public class d {
     }
 
     public void a(float f) {
-        this.f10858b = f;
+        this.f10860b = f;
     }
 
     public void a(int i, int i2) {
@@ -57,7 +57,7 @@ public class d {
         int[] iArr = {i, i2};
         Arrays.sort(iArr);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-        this.f10858b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i), 0);
+        this.f10860b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i), 0);
         this.f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i2), true);
         obtainStyledAttributes.recycle();
         this.c = new Path();

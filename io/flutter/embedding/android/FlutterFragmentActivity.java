@@ -20,9 +20,8 @@ import io.flutter.Log;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
-import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class FlutterFragmentActivity extends FragmentActivity implements FlutterEngineConfigurator, FlutterEngineProvider, SplashScreenProvider {
     private static final int FRAGMENT_CONTAINER_ID = 609893468;
     private static final String TAG = "FlutterFragmentActivity";
@@ -40,7 +39,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         return new NewEngineIntentBuilder(FlutterFragmentActivity.class);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static class NewEngineIntentBuilder {
         private final Class<? extends FlutterFragmentActivity> activityClass;
         private String initialRoute = "/";
@@ -73,7 +72,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         return new CachedEngineIntentBuilder(FlutterFragmentActivity.class, str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static class CachedEngineIntentBuilder {
         private final Class<? extends FlutterFragmentActivity> activityClass;
         private final String cachedEngineId;
@@ -197,7 +196,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
             Window window = getWindow();
             window.addFlags(Integer.MIN_VALUE);
             window.setStatusBarColor(1073741824);
-            window.getDecorView().setSystemUiVisibility(PlatformPlugin.DEFAULT_SYSTEM_UI);
+            window.getDecorView().setSystemUiVisibility(1280);
         }
     }
 

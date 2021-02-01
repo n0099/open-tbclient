@@ -5,11 +5,11 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private float bDi;
-    private float bDj;
-    private float bDk;
-    private float bDl;
-    private InterfaceC0710a izu;
+    private float bGS;
+    private float bGT;
+    private float bGU;
+    private float bGV;
+    private InterfaceC0710a iFe;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,16 +17,16 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.izu.G(i, i2);
+                    a.this.iFe.G(i, i2);
                     return true;
                 case 1:
-                    a.this.izu.H(i, i2);
+                    a.this.iFe.H(i, i2);
                     return true;
                 case 2:
-                    a.this.izu.cj(i, i2);
+                    a.this.iFe.cg(i, i2);
                     return true;
                 case 3:
-                    a.this.izu.I(i, i2);
+                    a.this.iFe.I(i, i2);
                     return true;
                 default:
                     return false;
@@ -44,55 +44,55 @@ public class a {
 
         void I(int i, int i2);
 
-        void cj(int i, int i2);
+        void cg(int i, int i2);
     }
 
     public void a(InterfaceC0710a interfaceC0710a) {
-        this.izu = interfaceC0710a;
+        this.iFe = interfaceC0710a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.bDk = motionEvent.getRawX();
-                this.bDl = motionEvent.getRawY();
-                this.bDi = this.bDk;
-                this.bDj = this.bDl;
+                this.bGU = motionEvent.getRawX();
+                this.bGV = motionEvent.getRawY();
+                this.bGS = this.bGU;
+                this.bGT = this.bGV;
                 return true;
             case 1:
             case 3:
-                if (this.izu != null) {
-                    int i = (int) (this.bDi - this.bDk);
-                    int i2 = (int) (this.bDj - this.bDl);
+                if (this.iFe != null) {
+                    int i = (int) (this.bGS - this.bGU);
+                    int i2 = (int) (this.bGT - this.bGV);
                     if (Math.abs(i) >= Math.abs(i2)) {
-                        F(i, (int) this.bDk);
+                        F(i, (int) this.bGU);
                     } else {
-                        ci(i, i2);
+                        cf(i, i2);
                     }
                 }
-                this.bDk = 0.0f;
-                this.bDl = 0.0f;
+                this.bGU = 0.0f;
+                this.bGV = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                if (this.bDk == 0.0f || this.bDl == 0.0f) {
-                    this.bDk = motionEvent.getRawX();
-                    this.bDl = motionEvent.getRawY();
-                    this.bDi = this.bDk;
-                    this.bDj = this.bDl;
+                if (this.bGU == 0.0f || this.bGV == 0.0f) {
+                    this.bGU = motionEvent.getRawX();
+                    this.bGV = motionEvent.getRawY();
+                    this.bGS = this.bGU;
+                    this.bGT = this.bGV;
                 }
-                int i3 = (int) (rawY - this.bDj);
-                int i4 = (int) (rawY - this.bDl);
-                if (this.izu != null) {
+                int i3 = (int) (rawY - this.bGT);
+                int i4 = (int) (rawY - this.bGV);
+                if (this.iFe != null) {
                     if (i3 > 0) {
                         E(i4, i3);
                     } else {
                         D(i4, i3);
                     }
                 }
-                this.bDi = rawX;
-                this.bDj = rawY;
+                this.bGS = rawX;
+                this.bGT = rawY;
                 return true;
             default:
                 return true;
@@ -121,7 +121,7 @@ public class a {
         }
     }
 
-    private void ci(int i, int i2) {
+    private void cf(int i, int i2) {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(2)) {
             Message message = new Message();

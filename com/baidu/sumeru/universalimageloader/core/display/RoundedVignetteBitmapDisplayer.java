@@ -11,7 +11,7 @@ import com.baidu.sumeru.universalimageloader.core.assist.LoadedFrom;
 import com.baidu.sumeru.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.baidu.sumeru.universalimageloader.core.imageaware.ImageAware;
 import com.baidu.sumeru.universalimageloader.core.imageaware.ImageViewAware;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RoundedVignetteBitmapDisplayer extends RoundedBitmapDisplayer {
     public RoundedVignetteBitmapDisplayer(int i, int i2) {
         super(i, i2);
@@ -25,7 +25,7 @@ public class RoundedVignetteBitmapDisplayer extends RoundedBitmapDisplayer {
         imageAware.setImageDrawable(new RoundedVignetteDrawable(bitmap, this.cornerRadius, this.margin));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     protected static class RoundedVignetteDrawable extends RoundedBitmapDisplayer.RoundedDrawable {
         RoundedVignetteDrawable(Bitmap bitmap, int i, int i2) {
             super(bitmap, i, i2);

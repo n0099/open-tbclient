@@ -1,91 +1,91 @@
 package com.baidu.tieba.hottopic.data;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.TopicList.DataRes;
 import tbclient.TopicList.NewTopicList;
 import tbclient.TopicList.TabList;
 import tbclient.TopicList.TopicList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class j {
-    private ArrayList<com.baidu.adp.widget.ListView.n> klZ = null;
-    public List<p> kmN;
-    public o kmO;
-    public List<c> kmP;
-    private List<b> kmQ;
-    public List<NewTopicList> kmR;
+    public List<p> kuU;
+    public o kuV;
+    public List<c> kuW;
+    private List<b> kuX;
+    public List<NewTopicList> kuY;
+    private ArrayList<com.baidu.adp.widget.ListView.n> kug = null;
     private List<TopicList> mTopicList;
     public String type;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            if (dataRes.tab_list != null && !x.isEmpty(dataRes.tab_list)) {
-                this.kmN = new ArrayList();
+            if (dataRes.tab_list != null && !y.isEmpty(dataRes.tab_list)) {
+                this.kuU = new ArrayList();
                 for (TabList tabList : dataRes.tab_list) {
                     p pVar = new p();
                     pVar.a(tabList);
-                    this.kmN.add(pVar);
+                    this.kuU.add(pVar);
                 }
             }
             if (dataRes.media_topic != null) {
-                this.kmO = new o();
-                this.kmO.a(dataRes.media_topic);
+                this.kuV = new o();
+                this.kuV.a(dataRes.media_topic);
             }
             if (dataRes.topic_manual != null && dataRes.topic_manual.topic_list != null && dataRes.topic_manual.topic_list.size() > 0) {
-                this.kmQ = new ArrayList();
+                this.kuX = new ArrayList();
                 for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
                     b bVar = new b();
                     bVar.a(dataRes.topic_manual);
                     bVar.a(dataRes.topic_manual.topic_list.get(i));
-                    this.kmQ.add(bVar);
+                    this.kuX.add(bVar);
                 }
             }
             if (dataRes.topic_bang != null && dataRes.topic_bang.topic_list != null && dataRes.topic_bang.topic_list.size() > 0) {
-                this.kmP = new ArrayList();
+                this.kuW = new ArrayList();
                 for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
                     c cVar = new c();
                     cVar.a(dataRes.topic_bang);
                     cVar.a(dataRes.topic_bang.topic_list.get(i2));
-                    this.kmP.add(cVar);
+                    this.kuW.add(cVar);
                 }
             }
             this.mTopicList = dataRes.frs_tab_topic;
-            this.kmR = dataRes.topic_list;
+            this.kuY = dataRes.topic_list;
         }
     }
 
-    public List<TopicList> cRt() {
+    public List<TopicList> cTs() {
         return this.mTopicList;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.n> cRp() {
-        return cRr();
+    public ArrayList<com.baidu.adp.widget.ListView.n> cTo() {
+        return cTq();
     }
 
-    private ArrayList<com.baidu.adp.widget.ListView.n> cRr() {
-        this.klZ = new ArrayList<>();
-        if (this.kmO != null && (!StringUtils.isNull(this.kmO.picUrl) || !StringUtils.isNull(this.kmO.videoUrl))) {
-            this.klZ.add(this.kmO);
+    private ArrayList<com.baidu.adp.widget.ListView.n> cTq() {
+        this.kug = new ArrayList<>();
+        if (this.kuV != null && (!StringUtils.isNull(this.kuV.picUrl) || !StringUtils.isNull(this.kuV.videoUrl))) {
+            this.kug.add(this.kuV);
         }
-        if (this.kmQ != null && this.kmQ.size() > 0) {
-            int size = this.kmQ.size() == 1 ? this.kmQ.size() : 1;
+        if (this.kuX != null && this.kuX.size() > 0) {
+            int size = this.kuX.size() == 1 ? this.kuX.size() : 1;
             for (int i = 0; i < size; i++) {
-                b bVar = this.kmQ.get(i);
-                if (bVar != null && (!StringUtils.isNull(bVar.cRc()) || !StringUtils.isNull(bVar.cRd()) || !StringUtils.isNull(bVar.getName()))) {
-                    this.klZ.add(this.kmQ.get(i));
+                b bVar = this.kuX.get(i);
+                if (bVar != null && (!StringUtils.isNull(bVar.cTb()) || !StringUtils.isNull(bVar.cTc()) || !StringUtils.isNull(bVar.getName()))) {
+                    this.kug.add(this.kuX.get(i));
                 }
             }
         }
-        if (this.kmP != null && this.kmP.size() > 0) {
-            int size2 = this.kmP.size() <= 20 ? this.kmP.size() : 20;
+        if (this.kuW != null && this.kuW.size() > 0) {
+            int size2 = this.kuW.size() <= 20 ? this.kuW.size() : 20;
             for (int i2 = 0; i2 < size2; i2++) {
-                c cVar = this.kmP.get(i2);
-                cVar.BY(i2 + 1);
-                this.klZ.add(cVar);
+                c cVar = this.kuW.get(i2);
+                cVar.Cq(i2 + 1);
+                this.kug.add(cVar);
             }
         }
-        return this.klZ;
+        return this.kug;
     }
 }

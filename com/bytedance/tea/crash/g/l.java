@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final CharSequence f7667a = "sony";
+    private static final CharSequence f7669a = "sony";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final CharSequence f7668b = "amigo";
+    private static final CharSequence f7670b = "amigo";
     private static final CharSequence c = "funtouch";
 
     public static String a() {
@@ -65,7 +65,7 @@ public class l {
     }
 
     public static boolean f() {
-        return !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase(Locale.getDefault()).contains(f7668b);
+        return !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase(Locale.getDefault()).contains(f7670b);
     }
 
     public static String g() {

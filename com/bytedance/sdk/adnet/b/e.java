@@ -10,7 +10,7 @@ import com.bytedance.sdk.adnet.core.Request;
 import com.bytedance.sdk.adnet.core.l;
 import com.bytedance.sdk.adnet.core.p;
 import com.bytedance.sdk.adnet.core.r;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e extends Request<Bitmap> {
     private static final Object i = new Object();
     private final Object c;
@@ -72,7 +72,7 @@ public class e extends Request<Bitmap> {
             try {
                 c = b(lVar);
             } catch (OutOfMemoryError e) {
-                r.c("Caught OOM for %d byte image, url=%s", Integer.valueOf(lVar.f6041b.length), getUrl());
+                r.c("Caught OOM for %d byte image, url=%s", Integer.valueOf(lVar.f6043b.length), getUrl());
                 c = p.c(new com.bytedance.sdk.adnet.err.e(e));
             }
         }
@@ -81,7 +81,7 @@ public class e extends Request<Bitmap> {
 
     private p<Bitmap> b(l lVar) {
         Bitmap bitmap;
-        byte[] bArr = lVar.f6041b;
+        byte[] bArr = lVar.f6043b;
         BitmapFactory.Options options = new BitmapFactory.Options();
         if (this.f == 0 && this.g == 0) {
             options.inPreferredConfig = this.e;

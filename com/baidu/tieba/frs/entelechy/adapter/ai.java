@@ -8,8 +8,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 import java.util.Calendar;
 /* loaded from: classes2.dex */
@@ -27,13 +27,13 @@ public class ai extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.q, FrsVi
     public FrsVideoActivityViewHolder e(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
         FrsVideoActivityViewHolder frsVideoActivityViewHolder = new FrsVideoActivityViewHolder(inflate);
-        ao.setViewTextColor(frsVideoActivityViewHolder.mTitleTv, R.color.CAM_X0105);
-        ao.setViewTextColor(frsVideoActivityViewHolder.jmq, R.color.CAM_X0301);
-        ao.setImageResource(frsVideoActivityViewHolder.jmo, R.drawable.icon_news_list_prompt);
-        ao.setImageResource(frsVideoActivityViewHolder.jmr, R.drawable.icon_index_category_arrow_r);
-        ao.setBackgroundColor(frsVideoActivityViewHolder.bNf, R.color.CAM_X0204);
-        ao.setBackgroundColor(frsVideoActivityViewHolder.bNg, R.color.CAM_X0204);
-        ao.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
+        ap.setViewTextColor(frsVideoActivityViewHolder.mTitleTv, R.color.CAM_X0105);
+        ap.setViewTextColor(frsVideoActivityViewHolder.jrW, R.color.CAM_X0301);
+        ap.setImageResource(frsVideoActivityViewHolder.jrV, R.drawable.icon_news_list_prompt);
+        ap.setImageResource(frsVideoActivityViewHolder.jrX, R.drawable.icon_index_category_arrow_r);
+        ap.setBackgroundColor(frsVideoActivityViewHolder.bQV, R.color.CAM_X0204);
+        ap.setBackgroundColor(frsVideoActivityViewHolder.bQW, R.color.CAM_X0204);
+        ap.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
         return frsVideoActivityViewHolder;
     }
 
@@ -47,23 +47,23 @@ public class ai extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.q, FrsVi
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.adapter.ai.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                TiebaStatic.log(new aq("c12587").dW("fid", ai.this.mForumId));
-                com.baidu.tbadk.core.sharedPref.b.brx().putLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + ai.this.mForumId, System.currentTimeMillis());
+                TiebaStatic.log(new ar("c12587").dR("fid", ai.this.mForumId));
+                com.baidu.tbadk.core.sharedPref.b.brQ().putLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + ai.this.mForumId, System.currentTimeMillis());
                 if (qVar != null && !StringUtils.isNull(qVar.url)) {
                     com.baidu.tbadk.browser.a.startInternalWebActivity(ai.this.mContext, qVar.url);
                 }
             }
         });
         frsVideoActivityViewHolder.mTitleTv.setText(qVar != null ? qVar.text : "");
-        if (go(com.baidu.tbadk.core.sharedPref.b.brx().getLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + this.mForumId, 0L))) {
-            frsVideoActivityViewHolder.jmo.setVisibility(0);
+        if (gt(com.baidu.tbadk.core.sharedPref.b.brQ().getLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + this.mForumId, 0L))) {
+            frsVideoActivityViewHolder.jrV.setVisibility(0);
         } else {
-            frsVideoActivityViewHolder.jmo.setVisibility(8);
+            frsVideoActivityViewHolder.jrV.setVisibility(8);
         }
         return frsVideoActivityViewHolder.getView();
     }
 
-    private boolean go(long j) {
+    private boolean gt(long j) {
         if (j == 0) {
             return true;
         }

@@ -3,7 +3,7 @@ package com.baidu.searchbox.ruka;
 import android.content.Context;
 import com.baidu.searchbox.looper.impl.LooperMonitor_Factory;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LooperProvider {
     public static final ILooperMonitor EMPTY = new ILooperMonitor() { // from class: com.baidu.searchbox.ruka.LooperProvider.1
         @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor

@@ -7,9 +7,9 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public class AsyncTaskExecutor {
-    private static final ThreadPoolExecutor qaj = new ThreadPoolExecutor(3, 3, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
+    private static final ThreadPoolExecutor qkn = new ThreadPoolExecutor(3, 3, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
 
-    public static void d(Runnable runnable) {
+    public static void B(Runnable runnable) {
         if (runnable != null) {
             new Handler(Looper.getMainLooper()).post(runnable);
         }

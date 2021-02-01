@@ -5,14 +5,14 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Polygon extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    Stroke f2752a;
+    Stroke f2750a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f2753b;
+    int f2751b;
     List<LatLng> c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,18 +28,18 @@ public final class Polygon extends Overlay {
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         Overlay.a(this.c, bundle);
-        Overlay.a(this.f2753b, bundle);
-        if (this.f2752a == null) {
+        Overlay.a(this.f2751b, bundle);
+        if (this.f2750a == null) {
             bundle.putInt("has_stroke", 0);
         } else {
             bundle.putInt("has_stroke", 1);
-            bundle.putBundle("stroke", this.f2752a.a(new Bundle()));
+            bundle.putBundle("stroke", this.f2750a.a(new Bundle()));
         }
         return bundle;
     }
 
     public int getFillColor() {
-        return this.f2753b;
+        return this.f2751b;
     }
 
     public List<LatLng> getPoints() {
@@ -47,11 +47,11 @@ public final class Polygon extends Overlay {
     }
 
     public Stroke getStroke() {
-        return this.f2752a;
+        return this.f2750a;
     }
 
     public void setFillColor(int i) {
-        this.f2753b = i;
+        this.f2751b = i;
         this.listener.b(this);
     }
 
@@ -88,7 +88,7 @@ public final class Polygon extends Overlay {
     }
 
     public void setStroke(Stroke stroke) {
-        this.f2752a = stroke;
+        this.f2750a = stroke;
         this.listener.b(this);
     }
 }

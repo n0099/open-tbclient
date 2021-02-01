@@ -6,14 +6,14 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.animation.TranslateAnimation;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends ViewPager {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9019a;
+    private int f9021a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Rect f9020b;
+    private Rect f9022b;
     private boolean c;
     private float d;
     private a e;
@@ -23,7 +23,7 @@ public class b extends ViewPager {
     private float i;
     private float j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i, float f);
 
@@ -34,8 +34,8 @@ public class b extends ViewPager {
 
     public b(Context context) {
         super(context);
-        this.f9019a = 0;
-        this.f9020b = new Rect();
+        this.f9021a = 0;
+        this.f9022b = new Rect();
         this.c = true;
         this.d = 0.0f;
         this.g = false;
@@ -43,29 +43,29 @@ public class b extends ViewPager {
     }
 
     private void a() {
-        if (!this.f9020b.isEmpty()) {
+        if (!this.f9022b.isEmpty()) {
             b();
         }
         this.d = -1.0f;
     }
 
     private void a(float f) {
-        if (this.f9020b.isEmpty()) {
-            this.f9020b.set(getLeft(), getTop(), getRight(), getBottom());
+        if (this.f9022b.isEmpty()) {
+            this.f9022b.set(getLeft(), getTop(), getRight(), getBottom());
         }
         this.c = false;
         layout(getLeft() + ((int) (f * 0.5f)), getTop(), getRight() + ((int) (f * 0.5f)), getBottom());
     }
 
     private void b() {
-        TranslateAnimation translateAnimation = new TranslateAnimation(getLeft(), this.f9020b.left, 0.0f, 0.0f);
+        TranslateAnimation translateAnimation = new TranslateAnimation(getLeft(), this.f9022b.left, 0.0f, 0.0f);
         translateAnimation.setDuration(200L);
         startAnimation(translateAnimation);
-        layout(this.f9020b.left, this.f9020b.top, this.f9020b.right, this.f9020b.bottom);
-        this.f9020b.setEmpty();
+        layout(this.f9022b.left, this.f9022b.top, this.f9022b.right, this.f9022b.bottom);
+        this.f9022b.setEmpty();
         this.c = true;
         if (this.e != null) {
-            this.e.a(this.f9019a, this.f9020b.left - getLeft());
+            this.e.a(this.f9021a, this.f9022b.left - getLeft());
         }
     }
 
@@ -73,7 +73,7 @@ public class b extends ViewPager {
         if (getScrollX() >= this.f) {
             return 2;
         }
-        return this.f9019a == 0 ? 1 : 0;
+        return this.f9021a == 0 ? 1 : 0;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -109,7 +109,7 @@ public class b extends ViewPager {
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.f9019a = getCurrentItem();
+            this.f9021a = getCurrentItem();
             float f = 0.0f;
             if (getAdapter() != null) {
                 for (int i = 0; i < getAdapter().getCount(); i++) {
@@ -117,7 +117,7 @@ public class b extends ViewPager {
                 }
             }
             this.f = (f - 1.0f) * getMeasuredWidth();
-            if (this.f9019a == 0 || getScrollX() >= this.f) {
+            if (this.f9021a == 0 || getScrollX() >= this.f) {
                 this.d = motionEvent.getX();
             }
         }
@@ -128,10 +128,10 @@ public class b extends ViewPager {
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (!z || this.e == null || i == this.f9020b.left) {
+        if (!z || this.e == null || i == this.f9022b.left) {
             return;
         }
-        this.e.a(getCurrentItem() == 0, this.f9019a, this.f9020b.left - getLeft());
+        this.e.a(getCurrentItem() == 0, this.f9021a, this.f9022b.left - getLeft());
     }
 
     @Override // android.view.View
@@ -161,7 +161,7 @@ public class b extends ViewPager {
                         a(f);
                     } else if (f < -10.0f) {
                         a(f);
-                    } else if (!this.c && getLeft() + ((int) (f * 0.5f)) != this.f9020b.left) {
+                    } else if (!this.c && getLeft() + ((int) (f * 0.5f)) != this.f9022b.left) {
                         layout(getLeft() + ((int) (f * 0.5f)), getTop(), ((int) (f * 0.5f)) + getRight(), getBottom());
                     }
                 } else if (sideEdgeType > 0) {
@@ -171,12 +171,12 @@ public class b extends ViewPager {
                     if (sideEdgeType == 1) {
                         if (f2 > 10.0f) {
                             a(f2);
-                        } else if (!this.c && getLeft() + ((int) (f2 * 0.5f)) >= this.f9020b.left) {
+                        } else if (!this.c && getLeft() + ((int) (f2 * 0.5f)) >= this.f9022b.left) {
                             layout(getLeft() + ((int) (f2 * 0.5f)), getTop(), ((int) (f2 * 0.5f)) + getRight(), getBottom());
                         }
                     } else if (f2 < -10.0f) {
                         a(f2);
-                    } else if (!this.c && getRight() + ((int) (f2 * 0.5f)) <= this.f9020b.right) {
+                    } else if (!this.c && getRight() + ((int) (f2 * 0.5f)) <= this.f9022b.right) {
                         layout(getLeft() + ((int) (f2 * 0.5f)), getTop(), ((int) (f2 * 0.5f)) + getRight(), getBottom());
                     }
                 } else {

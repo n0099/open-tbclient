@@ -17,25 +17,25 @@ import com.baidu.live.view.DanceRectView;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LiveGoodsDisplayItemView extends FrameLayout {
-    private TbImageView bbt;
-    private TextView btl;
-    private a bxe;
-    private TextView bxf;
-    private View bxg;
-    private DanceRectView bxh;
-    private TextView bxi;
-    private TextView bxj;
-    private TextView bxk;
-    private TextView bxl;
-    private TextView bxm;
+    private a bAH;
+    private TextView bAI;
+    private View bAJ;
+    private DanceRectView bAK;
+    private TextView bAL;
+    private TextView bAM;
+    private TextView bAN;
+    private TextView bAO;
+    private TextView bAP;
+    private TbImageView beA;
+    private TextView bwP;
     private boolean isHost;
     private TextView mTitleTextView;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void Ow();
+        void PV();
     }
 
     public LiveGoodsDisplayItemView(Context context, AttributeSet attributeSet) {
@@ -45,27 +45,27 @@ public class LiveGoodsDisplayItemView extends FrameLayout {
 
     public void setHost(boolean z) {
         this.isHost = z;
-        if (this.btl != null) {
-            this.btl.setClickable(z);
+        if (this.bwP != null) {
+            this.bwP.setClickable(z);
         }
     }
 
     public void setCallback(a aVar) {
-        this.bxe = aVar;
+        this.bAH = aVar;
     }
 
     public void setData(int i, com.baidu.live.sdk.goods.a.a aVar) {
         JSONArray jSONArray;
         if (aVar != null) {
             setBackgroundColor(0);
-            if (aVar.bvN) {
+            if (aVar.bzp) {
                 setBackgroundColor(-328966);
             }
-            this.bxf.setText(String.valueOf(i));
+            this.bAI.setText(String.valueOf(i));
             String str = "";
-            if (!TextUtils.isEmpty(aVar.bvx)) {
+            if (!TextUtils.isEmpty(aVar.byZ)) {
                 try {
-                    jSONArray = new JSONArray(aVar.bvx);
+                    jSONArray = new JSONArray(aVar.byZ);
                 } catch (JSONException e) {
                     e.printStackTrace();
                     jSONArray = null;
@@ -74,105 +74,105 @@ public class LiveGoodsDisplayItemView extends FrameLayout {
                     str = jSONArray.optJSONObject(0).optString(UserAccountActionItem.KEY_SRC, "");
                 }
             }
-            this.bbt.setTag(str);
-            if (TextUtils.isEmpty(str) || !(this.bbt.getTag() instanceof String) || !this.bbt.getTag().equals(str)) {
-                this.bbt.startLoad("", 10, false, false);
+            this.beA.setTag(str);
+            if (TextUtils.isEmpty(str) || !(this.beA.getTag() instanceof String) || !this.beA.getTag().equals(str)) {
+                this.beA.startLoad("", 10, false, false);
             }
-            this.bbt.startLoad(str, 10, false, false);
-            if (aVar.bvN) {
-                this.bxg.setVisibility(0);
-                this.bxh.startAnim();
+            this.beA.startLoad(str, 10, false, false);
+            if (aVar.bzp) {
+                this.bAJ.setVisibility(0);
+                this.bAK.startAnim();
             } else {
-                this.bxg.setVisibility(8);
-                this.bxh.VN();
+                this.bAJ.setVisibility(8);
+                this.bAK.Xw();
             }
             this.mTitleTextView.setText(aVar.title);
             if (!TextUtils.isEmpty(aVar.source)) {
-                this.bxi.setVisibility(0);
-                this.bxi.setText(aVar.source);
+                this.bAL.setVisibility(0);
+                this.bAL.setText(aVar.source);
             } else {
-                this.bxi.setVisibility(8);
+                this.bAL.setVisibility(8);
             }
-            this.bxj.setVisibility(8);
-            if (this.isHost && aVar.bvE > 0.0d) {
-                this.bxj.setText("每单赚¥" + UtilHelper.formalDecimalForTwo(aVar.bvE));
-                this.bxj.setVisibility(0);
+            this.bAM.setVisibility(8);
+            if (this.isHost && aVar.bzg > 0.0d) {
+                this.bAM.setText("每单赚¥" + UtilHelper.formalDecimalForTwo(aVar.bzg));
+                this.bAM.setVisibility(0);
             }
             try {
-                this.bxk.setText("¥" + UtilHelper.formalDecimalForTwo(Float.parseFloat(aVar.price)));
+                this.bAN.setText("¥" + UtilHelper.formalDecimalForTwo(Float.parseFloat(aVar.price)));
             } catch (Throwable th) {
-                this.bxk.setText("¥" + aVar.price);
+                this.bAN.setText("¥" + aVar.price);
             }
-            this.bxm.setVisibility(8);
-            this.bxl.setVisibility(8);
-            if (aVar.Or()) {
-                this.bxm.setText(aVar.bvG + "元券");
-                this.bxm.setVisibility(0);
-            } else if (aVar.bvD > 0.0d) {
+            this.bAP.setVisibility(8);
+            this.bAO.setVisibility(8);
+            if (aVar.PQ()) {
+                this.bAP.setText(aVar.bzi + "元券");
+                this.bAP.setVisibility(0);
+            } else if (aVar.bzf > 0.0d) {
                 try {
-                    if (aVar.bvD > Double.parseDouble(aVar.price)) {
-                        this.bxl.setText("¥" + UtilHelper.formalDecimalForTwo(aVar.bvD));
-                        this.bxl.setVisibility(0);
+                    if (aVar.bzf > Double.parseDouble(aVar.price)) {
+                        this.bAO.setText("¥" + UtilHelper.formalDecimalForTwo(aVar.bzf));
+                        this.bAO.setVisibility(0);
                     }
                 } catch (Throwable th2) {
                     th2.printStackTrace();
                 }
             }
-            if (aVar.bvH == 1) {
+            if (aVar.bzj == 1) {
                 for (int i2 = 0; i2 < getChildCount(); i2++) {
                     getChildAt(i2).setAlpha(1.0f);
                 }
                 if (this.isHost) {
-                    if (aVar.bvN) {
-                        this.btl.setBackgroundResource(a.e.live_goods_bg_display_item_action_confirm);
-                        this.btl.setText("取消讲解");
-                        this.btl.setTextColor(getResources().getColorStateList(a.c.live_goods_bg_display_item_action_text_cancel));
+                    if (aVar.bzp) {
+                        this.bwP.setBackgroundResource(a.e.live_goods_bg_display_item_action_confirm);
+                        this.bwP.setText("取消讲解");
+                        this.bwP.setTextColor(getResources().getColorStateList(a.c.live_goods_bg_display_item_action_text_cancel));
                         return;
                     }
-                    this.btl.setBackgroundResource(a.e.live_goods_bg_display_item_action_cancel);
-                    this.btl.setText("讲解");
-                    this.btl.setTextColor(getResources().getColorStateList(a.c.live_goods_bg_display_item_action_text_confirm));
+                    this.bwP.setBackgroundResource(a.e.live_goods_bg_display_item_action_cancel);
+                    this.bwP.setText("讲解");
+                    this.bwP.setTextColor(getResources().getColorStateList(a.c.live_goods_bg_display_item_action_text_confirm));
                     return;
-                } else if (aVar.Or()) {
-                    this.btl.setText("马上抢");
+                } else if (aVar.PQ()) {
+                    this.bwP.setText("马上抢");
                     return;
                 } else {
-                    this.btl.setText("购买");
+                    this.bwP.setText("购买");
                     return;
                 }
             }
             for (int i3 = 0; i3 < getChildCount(); i3++) {
                 getChildAt(i3).setAlpha(0.2f);
             }
-            this.btl.setText("已下架");
+            this.bwP.setText("已下架");
         }
     }
 
     public void release() {
-        if (this.bxh != null) {
-            this.bxh.VN();
+        if (this.bAK != null) {
+            this.bAK.Xw();
         }
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.live_goods_item, this);
         setBackgroundColor(0);
-        EO();
+        Ge();
         initView();
     }
 
-    private void EO() {
-        this.bbt = (TbImageView) findViewById(a.f.iv_live_goods_item_thumb);
-        this.bxf = (TextView) findViewById(a.f.tv_live_goods_item_index);
-        this.bxg = findViewById(a.f.layout_live_goods_item_explain);
-        this.bxh = (DanceRectView) findViewById(a.f.drv_live_goods_item_explain);
+    private void Ge() {
+        this.beA = (TbImageView) findViewById(a.f.iv_live_goods_item_thumb);
+        this.bAI = (TextView) findViewById(a.f.tv_live_goods_item_index);
+        this.bAJ = findViewById(a.f.layout_live_goods_item_explain);
+        this.bAK = (DanceRectView) findViewById(a.f.drv_live_goods_item_explain);
         this.mTitleTextView = (TextView) findViewById(a.f.tv_live_goods_item_title);
-        this.bxi = (TextView) findViewById(a.f.tv_live_goods_item_source);
-        this.bxj = (TextView) findViewById(a.f.tv_profit);
-        this.bxk = (TextView) findViewById(a.f.tv_live_goods_item_price_actual);
-        this.bxl = (TextView) findViewById(a.f.tv_live_goods_item_price_quoted);
-        this.bxm = (TextView) findViewById(a.f.tv_live_goods_item_coupon);
-        this.btl = (TextView) findViewById(a.f.tv_live_goods_item_action);
+        this.bAL = (TextView) findViewById(a.f.tv_live_goods_item_source);
+        this.bAM = (TextView) findViewById(a.f.tv_profit);
+        this.bAN = (TextView) findViewById(a.f.tv_live_goods_item_price_actual);
+        this.bAO = (TextView) findViewById(a.f.tv_live_goods_item_price_quoted);
+        this.bAP = (TextView) findViewById(a.f.tv_live_goods_item_coupon);
+        this.bwP = (TextView) findViewById(a.f.tv_live_goods_item_action);
     }
 
     private void initView() {
@@ -181,26 +181,26 @@ public class LiveGoodsDisplayItemView extends FrameLayout {
         gradientDrawable.setColor(0);
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds4));
         gradientDrawable.setStroke(getResources().getDimensionPixelOffset(a.d.sdk_ds2), getResources().getColor(a.c.live_goods_primary));
-        this.bxi.setBackgroundDrawable(gradientDrawable);
+        this.bAL.setBackgroundDrawable(gradientDrawable);
         GradientDrawable gradientDrawable2 = new GradientDrawable();
         gradientDrawable2.setShape(0);
         gradientDrawable2.setColor(-4640);
         gradientDrawable2.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds6));
-        this.bxm.setBackgroundDrawable(gradientDrawable2);
-        this.bxg.setBackgroundColor(ColorUtils.setAlphaComponent(getResources().getColor(a.c.live_goods_primary), 204));
-        this.bxl.getPaint().setFlags(17);
-        Drawable background = this.btl.getBackground();
+        this.bAP.setBackgroundDrawable(gradientDrawable2);
+        this.bAJ.setBackgroundColor(ColorUtils.setAlphaComponent(getResources().getColor(a.c.live_goods_primary), 204));
+        this.bAO.getPaint().setFlags(17);
+        Drawable background = this.bwP.getBackground();
         if (!(background instanceof GradientDrawable)) {
             background = new GradientDrawable();
         }
         ((GradientDrawable) background).setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds30));
         ((GradientDrawable) background).setColor(getResources().getColor(a.c.live_goods_primary));
-        this.btl.setBackgroundDrawable(background);
-        this.btl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.view.LiveGoodsDisplayItemView.1
+        this.bwP.setBackgroundDrawable(background);
+        this.bwP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.view.LiveGoodsDisplayItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (LiveGoodsDisplayItemView.this.bxe != null) {
-                    LiveGoodsDisplayItemView.this.bxe.Ow();
+                if (LiveGoodsDisplayItemView.this.bAH != null) {
+                    LiveGoodsDisplayItemView.this.bAH.PV();
                 }
             }
         });

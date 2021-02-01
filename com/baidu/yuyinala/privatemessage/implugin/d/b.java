@@ -26,46 +26,46 @@ import com.baidu.sapi2.SapiAccountManager;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private static volatile b oPT;
+    private static volatile b pae;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a<T> extends BIMValueCallBack<T> {
     }
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0962b extends IGetUserStatusListener {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0966b extends IGetUserStatusListener {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface c extends ILoginListener {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface d extends com.baidu.yuyinala.privatemessage.implugin.ma.a {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface e extends ILoginStateChangedListener {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface f extends ISendMessageListener {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface g extends IGetUsersProfileBatchListener {
     }
 
-    public static synchronized b ehs() {
+    public static synchronized b ejM() {
         b bVar;
         synchronized (b.class) {
-            if (oPT == null) {
-                oPT = new b();
+            if (pae == null) {
+                pae = new b();
             }
-            bVar = oPT;
+            bVar = pae;
         }
         return bVar;
     }
@@ -83,7 +83,7 @@ public class b {
         }
     }
 
-    public Long hu(Context context) {
+    public Long hx(Context context) {
         return Long.valueOf(AccountManager.getUK(context));
     }
 
@@ -127,7 +127,7 @@ public class b {
         return BIMManager.getCuid(context);
     }
 
-    public int hv(Context context) {
+    public int hy(Context context) {
         return Utility.readIntData(context, Constants.KEY_ENV, 0);
     }
 
@@ -137,11 +137,11 @@ public class b {
     public void c(Context context, Throwable th) {
     }
 
-    public void B(Context context, String str, String str2) {
+    public void A(Context context, String str, String str2) {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("PluginHostFactory", "sendAPSBroadcast: action=" + str + ", data=" + str2);
     }
 
-    public String hw(Context context) {
+    public String hz(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("displayName", com.baidu.yuyinala.privatemessage.implugin.d.a.getDisplayName());
@@ -176,14 +176,14 @@ public class b {
         }
     }
 
-    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0962b interfaceC0962b) {
-        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0962b);
+    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0966b interfaceC0966b) {
+        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0966b);
     }
 
     public void a(boolean z, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
     }
 
-    public void hx(Context context) {
+    public void hA(Context context) {
     }
 
     public int getLoginState(Context context) {
@@ -198,7 +198,7 @@ public class b {
         return AccountManager.isCuidLogin(context);
     }
 
-    public boolean eht() {
+    public boolean ejN() {
         return false;
     }
 
@@ -206,10 +206,10 @@ public class b {
         AccountManager.retryLogin(context, cVar);
     }
 
-    public void Aq(boolean z) {
+    public void AJ(boolean z) {
     }
 
-    public void ci(String str, int i) {
+    public void cj(String str, int i) {
     }
 
     public void onEvent(String str, String str2) {

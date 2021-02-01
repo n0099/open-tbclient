@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Hashtable;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
     /* JADX WARN: Code restructure failed: missing block: B:25:0x0199, code lost:
         if ((r8.getTime().getTime() - r9.parse(r10).getTime()) < 0) goto L58;
@@ -18,7 +18,7 @@ public class f {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String hB(String str) {
+    public static String hX(String str) {
         String substring;
         String substring2;
         int i;
@@ -34,13 +34,13 @@ public class f {
         } else if (str.length() == 15) {
             str2 = str.substring(0, 6) + Constants.VIA_ACT_TYPE_NINETEEN + str.substring(6, 15);
         }
-        if (!hC(str2)) {
+        if (!isNumeric(str2)) {
             return "身份证号错误";
         }
         String substring3 = str2.substring(6, 10);
         substring = str2.substring(10, 12);
         substring2 = str2.substring(12, 14);
-        if (!hD(substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2)) {
+        if (!hY(substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2)) {
             return "身份证号错误";
         }
         GregorianCalendar gregorianCalendar = new GregorianCalendar();
@@ -61,7 +61,7 @@ public class f {
         if (Integer.parseInt(substring2) > 31 || Integer.parseInt(substring2) == 0) {
             return "身份证号错误";
         }
-        if (TF().get(str2.substring(0, 2)) == null) {
+        if (Vm().get(str2.substring(0, 2)) == null) {
             return "身份证号错误";
         }
         int i3 = 0;
@@ -77,13 +77,13 @@ public class f {
         if (str.length() == 18 && !str4.equalsIgnoreCase(str)) {
             return "身份证号错误";
         }
-        if (!hE(str)) {
+        if (!hZ(str)) {
             return "未满18岁哦";
         }
         return HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
     }
 
-    private static Hashtable TF() {
+    private static Hashtable Vm() {
         Hashtable hashtable = new Hashtable();
         hashtable.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "北京");
         hashtable.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "天津");
@@ -123,15 +123,15 @@ public class f {
         return hashtable;
     }
 
-    public static boolean hC(String str) {
+    public static boolean isNumeric(String str) {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
-    public static boolean hD(String str) {
+    public static boolean hY(String str) {
         return Pattern.compile("^((\\d{2}(([02468][048])|([13579][26]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))(\\s(((0?[0-9])|([1-2][0-3]))\\:([0-5]?[0-9])((\\s)|(\\:([0-5]?[0-9])))))?$").matcher(str).matches();
     }
 
-    public static boolean hE(String str) {
+    public static boolean hZ(String str) {
         if (TextUtils.isEmpty(str) || str.length() < 15) {
             return false;
         }

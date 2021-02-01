@@ -1,26 +1,33 @@
 package com.baidu.live.data;
 
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class be {
-    public String aLW;
-    public String aLX;
-    public long endTime;
-    public int flag;
-    public long serverTime;
-    public long startTime;
+    public AlaLiveUserInfoData aOI;
+    public int rank;
     public int type;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.type = jSONObject.optInt("type");
-            this.aLW = jSONObject.optString(AlaLiveStickerInfo.STICKER_ID);
-            this.startTime = jSONObject.optLong("start_time");
-            this.endTime = jSONObject.optLong("end_time");
-            this.serverTime = jSONObject.optLong("server_time");
-            this.aLX = jSONObject.optString("punish_key");
-            this.flag = jSONObject.optInt(FrsActivityConfig.FLAG);
+            this.rank = jSONObject.optInt("rank");
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.aOI = new AlaLiveUserInfoData();
+                this.aOI.parserJson(optJSONObject);
+            }
         }
+    }
+
+    public boolean Cw() {
+        return this.type == 1;
+    }
+
+    public boolean isFirst() {
+        return this.rank == 1;
+    }
+
+    public boolean a(be beVar) {
+        return beVar != null && beVar.type == this.type && beVar.rank == this.rank && this.aOI != null && beVar.aOI != null && beVar.aOI.userId == this.aOI.userId;
     }
 }

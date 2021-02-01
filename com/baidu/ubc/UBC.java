@@ -11,7 +11,7 @@ import com.baidu.ubc.IRemoteUBCService;
 import java.util.Map;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class UBC {
     public static final String CONTENT_KEY_DURATION = "duration";
     public static final String CONTENT_KEY_EXT = "ext";
@@ -34,7 +34,7 @@ public class UBC {
     private static volatile IRemoteUBCService sProxy;
 
     public static final q getUBCContext() {
-        return com.baidu.tieba.q.r.dHX();
+        return com.baidu.tieba.q.r.dKi();
     }
 
     public static final void onEvent(String str) {
@@ -70,11 +70,11 @@ public class UBC {
     }
 
     public static void onMutilProcessEvent(String str, String str2, String str3) {
-        String Ww = com.baidu.m.a.Ww(str3);
+        String Xv = com.baidu.m.a.Xv(str3);
         if (DEBUG) {
-            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + Ww);
+            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + Xv);
         }
-        d.efb().n(str, str2, Ww, 8);
+        d.eht().n(str, str2, Xv, 8);
     }
 
     public static final Flow beginFlow(String str) {
@@ -133,12 +133,12 @@ public class UBC {
         if (sProxy == null) {
             synchronized (UBC.class) {
                 if (sProxy == null) {
-                    IBinder K = IPCServiceManager.K(UBC_REMOTE_SERVICE_NAME, true);
-                    if (K == null) {
+                    IBinder J = IPCServiceManager.J(UBC_REMOTE_SERVICE_NAME, true);
+                    if (J == null) {
                         throw new RemoteException("UBC get remote service empty !");
                     }
-                    if (K != null) {
-                        sProxy = IRemoteUBCService.Stub.asInterface(K);
+                    if (J != null) {
+                        sProxy = IRemoteUBCService.Stub.asInterface(J);
                     }
                 }
             }

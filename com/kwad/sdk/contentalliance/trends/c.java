@@ -7,14 +7,14 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.contentalliance.home.g;
 import com.kwad.sdk.core.response.model.TrendInfo;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<TrendInfo> f8878a;
+    private List<TrendInfo> f8880a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TrendInfo f8879b;
+    private TrendInfo f8881b;
     private KsScene c;
 
     public c(@NonNull KsScene ksScene) {
@@ -28,13 +28,13 @@ public class c {
         if (arguments == null) {
             arguments = new Bundle();
         }
-        arguments.putString("KEY_TREND_LIST_DATA", TrendInfo.toString(this.f8878a));
-        arguments.putString("KEY_CURRENT_TREND", this.f8879b.toJson().toString());
+        arguments.putString("KEY_TREND_LIST_DATA", TrendInfo.toString(this.f8880a));
+        arguments.putString("KEY_CURRENT_TREND", this.f8881b.toJson().toString());
         return a2;
     }
 
     public void a(@NonNull List<TrendInfo> list, @NonNull TrendInfo trendInfo) {
-        this.f8878a = list;
-        this.f8879b = trendInfo;
+        this.f8880a = list;
+        this.f8881b = trendInfo;
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.coreExtra.messageCenter.b;
 import com.baidu.tbadk.coreExtra.messageCenter.d;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -32,18 +32,18 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
                 String string = context.getString(R.string.sign_notification_content);
                 String string2 = context.getString(R.string.app_name);
-                b.bxj().s(b.bxj().qo(12), 12);
+                b.bxB().s(b.bxB().qt(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
-                aq aqVar = new aq("c13252");
-                aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-                TiebaStatic.log(aqVar);
+                ar arVar = new ar("c13252");
+                arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+                TiebaStatic.log(arVar);
             } catch (Throwable th) {
                 try {
                     if (BdLog.isDebugMode()) {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    d.bxM().updateSignAlarm();
+                    d.bye().updateSignAlarm();
                 }
             }
         }

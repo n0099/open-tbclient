@@ -56,7 +56,7 @@ import java.io.File;
 import java.net.URLEncoder;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.d.a, c.a, b, com.qq.e.comm.plugin.r.a {
     private boolean A;
     private boolean B;
@@ -72,10 +72,10 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
     private f U;
 
     /* renamed from: a  reason: collision with root package name */
-    NativeAdContainer f12286a;
+    NativeAdContainer f12288a;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f12287b;
+    boolean f12289b;
     final com.qq.e.comm.plugin.ad.g c;
     MediaView d;
     com.qq.e.comm.plugin.gdtnativead.a.c e;
@@ -93,7 +93,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
     private int w;
     private boolean z;
     private int s = 0;
-    private b.EnumC1199b u = b.EnumC1199b.INIT;
+    private b.EnumC1203b u = b.EnumC1203b.INIT;
     private int x = 1;
     int h = 1;
     int i = 1;
@@ -111,7 +111,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
     private boolean S = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class a extends Handler {
         a(Looper looper) {
             super(looper);
@@ -122,7 +122,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
             switch (message.what) {
                 case 1:
                     if (g.this.E()) {
-                        g.this.a((View) g.this.f12286a);
+                        g.this.a((View) g.this.f12288a);
                         return;
                     } else {
                         sendEmptyMessageDelayed(1, g.this.t() ? 100L : 1000L);
@@ -240,8 +240,8 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
         } else if (this.x == 0) {
             GDTLogger.d("readyToPlayOnUIThread, but already play");
         } else {
-            if (this.u != b.EnumC1199b.END && this.u != b.EnumC1199b.MANUAL_PAUSE && this.u != b.EnumC1199b.DEV_PAUSE && this.u != b.EnumC1199b.DEV_STOP) {
-                a(b.EnumC1199b.AUTO_PAUSE);
+            if (this.u != b.EnumC1203b.END && this.u != b.EnumC1203b.MANUAL_PAUSE && this.u != b.EnumC1203b.DEV_PAUSE && this.u != b.EnumC1203b.DEV_STOP) {
+                a(b.EnumC1203b.AUTO_PAUSE);
             }
             a(8, new Object[]{Integer.valueOf(this.f == null ? -1 : this.f.e())});
             if (H()) {
@@ -258,7 +258,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean E() {
-        return bd.a(this.q, this.f12286a, 50, this.J);
+        return bd.a(this.q, this.f12288a, 50, this.J);
     }
 
     private void F() {
@@ -391,7 +391,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
                 return;
             case PLAYING:
                 if (!E()) {
-                    a(b.EnumC1199b.AUTO_PAUSE);
+                    a(b.EnumC1203b.AUTO_PAUSE);
                     if (this.f != null) {
                         this.f.a();
                     }
@@ -409,7 +409,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
             layoutParams = new FrameLayout.LayoutParams(ak.a(this.q, 46), ak.a(this.q, 14));
             layoutParams.gravity = 8388693;
         }
-        this.f12286a.addView(this.n, layoutParams);
+        this.f12288a.addView(this.n, layoutParams);
         if (this.r != null) {
             com.qq.e.comm.plugin.util.g.a(this.n, this.r.C());
         }
@@ -457,11 +457,11 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
     }
 
     private void a(NativeAdContainer nativeAdContainer) {
-        if (this.f12286a != null) {
-            this.f12286a.setViewStatusListener(null);
+        if (this.f12288a != null) {
+            this.f12288a.setViewStatusListener(null);
         }
-        this.f12286a = nativeAdContainer;
-        this.f12286a.setViewStatusListener(new ViewStatusListener() { // from class: com.qq.e.comm.plugin.nativeadunified.g.5
+        this.f12288a = nativeAdContainer;
+        this.f12288a.setViewStatusListener(new ViewStatusListener() { // from class: com.qq.e.comm.plugin.nativeadunified.g.5
             @Override // com.qq.e.ads.nativ.widget.ViewStatusListener
             public void onAttachToWindow() {
                 GDTLogger.d("Container has attached to window");
@@ -476,7 +476,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
 
             @Override // com.qq.e.ads.nativ.widget.ViewStatusListener
             public void onDispatchTouchEvent(MotionEvent motionEvent) {
-                g.this.c.a((View) g.this.f12286a, motionEvent, false);
+                g.this.c.a((View) g.this.f12288a, motionEvent, false);
                 g.this.o.a(motionEvent);
             }
 
@@ -626,7 +626,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
             GDTLogger.d("pauseVideo by developer");
             this.f.a();
             this.e.a(0L);
-            a(b.EnumC1199b.DEV_PAUSE);
+            a(b.EnumC1203b.DEV_PAUSE);
             u.a(i, 2, this.Q);
         }
     }
@@ -658,7 +658,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
         if (t() && this.K == b.d.COMPLETE) {
             this.P.sendEmptyMessage(3);
         }
-        if (this.f12287b) {
+        if (this.f12289b) {
             return;
         }
         this.P.sendEmptyMessage(1);
@@ -731,7 +731,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
             }
         });
         if (z) {
-            a(b.EnumC1199b.INIT);
+            a(b.EnumC1203b.INIT);
             a(5, (Object[]) null);
         }
     }
@@ -762,7 +762,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
             return;
         }
         this.f.a();
-        a(b.EnumC1199b.AUTO_PAUSE);
+        a(b.EnumC1203b.AUTO_PAUSE);
     }
 
     @Override // com.qq.e.comm.plugin.nativeadunified.b
@@ -793,7 +793,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(View view) {
-        if (this.f12287b) {
+        if (this.f12289b) {
             return;
         }
         l.a((Boolean) null, this.Q, 0);
@@ -811,7 +811,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
                     q = com.qq.e.comm.plugin.w.i.a(q);
                     i = 1;
                 }
-                com.qq.e.comm.plugin.w.i.a(g.this.c.a(g.this.f12286a, i, g.this.r.x(), null), b2, g.this.r, bVar, q, new d.b() { // from class: com.qq.e.comm.plugin.nativeadunified.g.12.1
+                com.qq.e.comm.plugin.w.i.a(g.this.c.a(g.this.f12288a, i, g.this.r.x(), null), b2, g.this.r, bVar, q, new d.b() { // from class: com.qq.e.comm.plugin.nativeadunified.g.12.1
                     @Override // com.qq.e.comm.plugin.w.d.b
                     public void a() {
                         if (!StringUtil.isEmpty(g.this.r.t())) {
@@ -831,7 +831,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
         this.r.V();
         this.r.W();
         a(1, (Object[]) null);
-        this.f12287b = true;
+        this.f12289b = true;
         if (t()) {
             return;
         }
@@ -850,7 +850,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
         d.a a2 = com.qq.e.comm.plugin.w.i.a(this.r);
         d.e eVar = new d.e(str3, com.qq.e.comm.plugin.ad.e.NATIVEUNIFIEDAD, str2);
         d.b a3 = a(view, i, str2, str4, z, i2, z3);
-        a3.i = com.qq.e.comm.plugin.ad.a.a().b(this.f12286a);
+        a3.i = com.qq.e.comm.plugin.ad.a.a().b(this.f12288a);
         com.qq.e.comm.plugin.w.a.d.a(view, a2, eVar, a3);
     }
 
@@ -874,9 +874,9 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
     }
 
     @Override // com.qq.e.comm.plugin.nativeadunified.b
-    public void a(b.EnumC1199b enumC1199b) {
-        GDTLogger.d("NativeUnifiedADController setMediaStatus: " + this.u + "-->" + enumC1199b);
-        this.u = enumC1199b;
+    public void a(b.EnumC1203b enumC1203b) {
+        GDTLogger.d("NativeUnifiedADController setMediaStatus: " + this.u + "-->" + enumC1203b);
+        this.u = enumC1203b;
     }
 
     @Override // com.qq.e.comm.plugin.nativeadunified.b
@@ -922,7 +922,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
             c.a(u());
             c.a(z);
             String m = m();
-            c.a(a(this.f12286a, 0, p(), m, isAppAd(), -1, false));
+            c.a(a(this.f12288a, 0, p(), m, isAppAd(), -1, false));
             c.a(new d.e(o(), com.qq.e.comm.plugin.ad.e.NATIVEUNIFIEDAD, p()));
             this.e.a(true, false);
             this.e.a(true);
@@ -1043,7 +1043,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
         if (!z) {
             this.h = 0;
         }
-        a(z ? b.EnumC1199b.MANUAL_PAUSE : b.EnumC1199b.PLAYING);
+        a(z ? b.EnumC1203b.MANUAL_PAUSE : b.EnumC1203b.PLAYING);
         if (!H()) {
             if (this.k) {
                 s();
@@ -1136,7 +1136,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
                 GDTLogger.e("Hardware acceleration is off");
                 this.I = false;
             }
-            if (!a(this.f12286a, mediaView)) {
+            if (!a(this.f12288a, mediaView)) {
                 GDTLogger.e("MediaView is not in container");
             } else if (this.H) {
                 GDTLogger.e("NativeUnifiedADData has been destroyed");
@@ -1176,7 +1176,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
     @Override // com.qq.e.comm.plugin.aa.b.d.a
     public void c_() {
         GDTLogger.d("onVideoStart");
-        if (!this.f12287b) {
+        if (!this.f12289b) {
             l();
         }
         a(9, (Object[]) null);
@@ -1237,7 +1237,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
             GDTLogger.e("Video path is null.");
             return;
         }
-        a(b.EnumC1199b.PLAYING);
+        a(b.EnumC1203b.PLAYING);
         if (this.e != null) {
             this.P.post(new Runnable() { // from class: com.qq.e.comm.plugin.nativeadunified.g.10
                 @Override // java.lang.Runnable
@@ -1285,7 +1285,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
         GDTLogger.d("onVideoComplete");
         L();
         this.y = 3;
-        a(b.EnumC1199b.END);
+        a(b.EnumC1203b.END);
     }
 
     @Override // com.qq.e.comm.plugin.aa.b.d.a
@@ -1423,7 +1423,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
     }
 
     @Override // com.qq.e.comm.plugin.nativeadunified.b
-    public b.EnumC1199b h() {
+    public b.EnumC1203b h() {
         return this.u;
     }
 
@@ -1439,7 +1439,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
 
     @Override // com.qq.e.comm.plugin.nativeadunified.b
     public int i() {
-        return com.qq.e.comm.plugin.ad.a.a().b(this.f12286a);
+        return com.qq.e.comm.plugin.ad.a.a().b(this.f12288a);
     }
 
     @Override // com.qq.e.comm.plugin.aa.b.d.a
@@ -1491,14 +1491,14 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
             GDTLogger.e("MediaView不可见，不上报广告曝光！");
         } else {
             GDTLogger.i("on video ad exposed");
-            a((View) this.f12286a);
+            a((View) this.f12288a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String m() {
-        this.c.a().b(this.f12286a.getWidth());
-        this.c.a().a(this.f12286a.getHeight());
+        this.c.a().b(this.f12288a.getWidth());
+        this.c.a().a(this.f12288a.getHeight());
         this.c.a().b(this.r.x());
         this.c.a().c(t() ? 1 : 2);
         try {
@@ -1665,7 +1665,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
         if (c.a() != null) {
             GDTLogger.e("只能在视频预览页调用视频停止接口");
             u.a(30362, 1, this.Q);
-        } else if (this.f == null || !(this.f.c() || this.u == b.EnumC1199b.DEV_PAUSE || this.u == b.EnumC1199b.MANUAL_PAUSE)) {
+        } else if (this.f == null || !(this.f.c() || this.u == b.EnumC1203b.DEV_PAUSE || this.u == b.EnumC1203b.MANUAL_PAUSE)) {
             GDTLogger.e("Only Video AD can be stopped");
             u.a(30362, 3, this.Q);
         } else {
@@ -1678,7 +1678,7 @@ class g implements NativeUnifiedADData, ADEventListener, com.qq.e.comm.plugin.a.
                     }
                 }
             }, 100L);
-            a(b.EnumC1199b.DEV_STOP);
+            a(b.EnumC1203b.DEV_STOP);
             u.a(30362, 2, this.Q);
         }
     }

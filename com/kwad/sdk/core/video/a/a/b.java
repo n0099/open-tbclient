@@ -5,7 +5,7 @@ import com.kwad.sdk.core.g.a.e;
 import com.kwad.sdk.core.g.a.i;
 import com.kwad.sdk.d;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.core.network.b {
     public b(List<c> list) {
         a("actionList", list);
@@ -27,7 +27,7 @@ public class b extends com.kwad.sdk.core.network.b {
         a("SDKVersionCode", 3030900);
         b("sdkApiVersion", KsAdSDKImpl.get().getApiVersion());
         a("sdkApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-        a("sdkType", d.f9669a);
+        a("sdkType", d.f9671a);
         a("appInfo", com.kwad.sdk.core.g.a.b.a());
         a("deviceInfo", com.kwad.sdk.core.g.a.d.a(false));
         a("networkInfo", i.a());

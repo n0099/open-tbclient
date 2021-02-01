@@ -13,7 +13,7 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.k;
 import com.bytedance.sdk.openadsdk.utils.u;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d extends e<JSONObject, JSONObject> {
     public static void a(q qVar) {
         qVar.a("reportPlayableScreenshot", new d());

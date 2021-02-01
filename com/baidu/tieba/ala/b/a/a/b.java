@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.b.a.a;
 import android.content.Context;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements a {
     @Override // com.baidu.tieba.ala.b.a.a.a
     public void j(Context context, File file) {

@@ -14,36 +14,36 @@ import com.baidu.swan.c.d;
 import java.io.File;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baidu.swan.apps.extcore.b.a<T> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private CopyOnWriteArrayList<com.baidu.swan.apps.ao.e.b<Exception>> cZx;
+    private CopyOnWriteArrayList<com.baidu.swan.apps.ao.e.b<Exception>> dbJ;
 
     public b(@NonNull T t) {
         super(t);
-        this.cZx = new CopyOnWriteArrayList<>();
+        this.dbJ = new CopyOnWriteArrayList<>();
     }
 
-    public long aum() {
-        return h.aLO().getLong(this.cYR.auh(), 0L);
+    public long auK() {
+        return h.aMh().getLong(this.dbd.auF(), 0L);
     }
 
-    public void ce(long j) {
-        h.aLO().putLong(this.cYR.auh(), j);
+    public void ck(long j) {
+        h.aMh().putLong(this.dbd.auF(), j);
     }
 
     @Override // com.baidu.swan.apps.extcore.b.a
-    public File atW() {
-        return new File(super.atW(), "preset");
+    public File auu() {
+        return new File(super.auu(), "preset");
     }
 
     @NonNull
-    public ExtensionCore aun() {
+    public ExtensionCore auL() {
         ExtensionCore extensionCore = new ExtensionCore();
-        long aum = aum();
-        extensionCore.extensionCoreVersionCode = aum;
-        extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.cf(aum);
-        extensionCore.extensionCorePath = cd(aum).getPath();
+        long auK = auK();
+        extensionCore.extensionCoreVersionCode = auK;
+        extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.cl(auK);
+        extensionCore.extensionCorePath = cj(auK).getPath();
         extensionCore.extensionCoreType = 0;
         return extensionCore;
     }
@@ -53,20 +53,20 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
         if (DEBUG) {
             Log.d("ExtCore-PresetControl", "doUpdate: preset");
         }
-        if (TextUtils.isEmpty(aVar.cZt)) {
+        if (TextUtils.isEmpty(aVar.dbF)) {
             if (DEBUG) {
                 Log.e("ExtCore-PresetControl", "doUpdate: preset with null coreFilePath");
             }
             return new IllegalStateException("ExtCore-PresetControl doUpdate: failed by updateInfo.coreFilePath is empty");
         }
-        long nz = com.baidu.swan.apps.extcore.f.a.nz(aVar.versionName);
-        if (d.dD(aVar.cZt, cd(nz).getPath())) {
-            com.baidu.swan.apps.extcore.f.a.a(atW(), nz);
-            ce(nz);
-            com.baidu.swan.apps.extcore.f.a.z(this.cYR.aul(), false);
+        long nR = com.baidu.swan.apps.extcore.f.a.nR(aVar.versionName);
+        if (d.dx(aVar.dbF, cj(nR).getPath())) {
+            com.baidu.swan.apps.extcore.f.a.a(auu(), nR);
+            ck(nR);
+            com.baidu.swan.apps.extcore.f.a.z(this.dbd.auJ(), false);
             return null;
         }
-        Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + aVar.cZt);
+        Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + aVar.dbF);
         if (DEBUG) {
             Log.e("ExtCore-PresetControl", "doUpdate preset unzip failed: " + Log.getStackTraceString(exc));
             return exc;
@@ -75,65 +75,65 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
     }
 
     private boolean isNeedUpdate() {
-        if (!com.baidu.swan.apps.extcore.f.a.hm(this.cYR.aul())) {
+        if (!com.baidu.swan.apps.extcore.f.a.hp(this.dbd.auJ())) {
             if (DEBUG) {
                 Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
                 return false;
             }
             return false;
         }
-        a a2 = a.a(this.cYR);
-        long aum = aum();
-        long nz = com.baidu.swan.apps.extcore.f.a.nz(a2.extensionCoreVersionName);
+        a a2 = a.a(this.dbd);
+        long auK = auK();
+        long nR = com.baidu.swan.apps.extcore.f.a.nR(a2.extensionCoreVersionName);
         if (DEBUG) {
-            Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + aum + " newVer: " + nz);
+            Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + auK + " newVer: " + nR);
         }
-        return aum < nz;
+        return auK < nR;
     }
 
     @SuppressLint({"SwanNewThread"})
     public void o(@Nullable com.baidu.swan.apps.ao.e.b<Exception> bVar) {
-        c.br("ExtCore-PresetControl", "tryUpdateAsync: start");
+        c.bl("ExtCore-PresetControl", "tryUpdateAsync: start");
         if (!isNeedUpdate()) {
-            c.br("ExtCore-PresetControl", "tryUpdateAsync: isNeedUpdate = false");
+            c.bl("ExtCore-PresetControl", "tryUpdateAsync: isNeedUpdate = false");
             a(bVar, (Exception) null);
             return;
         }
-        if (this.cZx.isEmpty()) {
+        if (this.dbJ.isEmpty()) {
             new Thread(new Runnable() { // from class: com.baidu.swan.apps.extcore.d.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.br("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
-                    a a2 = a.a(b.this.cYR);
+                    c.bl("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
+                    a a2 = a.a(b.this.dbd);
                     com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
                     aVar.versionName = a2.extensionCoreVersionName;
-                    aVar.cZt = b.this.cYR.auj();
+                    aVar.dbF = b.this.dbd.auH();
                     b.this.u(b.this.b(aVar));
                 }
             }, "updateExtensionCoreAsync").start();
         }
         if (bVar != null) {
-            this.cZx.add(bVar);
+            this.dbJ.add(bVar);
         }
     }
 
-    public void atX() {
+    public void auv() {
         if (isNeedUpdate()) {
-            a a2 = a.a(this.cYR);
+            a a2 = a.a(this.dbd);
             com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
             aVar.versionName = a2.extensionCoreVersionName;
-            aVar.cZt = this.cYR.auj();
+            aVar.dbF = this.dbd.auH();
             u(b(aVar));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u(Exception exc) {
-        Iterator<com.baidu.swan.apps.ao.e.b<Exception>> it = this.cZx.iterator();
+        Iterator<com.baidu.swan.apps.ao.e.b<Exception>> it = this.dbJ.iterator();
         while (it.hasNext()) {
             a(it.next(), exc);
         }
-        this.cZx.clear();
+        this.dbJ.clear();
     }
 
     private void a(@Nullable final com.baidu.swan.apps.ao.e.b<Exception> bVar, final Exception exc) {

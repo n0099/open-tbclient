@@ -5,10 +5,10 @@ import android.graphics.drawable.Drawable;
 public class j {
     public boolean isShowRedTip = false;
     public String linkUrl;
-    public String mlc;
-    public Drawable mld;
-    public Drawable mle;
-    public Drawable mlf;
-    public boolean mlg;
+    public String mue;
+    public Drawable muf;
+    public Drawable mug;
+    public Drawable muh;
+    public boolean mui;
     public String text;
 }

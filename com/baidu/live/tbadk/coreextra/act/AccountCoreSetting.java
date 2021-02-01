@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.sapi2.utils.enums.Domain;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AccountCoreSetting {
     private static final int LOGIN_SDK_VERSION = 9;
     public static Domain PASS_LOGIN_ADDRESS = Domain.DOMAIN_ONLINE;

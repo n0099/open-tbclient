@@ -9,14 +9,14 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a implements c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f11650a = null;
+    private static volatile a f11652a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<String, c> f11651b = new ConcurrentHashMap();
+    private final Map<String, c> f11653b = new ConcurrentHashMap();
     private final com.qq.e.comm.plugin.j.b c = new b.a().a(Executors.newFixedThreadPool(15, new ThreadFactory() { // from class: com.qq.e.comm.plugin.aa.a.a.1
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
@@ -28,18 +28,18 @@ public class a implements c.a {
     }
 
     public static a a() {
-        if (f11650a == null) {
+        if (f11652a == null) {
             synchronized (a.class) {
                 try {
-                    if (f11650a == null) {
-                        f11650a = new a();
+                    if (f11652a == null) {
+                        f11652a = new a();
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f11650a;
+        return f11652a;
     }
 
     private String b(String str) {
@@ -58,12 +58,12 @@ public class a implements c.a {
             return;
         }
         String b2 = b(str);
-        c cVar = this.f11651b.get(b2);
+        c cVar = this.f11653b.get(b2);
         if (cVar == null) {
             c cVar2 = new c(b2, bVar, aVar, this.c);
             cVar2.a(this);
-            this.f11651b.put(b2, cVar2);
-            s.f12589a.submit(cVar2);
+            this.f11653b.put(b2, cVar2);
+            s.f12591a.submit(cVar2);
         } else if (!cVar.a()) {
             GDTLogger.e("Downloader instance with same tag has not been destroyed!");
         } else {
@@ -74,6 +74,6 @@ public class a implements c.a {
 
     @Override // com.qq.e.comm.plugin.aa.a.c.a
     public void a(String str) {
-        this.f11651b.remove(str);
+        this.f11653b.remove(str);
     }
 }

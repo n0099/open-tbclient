@@ -15,7 +15,6 @@ import com.baidu.ar.d.j;
 import com.baidu.ar.d.k;
 import com.baidu.ar.imu.i;
 import com.baidu.ar.lua.LuaMsgListener;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -146,7 +145,7 @@ public abstract class c implements c.a {
                         case 180:
                             di.setPixelRotate(PixelRotation.FlipHorizontal);
                             break;
-                        case SubsamplingScaleImageView.ORIENTATION_270 /* 270 */:
+                        case 270:
                             di.setPixelRotate(PixelRotation.RotateRightFlipHorizontal);
                             break;
                     }

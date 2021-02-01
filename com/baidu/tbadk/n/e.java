@@ -7,38 +7,38 @@ import com.baidu.mobstat.Config;
 public class e extends m {
     @Override // com.baidu.tbadk.n.m
     public void a(h hVar) {
-        if (k.bDO().isSmallFlow()) {
-            com.baidu.adp.lib.stats.a pi = pi();
-            pi.append("action", "time_t");
-            a(pi, hVar);
-            pi.append("ishttp", hVar.fHn ? "1" : "0");
-            pi.append("issuccess", hVar.isSuccess ? "1" : "0");
-            pi.append("nettype", k.bDO().getNetType());
-            pi.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.fHc));
-            pi.append("wt", String.valueOf(hVar.fHk));
-            pi.append("qt", String.valueOf(hVar.chW));
-            pi.append("connt", String.valueOf(hVar.fHd));
-            pi.append("rwt", String.valueOf(hVar.fHe));
-            pi.append("dect", String.valueOf(hVar.fHf));
-            pi.append("parset", String.valueOf(hVar.fHg));
-            pi.append("rendert", String.valueOf(hVar.fHj));
-            pi.append("ss", String.valueOf(hVar.fHl));
-            pi.append("hs", String.valueOf(hVar.fHm));
-            if (hVar.fHn && hVar.socketErrNo != 0) {
-                pi.append("salno", String.valueOf(hVar.socketErrNo));
+        if (k.bEg().isSmallFlow()) {
+            com.baidu.adp.lib.stats.a pg = pg();
+            pg.append("action", "time_t");
+            a(pg, hVar);
+            pg.append("ishttp", hVar.fJy ? "1" : "0");
+            pg.append("issuccess", hVar.isSuccess ? "1" : "0");
+            pg.append("nettype", k.bEg().getNetType());
+            pg.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.fJn));
+            pg.append("wt", String.valueOf(hVar.fJv));
+            pg.append("qt", String.valueOf(hVar.cmm));
+            pg.append("connt", String.valueOf(hVar.fJo));
+            pg.append("rwt", String.valueOf(hVar.fJp));
+            pg.append("dect", String.valueOf(hVar.fJq));
+            pg.append("parset", String.valueOf(hVar.fJr));
+            pg.append("rendert", String.valueOf(hVar.fJu));
+            pg.append("ss", String.valueOf(hVar.fJw));
+            pg.append("hs", String.valueOf(hVar.fJx));
+            if (hVar.fJy && hVar.socketErrNo != 0) {
+                pg.append("salno", String.valueOf(hVar.socketErrNo));
                 if (hVar.socketCostTime != 0) {
-                    pi.append("scosttime", String.valueOf(hVar.socketCostTime));
+                    pg.append("scosttime", String.valueOf(hVar.socketCostTime));
                 }
             }
             if (hVar.errCode != 0) {
-                pi.append("errcode", Integer.valueOf(hVar.errCode));
+                pg.append("errcode", Integer.valueOf(hVar.errCode));
             }
-            if (hVar.fHn) {
-                pi.append(BdStatsConstant.StatsKey.LOGID, String.valueOf(hVar.fHr));
+            if (hVar.fJy) {
+                pg.append(BdStatsConstant.StatsKey.LOGID, String.valueOf(hVar.fJC));
             } else {
-                pi.append(BdStatsConstant.StatsKey.SEQUENCEID, String.valueOf(hVar.sequenceID & 4294967295L));
+                pg.append(BdStatsConstant.StatsKey.SEQUENCEID, String.valueOf(hVar.sequenceID & 4294967295L));
             }
-            BdStatisticsManager.getInstance().performance(this.subType, pi);
+            BdStatisticsManager.getInstance().performance(this.subType, pg);
         }
     }
 
@@ -50,38 +50,38 @@ public class e extends m {
 
     @Override // com.baidu.tbadk.n.m
     public void a(h hVar, boolean z) {
-        if (k.bDO().isSmallFlow()) {
-            if (!z || hVar.fHs > 0) {
-                if (z || hVar.fHt > 0) {
-                    com.baidu.adp.lib.stats.a pi = pi();
-                    pi.append("action", "time_t");
-                    a(pi, hVar);
+        if (k.bEg().isSmallFlow()) {
+            if (!z || hVar.fJD > 0) {
+                if (z || hVar.fJE > 0) {
+                    com.baidu.adp.lib.stats.a pg = pg();
+                    pg.append("action", "time_t");
+                    a(pg, hVar);
                     if (z) {
-                        pi.append("put", String.valueOf(hVar.fHs));
+                        pg.append("put", String.valueOf(hVar.fJD));
                     } else {
-                        pi.append("pdt", String.valueOf(hVar.fHt));
+                        pg.append("pdt", String.valueOf(hVar.fJE));
                     }
-                    pi.append("ishttp", hVar.fHn ? "1" : "0");
-                    pi.append("issuccess", hVar.isSuccess ? "1" : "0");
-                    pi.append("nettype", k.bDO().getNetType());
-                    pi.append("qt", String.valueOf(hVar.chW));
-                    pi.append("connt", String.valueOf(hVar.fHd));
-                    pi.append("rwt", String.valueOf(hVar.fHe));
-                    pi.append("dect", String.valueOf(hVar.fHf));
-                    pi.append("parset", String.valueOf(hVar.fHg));
-                    pi.append("rendert", String.valueOf(hVar.fHj));
-                    pi.append("ss", String.valueOf(hVar.fHl));
-                    pi.append("hs", String.valueOf(hVar.fHm));
-                    if (hVar.fHn && hVar.socketErrNo != 0) {
-                        pi.append("salno", String.valueOf(hVar.socketErrNo));
+                    pg.append("ishttp", hVar.fJy ? "1" : "0");
+                    pg.append("issuccess", hVar.isSuccess ? "1" : "0");
+                    pg.append("nettype", k.bEg().getNetType());
+                    pg.append("qt", String.valueOf(hVar.cmm));
+                    pg.append("connt", String.valueOf(hVar.fJo));
+                    pg.append("rwt", String.valueOf(hVar.fJp));
+                    pg.append("dect", String.valueOf(hVar.fJq));
+                    pg.append("parset", String.valueOf(hVar.fJr));
+                    pg.append("rendert", String.valueOf(hVar.fJu));
+                    pg.append("ss", String.valueOf(hVar.fJw));
+                    pg.append("hs", String.valueOf(hVar.fJx));
+                    if (hVar.fJy && hVar.socketErrNo != 0) {
+                        pg.append("salno", String.valueOf(hVar.socketErrNo));
                         if (hVar.socketCostTime != 0) {
-                            pi.append("scosttime", String.valueOf(hVar.socketCostTime));
+                            pg.append("scosttime", String.valueOf(hVar.socketCostTime));
                         }
                     }
                     if (hVar.errCode != 0) {
-                        pi.append("errcode", Integer.valueOf(hVar.errCode));
+                        pg.append("errcode", Integer.valueOf(hVar.errCode));
                     }
-                    BdStatisticsManager.getInstance().performance(this.subType, pi);
+                    BdStatisticsManager.getInstance().performance(this.subType, pg);
                 }
             }
         }
@@ -89,22 +89,22 @@ public class e extends m {
 
     @Override // com.baidu.tbadk.n.m
     public void a(h hVar, int i) {
-        if (k.bDO().isSmallFlow() && hVar.fHu > 0) {
-            com.baidu.adp.lib.stats.a pi = pi();
-            pi.append("action", "time_t");
-            a(pi, hVar);
-            pi.append("pct", String.valueOf(hVar.fHu));
+        if (k.bEg().isSmallFlow() && hVar.fJF > 0) {
+            com.baidu.adp.lib.stats.a pg = pg();
+            pg.append("action", "time_t");
+            a(pg, hVar);
+            pg.append("pct", String.valueOf(hVar.fJF));
             switch (i) {
                 case 0:
-                    pi.append("pct_type", String.valueOf(100));
+                    pg.append("pct_type", String.valueOf(100));
                     break;
                 case 40:
-                    pi.append("pct_type", String.valueOf(101));
+                    pg.append("pct_type", String.valueOf(101));
                     break;
                 default:
                     return;
             }
-            BdStatisticsManager.getInstance().performance(this.subType, pi);
+            BdStatisticsManager.getInstance().performance(this.subType, pg);
         }
     }
 }

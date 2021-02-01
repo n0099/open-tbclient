@@ -2,22 +2,22 @@ package com.bytedance.embedapplog;
 
 import com.tencent.connect.common.Constants;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class cg {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final LinkedList<ac> f5821a = new LinkedList<>();
+    private static final LinkedList<ac> f5823a = new LinkedList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final LinkedList<ac> f5822b = new LinkedList<>();
+    private static final LinkedList<ac> f5824b = new LinkedList<>();
 
     public static void a(ac acVar) {
-        synchronized (f5821a) {
-            if (f5821a.size() > 200) {
+        synchronized (f5823a) {
+            if (f5823a.size() > 200) {
                 au.b("drop event in cache", null);
-                f5822b.add(f5821a.poll());
+                f5824b.add(f5823a.poll());
             }
-            f5821a.add(acVar);
+            f5823a.add(acVar);
         }
     }
 
@@ -25,11 +25,11 @@ public class cg {
         ak akVar;
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
-        synchronized (f5821a) {
-            linkedList.addAll(f5821a);
-            linkedList2.addAll(f5822b);
-            f5821a.clear();
-            f5822b.clear();
+        synchronized (f5823a) {
+            linkedList.addAll(f5823a);
+            linkedList2.addAll(f5824b);
+            f5823a.clear();
+            f5824b.clear();
         }
         while (!linkedList.isEmpty()) {
             bx.a((ac) linkedList.poll());

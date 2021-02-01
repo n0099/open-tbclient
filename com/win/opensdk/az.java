@@ -37,74 +37,74 @@ public class az {
         return context.getSharedPreferences("_prefs", 0).getLong(str, j);
     }
 
-    private static void F(Context context, String str, String str2) {
+    private static void E(Context context, String str, String str2) {
         SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
         edit.putString(str, str2);
         edit.apply();
     }
 
-    private static String G(Context context, String str, String str2) {
+    private static String F(Context context, String str, String str2) {
         return context.getSharedPreferences("_prefs", 0).getString(str, str2);
     }
 
-    public static void bJ(Context context, String str) {
-        F(context, "oaid", str);
+    public static void bI(Context context, String str) {
+        E(context, "oaid", str);
     }
 
-    public static String iP(Context context) {
-        return G(context, "oaid", "");
+    public static String iS(Context context) {
+        return F(context, "oaid", "");
     }
 
-    public static void bL(Context context, String str) {
-        F(context, "lcss", str);
+    public static void bK(Context context, String str) {
+        E(context, "lcss", str);
     }
 
-    public static String iO(Context context) {
-        return G(context, "lcss", "");
+    public static String iR(Context context) {
+        return F(context, "lcss", "");
     }
 
     public static void a(Context context, String str) {
         if (!context.getSharedPreferences("_prefs", 0).contains("sever_tk")) {
-            F(context, "sever_tk", str);
+            E(context, "sever_tk", str);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public static String m61a(Context context) {
-        return G(context, "sever_tk", "");
+        return F(context, "sever_tk", "");
     }
 
     public static void W(Context context, int i) {
         n(context, "timeout_sec", i);
     }
 
-    public static int iQ(Context context) {
+    public static int iT(Context context) {
         return m(context, "timeout_sec", 5);
     }
 
     public static void b(Context context, String str) {
-        F(context, "pids", str);
+        E(context, "pids", str);
     }
 
     /* renamed from: b  reason: collision with other method in class */
     public static String m63b(Context context) {
-        return G(context, "pids", "[]");
+        return F(context, "pids", "[]");
     }
 
     public static void c(Context context, String str) {
-        F(context, "psdid", str);
+        E(context, "psdid", str);
     }
 
     /* renamed from: c  reason: collision with other method in class */
     public static String m65c(Context context) {
-        return G(context, "psdid", "");
+        return F(context, "psdid", "");
     }
 
     public static void X(Context context, int i) {
         n(context, "psdopt", i);
     }
 
-    public static int iR(Context context) {
+    public static int iU(Context context) {
         return m(context, "psdopt", 0);
     }
 
@@ -126,7 +126,7 @@ public class az {
         n(context, "hbsw", i);
     }
 
-    public static boolean iS(Context context) {
+    public static boolean iV(Context context) {
         return m(context, "hbsw", 1) == 1;
     }
 
@@ -139,12 +139,12 @@ public class az {
     }
 
     public static void d(Context context, String str) {
-        F(context, "bp", str);
+        E(context, "bp", str);
     }
 
     /* renamed from: d  reason: collision with other method in class */
     public static String m67d(Context context) {
-        return G(context, "bp", "");
+        return F(context, "bp", "");
     }
 
     public static void Z(Context context, int i) {
@@ -159,7 +159,7 @@ public class az {
         i(context, "lu_date", j);
     }
 
-    public static long iT(Context context) {
+    public static long iW(Context context) {
         return j(context, "lu_date", 0L);
     }
 
@@ -198,13 +198,13 @@ public class az {
 
     public static void e(Context context, String str) {
         if (!TextUtils.isEmpty(str)) {
-            F(context, "p_i", str);
+            E(context, "p_i", str);
         }
     }
 
     /* renamed from: e  reason: collision with other method in class */
     public static String m69e(Context context) {
-        return G(context, "p_i", "");
+        return F(context, "p_i", "");
     }
 
     public static void af(Context context, int i) {
@@ -215,7 +215,7 @@ public class az {
         return m(context, "alh", 0);
     }
 
-    public static void iI(Context context) {
+    public static void iL(Context context) {
         i(context, "ck_al", System.currentTimeMillis());
     }
 
@@ -224,7 +224,7 @@ public class az {
         return j(context, "ck_al", 0L);
     }
 
-    public static void iU(Context context) {
+    public static void iX(Context context) {
         i(context, "bdts", System.currentTimeMillis());
     }
 
@@ -247,11 +247,11 @@ public class az {
         if (!TextUtils.isEmpty(f) && !z) {
             str = f + "," + str;
         }
-        F(context, "key_show_native_adid", str);
+        E(context, "key_show_native_adid", str);
     }
 
     public static String f(Context context) {
-        return G(context, "key_show_native_adid", "");
+        return F(context, "key_show_native_adid", "");
     }
 
     public static void l(Context context, String str, boolean z) {
@@ -259,11 +259,11 @@ public class az {
         if (!TextUtils.isEmpty(g) && !z) {
             str = g + "," + str;
         }
-        F(context, "key_show_institial_adid", str);
+        E(context, "key_show_institial_adid", str);
     }
 
     public static String g(Context context) {
-        return G(context, "key_show_institial_adid", "");
+        return F(context, "key_show_institial_adid", "");
     }
 
     public static void c(Context context, long j) {
@@ -280,7 +280,7 @@ public class az {
             SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             new ObjectOutputStream(byteArrayOutputStream).writeObject(obj);
-            edit.putString(str, as(byteArrayOutputStream.toByteArray()));
+            edit.putString(str, ar(byteArrayOutputStream.toByteArray()));
             edit.commit();
         } catch (IOException e) {
             e.printStackTrace();
@@ -288,7 +288,7 @@ public class az {
         }
     }
 
-    private static String as(byte[] bArr) {
+    private static String ar(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -312,7 +312,7 @@ public class az {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Object bM(Context context, String str) {
+    public static Object bL(Context context, String str) {
         byte[] bArr;
         int i;
         int i2;
@@ -380,7 +380,7 @@ public class az {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2246=4] */
-    public static boolean iJ(Context context) {
+    public static boolean iM(Context context) {
         if (m(context, "psd", 0) == 1) {
             if (((float) (System.currentTimeMillis() / 1000)) - (context.getSharedPreferences("_prefs", 0).getFloat("psdpt", 0.0f) / 1000.0f) >= ((float) m(context, "psdt", 0))) {
                 return true;

@@ -1,11 +1,10 @@
 package com.yxcorp.kuaishou.addfp.android.b;
 
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
     /* JADX WARN: Removed duplicated region for block: B:113:0x00fe A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:115:0x011d A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -35,7 +34,7 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
         int i = -1;
         try {
             try {
-                process = Runtime.getRuntime().exec(z ? "su" : IXAdRequestInfo.SCREEN_HEIGHT);
+                process = Runtime.getRuntime().exec(z ? "su" : "sh");
                 try {
                     dataOutputStream = new DataOutputStream(process.getOutputStream());
                     for (int i2 = 0; i2 <= 0; i2++) {

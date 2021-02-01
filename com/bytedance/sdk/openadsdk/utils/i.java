@@ -14,7 +14,7 @@ import java.net.NetworkInterface;
 import java.util.Collections;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i {
     @NonNull
     public static String a() {
@@ -139,7 +139,7 @@ public class i {
             jSONObject.put("screen_width", ak.c(context));
             jSONObject.put("screen_height", ak.d(context));
             jSONObject.put("oaid", y.a());
-            jSONObject.put("free_space", m.f7593a);
+            jSONObject.put("free_space", m.f7595a);
             jSONObject.put("applog_did", com.bytedance.embedapplog.b.getDid());
         } catch (Throwable th) {
         }

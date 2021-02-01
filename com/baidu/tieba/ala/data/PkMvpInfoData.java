@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.data;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PkMvpInfoData extends BaseData implements Serializable {
     public String bdPortrait;
     public String passName;

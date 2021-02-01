@@ -1,7 +1,7 @@
 package com.baidu.tieba.yuyinala.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface f {
-    void b(com.baidu.tieba.yuyinala.data.b bVar);
+    void A(int i, String str);
 
-    void w(int i, String str);
+    void b(com.baidu.tieba.yuyinala.data.b bVar);
 }

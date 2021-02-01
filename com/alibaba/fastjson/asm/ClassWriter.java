@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.asm;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ClassWriter {
     private int access;
     FieldWriter firstField;

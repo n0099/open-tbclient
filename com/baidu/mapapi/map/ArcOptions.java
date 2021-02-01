@@ -3,12 +3,12 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ArcOptions extends OverlayOptions {
     private static final String d = ArcOptions.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2692a;
+    int f2690a;
     Bundle c;
     private LatLng g;
     private LatLng h;
@@ -17,17 +17,17 @@ public final class ArcOptions extends OverlayOptions {
     private int f = 5;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f2693b = true;
+    boolean f2691b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Arc arc = new Arc();
-        arc.x = this.f2693b;
-        arc.w = this.f2692a;
+        arc.x = this.f2691b;
+        arc.w = this.f2690a;
         arc.y = this.c;
-        arc.f2690a = this.e;
-        arc.f2691b = this.f;
+        arc.f2688a = this.e;
+        arc.f2689b = this.f;
         arc.c = this.g;
         arc.d = this.h;
         arc.e = this.i;
@@ -69,11 +69,11 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2692a;
+        return this.f2690a;
     }
 
     public boolean isVisible() {
-        return this.f2693b;
+        return this.f2691b;
     }
 
     public ArcOptions points(LatLng latLng, LatLng latLng2, LatLng latLng3) {
@@ -90,7 +90,7 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public ArcOptions visible(boolean z) {
-        this.f2693b = z;
+        this.f2691b = z;
         return this;
     }
 
@@ -102,7 +102,7 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public ArcOptions zIndex(int i) {
-        this.f2692a = i;
+        this.f2690a = i;
         return this;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.unitedscheme;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class InvokeSchemeInfo {
     public long invokeTime;
     public String schemeUrl;

@@ -6,7 +6,7 @@ import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class r {
     public static String a(boolean z) {
         StringBuilder sb = new StringBuilder();

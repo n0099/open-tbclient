@@ -6,11 +6,11 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface h extends IInterface {
     Uri a(String str, String str2) throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements h {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
@@ -24,7 +24,7 @@ public interface h extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof h)) {
                 return (h) queryLocalInterface;
             }
-            return new C1236a(iBinder);
+            return new C1240a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -55,19 +55,19 @@ public interface h extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.d.h$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C1236a implements h {
+        /* loaded from: classes6.dex */
+        private static class C1240a implements h {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13112a;
+            private IBinder f13114a;
 
-            C1236a(IBinder iBinder) {
-                this.f13112a = iBinder;
+            C1240a(IBinder iBinder) {
+                this.f13114a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13112a;
+                return this.f13114a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.h
@@ -79,7 +79,7 @@ public interface h extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f13112a.transact(1, obtain, obtain2, 0);
+                    this.f13114a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         uri = (Uri) Uri.CREATOR.createFromParcel(obtain2);

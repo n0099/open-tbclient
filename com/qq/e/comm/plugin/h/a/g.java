@@ -14,33 +14,33 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile JSONObject f12080a;
+    private static volatile JSONObject f12082a;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f12081a;
+        private final int f12083a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f12082b;
+        private final String f12084b;
 
         public a(int i, String str) {
-            this.f12081a = i;
-            this.f12082b = str;
+            this.f12083a = i;
+            this.f12084b = str;
         }
 
         public int a() {
-            return this.f12081a;
+            return this.f12083a;
         }
 
         public String b() {
-            return this.f12082b;
+            return this.f12084b;
         }
     }
 
@@ -52,7 +52,7 @@ class g {
         JSONObject jSONObject = new JSONObject();
         String uuid = UUID.randomUUID().toString();
         long currentTimeMillis = System.currentTimeMillis();
-        jSONObject.put("v", aVar.f12081a);
+        jSONObject.put("v", aVar.f12083a);
         jSONObject.put("u", uuid);
         jSONObject.put("t", currentTimeMillis);
         jSONObject.put("m", a(aVar, uuid, currentTimeMillis));
@@ -65,8 +65,8 @@ class g {
         boolean z = false;
         synchronized (g.class) {
             try {
-                if (f12080a != null) {
-                    jSONObject = f12080a;
+                if (f12082a != null) {
+                    jSONObject = f12082a;
                 } else {
                     File file = new File(Environment.getExternalStorageDirectory(), "Tencent/ams/cache");
                     File file2 = new File(Environment.getExternalStorageDirectory(), "Android/data/com.tencent.ams/cache");
@@ -74,29 +74,29 @@ class g {
                         List<a> b2 = b(str);
                         try {
                             bArr = a(new File(file, "meta.dat"));
-                            f12080a = a(bArr, b2);
+                            f12082a = a(bArr, b2);
                         } catch (Exception e) {
                             ai.a("uuid read main file failed.", e);
                         }
-                        if (f12080a != null) {
+                        if (f12082a != null) {
                             ai.a("read uuid from main", new Object[0]);
                             z = true;
                         } else {
                             try {
                                 bArr = a(new File(file2, "meta.dat"));
-                                f12080a = a(bArr, b2);
+                                f12082a = a(bArr, b2);
                             } catch (Exception e2) {
                                 ai.a("uuid read backup file failed.", e2);
                             }
-                            if (f12080a != null) {
+                            if (f12082a != null) {
                                 ai.a("read uuid from backup", new Object[0]);
                                 z = true;
                             } else {
                                 try {
                                     a aVar = b2.get(b2.size() - 1);
-                                    f12080a = a(aVar);
-                                    ai.a("read uuid from new generate uuid:" + f12080a + " use salt:" + aVar, new Object[0]);
-                                    bArr = f12080a.toString().getBytes("UTF-8");
+                                    f12082a = a(aVar);
+                                    ai.a("read uuid from new generate uuid:" + f12082a + " use salt:" + aVar, new Object[0]);
+                                    bArr = f12082a.toString().getBytes("UTF-8");
                                     z = true;
                                 } catch (Exception e3) {
                                     ai.a("generate new uuid error", e3);
@@ -112,7 +112,7 @@ class g {
                                 a(file, "meta.dat", bArr);
                             } catch (Exception e5) {
                                 if (z) {
-                                    f12080a = new JSONObject();
+                                    f12082a = new JSONObject();
                                 }
                                 ai.a("write uuid to file error", e5);
                             }
@@ -121,7 +121,7 @@ class g {
                             a(file2, "meta.dat", bArr);
                         }
                     }
-                    jSONObject = f12080a;
+                    jSONObject = f12082a;
                 }
             } catch (Throwable th) {
                 throw th;
@@ -137,7 +137,7 @@ class g {
         long j = jSONObject.getLong("t");
         String string2 = jSONObject.getString("m");
         for (a aVar : list) {
-            if (aVar.f12081a == i) {
+            if (aVar.f12083a == i) {
                 String a2 = a(aVar, string, j);
                 if (string2.equals(a2)) {
                     return jSONObject;

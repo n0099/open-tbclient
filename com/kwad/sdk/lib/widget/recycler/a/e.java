@@ -1,5 +1,5 @@
 package com.kwad.sdk.lib.widget.recycler.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class e<T> {
     public abstract boolean a(T t, T t2);
 

@@ -22,7 +22,7 @@ public class b {
         return this.time;
     }
 
-    public int byJ() {
+    public int bzb() {
         return this.hide;
     }
 }

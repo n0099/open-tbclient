@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetBackground.GetBackgroundResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BackgroundGetSocketResponseMessage extends SocketResponsedMessage {
     private DressItemData mBgItem;
 

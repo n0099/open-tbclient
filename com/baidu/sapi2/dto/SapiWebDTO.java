@@ -1,5 +1,5 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class SapiWebDTO extends SapiDTO {
     public boolean sweepLightLoading;
     public int openEnterAnimId = 0;

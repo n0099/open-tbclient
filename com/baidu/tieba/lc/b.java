@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, Download> {
-    private ClientUpdateInfo kRf;
+    private ClientUpdateInfo kZh;
 
     public b(ClientUpdateInfo clientUpdateInfo) {
-        this.kRf = clientUpdateInfo;
+        this.kZh = clientUpdateInfo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,8 +19,8 @@ public class b extends BdAsyncTask<String, Integer, Download> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: U */
     public Download doInBackground(String... strArr) throws IOException {
-        if (this.kRf != null) {
-            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.kRf, null);
+        if (this.kZh != null) {
+            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.kZh, null);
         }
         return null;
     }

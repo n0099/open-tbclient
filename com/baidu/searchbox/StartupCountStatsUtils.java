@@ -1,5 +1,5 @@
 package com.baidu.searchbox;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class StartupCountStatsUtils {
     public static final String BACKGROUND_TIME_STAMP = "btime";
     public static final String CONTENT = "ext";

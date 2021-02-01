@@ -1,5 +1,5 @@
 package com.google.zxing.qrcode.detector;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class FinderPatternInfo {
     private final FinderPattern bottomLeft;
     private final FinderPattern topLeft;

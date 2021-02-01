@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.StatFs;
 import android.text.TextUtils;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.ReflectUtils;
@@ -17,6 +16,7 @@ import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import com.baidu.webkit.internal.utils.ZipUtils;
 import com.baidu.webkit.sdk.LoadErrorCode;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -28,7 +28,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class SevenZipUtils {
     private static final String ASSETS_NAME_PREFIX = "file:///android_assets";
     private static final int BUF_SIZE = 512;
@@ -265,7 +265,7 @@ public class SevenZipUtils {
         }
         try {
             this.mLockFile = new File(file, FILE_NAME_LOCK);
-            this.mLockRAFile = new RandomAccessFile(this.mLockFile, "rw");
+            this.mLockRAFile = new RandomAccessFile(this.mLockFile, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             this.mChannel = this.mLockRAFile.getChannel();
             this.mLock = this.mChannel.tryLock();
             return this.mLock != null;
@@ -444,7 +444,7 @@ public class SevenZipUtils {
                             this.mOffset_7z = str3.indexOf(FILE_SEP, this.mOffset_elf) + 2;
                             this.mJson_meta = new JSONObject(str3.substring(this.mOffset_meta, this.mOffset_elf - 2));
                             this.mJson_elf = new JSONObject(str3.substring(this.mOffset_elf, this.mOffset_7z - 2));
-                            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                            int i = Integer.MAX_VALUE;
                             JSONArray jSONArray = this.mJson_elf.getJSONArray(LZMA_META_KEY_LOADABLE);
                             int i2 = 0;
                             for (int i3 = 0; i3 < jSONArray.length(); i3++) {

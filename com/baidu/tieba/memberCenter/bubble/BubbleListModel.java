@@ -14,23 +14,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BubbleListModel extends BdBaseModel {
-    private a lcF;
-    private b lcG;
-    private int lcR;
-    private int lcS;
-    private final HttpMessageListener lcT;
-    private final HttpMessageListener lcU;
+    private a lkI;
+    private b lkJ;
+    private int lkU;
+    private int lkV;
+    private final HttpMessageListener lkW;
+    private final HttpMessageListener lkX;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(BubbleListData bubbleListData);
 
         void b(BubbleListData bubbleListData);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(SetBubbleResultData setBubbleResultData);
 
@@ -39,46 +39,46 @@ public class BubbleListModel extends BdBaseModel {
 
     public BubbleListModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.lcT = new HttpMessageListener(1001500) { // from class: com.baidu.tieba.memberCenter.bubble.BubbleListModel.1
+        this.lkW = new HttpMessageListener(1001500) { // from class: com.baidu.tieba.memberCenter.bubble.BubbleListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001500 && BubbleListModel.this.lcF != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001500 && BubbleListModel.this.lkI != null) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     int error = httpResponsedMessage.getError();
                     if (!(httpResponsedMessage instanceof ResponseBubbleListMessage)) {
-                        BubbleListModel.this.lcF.b(null);
+                        BubbleListModel.this.lkI.b(null);
                         return;
                     }
                     ResponseBubbleListMessage responseBubbleListMessage = (ResponseBubbleListMessage) httpResponsedMessage;
                     if (statusCode != 200 || error != 0) {
-                        BubbleListModel.this.lcF.b(responseBubbleListMessage.getBubbleListData());
+                        BubbleListModel.this.lkI.b(responseBubbleListMessage.getBubbleListData());
                     } else if (responseBubbleListMessage.getBubbleListData() == null) {
-                        BubbleListModel.this.lcF.b(responseBubbleListMessage.getBubbleListData());
+                        BubbleListModel.this.lkI.b(responseBubbleListMessage.getBubbleListData());
                     } else {
-                        BubbleListModel.this.lcF.a(responseBubbleListMessage.getBubbleListData());
+                        BubbleListModel.this.lkI.a(responseBubbleListMessage.getBubbleListData());
                     }
                 }
             }
         };
-        this.lcU = new HttpMessageListener(1001501) { // from class: com.baidu.tieba.memberCenter.bubble.BubbleListModel.2
+        this.lkX = new HttpMessageListener(1001501) { // from class: com.baidu.tieba.memberCenter.bubble.BubbleListModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001501 && BubbleListModel.this.lcG != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001501 && BubbleListModel.this.lkJ != null) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     int error = httpResponsedMessage.getError();
                     if (!(httpResponsedMessage instanceof ResponseSetBubbleMessage)) {
-                        BubbleListModel.this.lcG.b(null);
+                        BubbleListModel.this.lkJ.b(null);
                         return;
                     }
                     ResponseSetBubbleMessage responseSetBubbleMessage = (ResponseSetBubbleMessage) httpResponsedMessage;
                     if (statusCode != 200 || error != 0) {
-                        BubbleListModel.this.lcG.b(responseSetBubbleMessage.getSetBubbleResultData());
+                        BubbleListModel.this.lkJ.b(responseSetBubbleMessage.getSetBubbleResultData());
                     } else if (responseSetBubbleMessage.getSetBubbleResultData() == null) {
-                        BubbleListModel.this.lcG.b(responseSetBubbleMessage.getSetBubbleResultData());
+                        BubbleListModel.this.lkJ.b(responseSetBubbleMessage.getSetBubbleResultData());
                     } else {
-                        BubbleListModel.this.lcG.a(responseSetBubbleMessage.getSetBubbleResultData());
+                        BubbleListModel.this.lkJ.a(responseSetBubbleMessage.getSetBubbleResultData());
                     }
                 }
             }
@@ -86,27 +86,27 @@ public class BubbleListModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.lcF = aVar;
+        this.lkI = aVar;
     }
 
     public void a(b bVar) {
-        this.lcG = bVar;
+        this.lkJ = bVar;
     }
 
-    public int dcW() {
-        return this.lcR;
+    public int deW() {
+        return this.lkU;
     }
 
-    public void DY(int i) {
-        this.lcR = i;
+    public void Eq(int i) {
+        this.lkU = i;
     }
 
-    public int dcX() {
-        return this.lcS;
+    public int deX() {
+        return this.lkV;
     }
 
-    public void DZ(int i) {
-        this.lcS = i;
+    public void Er(int i) {
+        this.lkV = i;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -119,7 +119,7 @@ public class BubbleListModel extends BdBaseModel {
         return false;
     }
 
-    public static boolean eT(List<BubbleListData.BubbleData> list) {
+    public static boolean eR(List<BubbleListData.BubbleData> list) {
         if (list != null && list.size() > 0) {
             for (BubbleListData.BubbleData bubbleData : list) {
                 if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
@@ -134,15 +134,15 @@ public class BubbleListModel extends BdBaseModel {
         registerListener(customMessageListener);
     }
 
-    public void dcY() {
+    public void deY() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001500, TbConfig.SERVER_ADDRESS + Config.REQUEST_BUBBLE_LIST);
         tbHttpMessageTask.setResponsedClass(ResponseBubbleListMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.lcT);
+        registerListener(this.lkW);
     }
 
-    public void K(int i, int i2, int i3, int i4) {
+    public void I(int i, int i2, int i3, int i4) {
         HttpMessage httpMessage = new HttpMessage(1001500);
         httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, String.valueOf(i));
         httpMessage.addParam("rn", String.valueOf(i2));
@@ -151,7 +151,7 @@ public class BubbleListModel extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public void Y(int i, int i2, int i3) {
+    public void W(int i, int i2, int i3) {
         HttpMessage httpMessage = new HttpMessage(1001501);
         httpMessage.addParam("bcode", String.valueOf(i));
         httpMessage.addParam("scr_w", String.valueOf(i2));
@@ -160,18 +160,18 @@ public class BubbleListModel extends BdBaseModel {
         TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "consume_20", null);
     }
 
-    public void dcZ() {
+    public void deZ() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001501, TbConfig.SERVER_ADDRESS + "c/e/bu/setbubble");
         tbHttpMessageTask.setResponsedClass(ResponseSetBubbleMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.lcU);
+        registerListener(this.lkX);
     }
 
     public void unRegisterListener() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.unRegisterListener(this.lcU);
-        messageManager.unRegisterListener(this.lcT);
+        messageManager.unRegisterListener(this.lkX);
+        messageManager.unRegisterListener(this.lkW);
     }
 
     public void b(CustomMessageListener customMessageListener) {

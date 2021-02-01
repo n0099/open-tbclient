@@ -4,9 +4,9 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import com.baidu.swan.game.ad.downloader.core.a;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface c {
-    void a(@NonNull String str, @NonNull Uri uri, @NonNull a.AbstractC0506a<Boolean> abstractC0506a);
+    void a(@NonNull String str, @NonNull Uri uri, @NonNull a.AbstractC0503a<Boolean> abstractC0503a);
 
     void destroy();
 
@@ -18,5 +18,5 @@ public interface c {
 
     void i(DownloadInfo downloadInfo);
 
-    DownloadInfo uH(String str);
+    DownloadInfo va(String str);
 }

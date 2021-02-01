@@ -7,30 +7,30 @@ import com.baidu.helios.common.c.a;
 import com.baidu.helios.trusts.zone.TrustSubjectManager;
 import java.io.UnsupportedEncodingException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
-    protected a.C0133a ati;
-    protected C0134a atj;
+    protected a.C0133a asY;
+    protected C0134a asZ;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2444b;
+    private String f2442b;
 
     /* renamed from: com.baidu.helios.ids.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class C0134a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a arZ;
-        public ExecutorService aru;
-        public ExecutorService arv;
-        public TrustSubjectManager.d atm;
+        public com.baidu.helios.common.c.a arP;
+        public ExecutorService ark;
+        public ExecutorService arl;
+        public TrustSubjectManager.d atc;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class b {
-        public boolean atn = false;
+        public boolean atd = false;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface c<T> {
         void a(int i, Exception exc, Bundle bundle);
 
@@ -38,10 +38,10 @@ public abstract class a {
     }
 
     public a(String str) {
-        this.f2444b = str;
+        this.f2442b = str;
     }
 
-    public static String ac(String str, String str2) {
+    public static String aa(String str, String str2) {
         String format = String.format("%s-%s-", str, str2);
         String str3 = null;
         try {
@@ -55,29 +55,29 @@ public abstract class a {
     }
 
     public final void a(C0134a c0134a) {
-        this.atj = c0134a;
-        this.ati = c0134a.arZ.vk().ea("ids");
+        this.asZ = c0134a;
+        this.asY = c0134a.arP.vh().ea("ids");
     }
 
     public abstract void a(b bVar);
 
     public void a(final c<String> cVar) {
-        final String vp = vp();
-        this.atj.aru.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
+        final String vm = vm();
+        this.asZ.ark.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
             @Override // java.lang.Runnable
             public void run() {
-                cVar.a(vp, null);
+                cVar.a(vm, null);
             }
         });
     }
 
     public String getName() {
-        return this.f2444b;
+        return this.f2442b;
     }
 
-    public abstract String vp();
+    public abstract String vm();
 
-    public byte[] vq() {
+    public byte[] vn() {
         return null;
     }
 }

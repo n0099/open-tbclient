@@ -5,7 +5,7 @@ import androidx.annotation.RestrictTo;
 import androidx.recyclerview.widget.DiffUtil;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public final class AsyncDifferConfig<T> {
     @NonNull
     private final Executor mBackgroundThreadExecutor;
@@ -36,7 +36,7 @@ public final class AsyncDifferConfig<T> {
         return this.mDiffCallback;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static final class Builder<T> {
         private Executor mBackgroundThreadExecutor;
         private final DiffUtil.ItemCallback<T> mDiffCallback;

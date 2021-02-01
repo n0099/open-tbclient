@@ -13,12 +13,12 @@ public class g {
     private final RemoteViews remoteViews = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), R.layout.download_notify_view);
 
     public g(DownloadData downloadData, int i) {
-        Hu(i);
+        HN(i);
         this.remoteViews.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
         this.remoteViews.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
         this.remoteViews.setImageViewResource(R.id.download_cancel, R.drawable.notify_cancel_bg);
         this.remoteViews.setTextViewText(R.id.downapp_name, downloadData.getUser_name());
-        com.baidu.adp.lib.e.d.mx().a(downloadData.getApp_icon(), 17, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.download.g.1
+        com.baidu.adp.lib.e.d.mw().a(downloadData.getApp_icon(), 17, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.download.g.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.c
@@ -40,21 +40,21 @@ public class g {
         this.remoteViews.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public RemoteViews dBn() {
+    public RemoteViews dDw() {
         return this.remoteViews;
     }
 
-    public void dBo() {
+    public void dDx() {
         this.remoteViews.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
         this.remoteViews.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
     }
 
-    public void dBp() {
+    public void dDy() {
         this.remoteViews.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
         this.remoteViews.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
     }
 
-    public void Hu(int i) {
+    public void HN(int i) {
         String str;
         if (i > 0) {
             str = i + "%";

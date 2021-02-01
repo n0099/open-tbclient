@@ -1,11 +1,11 @@
 package com.kwai.filedownloader.f;
 
 import android.util.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f10928a = false;
+    public static boolean f10930a = false;
 
     private static String a(Object obj) {
         return "FileDownloader." + (obj instanceof Class ? ((Class) obj).getSimpleName() : obj.getClass().getSimpleName());
@@ -16,7 +16,7 @@ public class d {
     }
 
     private static void a(int i, Object obj, Throwable th, String str, Object... objArr) {
-        if ((i >= 5) || f10928a) {
+        if ((i >= 5) || f10930a) {
             Log.println(i, a(obj), f.a(str, objArr));
             if (th != null) {
                 th.printStackTrace();

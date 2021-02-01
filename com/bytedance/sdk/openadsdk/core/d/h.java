@@ -1,12 +1,12 @@
 package com.bytedance.sdk.openadsdk.core.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6499a = 1;
+    private int f6501a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6500b = 1;
+    private int f6502b = 1;
     private int c = 1;
     private int d = 0;
     private int e = 0;
@@ -55,19 +55,19 @@ public class h {
     }
 
     public int f() {
-        return this.f6499a;
+        return this.f6501a;
     }
 
     public void f(int i) {
-        this.f6499a = i;
+        this.f6501a = i;
     }
 
     public int g() {
-        return this.f6500b;
+        return this.f6502b;
     }
 
     public void g(int i) {
-        this.f6500b = i;
+        this.f6502b = i;
     }
 
     public int h() {

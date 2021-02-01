@@ -1,7 +1,7 @@
 package com.kwad.sdk;
 
 import com.kwad.sdk.api.proxy.app.BaseFragmentActivity;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static void a() {
         KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.KsTrendsActivity.class, com.kwad.sdk.contentalliance.trends.b.class);

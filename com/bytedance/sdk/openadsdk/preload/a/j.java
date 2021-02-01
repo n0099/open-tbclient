@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.a;
 import com.bytedance.sdk.openadsdk.preload.a.i;
 import com.bytedance.sdk.openadsdk.preload.a.l;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class j<IN, OUT> extends l<IN, OUT> {
     private String d;
 
@@ -18,9 +18,9 @@ public abstract class j<IN, OUT> extends l<IN, OUT> {
         this.d = a(new m(bVar), in);
         l.a aVar = a().get(this.d);
         while (aVar != null) {
-            List<h> list = aVar.f7428a;
+            List<h> list = aVar.f7430a;
             try {
-                Object a2 = c.a(list, ((i) bVar).f7426a, this).a((b) in);
+                Object a2 = c.a(list, ((i) bVar).f7428a, this).a((b) in);
                 if (a(list)) {
                     a2 = bVar.a((b<OUT>) a2);
                 }

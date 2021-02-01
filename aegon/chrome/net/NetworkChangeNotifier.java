@@ -9,7 +9,7 @@ import android.net.ConnectivityManager;
 import android.os.Build;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NetworkChangeNotifier {
     public static final /* synthetic */ boolean $assertionsDisabled = !NetworkChangeNotifier.class.desiredAssertionStatus();
     @SuppressLint({"StaticFieldLeak"})
@@ -21,7 +21,7 @@ public class NetworkChangeNotifier {
     public final ConnectivityManager mConnectivityManager = (ConnectivityManager) ContextUtils.sApplicationContext.getSystemService("connectivity");
 
     /* renamed from: aegon.chrome.net.NetworkChangeNotifier$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class AnonymousClass1 implements NetworkChangeNotifierAutoDetect.Observer {
         public AnonymousClass1() {
         }
@@ -35,7 +35,7 @@ public class NetworkChangeNotifier {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface ConnectionTypeObserver {
         void onConnectionTypeChanged(int i);
     }

@@ -3,7 +3,7 @@ package com.baidu.swan.apps.canvas.a.a;
 import android.graphics.Canvas;
 import android.graphics.Region;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -11,7 +11,7 @@ public class g extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        bVar.cHj = true;
+        bVar.cJD = true;
         canvas.clipPath(bVar.mPath, Region.Op.INTERSECT);
     }
 }

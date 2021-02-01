@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class JSONObject extends JSON implements Serializable, Cloneable, InvocationHandler, Map<String, Object> {
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
     private static final long serialVersionUID = 1;

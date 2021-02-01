@@ -15,56 +15,56 @@ import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import com.qq.e.comm.util.AdError;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public abstract class v0 extends NativeAdContainer {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f7838a;
+    public TextView f7840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f7839b;
+    public TextView f7841b;
     public Button c;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class a implements NativeADEventListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ah f7840a;
+        public final /* synthetic */ ah f7842a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ au.a f7841b;
+        public final /* synthetic */ au.a f7843b;
         public final /* synthetic */ NativeUnifiedADData c;
 
         public a(ah ahVar, au.a aVar, NativeUnifiedADData nativeUnifiedADData) {
-            this.f7840a = ahVar;
-            this.f7841b = aVar;
+            this.f7842a = ahVar;
+            this.f7843b = aVar;
             this.c = nativeUnifiedADData;
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADClicked() {
             m.a("GDTNativeUnifiedAd onADClicked");
-            ah ahVar = this.f7840a;
+            ah ahVar = this.f7842a;
             if (ahVar != null) {
-                ((aa) ahVar).c(this.f7841b.f7760a);
+                ((aa) ahVar).c(this.f7843b.f7762a);
             }
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADError(AdError adError) {
             m.a("GDTNativeUnifiedAd onADError");
-            ah ahVar = this.f7840a;
+            ah ahVar = this.f7842a;
             if (ahVar != null) {
-                ((aa) ahVar).a(this.f7841b.f7760a, adError.getErrorCode(), adError.getErrorMsg());
+                ((aa) ahVar).a(this.f7843b.f7762a, adError.getErrorCode(), adError.getErrorMsg());
             }
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADExposed() {
             m.a("GDTNativeUnifiedAd onADExposed");
-            ah ahVar = this.f7840a;
+            ah ahVar = this.f7842a;
             if (ahVar != null) {
-                ((aa) ahVar).d(this.f7841b.f7760a);
+                ((aa) ahVar).d(this.f7843b.f7762a);
             }
         }
 
@@ -72,9 +72,9 @@ public abstract class v0 extends NativeAdContainer {
         public void onADStatusChanged() {
             m.a("GDTNativeUnifiedAd onADStatusChanged");
             v0.this.a(this.c);
-            ah ahVar = this.f7840a;
+            ah ahVar = this.f7842a;
             if (ahVar != null) {
-                String str = this.f7841b.f7760a;
+                String str = this.f7843b.f7762a;
                 if (((aa) ahVar) == null) {
                     throw null;
                 }
@@ -102,8 +102,8 @@ public abstract class v0 extends NativeAdContainer {
     }
 
     public void a(Activity activity, au.a aVar, NativeUnifiedADData nativeUnifiedADData, ah ahVar) {
-        this.f7839b.setText(nativeUnifiedADData.getTitle());
-        this.f7838a.setText(nativeUnifiedADData.getDesc());
+        this.f7841b.setText(nativeUnifiedADData.getTitle());
+        this.f7840a.setText(nativeUnifiedADData.getDesc());
         nativeUnifiedADData.bindAdToView(getContext(), this, null, a());
         nativeUnifiedADData.setNativeAdEventListener(new a(ahVar, aVar, nativeUnifiedADData));
         a(nativeUnifiedADData);
@@ -138,8 +138,8 @@ public abstract class v0 extends NativeAdContainer {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f7838a = (TextView) findViewById(R.id.ad_description);
-        this.f7839b = (TextView) findViewById(R.id.ad_title);
+        this.f7840a = (TextView) findViewById(R.id.ad_description);
+        this.f7841b = (TextView) findViewById(R.id.ad_title);
         this.c = (Button) findViewById(R.id.ad_creative);
     }
 }

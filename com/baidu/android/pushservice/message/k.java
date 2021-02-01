@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.message;
 
 import java.io.Serializable;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class k implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */

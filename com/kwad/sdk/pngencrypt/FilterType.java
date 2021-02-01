@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt;
 
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public enum FilterType {
     FILTER_NONE(0),
     FILTER_SUB(1),

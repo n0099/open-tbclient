@@ -12,7 +12,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e extends aa {
     public e(j jVar) {
         super(jVar, "/swanAPI/getSwanId");
@@ -37,8 +37,8 @@ public class e extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        if (com.baidu.swan.apps.performance.b.c.aDX()) {
-            String string = eVar.aID().getString(a.C0383a.b(eVar), (String) null);
+        if (com.baidu.swan.apps.performance.b.c.aEs()) {
+            String string = eVar.aIW().getString(a.C0380a.b(eVar), (String) null);
             if (TextUtils.isEmpty(string)) {
                 a(context, unitedSchemeEntity, callbackHandler, eVar, optString);
             } else {
@@ -70,7 +70,7 @@ public class e extends aa {
             com.baidu.swan.apps.console.c.e("getSwanId", "network_error");
             return;
         }
-        com.baidu.swan.apps.runtime.d.aIn().aIp().afU().ahN().bY(context).A(new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
+        com.baidu.swan.apps.runtime.d.aIG().aII().ags().ail().bX(context).A(new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -78,7 +78,7 @@ public class e extends aa {
                 if (hVar.isOk() && hVar.mData != null) {
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(hVar.mData, 0).toString(), str);
                     if (eVar != null) {
-                        eVar.aID().putString(a.C0383a.b(eVar), hVar.mData.toString());
+                        eVar.aIW().putString(a.C0380a.b(eVar), hVar.mData.toString());
                     }
                     com.baidu.swan.apps.console.c.i("getSwanId", "getSwanId success");
                     return;
@@ -86,6 +86,6 @@ public class e extends aa {
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10001, "internal_error").toString(), str);
                 com.baidu.swan.apps.console.c.e("getSwanId", "getSwanId failed: internal_error");
             }
-        }).aKi();
+        }).aKB();
     }
 }

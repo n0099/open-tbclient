@@ -1,7 +1,7 @@
 package aegon.chrome.net.impl;
 
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class VersionSafeCallbacks$NetworkQualityThroughputListenerWrapper {
     public final VersionSafeCallbacks$NetworkQualityThroughputListenerWrapper mWrappedListener;
 

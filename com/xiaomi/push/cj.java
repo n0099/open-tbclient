@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class cj {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13911a;
+    public int f13913a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f242a;
@@ -15,7 +15,7 @@ public class cj {
     private String f243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13912b;
+    public int f13914b;
 
     /* renamed from: b  reason: collision with other field name */
     public long f244b;
@@ -29,9 +29,9 @@ public class cj {
 
     public cj(cj cjVar) {
         this.f242a = cjVar.f242a;
-        this.f13911a = cjVar.f13911a;
+        this.f13913a = cjVar.f13913a;
         this.h = cjVar.h;
-        this.f13912b = cjVar.f13912b;
+        this.f13914b = cjVar.f13914b;
         this.c = cjVar.c;
         this.f244b = cjVar.f244b;
         this.d = cjVar.d;
@@ -42,8 +42,8 @@ public class cj {
     public Bundle a() {
         Bundle bundle = new Bundle();
         bundle.putLong("id", this.f242a);
-        bundle.putInt("showType", this.f13911a);
-        bundle.putInt("nonsense", this.f13912b);
+        bundle.putInt("showType", this.f13913a);
+        bundle.putInt("nonsense", this.f13914b);
         bundle.putInt("receiveUpperBound", this.c);
         bundle.putLong("lastShowTime", this.f244b);
         bundle.putInt("multi", this.e);
@@ -61,8 +61,8 @@ public class cj {
 
     public void a(JSONObject jSONObject) {
         this.f242a = jSONObject.optLong("id");
-        this.f13911a = jSONObject.optInt("showType");
-        this.f13912b = jSONObject.optInt("nonsense");
+        this.f13913a = jSONObject.optInt("showType");
+        this.f13914b = jSONObject.optInt("nonsense");
         this.c = jSONObject.optInt("receiveUpperBound");
         this.f244b = jSONObject.optLong("lastShowTime");
         this.e = jSONObject.optInt("multi");

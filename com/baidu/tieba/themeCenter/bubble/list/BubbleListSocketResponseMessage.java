@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetBubbleList.GetBubbleListResIdl;
 import tbclient.ThemeBgProp;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
     private boolean hasMore;
     private boolean isDefault;

@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
 import com.baidu.android.pushservice.i.m;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */

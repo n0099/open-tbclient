@@ -13,7 +13,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
     private static boolean DEBUG = AppConfig.isDebug();
     private static String TAG = "networkparam";

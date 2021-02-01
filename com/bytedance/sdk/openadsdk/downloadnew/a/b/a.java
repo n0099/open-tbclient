@@ -4,14 +4,14 @@ import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.c;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public l f7092a;
+    public l f7094a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7093b;
+    public String f7095b;
     public String c;
     public JSONObject d;
 
@@ -53,12 +53,12 @@ public class a {
     }
 
     public a a(l lVar) {
-        this.f7092a = lVar;
+        this.f7094a = lVar;
         return this;
     }
 
     public a a(String str) {
-        this.f7093b = str;
+        this.f7095b = str;
         return this;
     }
 
@@ -76,13 +76,13 @@ public class a {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("tag", this.f7093b);
+            jSONObject.put("tag", this.f7095b);
             jSONObject.put("label", this.c);
             if (this.d != null) {
                 jSONObject.put("extra", this.d);
             }
-            if (this.f7092a != null) {
-                jSONObject.put("material_meta", this.f7092a.am());
+            if (this.f7094a != null) {
+                jSONObject.put("material_meta", this.f7094a.am());
             }
         } catch (Exception e) {
         }

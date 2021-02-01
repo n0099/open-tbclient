@@ -8,21 +8,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class j<T> implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12803a = j.class.getName();
+    private static final String f12805a = j.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Boolean f12804b = Boolean.valueOf(com.sdk.base.framework.c.f.f12819b);
+    private static final Boolean f12806b = Boolean.valueOf(com.sdk.base.framework.c.f.f12821b);
     private String d;
     private TreeMap<String, Object> e;
     private ArrayList<File> f;
     private HashMap<String, Object> g;
     private com.sdk.base.framework.b.b<T> i;
     private com.sdk.base.framework.f.h.g j;
-    private String c = i.f12801a.toString();
+    private String c = i.f12803a.toString();
     private int h = 0;
 
     public static String b(TreeMap<String, Object> treeMap) {
@@ -42,7 +42,7 @@ public class j<T> implements Serializable {
                 sb2.deleteCharAt(sb2.length() - 1);
                 sb = sb2;
             } catch (Exception e) {
-                com.sdk.base.framework.a.a.c.b(f12803a, e.getMessage(), f12804b);
+                com.sdk.base.framework.a.a.c.b(f12805a, e.getMessage(), f12806b);
                 throw new Exception("http请求参数出错");
             }
         } else {

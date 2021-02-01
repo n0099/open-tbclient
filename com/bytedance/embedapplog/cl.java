@@ -4,13 +4,13 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface cl extends IInterface {
     String a();
 
     boolean b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements cl {
         public static cl a(IBinder iBinder) {
             if (iBinder == null) {
@@ -20,7 +20,7 @@ public interface cl extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof cl)) {
                 return (cl) queryLocalInterface;
             }
-            return new C0985a(iBinder);
+            return new C0989a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -47,19 +47,19 @@ public interface cl extends IInterface {
         }
 
         /* renamed from: com.bytedance.embedapplog.cl$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        static class C0985a implements cl {
+        /* loaded from: classes6.dex */
+        static class C0989a implements cl {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f5825a;
+            private IBinder f5827a;
 
-            C0985a(IBinder iBinder) {
-                this.f5825a = iBinder;
+            C0989a(IBinder iBinder) {
+                this.f5827a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f5825a;
+                return this.f5827a;
             }
 
             @Override // com.bytedance.embedapplog.cl
@@ -68,7 +68,7 @@ public interface cl extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f5825a.transact(1, obtain, obtain2, 0);
+                    this.f5827a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -83,7 +83,7 @@ public interface cl extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f5825a.transact(2, obtain, obtain2, 0);
+                    this.f5827a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.event;
 
 import com.baidu.searchbox.player.event.VideoReceiver;
 import com.baidu.searchbox.player.helper.NetUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SystemEventTrigger extends AbsEventTrigger implements VideoReceiver.VideoReceiverListener {
     private VideoReceiver mVideoReceiver = new VideoReceiver(this);
 

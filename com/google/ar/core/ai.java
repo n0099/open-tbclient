@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.Session;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 enum ai extends Session.c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(String str, int i, int i2, Class cls) {
@@ -10,6 +10,6 @@ enum ai extends Session.c {
 
     @Override // com.google.ar.core.Session.c
     public final k a(long j, Session session) {
-        return session.pHy.b(j, session);
+        return session.pRD.b(j, session);
     }
 }

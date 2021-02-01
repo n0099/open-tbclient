@@ -8,10 +8,10 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveUserNotifyModel {
     private AlaLiveNotifyCallBack mCallBack;
     private boolean mIsNeedShowDialog;
@@ -22,7 +22,7 @@ public class AlaLiveUserNotifyModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if ((httpResponsedMessage instanceof AlaLiveGetUserNotifyResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveUserNotifyModel.this.mCurTag) {
                 AlaLiveGetUserNotifyResponsedMessage alaLiveGetUserNotifyResponsedMessage = (AlaLiveGetUserNotifyResponsedMessage) httpResponsedMessage;
-                int count = x.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList());
+                int count = y.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList());
                 if (count > 0) {
                     if (AlaLiveUserNotifyModel.this.mIsNeedShowDialog) {
                         AlaLiveUserNotifyModel.this.showNextNotifyDialog(0, alaLiveGetUserNotifyResponsedMessage.getDataList());
@@ -37,7 +37,7 @@ public class AlaLiveUserNotifyModel {
     };
     private BdUniqueId mCurTag = BdUniqueId.gen();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface AlaLiveNotifyCallBack {
         void onCallBack(AlaLiveUserNotifyData alaLiveUserNotifyData);
     }
@@ -58,10 +58,10 @@ public class AlaLiveUserNotifyModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNextNotifyDialog(int i, ArrayList<AlaLiveUserNotifyData> arrayList) {
-        if (i < x.getCount(arrayList)) {
+        if (i < y.getCount(arrayList)) {
             int i2 = i;
             while (true) {
-                if (i2 >= x.getCount(arrayList)) {
+                if (i2 >= y.getCount(arrayList)) {
                     i2 = i;
                     break;
                 } else if (arrayList.get(i2).isSuperGuardian()) {

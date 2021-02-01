@@ -6,15 +6,15 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import com.bytedance.sdk.openadsdk.core.h.j;
 import com.bytedance.sdk.openadsdk.core.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class c implements View.OnClickListener, View.OnTouchListener {
     protected static int A;
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f6443a;
+    private static float f6445a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static float f6444b;
+    private static float f6446b;
     private static float c;
     private static float d;
     private static long e;
@@ -36,8 +36,8 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         if (ViewConfiguration.get(p.a()) != null) {
             A = ViewConfiguration.get(p.a()).getScaledTouchSlop();
         }
-        f6443a = 0.0f;
-        f6444b = 0.0f;
+        f6445a = 0.0f;
+        f6446b = 0.0f;
         c = 0.0f;
         d = 0.0f;
         e = 0L;
@@ -71,10 +71,10 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
                 i = 3;
                 break;
             case 2:
-                c += Math.abs(motionEvent.getX() - f6443a);
-                d += Math.abs(motionEvent.getY() - f6444b);
-                f6443a = motionEvent.getX();
-                f6444b = motionEvent.getY();
+                c += Math.abs(motionEvent.getX() - f6445a);
+                d += Math.abs(motionEvent.getY() - f6446b);
+                f6445a = motionEvent.getX();
+                f6446b = motionEvent.getY();
                 if (System.currentTimeMillis() - e > 200 && (c > A || d > A)) {
                     i = 1;
                     break;
@@ -93,21 +93,21 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         return false;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6445a;
+        public int f6447a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f6446b;
+        public double f6448b;
         public double c;
         public long d;
 
         public a(int i, double d, double d2, long j) {
-            this.f6445a = -1;
-            this.f6445a = i;
-            this.f6446b = d;
+            this.f6447a = -1;
+            this.f6447a = i;
+            this.f6448b = d;
             this.c = d2;
             this.d = j;
         }

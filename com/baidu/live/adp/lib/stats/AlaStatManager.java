@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.stats;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaStatManager {
     private static volatile AlaStatManager statisticsManager = null;
     private IAlaStatUploader uploader;

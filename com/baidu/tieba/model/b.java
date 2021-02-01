@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.a.d;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.ap;
+import com.baidu.tbadk.core.data.aq;
 import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.switchs.CheckShowNameDialogSwitch;
 import com.baidu.tieba.R;
 import org.json.JSONArray;
@@ -18,9 +18,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public static BdAsyncTask<?, ?, ?> a(final String str, String str2, String str3, String str4, final a.InterfaceC0558a interfaceC0558a) {
+    public static BdAsyncTask<?, ?, ?> a(final String str, String str2, String str3, String str4, final a.InterfaceC0555a interfaceC0555a) {
         com.baidu.tbadk.core.a.d dVar = new com.baidu.tbadk.core.a.d();
-        final a aVar = new a(str, str2, str3, interfaceC0558a, false);
+        final a aVar = new a(str, str2, str3, interfaceC0555a, false);
         if (com.baidu.tbadk.core.a.d.isVerification() && StringUtils.isNull(str4)) {
             dVar.a(str2, new d.a() { // from class: com.baidu.tieba.model.b.1
                 @Override // com.baidu.tbadk.core.a.d.a
@@ -31,8 +31,8 @@ public class b {
 
                 @Override // com.baidu.tbadk.core.a.d.a
                 public void onFailed() {
-                    if (interfaceC0558a != null) {
-                        interfaceC0558a.onFailure(str, 1, null);
+                    if (interfaceC0555a != null) {
+                        interfaceC0555a.onFailure(str, 1, null);
                     }
                 }
             });
@@ -47,32 +47,32 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Integer, AccountData> {
-        private final String llM;
-        private final a.InterfaceC0558a llN;
-        private final boolean llO;
+        private final String ltT;
+        private final a.InterfaceC0555a ltU;
+        private final boolean ltV;
         private final String mName;
-        private volatile z mNetwork = null;
+        private volatile aa mNetwork = null;
         private final String mPtoken;
         private String mStoken;
 
-        public a(String str, String str2, String str3, a.InterfaceC0558a interfaceC0558a, boolean z) {
+        public a(String str, String str2, String str3, a.InterfaceC0555a interfaceC0555a, boolean z) {
             this.mName = str;
-            this.llM = str2;
+            this.ltT = str2;
             this.mPtoken = str3;
-            this.llO = z;
-            this.llN = interfaceC0558a == null ? new a.InterfaceC0558a() { // from class: com.baidu.tieba.model.b.a.1
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0558a
+            this.ltV = z;
+            this.ltU = interfaceC0555a == null ? new a.InterfaceC0555a() { // from class: com.baidu.tieba.model.b.a.1
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0555a
                 public void onBeforeLogin(String str4) {
                 }
 
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0558a
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0555a
                 public void a(AccountData accountData) {
                 }
 
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0558a
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0555a
                 public void onFailure(String str4, int i, String str5) {
                 }
-            } : interfaceC0558a;
+            } : interfaceC0555a;
             setPriority(3);
         }
 
@@ -83,7 +83,7 @@ public class b {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.llN.onBeforeLogin(this.mName);
+            this.ltU.onBeforeLogin(this.mName);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -99,50 +99,50 @@ public class b {
             int i;
             JSONObject jSONObject;
             a.b a2;
-            this.mNetwork = new z(TbConfig.LOGIN_FULL_ADDRESS);
-            this.mNetwork.brX().bsG().mIsUseCurrentBDUSS = false;
-            this.mNetwork.addPostData("bdusstoken", this.llM + "|" + this.mPtoken);
+            this.mNetwork = new aa(TbConfig.LOGIN_FULL_ADDRESS);
+            this.mNetwork.bsr().bta().mIsUseCurrentBDUSS = false;
+            this.mNetwork.addPostData("bdusstoken", this.ltT + "|" + this.mPtoken);
             if (!StringUtils.isNull(this.mStoken)) {
                 this.mNetwork.addPostData("stoken", this.mStoken);
             }
             this.mNetwork.addPostData(SharedPrefConfig.CHANNEL_ID, TbadkCoreApplication.getInst().getPushChannelId());
             this.mNetwork.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-            this.mNetwork.brX().bsG().mNeedBackgroundLogin = false;
+            this.mNetwork.bsr().bta().mNeedBackgroundLogin = false;
             String postNetData = this.mNetwork.postNetData();
-            if (this.mNetwork.brX().bsH().isRequestSuccess() && postNetData != null) {
-                ap apVar = new ap();
-                apVar.parserJson(postNetData);
+            if (this.mNetwork.bsr().btb().isRequestSuccess() && postNetData != null) {
+                aq aqVar = new aq();
+                aqVar.parserJson(postNetData);
                 AccountData accountData2 = new AccountData();
-                accountData2.setAccount(apVar.getUser().getUserName());
+                accountData2.setAccount(aqVar.getUser().getUserName());
                 accountData2.setPassword("");
-                accountData2.setID(apVar.getUser().getUserId());
-                String str = this.llM;
-                if (this.llO && (a2 = e.a(com.baidu.tbadk.core.a.a.bkC().zq(str))) != null) {
+                accountData2.setID(aqVar.getUser().getUserId());
+                String str = this.ltT;
+                if (this.ltV && (a2 = e.a(com.baidu.tbadk.core.a.a.bkU().zH(str))) != null) {
                     str = a2.mBduss + "|" + a2.mPtoken;
                 }
                 accountData2.setBDUSS(str);
-                accountData2.setPortrait(apVar.getUser().getPortrait());
-                if (apVar.getUser() != null && apVar.getUser().getBaijiahaoInfo() != null && !StringUtils.isNull(apVar.getUser().getBaijiahaoInfo().avatar)) {
-                    accountData2.setBjhAvatar(apVar.getUser().getBaijiahaoInfo().avatar);
+                accountData2.setPortrait(aqVar.getUser().getPortrait());
+                if (aqVar.getUser() != null && aqVar.getUser().getBaijiahaoInfo() != null && !StringUtils.isNull(aqVar.getUser().getBaijiahaoInfo().avatar)) {
+                    accountData2.setBjhAvatar(aqVar.getUser().getBaijiahaoInfo().avatar);
                 }
                 accountData2.setStoken(this.mStoken);
                 accountData2.setIsActive(1);
-                if (apVar.getAnti() != null) {
-                    accountData2.setTbs(apVar.getAnti().getTbs());
+                if (aqVar.getAnti() != null) {
+                    accountData2.setTbs(aqVar.getAnti().getTbs());
                 }
                 accountData = accountData2;
             } else {
                 accountData = null;
             }
-            z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_SHOW_INIT_NAME_DIALOG);
-            zVar.brX().bsG().mNeedBackgroundLogin = false;
-            zVar.brX().bsG().mIsUseCurrentBDUSS = false;
+            aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_SHOW_INIT_NAME_DIALOG);
+            aaVar.bsr().bta().mNeedBackgroundLogin = false;
+            aaVar.bsr().bta().mIsUseCurrentBDUSS = false;
             if (accountData != null) {
-                zVar.addPostData("BDUSS", accountData.getBDUSS());
-                zVar.addPostData("stoken", com.baidu.tbadk.core.a.d.c(accountData));
+                aaVar.addPostData("BDUSS", accountData.getBDUSS());
+                aaVar.addPostData("stoken", com.baidu.tbadk.core.a.d.c(accountData));
             }
-            String postNetData2 = zVar.postNetData();
-            if (!zVar.brX().bsH().isRequestSuccess() || postNetData2 == null) {
+            String postNetData2 = aaVar.postNetData();
+            if (!aaVar.bsr().btb().isRequestSuccess() || postNetData2 == null) {
                 i = 0;
             } else {
                 try {
@@ -186,10 +186,10 @@ public class b {
         public void onPostExecute(AccountData accountData) {
             int i = 0;
             super.onPostExecute(accountData);
-            ReloginManager.brp().jH(false);
+            ReloginManager.brI().jK(false);
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "cslogin_result", this.mNetwork.getServerErrorCode(), this.mNetwork.getErrorString(), new Object[0]);
             if (accountData != null && accountData.getBDUSS() != null) {
-                this.llN.a(accountData);
+                this.ltU.a(accountData);
                 return;
             }
             String str = null;
@@ -200,7 +200,7 @@ public class b {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.data_load_error);
             }
-            this.llN.onFailure(this.mName, i, str);
+            this.ltU.onFailure(this.mName, i, str);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

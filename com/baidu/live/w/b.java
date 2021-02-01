@@ -1,16 +1,13 @@
 package com.baidu.live.w;
 
-import android.view.ViewGroup;
-import com.baidu.live.data.x;
-/* loaded from: classes10.dex */
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
 public interface b {
-    void Ei();
+    boolean Pw();
 
-    void a(x xVar);
+    void a(ab abVar, a aVar);
 
-    void b(x xVar, String str);
+    void cK(int i);
 
-    void release();
-
-    void setParentView(ViewGroup viewGroup);
+    void onDestroy();
 }

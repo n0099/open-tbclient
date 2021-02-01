@@ -1,7 +1,7 @@
 package com.baidu.searchbox.logsystem.util;
 
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class LLog {
     public static boolean sDebug = AppConfig.isDebug();
 }

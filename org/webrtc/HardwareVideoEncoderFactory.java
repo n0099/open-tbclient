@@ -3,32 +3,26 @@ package org.webrtc;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.os.Build;
-import androidx.annotation.Nullable;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase14;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     private static final List<String> H264_HW_EXCEPTION_MODELS = Arrays.asList("SAMSUNG-SGH-I337", "Nexus 7", "Nexus 4");
     private static final int QCOM_VP8_KEY_FRAME_INTERVAL_ANDROID_L_MS = 15000;
     private static final int QCOM_VP8_KEY_FRAME_INTERVAL_ANDROID_M_MS = 20000;
     private static final int QCOM_VP8_KEY_FRAME_INTERVAL_ANDROID_N_MS = 15000;
     private static final String TAG = "HardwareVideoEncoderFactory";
-    @Nullable
-    private final Predicate<MediaCodecInfo> codecAllowedPredicate;
     private final boolean enableH264HighProfile;
     private final boolean enableIntelVp8Encoder;
     @Nullable
     private final EglBase14.Context sharedContext;
 
     public HardwareVideoEncoderFactory(EglBase.Context context, boolean z, boolean z2) {
-        this(context, z, z2, null);
-    }
-
-    public HardwareVideoEncoderFactory(EglBase.Context context, boolean z, boolean z2, @Nullable Predicate<MediaCodecInfo> predicate) {
         if (context instanceof EglBase14.Context) {
             this.sharedContext = (EglBase14.Context) context;
         } else {
@@ -37,7 +31,6 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         }
         this.enableIntelVp8Encoder = z;
         this.enableH264HighProfile = z2;
-        this.codecAllowedPredicate = predicate;
     }
 
     @Deprecated
@@ -128,15 +121,11 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         return (name.startsWith("OMX.qcom.") || name.startsWith("OMX.Exynos.")) && Build.VERSION.SDK_INT >= 24;
     }
 
-    private boolean isMediaCodecAllowed(MediaCodecInfo mediaCodecInfo) {
-        if (this.codecAllowedPredicate == null) {
-            return true;
-        }
-        return this.codecAllowedPredicate.test(mediaCodecInfo);
-    }
-
     private boolean isSupportedCodec(MediaCodecInfo mediaCodecInfo, VideoCodecType videoCodecType) {
-        return MediaCodecUtils.codecSupportsType(mediaCodecInfo, videoCodecType) && MediaCodecUtils.selectColorFormat(MediaCodecUtils.ENCODER_COLOR_FORMATS, mediaCodecInfo.getCapabilitiesForType(videoCodecType.mimeType())) != null && isHardwareSupportedInCurrentSdk(mediaCodecInfo, videoCodecType) && isMediaCodecAllowed(mediaCodecInfo);
+        if (MediaCodecUtils.codecSupportsType(mediaCodecInfo, videoCodecType) && MediaCodecUtils.selectColorFormat(MediaCodecUtils.ENCODER_COLOR_FORMATS, mediaCodecInfo.getCapabilitiesForType(videoCodecType.mimeType())) != null) {
+            return isHardwareSupportedInCurrentSdk(mediaCodecInfo, videoCodecType);
+        }
+        return false;
     }
 
     @Override // org.webrtc.VideoEncoderFactory

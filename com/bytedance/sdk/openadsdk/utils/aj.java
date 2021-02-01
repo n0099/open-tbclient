@@ -27,14 +27,14 @@ import java.util.regex.Pattern;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ai f7550a = new ai();
+    private static ai f7552a = new ai();
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f7551b = "";
+    private static String f7553b = "";
     private static String c = null;
     private static String d = null;
     private static String e = null;
@@ -324,18 +324,18 @@ public class aj {
     }
 
     public static String a() {
-        if (!TextUtils.isEmpty(f7551b)) {
-            return f7551b;
+        if (!TextUtils.isEmpty(f7553b)) {
+            return f7553b;
         }
         try {
             if (Looper.myLooper() == Looper.getMainLooper()) {
-                f7551b = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                f7553b = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
             } else {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.aj.2
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            String unused = aj.f7551b = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                            String unused = aj.f7553b = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
                         } catch (Exception e2) {
                         }
                     }
@@ -343,7 +343,7 @@ public class aj {
             }
         } catch (Exception e2) {
         }
-        return f7551b;
+        return f7553b;
     }
 
     public static String b() {
@@ -795,8 +795,8 @@ public class aj {
     public static String q(String str) {
         String a2;
         String format = String.format("https://%s%s", com.bytedance.sdk.openadsdk.core.p.h().b(), str);
-        if (f7550a.a(com.bytedance.sdk.openadsdk.core.p.a()) && (a2 = f7550a.a("testIp.txt")) != null) {
-            return f7550a.a(format, a2);
+        if (f7552a.a(com.bytedance.sdk.openadsdk.core.p.a()) && (a2 = f7552a.a("testIp.txt")) != null) {
+            return f7552a.a(format, a2);
         }
         return format;
     }

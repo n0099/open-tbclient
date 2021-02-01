@@ -2,15 +2,15 @@ package com.qq.e.comm.plugin.v;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashMap<Integer, WeakReference<f>> f12607a = new HashMap<>();
+    private static HashMap<Integer, WeakReference<f>> f12609a = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static f a(int i) {
-        WeakReference<f> weakReference = f12607a.get(Integer.valueOf(i));
+        WeakReference<f> weakReference = f12609a.get(Integer.valueOf(i));
         if (weakReference != null) {
             return weakReference.get();
         }
@@ -19,6 +19,6 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(int i, f fVar) {
-        f12607a.put(Integer.valueOf(i), new WeakReference<>(fVar));
+        f12609a.put(Integer.valueOf(i), new WeakReference<>(fVar));
     }
 }

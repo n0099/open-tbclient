@@ -1,7 +1,7 @@
 package com.bumptech.glide.util.pool;
 
 import com.alibaba.fastjson.asm.Opcodes;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class GlideTrace {
     private static final int MAX_LENGTH = 127;
     private static final boolean TRACING_ENABLED = false;
@@ -10,7 +10,7 @@ public final class GlideTrace {
     }
 
     private static String truncateTag(String str) {
-        if (str.length() > MAX_LENGTH) {
+        if (str.length() > 127) {
             return str.substring(0, Opcodes.IAND);
         }
         return str;

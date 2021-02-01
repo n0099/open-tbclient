@@ -3,7 +3,7 @@ package com.kwad.sdk.emotion;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.emotion.model.EmotionPackage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface c {
     void a(@NonNull EmotionPackage emotionPackage);
 

@@ -6,7 +6,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class c {
     private static String sProcessName = null;
 

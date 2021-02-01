@@ -5,12 +5,12 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class t {
-    public static final t pjl = new t() { // from class: com.bytedance.sdk.a.b.t.1
+    public static final t ptB = new t() { // from class: com.bytedance.sdk.a.b.t.1
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         t h(h hVar);
     }

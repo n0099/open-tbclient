@@ -1,6 +1,5 @@
 package com.bytedance.sdk.a.b.a.e;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.bytedance.sdk.a.a.s;
 import com.bytedance.sdk.a.a.t;
 import com.bytedance.sdk.a.b.a.e.d;
@@ -10,18 +9,18 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class h implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Logger f5910a = Logger.getLogger(e.class.getName());
+    static final Logger f5912a = Logger.getLogger(e.class.getName());
     private final boolean e;
-    private final com.bytedance.sdk.a.a.e peY;
-    private final a pfU;
-    final d.a pfV;
+    private final com.bytedance.sdk.a.a.e ppp;
+    private final a pqm;
+    final d.a pqn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a();
 
@@ -46,10 +45,10 @@ public final class h implements Closeable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(com.bytedance.sdk.a.a.e eVar, boolean z) {
-        this.peY = eVar;
+        this.ppp = eVar;
         this.e = z;
-        this.pfU = new a(this.peY);
-        this.pfV = new d.a(4096, this.pfU);
+        this.pqm = new a(this.ppp);
+        this.pqn = new d.a(4096, this.pqm);
     }
 
     public void a(b bVar) throws IOException {
@@ -59,61 +58,61 @@ public final class h implements Closeable {
             }
             return;
         }
-        com.bytedance.sdk.a.a.f mo54if = this.peY.mo54if(e.pfg.g());
-        if (f5910a.isLoggable(Level.FINE)) {
-            f5910a.fine(com.bytedance.sdk.a.b.a.c.a("<< CONNECTION %s", mo54if.e()));
+        com.bytedance.sdk.a.a.f ii = this.ppp.ii(e.ppy.g());
+        if (f5912a.isLoggable(Level.FINE)) {
+            f5912a.fine(com.bytedance.sdk.a.b.a.c.a("<< CONNECTION %s", ii.e()));
         }
-        if (!e.pfg.equals(mo54if)) {
-            throw e.j("Expected a connection header but was %s", mo54if.a());
+        if (!e.ppy.equals(ii)) {
+            throw e.j("Expected a connection header but was %s", ii.a());
         }
     }
 
     public boolean a(boolean z, b bVar) throws IOException {
         try {
-            this.peY.a(9L);
-            int a2 = a(this.peY);
+            this.ppp.a(9L);
+            int a2 = a(this.ppp);
             if (a2 < 0 || a2 > 16384) {
                 throw e.j("FRAME_SIZE_ERROR: %s", Integer.valueOf(a2));
             }
-            byte ema = (byte) (this.peY.ema() & 255);
-            if (z && ema != 4) {
-                throw e.j("Expected a SETTINGS frame but was %s", Byte.valueOf(ema));
+            byte eou = (byte) (this.ppp.eou() & 255);
+            if (z && eou != 4) {
+                throw e.j("Expected a SETTINGS frame but was %s", Byte.valueOf(eou));
             }
-            byte ema2 = (byte) (this.peY.ema() & 255);
-            int j = this.peY.j() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-            if (f5910a.isLoggable(Level.FINE)) {
-                f5910a.fine(e.a(true, j, a2, ema, ema2));
+            byte eou2 = (byte) (this.ppp.eou() & 255);
+            int j = this.ppp.j() & Integer.MAX_VALUE;
+            if (f5912a.isLoggable(Level.FINE)) {
+                f5912a.fine(e.a(true, j, a2, eou, eou2));
             }
-            switch (ema) {
+            switch (eou) {
                 case 0:
-                    b(bVar, a2, ema2, j);
+                    b(bVar, a2, eou2, j);
                     return true;
                 case 1:
-                    a(bVar, a2, ema2, j);
+                    a(bVar, a2, eou2, j);
                     return true;
                 case 2:
-                    c(bVar, a2, ema2, j);
+                    c(bVar, a2, eou2, j);
                     return true;
                 case 3:
-                    d(bVar, a2, ema2, j);
+                    d(bVar, a2, eou2, j);
                     return true;
                 case 4:
-                    e(bVar, a2, ema2, j);
+                    e(bVar, a2, eou2, j);
                     return true;
                 case 5:
-                    f(bVar, a2, ema2, j);
+                    f(bVar, a2, eou2, j);
                     return true;
                 case 6:
-                    g(bVar, a2, ema2, j);
+                    g(bVar, a2, eou2, j);
                     return true;
                 case 7:
-                    h(bVar, a2, ema2, j);
+                    h(bVar, a2, eou2, j);
                     return true;
                 case 8:
-                    i(bVar, a2, ema2, j);
+                    i(bVar, a2, eou2, j);
                     return true;
                 default:
-                    this.peY.h(a2);
+                    this.ppp.h(a2);
                     return true;
             }
         } catch (IOException e) {
@@ -126,23 +125,23 @@ public final class h implements Closeable {
             throw e.j("PROTOCOL_ERROR: TYPE_HEADERS streamId == 0", new Object[0]);
         }
         boolean z = (b2 & 1) != 0;
-        short ema = (b2 & 8) != 0 ? (short) (this.peY.ema() & 255) : (short) 0;
+        short eou = (b2 & 8) != 0 ? (short) (this.ppp.eou() & 255) : (short) 0;
         if ((b2 & 32) != 0) {
             a(bVar, i2);
             i -= 5;
         }
-        bVar.a(z, i2, -1, a(a(i, b2, ema), ema, b2, i2));
+        bVar.a(z, i2, -1, a(a(i, b2, eou), eou, b2, i2));
     }
 
     private List<c> a(int i, short s, byte b2, int i2) throws IOException {
-        a aVar = this.pfU;
-        this.pfU.d = i;
-        aVar.f5911a = i;
-        this.pfU.pfW = s;
-        this.pfU.f5912b = b2;
-        this.pfU.c = i2;
-        this.pfV.a();
-        return this.pfV.b();
+        a aVar = this.pqm;
+        this.pqm.d = i;
+        aVar.f5913a = i;
+        this.pqm.pqo = s;
+        this.pqm.f5914b = b2;
+        this.pqm.c = i2;
+        this.pqn.a();
+        return this.pqn.b();
     }
 
     private void b(b bVar, int i, byte b2, int i2) throws IOException {
@@ -153,9 +152,9 @@ public final class h implements Closeable {
         if ((b2 & 32) != 0) {
             throw e.j("PROTOCOL_ERROR: FLAG_COMPRESSED without SETTINGS_COMPRESS_DATA", new Object[0]);
         }
-        short ema = (b2 & 8) != 0 ? (short) (this.peY.ema() & 255) : (short) 0;
-        bVar.a(z, i2, this.peY, a(i, b2, ema));
-        this.peY.h(ema);
+        short eou = (b2 & 8) != 0 ? (short) (this.ppp.eou() & 255) : (short) 0;
+        bVar.a(z, i2, this.ppp, a(i, b2, eou));
+        this.ppp.h(eou);
     }
 
     private void c(b bVar, int i, byte b2, int i2) throws IOException {
@@ -169,8 +168,8 @@ public final class h implements Closeable {
     }
 
     private void a(b bVar, int i) throws IOException {
-        int j = this.peY.j();
-        bVar.a(i, j & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, (this.peY.ema() & 255) + 1, (Integer.MIN_VALUE & j) != 0);
+        int j = this.ppp.j();
+        bVar.a(i, j & Integer.MAX_VALUE, (this.ppp.eou() & 255) + 1, (Integer.MIN_VALUE & j) != 0);
     }
 
     private void d(b bVar, int i, byte b2, int i2) throws IOException {
@@ -180,7 +179,7 @@ public final class h implements Closeable {
         if (i2 == 0) {
             throw e.j("TYPE_RST_STREAM streamId == 0", new Object[0]);
         }
-        int j = this.peY.j();
+        int j = this.ppp.j();
         com.bytedance.sdk.a.b.a.e.b a2 = com.bytedance.sdk.a.b.a.e.b.a(j);
         if (a2 == null) {
             throw e.j("TYPE_RST_STREAM unexpected error code: %d", Integer.valueOf(j));
@@ -202,19 +201,19 @@ public final class h implements Closeable {
         } else {
             n nVar = new n();
             for (int i3 = 0; i3 < i; i3 += 6) {
-                short emb = this.peY.emb();
-                int j = this.peY.j();
-                switch (emb) {
+                short eov = this.ppp.eov();
+                int j = this.ppp.j();
+                switch (eov) {
                     case 2:
                         if (j != 0 && j != 1) {
                             throw e.j("PROTOCOL_ERROR SETTINGS_ENABLE_PUSH != 0 or 1", new Object[0]);
                         }
                         break;
                     case 3:
-                        emb = 4;
+                        eov = 4;
                         break;
                     case 4:
-                        emb = 7;
+                        eov = 7;
                         if (j < 0) {
                             throw e.j("PROTOCOL_ERROR SETTINGS_INITIAL_WINDOW_SIZE > 2^31 - 1", new Object[0]);
                         }
@@ -226,7 +225,7 @@ public final class h implements Closeable {
                         break;
                         break;
                 }
-                nVar.dX(emb, j);
+                nVar.dU(eov, j);
             }
             bVar.a(false, nVar);
         }
@@ -236,8 +235,8 @@ public final class h implements Closeable {
         if (i2 == 0) {
             throw e.j("PROTOCOL_ERROR: TYPE_PUSH_PROMISE streamId == 0", new Object[0]);
         }
-        short ema = (b2 & 8) != 0 ? (short) (this.peY.ema() & 255) : (short) 0;
-        bVar.b(i2, this.peY.j() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, a(a(i - 4, b2, ema), ema, b2, i2));
+        short eou = (b2 & 8) != 0 ? (short) (this.ppp.eou() & 255) : (short) 0;
+        bVar.b(i2, this.ppp.j() & Integer.MAX_VALUE, a(a(i - 4, b2, eou), eou, b2, i2));
     }
 
     private void g(b bVar, int i, byte b2, int i2) throws IOException {
@@ -247,7 +246,7 @@ public final class h implements Closeable {
         if (i2 != 0) {
             throw e.j("TYPE_PING streamId != 0", new Object[0]);
         }
-        bVar.b((b2 & 1) != 0, this.peY.j(), this.peY.j());
+        bVar.b((b2 & 1) != 0, this.ppp.j(), this.ppp.j());
     }
 
     private void h(b bVar, int i, byte b2, int i2) throws IOException {
@@ -257,16 +256,16 @@ public final class h implements Closeable {
         if (i2 != 0) {
             throw e.j("TYPE_GOAWAY streamId != 0", new Object[0]);
         }
-        int j = this.peY.j();
-        int j2 = this.peY.j();
+        int j = this.ppp.j();
+        int j2 = this.ppp.j();
         int i3 = i - 8;
         com.bytedance.sdk.a.b.a.e.b a2 = com.bytedance.sdk.a.b.a.e.b.a(j2);
         if (a2 == null) {
             throw e.j("TYPE_GOAWAY unexpected error code: %d", Integer.valueOf(j2));
         }
-        com.bytedance.sdk.a.a.f fVar = com.bytedance.sdk.a.a.f.f5842b;
+        com.bytedance.sdk.a.a.f fVar = com.bytedance.sdk.a.a.f.f5844b;
         if (i3 > 0) {
-            fVar = this.peY.mo54if(i3);
+            fVar = this.ppp.ii(i3);
         }
         bVar.a(j, a2, fVar);
     }
@@ -275,7 +274,7 @@ public final class h implements Closeable {
         if (i != 4) {
             throw e.j("TYPE_WINDOW_UPDATE length !=4: %s", Integer.valueOf(i));
         }
-        long j = this.peY.j() & 2147483647L;
+        long j = this.ppp.j() & 2147483647L;
         if (j == 0) {
             throw e.j("windowSizeIncrement was 0", Long.valueOf(j));
         }
@@ -284,38 +283,38 @@ public final class h implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.peY.close();
+        this.ppp.close();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements s {
 
         /* renamed from: a  reason: collision with root package name */
-        int f5911a;
+        int f5913a;
 
         /* renamed from: b  reason: collision with root package name */
-        byte f5912b;
+        byte f5914b;
         int c;
         int d;
-        short pfW;
-        private final com.bytedance.sdk.a.a.e pfo;
+        private final com.bytedance.sdk.a.a.e ppG;
+        short pqo;
 
         a(com.bytedance.sdk.a.a.e eVar) {
-            this.pfo = eVar;
+            this.ppG = eVar;
         }
 
         @Override // com.bytedance.sdk.a.a.s
         public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             while (this.d == 0) {
-                this.pfo.h(this.pfW);
-                this.pfW = (short) 0;
-                if ((this.f5912b & 4) != 0) {
+                this.ppG.h(this.pqo);
+                this.pqo = (short) 0;
+                if ((this.f5914b & 4) != 0) {
                     return -1L;
                 }
                 b();
             }
-            long b2 = this.pfo.b(cVar, Math.min(j, this.d));
+            long b2 = this.ppG.b(cVar, Math.min(j, this.d));
             if (b2 != -1) {
                 this.d = (int) (this.d - b2);
                 return b2;
@@ -324,8 +323,8 @@ public final class h implements Closeable {
         }
 
         @Override // com.bytedance.sdk.a.a.s
-        public t elW() {
-            return this.pfo.elW();
+        public t eoq() {
+            return this.ppG.eoq();
         }
 
         @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
@@ -334,17 +333,17 @@ public final class h implements Closeable {
 
         private void b() throws IOException {
             int i = this.c;
-            int a2 = h.a(this.pfo);
+            int a2 = h.a(this.ppG);
             this.d = a2;
-            this.f5911a = a2;
-            byte ema = (byte) (this.pfo.ema() & 255);
-            this.f5912b = (byte) (this.pfo.ema() & 255);
-            if (h.f5910a.isLoggable(Level.FINE)) {
-                h.f5910a.fine(e.a(true, this.c, this.f5911a, ema, this.f5912b));
+            this.f5913a = a2;
+            byte eou = (byte) (this.ppG.eou() & 255);
+            this.f5914b = (byte) (this.ppG.eou() & 255);
+            if (h.f5912a.isLoggable(Level.FINE)) {
+                h.f5912a.fine(e.a(true, this.c, this.f5913a, eou, this.f5914b));
             }
-            this.c = this.pfo.j() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-            if (ema != 9) {
-                throw e.j("%s != TYPE_CONTINUATION", Byte.valueOf(ema));
+            this.c = this.ppG.j() & Integer.MAX_VALUE;
+            if (eou != 9) {
+                throw e.j("%s != TYPE_CONTINUATION", Byte.valueOf(eou));
             }
             if (this.c != i) {
                 throw e.j("TYPE_CONTINUATION streamId changed", new Object[0]);
@@ -353,7 +352,7 @@ public final class h implements Closeable {
     }
 
     static int a(com.bytedance.sdk.a.a.e eVar) throws IOException {
-        return ((eVar.ema() & 255) << 16) | ((eVar.ema() & 255) << 8) | (eVar.ema() & 255);
+        return ((eVar.eou() & 255) << 16) | ((eVar.eou() & 255) << 8) | (eVar.eou() & 255);
     }
 
     static int a(int i, byte b2, short s) throws IOException {

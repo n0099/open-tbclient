@@ -10,7 +10,7 @@ import com.kwad.sdk.api.core.ResContext;
 import java.util.Map;
 import java.util.WeakHashMap;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Wrapper {
     private static Map<Context, Context> sResContextCache = new WeakHashMap();
 

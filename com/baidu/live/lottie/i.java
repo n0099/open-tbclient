@@ -3,7 +3,7 @@ package com.baidu.live.lottie;
 import android.graphics.Bitmap;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i {
     private final String Cx;
     @Nullable
@@ -38,7 +38,7 @@ public class i {
         return this.fileName;
     }
 
-    public String il() {
+    public String ik() {
         return this.Cx;
     }
 

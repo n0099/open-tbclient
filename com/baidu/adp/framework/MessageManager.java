@@ -101,24 +101,24 @@ public class MessageManager {
             com.baidu.adp.a.a.b.d("Request_Socket", message);
             return this.mSocketManager.c((com.baidu.adp.framework.c.d) ((SocketMessage) message), (SocketMessage) null);
         } else if (message instanceof CustomMessage) {
-            if (((CustomMessage) message).getData() != null && com.baidu.adp.framework.a.b.Jv.containsKey(message.getCmd() + "")) {
+            if (((CustomMessage) message).getData() != null && com.baidu.adp.framework.a.b.Ju.containsKey(message.getCmd() + "")) {
                 try {
                     if (message.getCmd() == 2002001) {
-                        List<String> q = com.baidu.adp.framework.a.b.Jv.q(message.getCmd() + "");
+                        List<String> q = com.baidu.adp.framework.a.b.Ju.q(message.getCmd() + "");
                         String cls = ((CustomMessage) message).getData().getClass().toString();
                         String substring = cls.substring(cls.lastIndexOf(".") + 1);
                         for (String str : q) {
-                            if (com.baidu.adp.framework.a.b.Ju.q(str).get(0).contains(substring)) {
+                            if (com.baidu.adp.framework.a.b.Jt.q(str).get(0).contains(substring)) {
                                 Class.forName(str);
-                                com.baidu.adp.framework.a.b.Ju.q(str).get(0).remove(substring);
+                                com.baidu.adp.framework.a.b.Jt.q(str).get(0).remove(substring);
                             }
                         }
                     } else {
-                        for (String str2 : com.baidu.adp.framework.a.b.Jv.q(message.getCmd() + "")) {
+                        for (String str2 : com.baidu.adp.framework.a.b.Ju.q(message.getCmd() + "")) {
                             System.currentTimeMillis();
                             Class.forName(str2);
                         }
-                        com.baidu.adp.framework.a.b.Jv.p(message.getCmd() + "");
+                        com.baidu.adp.framework.a.b.Ju.p(message.getCmd() + "");
                     }
                 } catch (Throwable th) {
                     BdLog.e(th);
@@ -126,7 +126,7 @@ public class MessageManager {
             }
             return this.mCustomManager.c((com.baidu.adp.framework.c.a) ((CustomMessage) message), (CustomMessage) null);
         } else {
-            BdLog.e("message invalid" + a.kK().getNameByCmd(message.getCmd()));
+            BdLog.e("message invalid" + a.kJ().getNameByCmd(message.getCmd()));
             return false;
         }
     }
@@ -199,7 +199,7 @@ public class MessageManager {
         } else if ((message instanceof CustomMessage) && (messageTask instanceof CustomMessageTask)) {
             return this.mCustomManager.c((com.baidu.adp.framework.c.a) ((CustomMessage) message), (CustomMessage) ((CustomMessageTask) messageTask));
         } else {
-            BdLog.e("message and task invalid:" + a.kK().getNameByCmd(message.getCmd()));
+            BdLog.e("message and task invalid:" + a.kJ().getNameByCmd(message.getCmd()));
             return false;
         }
     }
@@ -290,12 +290,12 @@ public class MessageManager {
             return null;
         }
         try {
-            List<String> q = com.baidu.adp.framework.a.b.Jv.q(i + "");
+            List<String> q = com.baidu.adp.framework.a.b.Ju.q(i + "");
             if (q != null && q.size() > 0) {
                 for (String str : q) {
                     Class.forName(str);
                 }
-                com.baidu.adp.framework.a.b.Jv.p(i + "");
+                com.baidu.adp.framework.a.b.Ju.p(i + "");
             }
         } catch (Throwable th) {
             BdLog.e(th);
@@ -414,7 +414,7 @@ public class MessageManager {
             } else if (ac == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
                 this.mCustomManager.registerListener(0, (CustomMessageListener) messageListener);
             } else {
-                BdLog.e("listener invalid" + a.kK().getNameByCmd(messageListener.getCmd()));
+                BdLog.e("listener invalid" + a.kJ().getNameByCmd(messageListener.getCmd()));
             }
         }
     }
@@ -445,7 +445,7 @@ public class MessageManager {
             } else if (ac == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
                 this.mCustomManager.registerListener(i, (CustomMessageListener) messageListener);
             } else {
-                BdLog.e("listener invalid" + a.kK().getNameByCmd(i) + "|" + a.kK().getNameByCmd(messageListener.getCmd()));
+                BdLog.e("listener invalid" + a.kJ().getNameByCmd(i) + "|" + a.kJ().getNameByCmd(messageListener.getCmd()));
             }
         }
     }
@@ -620,7 +620,7 @@ public class MessageManager {
                 if (responsedMessage.getError() != 0) {
                     if (j.isNetWorkAvailable()) {
                         this.mHttpMsgCWSendFailedCnt++;
-                        if (this.mHttpMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.nt().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_HTTP, 3)) {
+                        if (this.mHttpMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.ns().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_HTTP, 3)) {
                             BdStatisticsManager.getInstance().alert(BdStatsConstant.AlertTypeKey.ALERT_HTTP, "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                         }
                     }
@@ -633,7 +633,7 @@ public class MessageManager {
                 if (responsedMessage.getError() != 0) {
                     if (j.isNetWorkAvailable()) {
                         this.mSocketMsgCWSendFailedCnt++;
-                        if (this.mSocketMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.nt().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_IM, 3)) {
+                        if (this.mSocketMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.ns().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_IM, 3)) {
                             BdStatisticsManager.getInstance().alert(BdStatsConstant.AlertTypeKey.ALERT_IM, "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                         }
                     }
@@ -672,25 +672,25 @@ public class MessageManager {
                 this.mSocketManager.dispatchResponsedMessage(this.mController.c((SocketResponsedMessage) responsedMessage));
             } else if (ac == FrameHelper.TYPE.CUSTOM && (responsedMessage instanceof CustomResponsedMessage)) {
                 final CustomResponsedMessage<?> b2 = this.mController.b((CustomResponsedMessage) responsedMessage);
-                if (com.baidu.adp.framework.a.b.Jv.containsKey(cmd + "")) {
+                if (com.baidu.adp.framework.a.b.Ju.containsKey(cmd + "")) {
                     try {
                         if (cmd == 2002001) {
-                            List<String> q = com.baidu.adp.framework.a.b.Jv.q(b2.getCmd() + "");
+                            List<String> q = com.baidu.adp.framework.a.b.Ju.q(b2.getCmd() + "");
                             String cls = b2.getData().getClass().toString();
                             String substring = cls.substring(cls.lastIndexOf(".") + 1);
                             for (String str : q) {
-                                if (com.baidu.adp.framework.a.b.Ju.q(str).get(0).contains(substring)) {
+                                if (com.baidu.adp.framework.a.b.Jt.q(str).get(0).contains(substring)) {
                                     Class.forName(str);
-                                    com.baidu.adp.framework.a.b.Ju.q(str).get(0).remove(substring);
+                                    com.baidu.adp.framework.a.b.Jt.q(str).get(0).remove(substring);
                                 }
                             }
                             z = false;
                         } else {
                             boolean z2 = false;
-                            for (String str2 : com.baidu.adp.framework.a.b.Jv.q(cmd + "")) {
+                            for (String str2 : com.baidu.adp.framework.a.b.Ju.q(cmd + "")) {
                                 try {
                                     System.currentTimeMillis();
-                                    z2 = com.baidu.adp.framework.a.f.Jy != null && com.baidu.adp.framework.a.f.Jy.br(str2);
+                                    z2 = com.baidu.adp.framework.a.f.Jx != null && com.baidu.adp.framework.a.f.Jx.br(str2);
                                     Class.forName(str2);
                                 } catch (Throwable th) {
                                     th = th;
@@ -700,7 +700,7 @@ public class MessageManager {
                                     }
                                 }
                             }
-                            com.baidu.adp.framework.a.b.Jv.p(cmd + "");
+                            com.baidu.adp.framework.a.b.Ju.p(cmd + "");
                             z = z2;
                         }
                         r5 = z;
@@ -719,7 +719,7 @@ public class MessageManager {
                     this.mCustomManager.dispatchResponsedMessage(b2);
                 }
             } else {
-                BdLog.e("responsedMessage invalid:CMD=" + a.kK().getNameByCmd(cmd) + " Class=" + responsedMessage.getClass().getName());
+                BdLog.e("responsedMessage invalid:CMD=" + a.kJ().getNameByCmd(cmd) + " Class=" + responsedMessage.getClass().getName());
             }
         }
     }
@@ -748,24 +748,24 @@ public class MessageManager {
             customMessage2.setData(obj);
             customMessage = customMessage2;
         }
-        if (com.baidu.adp.framework.a.b.Jv.containsKey(i + "")) {
+        if (com.baidu.adp.framework.a.b.Ju.containsKey(i + "")) {
             try {
                 if (i == 2002001) {
-                    List<String> q = com.baidu.adp.framework.a.b.Jv.q(i + "");
+                    List<String> q = com.baidu.adp.framework.a.b.Ju.q(i + "");
                     String cls2 = customMessage.getData().getClass().toString();
                     String substring = cls2.substring(cls2.lastIndexOf(".") + 1);
                     for (String str : q) {
-                        if (com.baidu.adp.framework.a.b.Ju.q(str).get(0).contains(substring)) {
+                        if (com.baidu.adp.framework.a.b.Jt.q(str).get(0).contains(substring)) {
                             Class.forName(str);
-                            com.baidu.adp.framework.a.b.Ju.q(str).get(0).remove(substring);
+                            com.baidu.adp.framework.a.b.Jt.q(str).get(0).remove(substring);
                         }
                     }
                 } else {
-                    for (String str2 : com.baidu.adp.framework.a.b.Jv.q(i + "")) {
+                    for (String str2 : com.baidu.adp.framework.a.b.Ju.q(i + "")) {
                         System.currentTimeMillis();
                         Class.forName(str2);
                     }
-                    com.baidu.adp.framework.a.b.Jv.p(i + "");
+                    com.baidu.adp.framework.a.b.Ju.p(i + "");
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

@@ -7,17 +7,17 @@ import com.bytedance.sdk.openadsdk.preload.geckox.model.Common;
 import java.util.ArrayList;
 import java.util.List;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class StatisticModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f7514common;
+    public Common f7516common;
     @c(a = "packages")
     public List<PackageStatisticModel> packages = new ArrayList();
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class PackageStatisticModel {
         @c(a = "ac")
         public String ac;
@@ -59,7 +59,7 @@ public class StatisticModel {
         public Integer statsType;
 
         @Keep
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static class DownloadFailRecords {
             @c(a = "domain")
             public String domain;

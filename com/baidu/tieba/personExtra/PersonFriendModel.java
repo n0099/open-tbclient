@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.bf;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PersonFriendModel extends BdBaseModel {
-    private static final String ghk = TbConfig.SERVER_ADDRESS + Config.GET_FRIEND_LIST_ADDRESS;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1002001, ghk);
-    private bd mData;
+    private static final String gjz = TbConfig.SERVER_ADDRESS + Config.GET_FRIEND_LIST_ADDRESS;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1002001, gjz);
+    private bf mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
@@ -24,7 +24,7 @@ public class PersonFriendModel extends BdBaseModel {
 
     public PersonFriendModel(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.mData = new bd();
+        this.mData = new bf();
         this.mIsHost = z;
     }
 
@@ -40,15 +40,15 @@ public class PersonFriendModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public void d(bd bdVar) {
-        this.mData = bdVar;
+    public void d(bf bfVar) {
+        this.mData = bfVar;
     }
 
-    public bd dvP() {
+    public bf dxY() {
         return this.mData;
     }
 
-    public void dvl() {
+    public void dxu() {
         super.sendMessage(new PersonFriendByUidLocalMessage());
     }
 

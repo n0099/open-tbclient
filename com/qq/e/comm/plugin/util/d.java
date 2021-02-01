@@ -2,7 +2,7 @@ package com.qq.e.comm.plugin.util;
 
 import com.qq.e.comm.util.StringUtil;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class d {
     public static final String a(String str, int i) {
         if (StringUtil.isEmpty(str)) {

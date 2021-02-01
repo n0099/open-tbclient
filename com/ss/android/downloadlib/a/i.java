@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i {
     public static boolean a(int i) {
         return i == 0 || i == 1;
@@ -27,14 +27,14 @@ public class i {
         if (fVar == null || TextUtils.isEmpty(fVar.c()) || fVar.b() == null) {
             return 0;
         }
-        int a2 = com.ss.android.socialbase.appdownloader.d.eCW().a(fVar);
-        com.ss.android.socialbase.downloader.k.a fl = com.ss.android.socialbase.downloader.k.a.fl(fVar.eDw());
-        if (!a(fVar, fl) && cVar.k()) {
-            String d = fl.d("download_start_toast_text");
+        int a2 = com.ss.android.socialbase.appdownloader.d.eFn().a(fVar);
+        com.ss.android.socialbase.downloader.k.a fm = com.ss.android.socialbase.downloader.k.a.fm(fVar.eFN());
+        if (!a(fVar, fm) && cVar.k()) {
+            String d = fm.d("download_start_toast_text");
             if (TextUtils.isEmpty(d)) {
                 d = z ? "已开始下载，可在\"我的\"里查看管理" : "已开始下载";
             }
-            j.eCo().a(2, fVar.b(), cVar, d, null, 0);
+            j.eEF().a(2, fVar.b(), cVar, d, null, 0);
         }
         return a2;
     }
@@ -42,12 +42,12 @@ public class i {
     private static boolean a(com.ss.android.socialbase.appdownloader.f fVar, @NonNull com.ss.android.socialbase.downloader.k.a aVar) {
         JSONObject jSONObject;
         if (aVar.c("show_unknown_source_on_startup")) {
-            JSONArray aav = aVar.aav("anti_plans");
-            int length = aav.length();
+            JSONArray abw = aVar.abw("anti_plans");
+            int length = abw.length();
             int i = 0;
             while (true) {
                 if (i < length) {
-                    jSONObject = aav.optJSONObject(i);
+                    jSONObject = abw.optJSONObject(i);
                     if (jSONObject != null && "jump_unknown_source".equals(jSONObject.optString("type"))) {
                         break;
                     }
@@ -58,7 +58,7 @@ public class i {
                 }
             }
             if (jSONObject != null) {
-                return com.ss.android.socialbase.appdownloader.b.a(com.ss.android.socialbase.downloader.downloader.b.eEd(), (Intent) null, jSONObject, new com.ss.android.socialbase.appdownloader.a());
+                return com.ss.android.socialbase.appdownloader.b.a(com.ss.android.socialbase.downloader.downloader.b.eGu(), (Intent) null, jSONObject, new com.ss.android.socialbase.appdownloader.a());
             }
             return false;
         }

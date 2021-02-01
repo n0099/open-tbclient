@@ -11,7 +11,7 @@ import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.cy;
+import com.baidu.live.data.de;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
@@ -27,42 +27,42 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g {
-    private static volatile g bQN;
-    private HashMap<String, LinkedList<cy>> mUserAttentionRequestMap = new HashMap<>();
+    private static volatile g bUD;
+    private HashMap<String, LinkedList<de>> mUserAttentionRequestMap = new HashMap<>();
     private HashMap<String, a> mAttentionTaskMap = new HashMap<>();
 
     private g() {
     }
 
-    public static g Wb() {
-        if (bQN == null) {
+    public static g XK() {
+        if (bUD == null) {
             synchronized (g.class) {
-                if (bQN == null) {
-                    bQN = new g();
+                if (bUD == null) {
+                    bUD = new g();
                 }
             }
         }
-        return bQN;
+        return bUD;
     }
 
-    public void a(String str, cy cyVar) {
-        if (!StringUtils.isNull(str) && cyVar != null) {
-            LinkedList<cy> linkedList = this.mUserAttentionRequestMap.get(str);
+    public void a(String str, de deVar) {
+        if (!StringUtils.isNull(str) && deVar != null) {
+            LinkedList<de> linkedList = this.mUserAttentionRequestMap.get(str);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
                 this.mUserAttentionRequestMap.put(str, linkedList);
             }
-            a(linkedList, cyVar);
+            a(linkedList, deVar);
             executeAttentionTask(str);
         }
     }
 
-    private void a(LinkedList<cy> linkedList, cy cyVar) {
+    private void a(LinkedList<de> linkedList, de deVar) {
         if (linkedList.size() < 1) {
-            b(linkedList, cyVar);
-        } else if (linkedList.getLast().BE().equals(cyVar.BE())) {
+            b(linkedList, deVar);
+        } else if (linkedList.getLast().CT().equals(deVar.CT())) {
             if (BdLog.isDebugMode()) {
                 try {
                     throw new IllegalArgumentException("new attention data is the same as the nearest attention data");
@@ -71,21 +71,21 @@ public class g {
                 }
             }
         } else if (linkedList.size() < 3) {
-            b(linkedList, cyVar);
-        } else if (linkedList.get(1).equals(cyVar)) {
+            b(linkedList, deVar);
+        } else if (linkedList.get(1).equals(deVar)) {
             linkedList.removeLast();
         }
     }
 
-    private void b(LinkedList<cy> linkedList, cy cyVar) {
-        if (cyVar != null) {
-            linkedList.add(cyVar.clone());
+    private void b(LinkedList<de> linkedList, de deVar) {
+        if (deVar != null) {
+            linkedList.add(deVar.clone());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void executeAttentionTask(String str) {
-        LinkedList<cy> linkedList;
+        LinkedList<de> linkedList;
         if (!StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
             a aVar = new a(this, null);
             this.mAttentionTaskMap.put(str, aVar);
@@ -96,10 +96,10 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId bOL;
-        private String bQP;
+        private BdUniqueId bSB;
+        private String bUF;
         private String from;
         private boolean isAttention;
         private boolean isGod;
@@ -117,12 +117,12 @@ public class g {
             this();
         }
 
-        public void a(cy cyVar) {
-            this.bQP = cyVar.BE();
-            this.liveId = cyVar.getLiveId();
-            this.roomId = cyVar.getRoomId();
-            this.isAttention = cyVar.isAttention();
-            this.bOL = cyVar.BC();
+        public void a(de deVar) {
+            this.bUF = deVar.CT();
+            this.liveId = deVar.getLiveId();
+            this.roomId = deVar.getRoomId();
+            this.isAttention = deVar.isAttention();
+            this.bSB = deVar.CR();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -132,12 +132,12 @@ public class g {
             try {
                 this.mNetwork = new NetWork();
                 if (this.isAttention) {
-                    this.mNetwork.setUrl(com.baidu.live.a.avU + "ala/audio/user/follow");
+                    this.mNetwork.setUrl(com.baidu.live.a.avJ + "ala/audio/user/follow");
                 } else {
-                    this.mNetwork.setUrl(com.baidu.live.a.avU + "ala/audio/user/unfollow");
+                    this.mNetwork.setUrl(com.baidu.live.a.avJ + "ala/audio/user/unfollow");
                 }
-                if (!StringUtils.isNull(this.bQP)) {
-                    this.mNetwork.addPostData("follow_user_uk", this.bQP);
+                if (!StringUtils.isNull(this.bUF)) {
+                    this.mNetwork.addPostData("follow_user_uk", this.bUF);
                     this.mNetwork.addPostData("live_id", this.liveId);
                     this.mNetwork.addPostData("room_id", this.roomId);
                 }
@@ -159,7 +159,7 @@ public class g {
                 updateAttentionData.isSucc = this.mNetwork.isRequestSuccess();
                 updateAttentionData.errorString = this.mNetwork.getErrorString();
                 updateAttentionData.isAttention = this.isAttention;
-                updateAttentionData.toUid = this.bQP;
+                updateAttentionData.toUid = this.bUF;
                 updateAttentionData.isGod = this.isGod;
                 updateAttentionData.parserJson(str, true);
                 updateAttentionData.response = this.mNetwork.getHttpResponse();
@@ -168,14 +168,14 @@ public class g {
                     updateAttentionData.isSucc = updateAttentionData.response.mServerErrorCode == 0;
                 }
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bOL));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bSB));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
                 g.this.a(updateAttentionData, this.from);
             }
-            g.this.mAttentionTaskMap.remove(this.bQP);
-            if (g.this.mUserAttentionRequestMap.containsKey(this.bQP)) {
-                g.this.removeRequestListFirstByUid(this.bQP);
-                g.this.executeAttentionTask(this.bQP);
+            g.this.mAttentionTaskMap.remove(this.bUF);
+            if (g.this.mUserAttentionRequestMap.containsKey(this.bUF)) {
+                g.this.removeRequestListFirstByUid(this.bUF);
+                g.this.executeAttentionTask(this.bUF);
             }
         }
 
@@ -207,7 +207,7 @@ public class g {
     }
 
     public void removeRequestListFirstByUid(String str) {
-        LinkedList<cy> linkedList = this.mUserAttentionRequestMap.get(str);
+        LinkedList<de> linkedList = this.mUserAttentionRequestMap.get(str);
         if (linkedList != null && linkedList.size() > 0) {
             try {
                 linkedList.removeFirst();
@@ -218,14 +218,14 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.live.view.g$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class AnonymousClass1 implements View.OnClickListener {
-        final /* synthetic */ TbPageContext bOI;
-        final /* synthetic */ Dialog bnq;
+        final /* synthetic */ TbPageContext bSy;
+        final /* synthetic */ Dialog bqR;
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ShowUtil.dismissDialog(this.bnq, this.bOI.getPageActivity());
+            ShowUtil.dismissDialog(this.bqR, this.bSy.getPageActivity());
         }
     }
 

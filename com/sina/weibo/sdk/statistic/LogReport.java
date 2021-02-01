@@ -21,7 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LogReport {
     private static final int CONNECTION_TIMEOUT = 25000;
     private static final String PRIVATE_CODE = "dqwef1864il4c9m6";

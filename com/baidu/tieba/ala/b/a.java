@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends g implements h {
-    private g[] gJk;
-    private float[] gJl;
+    private g[] gLQ;
+    private float[] gLR;
     private float mFactor;
 
     public a(g... gVarArr) {
@@ -10,24 +10,24 @@ public class a extends g implements h {
     }
 
     public a(String str, g... gVarArr) {
-        this.gJk = gVarArr;
-        this.gJl = new float[this.gJk.length];
-        for (int i = 0; i < this.gJk.length; i++) {
-            this.gJl[i] = this.gJk[i].getProgress();
+        this.gLQ = gVarArr;
+        this.gLR = new float[this.gLQ.length];
+        for (int i = 0; i < this.gLQ.length; i++) {
+            this.gLR[i] = this.gLQ[i].getProgress();
         }
-        this.mFactor = 1.0f / this.gJk.length;
+        this.mFactor = 1.0f / this.gLQ.length;
     }
 
     @Override // com.baidu.tieba.ala.b.g
     protected void onAttach() {
-        for (g gVar : this.gJk) {
+        for (g gVar : this.gLQ) {
             gVar.a(this);
         }
     }
 
     @Override // com.baidu.tieba.ala.b.g
     protected void onDetach() {
-        for (g gVar : this.gJk) {
+        for (g gVar : this.gLQ) {
             gVar.detach();
         }
     }
@@ -35,7 +35,7 @@ public class a extends g implements h {
     @Override // com.baidu.tieba.ala.b.g
     public float getProgress() {
         float f = 0.0f;
-        for (g gVar : this.gJk) {
+        for (g gVar : this.gLQ) {
             f += gVar.getProgress() * this.mFactor;
         }
         return f;
@@ -43,7 +43,7 @@ public class a extends g implements h {
 
     @Override // com.baidu.tieba.ala.b.g
     public boolean isCompleted() {
-        for (g gVar : this.gJk) {
+        for (g gVar : this.gLQ) {
             if (!gVar.isCompleted()) {
                 return false;
             }
@@ -53,26 +53,26 @@ public class a extends g implements h {
 
     @Override // com.baidu.tieba.ala.b.h
     public void a(g gVar, float f) {
-        if (bSw() != null) {
-            for (int i = 0; i < this.gJk.length; i++) {
-                if (gVar == this.gJk[i]) {
-                    this.gJl[i] = f;
+        if (bSZ() != null) {
+            for (int i = 0; i < this.gLQ.length; i++) {
+                if (gVar == this.gLQ[i]) {
+                    this.gLR[i] = f;
                 }
             }
-            bSw().a(this, bSe());
+            bSZ().a(this, bSH());
         }
     }
 
     @Override // com.baidu.tieba.ala.b.h
     public void a(g gVar) {
-        if (bSw() != null) {
-            for (int i = 0; i < this.gJk.length; i++) {
-                if (gVar == this.gJk[i]) {
-                    this.gJl[i] = 100.0f;
-                    if (tX(i)) {
-                        bSw().a(this);
+        if (bSZ() != null) {
+            for (int i = 0; i < this.gLQ.length; i++) {
+                if (gVar == this.gLQ[i]) {
+                    this.gLR[i] = 100.0f;
+                    if (ud(i)) {
+                        bSZ().a(this);
                     } else {
-                        bSw().a(this, bSe());
+                        bSZ().a(this, bSH());
                     }
                 }
             }
@@ -81,22 +81,22 @@ public class a extends g implements h {
 
     @Override // com.baidu.tieba.ala.b.h
     public void b(g gVar) {
-        if (bSw() != null) {
-            bSw().b(gVar);
+        if (bSZ() != null) {
+            bSZ().b(gVar);
         }
     }
 
-    private float bSe() {
+    private float bSH() {
         float f = 0.0f;
-        for (float f2 : this.gJl) {
+        for (float f2 : this.gLR) {
             f += f2 * this.mFactor;
         }
         return f;
     }
 
-    private boolean tX(int i) {
-        for (int i2 = 0; i2 < this.gJk.length; i2++) {
-            if (i2 != i && !this.gJk[i2].isCompleted()) {
+    private boolean ud(int i) {
+        for (int i2 = 0; i2 < this.gLQ.length; i2++) {
+            if (i2 != i && !this.gLQ[i2].isCompleted()) {
                 return false;
             }
         }

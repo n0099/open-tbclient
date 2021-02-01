@@ -1,5 +1,5 @@
 package com.baidu.live.lottie.model.content;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     private final float[] FE;
     private final int[] FF;
@@ -9,7 +9,7 @@ public class c {
         this.FF = iArr;
     }
 
-    public float[] jn() {
+    public float[] jm() {
         return this.FE;
     }
 

@@ -1,12 +1,12 @@
 package com.kwad.sdk.core.network;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f9321a = new f(40001, "网络错误");
+    public static f f9323a = new f(40001, "网络错误");
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f9322b = new f(40002, "数据解析错误");
+    public static f f9324b = new f(40002, "数据解析错误");
     public static f c = new f(40003, "广告数据为空");
     public static f d = new f(40004, "视频资源缓存失败");
     public static f e = new f(40005, "网络超时");

@@ -6,14 +6,13 @@ import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Build;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public static boolean yI(boolean z) {
+    public static boolean zb(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -35,7 +34,7 @@ public class a {
         return true;
     }
 
-    public static int yJ(boolean z) {
+    public static int zc(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -92,14 +91,14 @@ public class a {
             case 2:
                 return 180;
             case 3:
-                return SubsamplingScaleImageView.ORIENTATION_270;
+                return 270;
         }
     }
 
     public static Camera.Size a(Camera camera, int i, int i2) {
         Camera.Size size;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0887a());
+        Collections.sort(supportedPreviewSizes, new C0890a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -131,14 +130,13 @@ public class a {
     }
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    private static class C0887a implements Comparator<Camera.Size> {
-        private C0887a() {
+    /* loaded from: classes8.dex */
+    private static class C0890a implements Comparator<Camera.Size> {
+        private C0890a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
-        /* renamed from: b */
         public int compare(Camera.Size size, Camera.Size size2) {
             return size.width != size2.width ? size.width - size2.width : size.height - size2.height;
         }

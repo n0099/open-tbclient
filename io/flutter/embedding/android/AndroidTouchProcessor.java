@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class AndroidTouchProcessor {
     private static final int BYTES_PER_FIELD = 8;
     private static final int POINTER_DATA_FIELD_COUNT = 28;
@@ -16,7 +16,7 @@ public class AndroidTouchProcessor {
     @NonNull
     private final FlutterRenderer renderer;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     private @interface PointerChange {
         public static final int ADD = 1;
         public static final int CANCEL = 0;
@@ -27,7 +27,7 @@ public class AndroidTouchProcessor {
         public static final int UP = 6;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     private @interface PointerDeviceKind {
         public static final int INVERTED_STYLUS = 3;
         public static final int MOUSE = 1;
@@ -36,7 +36,7 @@ public class AndroidTouchProcessor {
         public static final int UNKNOWN = 4;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     private @interface PointerSignalKind {
         public static final int NONE = 0;
         public static final int SCROLL = 1;

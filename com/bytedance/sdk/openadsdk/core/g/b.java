@@ -4,7 +4,7 @@ import android.content.Context;
 import com.bytedance.sdk.openadsdk.c.d;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static void a(Context context, l lVar) {
         d.k(context, lVar, "playable_preload", "preload_start", null);

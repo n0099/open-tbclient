@@ -29,7 +29,7 @@ import com.qq.e.comm.util.AdError;
 import com.win.opensdk.PBMediaView;
 import com.win.opensdk.PBNative;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class FunNativeAd {
     public String mAid;
     public KsNativeAd mKsNativeAd;
@@ -39,104 +39,104 @@ public class FunNativeAd {
     public String mSid;
     public TTFeedAd mTTFeedAd;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PBMediaView f7801a;
+        public final /* synthetic */ PBMediaView f7803a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FunNativeAdInteractionListener f7802b;
+        public final /* synthetic */ FunNativeAdInteractionListener f7804b;
 
         public a(PBMediaView pBMediaView, FunNativeAdInteractionListener funNativeAdInteractionListener) {
-            this.f7801a = pBMediaView;
-            this.f7802b = funNativeAdInteractionListener;
+            this.f7803a = pBMediaView;
+            this.f7804b = funNativeAdInteractionListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f7801a.performClick();
-            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7802b;
+            this.f7803a.performClick();
+            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7804b;
             if (funNativeAdInteractionListener != null) {
                 funNativeAdInteractionListener.onAdClick(FunNativeAd.this.mSid);
             }
-            ((d.a) com.fun.ad.d.pEu).a(FunNativeAd.this.mSid, FunAdType.JY_NATIVE, FunNativeAd.this.mAid, (String) null, (String) null);
+            ((d.a) com.fun.ad.d.pOz).a(FunNativeAd.this.mSid, FunAdType.JY_NATIVE, FunNativeAd.this.mAid, (String) null, (String) null);
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class b implements NativeADEventListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunNativeAdInteractionListener f7803a;
+        public final /* synthetic */ FunNativeAdInteractionListener f7805a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Button f7804b;
+        public final /* synthetic */ Button f7806b;
 
         public b(FunNativeAdInteractionListener funNativeAdInteractionListener, Button button) {
-            this.f7803a = funNativeAdInteractionListener;
-            this.f7804b = button;
+            this.f7805a = funNativeAdInteractionListener;
+            this.f7806b = button;
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADClicked() {
             m.a("GDTNativeUnifiedAd onADClicked");
-            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7803a;
+            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7805a;
             if (funNativeAdInteractionListener != null) {
                 funNativeAdInteractionListener.onAdClick(FunNativeAd.this.mSid);
             }
             if (FunNativeAd.this.mRippedAd != null) {
-                ((d.a) com.fun.ad.d.pEu).a(FunNativeAd.this.mSid, FunAdType.GDT_NATIVE_UNIFIED, FunNativeAd.this.mAid, FunNativeAd.this.mRippedAd.appPackageName, FunNativeAd.this.mRippedAd.appLinkUrl);
+                ((d.a) com.fun.ad.d.pOz).a(FunNativeAd.this.mSid, FunAdType.GDT_NATIVE_UNIFIED, FunNativeAd.this.mAid, FunNativeAd.this.mRippedAd.appPackageName, FunNativeAd.this.mRippedAd.appLinkUrl);
                 return;
             }
-            ((d.a) com.fun.ad.d.pEu).a(FunNativeAd.this.mSid, FunAdType.GDT_NATIVE_UNIFIED, FunNativeAd.this.mAid, (String) null, (String) null);
+            ((d.a) com.fun.ad.d.pOz).a(FunNativeAd.this.mSid, FunAdType.GDT_NATIVE_UNIFIED, FunNativeAd.this.mAid, (String) null, (String) null);
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADError(AdError adError) {
             m.a("GDTNativeUnifiedAd onADError");
-            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7803a;
+            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7805a;
             if (funNativeAdInteractionListener != null) {
                 funNativeAdInteractionListener.onAdError(FunNativeAd.this.mSid, adError.getErrorCode(), adError.getErrorMsg());
             }
-            ((d.a) com.fun.ad.d.pEu).e(FunNativeAd.this.mSid, FunAdType.GDT_NATIVE_UNIFIED, FunNativeAd.this.mAid, adError.getErrorCode(), adError.getErrorMsg());
+            ((d.a) com.fun.ad.d.pOz).e(FunNativeAd.this.mSid, FunAdType.GDT_NATIVE_UNIFIED, FunNativeAd.this.mAid, adError.getErrorCode(), adError.getErrorMsg());
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADExposed() {
             m.a("GDTNativeUnifiedAd onADExposed");
-            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7803a;
+            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7805a;
             if (funNativeAdInteractionListener != null) {
                 funNativeAdInteractionListener.onAdShow(FunNativeAd.this.mSid);
             }
-            ((d.a) com.fun.ad.d.pEu).d(FunNativeAd.this.mSid, FunAdType.GDT_NATIVE_UNIFIED, FunNativeAd.this.mAid);
+            ((d.a) com.fun.ad.d.pOz).d(FunNativeAd.this.mSid, FunAdType.GDT_NATIVE_UNIFIED, FunNativeAd.this.mAid);
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADStatusChanged() {
             m.a("GDTNativeUnifiedAd onADStatusChanged");
-            if (this.f7804b == null || FunNativeAd.this.mNativeUnifiedADData == null || this.f7804b.getTag(R.id.download_button_listener) != this) {
+            if (this.f7806b == null || FunNativeAd.this.mNativeUnifiedADData == null || this.f7806b.getTag(R.id.download_button_listener) != this) {
                 return;
             }
             FunNativeAd funNativeAd = FunNativeAd.this;
-            funNativeAd.updateAdAction(this.f7804b, funNativeAd.mNativeUnifiedADData);
+            funNativeAd.updateAdAction(this.f7806b, funNativeAd.mNativeUnifiedADData);
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class c implements NativeADMediaListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunNativeAdInteractionListener f7805a;
+        public final /* synthetic */ FunNativeAdInteractionListener f7807a;
 
         public c(FunNativeAdInteractionListener funNativeAdInteractionListener) {
-            this.f7805a = funNativeAdInteractionListener;
+            this.f7807a = funNativeAdInteractionListener;
         }
 
         @Override // com.qq.e.ads.nativ.NativeADMediaListener
         public void onVideoClicked() {
             m.a("GDTNativeUnifiedAd video onVideoClicked");
-            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7805a;
+            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7807a;
             if (funNativeAdInteractionListener != null) {
                 funNativeAdInteractionListener.onAdClick(FunNativeAd.this.mSid);
             }
@@ -193,82 +193,82 @@ public class FunNativeAd {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class d implements TTNativeAd.AdInteractionListener {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunNativeAdInteractionListener f7807a;
-
-        public d(FunNativeAdInteractionListener funNativeAdInteractionListener) {
-            this.f7807a = funNativeAdInteractionListener;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdClicked(View view, TTNativeAd tTNativeAd) {
-            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7807a;
-            if (funNativeAdInteractionListener != null) {
-                funNativeAdInteractionListener.onAdClick(FunNativeAd.this.mSid);
-            }
-            if (FunNativeAd.this.mRippedAd != null) {
-                ((d.a) com.fun.ad.d.pEu).a(FunNativeAd.this.mSid, FunAdType.CSJ_NATIVE, FunNativeAd.this.mAid, FunNativeAd.this.mRippedAd.appPackageName, FunNativeAd.this.mRippedAd.appLinkUrl);
-                return;
-            }
-            ((d.a) com.fun.ad.d.pEu).a(FunNativeAd.this.mSid, FunAdType.CSJ_NATIVE, FunNativeAd.this.mAid, (String) null, (String) null);
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdCreativeClick(View view, TTNativeAd tTNativeAd) {
-            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7807a;
-            if (funNativeAdInteractionListener != null) {
-                funNativeAdInteractionListener.onAdClick(FunNativeAd.this.mSid);
-            }
-            if (FunNativeAd.this.mRippedAd != null) {
-                ((d.a) com.fun.ad.d.pEu).a(FunNativeAd.this.mSid, FunAdType.CSJ_NATIVE, FunNativeAd.this.mAid, FunNativeAd.this.mRippedAd.appPackageName, FunNativeAd.this.mRippedAd.appLinkUrl);
-                return;
-            }
-            ((d.a) com.fun.ad.d.pEu).a(FunNativeAd.this.mSid, FunAdType.CSJ_NATIVE, FunNativeAd.this.mAid, (String) null, (String) null);
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdShow(TTNativeAd tTNativeAd) {
-            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7807a;
-            if (funNativeAdInteractionListener != null) {
-                funNativeAdInteractionListener.onAdShow(FunNativeAd.this.mSid);
-            }
-            ((d.a) com.fun.ad.d.pEu).d(FunNativeAd.this.mSid, FunAdType.CSJ_NATIVE, FunNativeAd.this.mAid);
-        }
-    }
-
-    /* loaded from: classes14.dex */
-    public class e implements KsNativeAd.AdInteractionListener {
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ FunNativeAdInteractionListener f7809a;
 
-        public e(FunNativeAdInteractionListener funNativeAdInteractionListener) {
+        public d(FunNativeAdInteractionListener funNativeAdInteractionListener) {
             this.f7809a = funNativeAdInteractionListener;
         }
 
-        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-        public void onAdClicked(View view, KsNativeAd ksNativeAd) {
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdClicked(View view, TTNativeAd tTNativeAd) {
             FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7809a;
             if (funNativeAdInteractionListener != null) {
                 funNativeAdInteractionListener.onAdClick(FunNativeAd.this.mSid);
             }
             if (FunNativeAd.this.mRippedAd != null) {
-                ((d.a) com.fun.ad.d.pEu).a(FunNativeAd.this.mSid, FunAdType.KS_NATIVE, FunNativeAd.this.mAid, FunNativeAd.this.mRippedAd.appPackageName, FunNativeAd.this.mRippedAd.appLinkUrl);
+                ((d.a) com.fun.ad.d.pOz).a(FunNativeAd.this.mSid, FunAdType.CSJ_NATIVE, FunNativeAd.this.mAid, FunNativeAd.this.mRippedAd.appPackageName, FunNativeAd.this.mRippedAd.appLinkUrl);
                 return;
             }
-            ((d.a) com.fun.ad.d.pEu).a(FunNativeAd.this.mSid, FunAdType.KS_NATIVE, FunNativeAd.this.mAid, (String) null, (String) null);
+            ((d.a) com.fun.ad.d.pOz).a(FunNativeAd.this.mSid, FunAdType.CSJ_NATIVE, FunNativeAd.this.mAid, (String) null, (String) null);
         }
 
-        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-        public void onAdShow(KsNativeAd ksNativeAd) {
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdCreativeClick(View view, TTNativeAd tTNativeAd) {
+            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7809a;
+            if (funNativeAdInteractionListener != null) {
+                funNativeAdInteractionListener.onAdClick(FunNativeAd.this.mSid);
+            }
+            if (FunNativeAd.this.mRippedAd != null) {
+                ((d.a) com.fun.ad.d.pOz).a(FunNativeAd.this.mSid, FunAdType.CSJ_NATIVE, FunNativeAd.this.mAid, FunNativeAd.this.mRippedAd.appPackageName, FunNativeAd.this.mRippedAd.appLinkUrl);
+                return;
+            }
+            ((d.a) com.fun.ad.d.pOz).a(FunNativeAd.this.mSid, FunAdType.CSJ_NATIVE, FunNativeAd.this.mAid, (String) null, (String) null);
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdShow(TTNativeAd tTNativeAd) {
             FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7809a;
             if (funNativeAdInteractionListener != null) {
                 funNativeAdInteractionListener.onAdShow(FunNativeAd.this.mSid);
             }
-            ((d.a) com.fun.ad.d.pEu).d(FunNativeAd.this.mSid, FunAdType.KS_NATIVE, FunNativeAd.this.mAid);
+            ((d.a) com.fun.ad.d.pOz).d(FunNativeAd.this.mSid, FunAdType.CSJ_NATIVE, FunNativeAd.this.mAid);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements KsNativeAd.AdInteractionListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ FunNativeAdInteractionListener f7811a;
+
+        public e(FunNativeAdInteractionListener funNativeAdInteractionListener) {
+            this.f7811a = funNativeAdInteractionListener;
+        }
+
+        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+        public void onAdClicked(View view, KsNativeAd ksNativeAd) {
+            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7811a;
+            if (funNativeAdInteractionListener != null) {
+                funNativeAdInteractionListener.onAdClick(FunNativeAd.this.mSid);
+            }
+            if (FunNativeAd.this.mRippedAd != null) {
+                ((d.a) com.fun.ad.d.pOz).a(FunNativeAd.this.mSid, FunAdType.KS_NATIVE, FunNativeAd.this.mAid, FunNativeAd.this.mRippedAd.appPackageName, FunNativeAd.this.mRippedAd.appLinkUrl);
+                return;
+            }
+            ((d.a) com.fun.ad.d.pOz).a(FunNativeAd.this.mSid, FunAdType.KS_NATIVE, FunNativeAd.this.mAid, (String) null, (String) null);
+        }
+
+        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+        public void onAdShow(KsNativeAd ksNativeAd) {
+            FunNativeAdInteractionListener funNativeAdInteractionListener = this.f7811a;
+            if (funNativeAdInteractionListener != null) {
+                funNativeAdInteractionListener.onAdShow(FunNativeAd.this.mSid);
+            }
+            ((d.a) com.fun.ad.d.pOz).d(FunNativeAd.this.mSid, FunAdType.KS_NATIVE, FunNativeAd.this.mAid);
         }
     }
 
@@ -344,9 +344,13 @@ public class FunNativeAd {
     }
 
     public boolean isDownloadAd() {
+        NativeUnifiedADData nativeUnifiedADData = this.mNativeUnifiedADData;
+        if (nativeUnifiedADData != null) {
+            return nativeUnifiedADData.isAppAd();
+        }
         TTFeedAd tTFeedAd = this.mTTFeedAd;
         if (tTFeedAd != null) {
-            return tTFeedAd.getAppSize() == 0;
+            return tTFeedAd.getInteractionType() == 4;
         }
         KsNativeAd ksNativeAd = this.mKsNativeAd;
         if (ksNativeAd != null) {
@@ -373,7 +377,7 @@ public class FunNativeAd {
         TTImage icon;
         this.mTTFeedAd.registerViewForInteraction(viewGroup, list, list2, new d(funNativeAdInteractionListener));
         if (imageView != null && (icon = this.mTTFeedAd.getIcon()) != null && icon.isValid()) {
-            ap.a.pFl.a(imageView, icon.getImageUrl(), imageView);
+            ap.a.pPq.a(imageView, icon.getImageUrl(), imageView);
         }
         if (imageView2 != null) {
             imageView2.setImageResource(z ? R.drawable.csj_ad_logo_transparent : R.drawable.csj_ad_logo);
@@ -429,12 +433,12 @@ public class FunNativeAd {
                 ImageView imageView3 = new ImageView(frameLayout.getContext());
                 imageView3.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 frameLayout.addView(imageView3, new FrameLayout.LayoutParams(-1, -1));
-                ap.a.pFl.a(frameLayout, tTImage.getImageUrl(), imageView3);
+                ap.a.pPq.a(frameLayout, tTImage.getImageUrl(), imageView3);
             }
             if (imageView != null) {
                 TTImage icon2 = this.mTTFeedAd.getIcon();
                 if (icon2 == null || !icon2.isValid()) {
-                    ap.a.pFl.a(imageView, tTImage.getImageUrl(), imageView);
+                    ap.a.pPq.a(imageView, tTImage.getImageUrl(), imageView);
                     return;
                 }
                 return;
@@ -453,7 +457,7 @@ public class FunNativeAd {
         if (imageView != null) {
             TTImage icon3 = this.mTTFeedAd.getIcon();
             if ((icon3 == null || !icon3.isValid()) && (videoCoverImage = this.mTTFeedAd.getVideoCoverImage()) != null && videoCoverImage.isValid()) {
-                ap.a.pFl.a(imageView, videoCoverImage.getImageUrl(), imageView);
+                ap.a.pPq.a(imageView, videoCoverImage.getImageUrl(), imageView);
             }
         }
     }
@@ -465,7 +469,7 @@ public class FunNativeAd {
         if (imageView != null) {
             String iconUrl = this.mNativeUnifiedADData.getIconUrl();
             if (!TextUtils.isEmpty(iconUrl)) {
-                ap.a.pFl.a(imageView, iconUrl, imageView);
+                ap.a.pPq.a(imageView, iconUrl, imageView);
             }
         }
         if (imageView2 != null) {
@@ -493,21 +497,21 @@ public class FunNativeAd {
                     ImageView imageView3 = new ImageView(mediaView.getContext());
                     imageView3.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     mediaView.addView(imageView3, new FrameLayout.LayoutParams(-1, -1));
-                    ap.a.pFl.a(mediaView, imgUrl, imageView3);
+                    ap.a.pPq.a(mediaView, imgUrl, imageView3);
                 }
                 if (imageView == null || !TextUtils.isEmpty(this.mNativeUnifiedADData.getIconUrl())) {
                     return;
                 }
-                ap.a.pFl.a(imageView, imgUrl, imageView);
+                ap.a.pPq.a(imageView, imgUrl, imageView);
                 return;
             case 2:
-                this.mNativeUnifiedADData.bindMediaView(mediaView, new VideoOption.Builder().setAutoPlayPolicy(com.fun.ad.d.c ? 1 : 0).setAutoPlayMuted(!com.fun.ad.d.f7776b).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new c(funNativeAdInteractionListener));
+                this.mNativeUnifiedADData.bindMediaView(mediaView, new VideoOption.Builder().setAutoPlayPolicy(com.fun.ad.d.c ? 1 : 0).setAutoPlayMuted(!com.fun.ad.d.f7778b).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new c(funNativeAdInteractionListener));
                 if (imageView == null || !TextUtils.isEmpty(this.mNativeUnifiedADData.getIconUrl())) {
                     return;
                 }
                 String imgUrl2 = this.mNativeUnifiedADData.getImgUrl();
                 if (!TextUtils.isEmpty(imgUrl2)) {
-                    ap.a.pFl.a(imageView, imgUrl2, imageView);
+                    ap.a.pPq.a(imageView, imgUrl2, imageView);
                     return;
                 }
                 return;
@@ -520,7 +524,7 @@ public class FunNativeAd {
         if (imageView != null) {
             String icon = this.mPBNative.getIcon();
             if (!TextUtils.isEmpty(icon)) {
-                ap.a.pFl.a(imageView, icon, imageView);
+                ap.a.pPq.a(imageView, icon, imageView);
             }
         }
         if (imageView2 != null) {
@@ -544,7 +548,7 @@ public class FunNativeAd {
         if (funNativeAdInteractionListener != null) {
             funNativeAdInteractionListener.onAdShow(this.mSid);
         }
-        ((d.a) com.fun.ad.d.pEu).d(this.mSid, FunAdType.JY_NATIVE, this.mAid);
+        ((d.a) com.fun.ad.d.pOz).d(this.mSid, FunAdType.JY_NATIVE, this.mAid);
     }
 
     public void showKsNative(ViewGroup viewGroup, List<View> list, List<View> list2, ImageView imageView, ImageView imageView2, TextView textView, TextView textView2, FrameLayout frameLayout, Button button, FunNativeAdInteractionListener funNativeAdInteractionListener, boolean z) {
@@ -553,7 +557,7 @@ public class FunNativeAd {
         KsImage ksImage;
         this.mKsNativeAd.registerViewForInteraction(viewGroup, list, new e(funNativeAdInteractionListener));
         if (imageView != null && !TextUtils.isEmpty(this.mKsNativeAd.getAppIconUrl())) {
-            ap.a.pFl.a(imageView, this.mKsNativeAd.getAppIconUrl(), imageView);
+            ap.a.pPq.a(imageView, this.mKsNativeAd.getAppIconUrl(), imageView);
         }
         if (imageView2 != null) {
             imageView2.setImageResource(z ? R.drawable.ks_ad_logo_transparent : R.drawable.ks_ad_logo);
@@ -573,7 +577,7 @@ public class FunNativeAd {
         int materialType = this.mKsNativeAd.getMaterialType();
         if (materialType == 1) {
             if (frameLayout != null) {
-                View videoView = this.mKsNativeAd.getVideoView(frameLayout.getContext(), new KsAdVideoPlayConfig.Builder().videoSoundEnable(com.fun.ad.d.f7776b).dataFlowAutoStart(com.fun.ad.d.c).build());
+                View videoView = this.mKsNativeAd.getVideoView(frameLayout.getContext(), new KsAdVideoPlayConfig.Builder().videoSoundEnable(com.fun.ad.d.f7778b).dataFlowAutoStart(com.fun.ad.d.c).build());
                 if (videoView != null && videoView.getParent() != null) {
                     ((ViewGroup) videoView.getParent()).removeView(videoView);
                 }
@@ -584,17 +588,17 @@ public class FunNativeAd {
             if (imageView == null || !TextUtils.isEmpty(this.mKsNativeAd.getAppIconUrl()) || (videoCoverImage = this.mKsNativeAd.getVideoCoverImage()) == null || !videoCoverImage.isValid()) {
                 return;
             }
-            ap.a.pFl.a(imageView, videoCoverImage.getImageUrl(), imageView);
+            ap.a.pPq.a(imageView, videoCoverImage.getImageUrl(), imageView);
         } else if ((materialType != 2 && materialType != 3) || (imageList = this.mKsNativeAd.getImageList()) == null || imageList.isEmpty() || (ksImage = imageList.get(0)) == null || !ksImage.isValid()) {
         } else {
             if (frameLayout != null) {
                 ImageView imageView3 = new ImageView(frameLayout.getContext());
                 imageView3.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 frameLayout.addView(imageView3, new FrameLayout.LayoutParams(-1, -1));
-                ap.a.pFl.a(frameLayout, ksImage.getImageUrl(), imageView3);
+                ap.a.pPq.a(frameLayout, ksImage.getImageUrl(), imageView3);
             }
             if (imageView != null && TextUtils.isEmpty(this.mKsNativeAd.getAppIconUrl())) {
-                ap.a.pFl.a(imageView, ksImage.getImageUrl(), imageView);
+                ap.a.pPq.a(imageView, ksImage.getImageUrl(), imageView);
             }
         }
     }

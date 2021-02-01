@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ProcessLifecycleOwnerInitializer extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {

@@ -20,14 +20,14 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f9314a = "UTF-8";
+    public static String f9316a = "UTF-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f9315b = new OkHttpClient.Builder().connectTimeout(IMConnection.RETRY_DELAY_TIMES, TimeUnit.MILLISECONDS).readTimeout(6000, TimeUnit.MILLISECONDS).build();
+    public static OkHttpClient f9317b = new OkHttpClient.Builder().connectTimeout(IMConnection.RETRY_DELAY_TIMES, TimeUnit.MILLISECONDS).readTimeout(6000, TimeUnit.MILLISECONDS).build();
 
     private static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -69,7 +69,7 @@ public class b {
                     gZIPInputStream2 = inputStream;
                 }
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(gZIPInputStream2, f9314a), 8);
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(gZIPInputStream2, f9316a), 8);
                     while (true) {
                         String readLine = bufferedReader.readLine();
                         if (readLine == null) {
@@ -106,7 +106,7 @@ public class b {
     }
 
     public static OkHttpClient a() {
-        return f9315b;
+        return f9317b;
     }
 
     public static Response a(String str, Map<String, String> map) {

@@ -4,14 +4,14 @@ import android.content.Context;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.sysParamters;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class b implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5748a;
+    private Context f5750a;
 
     public b(Context context) {
-        this.f5748a = context;
+        this.f5750a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -38,7 +38,7 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         try {
-            return a.a(this.f5748a, sysParamters.g());
+            return a.a(this.f5750a, sysParamters.g());
         } catch (Exception e) {
             return "";
         }
@@ -47,7 +47,7 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         try {
-            return a.b(this.f5748a);
+            return a.b(this.f5750a);
         } catch (Exception e) {
             return "";
         }
@@ -61,7 +61,7 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         try {
-            return a.b(this.f5748a, sysParamters.g());
+            return a.b(this.f5750a, sysParamters.g());
         } catch (Exception e) {
             return "";
         }
@@ -70,7 +70,7 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
         try {
-            return a.a(this.f5748a);
+            return a.a(this.f5750a);
         } catch (Exception e) {
             return false;
         }

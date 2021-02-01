@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.f;
 /* loaded from: classes5.dex */
 public interface h {
-    int ewa();
+    boolean eyt();
 
-    boolean ewb();
+    boolean eyu();
 
-    boolean ewc();
+    int getQuality();
 }

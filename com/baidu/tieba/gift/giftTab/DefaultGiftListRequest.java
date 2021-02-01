@@ -2,10 +2,10 @@ package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetGiftList.DataReq;
 import tbclient.GetGiftList.GetGiftListReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DefaultGiftListRequest extends NetMessage {
     private String from;
     private long toUserId;
@@ -20,7 +20,7 @@ public class DefaultGiftListRequest extends NetMessage {
         builder.scene_from = this.from;
         builder.benefit_userid = Long.valueOf(this.toUserId);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetGiftListReqIdl.Builder builder2 = new GetGiftListReqIdl.Builder();
         builder2.data = builder.build(false);

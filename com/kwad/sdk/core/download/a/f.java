@@ -20,11 +20,11 @@ import com.kwad.sdk.core.webview.jshandler.o;
 import com.kwad.sdk.utils.ak;
 import com.kwad.sdk.utils.ar;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f extends c {
 
     /* renamed from: b  reason: collision with root package name */
-    private KsAdWebView f9100b;
+    private KsAdWebView f9102b;
     private i.a c;
     private AdInfo.DownloadSafeInfo d;
     private com.kwad.sdk.core.download.b.b e;
@@ -37,8 +37,8 @@ public class f extends c {
     private a.b l = new a.b() { // from class: com.kwad.sdk.core.download.a.f.1
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
         public void a() {
-            if (f.this.f9097a.c != null) {
-                f.this.f9097a.c.onAdClicked();
+            if (f.this.f9099a.c != null) {
+                f.this.f9099a.c.onAdClicked();
             }
         }
     };
@@ -47,7 +47,7 @@ public class f extends c {
         public void a(i.a aVar) {
             com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "onAdFrameValid=" + aVar);
             f.this.c = aVar;
-            f.this.f9100b.setTranslationY(aVar.f9585a + aVar.d);
+            f.this.f9102b.setTranslationY(aVar.f9587a + aVar.d);
         }
     };
     private h.a n = new h.a() { // from class: com.kwad.sdk.core.download.a.f.6
@@ -96,26 +96,26 @@ public class f extends c {
 
     private void e() {
         this.h = -1;
-        this.f9100b.setVisibility(8);
-        this.f9100b.f();
+        this.f9102b.setVisibility(8);
+        this.f9102b.f();
         r();
     }
 
     private void f() {
         this.g = new com.kwad.sdk.core.webview.a();
-        this.g.f9537b = this.f9097a.e;
-        this.g.f9536a = this.f9097a.f9098a;
-        this.g.c = this.f9097a.d;
-        this.g.e = this.f9097a.d;
-        this.g.f = this.f9100b;
+        this.g.f9539b = this.f9099a.e;
+        this.g.f9538a = this.f9099a.f9100a;
+        this.g.c = this.f9099a.d;
+        this.g.e = this.f9099a.d;
+        this.g.f = this.f9102b;
     }
 
     private void g() {
         this.h = -1;
         h();
-        this.f9100b.setBackgroundColor(0);
-        this.f9100b.getBackground().setAlpha(0);
-        this.f9100b.setVisibility(0);
+        this.f9102b.setBackgroundColor(0);
+        this.f9102b.getBackground().setAlpha(0);
+        this.f9102b.setVisibility(0);
         com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "downloadPanelUrl=" + this.d.windowPopUrl);
     }
 
@@ -123,8 +123,8 @@ public class f extends c {
     private void h() {
         com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "setupJsBridge");
         r();
-        ar.b(this.f9100b);
-        this.f9100b.setHttpErrorListener(new KsAdWebView.d() { // from class: com.kwad.sdk.core.download.a.f.2
+        ar.b(this.f9102b);
+        this.f9102b.setHttpErrorListener(new KsAdWebView.d() { // from class: com.kwad.sdk.core.download.a.f.2
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
             public void a() {
                 f.this.j = false;
@@ -140,16 +140,16 @@ public class f extends c {
                     return;
                 }
                 if (f.this.k >= 2) {
-                    f.this.f9100b.setVisibility(8);
+                    f.this.f9102b.setVisibility(8);
                     return;
                 }
-                f.this.f9100b.reload();
+                f.this.f9102b.reload();
                 f.d(f.this);
             }
         });
-        this.f = new g(this.f9100b);
+        this.f = new g(this.f9102b);
         a(this.f);
-        this.f9100b.a(this.f, "KwaiAd", new ValueCallback<String>() { // from class: com.kwad.sdk.core.download.a.f.3
+        this.f9102b.a(this.f, "KwaiAd", new ValueCallback<String>() { // from class: com.kwad.sdk.core.download.a.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.webkit.ValueCallback
             /* renamed from: a */
@@ -158,7 +158,7 @@ public class f extends c {
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "mWebView.loadUrl() url=" + f.this.d.windowPopUrl);
-                        f.this.f9100b.loadUrl(f.this.p());
+                        f.this.f9102b.loadUrl(f.this.p());
                         f.d(f.this);
                     }
                 });
@@ -198,18 +198,18 @@ public class f extends c {
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "hideWithOutAnimation");
-        if (this.f9100b.getVisibility() != 0) {
+        if (this.f9102b.getVisibility() != 0) {
             return;
         }
         if (this.i != null) {
             this.i.e();
         }
-        this.f9100b.setVisibility(4);
+        this.f9102b.setVisibility(4);
         if (this.i != null) {
             this.i.f();
         }
-        if (this.f9097a.f9099b != null) {
-            this.f9097a.f9099b.a();
+        if (this.f9099a.f9101b != null) {
+            this.f9099a.f9101b.a();
         }
     }
 
@@ -217,8 +217,8 @@ public class f extends c {
     @Override // com.kwad.sdk.core.download.a.c, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = com.kwad.sdk.core.response.b.a.Z(com.kwad.sdk.core.response.b.c.j(this.f9097a.e));
-        this.e = this.f9097a.f;
+        this.d = com.kwad.sdk.core.response.b.a.Z(com.kwad.sdk.core.response.b.c.j(this.f9099a.e));
+        this.e = this.f9099a.f;
         f();
         g();
     }
@@ -234,6 +234,6 @@ public class f extends c {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9100b = (KsAdWebView) b(R.id.ksad_download_tips_web_card_webView);
+        this.f9102b = (KsAdWebView) b(R.id.ksad_download_tips_web_card_webView);
     }
 }

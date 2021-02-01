@@ -7,27 +7,27 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11317a;
+    private int f11319a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11318b = String.valueOf(-1);
+    private String f11320b = String.valueOf(-1);
     private String c = "";
     private String d = "";
     private int e = -1;
     private String f = "";
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f11319a;
+        public String f11321a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11320b;
+        public String f11322b;
         String c;
 
         public a(String str) {
@@ -58,11 +58,11 @@ public class e {
         }
 
         public void a(String str) {
-            this.f11319a = str;
+            this.f11321a = str;
         }
 
         public void b(String str) {
-            this.f11320b = str;
+            this.f11322b = str;
         }
 
         public void c(String str) {
@@ -70,7 +70,7 @@ public class e {
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.f11319a + "', message='" + this.f11320b + "', publicKey='" + this.c + "'}";
+            return "PublicKeyStatus{code='" + this.f11321a + "', message='" + this.f11322b + "', publicKey='" + this.c + "'}";
         }
     }
 
@@ -189,19 +189,19 @@ public class e {
     }
 
     public int a() {
-        return this.f11317a;
+        return this.f11319a;
     }
 
     public void a(int i) {
-        this.f11317a = i;
+        this.f11319a = i;
     }
 
     public void a(String str) {
-        this.f11318b = str;
+        this.f11320b = str;
     }
 
     public String b() {
-        return this.f11318b;
+        return this.f11320b;
     }
 
     public void b(int i) {
@@ -237,6 +237,6 @@ public class e {
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.f11317a + ", taskId='" + this.f11318b + "', title='" + this.c + "', content='" + this.d + "', clickType=" + this.e + ", params='" + this.f + "'}";
+        return "SecurityMessage{timestamp=" + this.f11319a + ", taskId='" + this.f11320b + "', title='" + this.c + "', content='" + this.d + "', clickType=" + this.e + ", params='" + this.f + "'}";
     }
 }

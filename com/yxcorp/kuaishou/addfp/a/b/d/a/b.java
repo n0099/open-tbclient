@@ -6,19 +6,19 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ Context f14354a;
-    private /* synthetic */ a qbF;
+    private /* synthetic */ Context f14356a;
+    private /* synthetic */ a qlJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, Looper looper, Context context) {
         super(looper);
-        this.qbF = aVar;
-        this.f14354a = context;
+        this.qlJ = aVar;
+        this.f14356a = context;
     }
 
     @Override // android.os.Handler
@@ -30,7 +30,7 @@ public final class b extends Handler {
             try {
                 Bundle data = message.getData();
                 if (data != null) {
-                    b2 = a.b(this.f14354a, data.getString("appid"));
+                    b2 = a.b(this.f14356a, data.getString("appid"));
                     String unused = a.g = b2;
                 }
                 obj = a.d;

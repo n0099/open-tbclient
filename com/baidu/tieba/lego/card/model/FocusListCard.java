@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FocusListCard extends BaseCardInfo {
     private static final int MIN_FOCUS_ITEMS = 3;
     private final int bgColor;
@@ -14,12 +14,12 @@ public class FocusListCard extends BaseCardInfo {
     private final int titleColor;
     private final int titleColorNight;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        public String kTD;
-        public int kTE;
-        public int kTF;
-        public long kTG;
+        public String lbG;
+        public int lbH;
+        public int lbI;
+        public long lbJ;
         public String scheme;
         public String statistics;
         public String subtitle;
@@ -30,10 +30,10 @@ public class FocusListCard extends BaseCardInfo {
     public FocusListCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
         JSONArray optJSONArray;
-        this.titleColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("titleColor", ""));
-        this.titleColorNight = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("titleColorNight", ""));
-        this.bgColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("bgColorNight", ""));
+        this.titleColor = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("titleColor", ""));
+        this.titleColorNight = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("titleColorNight", ""));
+        this.bgColor = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("bgColorNight", ""));
         JSONArray optJSONArray2 = jSONObject.optJSONArray("itemList");
         int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
         this.focusItemList = new ArrayList(length);
@@ -49,12 +49,12 @@ public class FocusListCard extends BaseCardInfo {
                         aVar.subtitle = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.kTD = optJSONArray.getString(2);
+                        aVar.lbG = optJSONArray.getString(2);
                     }
-                    aVar.kTE = com.baidu.tieba.lego.card.c.b.rt(optJSONObject.optString("focusColor", ""));
-                    aVar.kTF = com.baidu.tieba.lego.card.c.b.rt(optJSONObject.optString("focusColorNight", ""));
+                    aVar.lbH = com.baidu.tieba.lego.card.c.b.rM(optJSONObject.optString("focusColor", ""));
+                    aVar.lbI = com.baidu.tieba.lego.card.c.b.rM(optJSONObject.optString("focusColorNight", ""));
                     aVar.scheme = optJSONObject.optString("scheme");
-                    aVar.kTG = optJSONObject.optLong("resourceId");
+                    aVar.lbJ = optJSONObject.optLong("resourceId");
                     aVar.statistics = this.statistics;
                     this.focusItemList.add(aVar);
                 } catch (Exception e) {

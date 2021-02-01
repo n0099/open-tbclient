@@ -9,7 +9,7 @@ import com.kwai.video.hodor.anotations.AccessedByNative;
 import com.kwai.video.hodor.util.HeaderUtil;
 import com.kwai.video.hodor.util.Timber;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResourceDownloadTask extends AbstractHodorTask {
     public static final int ResourceDirEvictStrategy_Auto = 1;
     public static final int ResourceDirEvictStrategy_Manual = 0;
@@ -70,22 +70,22 @@ public class ResourceDownloadTask extends AbstractHodorTask {
     };
     private TaskInfo mTaskInfo = new TaskInfo();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface ResourceDirEvictStrategy {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface ResourceDownloadCallback {
         void onCdnReport(TaskInfo taskInfo);
 
         void onTaskStatusChanged(TaskInfo taskInfo);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface SaveMode {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class TaskInfo extends BaseTaskInfo {
         private String cacheFilePath = "";
         private boolean loadFromCache;

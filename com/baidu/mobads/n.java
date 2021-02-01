@@ -1,22 +1,32 @@
 package com.baidu.mobads;
-
-import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
-import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes14.dex */
-class n implements IOAdEventListener {
+/* loaded from: classes5.dex */
+class n implements InterstitialAdListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ InterstitialAd f3384a;
+    final /* synthetic */ InterstitialAd f3396a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(InterstitialAd interstitialAd) {
-        this.f3384a = interstitialAd;
+        this.f3396a = interstitialAd;
     }
 
-    @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
-    public void run(IOAdEvent iOAdEvent) {
-        XAdSDKFoundationFacade.getInstance().getAdLogger().i(InterstitialAd.TAG, "evt.type=" + iOAdEvent.getType());
-        XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new o(this, iOAdEvent));
+    @Override // com.baidu.mobads.InterstitialAdListener
+    public void onAdReady() {
+    }
+
+    @Override // com.baidu.mobads.InterstitialAdListener
+    public void onAdPresent() {
+    }
+
+    @Override // com.baidu.mobads.InterstitialAdListener
+    public void onAdClick(InterstitialAd interstitialAd) {
+    }
+
+    @Override // com.baidu.mobads.InterstitialAdListener
+    public void onAdDismissed() {
+    }
+
+    @Override // com.baidu.mobads.InterstitialAdListener
+    public void onAdFailed(String str) {
     }
 }

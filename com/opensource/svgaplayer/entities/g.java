@@ -2,7 +2,6 @@ package com.opensource.svgaplayer.entities;
 
 import android.graphics.Matrix;
 import com.baidu.mobstat.Config;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.opensource.svgaplayer.proto.FrameEntity;
 import com.opensource.svgaplayer.proto.Layout;
 import com.opensource.svgaplayer.proto.ShapeEntity;
@@ -14,57 +13,57 @@ import kotlin.jvm.internal.p;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class g {
-    private double dfR;
-    private Matrix pPG;
-    private com.opensource.svgaplayer.b.c pPQ;
-    private b pPR;
+    private double dic;
+    private Matrix pZK;
+    private com.opensource.svgaplayer.b.c pZU;
+    private b pZV;
     private List<SVGAVideoShapeEntity> shapes;
 
-    public final double eBa() {
-        return this.dfR;
+    public final double eDr() {
+        return this.dic;
     }
 
-    public final com.opensource.svgaplayer.b.c eBb() {
-        return this.pPQ;
+    public final com.opensource.svgaplayer.b.c eDs() {
+        return this.pZU;
     }
 
-    public final Matrix eAO() {
-        return this.pPG;
+    public final Matrix eDf() {
+        return this.pZK;
     }
 
-    public final b eBc() {
-        return this.pPR;
+    public final b eDt() {
+        return this.pZV;
     }
 
-    public final void gS(List<SVGAVideoShapeEntity> list) {
+    public final void gQ(List<SVGAVideoShapeEntity> list) {
         p.o(list, "<set-?>");
         this.shapes = list;
     }
 
-    public final List<SVGAVideoShapeEntity> iY() {
+    public final List<SVGAVideoShapeEntity> iX() {
         return this.shapes;
     }
 
     public g(JSONObject jSONObject) {
         p.o(jSONObject, "obj");
-        this.pPQ = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
-        this.pPG = new Matrix();
-        this.shapes = n.eIG();
-        this.dfR = jSONObject.optDouble("alpha", 0.0d);
+        this.pZU = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
+        this.pZK = new Matrix();
+        this.shapes = n.eKW();
+        this.dic = jSONObject.optDouble("alpha", 0.0d);
         JSONObject optJSONObject = jSONObject.optJSONObject("layout");
         if (optJSONObject != null) {
-            this.pPQ = new com.opensource.svgaplayer.b.c(optJSONObject.optDouble(Config.EVENT_HEAT_X, 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
+            this.pZU = new com.opensource.svgaplayer.b.c(optJSONObject.optDouble(Config.EVENT_HEAT_X, 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("transform");
         if (optJSONObject2 != null) {
-            this.pPG.setValues(new float[]{(float) optJSONObject2.optDouble("a", 1.0d), (float) optJSONObject2.optDouble("c", 0.0d), (float) optJSONObject2.optDouble("tx", 0.0d), (float) optJSONObject2.optDouble(com.baidu.pass.biometrics.face.liveness.d.b.f4043a, 0.0d), (float) optJSONObject2.optDouble("d", 1.0d), (float) optJSONObject2.optDouble(Config.EXCEPTION_CRASH_CHANNEL, 0.0d), (float) 0.0d, (float) 0.0d, (float) 1.0d});
+            this.pZK.setValues(new float[]{(float) optJSONObject2.optDouble("a", 1.0d), (float) optJSONObject2.optDouble("c", 0.0d), (float) optJSONObject2.optDouble("tx", 0.0d), (float) optJSONObject2.optDouble(com.baidu.pass.biometrics.face.liveness.d.b.f4046a, 0.0d), (float) optJSONObject2.optDouble("d", 1.0d), (float) optJSONObject2.optDouble(Config.EXCEPTION_CRASH_CHANNEL, 0.0d), (float) 0.0d, (float) 0.0d, (float) 1.0d});
         }
         String optString = jSONObject.optString("clipPath");
         if (optString != null) {
             if (optString.length() > 0) {
-                this.pPR = new b(optString);
+                this.pZV = new b(optString);
             }
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("shapes");
@@ -86,10 +85,10 @@ public final class g {
         Float f;
         Float f2;
         p.o(frameEntity, "obj");
-        this.pPQ = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
-        this.pPG = new Matrix();
-        this.shapes = n.eIG();
-        this.dfR = frameEntity.alpha != null ? f.floatValue() : 0.0f;
+        this.pZU = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
+        this.pZK = new Matrix();
+        this.shapes = n.eKW();
+        this.dic = frameEntity.alpha != null ? f.floatValue() : 0.0f;
         Layout layout = frameEntity.layout;
         if (layout != null) {
             Float f3 = layout.x;
@@ -97,14 +96,14 @@ public final class g {
             Float f4 = layout.y;
             double floatValue2 = f4 != null ? f4.floatValue() : 0.0f;
             Float f5 = layout.width;
-            this.pPQ = new com.opensource.svgaplayer.b.c(floatValue, floatValue2, f5 != null ? f5.floatValue() : 0.0f, layout.height != null ? f2.floatValue() : 0.0f);
+            this.pZU = new com.opensource.svgaplayer.b.c(floatValue, floatValue2, f5 != null ? f5.floatValue() : 0.0f, layout.height != null ? f2.floatValue() : 0.0f);
         }
         Transform transform = frameEntity.transform;
         if (transform != null) {
             float[] fArr = new float[9];
-            Float f6 = transform.f11377a;
+            Float f6 = transform.f11379a;
             float floatValue3 = f6 != null ? f6.floatValue() : 1.0f;
-            Float f7 = transform.f11378b;
+            Float f7 = transform.f11380b;
             float floatValue4 = f7 != null ? f7.floatValue() : 0.0f;
             Float f8 = transform.c;
             float floatValue5 = f8 != null ? f8.floatValue() : 0.0f;
@@ -123,13 +122,13 @@ public final class g {
             fArr[6] = 0.0f;
             fArr[7] = 0.0f;
             fArr[8] = 1.0f;
-            this.pPG.setValues(fArr);
+            this.pZK.setValues(fArr);
         }
         String str = frameEntity.clipPath;
         if (str != null) {
             str = str.length() > 0 ? str : null;
             if (str != null) {
-                this.pPR = new b(str);
+                this.pZV = new b(str);
             }
         }
         List<ShapeEntity> list = frameEntity.shapes;
@@ -137,7 +136,7 @@ public final class g {
         List<ShapeEntity> list2 = list;
         ArrayList arrayList = new ArrayList(n.a(list2, 10));
         for (ShapeEntity shapeEntity : list2) {
-            p.n(shapeEntity, AdvanceSetting.NETWORK_TYPE);
+            p.n(shapeEntity, "it");
             arrayList.add(new SVGAVideoShapeEntity(shapeEntity));
         }
         this.shapes = arrayList;

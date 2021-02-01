@@ -14,11 +14,11 @@ import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdView;
 import com.fun.ad.sdk.FunRippedAd;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class y extends bd {
-    public TTRewardVideoAd pEY;
+    public TTRewardVideoAd pPd;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class a implements TTAdNative.RewardVideoAdListener {
         public a() {
         }
@@ -27,10 +27,10 @@ public class y extends bd {
         public void onError(int i, String str) {
             m.a("CSJRewardVideoAd onError code: " + i + ", message: " + str);
             y yVar = y.this;
-            yVar.f7765b = false;
-            ba baVar = yVar.pFv;
+            yVar.f7767b = false;
+            ba baVar = yVar.pPA;
             if (baVar != null) {
-                ((aj) baVar).a(yVar.f7764a.f7760a, i, str);
+                ((aj) baVar).a(yVar.f7766a.f7762a, i, str);
             }
         }
 
@@ -38,11 +38,11 @@ public class y extends bd {
         public void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd) {
             m.a("CSJRewardVideoAd onRewardVideoAdLoad");
             y yVar = y.this;
-            yVar.f7765b = false;
-            yVar.pEY = tTRewardVideoAd;
-            ba baVar = yVar.pFv;
+            yVar.f7767b = false;
+            yVar.pPd = tTRewardVideoAd;
+            ba baVar = yVar.pPA;
             if (baVar != null) {
-                ((aj) baVar).b(yVar.f7764a.f7760a);
+                ((aj) baVar).b(yVar.f7766a.f7762a);
             }
             AdRipper.ripCSJ(tTRewardVideoAd);
         }
@@ -53,7 +53,7 @@ public class y extends bd {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class b implements TTRewardVideoAd.RewardAdInteractionListener {
         public b() {
         }
@@ -62,9 +62,9 @@ public class y extends bd {
         public void onAdClose() {
             m.a("CSJRewardVideoAd onAdClose");
             y yVar = y.this;
-            ax axVar = yVar.pFw;
+            ax axVar = yVar.pPB;
             if (axVar != null) {
-                ((am) axVar).a(yVar.f7764a.f7760a);
+                ((am) axVar).a(yVar.f7766a.f7762a);
             }
         }
 
@@ -72,9 +72,9 @@ public class y extends bd {
         public void onAdShow() {
             m.a("CSJRewardVideoAd onAdShow");
             y yVar = y.this;
-            ax axVar = yVar.pFw;
+            ax axVar = yVar.pPB;
             if (axVar != null) {
-                ((am) axVar).b(yVar.f7764a.f7760a, null, yVar.pEY.getInteractionType());
+                ((am) axVar).b(yVar.f7766a.f7762a, null, yVar.pPd.getInteractionType());
             }
         }
 
@@ -82,9 +82,9 @@ public class y extends bd {
         public void onAdVideoBarClick() {
             m.a("CSJRewardVideoAd onAdVideoBarClick");
             y yVar = y.this;
-            ax axVar = yVar.pFw;
+            ax axVar = yVar.pPB;
             if (axVar != null) {
-                ((am) axVar).a(yVar.f7764a.f7760a, null, yVar.pEY.getInteractionType());
+                ((am) axVar).a(yVar.f7766a.f7762a, null, yVar.pPd.getInteractionType());
             }
         }
 
@@ -92,27 +92,27 @@ public class y extends bd {
         public void onRewardVerify(boolean z, int i, String str) {
             m.a("CSJRewardVideoAd onRewardVerify rewardVerify: " + z + ", rewardAmount: " + i + ", rewardName: " + str);
             y yVar = y.this;
-            ax axVar = yVar.pFw;
+            ax axVar = yVar.pPB;
             if (axVar != null) {
-                String str2 = yVar.f7764a.f7760a;
+                String str2 = yVar.f7766a.f7762a;
                 am amVar = (am) axVar;
                 if (amVar == null) {
                     throw null;
                 }
                 m.a("FunAdLoader 穿山甲广告 onRewardedVideo，广告ID：" + str2);
-                FunAdInteractionListener funAdInteractionListener = amVar.pEV;
+                FunAdInteractionListener funAdInteractionListener = amVar.pPa;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onRewardedVideo(amVar.pEX.pEF.f7758a);
+                    funAdInteractionListener.onRewardedVideo(amVar.pPc.pOK.f7760a);
                 }
-                d.b bVar = d.pEu;
-                ((d.a) bVar).e(amVar.f7751b, amVar.pEW.f7761b, str2);
+                d.b bVar = d.pOz;
+                ((d.a) bVar).e(amVar.f7753b, amVar.pPb.f7763b, str2);
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
         public void onSkippedVideo() {
             m.a("CSJRewardVideoAd onSkippedVideo");
-            ax axVar = y.this.pFw;
+            ax axVar = y.this.pPB;
             if (axVar != null) {
                 am amVar = (am) axVar;
                 m.a("CJSAdLoaderFactory onSkippedVideo");
@@ -122,7 +122,7 @@ public class y extends bd {
         @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
         public void onVideoComplete() {
             m.a("CSJRewardVideoAd onVideoComplete");
-            ax axVar = y.this.pFw;
+            ax axVar = y.this.pPB;
             if (axVar != null) {
                 am amVar = (am) axVar;
                 m.a("CJSAdLoaderFactory onVideoComplete");
@@ -133,20 +133,20 @@ public class y extends bd {
         public void onVideoError() {
             m.a("CSJRewardVideoAd onVideoError");
             y yVar = y.this;
-            ax axVar = yVar.pFw;
+            ax axVar = yVar.pPB;
             if (axVar != null) {
-                String str = yVar.f7764a.f7760a;
+                String str = yVar.f7766a.f7762a;
                 am amVar = (am) axVar;
                 if (amVar == null) {
                     throw null;
                 }
                 m.a("FunAdLoader 穿山甲广告 onVideoError，广告ID：" + str);
-                FunAdInteractionListener funAdInteractionListener = amVar.pEV;
+                FunAdInteractionListener funAdInteractionListener = amVar.pPa;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdError(amVar.pEX.pEF.f7758a);
+                    funAdInteractionListener.onAdError(amVar.pPc.pOK.f7760a);
                 }
-                d.b bVar = d.pEu;
-                ((d.a) bVar).e(amVar.f7751b, amVar.pEW.f7761b, str, 0, "Custom error message: onVideoError");
+                d.b bVar = d.pOz;
+                ((d.a) bVar).e(amVar.f7753b, amVar.pPb.f7763b, str, 0, "Custom error message: onVideoError");
             }
         }
     }
@@ -158,25 +158,25 @@ public class y extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        this.pEY = null;
+        this.pPd = null;
     }
 
     @Override // com.fun.ad.bd
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         super.a(activity, funAdView, axVar);
-        TTRewardVideoAd tTRewardVideoAd = this.pEY;
+        TTRewardVideoAd tTRewardVideoAd = this.pPd;
         if (tTRewardVideoAd == null) {
             return;
         }
         tTRewardVideoAd.setRewardAdInteractionListener(new b());
-        this.pEY.setDownloadListener(new bj(null));
-        this.pEY.showRewardVideoAd(activity);
+        this.pPd.setDownloadListener(new bj(null));
+        this.pPd.showRewardVideoAd(activity);
     }
 
     @Override // com.fun.ad.bd
-    public FunRippedAd exX() {
+    public FunRippedAd eAp() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTRewardVideoAd tTRewardVideoAd = this.pEY;
+        TTRewardVideoAd tTRewardVideoAd = this.pPd;
         if (tTRewardVideoAd == null || (rippedCSJAd = AdRipper.getRippedCSJAd(tTRewardVideoAd, false)) == null) {
             return null;
         }
@@ -195,13 +195,13 @@ public class y extends bd {
     @Override // com.fun.ad.bd
     public void a(Context context, FunAdSlot funAdSlot, ba baVar) {
         super.a(context.getApplicationContext(), funAdSlot, baVar);
-        if (!this.f7765b) {
-            this.f7765b = true;
+        if (!this.f7767b) {
+            this.f7767b = true;
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            this.pFx.loadRewardVideoAd(new AdSlot.Builder().setCodeId(this.f7764a.f7760a).setSupportDeepLink(true).setRewardName("Coin").setRewardAmount(1).setExpressViewAcceptedSize(d.a(context, displayMetrics.widthPixels), d.a(context, displayMetrics.heightPixels)).setUserID(null).setOrientation(this.f7764a.g != 0 ? 2 : 1).setMediaExtra("media_extra").build(), new a());
-            ba baVar2 = this.pFv;
+            this.pPC.loadRewardVideoAd(new AdSlot.Builder().setCodeId(this.f7766a.f7762a).setSupportDeepLink(true).setRewardName("Coin").setRewardAmount(1).setExpressViewAcceptedSize(d.a(context, displayMetrics.widthPixels), d.a(context, displayMetrics.heightPixels)).setUserID(null).setOrientation(this.f7766a.g != 0 ? 2 : 1).setMediaExtra("media_extra").build(), new a());
+            ba baVar2 = this.pPA;
             if (baVar2 != null) {
-                ((aj) baVar2).a(this.f7764a.f7760a);
+                ((aj) baVar2).a(this.f7766a.f7762a);
             }
         }
     }

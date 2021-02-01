@@ -1,13 +1,13 @@
 package com.baidu.adp.newwidget.ImageView;
 /* loaded from: classes.dex */
 public class f {
-    public static f SC = new f();
+    public static f SA = new f();
 
     private f() {
     }
 
-    public static f oF() {
-        return SC;
+    public static f oD() {
+        return SA;
     }
 
     public a aJ(int i) {

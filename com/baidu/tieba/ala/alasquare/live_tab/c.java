@@ -12,15 +12,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static final void a(TbPageContext tbPageContext, String str, String str2) {
-        be.bsB().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype=" + str2});
+        bf.bsV().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype=" + str2});
     }
 
     public static void a(Context context, SdkLiveInfoData sdkLiveInfoData) {
@@ -47,37 +47,37 @@ public class c {
 
     public static void a(TbPageContext tbPageContext, SdkLiveInfoData sdkLiveInfoData, String str) {
         if (tbPageContext != null && sdkLiveInfoData != null) {
-            be.bsB().b(tbPageContext, new String[]{"bdtiebalive://video/live?room_id=" + sdkLiveInfoData.roomId + "&live_id=" + sdkLiveInfoData.liveId + "&enterroom_type=1&from=" + str});
+            bf.bsV().b(tbPageContext, new String[]{"bdtiebalive://video/live?room_id=" + sdkLiveInfoData.roomId + "&live_id=" + sdkLiveInfoData.liveId + "&enterroom_type=1&from=" + str});
         }
     }
 
-    public static void a(Context context, bz bzVar) {
-        b(context, bzVar, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MY_CONCERN);
+    public static void a(Context context, cb cbVar) {
+        c(context, cbVar, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MY_CONCERN);
     }
 
-    private static void b(Context context, bz bzVar, String str) {
+    private static void c(Context context, cb cbVar, String str) {
         if (!j.isNetWorkAvailable()) {
             l.showLongToast(context, context.getString(R.string.no_network_guide));
-        } else if (context != null && bzVar != null && bzVar.bnx() != null && bzVar.bnQ() != null) {
+        } else if (context != null && cbVar != null && cbVar.bnQ() != null && cbVar.boj() != null) {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bzVar.bnx().getUserId();
+                String userId = cbVar.bnQ().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bzVar.bnQ());
+            alaLiveInfoCoreData.fillWithInfoData(cbVar.boj());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
         }
     }
 
-    public static int[] fV(Context context) {
+    public static int[] fU(Context context) {
         int dimensionPixelSize = l.getScreenDimensions(context)[0] - (context.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         return new int[]{dimensionPixelSize, (int) ((dimensionPixelSize * 9.0d) / 16.0d)};
     }
 
     public static boolean a(SdkLiveInfoData sdkLiveInfoData) {
-        return (sdkLiveInfoData == null || sdkLiveInfoData.liveInfo == null || at.isEmpty(sdkLiveInfoData.liveId) || at.isEmpty(sdkLiveInfoData.roomId) || !at.equals(sdkLiveInfoData.source, "jiaoyoufang") || sdkLiveInfoData.liveInfo.roomStatus != 2) ? false : true;
+        return (sdkLiveInfoData == null || sdkLiveInfoData.liveInfo == null || au.isEmpty(sdkLiveInfoData.liveId) || au.isEmpty(sdkLiveInfoData.roomId) || !au.equals(sdkLiveInfoData.source, "jiaoyoufang") || sdkLiveInfoData.liveInfo.roomStatus != 2) ? false : true;
     }
 }

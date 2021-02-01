@@ -5,7 +5,7 @@ import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 @TargetApi(14)
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TextureMediaPlayer extends MediaPlayerProxy implements IMediaPlayer, ISurfaceTextureHolder {
     private SurfaceTexture mSurfaceTexture;
     private ISurfaceTextureHost mSurfaceTextureHost;

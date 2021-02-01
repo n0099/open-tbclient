@@ -6,7 +6,7 @@ import android.os.Build;
 import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.compatible.menukey.MenuKeyUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ViewCommonUtil {
     public static Rect getVisibilityRegion(Activity activity) {
         Rect rect = new Rect();
@@ -39,5 +39,11 @@ public class ViewCommonUtil {
             }
         }
         return iArr;
+    }
+
+    public static void setForceDarkAllowed(View view, boolean z) {
+        if (view != null && Build.VERSION.SDK_INT >= 29) {
+            view.setForceDarkAllowed(z);
+        }
     }
 }

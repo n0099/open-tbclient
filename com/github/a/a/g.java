@@ -6,11 +6,11 @@ import android.util.Printer;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* loaded from: classes6.dex */
 public class g implements Printer {
-    private long pGB;
-    private long pGC = 0;
-    private long pGD = 0;
-    private a pGE;
-    private final boolean pGF;
+    private long pQG;
+    private long pQH = 0;
+    private long pQI = 0;
+    private a pQJ;
+    private final boolean pQK;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -18,64 +18,64 @@ public class g implements Printer {
     }
 
     public g(a aVar, long j, boolean z) {
-        this.pGB = IMConnection.RETRY_DELAY_TIMES;
-        this.pGE = null;
+        this.pQG = IMConnection.RETRY_DELAY_TIMES;
+        this.pQJ = null;
         if (aVar == null) {
             throw new IllegalArgumentException("blockListener should not be null.");
         }
-        this.pGE = aVar;
-        this.pGB = j;
-        this.pGF = z;
+        this.pQJ = aVar;
+        this.pQG = j;
+        this.pQK = z;
     }
 
     @Override // android.util.Printer
     public void println(String str) {
-        if (!this.pGF || !Debug.isDebuggerConnected()) {
+        if (!this.pQK || !Debug.isDebuggerConnected()) {
             if (str.charAt(0) == '>') {
-                this.pGC = System.currentTimeMillis();
-                this.pGD = SystemClock.currentThreadTimeMillis();
-                eyn();
+                this.pQH = System.currentTimeMillis();
+                this.pQI = SystemClock.currentThreadTimeMillis();
+                eAF();
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (iO(currentTimeMillis)) {
-                iP(currentTimeMillis);
+            if (iR(currentTimeMillis)) {
+                iS(currentTimeMillis);
             }
-            eyo();
+            eAG();
         }
     }
 
-    private boolean iO(long j) {
-        return j - this.pGC > this.pGB;
+    private boolean iR(long j) {
+        return j - this.pQH > this.pQG;
     }
 
-    private void iP(final long j) {
-        final long j2 = this.pGC;
-        final long j3 = this.pGD;
+    private void iS(final long j) {
+        final long j2 = this.pQH;
+        final long j3 = this.pQI;
         final long currentThreadTimeMillis = SystemClock.currentThreadTimeMillis();
-        e.eyl().post(new Runnable() { // from class: com.github.a.a.g.1
+        e.eAD().post(new Runnable() { // from class: com.github.a.a.g.1
             @Override // java.lang.Runnable
             public void run() {
-                g.this.pGE.d(j2, j, j3, currentThreadTimeMillis);
+                g.this.pQJ.d(j2, j, j3, currentThreadTimeMillis);
             }
         });
     }
 
-    private void eyn() {
-        if (c.eyg().pGq != null) {
-            c.eyg().pGq.start();
+    private void eAF() {
+        if (c.eAy().pQv != null) {
+            c.eAy().pQv.start();
         }
-        if (c.eyg().pGr != null) {
-            c.eyg().pGr.start();
+        if (c.eAy().pQw != null) {
+            c.eAy().pQw.start();
         }
     }
 
-    private void eyo() {
-        if (c.eyg().pGq != null) {
-            c.eyg().pGq.stop();
+    private void eAG() {
+        if (c.eAy().pQv != null) {
+            c.eAy().pQv.stop();
         }
-        if (c.eyg().pGr != null) {
-            c.eyg().pGr.stop();
+        if (c.eAy().pQw != null) {
+            c.eAy().pQw.stop();
         }
     }
 }

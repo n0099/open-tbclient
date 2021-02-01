@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.memberTask;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.FinishMemberTask.FinishMemberTaskResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FinishMemberTaskHttpResMessage extends TbHttpResponsedMessage {
     private int status;
 

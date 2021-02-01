@@ -5,40 +5,40 @@ import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private final List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
-    private com.baidu.adp.base.f eTl;
-    private BdTypeMultiColumnListView gSo;
-    private e gSp;
-    private h gSq;
+    private final List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
+    private com.baidu.adp.base.f eVB;
+    private BdTypeMultiColumnListView gUY;
+    private e gUZ;
+    private h gVa;
 
     public d(com.baidu.adp.base.f fVar, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
-        this.eTl = fVar;
-        this.gSo = bdTypeMultiColumnListView;
-        IY();
+        this.eVB = fVar;
+        this.gUY = bdTypeMultiColumnListView;
+        Kw();
     }
 
-    private void IY() {
-        this.gSp = new e((TbPageContext) this.eTl, com.baidu.tieba.ala.frsgamelive.b.c.gSy);
-        this.gSq = new h((TbPageContext) this.eTl, com.baidu.tieba.ala.frsgamelive.b.c.gSz);
-        this.bjZ.add(this.gSp);
-        this.bjZ.add(this.gSq);
-        this.gSo.addAdapters(this.bjZ);
+    private void Kw() {
+        this.gUZ = new e((TbPageContext) this.eVB, com.baidu.tieba.ala.frsgamelive.b.c.gVi);
+        this.gVa = new h((TbPageContext) this.eVB, com.baidu.tieba.ala.frsgamelive.b.c.gVj);
+        this.bns.add(this.gUZ);
+        this.bns.add(this.gVa);
+        this.gUY.addAdapters(this.bns);
     }
 
     public void setDatas(List<n> list) {
-        if (this.gSo != null) {
-            this.gSo.setData(list);
+        if (this.gUY != null) {
+            this.gUY.setData(list);
         }
     }
 
-    public void b(com.baidu.tieba.ala.g gVar) {
-        if (this.gSp != null) {
-            this.gSp.a(gVar);
+    public void b(com.baidu.tieba.ala.h hVar) {
+        if (this.gUZ != null) {
+            this.gUZ.a(hVar);
         }
-        if (this.gSq != null) {
-            this.gSq.a(gVar);
+        if (this.gVa != null) {
+            this.gVa.a(hVar);
         }
     }
 }

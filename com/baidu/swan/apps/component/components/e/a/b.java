@@ -16,7 +16,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.swan.apps.scheme.actions.b {
     public b(j jVar) {
         super(jVar, "/swanAPI/coverimage");
@@ -43,15 +43,15 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         bVar.a(new com.baidu.swan.apps.component.components.e.b.a() { // from class: com.baidu.swan.apps.component.components.e.a.b.1
             @Override // com.baidu.swan.apps.component.components.e.b.a
             public void a(int i, View view, @Nullable Object obj) {
-                c cVar = (c) bVar.akG();
+                c cVar = (c) bVar.ale();
                 switch (i) {
                     case 0:
                     case 1:
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", "loadState");
-                            jSONObject.put("parentId", cVar.cJe);
-                            jSONObject.put("viewId", cVar.cJc);
+                            jSONObject.put("parentId", cVar.cLs);
+                            jSONObject.put("viewId", cVar.cLq);
                             jSONObject.put("loadState", i == 1 ? "finish" : BdStatsConstant.StatsType.ERROR);
                         } catch (JSONException e) {
                             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", "loadState callback error", e);
@@ -63,12 +63,12 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
                 }
             }
         });
-        com.baidu.swan.apps.component.b.c akD = bVar.akD();
-        boolean isSuccess = akD.isSuccess();
+        com.baidu.swan.apps.component.b.c alb = bVar.alb();
+        boolean isSuccess = alb.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, akD.msg);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, alb.msg);
         }
         return isSuccess;
     }
@@ -86,7 +86,7 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.b.b bVar = (com.baidu.swan.apps.component.components.e.b.b) com.baidu.swan.apps.component.container.a.d(k);
         if (bVar == null) {
-            String str2 = "can't find imageCoverView component:#" + k.cJc;
+            String str2 = "can't find imageCoverView component:#" + k.cLq;
             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -114,18 +114,18 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.b.b bVar = (com.baidu.swan.apps.component.components.e.b.b) com.baidu.swan.apps.component.container.a.d(k);
         if (bVar == null) {
-            String str2 = "can't find imageCoverView component:#" + k.cJc;
+            String str2 = "can't find imageCoverView component:#" + k.cLq;
             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
         }
-        com.baidu.swan.apps.component.b.c akF = bVar.akF();
-        boolean isSuccess = akF.isSuccess();
+        com.baidu.swan.apps.component.b.c ald = bVar.ald();
+        boolean isSuccess = ald.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return isSuccess;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, akF.msg);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, ald.msg);
         return isSuccess;
     }
 

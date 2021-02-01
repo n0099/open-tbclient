@@ -3,7 +3,7 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static void postOnAnimation(View view, Runnable runnable) {
         if (Build.VERSION.SDK_INT >= 16) {
@@ -18,17 +18,17 @@ public class a {
         view.postOnAnimation(runnable);
     }
 
-    public static int Nt(int i) {
-        return Build.VERSION.SDK_INT >= 11 ? Nv(i) : Nu(i);
+    public static int NO(int i) {
+        return Build.VERSION.SDK_INT >= 11 ? NQ(i) : NP(i);
     }
 
     @TargetApi(5)
-    private static int Nu(int i) {
+    private static int NP(int i) {
         return (65280 & i) >> 8;
     }
 
     @TargetApi(11)
-    private static int Nv(int i) {
+    private static int NQ(int i) {
         return (65280 & i) >> 8;
     }
 }

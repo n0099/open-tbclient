@@ -1,5 +1,5 @@
 package com.baidu.ala.ndk;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AlaNDKRecorderAdapter {
     public static final int NATIVE_AUDIO_CAPTURE_FAIL_EXCEPTION = 3;
     public static final int NATIVE_AUDIO_ENCODE_FAIL_EXCEPTION = 4;
@@ -45,6 +45,8 @@ public class AlaNDKRecorderAdapter {
 
     private native int sendPCMDataNative2(long j, byte[] bArr, int i, long j2, long j3);
 
+    private native int sendYuvDataNative(long j, byte[] bArr, int i, int i2, int i3, long j2, long j3, String str, int i4, int[] iArr);
+
     private native void setDebugMonitor(long j, boolean z, int i);
 
     private native void setPreDetectedBestDnsNative(long j, String str, String str2);
@@ -62,8 +64,6 @@ public class AlaNDKRecorderAdapter {
     private native void syncStatConfig(long j, String str, String str2, int i);
 
     private native int updateVCodeParamNative(long j, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8);
-
-    protected native int sendYuvDataNative(long j, byte[] bArr, int i, int i2, int i3, long j2, long j3, String str, int i4);
 
     public void setNativeObject(long j) {
         this.mNativeObject = j;
@@ -133,8 +133,8 @@ public class AlaNDKRecorderAdapter {
         return sendEncodeVideoDataNative(this.mNativeObject, bArr, i, str, j, j2, i2);
     }
 
-    public int sendYuvDataNative(byte[] bArr, int i, int i2, int i3, long j, long j2, String str, int i4) {
-        return sendYuvDataNative(this.mNativeObject, bArr, i, i2, i3, j, j2, str, i4);
+    public int sendYuvData(byte[] bArr, int i, int i2, int i3, long j, long j2, String str, int i4, int[] iArr) {
+        return sendYuvDataNative(this.mNativeObject, bArr, i, i2, i3, j, j2, str, i4, iArr);
     }
 
     public String getPushStreamIpNative() {

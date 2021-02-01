@@ -1,7 +1,7 @@
 package com.baidu.tieba.sdk.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    com.baidu.tieba.sdk.c.a dbs();
+    com.baidu.tieba.sdk.c.a ddq();
 
-    void dbt();
+    void ddr();
 }

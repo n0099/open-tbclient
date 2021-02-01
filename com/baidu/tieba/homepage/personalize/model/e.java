@@ -17,18 +17,18 @@ public class e {
 
     public void i(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
-        bqN();
-        bqM();
+        brg();
+        brf();
     }
 
-    private void bqM() {
+    private void brf() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(CmdConfigSocket.CMD_REPORT_HOME_PIC_CLICK);
         bVar.setResponsedClass(RealTimeSocketResponse.class);
         bVar.setNeedAck(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void bqN() {
+    private void brg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003072, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.HOME_REALTIME_ADDRESS, CmdConfigSocket.CMD_REPORT_HOME_PIC_CLICK));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);

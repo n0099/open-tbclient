@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.data.AlaWheatInfoData;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.lottie.LottieAnimationView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
@@ -24,23 +24,23 @@ import com.baidu.live.view.SafeFrameLayout;
 import com.baidu.tieba.yuyinala.liveroom.wheat.e.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BaseWheatLayout extends SafeFrameLayout {
-    public int Yl;
-    public View dlt;
+    public int Yh;
+    public View dnE;
     public TbPageContext mTbPageContext;
     public View mView;
-    public List<WheatItemView> oAA;
-    private AlaWheatInfoData oAB;
-    public int oAC;
-    public int oAD;
-    public RelativeLayout oAE;
-    public a oAy;
-    public List<WheatItemView> oAz;
-    public List<AlaWheatInfoData> ozx;
-    public List<AlaWheatInfoData> ozy;
+    public List<AlaWheatInfoData> oJf;
+    public List<AlaWheatInfoData> oJg;
+    public a oKi;
+    public List<BaseWheatItemView> oKj;
+    public List<BaseWheatItemView> oKk;
+    private AlaWheatInfoData oKl;
+    public int oKm;
+    public int oKn;
+    public RelativeLayout oKo;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(AlaWheatInfoData alaWheatInfoData, boolean z, int i);
     }
@@ -55,25 +55,25 @@ public class BaseWheatLayout extends SafeFrameLayout {
 
     public BaseWheatLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Yl = e.d(100.0f, getContext());
+        this.Yh = e.d(100.0f, getContext());
         init();
         initView();
     }
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_wheat_container_layout, this);
-        this.oAE = (RelativeLayout) this.mView.findViewById(a.f.wheat_view_container);
-        this.dlt = this.mView.findViewById(a.f.mask);
+        this.oKo = (RelativeLayout) this.mView.findViewById(a.f.wheat_view_container);
+        this.dnE = this.mView.findViewById(a.f.mask);
     }
 
     private void init() {
         if (UtilHelper.getStatusBarHeight() > 0) {
-            this.Yl = UtilHelper.getStatusBarHeight() + e.d(74.0f, getContext());
+            this.Yh = UtilHelper.getStatusBarHeight() + e.d(74.0f, getContext());
         }
-        this.oAC = e.d(90.0f, getContext());
-        this.oAD = e.d(98.0f, getContext());
-        this.oAz = new ArrayList();
-        this.oAA = new ArrayList();
+        this.oKm = e.d(90.0f, getContext());
+        this.oKn = e.d(98.0f, getContext());
+        this.oKj = new ArrayList();
+        this.oKk = new ArrayList();
     }
 
     public void setTbPageContext(TbPageContext tbPageContext) {
@@ -83,25 +83,25 @@ public class BaseWheatLayout extends SafeFrameLayout {
     public AlaWheatInfoData am(int i, boolean z) {
         AlaWheatInfoData alaWheatInfoData = null;
         if (z) {
-            if (!ListUtils.isEmpty(this.ozx) && i >= 0 && i < this.ozx.size() && (alaWheatInfoData = this.ozx.get(i)) != null) {
+            if (!ListUtils.isEmpty(this.oJf) && i >= 0 && i < this.oJf.size() && (alaWheatInfoData = this.oJf.get(i)) != null) {
                 alaWheatInfoData.isHost = true;
             }
-        } else if (!ListUtils.isEmpty(this.ozy) && i >= 0 && i < this.ozy.size() && (alaWheatInfoData = this.ozy.get(i)) != null) {
+        } else if (!ListUtils.isEmpty(this.oJg) && i >= 0 && i < this.oJg.size() && (alaWheatInfoData = this.oJg.get(i)) != null) {
             alaWheatInfoData.isHost = false;
         }
         return alaWheatInfoData;
     }
 
     public void setOnItemClickListener(a aVar) {
-        this.oAy = aVar;
+        this.oKi = aVar;
     }
 
-    public void VC(String str) {
-        View VF = VF(str);
-        if (VF != null) {
-            AlaWheatInfoData ie = ie(str);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) VF.findViewById(a.f.speeding_lottieAnimationView);
-            if (ie == null || !ie.isOpenMike()) {
+    public void WA(String str) {
+        View WD = WD(str);
+        if (WD != null) {
+            AlaWheatInfoData iK = iK(str);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) WD.findViewById(a.f.speeding_lottieAnimationView);
+            if (iK == null || !iK.isOpenMike()) {
                 if (lottieAnimationView.getVisibility() == 0) {
                     lottieAnimationView.cancelAnimation();
                     lottieAnimationView.setVisibility(8);
@@ -109,7 +109,7 @@ public class BaseWheatLayout extends SafeFrameLayout {
             } else if (lottieAnimationView.getTag() == null || !(lottieAnimationView.getTag() instanceof String) || !TextUtils.equals(str, (String) lottieAnimationView.getTag()) || lottieAnimationView.getVisibility() != 0 || !lottieAnimationView.isAnimating()) {
                 lottieAnimationView.setVisibility(0);
                 lottieAnimationView.setRepeatCount(MessageConfig.BASE_SEGMENT_LENGTH);
-                lottieAnimationView.setAnimation(ie.isFemale() ? "connecting_wheat_female.json" : "connecting_wheat_male.json");
+                lottieAnimationView.setAnimation(iK.isFemale() ? "connecting_wheat_female.json" : "connecting_wheat_male.json");
                 lottieAnimationView.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout.1
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
@@ -134,19 +134,19 @@ public class BaseWheatLayout extends SafeFrameLayout {
         }
     }
 
-    public void VD(String str) {
+    public void WB(String str) {
         LottieAnimationView lottieAnimationView;
-        View VF = VF(str);
-        if (VF != null && (lottieAnimationView = (LottieAnimationView) VF.findViewById(a.f.speeding_lottieAnimationView)) != null) {
+        View WD = WD(str);
+        if (WD != null && (lottieAnimationView = (LottieAnimationView) WD.findViewById(a.f.speeding_lottieAnimationView)) != null) {
             lottieAnimationView.cancelAnimation();
             lottieAnimationView.setVisibility(8);
         }
     }
 
-    public void aS(String str, String str2, String str3) {
+    public void aT(String str, String str2, String str3) {
         AlaEmoticonView alaEmoticonView;
-        View VF = VF(str);
-        if (VF != null && (alaEmoticonView = (AlaEmoticonView) VF.findViewById(a.f.ala_emoticon_view)) != null) {
+        View WD = WD(str);
+        if (WD != null && (alaEmoticonView = (AlaEmoticonView) WD.findViewById(a.f.ala_emoticon_view)) != null) {
             alaEmoticonView.stopLoad();
             alaEmoticonView.aK(str2, str3);
             alaEmoticonView.setVisibility(0);
@@ -154,29 +154,29 @@ public class BaseWheatLayout extends SafeFrameLayout {
         }
     }
 
-    private synchronized View VF(String str) {
+    private synchronized View WD(String str) {
         View view;
         View view2 = null;
         synchronized (this) {
-            this.oAB = null;
+            this.oKl = null;
             int i = 0;
             while (true) {
-                if (i >= ListUtils.getCount(this.ozx)) {
+                if (i >= ListUtils.getCount(this.oJf)) {
                     break;
                 }
-                this.oAB = this.ozx.get(i);
-                if (str == null || this.oAB == null || !str.equals(this.oAB.uk)) {
+                this.oKl = this.oJf.get(i);
+                if (str == null || this.oKl == null || !str.equals(this.oKl.uk)) {
                     i++;
                 } else {
-                    view2 = (View) ListUtils.getItem(this.oAz, i);
+                    view2 = (View) ListUtils.getItem(this.oKj, i);
                     break;
                 }
             }
             if (view2 == null) {
-                for (int i2 = 0; i2 < ListUtils.getCount(this.ozy); i2++) {
-                    this.oAB = this.ozy.get(i2);
-                    if (str != null && this.oAB != null && str.equals(this.oAB.uk)) {
-                        view = (View) ListUtils.getItem(this.oAA, i2);
+                for (int i2 = 0; i2 < ListUtils.getCount(this.oJg); i2++) {
+                    this.oKl = this.oJg.get(i2);
+                    if (str != null && this.oKl != null && str.equals(this.oKl.uk)) {
+                        view = (View) ListUtils.getItem(this.oKk, i2);
                         break;
                     }
                 }
@@ -186,72 +186,72 @@ public class BaseWheatLayout extends SafeFrameLayout {
         return view;
     }
 
-    public synchronized View VG(String str) {
-        View VF;
-        VF = VF(str);
-        return VF != null ? VF.findViewById(a.f.user_avatar) : null;
+    public synchronized View WE(String str) {
+        View WD;
+        WD = WD(str);
+        return WD != null ? WD.findViewById(a.f.user_avatar) : null;
     }
 
-    public AlaWheatInfoData ie(String str) {
-        View VG = VG(str);
-        if (VG != null) {
-            AlaWheatInfoData alaWheatInfoData = (AlaWheatInfoData) this.oAB.clone();
+    public AlaWheatInfoData iK(String str) {
+        View WE = WE(str);
+        if (WE != null) {
+            AlaWheatInfoData alaWheatInfoData = (AlaWheatInfoData) this.oKl.clone();
             int[] iArr = new int[2];
-            VG.getLocationOnScreen(iArr);
-            alaWheatInfoData.locationCenterX = iArr[0] + (VG.getWidth() / 2);
-            alaWheatInfoData.locationCenterY = (VG.getHeight() / 2) + iArr[1];
+            WE.getLocationOnScreen(iArr);
+            alaWheatInfoData.locationCenterX = iArr[0] + (WE.getWidth() / 2);
+            alaWheatInfoData.locationCenterY = (WE.getHeight() / 2) + iArr[1];
             return alaWheatInfoData;
         }
         return null;
     }
 
     public void setMaskBg(boolean z) {
-        if (this.dlt != null) {
-            this.dlt.setClickable(z);
-            this.dlt.setFocusable(z);
-            this.dlt.setVisibility(z ? 0 : 8);
+        if (this.dnE != null) {
+            this.dnE.setClickable(z);
+            this.dnE.setFocusable(z);
+            this.dnE.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void ecx() {
+    public void eeL() {
         int[] screenFullSize;
         if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null && (screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity())) != null && screenFullSize.length > 0 && screenFullSize[0] > 0 && screenFullSize[0] < e.d(360.0f, getContext())) {
-            this.oAC = screenFullSize[0] / 4;
+            this.oKm = screenFullSize[0] / 4;
         }
     }
 
-    public boolean ecy() {
+    public boolean eeM() {
         int[] screenFullSize;
         return this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null && (screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity())) != null && screenFullSize.length > 0 && screenFullSize[0] > 0 && screenFullSize[0] < e.d(360.0f, getContext());
     }
 
-    public synchronized void a(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2, x xVar) {
-        ecA();
+    public synchronized void a(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2, ab abVar) {
+        eeO();
     }
 
-    public synchronized void a(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2, List<AlaWheatInfoData> list3, x xVar) {
-        ecA();
+    public synchronized void a(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2, List<AlaWheatInfoData> list3, ab abVar) {
+        eeO();
     }
 
     public int getWheatHeight() {
         return 0;
     }
 
-    public boolean ecz() {
+    public boolean eeN() {
         if (this.mTbPageContext == null) {
             return false;
         }
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
-        return this.oAE != null && screenFullSize != null && screenFullSize[0] > 0 && this.oAE.getMeasuredWidth() > 0 && this.oAE.getMeasuredWidth() > screenFullSize[0] + 200;
+        return this.oKo != null && screenFullSize != null && screenFullSize[0] > 0 && this.oKo.getMeasuredWidth() > 0 && this.oKo.getMeasuredWidth() > screenFullSize[0] + 200;
     }
 
-    private void ecA() {
+    private void eeO() {
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
-        if (this.oAE != null && ecz() && screenFullSize != null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.oAE.getLayoutParams();
+        if (this.oKo != null && eeN() && screenFullSize != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.oKo.getLayoutParams();
             layoutParams.width = screenFullSize[0];
             layoutParams.height = screenFullSize[1];
-            this.oAE.setLayoutParams(layoutParams);
+            this.oKo.setLayoutParams(layoutParams);
         }
     }
 }

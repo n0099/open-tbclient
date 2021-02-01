@@ -3,7 +3,7 @@ package com.baidu.fsg.face.base;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f2055a = 4;
+    public static final int f2053a = 4;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(int i) {

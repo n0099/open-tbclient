@@ -6,30 +6,30 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends BaseAdapter {
-    private TbPageContext<?> eSJ;
-    private View.OnClickListener fjU;
-    private c lkk;
-    private List<String> lkl;
+    private TbPageContext<?> eUY;
+    private View.OnClickListener fml;
+    private c lsq;
+    private List<String> lsr;
 
     public a(TbPageContext<?> tbPageContext, c cVar, View.OnClickListener onClickListener) {
-        this.eSJ = tbPageContext;
-        this.lkl = new ArrayList();
-        this.lkk = cVar;
-        this.lkl = this.lkk.dea();
-        this.fjU = onClickListener;
+        this.eUY = tbPageContext;
+        this.lsr = new ArrayList();
+        this.lsq = cVar;
+        this.lsr = this.lsq.dga();
+        this.fml = onClickListener;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.lkl.size();
+        return this.lsr.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     public String getItem(int i) {
-        return this.lkl.get(i);
+        return this.lsr.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -42,16 +42,16 @@ public class a extends BaseAdapter {
         b bVar;
         if (view == null) {
             b bVar2 = new b();
-            view = bVar2.gA(this.eSJ.getPageActivity());
-            bVar2.setOnClickListener(this.fjU);
-            bVar2.onChangeSkinType(this.eSJ);
+            view = bVar2.gB(this.eUY.getPageActivity());
+            bVar2.setOnClickListener(this.fml);
+            bVar2.onChangeSkinType(this.eUY);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
-        String str = this.lkl.get(i);
+        String str = this.lsr.get(i);
         bVar.setColor(str);
-        bVar.tJ(this.lkk.ddZ().equals(str));
+        bVar.tW(this.lsq.dfZ().equals(str));
         return view;
     }
 }

@@ -5,9 +5,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class k {
-    public static String bs(long j) {
+    public static String bw(long j) {
         long j2 = j / AppStatusRules.DEFAULT_GRANULARITY;
         long j3 = (j % AppStatusRules.DEFAULT_GRANULARITY) / 1000;
         String str = (j2 < 10 ? "0" : "") + j2 + ":";
@@ -21,7 +21,7 @@ public class k {
         return new SimpleDateFormat("yyyy-MM-dd").format(date);
     }
 
-    public static Date hG(String str) {
+    public static Date ib(String str) {
         try {
             return new SimpleDateFormat("yyyy-MM-dd").parse(str);
         } catch (ParseException e) {

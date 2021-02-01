@@ -8,7 +8,7 @@ import android.os.RemoteException;
 import android.support.v4.os.IResultReceiver;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class ResultReceiver implements Parcelable {
     public static final Parcelable.Creator<ResultReceiver> CREATOR = new Parcelable.Creator<ResultReceiver>() { // from class: android.support.v4.os.ResultReceiver.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +29,7 @@ public class ResultReceiver implements Parcelable {
     final boolean mLocal;
     IResultReceiver mReceiver;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     class MyRunnable implements Runnable {
         final int mResultCode;
         final Bundle mResultData;
@@ -45,7 +45,7 @@ public class ResultReceiver implements Parcelable {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     class MyResultReceiver extends IResultReceiver.Stub {
         MyResultReceiver() {
         }

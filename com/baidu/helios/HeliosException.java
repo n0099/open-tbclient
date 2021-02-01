@@ -1,5 +1,5 @@
 package com.baidu.helios;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HeliosException extends Exception {
     public HeliosException() {
     }

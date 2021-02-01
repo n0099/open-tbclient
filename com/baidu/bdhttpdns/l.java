@@ -5,17 +5,17 @@ import android.util.Log;
 final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1587a = false;
+    private static boolean f1585a = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(String str, Object... objArr) {
-        if (f1587a) {
+        if (f1585a) {
             Log.v("BDHttpDns", String.format(str, objArr));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(boolean z) {
-        f1587a = z;
+        f1585a = z;
     }
 }

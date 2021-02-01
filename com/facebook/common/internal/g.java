@@ -1,7 +1,7 @@
 package com.facebook.common.internal;
 
 import javax.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class g {
     public static void checkArgument(boolean z) {
         if (!z) {
@@ -47,18 +47,18 @@ public final class g {
         return t;
     }
 
-    public static int dY(int i, int i2) {
-        return t(i, i2, "index");
+    public static int dV(int i, int i2) {
+        return r(i, i2, "index");
     }
 
-    public static int t(int i, int i2, @Nullable String str) {
+    public static int r(int i, int i2, @Nullable String str) {
         if (i < 0 || i >= i2) {
-            throw new IndexOutOfBoundsException(u(i, i2, str));
+            throw new IndexOutOfBoundsException(s(i, i2, str));
         }
         return i;
     }
 
-    private static String u(int i, int i2, @Nullable String str) {
+    private static String s(int i, int i2, @Nullable String str) {
         if (i < 0) {
             return format("%s (%s) must not be negative", str, Integer.valueOf(i));
         }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alaar.sticker.download.a;
 
 import com.baidu.tieba.ala.alaar.sticker.download.exception.DownloadException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
     void b(DownloadException downloadException);
 

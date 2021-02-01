@@ -16,20 +16,20 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class HomePageYoungsterTopView extends RelativeLayout {
-    private TextView kei;
-    private ImageView kej;
-    private b kek;
-    private a kel;
+    private TextView kmr;
+    private ImageView kms;
+    private b kmt;
+    private a kmu;
     private TbPageContext<?> pageContext;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void cPq();
+        void cRp();
     }
 
     public HomePageYoungsterTopView(TbPageContext<?> tbPageContext) {
@@ -52,18 +52,18 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.view_homepage_youngster_top, this);
-        this.kei = (TextView) findViewById(R.id.youngster_top_text);
-        this.kej = (ImageView) findViewById(R.id.youngster_top_delete);
+        this.kmr = (TextView) findViewById(R.id.youngster_top_text);
+        this.kms = (ImageView) findViewById(R.id.youngster_top_delete);
         SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
-        this.kek = new b(getContext());
-        spannableString.setSpan(this.kek, 9, 13, 33);
-        this.kei.setText(spannableString);
-        this.kei.setMovementMethod(LinkMovementMethod.getInstance());
-        this.kej.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.HomePageYoungsterTopView.1
+        this.kmt = new b(getContext());
+        spannableString.setSpan(this.kmt, 9, 13, 33);
+        this.kmr.setText(spannableString);
+        this.kmr.setMovementMethod(LinkMovementMethod.getInstance());
+        this.kms.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.HomePageYoungsterTopView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HomePageYoungsterTopView.this.kel != null) {
-                    HomePageYoungsterTopView.this.kel.cPq();
+                if (HomePageYoungsterTopView.this.kmu != null) {
+                    HomePageYoungsterTopView.this.kmu.cRp();
                 }
             }
         });
@@ -71,34 +71,34 @@ public class HomePageYoungsterTopView extends RelativeLayout {
     }
 
     public void setOnDeleteClick(a aVar) {
-        this.kel = aVar;
+        this.kmu = aVar;
     }
 
     public void onChangeSkinType() {
-        ao.setBackgroundColor(this, R.color.CAM_X0206);
-        ao.setViewTextColor(this.kei, R.color.CAM_X0107);
-        ao.setImageResource(this.kej, R.drawable.icon_home_card_delete);
+        ap.setBackgroundColor(this, R.color.CAM_X0206);
+        ap.setViewTextColor(this.kmr, R.color.CAM_X0107);
+        ap.setImageResource(this.kms, R.drawable.icon_home_card_delete);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b extends ClickableSpan {
-        WeakReference<Context> ken;
+        WeakReference<Context> kmw;
 
         public b(Context context) {
-            this.ken = new WeakReference<>(context);
+            this.kmw = new WeakReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(ao.getColor(R.color.CAM_X0302));
+            textPaint.setColor(ap.getColor(R.color.CAM_X0302));
             textPaint.setUnderlineText(false);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            Context context = this.ken.get();
-            if (context != null && com.baidu.tbadk.youngster.b.c.bIM()) {
+            Context context = this.kmw.get();
+            if (context != null && com.baidu.tbadk.youngster.b.c.bJf()) {
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
                 youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);

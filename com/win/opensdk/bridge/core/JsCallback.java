@@ -10,10 +10,10 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class JsCallback {
     private String java;
-    private WeakReference<WebView> pZD;
+    private WeakReference<WebView> qjH;
 
     private JsCallback(WebView webView, String str) {
-        this.pZD = new WeakReference<>(webView);
+        this.qjH = new WeakReference<>(webView);
         this.java = str;
     }
 
@@ -22,7 +22,7 @@ public class JsCallback {
     }
 
     public void b(boolean z, JSONObject jSONObject, String str) {
-        final WebView webView = this.pZD.get();
+        final WebView webView = this.qjH.get();
         if (webView == null) {
             throw new JsCallbackException("The WebView related to the JsCallback has been recycled!");
         }
@@ -46,7 +46,7 @@ public class JsCallback {
         if (AsyncTaskExecutor.isMainThread()) {
             webView.loadUrl(format);
         } else {
-            AsyncTaskExecutor.d(new Runnable() { // from class: com.win.opensdk.bridge.core.JsCallback.1
+            AsyncTaskExecutor.B(new Runnable() { // from class: com.win.opensdk.bridge.core.JsCallback.1
                 @Override // java.lang.Runnable
                 public void run() {
                     webView.loadUrl(format);

@@ -11,66 +11,66 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.coreExtra.messageCenter.b;
 import com.baidu.tieba.myCollection.message.RequestQueryCollectUpdateNumMessage;
 import com.baidu.tieba.myCollection.message.ResponseQueryCollectUpdateNumMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static a lpD;
-    private long kJP = 0;
+    private static a lxH;
+    private long kRS = 0;
     @SuppressLint({"HandlerLeak"})
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.myCollection.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
-                a.this.kJP = System.currentTimeMillis();
+                a.this.kRS = System.currentTimeMillis();
                 MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
                 a.this.mHandler.sendMessageDelayed(a.this.mHandler.obtainMessage(1), 1800000L);
             }
         }
     };
-    private final c krM = new c(CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM) { // from class: com.baidu.tieba.myCollection.a.a.2
+    private final c kzT = new c(CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM) { // from class: com.baidu.tieba.myCollection.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 303005 && (socketResponsedMessage instanceof ResponseQueryCollectUpdateNumMessage)) {
-                b.bxj().setMsgBookmark(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
+                b.bxB().setMsgBookmark(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
             }
         }
     };
 
     static {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        lpD = null;
+        lxH = null;
     }
 
-    public static synchronized a dfP() {
+    public static synchronized a dhQ() {
         a aVar;
         synchronized (a.class) {
-            if (lpD == null) {
-                lpD = new a();
+            if (lxH == null) {
+                lxH = new a();
             }
-            aVar = lpD;
+            aVar = lxH;
         }
         return aVar;
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.krM);
+        MessageManager.getInstance().registerListener(this.kzT);
     }
 
     public void restart() {
-        this.kJP = 0L;
+        this.kRS = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.kJP;
+        long currentTimeMillis = System.currentTimeMillis() - this.kRS;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 1800000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 1800000 - j);
         }
-        this.kJP = System.currentTimeMillis();
+        this.kRS = System.currentTimeMillis();
     }
 
     public void destroy() {

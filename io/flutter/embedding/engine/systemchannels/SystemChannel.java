@@ -6,7 +6,7 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.JSONMessageCodec;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class SystemChannel {
     private static final String TAG = "SystemChannel";
     @NonNull

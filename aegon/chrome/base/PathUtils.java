@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class PathUtils {
     public static final /* synthetic */ boolean $assertionsDisabled = !PathUtils.class.desiredAssertionStatus();
     public static String sCacheSubDirectory;
@@ -20,7 +20,7 @@ public abstract class PathUtils {
     public static FutureTask<String[]> sDirPathFetchTask;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Holder {
         public static final String[] DIRECTORY_PATHS = PathUtils.access$000();
     }

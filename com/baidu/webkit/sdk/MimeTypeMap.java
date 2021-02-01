@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class MimeTypeMap {
     private static final MimeTypeMap sMimeTypeMap = new MimeTypeMap();
 

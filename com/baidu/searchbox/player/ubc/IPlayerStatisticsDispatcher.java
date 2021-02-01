@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.ubc;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IPlayerStatisticsDispatcher {
     void end(int i);
 

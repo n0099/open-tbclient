@@ -3,7 +3,7 @@ package com.ksad.download.d;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static boolean a(Context context) {
         boolean z;

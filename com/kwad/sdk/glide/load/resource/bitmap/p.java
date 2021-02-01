@@ -7,15 +7,15 @@ import android.os.Build;
 import android.util.Log;
 import com.kwad.sdk.glide.load.DecodeFormat;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final File f10288a = new File("/proc/self/fd");
+    private static final File f10290a = new File("/proc/self/fd");
     private static volatile p d;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile int f10289b;
+    private volatile int f10291b;
     private volatile boolean c = true;
 
     private p() {
@@ -36,11 +36,11 @@ final class p {
     private synchronized boolean b() {
         boolean z;
         synchronized (this) {
-            int i = this.f10289b + 1;
-            this.f10289b = i;
+            int i = this.f10291b + 1;
+            this.f10291b = i;
             if (i >= 50) {
-                this.f10289b = 0;
-                int length = f10288a.list().length;
+                this.f10291b = 0;
+                int length = f10290a.list().length;
                 this.c = length < 700;
                 if (!this.c && Log.isLoggable("Downsampler", 5)) {
                     Log.w("Downsampler", "Excluding HARDWARE bitmap config because we're over the file descriptor limit, file descriptors " + length + ", limit 700");

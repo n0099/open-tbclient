@@ -2,11 +2,11 @@ package com.baidu.mobstat;
 
 import com.baidu.mobstat.cq;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class co extends cr implements cn {
 
     /* renamed from: a  reason: collision with root package name */
-    static final ByteBuffer f3795a = ByteBuffer.allocate(0);
+    static final ByteBuffer f3798a = ByteBuffer.allocate(0);
     private int f;
     private String g;
 
@@ -106,6 +106,6 @@ public class co extends cr implements cn {
 
     @Override // com.baidu.mobstat.cr, com.baidu.mobstat.cq
     public ByteBuffer c() {
-        return this.f == 1005 ? f3795a : super.c();
+        return this.f == 1005 ? f3798a : super.c();
     }
 }

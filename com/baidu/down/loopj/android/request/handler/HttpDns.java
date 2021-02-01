@@ -19,7 +19,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class HttpDns {
     private static final String ACCOUNT_ID = "0024";
     private static final int EMPTY_RESULT_HOST_TTL = 300;
@@ -54,7 +54,7 @@ public final class HttpDns {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class HostObject {
         private String hostName;
         private String[] ip;
@@ -105,7 +105,7 @@ public final class HttpDns {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class QueryHostTask implements Callable<String[]> {
         private String hostName;
         private boolean isRequestRetried = false;

@@ -10,37 +10,37 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.tencent.turingfd.sdk.ams.au.ap;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f13517a = ab.a("turingfd_conf_").append(af.f13467a).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("auMini").toString();
+    public static final String f13519a = ab.a("turingfd_conf_").append(af.f13469a).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("auMini").toString();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f13518b;
+    public Handler f13520b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f13519a;
+        public final /* synthetic */ Context f13521a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f13520b;
+        public final /* synthetic */ Map f13522b;
 
         public a(Context context, Map map) {
-            this.f13519a = context;
-            this.f13520b = map;
+            this.f13521a = context;
+            this.f13522b = map;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.a(this.f13519a, this.f13520b);
+            c.this.a(this.f13521a, this.f13522b);
         }
     }
 
     public c(Handler handler) {
-        this.f13518b = handler;
+        this.f13520b = handler;
     }
 
     public static long a(Context context) {
@@ -52,7 +52,7 @@ public class c {
     }
 
     public static String a(Context context, String str) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(f13517a, 0);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(f13519a, 0);
         if (sharedPreferences == null) {
             return "";
         }
@@ -98,7 +98,7 @@ public class c {
     public void a(Context context, ae<Long> aeVar) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < aeVar.a(); i++) {
-            sb.append(aeVar.f13466b.get(i));
+            sb.append(aeVar.f13468b.get(i));
             if (i != aeVar.a() - 1) {
                 sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             }
@@ -108,8 +108,8 @@ public class c {
 
     public void a(Context context, ap apVar) {
         HashMap hashMap = new HashMap();
-        hashMap.put("101", apVar.f13484b);
-        hashMap.put(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY, "" + apVar.c);
+        hashMap.put("101", apVar.f13486b);
+        hashMap.put("102", "" + apVar.c);
         if (!TextUtils.isEmpty(apVar.e)) {
             hashMap.put(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE, apVar.e);
         }
@@ -139,7 +139,7 @@ public class c {
 
     public final void a(Context context, Map<String, String> map) {
         SharedPreferences.Editor edit;
-        SharedPreferences sharedPreferences = context.getSharedPreferences(f13517a, 0);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(f13519a, 0);
         if (sharedPreferences == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
@@ -159,7 +159,7 @@ public class c {
         if (z) {
             a(context, map);
         } else {
-            this.f13518b.post(new a(context, map));
+            this.f13520b.post(new a(context, map));
         }
     }
 
@@ -174,7 +174,7 @@ public class c {
         }
         long j = 0;
         try {
-            j = Long.valueOf(a(context, TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY)).longValue();
+            j = Long.valueOf(a(context, "102")).longValue();
         } catch (Throwable th) {
         }
         String a3 = a(context, TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE);
@@ -182,8 +182,8 @@ public class c {
         String a5 = a(context, TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT);
         String a6 = a(context, TbEnum.SystemMessage.EVENT_ID_COMMON);
         ap.b b2 = ap.b(0);
-        b2.f13486b = j;
-        b2.f13485a = a2;
+        b2.f13488b = j;
+        b2.f13487a = a2;
         b2.e = a3;
         b2.f = a4;
         b2.g = a5;

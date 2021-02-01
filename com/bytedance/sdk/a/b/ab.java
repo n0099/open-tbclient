@@ -6,99 +6,99 @@ import java.net.URL;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class ab {
 
     /* renamed from: b  reason: collision with root package name */
-    final String f5948b;
+    final String f5950b;
     final Object e;
-    final s pdE;
-    final ac peC;
-    final v pjV;
-    private volatile g pjW;
+    final s pnR;
+    final ac poS;
+    final v pul;
+    private volatile g pum;
 
     ab(a aVar) {
-        this.pdE = aVar.pdE;
-        this.f5948b = aVar.f5949b;
-        this.pjV = aVar.pjX.enC();
-        this.peC = aVar.peC;
+        this.pnR = aVar.pnR;
+        this.f5950b = aVar.f5951b;
+        this.pul = aVar.pun.epV();
+        this.poS = aVar.poS;
         this.e = aVar.e != null ? aVar.e : this;
     }
 
-    public s emp() {
-        return this.pdE;
+    public s eoJ() {
+        return this.pnR;
     }
 
     public String b() {
-        return this.f5948b;
+        return this.f5950b;
     }
 
-    public v emV() {
-        return this.pjV;
+    public v epp() {
+        return this.pul;
     }
 
     public String a(String str) {
-        return this.pjV.a(str);
+        return this.pul.a(str);
     }
 
-    public ac eoc() {
-        return this.peC;
+    public ac eqv() {
+        return this.poS;
     }
 
-    public a eod() {
+    public a eqw() {
         return new a(this);
     }
 
-    public g eoe() {
-        g gVar = this.pjW;
+    public g eqx() {
+        g gVar = this.pum;
         if (gVar != null) {
             return gVar;
         }
-        g d = g.d(this.pjV);
-        this.pjW = d;
+        g d = g.d(this.pul);
+        this.pum = d;
         return d;
     }
 
     public boolean g() {
-        return this.pdE.c();
+        return this.pnR.c();
     }
 
     public String toString() {
-        return "Request{method=" + this.f5948b + ", url=" + this.pdE + ", tag=" + (this.e != this ? this.e : null) + '}';
+        return "Request{method=" + this.f5950b + ", url=" + this.pnR + ", tag=" + (this.e != this ? this.e : null) + '}';
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: b  reason: collision with root package name */
-        String f5949b;
+        String f5951b;
         Object e;
-        s pdE;
-        ac peC;
-        v.a pjX;
+        s pnR;
+        ac poS;
+        v.a pun;
 
         public a() {
-            this.f5949b = "GET";
-            this.pjX = new v.a();
+            this.f5951b = "GET";
+            this.pun = new v.a();
         }
 
         a(ab abVar) {
-            this.pdE = abVar.pdE;
-            this.f5949b = abVar.f5948b;
-            this.peC = abVar.peC;
+            this.pnR = abVar.pnR;
+            this.f5951b = abVar.f5950b;
+            this.poS = abVar.poS;
             this.e = abVar.e;
-            this.pjX = abVar.pjV.enB();
+            this.pun = abVar.pul.epU();
         }
 
         public a f(s sVar) {
             if (sVar == null) {
                 throw new NullPointerException("url == null");
             }
-            this.pdE = sVar;
+            this.pnR = sVar;
             return this;
         }
 
-        public a XN(String str) {
+        public a YO(String str) {
             if (str == null) {
                 throw new NullPointerException("url == null");
             }
@@ -107,11 +107,11 @@ public final class ab {
             } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
                 str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
             }
-            s XH = s.XH(str);
-            if (XH == null) {
+            s YI = s.YI(str);
+            if (YI == null) {
                 throw new IllegalArgumentException("unexpected url: " + str);
             }
-            return f(XH);
+            return f(YI);
         }
 
         public a e(URL url) {
@@ -125,31 +125,31 @@ public final class ab {
             return f(d);
         }
 
-        public a hf(String str, String str2) {
-            this.pjX.he(str, str2);
+        public a hm(String str, String str2) {
+            this.pun.hl(str, str2);
             return this;
         }
 
-        public a hg(String str, String str2) {
-            this.pjX.hc(str, str2);
+        public a hn(String str, String str2) {
+            this.pun.hj(str, str2);
             return this;
         }
 
-        public a XO(String str) {
-            this.pjX.XE(str);
+        public a YP(String str) {
+            this.pun.YF(str);
             return this;
         }
 
         public a e(v vVar) {
-            this.pjX = vVar.enB();
+            this.pun = vVar.epU();
             return this;
         }
 
-        public a eog() {
+        public a eqy() {
             return a("GET", null);
         }
 
-        public a eoh() {
+        public a eqz() {
             return a(HttpHead.METHOD_NAME, null);
         }
 
@@ -161,8 +161,8 @@ public final class ab {
             return a(HttpDelete.METHOD_NAME, acVar);
         }
 
-        public a eoi() {
-            return b(com.bytedance.sdk.a.b.a.c.peC);
+        public a eqA() {
+            return b(com.bytedance.sdk.a.b.a.c.poS);
         }
 
         public a c(ac acVar) {
@@ -186,13 +186,13 @@ public final class ab {
             if (acVar == null && com.bytedance.sdk.a.b.a.c.f.b(str)) {
                 throw new IllegalArgumentException("method " + str + " must have a request body.");
             }
-            this.f5949b = str;
-            this.peC = acVar;
+            this.f5951b = str;
+            this.poS = acVar;
             return this;
         }
 
-        public ab eoj() {
-            if (this.pdE == null) {
+        public ab eqB() {
+            if (this.pnR == null) {
                 throw new IllegalStateException("url == null");
             }
             return new ab(this);

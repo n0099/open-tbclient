@@ -5,7 +5,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.qq.e.comm.plugin.util.o;
 import com.qq.e.comm.util.Md5Util;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class f extends b {
     @Override // com.qq.e.comm.plugin.h.a
     public String a(Context context) {

@@ -11,19 +11,19 @@ import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.core.a.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Presenter {
 
     /* renamed from: b  reason: collision with root package name */
-    private View f10483b;
+    private View f10485b;
     private Object c;
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<Presenter> f10482a = new ArrayList();
+    private final List<Presenter> f10484a = new ArrayList();
     private PresenterState d = PresenterState.INIT;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum PresenterState {
         INIT(0) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.1
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
@@ -33,9 +33,9 @@ public class Presenter {
         CREATE(1) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.2
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             public void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f10482a) {
+                for (Presenter presenter2 : presenter.f10484a) {
                     try {
-                        presenter2.a(presenter.f10483b);
+                        presenter2.a(presenter.f10485b);
                     } catch (Exception e) {
                         a.a(e);
                         com.kwad.sdk.core.d.a.a(e);
@@ -46,7 +46,7 @@ public class Presenter {
         BIND(2) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.3
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f10482a) {
+                for (Presenter presenter2 : presenter.f10484a) {
                     try {
                         presenter2.a(presenter.c);
                     } catch (Exception e) {
@@ -59,7 +59,7 @@ public class Presenter {
         UNBIND(3) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.4
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f10482a) {
+                for (Presenter presenter2 : presenter.f10484a) {
                     try {
                         presenter2.i();
                     } catch (Exception e) {
@@ -72,7 +72,7 @@ public class Presenter {
         DESTROY(4) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.5
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f10482a) {
+                for (Presenter presenter2 : presenter.f10484a) {
                     try {
                         presenter2.j();
                     } catch (Exception e) {
@@ -103,17 +103,17 @@ public class Presenter {
     @UiThread
     public final void a(View view) {
         this.d = PresenterState.CREATE;
-        this.f10483b = view;
+        this.f10485b = view;
         c();
         this.d.performCallState(this);
     }
 
     public final void a(Presenter presenter) {
-        this.f10482a.add(presenter);
+        this.f10484a.add(presenter);
         if (!k() || presenter.k()) {
             return;
         }
-        a(this.f10483b);
+        a(this.f10485b);
     }
 
     @UiThread
@@ -131,7 +131,7 @@ public class Presenter {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final <T extends View> T b(int i) {
-        return (T) this.f10483b.findViewById(i);
+        return (T) this.f10485b.findViewById(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -168,7 +168,7 @@ public class Presenter {
     }
 
     public View l() {
-        return this.f10483b;
+        return this.f10485b;
     }
 
     @Nullable
@@ -194,9 +194,9 @@ public class Presenter {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final Context o() {
-        if (this.f10483b == null) {
+        if (this.f10485b == null) {
             return null;
         }
-        return this.f10483b.getContext();
+        return this.f10485b.getContext();
     }
 }

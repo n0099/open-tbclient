@@ -11,14 +11,14 @@ import org.a.d;
 public final class FlowableGenerate<T, S> extends g<T> {
     final io.reactivex.b.g<? super S> disposeState;
     final io.reactivex.b.c<S, f<T>, S> generator;
-    final Callable<S> qek;
+    final Callable<S> qoo;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            cVar.onSubscribe(new GeneratorSubscription(cVar, this.generator, this.disposeState, this.qek.call()));
+            cVar.onSubscribe(new GeneratorSubscription(cVar, this.generator, this.disposeState, this.qoo.call()));
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.O(th);
+            io.reactivex.exceptions.a.N(th);
             EmptySubscription.error(th, cVar);
         }
     }
@@ -65,7 +65,7 @@ public final class FlowableGenerate<T, S> extends g<T> {
                             }
                             j2++;
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.O(th);
+                            io.reactivex.exceptions.a.N(th);
                             this.cancelled = true;
                             this.state = null;
                             onError(th);
@@ -93,7 +93,7 @@ public final class FlowableGenerate<T, S> extends g<T> {
             try {
                 this.disposeState.accept(s);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 io.reactivex.d.a.onError(th);
             }
         }

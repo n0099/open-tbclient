@@ -3,49 +3,56 @@ package com.baidu.mobads.vo;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.AdSettings;
+import com.baidu.mobads.constants.XAdSDKProxyVersion;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdProdInfo;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.interfaces.utils.IXAdActivityUtils;
 import com.baidu.mobads.interfaces.utils.IXAdConstants;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.mobads.utils.e;
+import com.baidu.mobads.utils.h;
+import com.baidu.mobads.utils.t;
+import com.baidu.tbadk.util.AdExtParam;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class d implements IXAdRequestInfo {
     protected Context d;
     protected Activity e;
     protected IXAdConstants4PDK.SlotType f;
     protected IXAdProdInfo g;
-    private int k;
-    private int l;
-    private int p;
+    protected boolean j;
+    private int m;
+    private int n;
     private int r;
+    private int t;
     protected String c = "TODO";
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3524a = HttpConstants.OS_TYPE_VALUE;
-    private String j = "";
-    private int m = XAdSDKFoundationFacade.getInstance().getAdConstants().getAdCreativeTypeImage();
-    private String n = "LP,DL";
-    private String o = "";
-    private int q = 0;
-    private boolean s = true;
-    private long t = System.currentTimeMillis();
+    private String f3528a = HttpConstants.OS_TYPE_VALUE;
+    private String l = "";
+    private int o = XAdSDKFoundationFacade.getInstance().getAdConstants().getAdCreativeTypeImage();
+    private String p = "LP,DL";
+    private String q = "";
+    private int s = 0;
+    private boolean u = true;
+    private long v = System.currentTimeMillis();
 
     /* renamed from: b  reason: collision with root package name */
-    protected String f3525b = "";
+    protected String f3529b = "";
     protected IXAdConstants h = XAdSDKFoundationFacade.getInstance().getAdConstants();
     protected IXAdURIUitls i = XAdSDKFoundationFacade.getInstance().getURIUitls();
+    protected IXAdActivityUtils k = XAdSDKFoundationFacade.getInstance().getActivityUtils();
 
     protected abstract HashMap<String, String> a();
 
@@ -56,6 +63,7 @@ public abstract class d implements IXAdRequestInfo {
         if (this.e == null && activity != null) {
             this.e = activity;
         }
+        this.j = this.k.webviewMultiProcess(this.e);
         this.f = slotType;
         this.g = new b(this, this.f);
         c(this.f.getValue());
@@ -72,16 +80,16 @@ public abstract class d implements IXAdRequestInfo {
         String str2;
         String str3;
         IXAdSystemUtils systemUtils = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
+        h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
         HashMap<String, String> hashMap = new HashMap<>();
         try {
             hashMap.put("net", "" + systemUtils.getNetworkCatagory(this.d));
             hashMap.put("n", "" + getN());
             hashMap.put("at", "" + getAt());
-            hashMap.put("v", f() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30");
+            hashMap.put("v", f() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + com.baidu.mobads.constants.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30");
             hashMap.put(IXAdRequestInfo.CS, "");
             hashMap.put("pk", commonUtils.getAppPackage(this.d));
-            hashMap.put(IXAdRequestInfo.SDK_VALID, "sdk_8.8146");
+            hashMap.put(IXAdRequestInfo.SDK_VALID, "sdk_8.8451");
             String appId = commonUtils.getAppId(this.d);
             hashMap.put(IXAdRequestInfo.COST_NAME, appId + "_cpr");
             hashMap.put("appid", appId);
@@ -93,7 +101,7 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put("h", "" + getH());
             Rect screenRect = commonUtils.getScreenRect(this.d);
             hashMap.put("sw", "" + screenRect.width());
-            hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, "" + screenRect.height());
+            hashMap.put("sh", "" + screenRect.height());
             hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(getW() / displayMetrics.density)));
             hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, String.valueOf(Math.round(getH() / displayMetrics.density)));
             hashMap.put(IXAdRequestInfo.SN, systemUtils.getSn(this.d));
@@ -164,13 +172,27 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put("mac", systemUtils.getMacAddress(this.d));
             hashMap.put("cuid", systemUtils.getCUID(this.d));
             hashMap.put("snfrom", systemUtils.getSnFrom(this.d));
-            hashMap.put(IXAdRequestInfo.P_VER, "8.8146");
+            hashMap.put(IXAdRequestInfo.P_VER, XAdSDKProxyVersion.RELEASE_TAG);
             hashMap.put("req_id", commonUtils.createRequestId(this.d, getApid()));
             hashMap.put("cssid", systemUtils.isWifiConnected(this.d).booleanValue() ? systemUtils.getWifiConnected(this.d) : "");
+            hashMap.put("msa", String.valueOf(1));
             if (AdSettings.getSupportHttps().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a())) {
                 hashMap.put("rpt", String.valueOf(AdSettings.b.HTTPS_PROTOCOL_TYPE.a()));
+                hashMap.put("app_ver", "" + b(this.d));
             }
-            hashMap.put(IXAdRequestInfo.APP_VERSION_NAME, "" + b(this.d));
+            Context context = this.d;
+            Context context2 = this.d;
+            SharedPreferences sharedPreferences = context.getSharedPreferences("mobads_aplist_status", 0);
+            if (sharedPreferences != null) {
+                hashMap.put(AdExtParam.KEY_IADEX, sharedPreferences.getString("n_iad_sniff_result", ""));
+            }
+            Context context3 = this.d;
+            Context context4 = this.d;
+            SharedPreferences sharedPreferences2 = context3.getSharedPreferences("mobads_uniqueidentifier", 0);
+            if (sharedPreferences2 != null) {
+                hashMap.put("oaid", sharedPreferences2.getString("oaid", ""));
+            }
+            hashMap.put("imei2", "" + t.a().a(this.d));
         } catch (Exception e4) {
         }
         return hashMap;
@@ -179,78 +201,78 @@ public abstract class d implements IXAdRequestInfo {
     public String b() {
         HashMap<String, String> e = e();
         e.putAll(a());
-        return XAdSDKFoundationFacade.getInstance().getURIUitls().getRequestAdUrl(this.f3525b, e);
+        return XAdSDKFoundationFacade.getInstance().getURIUitls().getRequestAdUrl(this.f3529b, e);
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
     public boolean isCanClick() {
-        return this.s;
+        return this.u;
     }
 
     public void a(boolean z) {
-        this.s = z;
+        this.u = z;
     }
 
     public String f() {
-        return this.f3524a;
+        return this.f3528a;
     }
 
     public void a(String str) {
-        this.f3524a = str;
+        this.f3528a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
     public int getW() {
-        return this.k;
+        return this.m;
     }
 
     public void d(int i) {
-        this.k = i;
+        this.m = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
     public int getH() {
-        return this.l;
+        return this.n;
     }
 
     public void e(int i) {
-        this.l = i;
+        this.n = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
     public String getAct() {
-        return this.n;
+        return this.p;
     }
 
     public void b(String str) {
-        this.n = str;
+        this.p = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
     public String getProd() {
-        return this.o;
+        return this.q;
     }
 
     public void c(String str) {
-        this.o = str;
+        this.q = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
     public int getApt() {
-        return this.p;
+        return this.r;
     }
 
     public void f(int i) {
-        this.p = i;
+        this.r = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
     public int getN() {
-        return this.r;
+        return this.t;
     }
 
     public void g(int i) {
-        this.r = i;
+        this.t = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
@@ -270,41 +292,41 @@ public abstract class d implements IXAdRequestInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
     public long getSes() {
-        return this.t;
+        return this.v;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
     public int getAp() {
-        return this.q;
+        return this.s;
     }
 
     public void h(int i) {
-        this.q = i;
+        this.s = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
     public String getApid() {
-        return this.j;
+        return this.l;
     }
 
     public void d(String str) {
-        this.j = str;
+        this.l = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
     public int getAt() {
-        return this.m;
+        return this.o;
     }
 
     public void i(int i) {
-        this.m = i;
+        this.o = i;
     }
 
     private void a(Context context) {
-        if ("0.0".equals(com.baidu.mobads.a.a.c)) {
+        if ("0.0".equals(com.baidu.mobads.constants.a.c)) {
             double b2 = g.b(context);
             if (b2 > 0.0d) {
-                com.baidu.mobads.a.a.c = String.valueOf(b2);
+                com.baidu.mobads.constants.a.c = String.valueOf(b2);
             }
         }
     }

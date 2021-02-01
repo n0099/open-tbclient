@@ -7,7 +7,7 @@ import com.qq.e.comm.plugin.util.ah;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
     public static File a(File file, c cVar) {
         return new File(file, a(cVar.h()) + ".apk");

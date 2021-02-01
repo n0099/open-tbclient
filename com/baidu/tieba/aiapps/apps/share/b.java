@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends ActivityDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {
@@ -29,89 +29,94 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        bNb();
+        bNC();
         f(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        bNc();
+        bND();
     }
 
-    private void bNb() {
+    private void bNC() {
     }
 
-    private void bNc() {
+    private void bND() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mc(boolean z) {
+    public void mg(boolean z) {
         this.mResult.putBoolean("share_result", z);
-        bNc();
+        bND();
         finish();
     }
 
     private void f(Activity activity, String str) {
         if (activity == null) {
-            mc(false);
+            mg(false);
             return;
         }
         a aVar = new a();
         try {
-            aVar.dB(new JSONObject(str));
-            TbadkCoreApplication.getInst().setCurAiAppid(aVar.fsW);
+            aVar.dC(new JSONObject(str));
+            TbadkCoreApplication.getInst().setCurAiAppid(aVar.fvo);
             if (!TextUtils.isEmpty(aVar.getMediaType())) {
-                int aM = aM(-1, aVar.getMediaType());
-                if (!TextUtils.isEmpty(aVar.bMZ()) && !TextUtils.isEmpty(aVar.bNa())) {
+                int aR = aR(-1, aVar.getMediaType());
+                if (!TextUtils.isEmpty(aVar.bNA()) && !TextUtils.isEmpty(aVar.bNB())) {
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                    httpMessage.addParam("scheme", aVar.bMZ());
-                    httpMessage.setExtra(new com.baidu.tbadk.core.atomData.a(aVar, activity, aM));
+                    httpMessage.addParam("scheme", aVar.bNA());
+                    httpMessage.setExtra(new com.baidu.tbadk.core.atomData.a(aVar, activity, aR, new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.1
+                        @Override // android.content.DialogInterface.OnCancelListener
+                        public void onCancel(DialogInterface dialogInterface) {
+                            b.this.mg(true);
+                        }
+                    }));
                     MessageManager.getInstance().sendMessage(httpMessage);
-                } else {
-                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(activity, aM, aVar, true));
+                    return;
                 }
-                mc(com.baidu.tbadk.coreExtra.share.a.F(activity, aM));
+                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(activity, aR, aVar, true));
+                mg(com.baidu.tbadk.coreExtra.share.a.F(activity, aR));
                 return;
             }
-            TiebaStatic.log(new aq("c13530").dW("obj_id", aVar.fsW).an("obj_type", aVar.fsX).dW("obj_source", aVar.fsY));
+            TiebaStatic.log(new ar("c13530").dR("obj_id", aVar.fvo).ap("obj_type", aVar.fvp).dR("obj_source", aVar.fvq));
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(activity, aVar, false);
-            shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.1
+            shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.2
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.this.mc(false);
+                    b.this.mg(false);
                 }
             };
-            shareDialogConfig.onDismissListener = new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.2
+            shareDialogConfig.onDismissListener = new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.3
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
                 }
             };
-            JSONArray bMY = aVar.bMY();
-            if (bMY != null && !TextUtils.isEmpty(aVar.bMZ()) && !TextUtils.isEmpty(aVar.bNa())) {
+            JSONArray bNz = aVar.bNz();
+            if (bNz != null && !TextUtils.isEmpty(aVar.bNA()) && !TextUtils.isEmpty(aVar.bNB())) {
                 ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < bMY.length(); i++) {
+                for (int i = 0; i < bNz.length(); i++) {
                     try {
-                        arrayList.add(Integer.valueOf(aM(-1, bMY.getString(i))));
+                        arrayList.add(Integer.valueOf(aR(-1, bNz.getString(i))));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
-                if (!x.isEmpty(arrayList)) {
-                    aVar.bI(arrayList);
+                if (!y.isEmpty(arrayList)) {
+                    aVar.bD(arrayList);
                 }
                 HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                httpMessage2.addParam("scheme", aVar.bMZ());
+                httpMessage2.addParam("scheme", aVar.bNA());
                 httpMessage2.setExtra(new com.baidu.tbadk.core.atomData.a(aVar, activity, shareDialogConfig.onCancelListener));
                 MessageManager.getInstance().sendMessage(httpMessage2);
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         } catch (JSONException e2) {
-            mc(false);
+            mg(false);
         }
     }
 
-    private int aM(int i, String str) {
+    private int aR(int i, String str) {
         if (str.equals(LogConfig.LIVE_SHARE_WEIXIN_FRIEND)) {
             return 3;
         }

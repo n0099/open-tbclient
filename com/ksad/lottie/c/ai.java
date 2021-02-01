@@ -4,7 +4,7 @@ import android.util.JsonReader;
 import com.baidu.mobstat.Config;
 import com.ksad.lottie.model.content.ShapeTrimPath;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ai {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static ShapeTrimPath a(JsonReader jsonReader, com.ksad.lottie.d dVar) {

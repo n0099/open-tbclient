@@ -2,17 +2,17 @@ package com.qq.e.comm.plugin.util;
 
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Handler f12596a;
+    private static Handler f12598a;
 
     private static Handler a() {
-        if (f12596a == null) {
-            f12596a = new Handler(Looper.getMainLooper());
+        if (f12598a == null) {
+            f12598a = new Handler(Looper.getMainLooper());
         }
-        return f12596a;
+        return f12598a;
     }
 
     public static final void a(Object obj) {

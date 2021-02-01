@@ -9,74 +9,74 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.bubbleview.BubbleLayout;
-import com.baidu.live.data.k;
+import com.baidu.live.data.l;
 import com.baidu.live.sdk.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private BubbleLayout aXa;
-    private PopupWindow aXb;
-    private AdapterView.OnItemClickListener aXc;
-    private ListView aXd;
-    private b aXe;
+    private BubbleLayout bag;
+    private PopupWindow bah;
+    private AdapterView.OnItemClickListener bai;
+    private ListView baj;
+    private b bak;
     private Activity mActivity;
     private int mType;
 
     public c(Activity activity, int i, AdapterView.OnItemClickListener onItemClickListener) {
         this.mActivity = activity;
         this.mType = i;
-        this.aXc = onItemClickListener;
+        this.bai = onItemClickListener;
     }
 
-    public void a(View view, List<k> list, PopupWindow.OnDismissListener onDismissListener) {
+    public void a(View view, List<l> list, PopupWindow.OnDismissListener onDismissListener) {
         Resources resources = this.mActivity.getResources();
-        if (this.aXa == null) {
-            this.aXa = (BubbleLayout) View.inflate(this.mActivity, a.g.ala_gift_num_list, null);
-            this.aXd = (ListView) this.aXa.findViewById(a.f.gift_num_list);
-            this.aXd.setOnItemClickListener(this.aXc);
+        if (this.bag == null) {
+            this.bag = (BubbleLayout) View.inflate(this.mActivity, a.g.ala_gift_num_list, null);
+            this.baj = (ListView) this.bag.findViewById(a.f.gift_num_list);
+            this.baj.setOnItemClickListener(this.bai);
         }
         K(list);
-        this.aXb = new PopupWindow((View) this.aXa, resources.getDimensionPixelSize(a.d.sdk_ds200), (int) ((this.aXe.getCount() * (resources.getDimensionPixelSize(a.d.sdk_ds64) + resources.getDimensionPixelOffset(a.d.sdk_ds1))) + this.aXa.getArrowHeight() + 1.0f), true);
-        this.aXb.setTouchable(true);
-        this.aXb.setBackgroundDrawable(resources.getDrawable(a.e.sdk_transparent_bg));
-        this.aXb.setOnDismissListener(onDismissListener);
-        this.aXa.s(resources.getDimensionPixelSize(a.d.sdk_ds40));
-        ShowUtil.showPopupWindowAsDropDown(this.aXb, view, 0, -this.mActivity.getResources().getDimensionPixelSize(a.d.sdk_ds12));
+        this.bah = new PopupWindow((View) this.bag, resources.getDimensionPixelSize(a.d.sdk_ds200), (int) ((this.bak.getCount() * (resources.getDimensionPixelSize(a.d.sdk_ds64) + resources.getDimensionPixelOffset(a.d.sdk_ds1))) + this.bag.getArrowHeight() + 1.0f), true);
+        this.bah.setTouchable(true);
+        this.bah.setBackgroundDrawable(resources.getDrawable(a.e.sdk_transparent_bg));
+        this.bah.setOnDismissListener(onDismissListener);
+        this.bag.s(resources.getDimensionPixelSize(a.d.sdk_ds40));
+        ShowUtil.showPopupWindowAsDropDown(this.bah, view, 0, -this.mActivity.getResources().getDimensionPixelSize(a.d.sdk_ds12));
     }
 
     public void z(int i, int i2) {
-        if (this.aXa != null) {
-            this.aXa.x(i, i2);
+        if (this.bag != null) {
+            this.bag.x(i, i2);
         }
-        if (this.aXd != null) {
-            this.aXd.setBackgroundColor(0);
+        if (this.baj != null) {
+            this.baj.setBackgroundColor(0);
         }
     }
 
-    public void K(List<k> list) {
+    public void K(List<l> list) {
         ArrayList arrayList = new ArrayList();
         if (list != null && list.size() > 0) {
-            for (k kVar : list) {
-                if (this.mType != 1 || kVar.getNumber() != -1) {
-                    if (kVar.getNumber() <= 0) {
-                        arrayList.add(kVar);
+            for (l lVar : list) {
+                if (this.mType != 1 || lVar.getNumber() != -1) {
+                    if (lVar.getNumber() <= 0) {
+                        arrayList.add(lVar);
                     }
                 }
             }
             list.removeAll(arrayList);
         }
-        this.aXe = new b(this.mActivity, this.mType);
-        this.aXe.J(list);
-        this.aXd.setAdapter((ListAdapter) this.aXe);
+        this.bak = new b(this.mActivity, this.mType);
+        this.bak.J(list);
+        this.baj.setAdapter((ListAdapter) this.bak);
     }
 
     public void dismiss() {
-        if (this.aXb != null && this.aXb.isShowing()) {
+        if (this.bah != null && this.bah.isShowing()) {
             if (this.mActivity == null) {
-                ShowUtil.dismissPopupWindow(this.aXb);
+                ShowUtil.dismissPopupWindow(this.bah);
             } else {
-                ShowUtil.dismissPopupWindow(this.aXb, this.mActivity);
+                ShowUtil.dismissPopupWindow(this.bah, this.mActivity);
             }
         }
     }

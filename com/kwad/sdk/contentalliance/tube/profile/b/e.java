@@ -10,11 +10,11 @@ import com.kwad.sdk.contentalliance.tube.model.TubeProfileResultData;
 import com.kwad.sdk.utils.p;
 import com.kwad.sdk.utils.q;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.contentalliance.tube.profile.c f8973b;
+    private com.kwad.sdk.contentalliance.tube.profile.c f8975b;
     private Set<com.kwad.sdk.contentalliance.tube.profile.e> c;
     private LottieAnimationView d;
     private ViewGroup e;
@@ -61,7 +61,7 @@ public class e extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
     private void c(int i) {
         this.e.setVisibility(0);
-        if (!com.ksad.download.d.b.a(o()) || i == com.kwad.sdk.core.network.f.f9321a.k) {
+        if (!com.ksad.download.d.b.a(o()) || i == com.kwad.sdk.core.network.f.f9323a.k) {
             h();
         } else if (i == com.kwad.sdk.core.network.f.j.k) {
             q();
@@ -121,14 +121,14 @@ public class e extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     @Override // com.kwad.sdk.contentalliance.tube.profile.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = this.f8953a.e;
-        this.f8973b = new com.kwad.sdk.contentalliance.tube.profile.c(this.f8953a.f, this.f8953a.c.getTubeId(), this.j);
-        this.f8973b.a();
+        this.c = this.f8955a.e;
+        this.f8975b = new com.kwad.sdk.contentalliance.tube.profile.c(this.f8955a.f, this.f8955a.c.getTubeId(), this.j);
+        this.f8975b.a();
         this.k.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.l = true;
-                e.this.f8973b.a();
+                e.this.f8975b.a();
             }
         });
     }
@@ -137,7 +137,7 @@ public class e extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8973b.b();
+        this.f8975b.b();
         g();
     }
 

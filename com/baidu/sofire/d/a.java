@@ -2,14 +2,14 @@ package com.baidu.sofire.d;
 
 import com.baidu.sofire.i.e;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5236a;
+    public String f5238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5237b;
+    public String f5239b;
     public String c;
     public String d;
     public String e;
@@ -17,11 +17,11 @@ public final class a {
     public static String a(a aVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("0", aVar.f5236a);
+            jSONObject.put("0", aVar.f5238a);
             jSONObject.put("1", aVar.c);
             jSONObject.put("2", aVar.d);
             jSONObject.put("3", aVar.e);
-            jSONObject.put("4", aVar.f5237b);
+            jSONObject.put("4", aVar.f5239b);
         } catch (Throwable th) {
             e.a();
         }
@@ -32,11 +32,11 @@ public final class a {
         a aVar = new a();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            aVar.f5236a = jSONObject.optString("0");
+            aVar.f5238a = jSONObject.optString("0");
             aVar.c = jSONObject.optString("1");
             aVar.d = jSONObject.optString("2");
             aVar.e = jSONObject.optString("3");
-            aVar.f5237b = jSONObject.optString("4");
+            aVar.f5239b = jSONObject.optString("4");
             return aVar;
         } catch (Exception e) {
             e.a();
@@ -45,7 +45,7 @@ public final class a {
     }
 
     public final int hashCode() {
-        return (((this.e == null ? 0 : this.e.hashCode()) + (((this.d == null ? 0 : this.d.hashCode()) + 31) * 31)) * 31) + (this.f5237b != null ? this.f5237b.hashCode() : 0);
+        return (((this.e == null ? 0 : this.e.hashCode()) + (((this.d == null ? 0 : this.d.hashCode()) + 31) * 31)) * 31) + (this.f5239b != null ? this.f5239b.hashCode() : 0);
     }
 
     public final boolean equals(Object obj) {
@@ -68,7 +68,7 @@ public final class a {
             } else if (!this.e.equals(aVar.e)) {
                 return false;
             }
-            return this.f5237b == null ? aVar.f5237b == null : this.f5237b.equals(aVar.f5237b);
+            return this.f5239b == null ? aVar.f5239b == null : this.f5239b.equals(aVar.f5239b);
         }
         return false;
     }

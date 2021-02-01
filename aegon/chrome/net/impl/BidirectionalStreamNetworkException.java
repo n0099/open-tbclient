@@ -1,5 +1,5 @@
 package aegon.chrome.net.impl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BidirectionalStreamNetworkException extends NetworkExceptionImpl {
     public static final /* synthetic */ boolean $assertionsDisabled = !BidirectionalStreamNetworkException.class.desiredAssertionStatus();
 

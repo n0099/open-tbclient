@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.d;
 
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class v<T> {
     public abstract void a(com.bytedance.sdk.openadsdk.d.d.c cVar, T t) throws IOException;
 

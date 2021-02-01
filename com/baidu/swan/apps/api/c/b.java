@@ -9,43 +9,43 @@ import com.baidu.searchbox.unitedscheme.core.R;
 import java.nio.charset.StandardCharsets;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements a {
-    private boolean cGn;
+    private boolean cII;
     public JSONObject data;
     public String message;
     public int status;
 
     public b() {
-        this.cGn = false;
+        this.cII = false;
     }
 
     public b(int i) {
-        this.cGn = false;
+        this.cII = false;
         this.status = i;
     }
 
     public b(int i, @NonNull String str) {
-        this.cGn = false;
+        this.cII = false;
         this.status = i;
         this.message = str;
     }
 
     public b(int i, @NonNull JSONObject jSONObject) {
-        this.cGn = false;
+        this.cII = false;
         this.status = i;
         this.data = jSONObject;
     }
 
     public b(int i, @NonNull JSONObject jSONObject, boolean z) {
-        this.cGn = false;
+        this.cII = false;
         this.status = i;
         this.data = jSONObject;
-        this.cGn = z;
+        this.cII = z;
     }
 
     public b(int i, @NonNull String str, @NonNull JSONObject jSONObject) {
-        this.cGn = false;
+        this.cII = false;
         this.status = i;
         this.message = str;
         this.data = jSONObject;
@@ -62,7 +62,7 @@ public class b implements a {
             }
             jSONObject.put("message", this.message);
             if (this.data != null) {
-                jSONObject.put("data", this.cGn ? Uri.encode(this.data.toString(), StandardCharsets.UTF_8.name()) : this.data);
+                jSONObject.put("data", this.cII ? Uri.encode(this.data.toString(), StandardCharsets.UTF_8.name()) : this.data);
             }
         } catch (JSONException e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -72,7 +72,7 @@ public class b implements a {
         return jSONObject.toString();
     }
 
-    public boolean k(@NonNull String str, @Nullable Object obj) {
+    public boolean i(@NonNull String str, @Nullable Object obj) {
         if (this.data == null) {
             this.data = new JSONObject();
         }

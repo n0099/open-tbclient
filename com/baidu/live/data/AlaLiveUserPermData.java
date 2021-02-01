@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveUserPermData extends BaseData implements Serializable {
     public int canNotAttend;
     public int canNotJoin;

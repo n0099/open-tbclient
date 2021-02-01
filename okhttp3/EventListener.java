@@ -6,12 +6,12 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public abstract class EventListener {
     public static final EventListener NONE = new EventListener() { // from class: okhttp3.EventListener.1
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface Factory {
         EventListener create(Call call);
     }

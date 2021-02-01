@@ -9,20 +9,20 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes2.dex */
 public class c {
     private static final int TOUCH_SLOP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds20);
-    private boolean lDX;
-    private boolean lDY;
-    private final a lDZ;
-    private final com.baidu.tieba.f.b lEa;
-    private a.InterfaceC0710a lEb = new a.InterfaceC0710a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
+    private boolean lMM;
+    private boolean lMN;
+    private final a lMO;
+    private final com.baidu.tieba.f.b lMP;
+    private a.InterfaceC0710a lMQ = new a.InterfaceC0710a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
         @Override // com.baidu.tieba.f.a.InterfaceC0710a
         public void G(int i, int i2) {
-            if (c.this.lDZ.isActive() && !c.this.dkf() && !c.this.dkg()) {
-                c.this.uy(true);
+            if (c.this.lMO.isActive() && !c.this.dms() && !c.this.dmt()) {
+                c.this.uM(true);
                 c.this.setFullscreen(true);
-                c.this.lDZ.dkb().t(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
+                c.this.lMO.dmo().r(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.uy(false);
+                        c.this.uM(false);
                     }
                 });
             }
@@ -30,60 +30,60 @@ public class c {
 
         @Override // com.baidu.tieba.f.a.InterfaceC0710a
         public void H(int i, int i2) {
-            if (c.this.lDZ.isActive() && !c.this.dkf() && c.this.lDZ.dkb().dkl() && Math.abs(i2) > c.TOUCH_SLOP) {
-                c.this.lDZ.s(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
+            if (c.this.lMO.isActive() && !c.this.dms() && c.this.lMO.dmo().dmy() && Math.abs(i2) > c.TOUCH_SLOP) {
+                c.this.lMO.q(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.uy(false);
+                        c.this.uM(false);
                     }
                 });
-                c.this.uy(true);
+                c.this.uM(true);
                 c.this.setFullscreen(false);
             }
         }
 
         @Override // com.baidu.tieba.f.a.InterfaceC0710a
-        public void cj(int i, int i2) {
+        public void cg(int i, int i2) {
         }
 
         @Override // com.baidu.tieba.f.a.InterfaceC0710a
         public void I(int i, int i2) {
         }
     };
-    private View.OnTouchListener lEc = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
+    private View.OnTouchListener lMR = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            c.this.lEa.onTouchEvent(motionEvent);
+            c.this.lMP.onTouchEvent(motionEvent);
             return false;
         }
     };
 
     public c(a aVar) {
-        this.lDZ = aVar;
-        this.lEa = new com.baidu.tieba.f.b(aVar.lDB.getPageContext().getPageActivity());
-        this.lEa.a(this.lEb);
+        this.lMO = aVar;
+        this.lMP = new com.baidu.tieba.f.b(aVar.lMq.getPageContext().getPageActivity());
+        this.lMP.a(this.lMQ);
     }
 
     public void initialize() {
-        d dkb = this.lDZ.dkb();
-        if (dkb.dki()) {
-            dkb.getListView().setOnTouchListener(this.lEc);
+        d dmo = this.lMO.dmo();
+        if (dmo.dmv()) {
+            dmo.getListView().setOnTouchListener(this.lMR);
         }
     }
 
-    public boolean dkf() {
-        return this.lDX;
+    public boolean dms() {
+        return this.lMM;
     }
 
-    public void uy(boolean z) {
-        this.lDX = z;
+    public void uM(boolean z) {
+        this.lMM = z;
     }
 
-    public boolean dkg() {
-        return this.lDY;
+    public boolean dmt() {
+        return this.lMN;
     }
 
     public void setFullscreen(boolean z) {
-        this.lDY = z;
+        this.lMN = z;
     }
 }

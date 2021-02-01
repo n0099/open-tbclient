@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 
 import android.text.TextUtils;
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i extends HttpMessage {
     public i(String str) {
         this(str, null);
@@ -19,5 +19,6 @@ public class i extends HttpMessage {
         if (!TextUtils.isEmpty(str2)) {
             addParam("uk", str2);
         }
+        addParam("im_uk", com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().ecE());
     }
 }

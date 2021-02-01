@@ -1,11 +1,11 @@
 package com.idlefish.flutterboost.log;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface ILog {
     void e(String str, String str2);
 
     void e(String str, String str2, Throwable th);
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum LogLevelEnum {
         VERBOSE(0, "V"),
         DEBUG(1, "D"),

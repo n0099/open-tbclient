@@ -1,56 +1,57 @@
 package com.baidu.tbadk.core.voice.service;
 
 import android.media.AudioRecord;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class a implements d {
-    public static int fmT = 8000;
-    public static int fmU = 2;
-    public static int fmV = 2;
-    public static int fmW = 1;
+    public static int fpl = 8000;
+    public static int fpm = 2;
+    public static int fpn = 2;
+    public static int fpo = 1;
     private int channelConfiguration;
     private int dataSize;
     private String filePath;
-    private RandomAccessFile fmX;
-    private int fmY;
-    private int fmZ;
-    private short fna;
-    private short fnb;
+    private RandomAccessFile fpp;
+    private int fpq;
+    private int fpr;
+    private short fpt;
+    private short fpu;
     private int bufferSize = 0;
-    private boolean acZ = false;
+    private boolean acT = false;
     private AudioRecord mAudioRecord = null;
     private File file = null;
 
     public boolean a(int i, int i2, int i3, int i4, String str) {
         this.bufferSize = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
-        this.fmY = i2;
+        this.fpq = i2;
         this.channelConfiguration = i3;
-        this.fmZ = i4;
+        this.fpr = i4;
         if (this.mAudioRecord != null) {
             this.mAudioRecord.release();
         }
-        this.mAudioRecord = new AudioRecord(i, this.fmY, this.channelConfiguration, this.fmZ, this.bufferSize);
-        this.fna = (short) (this.channelConfiguration == 12 ? 2 : 1);
-        this.fnb = (short) (this.fmZ == 2 ? 16 : 8);
+        this.mAudioRecord = new AudioRecord(i, this.fpq, this.channelConfiguration, this.fpr, this.bufferSize);
+        this.fpt = (short) (this.channelConfiguration == 12 ? 2 : 1);
+        this.fpu = (short) (this.fpr == 2 ? 16 : 8);
         this.file = new File(str);
         if (this.file.exists()) {
             this.file.delete();
         }
         try {
             this.file.createNewFile();
-            if (this.fmX != null) {
+            if (this.fpp != null) {
                 try {
-                    this.fmX.close();
+                    this.fpp.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     return false;
                 }
             }
             try {
-                this.fmX = new RandomAccessFile(this.file, "rw");
+                this.fpp = new RandomAccessFile(this.file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 writeHeader();
                 setFilePath(this.file.getParent());
                 return true;
@@ -65,30 +66,30 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean Bx(String str) {
-        return a(fmW, fmT, fmU, fmV, str);
+    public boolean BO(String str) {
+        return a(fpo, fpl, fpm, fpn, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvm() {
+    public void bvG() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
-                this.acZ = true;
+                this.acT = true;
                 byte[] bArr = new byte[this.bufferSize];
                 this.mAudioRecord.startRecording();
-                while (this.acZ) {
+                while (this.acT) {
                     this.mAudioRecord.read(bArr, 0, bArr.length);
-                    this.fmX.write(bArr);
+                    this.fpp.write(bArr);
                     this.dataSize += bArr.length;
                 }
-                this.fmX.seek(4L);
-                this.fmX.writeInt(Integer.reverseBytes(this.dataSize + 36));
-                this.fmX.seek(40L);
-                this.fmX.writeInt(Integer.reverseBytes(this.dataSize));
-                this.fmX.close();
+                this.fpp.seek(4L);
+                this.fpp.writeInt(Integer.reverseBytes(this.dataSize + 36));
+                this.fpp.seek(40L);
+                this.fpp.writeInt(Integer.reverseBytes(this.dataSize));
+                this.fpp.close();
                 this.mAudioRecord.stop();
                 this.mAudioRecord.release();
-                this.acZ = false;
+                this.acT = false;
             } catch (Throwable th) {
                 if (this.file.exists()) {
                     this.file.delete();
@@ -98,11 +99,11 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean bvn() {
+    public boolean bvH() {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.bvm();
+                a.this.bvG();
             }
         });
         thread.setPriority(10);
@@ -112,31 +113,31 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void bvo() {
-        this.acZ = false;
+    public void bvI() {
+        this.acT = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean bvp() {
-        return this.acZ;
+    public boolean isRecording() {
+        return this.acT;
     }
 
     private void writeHeader() {
         try {
-            this.fmX.setLength(0L);
-            this.fmX.writeBytes("RIFF");
-            this.fmX.writeInt(0);
-            this.fmX.writeBytes("WAVE");
-            this.fmX.writeBytes("fmt ");
-            this.fmX.writeInt(Integer.reverseBytes(16));
-            this.fmX.writeShort(Short.reverseBytes((short) 1));
-            this.fmX.writeShort(Short.reverseBytes(this.fna));
-            this.fmX.writeInt(Integer.reverseBytes(this.fmY));
-            this.fmX.writeInt(Integer.reverseBytes(((this.fmY * this.fna) * this.fnb) / 8));
-            this.fmX.writeShort(Short.reverseBytes((short) ((this.fna * this.fnb) / 8)));
-            this.fmX.writeShort(Short.reverseBytes(this.fnb));
-            this.fmX.writeBytes("data");
-            this.fmX.writeInt(0);
+            this.fpp.setLength(0L);
+            this.fpp.writeBytes("RIFF");
+            this.fpp.writeInt(0);
+            this.fpp.writeBytes("WAVE");
+            this.fpp.writeBytes("fmt ");
+            this.fpp.writeInt(Integer.reverseBytes(16));
+            this.fpp.writeShort(Short.reverseBytes((short) 1));
+            this.fpp.writeShort(Short.reverseBytes(this.fpt));
+            this.fpp.writeInt(Integer.reverseBytes(this.fpq));
+            this.fpp.writeInt(Integer.reverseBytes(((this.fpq * this.fpt) * this.fpu) / 8));
+            this.fpp.writeShort(Short.reverseBytes((short) ((this.fpt * this.fpu) / 8)));
+            this.fpp.writeShort(Short.reverseBytes(this.fpu));
+            this.fpp.writeBytes("data");
+            this.fpp.writeInt(0);
         } catch (IOException e) {
             if (this.file.exists()) {
                 this.file.delete();

@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.lang.reflect.Field;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class ResourceUtil {
     public static int getColorId(Context context, String str) {
         Resources resources;

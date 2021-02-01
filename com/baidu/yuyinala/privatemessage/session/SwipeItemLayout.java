@@ -15,7 +15,7 @@ import android.widget.Scroller;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwipeItemLayout extends ViewGroup {
     private static final Interpolator sInterpolator = new Interpolator() { // from class: com.baidu.yuyinala.privatemessage.session.SwipeItemLayout.1
         @Override // android.animation.TimeInterpolator
@@ -24,15 +24,15 @@ public class SwipeItemLayout extends ViewGroup {
             return (f2 * f2 * f2 * f2 * f2) + 1.0f;
         }
     };
-    private int fdc;
+    private int ffr;
     private boolean mInLayout;
-    private Mode oYi;
-    private View oYj;
-    private int oYk;
-    private a oYl;
+    private int piA;
+    private a piB;
+    private Mode piy;
+    private View piz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public enum Mode {
         RESET,
         DRAG,
@@ -47,46 +47,46 @@ public class SwipeItemLayout extends ViewGroup {
     public SwipeItemLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mInLayout = false;
-        this.oYi = Mode.RESET;
-        this.fdc = 0;
-        this.oYl = new a(context);
+        this.piy = Mode.RESET;
+        this.ffr = 0;
+        this.piB = new a(context);
     }
 
     public int getScrollOffset() {
-        return this.fdc;
+        return this.ffr;
     }
 
     public void open() {
-        if (this.fdc != (-this.oYk)) {
-            if (this.oYi == Mode.FLING) {
-                this.oYl.abort();
+        if (this.ffr != (-this.piA)) {
+            if (this.piy == Mode.FLING) {
+                this.piB.abort();
             }
-            this.oYl.dV(this.fdc, -this.oYk);
+            this.piB.dS(this.ffr, -this.piA);
         }
     }
 
     public void close() {
-        if (this.fdc != 0) {
-            if (this.oYi == Mode.FLING) {
-                this.oYl.abort();
+        if (this.ffr != 0) {
+            if (this.piy == Mode.FLING) {
+                this.piB.abort();
             }
-            this.oYl.dV(this.fdc, 0);
+            this.piB.dS(this.ffr, 0);
         }
     }
 
     void fling(int i) {
-        this.oYl.dW(this.fdc, i);
+        this.piB.dT(this.ffr, i);
     }
 
-    void ekn() {
-        if (this.fdc < (-ViewConfiguration.get(getContext()).getScaledTouchSlop())) {
+    void emF() {
+        if (this.ffr < (-ViewConfiguration.get(getContext()).getScaledTouchSlop())) {
             open();
         } else {
             close();
         }
     }
 
-    private void eko() {
+    private void emG() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -94,26 +94,26 @@ public class SwipeItemLayout extends ViewGroup {
             if (layoutParams == null || !(layoutParams instanceof LayoutParams)) {
                 throw new IllegalStateException("缺少layout参数");
             }
-            if (((LayoutParams) layoutParams).oYm == 1) {
-                this.oYj = childAt;
+            if (((LayoutParams) layoutParams).piC == 1) {
+                this.piz = childAt;
             }
         }
-        if (this.oYj == null) {
+        if (this.piz == null) {
             throw new IllegalStateException("main item不能为空");
         }
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        eko();
-        LayoutParams layoutParams = (LayoutParams) this.oYj.getLayoutParams();
-        measureChildWithMargins(this.oYj, i, getPaddingLeft() + getPaddingRight(), i2, getPaddingTop() + getPaddingBottom());
-        setMeasuredDimension(this.oYj.getMeasuredWidth() + getPaddingLeft() + getPaddingRight() + layoutParams.leftMargin + layoutParams.rightMargin, this.oYj.getMeasuredHeight() + getPaddingTop() + getPaddingBottom() + layoutParams.topMargin + layoutParams.bottomMargin);
+        emG();
+        LayoutParams layoutParams = (LayoutParams) this.piz.getLayoutParams();
+        measureChildWithMargins(this.piz, i, getPaddingLeft() + getPaddingRight(), i2, getPaddingTop() + getPaddingBottom());
+        setMeasuredDimension(this.piz.getMeasuredWidth() + getPaddingLeft() + getPaddingRight() + layoutParams.leftMargin + layoutParams.rightMargin, this.piz.getMeasuredHeight() + getPaddingTop() + getPaddingBottom() + layoutParams.topMargin + layoutParams.bottomMargin);
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.oYj.getMeasuredHeight(), 1073741824);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.piz.getMeasuredHeight(), 1073741824);
         for (int i3 = 0; i3 < getChildCount(); i3++) {
             View childAt = getChildAt(i3);
-            if (((LayoutParams) childAt.getLayoutParams()).oYm != 1) {
+            if (((LayoutParams) childAt.getLayoutParams()).piC != 1) {
                 measureChildWithMargins(childAt, makeMeasureSpec, 0, makeMeasureSpec2, 0);
             }
         }
@@ -122,15 +122,15 @@ public class SwipeItemLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         this.mInLayout = true;
-        eko();
+        emG();
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int paddingRight = getPaddingRight();
         int paddingBottom = getPaddingBottom();
-        LayoutParams layoutParams = (LayoutParams) this.oYj.getLayoutParams();
-        this.oYj.layout(paddingLeft + layoutParams.leftMargin, layoutParams.topMargin + paddingTop, (getWidth() - paddingRight) - layoutParams.rightMargin, (getHeight() - paddingBottom) - layoutParams.bottomMargin);
+        LayoutParams layoutParams = (LayoutParams) this.piz.getLayoutParams();
+        this.piz.layout(paddingLeft + layoutParams.leftMargin, layoutParams.topMargin + paddingTop, (getWidth() - paddingRight) - layoutParams.rightMargin, (getHeight() - paddingBottom) - layoutParams.bottomMargin);
         int i5 = 0;
-        int right = this.oYj.getRight() + layoutParams.rightMargin;
+        int right = this.piz.getRight() + layoutParams.rightMargin;
         int i6 = 0;
         while (true) {
             int i7 = i6;
@@ -139,7 +139,7 @@ public class SwipeItemLayout extends ViewGroup {
             }
             View childAt = getChildAt(i7);
             LayoutParams layoutParams2 = (LayoutParams) childAt.getLayoutParams();
-            if (layoutParams2.oYm != 1) {
+            if (layoutParams2.piC != 1) {
                 int i8 = right + layoutParams2.leftMargin;
                 int i9 = layoutParams2.topMargin + paddingTop;
                 childAt.layout(i8, i9, childAt.getMeasuredWidth() + i8 + layoutParams2.rightMargin, childAt.getMeasuredHeight() + i9 + layoutParams2.bottomMargin);
@@ -148,9 +148,9 @@ public class SwipeItemLayout extends ViewGroup {
             }
             i6 = i7 + 1;
         }
-        this.oYk = i5;
-        this.fdc = this.fdc < (-this.oYk) / 2 ? -this.oYk : 0;
-        offsetChildrenLeftAndRight(this.fdc);
+        this.piA = i5;
+        this.ffr = this.ffr < (-this.piA) / 2 ? -this.piA : 0;
+        offsetChildrenLeftAndRight(this.ffr);
         this.mInLayout = false;
     }
 
@@ -170,9 +170,9 @@ public class SwipeItemLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.oYl);
-        this.oYi = Mode.RESET;
-        this.fdc = 0;
+        removeCallbacks(this.piB);
+        this.piy = Mode.RESET;
+        this.ffr = 0;
     }
 
     @Override // android.view.ViewGroup
@@ -180,13 +180,13 @@ public class SwipeItemLayout extends ViewGroup {
         switch (motionEvent.getActionMasked()) {
             case 0:
                 View e = e(this, (int) motionEvent.getX(), (int) motionEvent.getY());
-                if (e != null && e == this.oYj && this.fdc != 0) {
+                if (e != null && e == this.piz && this.ffr != 0) {
                     return true;
                 }
                 break;
             case 1:
                 View e2 = e(this, (int) motionEvent.getX(), (int) motionEvent.getY());
-                if (e2 != null && e2 == this.oYj && this.oYi == Mode.CLICK && this.fdc != 0) {
+                if (e2 != null && e2 == this.piz && this.piy == Mode.CLICK && this.ffr != 0) {
                     return true;
                 }
                 break;
@@ -199,13 +199,13 @@ public class SwipeItemLayout extends ViewGroup {
         switch (motionEvent.getActionMasked()) {
             case 0:
                 View e = e(this, (int) motionEvent.getX(), (int) motionEvent.getY());
-                if (e != null && e == this.oYj && this.fdc != 0) {
+                if (e != null && e == this.piz && this.ffr != 0) {
                     return true;
                 }
                 break;
             case 1:
                 View e2 = e(this, (int) motionEvent.getX(), (int) motionEvent.getY());
-                if (e2 != null && e2 == this.oYj && this.oYi == Mode.CLICK && this.fdc != 0) {
+                if (e2 != null && e2 == this.piz && this.piy == Mode.CLICK && this.ffr != 0) {
                     close();
                     return true;
                 }
@@ -215,71 +215,71 @@ public class SwipeItemLayout extends ViewGroup {
     }
 
     void setTouchMode(Mode mode) {
-        if (mode != this.oYi) {
-            if (this.oYi == Mode.FLING) {
-                removeCallbacks(this.oYl);
+        if (mode != this.piy) {
+            if (this.piy == Mode.FLING) {
+                removeCallbacks(this.piB);
             }
-            this.oYi = mode;
+            this.piy = mode;
         }
     }
 
     public Mode getTouchMode() {
-        return this.oYi;
+        return this.piy;
     }
 
-    boolean NJ(int i) {
+    boolean Oe(int i) {
         boolean z = true;
         if (i != 0) {
-            int i2 = this.fdc + i;
-            if ((i <= 0 || i2 <= 0) && (i >= 0 || i2 >= (-this.oYk))) {
+            int i2 = this.ffr + i;
+            if ((i <= 0 || i2 <= 0) && (i >= 0 || i2 >= (-this.piA))) {
                 z = false;
             } else {
-                i2 = Math.max(Math.min(i2, 0), -this.oYk);
+                i2 = Math.max(Math.min(i2, 0), -this.piA);
             }
-            offsetChildrenLeftAndRight(i2 - this.fdc);
-            this.fdc = i2;
+            offsetChildrenLeftAndRight(i2 - this.ffr);
+            this.ffr = i2;
         }
         return z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
-        private Scroller fMu;
+        private Scroller bVg;
         private int minVelocity;
-        private boolean oYu = false;
+        private boolean piK = false;
 
         a(Context context) {
-            this.fMu = new Scroller(context, SwipeItemLayout.sInterpolator);
+            this.bVg = new Scroller(context, SwipeItemLayout.sInterpolator);
             this.minVelocity = ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
         }
 
-        void dV(int i, int i2) {
+        void dS(int i, int i2) {
             if (i != i2) {
                 Log.e("scroll - startX - endX", "" + i + " " + i2);
                 SwipeItemLayout.this.setTouchMode(Mode.FLING);
-                this.oYu = false;
-                this.fMu.startScroll(i, 0, i2 - i, 0, 400);
+                this.piK = false;
+                this.bVg.startScroll(i, 0, i2 - i, 0, 400);
                 ViewCompat.postOnAnimation(SwipeItemLayout.this, this);
             }
         }
 
-        void dW(int i, int i2) {
+        void dT(int i, int i2) {
             Log.e("fling - startX", "" + i);
             if (i2 > this.minVelocity && i != 0) {
-                dV(i, 0);
-            } else if (i2 >= (-this.minVelocity) || i == (-SwipeItemLayout.this.oYk)) {
-                dV(i, i <= (-SwipeItemLayout.this.oYk) / 2 ? -SwipeItemLayout.this.oYk : 0);
+                dS(i, 0);
+            } else if (i2 >= (-this.minVelocity) || i == (-SwipeItemLayout.this.piA)) {
+                dS(i, i <= (-SwipeItemLayout.this.piA) / 2 ? -SwipeItemLayout.this.piA : 0);
             } else {
-                dV(i, -SwipeItemLayout.this.oYk);
+                dS(i, -SwipeItemLayout.this.piA);
             }
         }
 
         void abort() {
-            if (!this.oYu) {
-                this.oYu = true;
-                if (!this.fMu.isFinished()) {
-                    this.fMu.abortAnimation();
+            if (!this.piK) {
+                this.piK = true;
+                if (!this.bVg.isFinished()) {
+                    this.bVg.abortAnimation();
                     SwipeItemLayout.this.removeCallbacks(this);
                 }
             }
@@ -287,22 +287,22 @@ public class SwipeItemLayout extends ViewGroup {
 
         @Override // java.lang.Runnable
         public void run() {
-            Log.e("abort", Boolean.toString(this.oYu));
-            if (!this.oYu) {
-                boolean computeScrollOffset = this.fMu.computeScrollOffset();
-                int currX = this.fMu.getCurrX();
+            Log.e("abort", Boolean.toString(this.piK));
+            if (!this.piK) {
+                boolean computeScrollOffset = this.bVg.computeScrollOffset();
+                int currX = this.bVg.getCurrX();
                 Log.e("curX", "" + currX);
                 boolean z = false;
-                if (currX != SwipeItemLayout.this.fdc) {
-                    z = SwipeItemLayout.this.NJ(currX - SwipeItemLayout.this.fdc);
+                if (currX != SwipeItemLayout.this.ffr) {
+                    z = SwipeItemLayout.this.Oe(currX - SwipeItemLayout.this.ffr);
                 }
                 if (computeScrollOffset && !z) {
                     ViewCompat.postOnAnimation(SwipeItemLayout.this, this);
                     return;
                 }
                 SwipeItemLayout.this.removeCallbacks(this);
-                if (!this.fMu.isFinished()) {
-                    this.fMu.abortAnimation();
+                if (!this.bVg.isFinished()) {
+                    this.bVg.abortAnimation();
                 }
                 SwipeItemLayout.this.setTouchMode(Mode.RESET);
             }
@@ -312,7 +312,7 @@ public class SwipeItemLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: ekp */
+    /* renamed from: emH */
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-1, -1);
     }
@@ -320,14 +320,14 @@ public class SwipeItemLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: g */
+    /* renamed from: h */
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         return layoutParams instanceof LayoutParams ? (LayoutParams) layoutParams : new LayoutParams(layoutParams);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.ViewGroup
-    /* renamed from: n */
+    /* renamed from: m */
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         return new LayoutParams(getContext(), attributeSet);
     }
@@ -337,26 +337,26 @@ public class SwipeItemLayout extends ViewGroup {
         return (layoutParams instanceof LayoutParams) && super.checkLayoutParams(layoutParams);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
-        public int oYm;
+        public int piC;
 
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.oYm = -1;
+            this.piC = -1;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.SwipeItemLayout);
-            this.oYm = obtainStyledAttributes.getInt(a.j.SwipeItemLayout_layout_itemType, -1);
+            this.piC = obtainStyledAttributes.getInt(a.j.SwipeItemLayout_layout_itemType, -1);
             obtainStyledAttributes.recycle();
         }
 
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            this.oYm = -1;
+            this.piC = -1;
         }
 
         public LayoutParams(int i, int i2) {
             super(i, i2);
-            this.oYm = -1;
+            this.piC = -1;
         }
     }
 
@@ -370,16 +370,16 @@ public class SwipeItemLayout extends ViewGroup {
         return null;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class OnSwipeItemTouchListener implements RecyclerView.OnItemTouchListener {
         private int activePointerId;
-        private SwipeItemLayout oYn;
-        private float oYo;
-        private float oYp;
-        private int oYq;
-        private boolean oYr;
-        private boolean oYs;
-        private boolean oYt;
+        private SwipeItemLayout piD;
+        private float piE;
+        private float piF;
+        private int piG;
+        private boolean piH;
+        private boolean piI;
+        private boolean piJ;
         private int touchSlop;
         private VelocityTracker velocityTracker;
 
@@ -391,25 +391,25 @@ public class SwipeItemLayout extends ViewGroup {
             boolean z3;
             ViewParent parent;
             boolean z4 = true;
-            if (this.oYs) {
+            if (this.piI) {
                 return false;
             }
             int actionMasked = motionEvent.getActionMasked();
-            if (actionMasked == 0 || !this.oYt) {
-                if (actionMasked == 0 || !(this.oYn == null || this.oYr)) {
+            if (actionMasked == 0 || !this.piJ) {
+                if (actionMasked == 0 || !(this.piD == null || this.piH)) {
                     if (this.velocityTracker == null) {
                         this.velocityTracker = VelocityTracker.obtain();
                     }
                     this.velocityTracker.addMovement(motionEvent);
                     switch (actionMasked) {
                         case 0:
-                            this.oYt = false;
-                            this.oYr = false;
+                            this.piJ = false;
+                            this.piH = false;
                             this.activePointerId = motionEvent.getPointerId(0);
                             float x = motionEvent.getX();
                             float y = motionEvent.getY();
-                            this.oYo = x;
-                            this.oYp = y;
+                            this.piE = x;
+                            this.piF = y;
                             View e = SwipeItemLayout.e(recyclerView, (int) x, (int) y);
                             if (e == null || !(e instanceof SwipeItemLayout)) {
                                 swipeItemLayout = null;
@@ -418,14 +418,14 @@ public class SwipeItemLayout extends ViewGroup {
                                 swipeItemLayout = (SwipeItemLayout) e;
                                 z = false;
                             }
-                            if (!((z || (this.oYn != null && this.oYn == swipeItemLayout)) ? z : true) && this.oYn != null) {
-                                if (this.oYn.getTouchMode() == Mode.FLING) {
-                                    this.oYn.setTouchMode(Mode.DRAG);
+                            if (!((z || (this.piD != null && this.piD == swipeItemLayout)) ? z : true) && this.piD != null) {
+                                if (this.piD.getTouchMode() == Mode.FLING) {
+                                    this.piD.setTouchMode(Mode.DRAG);
                                     z3 = true;
                                     z2 = true;
                                 } else {
-                                    this.oYn.setTouchMode(Mode.CLICK);
-                                    if (this.oYn.getScrollOffset() != 0) {
+                                    this.piD.setTouchMode(Mode.CLICK);
+                                    if (this.piD.getScrollOffset() != 0) {
                                         z3 = true;
                                         z2 = false;
                                     } else {
@@ -436,34 +436,34 @@ public class SwipeItemLayout extends ViewGroup {
                                 if (z3 && (parent = recyclerView.getParent()) != null) {
                                     parent.requestDisallowInterceptTouchEvent(true);
                                 }
-                            } else if (this.oYn != null && this.oYn.getScrollOffset() != 0) {
-                                this.oYn.close();
-                                this.oYt = true;
+                            } else if (this.piD != null && this.piD.getScrollOffset() != 0) {
+                                this.piD.close();
+                                this.piJ = true;
                                 return true;
                             } else {
-                                this.oYn = null;
+                                this.piD = null;
                                 if (swipeItemLayout != null) {
-                                    this.oYn = swipeItemLayout;
-                                    this.oYn.setTouchMode(Mode.CLICK);
+                                    this.piD = swipeItemLayout;
+                                    this.piD.setTouchMode(Mode.CLICK);
                                 }
                                 z2 = false;
                             }
-                            this.oYs = true;
-                            this.oYr = recyclerView.onInterceptTouchEvent(motionEvent);
-                            this.oYs = false;
-                            if (this.oYr) {
-                                if (this.oYn == null || this.oYn.getScrollOffset() == 0) {
+                            this.piI = true;
+                            this.piH = recyclerView.onInterceptTouchEvent(motionEvent);
+                            this.piI = false;
+                            if (this.piH) {
+                                if (this.piD == null || this.piD.getScrollOffset() == 0) {
                                     return false;
                                 }
-                                this.oYn.close();
+                                this.piD.close();
                                 return false;
                             }
                             return z2;
                         case 1:
-                            if (this.oYn.getTouchMode() == Mode.DRAG) {
+                            if (this.piD.getTouchMode() == Mode.DRAG) {
                                 VelocityTracker velocityTracker = this.velocityTracker;
-                                velocityTracker.computeCurrentVelocity(1000, this.oYq);
-                                this.oYn.fling((int) velocityTracker.getXVelocity(this.activePointerId));
+                                velocityTracker.computeCurrentVelocity(1000, this.piG);
+                                this.piD.fling((int) velocityTracker.getXVelocity(this.activePointerId));
                             } else {
                                 z4 = false;
                             }
@@ -474,37 +474,37 @@ public class SwipeItemLayout extends ViewGroup {
                             if (findPointerIndex != -1) {
                                 int x2 = (int) (motionEvent.getX(findPointerIndex) + 0.5f);
                                 int y2 = (int) (((int) motionEvent.getY(findPointerIndex)) + 0.5f);
-                                int i = (int) (x2 - this.oYo);
+                                int i = (int) (x2 - this.piE);
                                 int abs = Math.abs(i);
-                                int abs2 = Math.abs((int) (y2 - this.oYp));
-                                if (this.oYn.getTouchMode() == Mode.CLICK) {
+                                int abs2 = Math.abs((int) (y2 - this.piF));
+                                if (this.piD.getTouchMode() == Mode.CLICK) {
                                     if (abs > this.touchSlop && abs > abs2) {
-                                        this.oYn.setTouchMode(Mode.DRAG);
+                                        this.piD.setTouchMode(Mode.DRAG);
                                         ViewParent parent2 = recyclerView.getParent();
-                                        if (this.oYn.getScrollOffset() != 0 || i < 0) {
+                                        if (this.piD.getScrollOffset() != 0 || i < 0) {
                                             parent2.requestDisallowInterceptTouchEvent(true);
                                         }
                                         i = i > 0 ? i - this.touchSlop : i + this.touchSlop;
                                     } else {
-                                        this.oYs = true;
-                                        this.oYr = recyclerView.onInterceptTouchEvent(motionEvent);
-                                        this.oYs = false;
-                                        if (this.oYr && this.oYn.getScrollOffset() != 0) {
-                                            this.oYn.close();
+                                        this.piI = true;
+                                        this.piH = recyclerView.onInterceptTouchEvent(motionEvent);
+                                        this.piI = false;
+                                        if (this.piH && this.piD.getScrollOffset() != 0) {
+                                            this.piD.close();
                                         }
                                     }
                                 }
-                                if (this.oYn.getTouchMode() == Mode.DRAG) {
-                                    this.oYo = x2;
-                                    this.oYp = y2;
-                                    this.oYn.NJ(i);
+                                if (this.piD.getTouchMode() == Mode.DRAG) {
+                                    this.piE = x2;
+                                    this.piF = y2;
+                                    this.piD.Oe(i);
                                     return true;
                                 }
                                 return false;
                             }
                             return false;
                         case 3:
-                            this.oYn.ekn();
+                            this.piD.emF();
                             cancel();
                             return false;
                         case 4:
@@ -513,16 +513,16 @@ public class SwipeItemLayout extends ViewGroup {
                         case 5:
                             int actionIndex = motionEvent.getActionIndex();
                             this.activePointerId = motionEvent.getPointerId(actionIndex);
-                            this.oYo = motionEvent.getX(actionIndex);
-                            this.oYp = motionEvent.getY(actionIndex);
+                            this.piE = motionEvent.getX(actionIndex);
+                            this.piF = motionEvent.getY(actionIndex);
                             return false;
                         case 6:
                             int actionIndex2 = motionEvent.getActionIndex();
                             if (motionEvent.getPointerId(actionIndex2) == this.activePointerId) {
                                 int i2 = actionIndex2 == 0 ? 1 : 0;
                                 this.activePointerId = motionEvent.getPointerId(i2);
-                                this.oYo = motionEvent.getX(i2);
-                                this.oYp = motionEvent.getY(i2);
+                                this.piE = motionEvent.getX(i2);
+                                this.piF = motionEvent.getY(i2);
                                 return false;
                             }
                             return false;
@@ -535,7 +535,7 @@ public class SwipeItemLayout extends ViewGroup {
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
         public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-            if (!this.oYt) {
+            if (!this.piJ) {
                 int actionMasked = motionEvent.getActionMasked();
                 int actionIndex = motionEvent.getActionIndex();
                 if (this.velocityTracker == null) {
@@ -544,10 +544,10 @@ public class SwipeItemLayout extends ViewGroup {
                 this.velocityTracker.addMovement(motionEvent);
                 switch (actionMasked) {
                     case 1:
-                        if (this.oYn != null && this.oYn.getTouchMode() == Mode.DRAG) {
+                        if (this.piD != null && this.piD.getTouchMode() == Mode.DRAG) {
                             VelocityTracker velocityTracker = this.velocityTracker;
-                            velocityTracker.computeCurrentVelocity(1000, this.oYq);
-                            this.oYn.fling((int) velocityTracker.getXVelocity(this.activePointerId));
+                            velocityTracker.computeCurrentVelocity(1000, this.piG);
+                            this.piD.fling((int) velocityTracker.getXVelocity(this.activePointerId));
                         }
                         cancel();
                         return;
@@ -556,19 +556,19 @@ public class SwipeItemLayout extends ViewGroup {
                         if (findPointerIndex != -1) {
                             float x = motionEvent.getX(findPointerIndex);
                             float y = (int) motionEvent.getY(findPointerIndex);
-                            int i = (int) (x - this.oYo);
-                            if (this.oYn != null && this.oYn.getTouchMode() == Mode.DRAG) {
-                                this.oYo = x;
-                                this.oYp = y;
-                                this.oYn.NJ(i);
+                            int i = (int) (x - this.piE);
+                            if (this.piD != null && this.piD.getTouchMode() == Mode.DRAG) {
+                                this.piE = x;
+                                this.piF = y;
+                                this.piD.Oe(i);
                                 return;
                             }
                             return;
                         }
                         return;
                     case 3:
-                        if (this.oYn != null) {
-                            this.oYn.ekn();
+                        if (this.piD != null) {
+                            this.piD.emF();
                         }
                         cancel();
                         return;
@@ -577,15 +577,15 @@ public class SwipeItemLayout extends ViewGroup {
                         return;
                     case 5:
                         this.activePointerId = motionEvent.getPointerId(actionIndex);
-                        this.oYo = motionEvent.getX(actionIndex);
-                        this.oYp = motionEvent.getY(actionIndex);
+                        this.piE = motionEvent.getX(actionIndex);
+                        this.piF = motionEvent.getY(actionIndex);
                         return;
                     case 6:
                         if (motionEvent.getPointerId(actionIndex) == this.activePointerId) {
                             int i2 = actionIndex == 0 ? 1 : 0;
                             this.activePointerId = motionEvent.getPointerId(i2);
-                            this.oYo = motionEvent.getX(i2);
-                            this.oYp = motionEvent.getY(i2);
+                            this.piE = motionEvent.getX(i2);
+                            this.piF = motionEvent.getY(i2);
                             return;
                         }
                         return;
@@ -598,7 +598,7 @@ public class SwipeItemLayout extends ViewGroup {
         }
 
         void cancel() {
-            this.oYr = false;
+            this.piH = false;
             this.activePointerId = -1;
             if (this.velocityTracker != null) {
                 this.velocityTracker.recycle();

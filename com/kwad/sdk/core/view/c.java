@@ -8,20 +8,20 @@ import android.text.TextPaint;
 import android.text.style.ImageSpan;
 import androidx.annotation.NonNull;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends ImageSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f9526a;
+    private boolean f9528a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Rect f9527b;
+    private Rect f9529b;
     private Paint.FontMetricsInt c;
     private WeakReference<Drawable> d;
 
     public c(Drawable drawable, String str) {
         super(drawable, str, 1);
-        this.f9526a = true;
+        this.f9528a = true;
         this.c = new Paint.FontMetricsInt();
     }
 
@@ -30,11 +30,11 @@ public class c extends ImageSpan {
         Drawable drawable = weakReference != null ? weakReference.get() : null;
         if (drawable == null) {
             drawable = getDrawable();
-            if (this.f9526a) {
+            if (this.f9528a) {
                 int fontMetricsInt = paint.getFontMetricsInt(null);
                 drawable.setBounds(0, 0, fontMetricsInt, fontMetricsInt);
-            } else if (this.f9527b != null) {
-                drawable.setBounds(this.f9527b);
+            } else if (this.f9529b != null) {
+                drawable.setBounds(this.f9529b);
             }
             this.d = new WeakReference<>(drawable);
         }
@@ -42,8 +42,8 @@ public class c extends ImageSpan {
     }
 
     public c a(int i, int i2) {
-        this.f9526a = false;
-        this.f9527b = new Rect(0, 0, i, i2);
+        this.f9528a = false;
+        this.f9529b = new Rect(0, 0, i, i2);
         return this;
     }
 

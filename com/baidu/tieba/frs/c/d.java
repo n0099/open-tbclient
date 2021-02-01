@@ -7,19 +7,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d jCZ;
-    private LruCache<String, String> jCX = new LruCache<>(10);
-    private l<String> jCY = com.baidu.tbadk.core.c.a.bpZ().Ab("tb.recently_vistited_forum_animation");
+    private static d jID;
+    private LruCache<String, String> jIB = new LruCache<>(10);
+    private l<String> jIC = com.baidu.tbadk.core.c.a.bqr().As("tb.recently_vistited_forum_animation");
 
-    public static d cJe() {
-        if (jCZ == null) {
+    public static d cKr() {
+        if (jID == null) {
             synchronized (d.class) {
-                if (jCZ == null) {
-                    jCZ = new d();
+                if (jID == null) {
+                    jID = new d();
                 }
             }
         }
-        return jCZ;
+        return jID;
     }
 
     private d() {
@@ -28,17 +28,17 @@ public class d {
             public void onActivityDestroyed(Activity activity) {
                 if (activity != null && activity.getClass().getName().equals("FrsActivity")) {
                     StringBuilder sb = new StringBuilder();
-                    for (Map.Entry entry : d.this.jCX.snapshot().entrySet()) {
+                    for (Map.Entry entry : d.this.jIB.snapshot().entrySet()) {
                         sb.append((String) entry.getKey()).append("=").append((String) entry.getValue()).append(",");
                     }
                     if (sb.length() > 1) {
                         sb.deleteCharAt(sb.length() - 1);
-                        d.this.jCY.asyncSetForever("transition_cache_key", sb.toString());
+                        d.this.jIC.asyncSetForever("transition_cache_key", sb.toString());
                     }
                 }
             }
         });
-        this.jCY.a("transition_cache_key", new l.a<String>() { // from class: com.baidu.tieba.frs.c.d.2
+        this.jIC.a("transition_cache_key", new l.a<String>() { // from class: com.baidu.tieba.frs.c.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.cache.l.a
             /* renamed from: fd */
@@ -47,7 +47,7 @@ public class d {
                     for (String str3 : str2.split(",")) {
                         String[] split = str3.split("=");
                         if (split != null && split.length == 2) {
-                            d.this.jCX.put(split[0], split[1]);
+                            d.this.jIB.put(split[0], split[1]);
                         }
                     }
                 }
@@ -56,10 +56,10 @@ public class d {
     }
 
     public void a(String str, e eVar) {
-        this.jCX.put(str, eVar.toString());
+        this.jIB.put(str, eVar.toString());
     }
 
-    public e Ku(String str) {
-        return str == null ? new e(null) : new e(this.jCX.get(str));
+    public e Lf(String str) {
+        return str == null ? new e(null) : new e(this.jIB.get(str));
     }
 }

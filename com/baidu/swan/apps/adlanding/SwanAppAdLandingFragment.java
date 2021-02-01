@@ -32,42 +32,42 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SwanAppAdLandingFragment extends i {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cBA;
-    private String cBB;
-    private String cBC;
-    private String cBD;
-    private com.baidu.swan.apps.media.b.a cBf;
-    private JSONObject cBg;
-    private b cBl;
-    private FrameLayout cBm;
-    private g cBp;
-    private com.baidu.swan.apps.adlanding.download.a.a cBq;
-    private com.baidu.swan.apps.adlanding.download.model.a cBr;
-    private RelativeLayout cBt;
-    private RelativeLayout cBu;
-    private SimpleDraweeView cBv;
-    private SimpleDraweeView cBw;
-    private TextView cBx;
-    private TextView cBy;
-    private int cBz;
+    private com.baidu.swan.apps.media.b.a cDB;
+    private JSONObject cDC;
+    private b cDH;
+    private FrameLayout cDI;
+    private g cDL;
+    private com.baidu.swan.apps.adlanding.download.a.a cDM;
+    private com.baidu.swan.apps.adlanding.download.model.a cDN;
+    private RelativeLayout cDP;
+    private RelativeLayout cDQ;
+    private SimpleDraweeView cDR;
+    private SimpleDraweeView cDS;
+    private TextView cDT;
+    private TextView cDU;
+    private int cDV;
+    private String cDW;
+    private String cDX;
+    private String cDY;
+    private String cDZ;
     private String mUrl;
     private int mVideoHeight;
     private String mVideoUrl;
     private int mVideoWidth;
-    private LandingType cBk = LandingType.NORMAL;
+    private LandingType cDG = LandingType.NORMAL;
     private String mFrom = "";
-    private final String cBn = "swan-custom-ad";
-    private final int cBo = 10;
+    private final String cDJ = "swan-custom-ad";
+    private final int cDK = 10;
     private String mDownloadUrl = "";
     private String mPackageName = "";
-    private SwanAdDownloadState cBs = SwanAdDownloadState.NOT_START;
-    private int cBE = 0;
-    private int cBF = 0;
-    private boolean cBG = true;
-    private View.OnClickListener cBH = new View.OnClickListener() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.11
+    private SwanAdDownloadState cDO = SwanAdDownloadState.NOT_START;
+    private int cEa = 0;
+    private int cEb = 0;
+    private boolean cEc = true;
+    private View.OnClickListener cEd = new View.OnClickListener() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.11
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int id = view.getId();
@@ -77,28 +77,28 @@ public class SwanAppAdLandingFragment extends i {
             } else if (id == a.f.ad_tail_brand_name) {
                 hashMap.put("da_area", "tail_name");
             } else if (id == a.f.ad_tail_btn) {
-                hashMap.put("da_area", SwanAppAdLandingFragment.this.cBz == ActionType.DL.value() ? "tail_downloadbtn" : "tail_detailbtn");
+                hashMap.put("da_area", SwanAppAdLandingFragment.this.cDV == ActionType.DL.value() ? "tail_downloadbtn" : "tail_detailbtn");
             }
-            SwanAppAdLandingFragment.this.cBl.d("c", hashMap);
-            i.b("adLanding", com.baidu.swan.apps.model.b.cf(SwanAppAdLandingFragment.this.mUrl, SwanAppAdLandingFragment.this.mUrl));
+            SwanAppAdLandingFragment.this.cDH.d("c", hashMap);
+            i.b("adLanding", com.baidu.swan.apps.model.b.bZ(SwanAppAdLandingFragment.this.mUrl, SwanAppAdLandingFragment.this.mUrl));
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum LandingType {
         NORMAL,
         VIDEO
     }
 
     static /* synthetic */ int b(SwanAppAdLandingFragment swanAppAdLandingFragment) {
-        int i = swanAppAdLandingFragment.cBF;
-        swanAppAdLandingFragment.cBF = i + 1;
+        int i = swanAppAdLandingFragment.cEb;
+        swanAppAdLandingFragment.cEb = i + 1;
         return i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum ActionType {
         LP(1),
         DL(2);
@@ -114,7 +114,7 @@ public class SwanAppAdLandingFragment extends i {
         }
     }
 
-    private void aiO() {
+    private void ajm() {
         String string;
         Bundle arguments = getArguments();
         if (arguments != null) {
@@ -123,18 +123,18 @@ public class SwanAppAdLandingFragment extends i {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mParams);
                     this.mVideoUrl = jSONObject.optString("vurl", "");
-                    this.cBD = jSONObject.optString("w_picurl", "");
-                    this.cBC = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON, "");
-                    this.cBz = jSONObject.optInt("act", ActionType.LP.value());
-                    if (this.cBz == ActionType.DL.value()) {
+                    this.cDZ = jSONObject.optString("w_picurl", "");
+                    this.cDY = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON, "");
+                    this.cDV = jSONObject.optInt("act", ActionType.LP.value());
+                    if (this.cDV == ActionType.DL.value()) {
                         string = getString(a.h.swanapp_ad_download_button);
                     } else {
                         string = getString(a.h.swanapp_ad_landingpage_button);
                     }
-                    this.cBA = string;
-                    this.cBB = jSONObject.optString("appname", "");
-                    this.cBE = jSONObject.optInt("currentTime", 0);
-                    this.cBg = jSONObject.optJSONObject("monitors");
+                    this.cDW = string;
+                    this.cDX = jSONObject.optString("appname", "");
+                    this.cEa = jSONObject.optInt("currentTime", 0);
+                    this.cDC = jSONObject.optJSONObject("monitors");
                     this.mDownloadUrl = jSONObject.optString("url", "");
                     this.mPackageName = jSONObject.optString("name", "");
                     this.mFrom = jSONObject.optString("from", "");
@@ -144,7 +144,7 @@ public class SwanAppAdLandingFragment extends i {
                     }
                 }
                 if (!TextUtils.isEmpty(this.mVideoUrl)) {
-                    this.cBk = LandingType.VIDEO;
+                    this.cDG = LandingType.VIDEO;
                 }
             }
         }
@@ -153,11 +153,11 @@ public class SwanAppAdLandingFragment extends i {
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        aiO();
-        FragmentActivity bdH = bdH();
-        if (bdH != null) {
-            this.cBG = 1 == bdH.getRequestedOrientation();
-            if (!this.cBG) {
+        ajm();
+        FragmentActivity bdU = bdU();
+        if (bdU != null) {
+            this.cEc = 1 == bdU.getRequestedOrientation();
+            if (!this.cEc) {
                 setRequestedOrientation(1);
             }
         }
@@ -169,26 +169,26 @@ public class SwanAppAdLandingFragment extends i {
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
-        av(inflate);
-        this.cBm = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        aiR();
-        E(this.cBm);
-        q(this.cBm);
-        if (aiQ()) {
-            aiP();
-            D(this.cBm);
+        aq(inflate);
+        this.cDI = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
+        ajp();
+        C(this.cDI);
+        x(this.cDI);
+        if (ajo()) {
+            ajn();
+            B(this.cDI);
         }
-        e(this.cBm);
-        View az = aok() ? az(inflate) : inflate;
-        this.cBl = new b(getContext(), this.cBg, this.cBf);
-        this.cBl.jH("lpin");
-        return a(az, this);
+        e(this.cDI);
+        View av = aoI() ? av(inflate) : inflate;
+        this.cDH = new b(getContext(), this.cDC, this.cDB);
+        this.cDH.jZ("lpin");
+        return a(av, this);
     }
 
-    private void aiP() {
-        d dVar = new d(this.cBD, this.mVideoUrl, this.cQD.aiA(), this.mVideoWidth, this.mVideoHeight, this.cBE);
-        this.cBf = new com.baidu.swan.apps.media.b.a(getContext(), dVar.aiW());
-        this.cBf.a(new com.baidu.swan.apps.media.b.b() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.1
+    private void ajn() {
+        d dVar = new d(this.cDZ, this.mVideoUrl, this.cSQ.aiY(), this.mVideoWidth, this.mVideoHeight, this.cEa);
+        this.cDB = new com.baidu.swan.apps.media.b.a(getContext(), dVar.aju());
+        this.cDB.a(new com.baidu.swan.apps.media.b.b() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.1
             @Override // com.baidu.swan.apps.media.b.b
             public void a(j jVar) {
             }
@@ -200,170 +200,170 @@ public class SwanAppAdLandingFragment extends i {
 
             @Override // com.baidu.swan.apps.media.b.b
             public void b(j jVar) {
-                SwanAppAdLandingFragment.this.cBu.bringToFront();
-                SwanAppAdLandingFragment.this.cBu.setVisibility(0);
-                SwanAppAdLandingFragment.this.cBE = 0;
+                SwanAppAdLandingFragment.this.cDQ.bringToFront();
+                SwanAppAdLandingFragment.this.cDQ.setVisibility(0);
+                SwanAppAdLandingFragment.this.cEa = 0;
                 SwanAppAdLandingFragment.b(SwanAppAdLandingFragment.this);
-                SwanAppAdLandingFragment.this.cBl.jH("vplayend");
-                SwanAppAdLandingFragment.this.cBl.jH("scard");
+                SwanAppAdLandingFragment.this.cDH.jZ("vplayend");
+                SwanAppAdLandingFragment.this.cDH.jZ("scard");
             }
 
             @Override // com.baidu.swan.apps.media.b.b
             public void c(j jVar) {
-                SwanAppAdLandingFragment.this.cBl.jH("vcontinueplay");
+                SwanAppAdLandingFragment.this.cDH.jZ("vcontinueplay");
             }
 
             @Override // com.baidu.swan.apps.media.b.b
             public void d(j jVar) {
-                if (SwanAppAdLandingFragment.this.cBF == 0) {
-                    SwanAppAdLandingFragment.this.cBl.jH("vstart");
+                if (SwanAppAdLandingFragment.this.cEb == 0) {
+                    SwanAppAdLandingFragment.this.cDH.jZ("vstart");
                     return;
                 }
-                SwanAppAdLandingFragment.this.cBu.setVisibility(8);
-                SwanAppAdLandingFragment.this.cBl.jH("vrepeatedplay");
+                SwanAppAdLandingFragment.this.cDQ.setVisibility(8);
+                SwanAppAdLandingFragment.this.cDH.jZ("vrepeatedplay");
             }
 
             @Override // com.baidu.swan.apps.media.b.b
             public void e(j jVar) {
-                SwanAppAdLandingFragment.this.cBl.jH("vpause");
+                SwanAppAdLandingFragment.this.cDH.jZ("vpause");
             }
         });
-        this.cBf.d(dVar.aiW());
-        this.cBf.fP(false);
+        this.cDB.d(dVar.aju());
+        this.cDB.fR(false);
     }
 
-    private void D(ViewGroup viewGroup) {
-        this.cBt = (RelativeLayout) LayoutInflater.from(getContext()).inflate(a.g.swanapp_ad_video_tail_view, (ViewGroup) null);
+    private void B(ViewGroup viewGroup) {
+        this.cDP = (RelativeLayout) LayoutInflater.from(getContext()).inflate(a.g.swanapp_ad_video_tail_view, (ViewGroup) null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.height = this.mVideoHeight;
-        this.cBu = (RelativeLayout) this.cBt.findViewById(a.f.ad_tail_root);
-        this.cBv = (SimpleDraweeView) this.cBt.findViewById(a.f.ad_tail_video_img);
-        this.cBw = (SimpleDraweeView) this.cBt.findViewById(a.f.ad_tail_head_image);
-        this.cBx = (TextView) this.cBt.findViewById(a.f.ad_tail_brand_name);
-        this.cBy = (TextView) this.cBt.findViewById(a.f.ad_tail_btn);
-        if (!TextUtils.isEmpty(this.cBA)) {
-            this.cBy.setText(this.cBA);
-            this.cBy.setVisibility(0);
+        this.cDQ = (RelativeLayout) this.cDP.findViewById(a.f.ad_tail_root);
+        this.cDR = (SimpleDraweeView) this.cDP.findViewById(a.f.ad_tail_video_img);
+        this.cDS = (SimpleDraweeView) this.cDP.findViewById(a.f.ad_tail_head_image);
+        this.cDT = (TextView) this.cDP.findViewById(a.f.ad_tail_brand_name);
+        this.cDU = (TextView) this.cDP.findViewById(a.f.ad_tail_btn);
+        if (!TextUtils.isEmpty(this.cDW)) {
+            this.cDU.setText(this.cDW);
+            this.cDU.setVisibility(0);
         } else {
-            this.cBy.setVisibility(8);
+            this.cDU.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(this.cBB)) {
-            this.cBx.setText(this.cBB);
-            this.cBx.setVisibility(0);
+        if (!TextUtils.isEmpty(this.cDX)) {
+            this.cDT.setText(this.cDX);
+            this.cDT.setVisibility(0);
         } else {
-            this.cBx.setVisibility(4);
+            this.cDT.setVisibility(4);
         }
-        if (!TextUtils.isEmpty(this.cBC)) {
-            this.cBw.setImageURI(Uri.parse(this.cBC));
-            this.cBw.setVisibility(0);
+        if (!TextUtils.isEmpty(this.cDY)) {
+            this.cDS.setImageURI(Uri.parse(this.cDY));
+            this.cDS.setVisibility(0);
         } else {
-            this.cBw.setVisibility(8);
+            this.cDS.setVisibility(8);
         }
-        this.cBv.getHierarchy().A(getResources().getDrawable(a.e.swanapp_ad_tab_video_img_default_icon));
-        if (!TextUtils.isEmpty(this.cBD)) {
-            this.cBv.setImageURI(t.tC(this.cBD));
+        this.cDR.getHierarchy().A(getResources().getDrawable(a.e.swanapp_ad_tab_video_img_default_icon));
+        if (!TextUtils.isEmpty(this.cDZ)) {
+            this.cDR.setImageURI(t.tV(this.cDZ));
         }
-        this.cBv.setVisibility(0);
-        this.cBv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.4
+        this.cDR.setVisibility(0);
+        this.cDR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
-        this.cBw.setOnClickListener(this.cBH);
-        this.cBx.setOnClickListener(this.cBH);
-        this.cBy.setOnClickListener(this.cBH);
-        viewGroup.addView(this.cBu, layoutParams);
-        this.cBu.setVisibility(4);
+        this.cDS.setOnClickListener(this.cEd);
+        this.cDT.setOnClickListener(this.cEd);
+        this.cDU.setOnClickListener(this.cEd);
+        viewGroup.addView(this.cDQ, layoutParams);
+        this.cDQ.setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jI(String str) {
+    public void ka(String str) {
         if (!TextUtils.isEmpty(str)) {
-            h.aLO().putString(this.cBr.url, str);
+            h.aMh().putString(this.cDN.url, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String jJ(String str) {
-        return h.aLO().getString(str, "");
+    public String kb(String str) {
+        return h.aMh().getString(str, "");
     }
 
-    private void E(final ViewGroup viewGroup) {
-        g axs = com.baidu.swan.apps.t.a.axs();
-        if (axs != null) {
-            this.cBq = new com.baidu.swan.apps.adlanding.download.a.a() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.5
+    private void C(final ViewGroup viewGroup) {
+        g axQ = com.baidu.swan.apps.t.a.axQ();
+        if (axQ != null) {
+            this.cDM = new com.baidu.swan.apps.adlanding.download.a.a() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.5
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
-                public void eN(boolean z) {
+                public void eP(boolean z) {
                     if (z) {
-                        viewGroup.removeView(SwanAppAdLandingFragment.this.cBp.getRealView());
-                        viewGroup.addView(SwanAppAdLandingFragment.this.cBp.getRealView());
+                        viewGroup.removeView(SwanAppAdLandingFragment.this.cDL.getRealView());
+                        viewGroup.addView(SwanAppAdLandingFragment.this.cDL.getRealView());
                         return;
                     }
-                    viewGroup.removeView(SwanAppAdLandingFragment.this.cBp.getRealView());
+                    viewGroup.removeView(SwanAppAdLandingFragment.this.cDL.getRealView());
                 }
 
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
-                public void jK(String str) {
-                    SwanAppAdLandingFragment.this.jI(str);
+                public void kc(String str) {
+                    SwanAppAdLandingFragment.this.ka(str);
                 }
 
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
                 public void a(SwanAdDownloadState swanAdDownloadState, int i) {
-                    SwanAppAdLandingFragment.this.cBp.a(swanAdDownloadState);
-                    if (SwanAppAdLandingFragment.this.cBs != swanAdDownloadState) {
-                        if (SwanAppAdLandingFragment.this.cBs == SwanAdDownloadState.NOT_START && swanAdDownloadState == SwanAdDownloadState.DOWNLOADING) {
-                            SwanAppAdLandingFragment.this.cBl.jH("appdownloadbegin");
+                    SwanAppAdLandingFragment.this.cDL.a(swanAdDownloadState);
+                    if (SwanAppAdLandingFragment.this.cDO != swanAdDownloadState) {
+                        if (SwanAppAdLandingFragment.this.cDO == SwanAdDownloadState.NOT_START && swanAdDownloadState == SwanAdDownloadState.DOWNLOADING) {
+                            SwanAppAdLandingFragment.this.cDH.jZ("appdownloadbegin");
                         } else if (swanAdDownloadState == SwanAdDownloadState.DOWNLOAD_PAUSED) {
-                            SwanAppAdLandingFragment.this.cBl.jH("appdownloadpause");
-                        } else if (SwanAppAdLandingFragment.this.cBs == SwanAdDownloadState.DOWNLOAD_PAUSED && swanAdDownloadState == SwanAdDownloadState.DOWNLOADING) {
-                            SwanAppAdLandingFragment.this.cBl.jH("appdownloadcontinue");
+                            SwanAppAdLandingFragment.this.cDH.jZ("appdownloadpause");
+                        } else if (SwanAppAdLandingFragment.this.cDO == SwanAdDownloadState.DOWNLOAD_PAUSED && swanAdDownloadState == SwanAdDownloadState.DOWNLOADING) {
+                            SwanAppAdLandingFragment.this.cDH.jZ("appdownloadcontinue");
                         } else if (swanAdDownloadState == SwanAdDownloadState.DOWNLOADED) {
-                            SwanAppAdLandingFragment.this.cBl.jH("appdownloadfinish");
-                            SwanAppAdLandingFragment.this.cBl.jH("appinstallbegin");
+                            SwanAppAdLandingFragment.this.cDH.jZ("appdownloadfinish");
+                            SwanAppAdLandingFragment.this.cDH.jZ("appinstallbegin");
                         } else if (swanAdDownloadState == SwanAdDownloadState.INSTALLED) {
-                            SwanAppAdLandingFragment.this.cBl.jH("appinstallfinish");
+                            SwanAppAdLandingFragment.this.cDH.jZ("appinstallfinish");
                         }
-                        SwanAppAdLandingFragment.this.cBs = swanAdDownloadState;
+                        SwanAppAdLandingFragment.this.cDO = swanAdDownloadState;
                     }
                 }
 
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
                 public void b(SwanAdDownloadState swanAdDownloadState, int i) {
-                    SwanAppAdLandingFragment.this.cBp.updateProgress(i);
+                    SwanAppAdLandingFragment.this.cDL.updateProgress(i);
                 }
 
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
-                public void aiU() {
-                    SwanAppAdLandingFragment.this.cBl.jH("appinstallbegin");
+                public void ajs() {
+                    SwanAppAdLandingFragment.this.cDH.jZ("appinstallbegin");
                 }
 
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
-                public String aiV() {
-                    SwanAppAdLandingFragment.this.cBl.jH("appinstallopen");
-                    return SwanAppAdLandingFragment.this.jJ(SwanAppAdLandingFragment.this.cBr.url);
+                public String ajt() {
+                    SwanAppAdLandingFragment.this.cDH.jZ("appinstallopen");
+                    return SwanAppAdLandingFragment.this.kb(SwanAppAdLandingFragment.this.cDN.url);
                 }
             };
-            this.cBr = new com.baidu.swan.apps.adlanding.download.model.a(this.mDownloadUrl, this.mPackageName);
-            this.cBp = axs.a(getContext(), this.cBr, this.cBq);
-            this.cBp.P(this.cBr);
+            this.cDN = new com.baidu.swan.apps.adlanding.download.model.a(this.mDownloadUrl, this.mPackageName);
+            this.cDL = axQ.a(getContext(), this.cDN, this.cDM);
+            this.cDL.P(this.cDN);
         }
     }
 
     /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.swan.apps.adaptation.b.d] */
-    private void q(ViewGroup viewGroup) {
-        this.cQD = air();
-        this.cQD.a(aiS());
-        this.czU = this.cQD.aiy();
-        this.cQD.loadUrl(this.mUrl);
+    private void x(ViewGroup viewGroup) {
+        this.cSQ = aiP();
+        this.cSQ.a(ajq());
+        this.cCq = this.cSQ.aiW();
+        this.cSQ.loadUrl(this.mUrl);
         FrameLayout frameLayout = new FrameLayout(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        View covertToView = this.czU.covertToView();
+        View covertToView = this.cCq.covertToView();
         com.baidu.swan.apps.runtime.config.c cVar = new com.baidu.swan.apps.runtime.config.c();
-        cVar.backgroundColor = SwanAppConfigData.rt("#FFFFFF");
-        this.cQD.b(frameLayout, cVar);
-        this.cQD.a(frameLayout, cVar);
-        this.cQD.b(frameLayout, covertToView);
-        if (aiQ()) {
+        cVar.backgroundColor = SwanAppConfigData.rM("#FFFFFF");
+        this.cSQ.b(frameLayout, cVar);
+        this.cSQ.a(frameLayout, cVar);
+        this.cSQ.b(frameLayout, covertToView);
+        if (ajo()) {
             layoutParams.topMargin = this.mVideoHeight;
         }
         if (TextUtils.equals("swan-custom-ad", this.mFrom)) {
@@ -375,7 +375,7 @@ public class SwanAppAdLandingFragment extends i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean au(View view) {
+    public boolean ap(View view) {
         if (view == null || view.getVisibility() != 0) {
             return false;
         }
@@ -391,10 +391,10 @@ public class SwanAppAdLandingFragment extends i {
         linearLayout2.addView(linearLayout, new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(a.d.swanapp_ad_dimens_footer_height)));
         customerAdScrollView.addView(linearLayout2, new LinearLayout.LayoutParams(-1, -2));
         viewGroup.addView(customerAdScrollView);
-        this.cQD.a(new com.baidu.swan.apps.core.f.c() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.6
+        this.cSQ.a(new com.baidu.swan.apps.core.f.c() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.6
             @Override // com.baidu.swan.apps.core.f.c
             public void onScrollChanged(int i, int i2, int i3, int i4) {
-                customerAdScrollView.setIsWebViewOnBottom(((((float) SwanAppAdLandingFragment.this.czU.getContentHeight()) * SwanAppAdLandingFragment.this.czU.getScale()) - ((float) SwanAppAdLandingFragment.this.czU.covertToView().getHeight())) - ((float) SwanAppAdLandingFragment.this.czU.getWebViewScrollY()) < 10.0f);
+                customerAdScrollView.setIsWebViewOnBottom(((((float) SwanAppAdLandingFragment.this.cCq.getContentHeight()) * SwanAppAdLandingFragment.this.cCq.getScale()) - ((float) SwanAppAdLandingFragment.this.cCq.covertToView().getHeight())) - ((float) SwanAppAdLandingFragment.this.cCq.getWebViewScrollY()) < 10.0f);
             }
         });
         viewGroup2.post(new Runnable() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.7
@@ -403,11 +403,11 @@ public class SwanAppAdLandingFragment extends i {
                 viewGroup2.setLayoutParams(new LinearLayout.LayoutParams(-1, viewGroup.getHeight()));
             }
         });
-        this.cQD.a(new com.baidu.swan.apps.core.g() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.8
+        this.cSQ.a(new com.baidu.swan.apps.core.g() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.8
             @Override // com.baidu.swan.apps.core.g
-            public void gV(String str) {
-                super.gV(str);
-                if (Math.abs((SwanAppAdLandingFragment.this.czU.getContentHeight() * SwanAppAdLandingFragment.this.czU.getScale()) - SwanAppAdLandingFragment.this.czU.covertToView().getHeight()) < 10.0f) {
+            public void iu(String str) {
+                super.iu(str);
+                if (Math.abs((SwanAppAdLandingFragment.this.cCq.getContentHeight() * SwanAppAdLandingFragment.this.cCq.getScale()) - SwanAppAdLandingFragment.this.cCq.covertToView().getHeight()) < 10.0f) {
                     customerAdScrollView.setIsWebViewOnBottom(true);
                 } else {
                     customerAdScrollView.setIsWebViewOnBottom(false);
@@ -417,65 +417,65 @@ public class SwanAppAdLandingFragment extends i {
         customerAdScrollView.setScrollViewListener(new com.baidu.swan.apps.adlanding.customer.a() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.10
             @Override // com.baidu.swan.apps.adlanding.customer.a
             public void onScrollChanged(int i, int i2, int i3, int i4) {
-                customerAdScrollView.setIsFooterLayoutShow(SwanAppAdLandingFragment.this.au(linearLayout));
+                customerAdScrollView.setIsFooterLayoutShow(SwanAppAdLandingFragment.this.ap(linearLayout));
             }
         });
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    public boolean ais() {
-        if (isLandScape() && this.cBf != null) {
-            return this.cBf.onBackPressed();
+    public boolean aiQ() {
+        if (isLandScape() && this.cDB != null) {
+            return this.cDB.onBackPressed();
         }
-        this.cBl.jH("lpout");
-        return super.ais();
+        this.cDH.jZ("lpout");
+        return super.aiQ();
     }
 
-    private boolean aiQ() {
-        return this.cBk == LandingType.VIDEO;
+    private boolean ajo() {
+        return this.cDG == LandingType.VIDEO;
     }
 
     private boolean isLandScape() {
-        return bdH().getResources().getConfiguration().orientation == 2;
+        return bdU().getResources().getConfiguration().orientation == 2;
     }
 
-    private void aiR() {
-        DisplayMetrics displayMetrics = bdH().getResources().getDisplayMetrics();
+    private void ajp() {
+        DisplayMetrics displayMetrics = bdU().getResources().getDisplayMetrics();
         int i = displayMetrics != null ? displayMetrics.widthPixels : 0;
         this.mVideoHeight = (i * 9) / 16;
         this.mVideoWidth = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eM(boolean z) {
-        this.cPt.setLeftHomeViewVisibility(z ? 0 : 8);
+    public void eO(boolean z) {
+        this.cRH.setLeftHomeViewVisibility(z ? 0 : 8);
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    public f air() {
+    public f aiP() {
         e eVar = new e(getContext());
-        eVar.aiy().setDownloadListener(new ISailorDownloadListener() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.9
+        eVar.aiW().setDownloadListener(new ISailorDownloadListener() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.9
             @Override // com.baidu.browser.sailor.ISailorDownloadListener
             public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
                 if (SwanAppAdLandingFragment.DEBUG) {
                     Log.d("SwanAppAdLandFragment", "onDownloadStart: url=" + str + ", userAgent=" + str2 + ", mimeType=" + str4);
                 }
-                SwanAppAdLandingFragment.this.cBp.ahM();
-                if (TextUtils.isEmpty(SwanAppAdLandingFragment.this.cBr.name)) {
-                    String jJ = SwanAppAdLandingFragment.this.jJ(str);
-                    SwanAppAdLandingFragment.this.cBr.name = jJ;
-                    SwanAppAdLandingFragment.this.cBp.jD(jJ);
+                SwanAppAdLandingFragment.this.cDL.aik();
+                if (TextUtils.isEmpty(SwanAppAdLandingFragment.this.cDN.name)) {
+                    String kb = SwanAppAdLandingFragment.this.kb(str);
+                    SwanAppAdLandingFragment.this.cDN.name = kb;
+                    SwanAppAdLandingFragment.this.cDL.jV(kb);
                 }
-                if (ak.isAppInstalled(SwanAppAdLandingFragment.this.getContext(), SwanAppAdLandingFragment.this.cBr.name)) {
-                    SwanAppAdLandingFragment.this.cBm.removeView(SwanAppAdLandingFragment.this.cBp.getRealView());
-                    SwanAppAdLandingFragment.this.cBm.addView(SwanAppAdLandingFragment.this.cBp.getRealView());
-                    SwanAppAdLandingFragment.this.cBp.a(SwanAdDownloadState.INSTALLED);
+                if (ak.isAppInstalled(SwanAppAdLandingFragment.this.getContext(), SwanAppAdLandingFragment.this.cDN.name)) {
+                    SwanAppAdLandingFragment.this.cDI.removeView(SwanAppAdLandingFragment.this.cDL.getRealView());
+                    SwanAppAdLandingFragment.this.cDI.addView(SwanAppAdLandingFragment.this.cDL.getRealView());
+                    SwanAppAdLandingFragment.this.cDL.a(SwanAdDownloadState.INSTALLED);
                     return;
                 }
-                if (TextUtils.isEmpty(SwanAppAdLandingFragment.this.cBr.url)) {
-                    SwanAppAdLandingFragment.this.cBr.url = str;
+                if (TextUtils.isEmpty(SwanAppAdLandingFragment.this.cDN.url)) {
+                    SwanAppAdLandingFragment.this.cDN.url = str;
                 }
-                com.baidu.swan.apps.t.a.awI().a(SwanAppAdLandingFragment.this.getContext(), SwanAppAdLandingFragment.this.cBr.aiX(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, SwanAppAdLandingFragment.this.cBq);
+                com.baidu.swan.apps.t.a.axg().a(SwanAppAdLandingFragment.this.getContext(), SwanAppAdLandingFragment.this.cDN.ajv(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, SwanAppAdLandingFragment.this.cDM);
             }
 
             @Override // com.baidu.browser.sailor.ISailorDownloadListener
@@ -490,20 +490,20 @@ public class SwanAppAdLandingFragment extends i {
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    protected com.baidu.swan.apps.core.f.d aiS() {
+    protected com.baidu.swan.apps.core.f.d ajq() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.2
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
             public void goBack() {
-                SwanAppAdLandingFragment.this.eM(SwanAppAdLandingFragment.this.czU.canGoBack());
+                SwanAppAdLandingFragment.this.eO(SwanAppAdLandingFragment.this.cCq.canGoBack());
             }
 
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public void hV(final String str) {
-                SwanAppAdLandingFragment.this.eM(SwanAppAdLandingFragment.this.czU.canGoBack());
-                SwanAppAdLandingFragment.this.cPt.post(new Runnable() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.2.1
+            public void iv(final String str) {
+                SwanAppAdLandingFragment.this.eO(SwanAppAdLandingFragment.this.cCq.canGoBack());
+                SwanAppAdLandingFragment.this.cRH.post(new Runnable() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.2.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        SwanAppAdLandingFragment.this.cPt.setTitle(TextUtils.isEmpty(str) ? "" : str);
+                        SwanAppAdLandingFragment.this.cRH.setTitle(TextUtils.isEmpty(str) ? "" : str);
                     }
                 });
             }
@@ -511,31 +511,31 @@ public class SwanAppAdLandingFragment extends i {
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected void av(View view) {
-        super.av(view);
-        this.cPt.setLeftHomeViewSrc(a.e.aiapps_action_bar_close_black_selector);
-        this.cPt.setLeftHomeViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.3
+    protected void aq(View view) {
+        super.aq(view);
+        this.cRH.setLeftHomeViewSrc(a.e.aiapps_action_bar_close_black_selector);
+        this.cRH.setLeftHomeViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                i.apn();
+                i.apL();
             }
         });
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected boolean aiT() {
+    protected boolean ajr() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
-        if (aiQ()) {
-            this.cBl.jH("vplayend");
+        if (ajo()) {
+            this.cDH.jZ("vplayend");
         }
-        if (this.cBf != null) {
-            this.cBf.onDestroy();
+        if (this.cDB != null) {
+            this.cDB.onDestroy();
         }
-        if (!this.cBG) {
+        if (!this.cEc) {
             setRequestedOrientation(0);
         }
         super.onDestroy();

@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.p;
 
 import android.widget.ImageView;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface b {
     void a(String str, int i, Exception exc);
 

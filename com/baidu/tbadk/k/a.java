@@ -11,35 +11,35 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a implements c {
     private View rootView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
-    private ImageView fCU = (ImageView) this.rootView.findViewById(R.id.floating_view_icon);
-    private TextView fCW = (TextView) this.rootView.findViewById(R.id.floating_view_title);
-    private ImageView fCV = (ImageView) this.rootView.findViewById(R.id.floating_view_arrow);
-    private LinearLayout fCX = (LinearLayout) this.rootView.findViewById(R.id.floating_view_main);
+    private ImageView fFg = (ImageView) this.rootView.findViewById(R.id.floating_view_icon);
+    private TextView fFi = (TextView) this.rootView.findViewById(R.id.floating_view_title);
+    private ImageView fFh = (ImageView) this.rootView.findViewById(R.id.floating_view_arrow);
+    private LinearLayout fFj = (LinearLayout) this.rootView.findViewById(R.id.floating_view_main);
 
     public a(Context context) {
-        this.fCW.setText(R.string.frs_forum_bcast_return_info);
-        btU();
+        this.fFi.setText(R.string.frs_forum_bcast_return_info);
+        buo();
     }
 
     @Override // com.baidu.tbadk.k.c
-    public void btU() {
+    public void buo() {
         if (this.rootView != null) {
-            ao.setViewTextColor(this.fCW, R.color.CAM_X0101);
-            ao.setImageResource(this.fCU, R.drawable.pic_float_return_broadcast32);
-            SvgManager.bsx().a(this.fCV, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            com.baidu.tbadk.core.util.f.a.btb().oK(R.color.CAM_X0305).oJ(0).oT(211).ag(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).ai(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bz(this.fCX);
+            ap.setViewTextColor(this.fFi, R.color.CAM_X0101);
+            ap.setImageResource(this.fFg, R.drawable.pic_float_return_broadcast32);
+            SvgManager.bsR().a(this.fFh, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            com.baidu.tbadk.core.util.f.a.btv().oP(R.color.CAM_X0305).oO(0).oY(211).ah(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).aj(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bv(this.fFj);
         }
     }
 
     @Override // com.baidu.tbadk.k.c
     public void onClick() {
-        TiebaStatic.log(new aq("c13881").w("uid", TbadkCoreApplication.getCurrentAccountId()));
+        TiebaStatic.log(new ar("c13881").v("uid", TbadkCoreApplication.getCurrentAccountId()));
     }
 
     @Override // com.baidu.tbadk.k.c

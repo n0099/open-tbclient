@@ -1,0 +1,31 @@
+package com.baidu.mobad.nativevideo;
+
+import com.baidu.mobad.feeds.NativeErrorCode;
+import com.baidu.mobad.nativevideo.a;
+import java.util.List;
+/* loaded from: classes5.dex */
+class b implements a.InterfaceC0261a {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PatchVideoNative f3247a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(PatchVideoNative patchVideoNative) {
+        this.f3247a = patchVideoNative;
+    }
+
+    @Override // com.baidu.mobad.nativevideo.a.InterfaceC0261a
+    public void a(List<e> list) {
+        if (list == null || list.size() <= 0) {
+            this.f3247a.a(NativeErrorCode.LOAD_AD_FAILED);
+            return;
+        }
+        this.f3247a.g = list.get(0);
+        this.f3247a.a();
+    }
+
+    @Override // com.baidu.mobad.nativevideo.a.InterfaceC0261a
+    public void a(NativeErrorCode nativeErrorCode) {
+        this.f3247a.a(nativeErrorCode);
+    }
+}

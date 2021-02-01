@@ -9,14 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.fun.ad.sdk.R;
 import com.win.opensdk.PBMediaView;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class JYNativeAdView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f7823a;
+    public TextView f7825a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PBMediaView f7824b;
+    public PBMediaView f7826b;
     public TextView c;
     public ImageView d;
     public Button e;
@@ -40,8 +40,8 @@ public final class JYNativeAdView extends LinearLayout {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f7823a = (TextView) findViewById(R.id.ad_description);
-        this.f7824b = (PBMediaView) findViewById(R.id.ad_img);
+        this.f7825a = (TextView) findViewById(R.id.ad_description);
+        this.f7826b = (PBMediaView) findViewById(R.id.ad_img);
         this.c = (TextView) findViewById(R.id.ad_title);
         this.d = (ImageView) findViewById(R.id.ad_icon);
         this.e = (Button) findViewById(R.id.ad_creative);
@@ -50,10 +50,10 @@ public final class JYNativeAdView extends LinearLayout {
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f7824b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f7826b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i5;
         layoutParams.height = (int) (i5 / this.f);
-        this.f7824b.setLayoutParams(layoutParams);
+        this.f7826b.setLayoutParams(layoutParams);
     }
 }

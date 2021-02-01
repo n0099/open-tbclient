@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.frsgamelive.view.AlaFrsLiveListGatherRecommendTitleView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsgamelive.b.b, AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder> {
     private TbPageContext<?> mPageContext;
 
@@ -18,7 +18,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsga
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ar */
+    /* renamed from: ap */
     public AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder e(ViewGroup viewGroup) {
         return new AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder(new AlaFrsLiveListGatherRecommendTitleView(this.mPageContext));
     }

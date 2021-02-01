@@ -36,13 +36,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.h;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tbadk.util.ab;
-import com.baidu.tbadk.util.ac;
-import com.baidu.tbadk.util.ai;
+import com.baidu.tbadk.util.ad;
+import com.baidu.tbadk.util.ae;
+import com.baidu.tbadk.util.af;
+import com.baidu.tbadk.util.al;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import com.baidu.tieba.mainentrance.HotSearchInfoData;
@@ -54,32 +56,34 @@ import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.SearchSug.ForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SquareSearchViewController implements b {
-    private String iYq;
-    private c lbP;
-    private boolean lcb;
-    private SearchHistoryViewController lcd;
+    private String jdX;
+    private c ljS;
+    private boolean lke;
+    private SearchHistoryViewController lkh;
     private BaseActivity mActivity;
     private HotSearchInfoData mHotSearchInfo;
     private View mRootView;
-    private boolean lcc = true;
-    private CustomMessageListener lce = new CustomMessageListener(2921444) { // from class: com.baidu.tieba.mainentrance.view.SquareSearchViewController.1
+    private boolean lkf = true;
+    private Stack<String> lkg = new Stack<>();
+    private CustomMessageListener lki = new CustomMessageListener(2921444) { // from class: com.baidu.tieba.mainentrance.view.SquareSearchViewController.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                SquareSearchViewController.this.lbP.tF(!((Boolean) customResponsedMessage.getData()).booleanValue());
+                SquareSearchViewController.this.ljS.tS(!((Boolean) customResponsedMessage.getData()).booleanValue());
             }
         }
     };
 
     public SquareSearchViewController(BaseActivity baseActivity, boolean z) {
         this.mActivity = baseActivity;
-        this.lcb = z;
+        this.lke = z;
         init();
     }
 
@@ -90,17 +94,17 @@ public class SquareSearchViewController implements b {
             this.mActivity.setContentView(this.mRootView);
         } catch (Exception e) {
             e.printStackTrace();
-            Map<String, String> dcm = a.dcm();
-            if (dcm != null) {
-                int size = dcm.size();
+            Map<String, String> dek = a.dek();
+            if (dek != null) {
+                int size = dek.size();
                 int i2 = 0;
-                Iterator<String> it = dcm.keySet().iterator();
+                Iterator<String> it = dek.keySet().iterator();
                 while (true) {
                     i = i2;
                     if (!it.hasNext()) {
                         break;
                     }
-                    a.Nf(it.next());
+                    a.NT(it.next());
                     try {
                         this.mRootView = LayoutInflater.from(this.mActivity).inflate(R.layout.new_home_dialog_search, (ViewGroup) null);
                         this.mActivity.setContentView(this.mRootView);
@@ -123,33 +127,33 @@ public class SquareSearchViewController implements b {
             this.mActivity.finish();
             return;
         }
-        this.lbP = new c(this.mRootView, this.mActivity.getPageContext().getPageActivity());
-        this.lcd = new SearchHistoryViewController(this.mActivity, this, this.lbP);
-        dcB();
-        dcC();
-        dcD();
-        dcE();
-        dbV();
-        dcH();
-        ai.a(this.lbP.dcy(), this.mActivity.getUniqueId());
-        ai.a(this.lbP.dcz(), this.mActivity.getUniqueId());
-        this.mActivity.registerListener(this.lce);
+        this.ljS = new c(this.mRootView, this.mActivity.getPageContext().getPageActivity());
+        this.lkh = new SearchHistoryViewController(this.mActivity, this, this.ljS);
+        dez();
+        deA();
+        deB();
+        deC();
+        ddT();
+        deG();
+        al.a(this.ljS.dew(), this.mActivity.getUniqueId());
+        al.a(this.ljS.dex(), this.mActivity.getUniqueId());
+        this.mActivity.registerListener(this.lki);
     }
 
     public void onResume() {
-        if (this.lbP != null) {
-            this.lbP.onResume();
+        if (this.ljS != null) {
+            this.ljS.onResume();
         }
     }
 
-    public void dcB() {
+    public void dez() {
         View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.mainentrance.view.SquareSearchViewController.5
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
                     l.hideSoftKeyPad(SquareSearchViewController.this.mActivity.getPageContext().getPageActivity(), view);
                 } else {
-                    SquareSearchViewController.this.dcG();
+                    SquareSearchViewController.this.deE();
                 }
             }
         };
@@ -157,13 +161,13 @@ public class SquareSearchViewController implements b {
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    if (StringUtils.isNull(SquareSearchViewController.this.iYq)) {
+                    if (StringUtils.isNull(SquareSearchViewController.this.jdX)) {
                         l.hideSoftKeyPad(SquareSearchViewController.this.mActivity.getPageContext().getPageActivity(), textView);
-                        SquareSearchViewController.this.dcF();
+                        SquareSearchViewController.this.deD();
                         return true;
                     }
-                    SquareSearchViewController.this.b(SquareSearchViewController.this.iYq, false, 1);
-                    TiebaStatic.log(new aq("c12842").dW("obj_name", SquareSearchViewController.this.iYq).dW("obj_source", "1").dW("obj_type", "1"));
+                    SquareSearchViewController.this.b(SquareSearchViewController.this.jdX, false, 1);
+                    TiebaStatic.log(new ar("c12842").dR("obj_name", SquareSearchViewController.this.jdX).dR("obj_source", "1").dR("obj_type", "1"));
                     return true;
                 }
                 return false;
@@ -181,21 +185,21 @@ public class SquareSearchViewController implements b {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
-                    if (SquareSearchViewController.this.lcc) {
-                        SquareSearchViewController.this.iYq = editable.toString();
-                        SquareSearchViewController.this.dcH();
+                    if (SquareSearchViewController.this.lkf) {
+                        SquareSearchViewController.this.jdX = editable.toString();
+                        SquareSearchViewController.this.deG();
                     }
-                    SquareSearchViewController.this.lbP.pe(!StringUtils.isNull(editable.toString()));
+                    SquareSearchViewController.this.ljS.po(!StringUtils.isNull(editable.toString()));
                 }
             }
         };
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.view.SquareSearchViewController.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != SquareSearchViewController.this.lbP.dcw() || SquareSearchViewController.this.lbP.dcw().getText() == null) {
-                    if (view == SquareSearchViewController.this.lbP.dcx()) {
-                        l.hideSoftKeyPad(SquareSearchViewController.this.mActivity.getPageContext().getPageActivity(), SquareSearchViewController.this.lbP.dcw());
-                        e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.view.SquareSearchViewController.8.1
+                if (view != SquareSearchViewController.this.ljS.deu() || SquareSearchViewController.this.ljS.deu().getText() == null) {
+                    if (view == SquareSearchViewController.this.ljS.dev()) {
+                        l.hideSoftKeyPad(SquareSearchViewController.this.mActivity.getPageContext().getPageActivity(), SquareSearchViewController.this.ljS.deu());
+                        e.mA().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.view.SquareSearchViewController.8.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 SquareSearchViewController.this.mActivity.finish();
@@ -205,19 +209,19 @@ public class SquareSearchViewController implements b {
                     }
                     return;
                 }
-                SquareSearchViewController.this.iYq = SquareSearchViewController.this.lbP.dcw().getText().toString();
-                if (StringUtils.isNull(SquareSearchViewController.this.iYq)) {
-                    SquareSearchViewController.this.dcp();
+                SquareSearchViewController.this.jdX = SquareSearchViewController.this.ljS.deu().getText().toString();
+                if (StringUtils.isNull(SquareSearchViewController.this.jdX)) {
+                    SquareSearchViewController.this.den();
                 }
             }
         };
-        this.lbP.a(onFocusChangeListener);
-        this.lbP.a(onEditorActionListener);
-        this.lbP.d(textWatcher);
-        this.lbP.setOnClickListener(onClickListener);
+        this.ljS.a(onFocusChangeListener);
+        this.ljS.a(onEditorActionListener);
+        this.ljS.d(textWatcher);
+        this.ljS.setOnClickListener(onClickListener);
     }
 
-    private void dcC() {
+    private void deA() {
         AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.mainentrance.view.SquareSearchViewController.9
             /* JADX WARN: Type inference failed for: r0v0, types: [android.widget.Adapter] */
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -229,11 +233,11 @@ public class SquareSearchViewController implements b {
                         String str = (String) item;
                         SquareSearchViewController.this.b(str, true, 3);
                         TiebaStatic.eventStat(SquareSearchViewController.this.mActivity.getPageContext().getPageActivity(), "search_bar_result_click", "click", 1, new Object[0]);
-                        TiebaStatic.log(new aq("c12842").dW("obj_name", str).dW("obj_source", "2").dW("obj_type", "1").an("obj_locate", i + 1).dW("obj_param1", SquareSearchViewController.this.iYq));
+                        TiebaStatic.log(new ar("c12842").dR("obj_name", str).dR("obj_source", "2").dR("obj_type", "1").ap("obj_locate", i + 1).dR("obj_param1", SquareSearchViewController.this.jdX));
                     } else if (item instanceof ForumInfo) {
                         ForumInfo forumInfo = (ForumInfo) item;
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(SquareSearchViewController.this.mActivity.getPageContext().getPageActivity()).createNormalCfg(forumInfo.forum_name, FrsActivityConfig.FRS_CALL_SEARCH)));
-                        TiebaStatic.log(new aq("c13371").dW("obj_type", forumInfo.has_concerned.intValue() > 0 ? "1" : "2").an("fid", forumInfo.forum_id.intValue()).w("uid", TbadkApplication.getCurrentAccountId()));
+                        TiebaStatic.log(new ar("c13371").dR("obj_type", forumInfo.has_concerned.intValue() > 0 ? "1" : "2").ap("fid", forumInfo.forum_id.intValue()).v("uid", TbadkApplication.getCurrentAccountId()));
                     }
                 }
             }
@@ -250,15 +254,15 @@ public class SquareSearchViewController implements b {
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             }
         };
-        this.lbP.b(onItemClickListener);
-        this.lbP.a(onScrollListener);
+        this.ljS.b(onItemClickListener);
+        this.ljS.a(onScrollListener);
     }
 
     public void onChangeSkinType(int i) {
-        this.lbP.onChangeSkinType(this.mActivity.getPageContext(), i);
+        this.ljS.onChangeSkinType(this.mActivity.getPageContext(), i);
     }
 
-    private void dcD() {
+    private void deB() {
         BaseWebView.c cVar = new BaseWebView.c() { // from class: com.baidu.tieba.mainentrance.view.SquareSearchViewController.11
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
@@ -283,29 +287,35 @@ public class SquareSearchViewController implements b {
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 com.baidu.tbadk.core.d.a.a("search", -1L, 0, "OverrideUrl", 0, "", "requesturl", str);
-                if (be.bsB().a(SquareSearchViewController.this.mActivity.getPageContext(), new String[]{str}) != 3) {
+                if (!TbadkCoreApplication.isLogin() && str != null && ad.DT(str) && ad.bFL()) {
+                    com.baidu.tbadk.core.data.ar arVar = new com.baidu.tbadk.core.data.ar(SquareSearchViewController.this.mActivity, "sousuo_dianji");
+                    arVar.setUrl(str);
+                    h.a(arVar);
+                    return true;
+                } else if (bf.bsV().a(SquareSearchViewController.this.mActivity.getPageContext(), new String[]{str}) != 3) {
+                    return true;
+                } else {
+                    if (str == null || !str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
+                        return false;
+                    }
+                    bf.bsV().a(SquareSearchViewController.this.mActivity.getPageContext(), new String[]{str}, true);
                     return true;
                 }
-                if (str == null || !str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                    return false;
-                }
-                be.bsB().a(SquareSearchViewController.this.mActivity.getPageContext(), new String[]{str}, true);
-                return true;
             }
         };
-        this.lbP.a(cVar);
-        this.lbP.a(fVar);
-        this.lbP.a(gVar);
-        this.lbP.a(bVar);
+        this.ljS.a(cVar);
+        this.ljS.a(fVar);
+        this.ljS.a(gVar);
+        this.ljS.a(bVar);
     }
 
-    private void dcE() {
-        this.lbP.dcy().addJsPromptInterface(new UegTbJsBridge(this.mActivity.getPageContext()));
-        this.lbP.dcy().addJsPromptInterface(new SearchResultJsBridge());
+    private void deC() {
+        this.ljS.dew().addJsPromptInterface(new UegTbJsBridge(this.mActivity.getPageContext()));
+        this.ljS.dew().addJsPromptInterface(new SearchResultJsBridge());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dcF() {
+    public void deD() {
         if (this.mHotSearchInfo == null) {
             this.mActivity.showToast(this.mActivity.getResources().getString(R.string.write_keyword));
             return;
@@ -315,7 +325,7 @@ public class SquareSearchViewController implements b {
         } else if (this.mHotSearchInfo.getType() == 1 && !com.baidu.tbadk.plugins.b.k(this.mActivity.getPageContext())) {
             this.mActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(this.mActivity.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.mHotSearchInfo.getId()), this.mHotSearchInfo.getName(), "4")));
         }
-        TiebaStatic.log(new aq("c10355").dW("obj_name", this.mHotSearchInfo.getName()).an("obj_type", this.mHotSearchInfo.getType() == 0 ? 2 : 1));
+        TiebaStatic.log(new ar("c10355").dR("obj_name", this.mHotSearchInfo.getName()).ap("obj_type", this.mHotSearchInfo.getType() == 0 ? 2 : 1));
     }
 
     @Override // com.baidu.tieba.mainentrance.view.b
@@ -324,76 +334,94 @@ public class SquareSearchViewController implements b {
             this.mActivity.showToast(R.string.neterror);
         } else if (!StringUtils.isNull(str)) {
             if (z) {
-                this.lcc = false;
-                this.lbP.Ni(str);
-                this.lcc = true;
+                this.lkf = false;
+                this.ljS.NW(str);
+                this.lkf = true;
             }
-            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.lbP.dcw());
-            this.lbP.dcv();
-            String str2 = "https://tieba.baidu.com/n/apage-runtime/page/205?keyword=" + str + ETAG.ITEM_SEPARATOR + FuFaceItem.JK_SUB_TYPE + "=" + i;
+            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.ljS.deu());
+            this.ljS.det();
+            String str2 = "https://tieba.baidu.com/mo/q/hybrid/search?keyword=" + str + ETAG.ITEM_SEPARATOR + FuFaceItem.JK_SUB_TYPE + "=" + i;
             try {
-                str2 = "https://tieba.baidu.com/n/apage-runtime/page/205?keyword=" + URLEncoder.encode(str, "utf-8");
+                str2 = "https://tieba.baidu.com/mo/q/hybrid/search?keyword=" + URLEncoder.encode(str, "utf-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.lbP.dcy().loadUrl(str2);
-            ac.a(new ab<Boolean>() { // from class: com.baidu.tieba.mainentrance.view.SquareSearchViewController.4
+            this.ljS.dew().loadUrl(str2);
+            this.lkg.push(str);
+            af.a(new ae<Boolean>() { // from class: com.baidu.tieba.mainentrance.view.SquareSearchViewController.4
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ab
+                @Override // com.baidu.tbadk.util.ae
                 public Boolean doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.Sx(str);
+                    com.baidu.tieba.tbadkCore.util.a.Tu(str);
                     return true;
                 }
             }, null);
-            this.lcd.Ng(str);
+            this.lkh.NU(str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TURN_TAB_LOC, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dcG() {
-        if (!this.lbP.dcA()) {
-            dcb();
+    public void deE() {
+        if (!this.ljS.dey()) {
+            ddZ();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dcp() {
-        this.lcd.dcp();
+    public void deF() {
+        if (this.lkg.size() > 1) {
+            this.lkg.pop();
+            String peek = this.lkg.peek();
+            if (!TextUtils.isEmpty(peek) && this.ljS != null) {
+                boolean z = this.lkf;
+                this.lkf = false;
+                this.ljS.NW(peek);
+                this.lkf = z;
+                this.ljS.det();
+                return;
+            }
+            return;
+        }
+        this.lkg.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dcH() {
-        if (!StringUtils.isNull(this.iYq)) {
-            dcb();
+    public void den() {
+        this.lkh.den();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void deG() {
+        if (!StringUtils.isNull(this.jdX)) {
+            ddZ();
         } else {
-            dcp();
+            den();
         }
     }
 
-    private void dcb() {
-        if (StringUtils.isNull(this.iYq)) {
-            dcp();
+    private void ddZ() {
+        if (StringUtils.isNull(this.jdX)) {
+            den();
             return;
         }
         SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
-        searchListNetMessage.mKey = this.iYq.trim();
-        searchListNetMessage.isForum = Integer.valueOf(this.lcb ? 1 : 0);
+        searchListNetMessage.mKey = this.jdX.trim();
+        searchListNetMessage.isForum = Integer.valueOf(this.lke ? 1 : 0);
         this.mActivity.sendMessage(searchListNetMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String dcI() {
+    public String deH() {
         JSONObject jSONObject = new JSONObject();
         try {
-            MercatorModel.MercatorData mercatorData = MercatorModel.dMr().getMercatorData();
+            MercatorModel.MercatorData mercatorData = MercatorModel.dOC().getMercatorData();
             if (mercatorData != null) {
-                d(jSONObject, "mercator_lat", mercatorData.dMt());
-                d(jSONObject, "mercator_lon", mercatorData.dMs());
-                d(jSONObject, "mercator_city", String.valueOf(mercatorData.dMv()));
-                d(jSONObject, "mercator_radius", mercatorData.dMu());
-                d(jSONObject, "mercator_time", String.valueOf(mercatorData.dMw()));
+                d(jSONObject, "mercator_lat", mercatorData.dOE());
+                d(jSONObject, "mercator_lon", mercatorData.dOD());
+                d(jSONObject, "mercator_city", String.valueOf(mercatorData.dOG()));
+                d(jSONObject, "mercator_radius", mercatorData.dOF());
+                d(jSONObject, "mercator_time", String.valueOf(mercatorData.dOH()));
             }
             d(jSONObject, "mod", Build.MODEL);
             d(jSONObject, "ov", Build.VERSION.RELEASE);
@@ -422,39 +450,43 @@ public class SquareSearchViewController implements b {
 
     public void b(HotSearchInfoData hotSearchInfoData) {
         this.mHotSearchInfo = hotSearchInfoData;
-        dbV();
+        ddT();
     }
 
-    public BaseWebView dcJ() {
-        return this.lbP.dcy();
+    public BaseWebView deI() {
+        return this.ljS.dew();
     }
 
-    private void dbV() {
-        if (this.lbP != null) {
+    public View deJ() {
+        return this.ljS.deu();
+    }
+
+    private void ddT() {
+        if (this.ljS != null) {
             if (this.mHotSearchInfo == null) {
-                this.lbP.Nh(this.mActivity.getResources().getString(R.string.search_bar));
+                this.ljS.NV(this.mActivity.getResources().getString(R.string.search_bar));
             } else {
-                this.lbP.Nh(this.mHotSearchInfo.ctU());
+                this.ljS.NV(this.mHotSearchInfo.cvg());
             }
         }
     }
 
-    public void eQ(List<String> list) {
-        this.lbP.o(list, this.iYq);
+    public void eO(List<String> list) {
+        this.ljS.m(list, this.jdX);
     }
 
-    public void eR(List<ForumInfo> list) {
-        this.lbP.p(list, this.iYq);
+    public void eP(List<ForumInfo> list) {
+        this.ljS.n(list, this.jdX);
     }
 
     public void onDestroy() {
-        if (this.lbP != null) {
-            this.lbP.onDestroy();
+        if (this.ljS != null) {
+            this.ljS.onDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class SearchResultJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         private static final String BIND_MOBILE_NUMBER = "bindMobileNumber";
         private static final String GET_SEARCH_AD_COOKIE = "getSearchAdCookie";
@@ -466,7 +498,7 @@ public class SquareSearchViewController implements b {
         @Override // com.baidu.tieba.tbadkCore.e.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("CommonJSBridge".equals(str) && GET_SEARCH_AD_COOKIE.equals(str2)) {
-                jsPromptResult.confirm(SquareSearchViewController.this.dcI());
+                jsPromptResult.confirm(SquareSearchViewController.this.deH());
                 return true;
             }
             return false;

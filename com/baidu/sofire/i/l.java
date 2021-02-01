@@ -18,15 +18,15 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f5262a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
+    private static final String f5264a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f5263b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
-    private static final String c = f5262a + f5263b;
+    private static final String f5265b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+    private static final String c = f5264a + f5265b;
     private static c d;
     private Context e;
 
@@ -208,8 +208,8 @@ public final class l {
             return null;
         }
         c cVar = new c((byte) 0);
-        cVar.f5265a = str2;
-        cVar.f5266b = str;
+        cVar.f5267a = str2;
+        cVar.f5268b = str;
         return cVar;
     }
 
@@ -230,8 +230,8 @@ public final class l {
             }
             if (!TextUtils.isEmpty(str)) {
                 c cVar = new c((byte) 0);
-                cVar.f5265a = str;
-                cVar.f5266b = c2;
+                cVar.f5267a = str;
+                cVar.f5268b = c2;
                 return cVar;
             }
         } catch (Throwable th) {
@@ -261,14 +261,14 @@ public final class l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5265a;
+        public String f5267a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5266b;
+        public String f5268b;
 
         private c() {
         }
@@ -289,8 +289,8 @@ public final class l {
                     return null;
                 }
                 c cVar = new c();
-                cVar.f5265a = string;
-                cVar.f5266b = string2;
+                cVar.f5267a = string;
+                cVar.f5268b = string2;
                 return cVar;
             } catch (Throwable th) {
                 e.a();
@@ -300,11 +300,11 @@ public final class l {
 
         public final String a() {
             try {
-                String str = this.f5266b;
+                String str = this.f5268b;
                 if (TextUtils.isEmpty(str)) {
                     str = "0";
                 }
-                return this.f5265a + "|" + new StringBuffer(str).reverse().toString();
+                return this.f5267a + "|" + new StringBuffer(str).reverse().toString();
             } catch (Throwable th) {
                 e.a();
                 return null;
@@ -312,7 +312,7 @@ public final class l {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), com.baidu.sapi2.utils.e.q);
@@ -322,11 +322,11 @@ public final class l {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final byte[] f5264a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        private static final byte[] f5266a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
         public static byte[] a(byte[] bArr) {
             int i;
@@ -403,7 +403,7 @@ public final class l {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class d {
         public static String a(byte[] bArr) {
             try {

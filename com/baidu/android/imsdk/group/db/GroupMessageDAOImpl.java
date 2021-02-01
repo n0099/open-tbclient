@@ -264,7 +264,7 @@ public class GroupMessageDAOImpl {
 
     public static int getUnReadCount(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         String groupMessageTableName = DBTableDefine.getGroupMessageTableName(str);
         DBOperation newDb = DBOperationFactory.getNewDb(context);
@@ -465,7 +465,7 @@ public class GroupMessageDAOImpl {
 
     public static int deleteMsgs(Context context, String str, long[] jArr) {
         if (jArr == null || jArr.length <= 0) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -489,7 +489,7 @@ public class GroupMessageDAOImpl {
 
     public static int updateMsgStatus(Context context, final ChatMsg chatMsg) {
         if (context == null || chatMsg == null) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {

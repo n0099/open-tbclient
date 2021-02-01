@@ -19,7 +19,7 @@ public class c {
         return ofFloat;
     }
 
-    public static ObjectAnimator bj(View view) {
+    public static ObjectAnimator bf(View view) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "alpha", 0.0f);
         ofFloat.setDuration(160L);
         ofFloat.setInterpolator(new LinearInterpolator());
@@ -34,6 +34,6 @@ public class c {
     }
 
     private static long d(BaseMenuView baseMenuView) {
-        return baseMenuView.aBV() ? 240L : 200L;
+        return baseMenuView.aCs() ? 240L : 200L;
     }
 }

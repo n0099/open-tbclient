@@ -6,7 +6,7 @@ import android.content.Intent;
 class dt implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f13954a;
+    final /* synthetic */ Context f13956a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ Intent f306a;
@@ -17,12 +17,12 @@ class dt implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public dt(ds dsVar, Context context, Intent intent) {
         this.f307a = dsVar;
-        this.f13954a = context;
+        this.f13956a = context;
         this.f306a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f307a.b(this.f13954a, this.f306a);
+        this.f307a.b(this.f13956a, this.f306a);
     }
 }

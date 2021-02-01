@@ -3,7 +3,7 @@ package androidx.lifecycle;
 import android.os.Handler;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ServiceLifecycleDispatcher {
     private final Handler mHandler = new Handler();
     private DispatchRunnable mLastDispatchRunnable;
@@ -43,7 +43,7 @@ public class ServiceLifecycleDispatcher {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class DispatchRunnable implements Runnable {
         final Lifecycle.Event mEvent;
         private final LifecycleRegistry mRegistry;

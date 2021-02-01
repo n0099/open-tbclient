@@ -9,11 +9,11 @@ import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.qq.e.comm.constants.Constants;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static void a(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aRH()) {
+            for (String str : adElementInfo.aRW()) {
                 a(a(str, (b) null), bVar);
             }
         }
@@ -29,7 +29,7 @@ public class d {
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aRJ()) {
+            for (String str : adElementInfo.aRY()) {
                 a(a(str, bVar), bVar2);
             }
         }
@@ -45,18 +45,18 @@ public class d {
 
     public static String a(String str, b bVar) {
         if (bVar != null) {
-            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dXp).replaceAll("\\{REQ_HEIGHT\\}", bVar.dXq).replaceAll("\\{WIDTH\\}", bVar.dXr).replaceAll("\\{HEIGHT\\}", bVar.dXs).replaceAll("\\{DOWN_X\\}", bVar.dXt).replaceAll("\\{DOWN_Y\\}", bVar.dXu).replaceAll("\\{UP_X\\}", bVar.dXv).replaceAll("\\{UP_Y\\}", bVar.dXw).replaceAll("\\{VIDEO_TIME\\}", bVar.dXx).replaceAll("\\{BEGIN_TIME\\}", bVar.dXy).replaceAll("\\{END_TIME\\}", bVar.mEndTime).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dXz).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dXA).replaceAll("\\{SCENE\\}", bVar.dXB).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dXC).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dXD).replaceAll("\\{CLICK_ID\\}", bVar.dXn);
+            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dZv).replaceAll("\\{REQ_HEIGHT\\}", bVar.dZw).replaceAll("\\{WIDTH\\}", bVar.dZx).replaceAll("\\{HEIGHT\\}", bVar.dZy).replaceAll("\\{DOWN_X\\}", bVar.dZz).replaceAll("\\{DOWN_Y\\}", bVar.dZA).replaceAll("\\{UP_X\\}", bVar.dZB).replaceAll("\\{UP_Y\\}", bVar.dZC).replaceAll("\\{VIDEO_TIME\\}", bVar.dZD).replaceAll("\\{BEGIN_TIME\\}", bVar.dZE).replaceAll("\\{END_TIME\\}", bVar.mEndTime).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dZF).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dZG).replaceAll("\\{SCENE\\}", bVar.dZH).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dZI).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dZJ).replaceAll("\\{CLICK_ID\\}", bVar.dZt);
         }
         return str;
     }
 
     private static void a(String str, com.baidu.swan.game.ad.a.b bVar) {
-        bVar.uT(str);
+        bVar.vm(str);
     }
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2, final a.d dVar) {
-        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aRC())) {
-            String a2 = a(adElementInfo.aRC(), bVar);
+        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aRR())) {
+            String a2 = a(adElementInfo.aRR(), bVar);
             ResponseCallback<a> responseCallback = new ResponseCallback<a>() { // from class: com.baidu.swan.game.ad.c.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -78,8 +78,8 @@ public class d {
                                     return null;
                                 }
                                 a aVar = new a();
-                                aVar.dXn = optJSONObject.optString("clickid");
-                                aVar.dXo = optJSONObject.optString("dstlink");
+                                aVar.dZt = optJSONObject.optString("clickid");
+                                aVar.dZu = optJSONObject.optString("dstlink");
                                 return aVar;
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -98,7 +98,7 @@ public class d {
                 /* renamed from: a */
                 public void onSuccess(a aVar, int i) {
                     if (aVar != null && a.d.this != null) {
-                        a.d.this.cS(aVar.dXn, aVar.dXo);
+                        a.d.this.cM(aVar.dZt, aVar.dZu);
                     }
                 }
 

@@ -17,34 +17,34 @@ import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class i extends WebView implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final e f11808a;
+    private final e f11810a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f11809b;
+    private boolean f11811b;
 
     public i(final Context context, WebViewClient webViewClient, h hVar, JSONObject jSONObject) {
         super(context);
-        this.f11808a = new e(this, jSONObject);
+        this.f11810a = new e(this, jSONObject);
         try {
             WebSettings settings = getSettings();
             settings.setUserAgentString(settings.getUserAgentString() + " GDTMobSDK/" + SDKStatus.getSDKVersion() + "." + GDTADManager.getInstance().getPM().getPluginVersion());
             settings.setJavaScriptEnabled(true);
             if (webViewClient != null) {
                 if (webViewClient instanceof com.qq.e.comm.plugin.ab.d.i) {
-                    ((com.qq.e.comm.plugin.ab.d.i) webViewClient).a(this.f11808a);
+                    ((com.qq.e.comm.plugin.ab.d.i) webViewClient).a(this.f11810a);
                 }
                 setWebViewClient(webViewClient);
             }
             if (hVar != null) {
-                hVar.a(this.f11808a);
+                hVar.a(this.f11810a);
                 setWebChromeClient(hVar);
             } else {
                 h hVar2 = new h();
-                hVar2.a(this.f11808a);
+                hVar2.a(this.f11810a);
                 setWebChromeClient(hVar2);
             }
             removeJavascriptInterface("searchBoxJavaBridge_");
@@ -105,13 +105,13 @@ public class i extends WebView implements a {
 
     @Override // com.qq.e.comm.plugin.ab.f.a
     public e d() {
-        return this.f11808a;
+        return this.f11810a;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.qq.e.comm.plugin.ab.f.i */
     /* JADX WARN: Multi-variable type inference failed */
     public void destroy() {
-        if (this.f11809b) {
+        if (this.f11811b) {
             return;
         }
         loadUrl("about:blank");
@@ -121,17 +121,17 @@ public class i extends WebView implements a {
         }
         removeAllViews();
         super.destroy();
-        this.f11809b = true;
+        this.f11811b = true;
     }
 
     protected void onVisibilityChanged(View view, int i) {
         super.onVisibilityChanged(view, i);
         if (i == 0) {
-            this.f11808a.a(new com.qq.e.comm.plugin.ab.b.b("onPageShown", null));
+            this.f11810a.a(new com.qq.e.comm.plugin.ab.b.b("onPageShown", null));
             GDTLogger.d("onPageShown");
             return;
         }
-        this.f11808a.a(new com.qq.e.comm.plugin.ab.b.b("onPageHidden", null));
+        this.f11810a.a(new com.qq.e.comm.plugin.ab.b.b("onPageHidden", null));
         GDTLogger.d("onPageHidden");
     }
 }

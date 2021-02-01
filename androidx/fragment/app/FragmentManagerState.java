@@ -3,7 +3,7 @@ package androidx.fragment.app;
 import android.os.Parcel;
 import android.os.Parcelable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FragmentManagerState implements Parcelable {
     public static final Parcelable.Creator<FragmentManagerState> CREATOR = new Parcelable.Creator<FragmentManagerState>() { // from class: androidx.fragment.app.FragmentManagerState.1
         /* JADX DEBUG: Method merged with bridge method */

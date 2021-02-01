@@ -10,16 +10,16 @@ import com.baidu.live.view.AlphaGradientHListView;
 import com.baidu.live.yuyingift.widget.panel.AlaGiftMicrophoneOpBtn;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends b {
-    public AlphaGradientHListView bWO;
-    public AlaGiftMicrophoneOpBtn bWP;
-    private List<AlaWheatInfoData> bWQ;
-    public c bWR;
+    public AlphaGradientHListView caQ;
+    public AlaGiftMicrophoneOpBtn caR;
+    private List<AlaWheatInfoData> caS;
+    public c caT;
 
     public a(Context context) {
         super(context);
-        this.bWQ = new ArrayList();
+        this.caS = new ArrayList();
     }
 
     @Override // com.baidu.live.yuyingift.widget.wheatlist.b
@@ -28,38 +28,38 @@ public class a extends b {
     }
 
     @Override // com.baidu.live.yuyingift.widget.wheatlist.b
-    protected int Xu() {
+    protected int Zk() {
         return a.g.yuyin_ala_gift_microphone_aboveone_footerview;
     }
 
     @Override // com.baidu.live.yuyingift.widget.wheatlist.b
-    void Xv() {
-        this.bWO = (AlphaGradientHListView) this.contentView;
-        this.bWO.setShadowWidth(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds56));
-        this.bWO.setNeedAlphaShade(true);
-        this.bWO.setColor(this.mContext.getResources().getColor(a.c.sdk_white_alpha100), this.mContext.getResources().getColor(a.c.sdk_white_alpha0));
-        this.bWO.setSelector(new ColorDrawable(0));
-        this.bWR = new c(this.mContext);
-        this.bWO.setAdapter((ListAdapter) this.bWR);
+    void Zl() {
+        this.caQ = (AlphaGradientHListView) this.contentView;
+        this.caQ.setShadowWidth(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds56));
+        this.caQ.setNeedAlphaShade(true);
+        this.caQ.setColor(this.mContext.getResources().getColor(a.c.sdk_white_alpha100), this.mContext.getResources().getColor(a.c.sdk_white_alpha0));
+        this.caQ.setSelector(new ColorDrawable(0));
+        this.caT = new c(this.mContext);
+        this.caQ.setAdapter((ListAdapter) this.caT);
     }
 
     @Override // com.baidu.live.yuyingift.widget.wheatlist.b
-    void Xw() {
-        this.bWP = (AlaGiftMicrophoneOpBtn) this.bWS.findViewById(a.f.yuyin_ala_gift_microphone_person_selectall);
-        this.bWP.setSelected(true);
+    void Zm() {
+        this.caR = (AlaGiftMicrophoneOpBtn) this.caU.findViewById(a.f.yuyin_ala_gift_microphone_person_selectall);
+        this.caR.setSelected(true);
     }
 
     public List<AlaWheatInfoData> getData() {
-        this.bWQ.clear();
-        if (this.bWR != null && this.bWR.getData() != null) {
-            for (d dVar : this.bWR.getData()) {
-                this.bWQ.add(dVar.bXr);
+        this.caS.clear();
+        if (this.caT != null && this.caT.getData() != null) {
+            for (d dVar : this.caT.getData()) {
+                this.caS.add(dVar.cbu);
             }
         }
-        return this.bWQ;
+        return this.caS;
     }
 
     public void setData(List<d> list) {
-        this.bWR.setData(list);
+        this.caT.setData(list);
     }
 }

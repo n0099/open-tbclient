@@ -5,18 +5,18 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
 import com.kwad.sdk.c.c;
 import com.kwad.sdk.core.webview.jshandler.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private FrameLayout f9707b;
+    private FrameLayout f9709b;
     @Nullable
     private c c;
     private a.b d = new a.b() { // from class: com.kwad.sdk.draw.b.c.b.1
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
         public void a() {
-            if (b.this.f9673a.f9674a != null) {
-                b.this.f9673a.f9674a.onAdClicked();
+            if (b.this.f9675a.f9676a != null) {
+                b.this.f9675a.f9676a.onAdClicked();
             }
         }
     };
@@ -25,12 +25,12 @@ public class b extends com.kwad.sdk.draw.a.a {
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = this.f9673a.g;
+        this.c = this.f9675a.g;
         if (this.c == null) {
             return;
         }
         this.c.a(this.d);
-        this.c.a(this.f9707b, this.f9673a.f9675b, this.f9673a.c, this.f9673a.d);
+        this.c.a(this.f9709b, this.f9675a.f9677b, this.f9675a.c, this.f9675a.d);
         this.c.g();
     }
 
@@ -47,6 +47,6 @@ public class b extends com.kwad.sdk.draw.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9707b = (FrameLayout) b(R.id.ksad_play_end_web_card_container);
+        this.f9709b = (FrameLayout) b(R.id.ksad_play_end_web_card_container);
     }
 }

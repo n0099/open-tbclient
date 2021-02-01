@@ -14,7 +14,7 @@ import com.kwad.sdk.glide.load.engine.g;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
     private DataSource A;
     private com.kwad.sdk.glide.load.a.d<?> B;
@@ -44,16 +44,16 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
     private Object z;
 
     /* renamed from: a  reason: collision with root package name */
-    private final f<R> f10136a = new f<>();
+    private final f<R> f10138a = new f<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<Throwable> f10137b = new ArrayList();
+    private final List<Throwable> f10139b = new ArrayList();
     private final com.kwad.sdk.glide.g.a.c c = com.kwad.sdk.glide.g.a.c.a();
     private final c<?> f = new c<>();
     private final e g = new e();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum RunReason {
         INITIALIZE,
         SWITCH_TO_SOURCE_SERVICE,
@@ -61,7 +61,7 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum Stage {
         INITIALIZE,
         RESOURCE_CACHE,
@@ -72,7 +72,7 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a<R> {
         void a(DecodeJob<?> decodeJob);
 
@@ -82,32 +82,32 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public final class b<Z> implements g.a<Z> {
 
         /* renamed from: b  reason: collision with root package name */
-        private final DataSource f10141b;
+        private final DataSource f10143b;
 
         b(DataSource dataSource) {
-            this.f10141b = dataSource;
+            this.f10143b = dataSource;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.g.a
         @NonNull
         public s<Z> a(@NonNull s<Z> sVar) {
-            return DecodeJob.this.a(this.f10141b, sVar);
+            return DecodeJob.this.a(this.f10143b, sVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class c<Z> {
 
         /* renamed from: a  reason: collision with root package name */
-        private com.kwad.sdk.glide.load.c f10142a;
+        private com.kwad.sdk.glide.load.c f10144a;
 
         /* renamed from: b  reason: collision with root package name */
-        private com.kwad.sdk.glide.load.g<Z> f10143b;
+        private com.kwad.sdk.glide.load.g<Z> f10145b;
         private r<Z> c;
 
         c() {
@@ -117,15 +117,15 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.kwad.sdk.glide.load.engine.r<X> */
         /* JADX WARN: Multi-variable type inference failed */
         <X> void a(com.kwad.sdk.glide.load.c cVar, com.kwad.sdk.glide.load.g<X> gVar, r<X> rVar) {
-            this.f10142a = cVar;
-            this.f10143b = gVar;
+            this.f10144a = cVar;
+            this.f10145b = gVar;
             this.c = rVar;
         }
 
         void a(d dVar, com.kwad.sdk.glide.load.e eVar) {
             com.kwad.sdk.glide.g.a.b.a("DecodeJob.encode");
             try {
-                dVar.a().a(this.f10142a, new com.kwad.sdk.glide.load.engine.d(this.f10143b, this.c, eVar));
+                dVar.a().a(this.f10144a, new com.kwad.sdk.glide.load.engine.d(this.f10145b, this.c, eVar));
             } finally {
                 this.c.b();
                 com.kwad.sdk.glide.g.a.b.a();
@@ -137,43 +137,43 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
         }
 
         void b() {
-            this.f10142a = null;
-            this.f10143b = null;
+            this.f10144a = null;
+            this.f10145b = null;
             this.c = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         com.kwad.sdk.glide.load.engine.a.a a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f10144a;
+        private boolean f10146a;
 
         /* renamed from: b  reason: collision with root package name */
-        private boolean f10145b;
+        private boolean f10147b;
         private boolean c;
 
         e() {
         }
 
         private boolean b(boolean z) {
-            return (this.c || z || this.f10145b) && this.f10144a;
+            return (this.c || z || this.f10147b) && this.f10146a;
         }
 
         synchronized boolean a() {
-            this.f10145b = true;
+            this.f10147b = true;
             return b(false);
         }
 
         synchronized boolean a(boolean z) {
-            this.f10144a = true;
+            this.f10146a = true;
             return b(z);
         }
 
@@ -183,8 +183,8 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
         }
 
         synchronized void c() {
-            this.f10145b = false;
-            this.f10144a = false;
+            this.f10147b = false;
+            this.f10146a = false;
             this.c = false;
         }
     }
@@ -201,7 +201,7 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
         if (Build.VERSION.SDK_INT < 26) {
             return eVar;
         }
-        boolean z = dataSource == DataSource.RESOURCE_DISK_CACHE || this.f10136a.m();
+        boolean z = dataSource == DataSource.RESOURCE_DISK_CACHE || this.f10138a.m();
         Boolean bool = (Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.d);
         if (bool == null || (bool.booleanValue() && !z)) {
             com.kwad.sdk.glide.load.e eVar2 = new com.kwad.sdk.glide.load.e();
@@ -246,7 +246,7 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
 
     /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: com.kwad.sdk.glide.load.engine.q<Data, ?, R>, com.kwad.sdk.glide.load.engine.q<Data, ResourceType, R> */
     private <Data> s<R> a(Data data, DataSource dataSource) {
-        return a((DecodeJob<R>) data, dataSource, (q<DecodeJob<R>, ResourceType, R>) ((q<Data, ?, R>) this.f10136a.b(data.getClass())));
+        return a((DecodeJob<R>) data, dataSource, (q<DecodeJob<R>, ResourceType, R>) ((q<Data, ?, R>) this.f10138a.b(data.getClass())));
     }
 
     private <Data, ResourceType> s<R> a(Data data, DataSource dataSource, q<Data, ResourceType, R> qVar) {
@@ -311,7 +311,7 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
     private void g() {
         this.g.c();
         this.f.b();
-        this.f10136a.a();
+        this.f10138a.a();
         this.D = false;
         this.h = null;
         this.i = null;
@@ -329,7 +329,7 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
         this.t = 0L;
         this.E = false;
         this.v = null;
-        this.f10137b.clear();
+        this.f10139b.clear();
         this.e.release(this);
     }
 
@@ -358,11 +358,11 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
     private com.kwad.sdk.glide.load.engine.e j() {
         switch (this.r) {
             case RESOURCE_CACHE:
-                return new t(this.f10136a, this);
+                return new t(this.f10138a, this);
             case DATA_CACHE:
-                return new com.kwad.sdk.glide.load.engine.b(this.f10136a, this);
+                return new com.kwad.sdk.glide.load.engine.b(this.f10138a, this);
             case SOURCE:
-                return new w(this.f10136a, this);
+                return new w(this.f10138a, this);
             case FINISHED:
                 return null;
             default:
@@ -389,14 +389,14 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
 
     private void l() {
         m();
-        this.p.a(new GlideException("Failed to load resource", new ArrayList(this.f10137b)));
+        this.p.a(new GlideException("Failed to load resource", new ArrayList(this.f10139b)));
         f();
     }
 
     private void m() {
         this.c.b();
         if (this.D) {
-            throw new IllegalStateException("Already notified", this.f10137b.isEmpty() ? null : this.f10137b.get(this.f10137b.size() - 1));
+            throw new IllegalStateException("Already notified", this.f10139b.isEmpty() ? null : this.f10139b.get(this.f10139b.size() - 1));
         }
         this.D = true;
     }
@@ -410,7 +410,7 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
             sVar = a(this.B, (com.kwad.sdk.glide.load.a.d<?>) this.z, this.A);
         } catch (GlideException e2) {
             e2.setLoggingDetails(this.y, this.A);
-            this.f10137b.add(e2);
+            this.f10139b.add(e2);
             sVar = null;
         }
         if (sVar != null) {
@@ -430,7 +430,7 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public DecodeJob<R> a(com.kwad.sdk.glide.e eVar, Object obj, l lVar, com.kwad.sdk.glide.load.c cVar, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, h hVar, Map<Class<?>, com.kwad.sdk.glide.load.h<?>> map, boolean z, boolean z2, boolean z3, com.kwad.sdk.glide.load.e eVar2, a<R> aVar, int i3) {
-        this.f10136a.a(eVar, obj, cVar, i, i2, hVar, cls, cls2, priority, eVar2, map, z, z2, this.d);
+        this.f10138a.a(eVar, obj, cVar, i, i2, hVar, cls, cls2, priority, eVar2, map, z, z2, this.d);
         this.h = eVar;
         this.i = cVar;
         this.j = priority;
@@ -458,7 +458,7 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
         com.kwad.sdk.glide.load.c uVar;
         Class<?> cls = sVar.e().getClass();
         if (dataSource != DataSource.RESOURCE_DISK_CACHE) {
-            hVar = this.f10136a.c(cls);
+            hVar = this.f10138a.c(cls);
             sVar2 = hVar.a(this.h, sVar, this.l, this.m);
         } else {
             sVar2 = sVar;
@@ -467,15 +467,15 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
         if (!sVar.equals(sVar2)) {
             sVar.d_();
         }
-        if (this.f10136a.a((s<?>) sVar2)) {
-            com.kwad.sdk.glide.load.g b2 = this.f10136a.b(sVar2);
+        if (this.f10138a.a((s<?>) sVar2)) {
+            com.kwad.sdk.glide.load.g b2 = this.f10138a.b(sVar2);
             encodeStrategy = b2.a(this.o);
             gVar = b2;
         } else {
             encodeStrategy = EncodeStrategy.NONE;
             gVar = null;
         }
-        if (this.n.a(!this.f10136a.a(this.x), dataSource, encodeStrategy)) {
+        if (this.n.a(!this.f10138a.a(this.x), dataSource, encodeStrategy)) {
             if (gVar == null) {
                 throw new Registry.NoResultEncoderAvailableException(sVar2.e().getClass());
             }
@@ -484,7 +484,7 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
                     uVar = new com.kwad.sdk.glide.load.engine.c(this.x, this.i);
                     break;
                 case TRANSFORMED:
-                    uVar = new u(this.f10136a.i(), this.x, this.i, this.l, this.m, hVar, cls, this.o);
+                    uVar = new u(this.f10138a.i(), this.x, this.i, this.l, this.m, hVar, cls, this.o);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown strategy: " + encodeStrategy);
@@ -501,7 +501,7 @@ class DecodeJob<R> implements a.c, e.a, Comparable<DecodeJob<?>>, Runnable {
         dVar.b();
         GlideException glideException = new GlideException("Fetching data failed", exc);
         glideException.setLoggingDetails(cVar, dataSource, dVar.a());
-        this.f10137b.add(glideException);
+        this.f10139b.add(glideException);
         if (Thread.currentThread() == this.w) {
             k();
             return;

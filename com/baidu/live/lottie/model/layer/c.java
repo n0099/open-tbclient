@@ -12,10 +12,10 @@ import androidx.annotation.Nullable;
 import com.baidu.live.lottie.a.b.p;
 import com.baidu.live.lottie.h;
 import com.baidu.live.lottie.l;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends a {
     @Nullable
-    private com.baidu.live.lottie.a.b.a<ColorFilter, ColorFilter> boR;
+    private com.baidu.live.lottie.a.b.a<ColorFilter, ColorFilter> bss;
     private final Rect dst;
     private final Paint paint;
     private final Rect src;
@@ -32,15 +32,15 @@ public class c extends a {
     public void d(@NonNull Canvas canvas, Matrix matrix, int i) {
         Bitmap bitmap = getBitmap();
         if (bitmap != null && !bitmap.isRecycled()) {
-            float kA = com.baidu.live.lottie.d.f.kA();
+            float kz = com.baidu.live.lottie.d.f.kz();
             this.paint.setAlpha(i);
-            if (this.boR != null) {
-                this.paint.setColorFilter(this.boR.getValue());
+            if (this.bss != null) {
+                this.paint.setColorFilter(this.bss.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
             this.src.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.dst.set(0, 0, (int) (bitmap.getWidth() * kA), (int) (kA * bitmap.getHeight()));
+            this.dst.set(0, 0, (int) (bitmap.getWidth() * kz), (int) (kz * bitmap.getHeight()));
             canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
             canvas.restore();
         }
@@ -58,7 +58,7 @@ public class c extends a {
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.bf(this.bqA.getRefId());
+        return this.lottieDrawable.bf(this.buc.getRefId());
     }
 
     @Override // com.baidu.live.lottie.model.layer.a, com.baidu.live.lottie.model.f
@@ -66,9 +66,9 @@ public class c extends a {
         super.a((c) t, (com.baidu.live.lottie.e.c<c>) cVar);
         if (t == l.Db) {
             if (cVar == null) {
-                this.boR = null;
+                this.bss = null;
             } else {
-                this.boR = new p(cVar);
+                this.bss = new p(cVar);
             }
         }
     }

@@ -24,49 +24,49 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.i;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnClickListener {
-    private TextView akb;
-    private TextView eFr;
-    private int jZf;
-    private i kme;
-    private TextView knN;
-    private TextView lrb;
-    private TextView lrc;
-    private View lrd;
-    private ViewGroup.LayoutParams lre;
-    private int lrf;
-    private int lrg;
-    private ValueAnimator lrh;
-    private HotTopicDetailPkProcess lri;
-    private TextView lrj;
-    private TextView lrk;
-    private TextView lrl;
-    private TextView lrm;
-    private ColorStateList lrn;
-    private ColorStateList lro;
-    private Runnable lrp;
+    private TextView ajQ;
+    private TextView eHx;
+    private int kgI;
+    private i kul;
+    private TextView kvU;
+    private TextView lzg;
+    private TextView lzh;
+    private View lzi;
+    private ViewGroup.LayoutParams lzj;
+    private int lzk;
+    private int lzl;
+    private ValueAnimator lzm;
+    private HotTopicDetailPkProcess lzn;
+    private TextView lzo;
+    private TextView lzp;
+    private TextView lzq;
+    private TextView lzr;
+    private ColorStateList lzs;
+    private ColorStateList lzt;
+    private Runnable lzu;
     private TbPageContext<HotTopicDetailActivity> pageContext;
 
     public HotTopicDetailPkLayout(Context context) {
         super(context);
-        this.jZf = 3;
-        this.lrf = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds107);
-        this.lrg = 0;
-        this.lrn = ao.getColorList(R.color.CAM_X0308);
-        this.lro = ao.getColorList(R.color.CAM_X0303);
-        this.lrp = new Runnable() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkLayout.3
+        this.kgI = 3;
+        this.lzk = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds107);
+        this.lzl = 0;
+        this.lzs = ap.getColorList(R.color.CAM_X0308);
+        this.lzt = ap.getColorList(R.color.CAM_X0303);
+        this.lzu = new Runnable() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkLayout.3
             @Override // java.lang.Runnable
             public void run() {
-                if (HotTopicDetailPkLayout.this.lrk != null) {
-                    HotTopicDetailPkLayout.this.lrk.setVisibility(8);
-                    HotTopicDetailPkLayout.this.lrm.setVisibility(8);
+                if (HotTopicDetailPkLayout.this.lzp != null) {
+                    HotTopicDetailPkLayout.this.lzp.setVisibility(8);
+                    HotTopicDetailPkLayout.this.lzr.setVisibility(8);
                 }
             }
         };
@@ -75,17 +75,17 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
 
     public HotTopicDetailPkLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jZf = 3;
-        this.lrf = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds107);
-        this.lrg = 0;
-        this.lrn = ao.getColorList(R.color.CAM_X0308);
-        this.lro = ao.getColorList(R.color.CAM_X0303);
-        this.lrp = new Runnable() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkLayout.3
+        this.kgI = 3;
+        this.lzk = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds107);
+        this.lzl = 0;
+        this.lzs = ap.getColorList(R.color.CAM_X0308);
+        this.lzt = ap.getColorList(R.color.CAM_X0303);
+        this.lzu = new Runnable() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkLayout.3
             @Override // java.lang.Runnable
             public void run() {
-                if (HotTopicDetailPkLayout.this.lrk != null) {
-                    HotTopicDetailPkLayout.this.lrk.setVisibility(8);
-                    HotTopicDetailPkLayout.this.lrm.setVisibility(8);
+                if (HotTopicDetailPkLayout.this.lzp != null) {
+                    HotTopicDetailPkLayout.this.lzp.setVisibility(8);
+                    HotTopicDetailPkLayout.this.lzr.setVisibility(8);
                 }
             }
         };
@@ -94,17 +94,17 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
 
     public HotTopicDetailPkLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jZf = 3;
-        this.lrf = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds107);
-        this.lrg = 0;
-        this.lrn = ao.getColorList(R.color.CAM_X0308);
-        this.lro = ao.getColorList(R.color.CAM_X0303);
-        this.lrp = new Runnable() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkLayout.3
+        this.kgI = 3;
+        this.lzk = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds107);
+        this.lzl = 0;
+        this.lzs = ap.getColorList(R.color.CAM_X0308);
+        this.lzt = ap.getColorList(R.color.CAM_X0303);
+        this.lzu = new Runnable() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkLayout.3
             @Override // java.lang.Runnable
             public void run() {
-                if (HotTopicDetailPkLayout.this.lrk != null) {
-                    HotTopicDetailPkLayout.this.lrk.setVisibility(8);
-                    HotTopicDetailPkLayout.this.lrm.setVisibility(8);
+                if (HotTopicDetailPkLayout.this.lzp != null) {
+                    HotTopicDetailPkLayout.this.lzp.setVisibility(8);
+                    HotTopicDetailPkLayout.this.lzr.setVisibility(8);
                 }
             }
         };
@@ -117,129 +117,129 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
             this.pageContext = (TbPageContext) K;
         }
         LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_detail_pk_layout, (ViewGroup) this, true);
-        this.akb = (TextView) findViewById(R.id.tagView);
-        this.eFr = (TextView) findViewById(R.id.titleView);
-        this.knN = (TextView) findViewById(R.id.descView);
-        this.lrb = (TextView) findViewById(R.id.pkBtn1);
-        this.lrb.setOnClickListener(this);
-        this.lrc = (TextView) findViewById(R.id.pkBtn2);
-        this.lrc.setOnClickListener(this);
-        this.lrd = findViewById(R.id.progressBottomLayout);
-        this.lre = this.lrd.getLayoutParams();
-        this.lre.height = this.lrg;
-        this.lrd.setLayoutParams(this.lre);
-        this.lrd.setAlpha(0.0f);
-        this.lri = (HotTopicDetailPkProcess) findViewById(R.id.processView);
-        this.lrj = (TextView) findViewById(R.id.pkText1);
-        this.lrk = (TextView) findViewById(R.id.pkTextSubmit1);
-        this.lrl = (TextView) findViewById(R.id.pkText2);
-        this.lrm = (TextView) findViewById(R.id.pkTextSubmit2);
+        this.ajQ = (TextView) findViewById(R.id.tagView);
+        this.eHx = (TextView) findViewById(R.id.titleView);
+        this.kvU = (TextView) findViewById(R.id.descView);
+        this.lzg = (TextView) findViewById(R.id.pkBtn1);
+        this.lzg.setOnClickListener(this);
+        this.lzh = (TextView) findViewById(R.id.pkBtn2);
+        this.lzh.setOnClickListener(this);
+        this.lzi = findViewById(R.id.progressBottomLayout);
+        this.lzj = this.lzi.getLayoutParams();
+        this.lzj.height = this.lzl;
+        this.lzi.setLayoutParams(this.lzj);
+        this.lzi.setAlpha(0.0f);
+        this.lzn = (HotTopicDetailPkProcess) findViewById(R.id.processView);
+        this.lzo = (TextView) findViewById(R.id.pkText1);
+        this.lzp = (TextView) findViewById(R.id.pkTextSubmit1);
+        this.lzq = (TextView) findViewById(R.id.pkText2);
+        this.lzr = (TextView) findViewById(R.id.pkTextSubmit2);
     }
 
     public void a(@NonNull i iVar) {
-        this.kme = iVar;
-        na(false);
+        this.kul = iVar;
+        nf(false);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void na(boolean z) {
-        i iVar = this.kme;
-        int i = iVar.klN == 1 ? 1 : 0;
-        int i2 = iVar.klN == 2 ? 1 : 0;
-        long j = iVar.kmL + iVar.kmM + i + i2;
-        this.akb.setText(String.format(getContext().getString(R.string.hot_topic_pk_head_tag), at.numberUniformFormatExtra(j)));
-        this.knN.setText(iVar.klM);
-        this.lrb.setText(iVar.kmD);
-        this.lrc.setText(iVar.kmG);
-        this.lrj.setText("" + (iVar.kmL + i));
-        this.lrl.setText("" + (iVar.kmM + i2));
+    public void nf(boolean z) {
+        i iVar = this.kul;
+        int i = iVar.ktU == 1 ? 1 : 0;
+        int i2 = iVar.ktU == 2 ? 1 : 0;
+        long j = iVar.kuS + iVar.kuT + i + i2;
+        this.ajQ.setText(String.format(getContext().getString(R.string.hot_topic_pk_head_tag), au.numberUniformFormatExtra(j)));
+        this.kvU.setText(iVar.ktT);
+        this.lzg.setText(iVar.kuK);
+        this.lzh.setText(iVar.kuN);
+        this.lzo.setText("" + (iVar.kuS + i));
+        this.lzq.setText("" + (iVar.kuT + i2));
         if (j > 0) {
-            if (iVar.klN == 1) {
+            if (iVar.ktU == 1) {
                 if (j > 1) {
                     float f = 1.0f / ((float) j);
                     if (f < 0.02f) {
                         f = 0.02f;
                     }
-                    this.lri.setProcess(f + ((((float) iVar.kmL) * 1.0f) / ((float) j)), z);
+                    this.lzn.setProcess(f + ((((float) iVar.kuS) * 1.0f) / ((float) j)), z);
                 } else {
-                    this.lri.setProcess(1.0f, z);
+                    this.lzn.setProcess(1.0f, z);
                 }
-            } else if (iVar.klN == 2) {
+            } else if (iVar.ktU == 2) {
                 if (j > 1) {
                     float f2 = 1.0f / ((float) j);
                     if (f2 < 0.02f) {
                         f2 = 0.02f;
                     }
-                    this.lri.setProcess(((((float) iVar.kmL) * 1.0f) / ((float) j)) - f2, z);
+                    this.lzn.setProcess(((((float) iVar.kuS) * 1.0f) / ((float) j)) - f2, z);
                 } else {
-                    this.lri.setProcess(0.0f, z);
+                    this.lzn.setProcess(0.0f, z);
                 }
             } else {
-                this.lri.setProcess((((float) iVar.kmL) * 1.0f) / ((float) j), z);
+                this.lzn.setProcess((((float) iVar.kuS) * 1.0f) / ((float) j), z);
             }
         } else {
-            this.lri.setProcess(0.5f, z);
+            this.lzn.setProcess(0.5f, z);
         }
-        if (this.lrd.getVisibility() != 0) {
-            if (iVar.klN != 0) {
-                this.lrg = this.lrf;
-                this.lre = this.lrd.getLayoutParams();
-                this.lre.height = this.lrg;
-                this.lrd.setLayoutParams(this.lre);
-                this.lrd.setAlpha(1.0f);
-                this.lrd.setVisibility(0);
+        if (this.lzi.getVisibility() != 0) {
+            if (iVar.ktU != 0) {
+                this.lzl = this.lzk;
+                this.lzj = this.lzi.getLayoutParams();
+                this.lzj.height = this.lzl;
+                this.lzi.setLayoutParams(this.lzj);
+                this.lzi.setAlpha(1.0f);
+                this.lzi.setVisibility(0);
             } else {
-                this.lrg = 0;
-                this.lre = this.lrd.getLayoutParams();
-                this.lre.height = this.lrg;
-                this.lrd.setLayoutParams(this.lre);
-                this.lrd.setAlpha(0.0f);
+                this.lzl = 0;
+                this.lzj = this.lzi.getLayoutParams();
+                this.lzj.height = this.lzl;
+                this.lzi.setLayoutParams(this.lzj);
+                this.lzi.setAlpha(0.0f);
             }
         }
-        dge();
+        dif();
     }
 
-    private void dge() {
-        if (this.kme != null) {
-            if (this.kme.klN == 1) {
-                this.lrb.setBackgroundResource(R.drawable.bg_pk_btn_select);
-                this.lrc.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
-                this.lrb.setTextColor(ao.getColor(R.color.CAM_X0101));
-                this.lrc.setTextColor(ao.getColor(R.color.CAM_X0302));
-            } else if (this.kme.klN == 2) {
-                this.lrb.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
-                this.lrc.setBackgroundResource(R.drawable.bg_pk_btn_select);
-                this.lrb.setTextColor(ao.getColor(R.color.CAM_X0308));
-                this.lrc.setTextColor(ao.getColor(R.color.CAM_X0101));
+    private void dif() {
+        if (this.kul != null) {
+            if (this.kul.ktU == 1) {
+                this.lzg.setBackgroundResource(R.drawable.bg_pk_btn_select);
+                this.lzh.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
+                this.lzg.setTextColor(ap.getColor(R.color.CAM_X0101));
+                this.lzh.setTextColor(ap.getColor(R.color.CAM_X0302));
+            } else if (this.kul.ktU == 2) {
+                this.lzg.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
+                this.lzh.setBackgroundResource(R.drawable.bg_pk_btn_select);
+                this.lzg.setTextColor(ap.getColor(R.color.CAM_X0308));
+                this.lzh.setTextColor(ap.getColor(R.color.CAM_X0101));
             } else {
-                this.lrb.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
-                this.lrc.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
-                this.lrb.setTextColor(ao.getColor(R.color.CAM_X0308));
-                this.lrc.setTextColor(ao.getColor(R.color.CAM_X0302));
+                this.lzg.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
+                this.lzh.setBackgroundResource(R.drawable.bg_pk_btn_unselect);
+                this.lzg.setTextColor(ap.getColor(R.color.CAM_X0308));
+                this.lzh.setTextColor(ap.getColor(R.color.CAM_X0302));
             }
             if (Build.VERSION.SDK_INT >= 21) {
-                this.lrb.setBackgroundTintList(this.lrn);
-                this.lrc.setBackgroundTintList(this.lro);
+                this.lzg.setBackgroundTintList(this.lzs);
+                this.lzh.setBackgroundTintList(this.lzt);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jZf != i) {
-            ao.setBackgroundColor(this, R.color.CAM_X0201);
-            this.lrn = ao.getColorList(R.color.CAM_X0308);
-            this.lro = ao.getColorList(R.color.CAM_X0303);
-            dge();
-            ao.setViewTextColor(this.akb, R.color.CAM_X0109);
-            ao.setViewTextColor(this.eFr, R.color.CAM_X0105);
-            ao.setViewTextColor(this.knN, R.color.CAM_X0105);
-            ao.setViewTextColor(this.lrj, R.color.CAM_X0308);
-            ao.setViewTextColor(this.lrk, R.color.CAM_X0308);
-            ao.setViewTextColor(this.lrl, R.color.CAM_X0303);
-            ao.setViewTextColor(this.lrm, R.color.CAM_X0303);
-            this.lri.onChangeSkinType(i);
-            this.jZf = i;
+        if (this.kgI != i) {
+            ap.setBackgroundColor(this, R.color.CAM_X0201);
+            this.lzs = ap.getColorList(R.color.CAM_X0308);
+            this.lzt = ap.getColorList(R.color.CAM_X0303);
+            dif();
+            ap.setViewTextColor(this.ajQ, R.color.CAM_X0109);
+            ap.setViewTextColor(this.eHx, R.color.CAM_X0105);
+            ap.setViewTextColor(this.kvU, R.color.CAM_X0105);
+            ap.setViewTextColor(this.lzo, R.color.CAM_X0308);
+            ap.setViewTextColor(this.lzp, R.color.CAM_X0308);
+            ap.setViewTextColor(this.lzq, R.color.CAM_X0303);
+            ap.setViewTextColor(this.lzr, R.color.CAM_X0303);
+            this.lzn.onChangeSkinType(i);
+            this.kgI = i;
         }
     }
 
@@ -247,39 +247,39 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.pkBtn1) {
-            dgf();
+            dig();
         } else if (id == R.id.pkBtn2) {
-            dgg();
+            dih();
         }
     }
 
-    private void dgf() {
-        if (!GJ()) {
-            dgh();
-            if (this.lrd.getVisibility() != 0) {
-                EO(1);
-            } else if (this.lrh == null || !this.lrh.isRunning()) {
-                EN(1);
+    private void dig() {
+        if (!HZ()) {
+            dii();
+            if (this.lzi.getVisibility() != 0) {
+                Fg(1);
+            } else if (this.lzm == null || !this.lzm.isRunning()) {
+                Ff(1);
             }
         }
     }
 
-    private void dgg() {
-        if (!GJ()) {
-            dgh();
-            if (this.lrd.getVisibility() != 0) {
-                EO(2);
-            } else if (this.lrh == null || !this.lrh.isRunning()) {
-                EN(2);
+    private void dih() {
+        if (!HZ()) {
+            dii();
+            if (this.lzi.getVisibility() != 0) {
+                Fg(2);
+            } else if (this.lzm == null || !this.lzm.isRunning()) {
+                Ff(2);
             }
         }
     }
 
-    private void dgh() {
-        TiebaStatic.log(new aq("c13818").dW("uid", TbadkCoreApplication.getCurrentAccount()).dW("topic_id", this.pageContext.getOrignalPage().getTopicId()));
+    private void dii() {
+        TiebaStatic.log(new ar("c13818").dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("topic_id", this.pageContext.getOrignalPage().getTopicId()));
     }
 
-    private boolean GJ() {
+    private boolean HZ() {
         if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             TbadkCoreApplication.getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.pageContext.getPageActivity(), true, 110435)));
             return true;
@@ -287,94 +287,94 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         return false;
     }
 
-    private void EN(int i) {
-        this.pageContext.getOrignalPage().a(this.kme, i);
+    private void Ff(int i) {
+        this.pageContext.getOrignalPage().a(this.kul, i);
     }
 
-    private void EO(int i) {
-        if (this.lrh != null) {
-            this.lrh.cancel();
+    private void Fg(int i) {
+        if (this.lzm != null) {
+            this.lzm.cancel();
         }
-        this.lrd.setVisibility(0);
-        this.lrh = ValueAnimator.ofFloat((this.lrg * 1.0f) / this.lrf, 1.0f);
-        this.lrh.setDuration((((this.lrf - this.lrg) * 300) * 1.0f) / this.lrf);
-        this.lrh.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.lrh.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkLayout.1
+        this.lzi.setVisibility(0);
+        this.lzm = ValueAnimator.ofFloat((this.lzl * 1.0f) / this.lzk, 1.0f);
+        this.lzm.setDuration((((this.lzk - this.lzl) * 300) * 1.0f) / this.lzk);
+        this.lzm.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.lzm.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkLayout.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                HotTopicDetailPkLayout.this.lrd.setAlpha(floatValue);
-                HotTopicDetailPkLayout.this.lre.height = (int) (floatValue * HotTopicDetailPkLayout.this.lrf);
-                HotTopicDetailPkLayout.this.lrd.setLayoutParams(HotTopicDetailPkLayout.this.lre);
+                HotTopicDetailPkLayout.this.lzi.setAlpha(floatValue);
+                HotTopicDetailPkLayout.this.lzj.height = (int) (floatValue * HotTopicDetailPkLayout.this.lzk);
+                HotTopicDetailPkLayout.this.lzi.setLayoutParams(HotTopicDetailPkLayout.this.lzj);
             }
         });
-        this.lrh.start();
-        EN(i);
+        this.lzm.start();
+        Ff(i);
     }
 
-    public void f(long j, final long j2, final int i) {
+    public void e(long j, final long j2, final int i) {
         int i2;
-        if (this.lrh == null || !this.lrh.isRunning() || ((Float) this.lrh.getAnimatedValue()).floatValue() >= 1.0f) {
+        if (this.lzm == null || !this.lzm.isRunning() || ((Float) this.lzm.getAnimatedValue()).floatValue() >= 1.0f) {
             i2 = 0;
         } else {
-            i2 = (int) ((1.0f - ((Float) this.lrh.getAnimatedValue()).floatValue()) * 300.0f);
+            i2 = (int) ((1.0f - ((Float) this.lzm.getAnimatedValue()).floatValue()) * 300.0f);
         }
         postDelayed(new Runnable() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkLayout.2
             @Override // java.lang.Runnable
             public void run() {
                 if (j2 == 0) {
-                    if (HotTopicDetailPkLayout.this.kme.klN == 1) {
-                        HotTopicDetailPkLayout.this.lrk.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
-                        HotTopicDetailPkLayout.this.lrm.setText("");
-                    } else if (HotTopicDetailPkLayout.this.kme.klN == 2) {
-                        HotTopicDetailPkLayout.this.lrk.setText("");
-                        HotTopicDetailPkLayout.this.lrm.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
+                    if (HotTopicDetailPkLayout.this.kul.ktU == 1) {
+                        HotTopicDetailPkLayout.this.lzp.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
+                        HotTopicDetailPkLayout.this.lzr.setText("");
+                    } else if (HotTopicDetailPkLayout.this.kul.ktU == 2) {
+                        HotTopicDetailPkLayout.this.lzp.setText("");
+                        HotTopicDetailPkLayout.this.lzr.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
                     } else {
-                        HotTopicDetailPkLayout.this.lrk.setText("");
-                        HotTopicDetailPkLayout.this.lrm.setText("");
+                        HotTopicDetailPkLayout.this.lzp.setText("");
+                        HotTopicDetailPkLayout.this.lzr.setText("");
                     }
-                    HotTopicDetailPkLayout.this.kme.klN = 0;
+                    HotTopicDetailPkLayout.this.kul.ktU = 0;
                 } else {
-                    if (HotTopicDetailPkLayout.this.kme.klN != 0) {
-                        if (HotTopicDetailPkLayout.this.kme.klN == 1) {
+                    if (HotTopicDetailPkLayout.this.kul.ktU != 0) {
+                        if (HotTopicDetailPkLayout.this.kul.ktU == 1) {
                             if (i == 1) {
-                                HotTopicDetailPkLayout.this.lrk.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
-                                HotTopicDetailPkLayout.this.lrm.setText("");
+                                HotTopicDetailPkLayout.this.lzp.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
+                                HotTopicDetailPkLayout.this.lzr.setText("");
                             } else if (i == 2) {
-                                HotTopicDetailPkLayout.this.lrk.setText("");
-                                HotTopicDetailPkLayout.this.lrm.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
+                                HotTopicDetailPkLayout.this.lzp.setText("");
+                                HotTopicDetailPkLayout.this.lzr.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
                             } else {
-                                HotTopicDetailPkLayout.this.lrk.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
-                                HotTopicDetailPkLayout.this.lrm.setText("");
+                                HotTopicDetailPkLayout.this.lzp.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
+                                HotTopicDetailPkLayout.this.lzr.setText("");
                             }
                         } else if (i == 1) {
-                            HotTopicDetailPkLayout.this.lrk.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
-                            HotTopicDetailPkLayout.this.lrm.setText("");
+                            HotTopicDetailPkLayout.this.lzp.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
+                            HotTopicDetailPkLayout.this.lzr.setText("");
                         } else if (i == 2) {
-                            HotTopicDetailPkLayout.this.lrk.setText("");
-                            HotTopicDetailPkLayout.this.lrm.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
+                            HotTopicDetailPkLayout.this.lzp.setText("");
+                            HotTopicDetailPkLayout.this.lzr.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "-1");
                         } else {
-                            HotTopicDetailPkLayout.this.lrk.setText("");
-                            HotTopicDetailPkLayout.this.lrm.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
+                            HotTopicDetailPkLayout.this.lzp.setText("");
+                            HotTopicDetailPkLayout.this.lzr.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
                         }
                     } else if (i == 1) {
-                        HotTopicDetailPkLayout.this.lrk.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
-                        HotTopicDetailPkLayout.this.lrm.setText("");
+                        HotTopicDetailPkLayout.this.lzp.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
+                        HotTopicDetailPkLayout.this.lzr.setText("");
                     } else if (i == 2) {
-                        HotTopicDetailPkLayout.this.lrk.setText("");
-                        HotTopicDetailPkLayout.this.lrm.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
+                        HotTopicDetailPkLayout.this.lzp.setText("");
+                        HotTopicDetailPkLayout.this.lzr.setText(TbadkCoreApplication.getCurrentAccountNameShow() + "+1");
                     } else {
-                        HotTopicDetailPkLayout.this.lrk.setText("");
-                        HotTopicDetailPkLayout.this.lrm.setText("");
+                        HotTopicDetailPkLayout.this.lzp.setText("");
+                        HotTopicDetailPkLayout.this.lzr.setText("");
                     }
-                    HotTopicDetailPkLayout.this.kme.klN = i;
+                    HotTopicDetailPkLayout.this.kul.ktU = i;
                 }
-                HotTopicDetailPkLayout.this.kme.userPkId = j2;
-                HotTopicDetailPkLayout.this.lrk.setVisibility(0);
-                HotTopicDetailPkLayout.this.lrm.setVisibility(0);
-                HotTopicDetailPkLayout.this.na(true);
-                HotTopicDetailPkLayout.this.removeCallbacks(HotTopicDetailPkLayout.this.lrp);
-                HotTopicDetailPkLayout.this.postDelayed(HotTopicDetailPkLayout.this.lrp, IMConnection.RETRY_DELAY_TIMES);
+                HotTopicDetailPkLayout.this.kul.userPkId = j2;
+                HotTopicDetailPkLayout.this.lzp.setVisibility(0);
+                HotTopicDetailPkLayout.this.lzr.setVisibility(0);
+                HotTopicDetailPkLayout.this.nf(true);
+                HotTopicDetailPkLayout.this.removeCallbacks(HotTopicDetailPkLayout.this.lzu);
+                HotTopicDetailPkLayout.this.postDelayed(HotTopicDetailPkLayout.this.lzu, IMConnection.RETRY_DELAY_TIMES);
             }
         }, i2);
     }

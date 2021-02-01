@@ -15,16 +15,16 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes5.dex */
 public final class MaybeConcatIterable<T> extends g<T> {
-    final Iterable<? extends o<? extends T>> qdO;
+    final Iterable<? extends o<? extends T>> qnS;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         try {
-            ConcatMaybeObserver concatMaybeObserver = new ConcatMaybeObserver(cVar, (Iterator) io.reactivex.internal.functions.a.m(this.qdO.iterator(), "The sources Iterable returned a null Iterator"));
+            ConcatMaybeObserver concatMaybeObserver = new ConcatMaybeObserver(cVar, (Iterator) io.reactivex.internal.functions.a.m(this.qnS.iterator(), "The sources Iterable returned a null Iterator"));
             cVar.onSubscribe(concatMaybeObserver);
             concatMaybeObserver.drain();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.O(th);
+            io.reactivex.exceptions.a.N(th);
             EmptySubscription.error(th, cVar);
         }
     }
@@ -108,7 +108,7 @@ public final class MaybeConcatIterable<T> extends g<T> {
                                     try {
                                         ((o) io.reactivex.internal.functions.a.m(this.sources.next(), "The source Iterator returned a null MaybeSource")).a(this);
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.O(th);
+                                        io.reactivex.exceptions.a.N(th);
                                         cVar.onError(th);
                                         return;
                                     }
@@ -116,7 +116,7 @@ public final class MaybeConcatIterable<T> extends g<T> {
                                     cVar.onComplete();
                                 }
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.O(th2);
+                                io.reactivex.exceptions.a.N(th2);
                                 cVar.onError(th2);
                                 return;
                             }

@@ -3,13 +3,13 @@ package com.baidu.tbadk.BdToken.backUser;
 import tbclient.BackUser.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    private DataRes eDl;
-    public boolean eDm = false;
+    private DataRes eFs;
+    public boolean eFt = false;
 
     public void a(DataRes dataRes) {
-        this.eDl = dataRes;
+        this.eFs = dataRes;
         if (dataRes != null) {
-            this.eDm = dataRes.is_back_user.intValue() == 1;
+            this.eFt = dataRes.is_back_user.intValue() == 1;
         }
     }
 }

@@ -1,14 +1,14 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f3067a;
+    public int f3065a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3068b;
+    public String f3066b;
     public int c;
     public int d;
     public ArrayList<q> e;

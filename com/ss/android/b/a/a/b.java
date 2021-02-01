@@ -1,14 +1,14 @@
 package com.ss.android.b.a.a;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b implements com.ss.android.a.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12912a;
+    private String f12914a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12913b;
+    private String f12915b;
     private String c;
     private String d;
     private String e;
@@ -20,14 +20,14 @@ public class b implements com.ss.android.a.a.b.b {
     private boolean k;
     private boolean l;
     private String m;
-    private JSONObject pmx;
+    private JSONObject pwM;
 
     public b() {
     }
 
     private b(a aVar) {
-        this.f12912a = aVar.f12914a;
-        this.f12913b = aVar.f12915b;
+        this.f12914a = aVar.f12916a;
+        this.f12915b = aVar.f12917b;
         this.c = aVar.c;
         this.d = aVar.d;
         this.e = aVar.e;
@@ -39,7 +39,7 @@ public class b implements com.ss.android.a.a.b.b {
         this.k = aVar.k;
         this.l = aVar.l;
         this.m = aVar.m;
-        this.pmx = aVar.pmx;
+        this.pwM = aVar.pwM;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -49,12 +49,12 @@ public class b implements com.ss.android.a.a.b.b {
 
     @Override // com.ss.android.a.a.b.b
     public String b() {
-        return this.f12912a;
+        return this.f12914a;
     }
 
     @Override // com.ss.android.a.a.b.b
     public String c() {
-        return this.f12913b;
+        return this.f12915b;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -88,7 +88,7 @@ public class b implements com.ss.android.a.a.b.b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public Object eBC() {
+    public Object eDT() {
         return this.i;
     }
 
@@ -108,18 +108,18 @@ public class b implements com.ss.android.a.a.b.b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public JSONObject eBD() {
-        return this.pmx;
+    public JSONObject eDU() {
+        return this.pwM;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f12914a;
+        private String f12916a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f12915b;
+        private String f12917b;
         private String c;
         private String d;
         private String e;
@@ -131,74 +131,74 @@ public class b implements com.ss.android.a.a.b.b {
         private boolean k = true;
         private boolean l = false;
         private String m;
-        private JSONObject pmx;
+        private JSONObject pwM;
 
-        public a Zm(String str) {
-            this.f12914a = str;
+        public a aan(String str) {
+            this.f12916a = str;
             return this;
         }
 
-        public a Zn(String str) {
-            this.f12915b = str;
+        public a aao(String str) {
+            this.f12917b = str;
             return this;
         }
 
-        public a Zo(String str) {
+        public a aap(String str) {
             this.d = str;
             return this;
         }
 
-        public a Zp(String str) {
+        public a aaq(String str) {
             this.e = str;
             return this;
         }
 
-        public a Zq(String str) {
+        public a aar(String str) {
             this.f = str;
             return this;
         }
 
-        public a Zr(String str) {
+        public a aas(String str) {
             this.g = str;
             return this;
         }
 
         @Deprecated
-        public a Zs(String str) {
+        public a aat(String str) {
             return this;
         }
 
-        public a Zt(String str) {
+        public a aau(String str) {
             this.h = str;
             return this;
         }
 
-        public a Qu(int i) {
+        public a QP(int i) {
             this.j = i;
             return this;
         }
 
-        public a Bw(boolean z) {
+        public a BQ(boolean z) {
             this.k = z;
             return this;
         }
 
         @Deprecated
-        public a Bx(boolean z) {
+        public a BR(boolean z) {
             return this;
         }
 
-        public a By(boolean z) {
+        public a BS(boolean z) {
             this.l = z;
             return this;
         }
 
-        public a Zu(String str) {
+        public a aav(String str) {
             this.m = str;
             return this;
         }
 
-        public b eBO() {
+        public b eEf() {
             return new b(this);
         }
     }

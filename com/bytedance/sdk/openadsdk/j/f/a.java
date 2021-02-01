@@ -14,31 +14,31 @@ import java.util.HashMap;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7272a = u.c();
+    public static final boolean f7274a = u.c();
 
     /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, Boolean> f7273b;
-    private C1019a c;
+    private HashMap<String, Boolean> f7275b;
+    private C1023a c;
 
     private a() {
-        this.f7273b = new HashMap<>();
+        this.f7275b = new HashMap<>();
         b();
     }
 
     public static a a() {
-        return b.f7278a;
+        return b.f7280a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final a f7278a = new a();
+        private static final a f7280a = new a();
     }
 
     public boolean b() {
@@ -54,7 +54,7 @@ public class a {
         e.a(1);
         f.a().d();
         try {
-            this.c = new C1019a();
+            this.c = new C1023a();
             this.c.start();
             e.a(c, p.a());
             d.c().a(30000L, 30000L, 30000L);
@@ -78,7 +78,7 @@ public class a {
             return null;
         }
         boolean z = !TextUtils.isEmpty(bVar.c);
-        return f.a().a(false, z, z ? bVar.c : bVar.f7279a, bVar.f7279a);
+        return f.a().a(false, z, z ? bVar.c : bVar.f7281a, bVar.f7281a);
     }
 
     private static c c() {
@@ -108,42 +108,42 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.bytedance.sdk.openadsdk.j.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1019a extends Thread {
-        private final Queue<C1020a> d = new ArrayBlockingQueue(10);
+    /* loaded from: classes6.dex */
+    public class C1023a extends Thread {
+        private final Queue<C1024a> d = new ArrayBlockingQueue(10);
 
         /* renamed from: b  reason: collision with root package name */
-        private Queue<C1020a> f7275b = new LinkedBlockingQueue();
+        private Queue<C1024a> f7277b = new LinkedBlockingQueue();
         private boolean c = true;
-        private Queue<C1020a> e = new LinkedBlockingQueue();
+        private Queue<C1024a> e = new LinkedBlockingQueue();
 
-        public C1019a() {
+        public C1023a() {
         }
 
-        private C1020a a(int i, com.bytedance.sdk.openadsdk.j.f.b bVar) {
+        private C1024a a(int i, com.bytedance.sdk.openadsdk.j.f.b bVar) {
             b();
             u.b("VideoCachePreloader", "pool: " + this.d.size());
-            C1020a poll = this.d.poll();
+            C1024a poll = this.d.poll();
             if (poll == null) {
-                poll = new C1020a();
+                poll = new C1024a();
             }
-            poll.f7276a = i;
+            poll.f7278a = i;
             poll.f = bVar;
             return poll;
         }
 
-        private void a(C1020a c1020a) {
+        private void a(C1024a c1024a) {
             a();
-            c1020a.c = null;
-            c1020a.f7277b = null;
-            c1020a.f7276a = -1;
-            c1020a.f = null;
-            this.d.offer(c1020a);
+            c1024a.c = null;
+            c1024a.f7279b = null;
+            c1024a.f7278a = -1;
+            c1024a.f = null;
+            this.d.offer(c1024a);
         }
 
-        private synchronized void b(C1020a c1020a) {
+        private synchronized void b(C1024a c1024a) {
             b();
-            this.e.add(c1020a);
+            this.e.add(c1024a);
             notify();
         }
 
@@ -153,10 +153,10 @@ public class a {
         private void b() {
         }
 
-        private void c(C1020a c1020a) {
+        private void c(C1024a c1024a) {
             a();
-            if (c1020a != null) {
-                this.f7275b.offer(c1020a);
+            if (c1024a != null) {
+                this.f7277b.offer(c1024a);
                 notify();
             }
         }
@@ -169,10 +169,10 @@ public class a {
                     if (!this.e.isEmpty()) {
                         c();
                     }
-                    while (!this.f7275b.isEmpty()) {
-                        C1020a poll = this.f7275b.poll();
+                    while (!this.f7277b.isEmpty()) {
+                        C1024a poll = this.f7277b.poll();
                         if (poll != null) {
-                            switch (poll.f7276a) {
+                            switch (poll.f7278a) {
                                 case 0:
                                     if (poll.c != null && poll.c.length > 0) {
                                         ArrayList arrayList = new ArrayList();
@@ -181,12 +181,12 @@ public class a {
                                                 arrayList.add(str);
                                             }
                                         }
-                                        d.c().a(false, !TextUtils.isEmpty(poll.e), poll.d, poll.f7277b, (String[]) arrayList.toArray(new String[arrayList.size()]));
+                                        d.c().a(false, !TextUtils.isEmpty(poll.e), poll.d, poll.f7279b, (String[]) arrayList.toArray(new String[arrayList.size()]));
                                         break;
                                     }
                                     break;
                                 case 1:
-                                    d.c().a(poll.f7277b);
+                                    d.c().a(poll.f7279b);
                                     break;
                                 case 2:
                                     d.c().d();
@@ -221,14 +221,14 @@ public class a {
         private void c() {
             a();
             while (true) {
-                C1020a poll = this.e.poll();
+                C1024a poll = this.e.poll();
                 if (poll != null) {
-                    poll.f7277b = poll.f.f7279a;
-                    poll.c = new String[]{poll.f.f7279a};
-                    poll.d = poll.f.f7280b;
+                    poll.f7279b = poll.f.f7281a;
+                    poll.c = new String[]{poll.f.f7281a};
+                    poll.d = poll.f.f7282b;
                     poll.e = poll.f.c;
                     if (!TextUtils.isEmpty(poll.f.c)) {
-                        poll.f7277b = poll.f.c;
+                        poll.f7279b = poll.f.c;
                     }
                     poll.f = null;
                     c(poll);
@@ -244,20 +244,20 @@ public class a {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.bytedance.sdk.openadsdk.j.f.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C1020a {
+        /* loaded from: classes6.dex */
+        public class C1024a {
 
             /* renamed from: a  reason: collision with root package name */
-            public int f7276a;
+            public int f7278a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f7277b;
+            public String f7279b;
             public String[] c;
             public int d;
             public String e;
             public com.bytedance.sdk.openadsdk.j.f.b f;
 
-            public C1020a() {
+            public C1024a() {
             }
         }
     }

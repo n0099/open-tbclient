@@ -3,7 +3,7 @@ package com.facebook.drawee.drawable;
 import android.graphics.drawable.Drawable;
 import androidx.core.view.ViewCompat;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class e {
     public static void d(Drawable drawable, Drawable drawable2) {
         if (drawable2 != null && drawable != null && drawable != drawable2) {
@@ -30,7 +30,7 @@ public class e {
         }
     }
 
-    public static int dZ(int i, int i2) {
+    public static int dW(int i, int i2) {
         if (i2 != 255) {
             if (i2 == 0) {
                 return i & ViewCompat.MEASURED_SIZE_MASK;
@@ -40,7 +40,7 @@ public class e {
         return i;
     }
 
-    public static int OL(int i) {
+    public static int Pg(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

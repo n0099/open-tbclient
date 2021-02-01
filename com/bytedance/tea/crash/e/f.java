@@ -6,25 +6,24 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.util.Printer;
 import android.util.SparseArray;
-import androidx.appcompat.widget.ActivityChooserView;
 import java.lang.reflect.Field;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f implements Handler.Callback {
-    private static Printer plE = null;
-    private static f plF = null;
-    private static final Printer plG = new Printer() { // from class: com.bytedance.tea.crash.e.f.1
+    private static Printer pvT = null;
+    private static f pvU = null;
+    private static final Printer pvV = new Printer() { // from class: com.bytedance.tea.crash.e.f.1
         @Override // android.util.Printer
         public void println(String str) {
             if (str != null) {
                 if (str.startsWith(">>>>> Dispatching")) {
-                    f.eoH().a(str);
+                    f.eqZ().a(str);
                 } else if (str.startsWith("<<<<< Finished")) {
-                    f.eoH().b(str);
+                    f.eqZ().b(str);
                 }
-                if (f.plE != null && f.plE != f.plG) {
-                    f.plE.println(str);
+                if (f.pvT != null && f.pvT != f.pvV) {
+                    f.pvT.println(str);
                 }
             }
         }
@@ -43,29 +42,29 @@ public class f implements Handler.Callback {
         b();
     }
 
-    public static f eoH() {
-        if (plF == null) {
+    public static f eqZ() {
+        if (pvU == null) {
             synchronized (f.class) {
-                if (plF == null) {
-                    plF = new f();
+                if (pvU == null) {
+                    pvU = new f();
                 }
             }
         }
-        return plF;
+        return pvU;
     }
 
     public void b() {
         if (!this.k) {
             this.k = true;
-            plE = eoI();
-            if (plE == plG) {
-                plE = null;
+            pvT = era();
+            if (pvT == pvV) {
+                pvT = null;
             }
-            Looper.getMainLooper().setMessageLogging(plG);
+            Looper.getMainLooper().setMessageLogging(pvV);
         }
     }
 
-    private Printer eoI() {
+    private Printer era() {
         try {
             Field declaredField = Class.forName("android.os.Looper").getDeclaredField("mLogging");
             declaredField.setAccessible(true);
@@ -158,7 +157,7 @@ public class f implements Handler.Callback {
                 case 1:
                     this.c.removeMessages(2);
                     if (this.g.size() != 0 && this.g.keyAt(this.g.size() - 1) == 0) {
-                        a(this.g.get(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED));
+                        a(this.g.get(Integer.MAX_VALUE));
                         break;
                     }
                     break;

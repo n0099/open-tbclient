@@ -1,24 +1,24 @@
 package com.baidu.platform.comapi.bikenavi.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class b implements com.baidu.platform.comapi.wnplatform.m.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4145a;
+    final /* synthetic */ a f4148a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f4145a = aVar;
+        this.f4148a = aVar;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.m.b
     public int a(String str, int i, int i2) {
         int a2;
-        a2 = this.f4145a.a(str, i2);
+        a2 = this.f4148a.a(str, i2);
         return a2;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.m.b
     public int a() {
-        return this.f4145a.b();
+        return this.f4148a.b();
     }
 }

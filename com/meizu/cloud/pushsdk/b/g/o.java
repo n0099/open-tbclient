@@ -1,11 +1,11 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f11214a = Charset.forName("UTF-8");
+    public static final Charset f11216a = Charset.forName("UTF-8");
 
     public static void a(long j, long j2, long j3) {
         if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {

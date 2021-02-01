@@ -13,70 +13,70 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends g {
-    private ViewGroup bFQ;
-    private FrameLayout dyU;
-    private FrameLayout dyV;
-    private View dyW;
-    private List<a> dyX;
-    private int dyY;
+    private ViewGroup bJA;
+    private FrameLayout dAZ;
+    private FrameLayout dBa;
+    private View dBb;
+    private List<a> dBc;
+    private int dBd;
     protected Context mContext;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface c {
-        void aD(View view);
+        void az(View view);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(Context context) {
         super(context, a.i.NoTitleDialog);
-        this.dyX = new ArrayList();
-        this.dyY = 2;
+        this.dBc = new ArrayList();
+        this.dBd = 2;
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         createView();
-        aHy().aK(this.bFQ);
+        aHR().aG(this.bJA);
     }
 
     private void createView() {
         this.mContext = getContext();
-        this.bFQ = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_hv_dialog, aHy().aHH(), false);
-        this.dyU = (FrameLayout) this.bFQ.findViewById(a.f.hv_content);
-        this.dyW = this.bFQ.findViewById(a.f.hv_divider);
-        this.dyV = (FrameLayout) this.bFQ.findViewById(a.f.hv_btn_content);
-        View F = F(this.dyU);
-        if (F != null) {
-            this.dyU.addView(F);
+        this.bJA = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_hv_dialog, aHR().aIa(), false);
+        this.dAZ = (FrameLayout) this.bJA.findViewById(a.f.hv_content);
+        this.dBb = this.bJA.findViewById(a.f.hv_divider);
+        this.dBa = (FrameLayout) this.bJA.findViewById(a.f.hv_btn_content);
+        View D = D(this.dAZ);
+        if (D != null) {
+            this.dAZ.addView(D);
         }
-        aHs();
-        aV(this.dyX);
+        aHL();
+        aQ(this.dBc);
     }
 
-    private void aHs() {
-        this.dyW.setBackgroundColor(getContext().getResources().getColor(a.c.aiapps_dialog_gray));
+    private void aHL() {
+        this.dBb.setBackgroundColor(getContext().getResources().getColor(a.c.aiapps_dialog_gray));
     }
 
-    protected View F(ViewGroup viewGroup) {
+    protected View D(ViewGroup viewGroup) {
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aU(List<a> list) {
-        this.dyX.clear();
+    public void aP(List<a> list) {
+        this.dBc.clear();
         if (list != null) {
-            this.dyX.addAll(list);
+            this.dBc.addAll(list);
         }
     }
 
-    private void aV(List<a> list) {
+    private void aQ(List<a> list) {
         if (list != null) {
             LinearLayout linearLayout = new LinearLayout(this.mContext);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            if (list.size() > this.dyY) {
+            if (list.size() > this.dBd) {
                 linearLayout.setOrientation(1);
             } else {
                 linearLayout.setOrientation(0);
@@ -84,15 +84,15 @@ public class b extends g {
             for (int i = 0; i < list.size(); i++) {
                 linearLayout.addView(a(list.get(i), linearLayout));
                 if (i < list.size() - 1) {
-                    if (list.size() > this.dyY) {
-                        linearLayout.addView(iI(1));
+                    if (list.size() > this.dBd) {
+                        linearLayout.addView(iL(1));
                     } else {
-                        linearLayout.addView(iI(0));
+                        linearLayout.addView(iL(0));
                     }
                 }
             }
-            this.dyV.removeAllViews();
-            this.dyV.addView(linearLayout);
+            this.dBa.removeAllViews();
+            this.dBa.addView(linearLayout);
         }
     }
 
@@ -103,9 +103,9 @@ public class b extends g {
         return linearLayout2;
     }
 
-    private View iI(int i) {
+    private View iL(int i) {
         View view = new View(this.mContext);
-        view.setBackgroundColor(this.dyU.getResources().getColor(a.c.aiapps_dialog_gray));
+        view.setBackgroundColor(this.dAZ.getResources().getColor(a.c.aiapps_dialog_gray));
         if (i == 1) {
             view.setLayoutParams(new LinearLayout.LayoutParams(-1, 1));
         } else {
@@ -114,43 +114,43 @@ public class b extends g {
         return view;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class d {
-        TextView aWY;
-        TextView dzc;
-        LinearLayout dzd;
-        b dze;
+        TextView bae;
+        TextView dBh;
+        LinearLayout dBi;
+        b dBj;
 
         public d(View view, b bVar) {
             if (view != null) {
-                this.aWY = (TextView) view.findViewById(a.f.hv_btn_text);
-                this.dzc = (TextView) view.findViewById(a.f.hv_btn_subtext);
-                this.dzd = (LinearLayout) view;
-                this.dze = bVar;
+                this.bae = (TextView) view.findViewById(a.f.hv_btn_text);
+                this.dBh = (TextView) view.findViewById(a.f.hv_btn_subtext);
+                this.dBi = (LinearLayout) view;
+                this.dBj = bVar;
             }
         }
 
         public void b(final a aVar) {
             if (aVar != null) {
-                this.aWY.setText(aVar.mText);
-                if (aVar.dyZ > 0) {
-                    this.aWY.setTextColor(b.this.dyU.getResources().getColor(aVar.dyZ));
+                this.bae.setText(aVar.mText);
+                if (aVar.dBe > 0) {
+                    this.bae.setTextColor(b.this.dAZ.getResources().getColor(aVar.dBe));
                 }
                 if (!TextUtils.isEmpty(aVar.mSubText)) {
-                    this.dzc.setVisibility(0);
-                    this.dzc.setText(aVar.mSubText);
+                    this.dBh.setVisibility(0);
+                    this.dBh.setText(aVar.mSubText);
                 } else {
-                    this.dzc.setVisibility(8);
+                    this.dBh.setVisibility(8);
                 }
-                if (aVar.dza > 0) {
-                    this.dzc.setTextColor(b.this.dyU.getResources().getColor(aVar.dza));
+                if (aVar.dBf > 0) {
+                    this.dBh.setTextColor(b.this.dAZ.getResources().getColor(aVar.dBf));
                 }
-                this.dzd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.b.d.1
+                this.dBi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.b.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        d.this.dze.dismiss();
-                        if (aVar.dzb != null) {
-                            aVar.dzb.aD(view);
+                        d.this.dBj.dismiss();
+                        if (aVar.dBg != null) {
+                            aVar.dBg.az(view);
                         }
                     }
                 });
@@ -159,23 +159,23 @@ public class b extends g {
     }
 
     /* renamed from: com.baidu.swan.apps.res.widget.dialog.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0455b extends g.a {
+    /* loaded from: classes9.dex */
+    public static class C0452b extends g.a {
         private List<a> list;
 
-        public C0455b(Context context) {
+        public C0452b(Context context) {
             super(context);
             this.list = new ArrayList();
-            gU(false);
-            gQ(false);
+            gW(false);
+            gS(false);
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        protected g cK(Context context) {
+        protected g cJ(Context context) {
             return new b(context);
         }
 
-        public C0455b a(a aVar) {
+        public C0452b a(a aVar) {
             if (aVar != null) {
                 this.list.add(aVar);
             }
@@ -183,26 +183,26 @@ public class b extends g {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        public g apM() {
-            b bVar = (b) super.apM();
-            bVar.aU(this.list);
+        public g aqk() {
+            b bVar = (b) super.aqk();
+            bVar.aP(this.list);
             return bVar;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        public int dyZ;
-        public int dza = -1;
-        public c dzb;
+        public int dBe;
+        public int dBf = -1;
+        public c dBg;
         public CharSequence mSubText;
         public CharSequence mText;
 
         public a(CharSequence charSequence, int i, c cVar) {
-            this.dyZ = -1;
+            this.dBe = -1;
             this.mText = charSequence;
-            this.dyZ = i;
-            this.dzb = cVar;
+            this.dBe = i;
+            this.dBg = cVar;
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.message;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class l extends c {
     public l(Context context) {
         super(context);

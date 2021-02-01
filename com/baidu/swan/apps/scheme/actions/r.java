@@ -14,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class r extends aa {
     public r(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openStatisticFlowJar");
@@ -59,13 +59,13 @@ public class r extends aa {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.performance.i.aDG().aS(v(optParamsAsJo.optJSONArray("data"))).aDn();
+                com.baidu.swan.apps.performance.i.aEb().aN(u(optParamsAsJo.optJSONArray("data"))).aDJ();
                 break;
             case 1:
-                w(optParamsAsJo.optJSONArray("data"));
+                v(optParamsAsJo.optJSONArray("data"));
                 break;
             case 2:
-                x(optParamsAsJo.optJSONArray("data"));
+                w(optParamsAsJo.optJSONArray("data"));
                 break;
             default:
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
@@ -75,28 +75,28 @@ public class r extends aa {
         return true;
     }
 
-    List<UbcFlowEvent> v(JSONArray jSONArray) {
+    List<UbcFlowEvent> u(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
-            UbcFlowEvent bd = bd(jSONArray.optJSONObject(i));
-            if (bd != null) {
-                bd.qj("FE");
-                arrayList.add(bd);
+            UbcFlowEvent ba = ba(jSONArray.optJSONObject(i));
+            if (ba != null) {
+                ba.qB("FE");
+                arrayList.add(ba);
             }
         }
         return arrayList;
     }
 
-    UbcFlowEvent bd(JSONObject jSONObject) {
+    UbcFlowEvent ba(JSONObject jSONObject) {
         String optString = jSONObject.optString("actionId");
         long optLong = jSONObject.optLong("timestamp");
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        return new UbcFlowEvent(optString).cy(optLong);
+        return new UbcFlowEvent(optString).cE(optLong);
     }
 
-    private void w(JSONArray jSONArray) {
+    private void v(JSONArray jSONArray) {
         if (jSONArray != null) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SearchFlowEvent from FE, data: " + jSONArray);
@@ -110,7 +110,7 @@ public class r extends aa {
                     SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
                     searchFlowEvent.timestamp = Long.valueOf(optString3).longValue();
                     searchFlowEvent.data = optString2;
-                    searchFlowEvent.dJG = SearchFlowEvent.EventType.END;
+                    searchFlowEvent.dLK = SearchFlowEvent.EventType.END;
                     com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
                 }
             } catch (NumberFormatException e) {
@@ -121,10 +121,10 @@ public class r extends aa {
         }
     }
 
-    private void x(JSONArray jSONArray) {
+    private void w(JSONArray jSONArray) {
         long longValue;
-        com.baidu.swan.apps.core.d.e aoZ = com.baidu.swan.apps.v.f.azN().aoZ();
-        if (aoZ != null) {
+        com.baidu.swan.apps.core.d.e apy = com.baidu.swan.apps.v.f.aAl().apy();
+        if (apy != null) {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(0);
                 if (jSONObject != null) {
@@ -136,10 +136,10 @@ public class r extends aa {
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
-                        aoZ.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                        apy.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                     }
                     longValue = 0;
-                    aoZ.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                    apy.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

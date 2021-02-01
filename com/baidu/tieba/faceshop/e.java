@@ -7,7 +7,7 @@ import com.baidu.tbadk.download.DownloadData;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e implements com.baidu.tbadk.download.c {
     @Override // com.baidu.tbadk.download.c
     public void onFileDownloadSucceed(DownloadData downloadData) {
@@ -48,9 +48,9 @@ public class e implements com.baidu.tbadk.download.c {
             try {
                 fileInputStream = new FileInputStream(downloadData.getPath());
                 try {
-                    int b2 = a.cxd().b(downloadData.getId(), fileInputStream);
-                    EmotionGroupData IR = i.cxt().IR(downloadData.getId());
-                    if (IR == null) {
+                    int b2 = a.cyo().b(downloadData.getId(), fileInputStream);
+                    EmotionGroupData JC = i.cyE().JC(downloadData.getId());
+                    if (JC == null) {
                         if (b2 == 0) {
                             if (fileInputStream != null) {
                                 try {
@@ -63,21 +63,21 @@ public class e implements com.baidu.tbadk.download.c {
                             }
                             return false;
                         }
-                        IR = new EmotionGroupData();
-                        IR.setBytesLength((int) downloadData.getSize());
-                        IR.setBytesReceived((int) downloadData.getLength());
-                        IR.setDownloadUrl(downloadData.getUrl());
-                        IR.setGroupId(downloadData.getId());
-                        IR.setEmotionsCount(b2);
-                        IR.setHeight(downloadData.getHeight());
-                        IR.setWidth(downloadData.getWidth());
-                        IR.setDownloadTime(System.currentTimeMillis());
-                        IR.setGroupDesc(downloadData.getDescription());
-                        IR.setGroupName(downloadData.getName());
-                        IR.setStatus(1);
-                        i.cxt().a(IR);
+                        JC = new EmotionGroupData();
+                        JC.setBytesLength((int) downloadData.getSize());
+                        JC.setBytesReceived((int) downloadData.getLength());
+                        JC.setDownloadUrl(downloadData.getUrl());
+                        JC.setGroupId(downloadData.getId());
+                        JC.setEmotionsCount(b2);
+                        JC.setHeight(downloadData.getHeight());
+                        JC.setWidth(downloadData.getWidth());
+                        JC.setDownloadTime(System.currentTimeMillis());
+                        JC.setGroupDesc(downloadData.getDescription());
+                        JC.setGroupName(downloadData.getName());
+                        JC.setStatus(1);
+                        i.cyE().a(JC);
                     }
-                    i.cxt().a(downloadData.getStatusMsg(), IR);
+                    i.cyE().a(downloadData.getStatusMsg(), JC);
                     downloadData.setStatusMsg(null);
                     if (fileInputStream != null) {
                         try {
@@ -123,7 +123,7 @@ public class e implements com.baidu.tbadk.download.c {
     @Override // com.baidu.tbadk.download.c
     public void onFileUpdateProgress(DownloadData downloadData) {
         if (downloadData != null) {
-            f.cxg().b(downloadData);
+            f.cyr().b(downloadData);
         }
     }
 
@@ -132,9 +132,9 @@ public class e implements com.baidu.tbadk.download.c {
         if (downloadData == null) {
             return false;
         }
-        EmotionGroupData IR = i.cxt().IR(downloadData.getId());
-        if (IR != null && b.IM(downloadData.getId())) {
-            i.cxt().a(downloadData.getStatusMsg(), IR);
+        EmotionGroupData JC = i.cyE().JC(downloadData.getId());
+        if (JC != null && b.Jx(downloadData.getId())) {
+            i.cyE().a(downloadData.getStatusMsg(), JC);
             downloadData.setStatusMsg(null);
             return false;
         }

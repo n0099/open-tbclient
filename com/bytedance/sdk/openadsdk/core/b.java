@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.core;
 
 import android.util.Base64;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static String a() {
         return new String(Base64.decode("YXFiMDQ1OGMyYjI2Mjk0OWI4", 0)).substring(2);

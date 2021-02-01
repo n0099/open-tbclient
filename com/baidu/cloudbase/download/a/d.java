@@ -1,8 +1,8 @@
 package com.baidu.cloudbase.download.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface d {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(String str, d dVar);
     }

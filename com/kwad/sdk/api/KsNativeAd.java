@@ -13,12 +13,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface AdInteractionListener {
         @KsAdSdkApi
         @Keep
@@ -32,7 +32,7 @@ public interface KsNativeAd {
     @KsAdSdkApi
     @Keep
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface InteractionType {
         public static final int DOWNLOAD = 1;
         public static final int H5 = 2;
@@ -42,7 +42,7 @@ public interface KsNativeAd {
     @KsAdSdkApi
     @Keep
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface MaterialType {
         public static final int GROUP_IMG = 3;
         public static final int SINGLE_IMG = 2;
@@ -52,7 +52,7 @@ public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface VideoPlayListener {
         @KsAdSdkApi
         @Keep

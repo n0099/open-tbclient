@@ -21,7 +21,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.gif.GifInfo;
@@ -32,36 +32,36 @@ import com.baidu.tieba.R;
 import com.compatible.menukey.MenuKeyUtils;
 import java.util.LinkedList;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class m {
-    private TextView bIw;
-    private int czr;
-    private final TextView fha;
-    private final TextView fyM;
-    private final TbImageView gCr;
-    private final NoNetworkView gvm;
-    private final ImageView iPA;
-    private TextView iPB;
-    private final int iPC;
-    private final int iPD;
-    private final int iPE;
-    private final GridView iPF;
-    private n iPG;
-    private final j iPH;
-    private boolean iPI;
-    private boolean iPJ;
-    private final ScrollView iPK;
-    private final TbImageView iPM;
-    private final TbPageContext<l> iPu;
-    private final NavigationBar iPv;
-    private final TextView iPw;
-    private final TextView iPx;
-    private final FrameLayout iPy;
-    private final ImageView iPz;
-    private WindowManager.LayoutParams izQ;
-    private GifView izR;
-    private int izT;
-    private int izU;
+    private TextView bMg;
+    private int cBN;
+    private final TextView fBb;
+    private final TextView fjt;
+    private final TbImageView gFb;
+    private final NoNetworkView gxW;
+    private WindowManager.LayoutParams iFA;
+    private GifView iFB;
+    private int iFD;
+    private int iFE;
+    private final TbPageContext<l> iVb;
+    private final NavigationBar iVc;
+    private final TextView iVd;
+    private final TextView iVe;
+    private final FrameLayout iVf;
+    private final ImageView iVg;
+    private final ImageView iVh;
+    private TextView iVi;
+    private final int iVj;
+    private final int iVk;
+    private final int iVl;
+    private final GridView iVm;
+    private n iVn;
+    private final j iVo;
+    private boolean iVp;
+    private boolean iVq;
+    private final ScrollView iVr;
+    private final TbImageView iVt;
     private final LinearLayout mContainer;
     private final Handler mHandler;
     private int mHeight;
@@ -70,12 +70,12 @@ public class m {
     private final TextView mTitle;
     private int mWidth;
     private WindowManager mWindowManager;
-    private int iPL = -1;
-    private final Runnable iPN = new Runnable() { // from class: com.baidu.tieba.faceshop.m.2
+    private int iVs = -1;
+    private final Runnable iVu = new Runnable() { // from class: com.baidu.tieba.faceshop.m.2
         @Override // java.lang.Runnable
         public void run() {
             try {
-                m.this.VH();
+                m.this.Xq();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -83,76 +83,76 @@ public class m {
     };
 
     public m(TbPageContext<l> tbPageContext) {
-        this.iPu = tbPageContext;
+        this.iVb = tbPageContext;
         tbPageContext.getOrignalPage().setContentView(R.layout.face_package_detail_activity);
         this.mParent = tbPageContext.getPageActivity().findViewById(R.id.face_package);
-        this.iPv = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.view_navigation_bar);
-        this.iPv.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bIw = this.iPv.setTitleText("");
-        this.gvm = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.view_no_network);
+        this.iVc = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.view_navigation_bar);
+        this.iVc.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bMg = this.iVc.setTitleText("");
+        this.gxW = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.view_no_network);
         this.mContainer = (LinearLayout) this.mParent.findViewById(R.id.face_package_container);
-        this.iPB = (TextView) this.mParent.findViewById(R.id.top_view);
-        ((LinearLayout.LayoutParams) this.iPB.getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.l.getDimens(this.iPu.getPageActivity(), R.dimen.ds98);
-        this.gCr = (TbImageView) this.mParent.findViewById(R.id.face_package_cover);
+        this.iVi = (TextView) this.mParent.findViewById(R.id.top_view);
+        ((LinearLayout.LayoutParams) this.iVi.getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.l.getDimens(this.iVb.getPageActivity(), R.dimen.ds98);
+        this.gFb = (TbImageView) this.mParent.findViewById(R.id.face_package_cover);
         this.mTitle = (TextView) this.mParent.findViewById(R.id.face_package_title);
-        this.fha = (TextView) this.mParent.findViewById(R.id.face_package_price);
-        this.iPw = (TextView) this.mParent.findViewById(R.id.face_package_status);
-        this.fyM = (TextView) this.mParent.findViewById(R.id.face_package_btn);
-        this.iPx = (TextView) this.mParent.findViewById(R.id.face_package_info);
-        this.iPF = (GridView) this.mParent.findViewById(R.id.face_package_faces);
-        this.iPM = (TbImageView) this.mParent.findViewById(R.id.face_package_title_tag);
-        this.iPM.setDefaultResource(0);
-        this.iPM.setDefaultBgResource(0);
-        this.iPF.setSelection(-1);
+        this.fjt = (TextView) this.mParent.findViewById(R.id.face_package_price);
+        this.iVd = (TextView) this.mParent.findViewById(R.id.face_package_status);
+        this.fBb = (TextView) this.mParent.findViewById(R.id.face_package_btn);
+        this.iVe = (TextView) this.mParent.findViewById(R.id.face_package_info);
+        this.iVm = (GridView) this.mParent.findViewById(R.id.face_package_faces);
+        this.iVt = (TbImageView) this.mParent.findViewById(R.id.face_package_title_tag);
+        this.iVt.setDefaultResource(0);
+        this.iVt.setDefaultBgResource(0);
+        this.iVm.setSelection(-1);
         try {
-            this.iPF.setOnItemLongClickListener(tbPageContext.getOrignalPage());
+            this.iVm.setOnItemLongClickListener(tbPageContext.getOrignalPage());
         } catch (Exception e) {
             BdLog.e(e);
         }
-        this.iPF.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.faceshop.m.1
+        this.iVm.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.faceshop.m.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                m.this.iPF.setSelection(-1);
+                m.this.iVm.setSelection(-1);
             }
         });
-        this.iPy = (FrameLayout) this.mParent.findViewById(R.id.face_package_downloading);
-        this.iPz = (ImageView) this.mParent.findViewById(R.id.face_package_downloading_up);
-        this.iPA = (ImageView) this.mParent.findViewById(R.id.face_package_downloading_cancel);
+        this.iVf = (FrameLayout) this.mParent.findViewById(R.id.face_package_downloading);
+        this.iVg = (ImageView) this.mParent.findViewById(R.id.face_package_downloading_up);
+        this.iVh = (ImageView) this.mParent.findViewById(R.id.face_package_downloading_cancel);
         this.mSkinType = TbadkApplication.getInst().getSkinType();
         this.mWidth = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds202);
         this.mHeight = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds202);
         this.mHandler = new Handler();
-        this.fyM.setOnClickListener(tbPageContext.getOrignalPage());
-        this.iPA.setOnClickListener(tbPageContext.getOrignalPage());
+        this.fBb.setOnClickListener(tbPageContext.getOrignalPage());
+        this.iVh.setOnClickListener(tbPageContext.getOrignalPage());
         Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.bg_content_buy_bar_down);
         Bitmap cashBitmap2 = BitmapHelper.getCashBitmap(R.drawable.bg_content_buy_bar_up);
-        this.iPD = cashBitmap.getWidth();
-        this.iPC = cashBitmap2.getWidth();
-        this.iPE = this.iPu.getResources().getDimensionPixelSize(R.dimen.ds22);
-        this.iPH = new j(this.iPu, R.style.common_alert_dialog);
-        this.iPK = (ScrollView) this.mParent.findViewById(R.id.container_scrollview);
+        this.iVk = cashBitmap.getWidth();
+        this.iVj = cashBitmap2.getWidth();
+        this.iVl = this.iVb.getResources().getDimensionPixelSize(R.dimen.ds22);
+        this.iVo = new j(this.iVb, R.style.common_alert_dialog);
+        this.iVr = (ScrollView) this.mParent.findViewById(R.id.container_scrollview);
         r(tbPageContext);
     }
 
     private void r(TbPageContext<?> tbPageContext) {
-        this.izR = new GifView(tbPageContext.getPageActivity());
-        ao.setBackgroundResource(this.izR, R.drawable.bg_expression_bubble);
-        this.izR.setVisibility(8);
-        this.izR.setSupportNoImage(false);
+        this.iFB = new GifView(tbPageContext.getPageActivity());
+        ap.setBackgroundResource(this.iFB, R.drawable.bg_expression_bubble);
+        this.iFB.setVisibility(8);
+        this.iFB.setSupportNoImage(false);
         this.mWindowManager = (WindowManager) tbPageContext.getPageActivity().getSystemService("window");
-        this.izQ = new WindowManager.LayoutParams();
-        this.izT = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds216);
-        this.izU = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds240);
-        this.izQ.width = this.izT;
-        this.izQ.height = this.izU;
-        this.izQ.gravity = 51;
-        this.izQ.format = -3;
-        this.izQ.type = 1000;
-        this.izQ.flags |= 56;
-        this.czr = com.baidu.adp.lib.util.l.getStatusBarHeight(tbPageContext.getPageActivity());
+        this.iFA = new WindowManager.LayoutParams();
+        this.iFD = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds216);
+        this.iFE = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds240);
+        this.iFA.width = this.iFD;
+        this.iFA.height = this.iFE;
+        this.iFA.gravity = 51;
+        this.iFA.format = -3;
+        this.iFA.type = 1000;
+        this.iFA.flags |= 56;
+        this.cBN = com.baidu.adp.lib.util.l.getStatusBarHeight(tbPageContext.getPageActivity());
         if (MenuKeyUtils.hasSmartBar()) {
-            this.izQ.type = 1000;
-            this.izQ.flags = 25165832;
+            this.iFA.type = 1000;
+            this.iFA.flags = 25165832;
         }
     }
 
@@ -164,11 +164,11 @@ public class m {
 
     private void b(FacePackageData facePackageData) {
         if (facePackageData != null && facePackageData.face_list != null) {
-            this.iPF.setLayoutParams(new LinearLayout.LayoutParams(-1, ((com.baidu.adp.lib.util.l.getEquipmentWidth(this.iPu.getPageActivity()) - (this.iPE * 2)) / 4) * ((int) Math.ceil(facePackageData.face_list.size() / 4.0f))));
+            this.iVm.setLayoutParams(new LinearLayout.LayoutParams(-1, ((com.baidu.adp.lib.util.l.getEquipmentWidth(this.iVb.getPageActivity()) - (this.iVl * 2)) / 4) * ((int) Math.ceil(facePackageData.face_list.size() / 4.0f))));
         }
     }
 
-    public void Jb(String str) {
+    public void JM(String str) {
         if (str != null && str.length() > 0) {
             LinkedList linkedList = new LinkedList();
             linkedList.add(str);
@@ -178,91 +178,91 @@ public class m {
 
     public void c(FacePackageData facePackageData) {
         if (facePackageData != null) {
-            if (this.iPG == null) {
-                this.iPG = new n(this.iPu.getPageActivity(), facePackageData.face_list);
-                this.iPF.setAdapter((ListAdapter) this.iPG);
+            if (this.iVn == null) {
+                this.iVn = new n(this.iVb.getPageActivity(), facePackageData.face_list);
+                this.iVm.setAdapter((ListAdapter) this.iVn);
                 return;
             }
-            this.iPG.setData(facePackageData.face_list);
-            this.iPG.notifyDataSetChanged();
+            this.iVn.setData(facePackageData.face_list);
+            this.iVn.notifyDataSetChanged();
         }
     }
 
     public void h(FacePackageDetailModel facePackageDetailModel) {
         FacePackageData facePackageData;
-        if (facePackageDetailModel != null && facePackageDetailModel.cxE() != null && (facePackageData = facePackageDetailModel.cxE().faces_list) != null) {
-            if (facePackageDetailModel.cxG()) {
+        if (facePackageDetailModel != null && facePackageDetailModel.cyP() != null && (facePackageData = facePackageDetailModel.cyP().faces_list) != null) {
+            if (facePackageDetailModel.cyR()) {
                 facePackageData.downloading = 1;
             } else {
                 facePackageData.downloading = 0;
             }
             this.mContainer.setVisibility(0);
-            this.gCr.setTag(facePackageData.cover_url);
+            this.gFb.setTag(facePackageData.cover_url);
             this.mTitle.setText(facePackageData.pname);
-            this.iPM.setTag(facePackageData.tag_url);
-            this.fha.setText(this.iPu.getResources().getString(R.string.price_tip) + facePackageData.price);
-            this.iPx.setText(facePackageData.pdesc);
-            this.bIw.setText(facePackageData.pname);
+            this.iVt.setTag(facePackageData.tag_url);
+            this.fjt.setText(this.iVb.getResources().getString(R.string.price_tip) + facePackageData.price);
+            this.iVe.setText(facePackageData.pdesc);
+            this.bMg.setText(facePackageData.pname);
             b(facePackageData);
-            Jb(facePackageDetailModel.getPid());
+            JM(facePackageDetailModel.getPid());
             c(facePackageData);
-            cxJ();
+            cyU();
         }
     }
 
-    private void cxJ() {
+    private void cyU() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.iPN);
-            this.mHandler.postDelayed(this.iPN, 90L);
+            this.mHandler.removeCallbacks(this.iVu);
+            this.mHandler.postDelayed(this.iVu, 90L);
         }
     }
 
-    public void VH() {
-        if (this.gCr != null && this.gCr.getTag() != null) {
-            this.gCr.a(this.gCr.getTag().toString(), 10, this.mWidth, this.mHeight, false);
+    public void Xq() {
+        if (this.gFb != null && this.gFb.getTag() != null) {
+            this.gFb.a(this.gFb.getTag().toString(), 10, this.mWidth, this.mHeight, false);
         }
-        if (this.iPM != null && this.iPM.getTag() != null) {
-            this.iPM.a(this.iPM.getTag().toString(), 10, this.mWidth, this.mHeight, false);
+        if (this.iVt != null && this.iVt.getTag() != null) {
+            this.iVt.a(this.iVt.getTag().toString(), 10, this.mWidth, this.mHeight, false);
         }
     }
 
-    public void pY(boolean z) {
-        BdListViewHelper.a(this.iPB, BdListViewHelper.HeadType.DEFAULT, z);
+    public void qi(boolean z) {
+        BdListViewHelper.a(this.iVi, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void c(NoNetworkView.a aVar) {
-        this.gvm.a(aVar);
+        this.gxW.a(aVar);
     }
 
     public void d(NoNetworkView.a aVar) {
-        this.gvm.b(aVar);
+        this.gxW.b(aVar);
     }
 
     public void i(FacePackageDetailModel facePackageDetailModel) {
-        if (facePackageDetailModel != null && facePackageDetailModel.cxE() != null && facePackageDetailModel.cxE().faces_list != null) {
-            FacePackageData facePackageData = facePackageDetailModel.cxE().faces_list;
+        if (facePackageDetailModel != null && facePackageDetailModel.cyP() != null && facePackageDetailModel.cyP().faces_list != null) {
+            FacePackageData facePackageData = facePackageDetailModel.cyP().faces_list;
             if (facePackageData.buy_status == 1) {
-                this.iPw.setText(this.iPu.getResources().getString(R.string.has_buy));
-                this.iPw.setVisibility(0);
+                this.iVd.setText(this.iVb.getResources().getString(R.string.has_buy));
+                this.iVd.setVisibility(0);
             } else {
-                this.iPw.setVisibility(8);
+                this.iVd.setVisibility(8);
             }
-            switch (facePackageDetailModel.cxH()) {
+            switch (facePackageDetailModel.cyS()) {
                 case 1:
-                    cxK();
+                    cyV();
                     return;
                 case 2:
                 case 3:
-                    cxM();
+                    cyX();
                     return;
                 case 4:
-                    cxL();
+                    cyW();
                     return;
                 case 5:
-                    B(facePackageData.downloadTotal, facePackageData.downloadNow);
+                    F(facePackageData.downloadTotal, facePackageData.downloadNow);
                     return;
                 case 6:
-                    cxN();
+                    cyY();
                     return;
                 default:
                     return;
@@ -271,114 +271,114 @@ public class m {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void cxK() {
-        this.fyM.setVisibility(0);
-        this.iPy.setVisibility(8);
-        this.fyM.setText(this.iPu.getResources().getString(R.string.downloaded));
-        ao.setViewTextColor(this.fyM, R.color.common_color_10172, 1);
-        ao.setBackgroundResource(this.fyM, R.drawable.btn_content_buy_d);
+    public void cyV() {
+        this.fBb.setVisibility(0);
+        this.iVf.setVisibility(8);
+        this.fBb.setText(this.iVb.getResources().getString(R.string.downloaded));
+        ap.setViewTextColor(this.fBb, R.color.common_color_10172, 1);
+        ap.setBackgroundResource(this.fBb, R.drawable.btn_content_buy_d);
     }
 
-    public void B(long j, long j2) {
-        this.fyM.setVisibility(8);
-        this.iPy.setVisibility(0);
-        int i = (int) ((((float) j2) / ((float) j)) * this.iPD);
-        int i2 = i < this.iPC ? this.iPC : i;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.iPz.getLayoutParams();
+    public void F(long j, long j2) {
+        this.fBb.setVisibility(8);
+        this.iVf.setVisibility(0);
+        int i = (int) ((((float) j2) / ((float) j)) * this.iVk);
+        int i2 = i < this.iVj ? this.iVj : i;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.iVg.getLayoutParams();
         layoutParams.width = i2;
-        this.iPz.setLayoutParams(layoutParams);
+        this.iVg.setLayoutParams(layoutParams);
     }
 
-    public void cxL() {
-        this.fyM.setVisibility(0);
-        this.iPy.setVisibility(8);
-        this.fyM.setText(this.iPu.getResources().getString(R.string.buy_book));
-        ao.setBackgroundResource(this.fyM, R.drawable.btn_all_blue);
+    public void cyW() {
+        this.fBb.setVisibility(0);
+        this.iVf.setVisibility(8);
+        this.fBb.setText(this.iVb.getResources().getString(R.string.buy_book));
+        ap.setBackgroundResource(this.fBb, R.drawable.btn_all_blue);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void cxM() {
-        this.fyM.setVisibility(0);
-        this.iPy.setVisibility(8);
-        this.fyM.setText(this.iPu.getResources().getString(R.string.can_download));
-        ao.setViewTextColor(this.fyM, R.color.CAM_X0101, 1);
-        ao.setBackgroundResource(this.fyM, R.drawable.btn_all_blue);
+    public void cyX() {
+        this.fBb.setVisibility(0);
+        this.iVf.setVisibility(8);
+        this.fBb.setText(this.iVb.getResources().getString(R.string.can_download));
+        ap.setViewTextColor(this.fBb, R.color.CAM_X0101, 1);
+        ap.setBackgroundResource(this.fBb, R.drawable.btn_all_blue);
     }
 
-    private void cxN() {
-        this.fyM.setVisibility(0);
-        this.iPy.setVisibility(8);
-        this.fyM.setText(this.iPu.getResources().getString(R.string.off_the_shelf));
-        ao.setViewTextColor(this.fyM, R.color.common_color_10172, 1);
-        ao.setBackgroundResource(this.fyM, R.drawable.btn_content_buy_d);
+    private void cyY() {
+        this.fBb.setVisibility(0);
+        this.iVf.setVisibility(8);
+        this.fBb.setText(this.iVb.getResources().getString(R.string.off_the_shelf));
+        ap.setViewTextColor(this.fBb, R.color.common_color_10172, 1);
+        ap.setBackgroundResource(this.fBb, R.drawable.btn_content_buy_d);
     }
 
-    public void cxO() {
-        if (this.iPH != null) {
-            this.iPH.cxu();
-            com.baidu.adp.lib.f.g.a(this.iPH, this.iPu);
+    public void cyZ() {
+        if (this.iVo != null) {
+            this.iVo.cyF();
+            com.baidu.adp.lib.f.g.a(this.iVo, this.iVb);
         }
     }
 
-    public void cxP() {
-        if (this.iPH != null) {
-            this.iPH.cxv();
+    public void cza() {
+        if (this.iVo != null) {
+            this.iVo.cyG();
         }
     }
 
-    public void cxQ() {
-        if (this.iPH != null) {
-            com.baidu.adp.lib.f.g.b(this.iPH, this.iPu);
+    public void czb() {
+        if (this.iVo != null) {
+            com.baidu.adp.lib.f.g.b(this.iVo, this.iVb);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iPu != null) {
-            this.iPu.getLayoutMode().setNightMode(i == 1);
-            this.iPu.getLayoutMode().onModeChanged(this.mParent);
+        if (this.iVb != null) {
+            this.iVb.getLayoutMode().setNightMode(i == 1);
+            this.iVb.getLayoutMode().onModeChanged(this.mParent);
         }
-        if (this.iPv != null) {
-            this.iPv.onChangeSkinType(this.iPu, i);
+        if (this.iVc != null) {
+            this.iVc.onChangeSkinType(this.iVb, i);
         }
-        if (this.gvm != null) {
-            this.gvm.onChangeSkinType(this.iPu, i);
-        }
-    }
-
-    public void cxR() {
-        if (this.gvm != null && this.gvm.getVisibility() == 0 && com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-            this.gvm.update(false);
+        if (this.gxW != null) {
+            this.gxW.onChangeSkinType(this.iVb, i);
         }
     }
 
-    public TextView cxS() {
-        return this.fyM;
+    public void czc() {
+        if (this.gxW != null && this.gxW.getVisibility() == 0 && com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
+            this.gxW.update(false);
+        }
     }
 
-    public ImageView cxT() {
-        return this.iPA;
+    public TextView czd() {
+        return this.fBb;
+    }
+
+    public ImageView cze() {
+        return this.iVh;
     }
 
     public void a(int i, Rect rect, FacePackageData facePackageData) {
-        if (i != this.iPL && facePackageData.face_dynamic_list != null && i >= 0 && i <= facePackageData.face_dynamic_list.size()) {
-            if (this.iPL != -1) {
-                O(this.iPL, false);
+        if (i != this.iVs && facePackageData.face_dynamic_list != null && i >= 0 && i <= facePackageData.face_dynamic_list.size()) {
+            if (this.iVs != -1) {
+                O(this.iVs, false);
             }
-            this.iPL = i;
-            this.iPF.setSelection(i);
+            this.iVs = i;
+            this.iVm.setSelection(i);
             O(i, true);
-            this.iPJ = true;
-            this.izR.setVisibility(0);
+            this.iVq = true;
+            this.iFB.setVisibility(0);
             String str = "#(" + facePackageData.face_dynamic_list.get(i) + ")";
-            this.izR.setTag(str);
-            if (com.baidu.tbadk.util.m.bEZ()) {
+            this.iFB.setTag(str);
+            if (com.baidu.tbadk.util.n.bFs()) {
                 GifInfo gifInfo = new GifInfo();
                 gifInfo.mGid = facePackageData.pid + "";
                 gifInfo.mSharpText = str;
                 gifInfo.mGifHeight = this.mHeight;
                 gifInfo.mGifWidth = this.mWidth;
                 gifInfo.mDynamicUrl = facePackageData.face_dynamic_list.get(i);
-                this.izR.a(gifInfo);
+                this.iFB.a(gifInfo);
             } else {
                 GifInfo gifInfo2 = new GifInfo();
                 gifInfo2.mGid = facePackageData.pid + "";
@@ -386,49 +386,49 @@ public class m {
                 gifInfo2.mGifWidth = this.mWidth;
                 gifInfo2.mSharpText = str;
                 gifInfo2.mStaticUrl = facePackageData.face_list.get(i);
-                this.izR.a(gifInfo2);
+                this.iFB.a(gifInfo2);
             }
-            this.izQ.x = rect.left - ((this.izT - rect.width()) / 2);
-            this.izQ.y = rect.top - this.izQ.height;
-            if (this.izQ.y < this.czr) {
-                this.iPK.scrollBy(0, this.izQ.y - this.czr);
-                this.izQ.y = this.czr;
+            this.iFA.x = rect.left - ((this.iFD - rect.width()) / 2);
+            this.iFA.y = rect.top - this.iFA.height;
+            if (this.iFA.y < this.cBN) {
+                this.iVr.scrollBy(0, this.iFA.y - this.cBN);
+                this.iFA.y = this.cBN;
             }
-            this.izQ.y += this.iPF.getChildAt(i - this.iPF.getFirstVisiblePosition()).getPaddingTop();
-            if (!this.iPI) {
-                this.mWindowManager.addView(this.izR, this.izQ);
-                this.iPI = true;
+            this.iFA.y += this.iVm.getChildAt(i - this.iVm.getFirstVisiblePosition()).getPaddingTop();
+            if (!this.iVp) {
+                this.mWindowManager.addView(this.iFB, this.iFA);
+                this.iVp = true;
                 return;
             }
-            this.mWindowManager.updateViewLayout(this.izR, this.izQ);
+            this.mWindowManager.updateViewLayout(this.iFB, this.iFA);
         }
     }
 
-    public boolean cxU() {
-        return this.iPJ;
+    public boolean czf() {
+        return this.iVq;
     }
 
-    public void cxV() {
-        this.iPJ = false;
-        this.izR.setVisibility(8);
-        this.iPF.setSelection(-1);
-        O(this.iPL, false);
-        this.iPL = -1;
+    public void czg() {
+        this.iVq = false;
+        this.iFB.setVisibility(8);
+        this.iVm.setSelection(-1);
+        O(this.iVs, false);
+        this.iVs = -1;
     }
 
     private void O(int i, boolean z) {
-        ((ViewGroup) this.iPF.getChildAt(i - this.iPF.getFirstVisiblePosition())).getChildAt(0).setSelected(z);
+        ((ViewGroup) this.iVm.getChildAt(i - this.iVm.getFirstVisiblePosition())).getChildAt(0).setSelected(z);
     }
 
-    public void cxW() {
-        this.iPJ = false;
-        if (this.iPI) {
-            this.iPI = false;
-            this.mWindowManager.removeView(this.izR);
+    public void czh() {
+        this.iVq = false;
+        if (this.iVp) {
+            this.iVp = false;
+            this.mWindowManager.removeView(this.iFB);
         }
     }
 
-    public GridView cxX() {
-        return this.iPF;
+    public GridView czi() {
+        return this.iVm;
     }
 }

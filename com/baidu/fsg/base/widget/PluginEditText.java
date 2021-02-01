@@ -21,24 +21,24 @@ import java.util.List;
 public class PluginEditText extends EditText implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2024a;
+    private String f2022a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f2025b;
+    private boolean f2023b;
     private List<IEditTextPasteFilter> c;
     protected boolean isAlwaysShow;
     protected int off;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setShowSystemMethodFlag(boolean z) {
-        this.f2025b = z;
+        this.f2023b = z;
     }
 
     public PluginEditText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f2024a = getClass().getSimpleName();
+        this.f2022a = getClass().getSimpleName();
         this.isAlwaysShow = false;
-        this.f2025b = true;
+        this.f2023b = true;
         this.c = new ArrayList();
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter != null && parseEditTextPasteFilter.size() > 0) {
@@ -48,9 +48,9 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
 
     public PluginEditText(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2024a = getClass().getSimpleName();
+        this.f2022a = getClass().getSimpleName();
         this.isAlwaysShow = false;
-        this.f2025b = true;
+        this.f2023b = true;
         this.c = new ArrayList();
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter != null && parseEditTextPasteFilter.size() > 0) {
@@ -89,7 +89,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
             try {
                 int selectionStart = getSelectionStart();
                 int selectionEnd = getSelectionEnd();
-                LogUtil.d(this.f2024a, "\tstart:" + selectionStart + "\tend:" + selectionEnd);
+                LogUtil.d(this.f2022a, "\tstart:" + selectionStart + "\tend:" + selectionEnd);
                 Editable editableText = getEditableText();
                 if (editableText != null) {
                     String obj = editableText.toString();
@@ -115,7 +115,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
                 return super.onTextContextMenuItem(i);
             } catch (Exception e) {
                 if (e != null) {
-                    LogUtil.d(this.f2024a, e.getMessage());
+                    LogUtil.d(this.f2022a, e.getMessage());
                 }
                 return super.onTextContextMenuItem(i);
             }
@@ -138,7 +138,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         super.onTouchEvent(motionEvent);
-        if (this.f2025b) {
+        if (this.f2023b) {
             RimGlobalUtils.showInputMethod(getContext(), view);
             return true;
         }

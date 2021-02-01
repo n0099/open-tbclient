@@ -4,38 +4,38 @@ import android.view.View;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class h {
-    private com.baidu.tieba.ala.guardclub.view.d gWi;
-    private e.a gWk = new e.a() { // from class: com.baidu.tieba.ala.guardclub.h.1
+    private com.baidu.tieba.ala.guardclub.view.d gYS;
+    private e.a gYU = new e.a() { // from class: com.baidu.tieba.ala.guardclub.h.1
     };
-    private BdUniqueId brL = BdUniqueId.gen();
-    private com.baidu.tieba.ala.guardclub.model.e gWj = new com.baidu.tieba.ala.guardclub.model.e(this.brL, this.gWk);
+    private BdUniqueId aCW = BdUniqueId.gen();
+    private com.baidu.tieba.ala.guardclub.model.e gYT = new com.baidu.tieba.ala.guardclub.model.e(this.aCW, this.gYU);
 
     public h(BaseActivity baseActivity, String str, BdUniqueId bdUniqueId) {
-        this.gWi = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
-        this.gWi.setOtherParams(str);
-        this.gWj.a(this.gWi);
-        this.gWi.f(this.gWj);
+        this.gYS = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
+        this.gYS.setOtherParams(str);
+        this.gYT.a(this.gYS);
+        this.gYS.f(this.gYT);
     }
 
     public View getView() {
-        return this.gWi.getView();
+        return this.gYS.getView();
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.gWi != null) {
-            this.gWi.notifyDataSetInvalidated();
+        if (this.gYS != null) {
+            this.gYS.notifyDataSetInvalidated();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onPageDestroy() {
-        if (this.gWj != null) {
-            this.gWj.onDestory();
+        if (this.gYT != null) {
+            this.gYT.onDestory();
         }
-        if (this.gWi != null) {
-            this.gWi.bUX();
+        if (this.gYS != null) {
+            this.gYS.bVC();
         }
     }
 }

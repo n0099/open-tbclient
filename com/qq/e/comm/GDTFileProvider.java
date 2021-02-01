@@ -14,6 +14,7 @@ import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,19 +22,19 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class GDTFileProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f11531a = {"_display_name", "_size"};
+    private static final String[] f11533a = {"_display_name", "_size"};
 
     /* renamed from: b  reason: collision with root package name */
-    private static final File f11532b = new File("/");
+    private static final File f11534b = new File("/");
     private static HashMap<String, a> c = new HashMap<>();
     private a d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         Uri a(File file);
 
@@ -41,17 +42,17 @@ public class GDTFileProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static final class b implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f11533a;
+        private final String f11535a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final HashMap<String, File> f11534b = new HashMap<>();
+        private final HashMap<String, File> f11536b = new HashMap<>();
 
         b(String str) {
-            this.f11533a = str;
+            this.f11535a = str;
         }
 
         @Override // com.qq.e.comm.GDTFileProvider.a
@@ -60,7 +61,7 @@ public class GDTFileProvider extends ContentProvider {
             try {
                 String canonicalPath = file.getCanonicalPath();
                 Map.Entry<String, File> entry2 = null;
-                Iterator<Map.Entry<String, File>> it = this.f11534b.entrySet().iterator();
+                Iterator<Map.Entry<String, File>> it = this.f11536b.entrySet().iterator();
                 while (true) {
                     entry = entry2;
                     if (!it.hasNext()) {
@@ -76,7 +77,7 @@ public class GDTFileProvider extends ContentProvider {
                     throw new IllegalArgumentException("Failed to find configured root that contains " + canonicalPath);
                 }
                 String path2 = entry.getValue().getPath();
-                return new Uri.Builder().scheme("content").authority(this.f11533a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(path2.endsWith("/") ? canonicalPath.substring(path2.length()) : canonicalPath.substring(path2.length() + 1), "/")).build();
+                return new Uri.Builder().scheme("content").authority(this.f11535a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(path2.endsWith("/") ? canonicalPath.substring(path2.length()) : canonicalPath.substring(path2.length() + 1), "/")).build();
             } catch (IOException e) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
             }
@@ -88,7 +89,7 @@ public class GDTFileProvider extends ContentProvider {
             int indexOf = encodedPath.indexOf(47, 1);
             String decode = Uri.decode(encodedPath.substring(1, indexOf));
             String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-            File file = this.f11534b.get(decode);
+            File file = this.f11536b.get(decode);
             if (file == null) {
                 throw new IllegalArgumentException("Unable to find configured root for " + uri);
             }
@@ -109,7 +110,7 @@ public class GDTFileProvider extends ContentProvider {
                 throw new IllegalArgumentException("Name must not be empty");
             }
             try {
-                this.f11534b.put(str, file.getCanonicalFile());
+                this.f11536b.put(str, file.getCanonicalFile());
             } catch (IOException e) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e);
             }
@@ -138,7 +139,7 @@ public class GDTFileProvider extends ContentProvider {
                             String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
                             String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
                             if ("root-path".equals(name)) {
-                                file = f11532b;
+                                file = f11534b;
                             } else if ("files-path".equals(name)) {
                                 file = context.getFilesDir();
                             } else if (CyberPlayerManager.OPT_CHCHE_PATH.equals(name)) {
@@ -253,7 +254,7 @@ public class GDTFileProvider extends ContentProvider {
             i = 738197504;
         } else if ("wa".equals(str)) {
             i = 704643072;
-        } else if ("rw".equals(str)) {
+        } else if (VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth.equals(str)) {
             i = 939524096;
         } else if (!"rwt".equals(str)) {
             throw new IllegalArgumentException("Invalid mode: " + str);
@@ -268,7 +269,7 @@ public class GDTFileProvider extends ContentProvider {
         int i;
         File a2 = this.d.a(uri);
         if (strArr == null) {
-            strArr = f11531a;
+            strArr = f11533a;
         }
         String[] strArr3 = new String[strArr.length];
         Object[] objArr = new Object[strArr.length];

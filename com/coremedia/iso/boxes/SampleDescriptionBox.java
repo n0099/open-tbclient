@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SampleDescriptionBox extends AbstractContainerBox implements FullBox {
     public static final String TYPE = "stsd";
     private int flags;

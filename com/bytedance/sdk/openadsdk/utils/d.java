@@ -13,14 +13,14 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.TTLocation;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f7566a = 1800000;
+    private static long f7568a = 1800000;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Handler f7567b = new Handler(Looper.getMainLooper());
+    private static Handler f7569b = new Handler(Looper.getMainLooper());
 
     @Nullable
     public static c a(Context context) {
@@ -28,13 +28,13 @@ public class d {
             return null;
         }
         Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context.getApplicationContext();
-        f7566a = com.bytedance.sdk.openadsdk.core.p.h().m() * 60 * 1000;
+        f7568a = com.bytedance.sdk.openadsdk.core.p.h().m() * 60 * 1000;
         return !b(a2) ? c(a2) : d(a2);
     }
 
     private static boolean b(Context context) {
         long longValue = com.bytedance.sdk.openadsdk.core.d.a(context).b("lbstime", -1L).longValue();
-        return longValue == -1 || System.currentTimeMillis() - longValue > f7566a;
+        return longValue == -1 || System.currentTimeMillis() - longValue > f7568a;
     }
 
     @Nullable
@@ -145,18 +145,18 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Callable<Location> {
 
         /* renamed from: a  reason: collision with root package name */
-        private LocationManager f7576a;
+        private LocationManager f7578a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f7577b;
+        private String f7579b;
 
         public b(LocationManager locationManager, String str) {
-            this.f7576a = locationManager;
-            this.f7577b = str;
+            this.f7578a = locationManager;
+            this.f7579b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -164,14 +164,14 @@ public class d {
         /* renamed from: a */
         public Location call() throws Exception {
             long currentTimeMillis = System.currentTimeMillis();
-            Location lastKnownLocation = this.f7576a.getLastKnownLocation(this.f7577b);
+            Location lastKnownLocation = this.f7578a.getLastKnownLocation(this.f7579b);
             u.b("AdLocationUtils", "location:" + lastKnownLocation + ",getLastKnownLocation use time :" + (System.currentTimeMillis() - currentTimeMillis));
             return lastKnownLocation;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Callable<TTLocation> {
         private a() {
         }
@@ -225,7 +225,7 @@ public class d {
                 String b2 = b(locationManager);
                 if (!TextUtils.isEmpty(b2)) {
                     locationManager.requestSingleUpdate(b2, locationListener, Looper.getMainLooper());
-                    f7567b.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.d.5
+                    f7569b.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.d.5
                         @Override // java.lang.Runnable
                         public void run() {
                             d.b(locationManager, locationListener);

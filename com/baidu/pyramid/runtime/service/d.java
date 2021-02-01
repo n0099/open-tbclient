@@ -1,16 +1,16 @@
 package com.baidu.pyramid.runtime.service;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class d {
-    private final String crm;
+    private final String cta;
     private final String mName;
 
     public d(@NonNull String str, @NonNull String str2) {
         if (str == null || str2 == null) {
             throw new NullPointerException("namespace & name can not be null");
         }
-        this.crm = str;
+        this.cta = str;
         this.mName = str2;
     }
 
@@ -22,17 +22,17 @@ public final class d {
             return false;
         }
         d dVar = (d) obj;
-        if (this.crm.equals(dVar.crm)) {
+        if (this.cta.equals(dVar.cta)) {
             return this.mName.equals(dVar.mName);
         }
         return false;
     }
 
     public int hashCode() {
-        return (this.crm.hashCode() * 31) + this.mName.hashCode();
+        return (this.cta.hashCode() * 31) + this.mName.hashCode();
     }
 
     public String toString() {
-        return "ServiceReference{mNameSpace='" + this.crm + "', mName='" + this.mName + "'}";
+        return "ServiceReference{mNameSpace='" + this.cta + "', mName='" + this.mName + "'}";
     }
 }

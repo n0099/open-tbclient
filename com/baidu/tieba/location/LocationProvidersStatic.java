@@ -20,16 +20,16 @@ import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.m;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LocationProvidersStatic {
     static {
-        com.baidu.adp.lib.c.a.lI().a(b.dbF());
+        com.baidu.adp.lib.c.a.lH().a(b.ddD());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean(SharedPrefConfig.PREFS_BD_LOC_SWITCHER, true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            com.baidu.adp.lib.c.a.lI().a(a.dbE());
+            com.baidu.adp.lib.c.a.lH().a(a.ddC());
         }
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.EDITOR_COLLECT_TOOL) { // from class: com.baidu.tieba.location.LocationProvidersStatic.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class LocationProvidersStatic {
                     editorTools.b(new com.baidu.tieba.location.editortool.b(editorTools.getContext(), indexOf + 1));
                 }
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
-                    if (editorTools.bAX()) {
+                    if (editorTools.bBp()) {
                         editorTools.b(new com.baidu.tieba.location.editortool.a(editorTools.getContext(), true));
                     } else {
                         editorTools.b(new com.baidu.tieba.location.editortool.a(editorTools.getContext()));

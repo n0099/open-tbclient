@@ -4,9 +4,8 @@ import android.graphics.PointF;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class LinearSnapHelper extends SnapHelper {
     private static final float INVALID_DISTANCE = 1.0f;
     @Nullable
@@ -115,7 +114,7 @@ public class LinearSnapHelper extends SnapHelper {
             } else {
                 end = orientationHelper.getEnd() / 2;
             }
-            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i = Integer.MAX_VALUE;
             int i2 = 0;
             while (i2 < childCount) {
                 View childAt = layoutManager.getChildAt(i2);
@@ -133,7 +132,7 @@ public class LinearSnapHelper extends SnapHelper {
     }
 
     private float computeDistancePerChild(RecyclerView.LayoutManager layoutManager, OrientationHelper orientationHelper) {
-        int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i = Integer.MAX_VALUE;
         int i2 = Integer.MIN_VALUE;
         int childCount = layoutManager.getChildCount();
         if (childCount == 0) {

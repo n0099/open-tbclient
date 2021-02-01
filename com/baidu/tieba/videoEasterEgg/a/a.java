@@ -4,7 +4,7 @@ import android.content.Intent;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes2.dex */
 public interface a {
-    void E(BdUniqueId bdUniqueId);
+    void F(BdUniqueId bdUniqueId);
 
     void M(Intent intent);
 

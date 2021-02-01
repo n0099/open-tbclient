@@ -15,35 +15,35 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.d;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c extends BaseAdapter {
-    private TbPageContext<?> eSJ;
+    private TbPageContext<?> eUY;
     private ArrayList<com.baidu.tieba.consumptionRecords.a> orderList;
     private int type;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        public TextView eFr;
-        public TextView ixf;
-        public TbImageView ixg;
-        public TextView ixh;
-        public TextView ixi;
-        public TextView ixj;
-        public TextView ixk;
-        public View ixl;
-        public TextView ixm;
-        public TextView ixn;
+        public TextView eHx;
+        public TextView iCP;
+        public TbImageView iCQ;
+        public TextView iCR;
+        public TextView iCS;
+        public TextView iCT;
+        public TextView iCU;
+        public View iCV;
+        public TextView iCW;
+        public TextView iCX;
     }
 
     public c(TbPageContext<?> tbPageContext, int i) {
-        this.eSJ = tbPageContext;
+        this.eUY = tbPageContext;
         this.type = i;
     }
 
@@ -57,7 +57,7 @@ public class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: wW */
+    /* renamed from: xg */
     public com.baidu.tieba.consumptionRecords.a getItem(int i) {
         if (this.orderList == null || this.orderList.size() <= 0 || i < 0 || i >= getCount()) {
             return null;
@@ -77,23 +77,23 @@ public class c extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.records_item_layout, viewGroup, false);
+            view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.records_item_layout, viewGroup, false);
             a aVar2 = new a();
-            aVar2.ixf = (TextView) view.findViewById(R.id.order_id_textview);
-            aVar2.ixg = (TbImageView) view.findViewById(R.id.order_status_textview);
-            aVar2.eFr = (TextView) view.findViewById(R.id.order_title_textview);
-            aVar2.ixh = (TextView) view.findViewById(R.id.order_price_textview);
-            aVar2.ixk = (TextView) view.findViewById(R.id.order_id_tip);
-            aVar2.ixj = (TextView) view.findViewById(R.id.order_account_textview);
-            aVar2.ixi = (TextView) view.findViewById(R.id.order_time_textview);
-            aVar2.ixl = view.findViewById(R.id.order_activity_content);
-            aVar2.ixm = (TextView) view.findViewById(R.id.activity_desc_textview);
-            aVar2.ixn = (TextView) view.findViewById(R.id.activity_button_textview);
+            aVar2.iCP = (TextView) view.findViewById(R.id.order_id_textview);
+            aVar2.iCQ = (TbImageView) view.findViewById(R.id.order_status_textview);
+            aVar2.eHx = (TextView) view.findViewById(R.id.order_title_textview);
+            aVar2.iCR = (TextView) view.findViewById(R.id.order_price_textview);
+            aVar2.iCU = (TextView) view.findViewById(R.id.order_id_tip);
+            aVar2.iCT = (TextView) view.findViewById(R.id.order_account_textview);
+            aVar2.iCS = (TextView) view.findViewById(R.id.order_time_textview);
+            aVar2.iCV = view.findViewById(R.id.order_activity_content);
+            aVar2.iCW = (TextView) view.findViewById(R.id.activity_desc_textview);
+            aVar2.iCX = (TextView) view.findViewById(R.id.activity_button_textview);
             view.setTag(aVar2);
             aVar = aVar2;
         }
         a(aVar, item);
-        this.eSJ.getLayoutMode().onModeChanged(view);
+        this.eUY.getLayoutMode().onModeChanged(view);
         return view;
     }
 
@@ -103,17 +103,17 @@ public class c extends BaseAdapter {
         SpannableString spannableString3;
         SpannableString spannableString4;
         if (aVar != null && aVar2 != null) {
-            aVar.ixk.setText(this.eSJ.getString(R.string.order_id) + "    ");
-            aVar.ixf.setText(aVar2.getOrderId());
-            aVar.ixf.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.consumptionRecords.c.1
+            aVar.iCU.setText(this.eUY.getString(R.string.order_id) + "    ");
+            aVar.iCP.setText(aVar2.getOrderId());
+            aVar.iCP.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.consumptionRecords.c.1
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
                     String orderId = aVar2.getOrderId();
                     if (!StringUtils.isNull(orderId)) {
-                        ClipboardManager clipboardManager = (ClipboardManager) c.this.eSJ.getPageActivity().getSystemService("clipboard");
+                        ClipboardManager clipboardManager = (ClipboardManager) c.this.eUY.getPageActivity().getSystemService("clipboard");
                         clipboardManager.setText(orderId);
                         if (clipboardManager.getText() != null) {
-                            l.showToast(c.this.eSJ.getPageActivity(), R.string.copy_to_clip);
+                            l.showToast(c.this.eUY.getPageActivity(), R.string.copy_to_clip);
                             return false;
                         }
                         return false;
@@ -122,29 +122,29 @@ public class c extends BaseAdapter {
                 }
             });
             if (aVar2.getStatus() == 1) {
-                aVar.ixg.startLoad(String.valueOf(R.drawable.icon_payment_success), 24, false);
-                ao.setViewTextColor(aVar.ixg, R.color.CAM_X0305, 1);
+                aVar.iCQ.startLoad(String.valueOf(R.drawable.icon_payment_success), 24, false);
+                ap.setViewTextColor(aVar.iCQ, R.color.CAM_X0305, 1);
             } else {
-                aVar.ixg.startLoad(String.valueOf(R.drawable.icon_payment_fail), 24, false);
-                ao.setViewTextColor(aVar.ixg, R.color.CAM_X0109, 1);
+                aVar.iCQ.startLoad(String.valueOf(R.drawable.icon_payment_fail), 24, false);
+                ap.setViewTextColor(aVar.iCQ, R.color.CAM_X0109, 1);
             }
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ao.getColor(R.color.CAM_X0109));
-            ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(ao.getColor(R.color.CAM_X0105));
-            new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0109));
+            ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0105));
+            new ForegroundColorSpan(ap.getColor(R.color.CAM_X0305));
             AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(24, true);
             if (this.type == 1) {
                 SpannableString a2 = a(R.string.buy_product, aVar2.getTitle(), foregroundColorSpan, foregroundColorSpan2);
-                SpannableString a3 = a(R.string.consumption_t_bean, aVar2.csd(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan);
+                SpannableString a3 = a(R.string.consumption_t_bean, aVar2.ctp(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan);
                 spannableString2 = a(R.string.buy_time, aVar2.getCreateTime(), foregroundColorSpan, foregroundColorSpan2);
                 spannableString = null;
                 spannableString3 = a3;
                 spannableString4 = a2;
             } else if (this.type == 2) {
                 SpannableString a4 = a(R.string.get_with_product, aVar2.getTitle(), foregroundColorSpan, foregroundColorSpan2);
-                SpannableString a5 = a(R.string.get_t_bean, aVar2.csd(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan);
+                SpannableString a5 = a(R.string.get_t_bean, aVar2.ctp(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan);
                 SpannableString a6 = a(R.string.buy_time, aVar2.getCreateTime(), foregroundColorSpan, foregroundColorSpan2);
-                String str = "" + aVar2.csi();
-                String str2 = this.eSJ.getString(R.string.alternative_account) + "    " + str;
+                String str = "" + aVar2.ctu();
+                String str2 = this.eUY.getString(R.string.alternative_account) + "    " + str;
                 spannableString = new SpannableString(str2);
                 UtilHelper.setSpan(spannableString, str2, str2, foregroundColorSpan);
                 UtilHelper.setSpan(spannableString, str2, str, foregroundColorSpan2);
@@ -152,21 +152,21 @@ public class c extends BaseAdapter {
                 spannableString3 = a5;
                 spannableString4 = a4;
             } else if (this.type == 3) {
-                String string = this.eSJ.getString(R.string.recharge_product);
+                String string = this.eUY.getString(R.string.recharge_product);
                 String title = aVar2.getTitle();
                 String str3 = string + "    " + title;
                 SpannableString spannableString5 = new SpannableString(str3);
                 UtilHelper.setSpan(spannableString5, str3, str3, foregroundColorSpan);
                 UtilHelper.setSpan(spannableString5, str3, title, foregroundColorSpan2);
-                String str4 = ("" + aVar2.csf()) + this.eSJ.getString(R.string.recharge_use_money);
-                String str5 = this.eSJ.getString(R.string.recharge_money) + "    " + str4;
+                String str4 = ("" + aVar2.ctr()) + this.eUY.getString(R.string.recharge_use_money);
+                String str5 = this.eUY.getString(R.string.recharge_money) + "    " + str4;
                 SpannableString spannableString6 = new SpannableString(str5);
                 UtilHelper.setSpan(spannableString6, str5, str5, foregroundColorSpan);
                 UtilHelper.setSpan(spannableString6, str5, str4, foregroundColorSpan2);
                 UtilHelper.setSpan(spannableString6, str5, str4, absoluteSizeSpan);
-                SpannableString a7 = a(R.string.recharge_time, aVar2.cse(), foregroundColorSpan, foregroundColorSpan2);
-                String str6 = "" + aVar2.csi();
-                String str7 = this.eSJ.getString(R.string.recharge_account) + "    " + str6;
+                SpannableString a7 = a(R.string.recharge_time, aVar2.ctq(), foregroundColorSpan, foregroundColorSpan2);
+                String str6 = "" + aVar2.ctu();
+                String str7 = this.eUY.getString(R.string.recharge_account) + "    " + str6;
                 spannableString = new SpannableString(str7);
                 UtilHelper.setSpan(spannableString, str7, str7, foregroundColorSpan);
                 UtilHelper.setSpan(spannableString, str7, str6, foregroundColorSpan2);
@@ -179,39 +179,39 @@ public class c extends BaseAdapter {
                 spannableString3 = null;
                 spannableString4 = null;
             }
-            aVar.eFr.setText(spannableString4);
-            aVar.ixh.setText(spannableString3);
-            aVar.ixi.setText(spannableString2);
-            if (!StringUtils.isNull(aVar2.csi()) && (this.type == 3 || this.type == 2)) {
-                aVar.ixj.setVisibility(0);
-                aVar.ixj.setText(spannableString);
+            aVar.eHx.setText(spannableString4);
+            aVar.iCR.setText(spannableString3);
+            aVar.iCS.setText(spannableString2);
+            if (!StringUtils.isNull(aVar2.ctu()) && (this.type == 3 || this.type == 2)) {
+                aVar.iCT.setVisibility(0);
+                aVar.iCT.setText(spannableString);
             } else {
-                aVar.ixj.setVisibility(8);
+                aVar.iCT.setVisibility(8);
             }
-            if (!StringUtils.isNull(aVar2.csg())) {
-                aVar.ixm.setText(aVar2.csg());
-                if (!StringUtils.isNull(aVar2.csh())) {
-                    aVar.ixn.setText(aVar2.csh());
-                    aVar.ixn.setVisibility(0);
+            if (!StringUtils.isNull(aVar2.cts())) {
+                aVar.iCW.setText(aVar2.cts());
+                if (!StringUtils.isNull(aVar2.ctt())) {
+                    aVar.iCX.setText(aVar2.ctt());
+                    aVar.iCX.setVisibility(0);
                 } else {
-                    aVar.ixn.setVisibility(8);
+                    aVar.iCX.setVisibility(8);
                 }
-                aVar.ixn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.consumptionRecords.c.2
+                aVar.iCX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.consumptionRecords.c.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        be.bsB().b(c.this.eSJ, new String[]{aVar2.getActivityUrl()});
+                        bf.bsV().b(c.this.eUY, new String[]{aVar2.getActivityUrl()});
                     }
                 });
-                aVar.ixl.setVisibility(0);
+                aVar.iCV.setVisibility(0);
                 return;
             }
-            aVar.ixl.setVisibility(8);
+            aVar.iCV.setVisibility(8);
         }
     }
 
     private SpannableString a(int i, long j, ForegroundColorSpan foregroundColorSpan, ForegroundColorSpan foregroundColorSpan2) {
-        String string = this.eSJ.getString(i);
-        String long2String = at.long2String(j, "yyyy-MM-dd HH:mm");
+        String string = this.eUY.getString(i);
+        String long2String = au.long2String(j, "yyyy-MM-dd HH:mm");
         String str = string + "    " + long2String;
         SpannableString spannableString = new SpannableString(str);
         UtilHelper.setSpan(spannableString, str, str, foregroundColorSpan);
@@ -220,7 +220,7 @@ public class c extends BaseAdapter {
     }
 
     private SpannableString a(int i, String str, ForegroundColorSpan foregroundColorSpan, ForegroundColorSpan foregroundColorSpan2) {
-        String str2 = this.eSJ.getString(i) + "    " + str;
+        String str2 = this.eUY.getString(i) + "    " + str;
         SpannableString spannableString = new SpannableString(str2);
         UtilHelper.setSpan(spannableString, str2, str2, foregroundColorSpan);
         UtilHelper.setSpan(spannableString, str2, str, foregroundColorSpan2);
@@ -228,12 +228,12 @@ public class c extends BaseAdapter {
     }
 
     private SpannableString a(int i, long j, ForegroundColorSpan foregroundColorSpan, ForegroundColorSpan foregroundColorSpan2, AbsoluteSizeSpan absoluteSizeSpan) {
-        String string = this.eSJ.getString(i);
-        String formatOverBaiwanNum = at.formatOverBaiwanNum(j);
+        String string = this.eUY.getString(i);
+        String formatOverBaiwanNum = au.formatOverBaiwanNum(j);
         String str = string + "    [icon]" + formatOverBaiwanNum;
         SpannableString spannableString = new SpannableString(str);
         UtilHelper.setSpan(spannableString, str, str, foregroundColorSpan);
-        Drawable drawable = ao.getDrawable(R.drawable.icon_huobi_tdou);
+        Drawable drawable = ap.getDrawable(R.drawable.icon_huobi_tdou);
         int dimens = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds24);
         drawable.setBounds(0, 0, dimens, dimens);
         d dVar = new d(drawable);
@@ -245,7 +245,7 @@ public class c extends BaseAdapter {
         return spannableString;
     }
 
-    public void am(ArrayList<com.baidu.tieba.consumptionRecords.a> arrayList) {
+    public void al(ArrayList<com.baidu.tieba.consumptionRecords.a> arrayList) {
         this.orderList = arrayList;
     }
 }

@@ -2,7 +2,7 @@ package com.ksad.lottie.c;
 
 import android.util.JsonReader;
 import com.ksad.lottie.model.content.MergePaths;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class v {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static MergePaths a(JsonReader jsonReader) {

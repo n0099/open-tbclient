@@ -13,7 +13,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.flex.FlexAdapter;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FlexLayout extends ViewGroup {
     static final String BUNDLE_KEY_SELECTS = "selects";
     static final String BUNDLE_KEY_STATE = "savedInstance";
@@ -28,12 +28,12 @@ public class FlexLayout extends ViewGroup {
     private float mVerticalSpacing;
     public int realHeight;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OnItemClickListener {
         void onItemClick(FlexLayout flexLayout, View view, int i);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OnStateChangedListener {
         void onMaxNumSelected();
 

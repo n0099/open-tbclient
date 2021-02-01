@@ -6,43 +6,43 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b extends Drawable {
-    private boolean pOf;
-    private int pOg;
-    private final com.opensource.svgaplayer.a.b pOh;
-    private final f pOi;
-    private final c pOj;
+    private boolean pYj;
+    private int pYk;
+    private final com.opensource.svgaplayer.a.b pYl;
+    private final f pYm;
+    private final c pYn;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         p.o(fVar, "videoItem");
         p.o(cVar, "dynamicItem");
-        this.pOi = fVar;
-        this.pOj = cVar;
-        this.pOf = true;
+        this.pYm = fVar;
+        this.pYn = cVar;
+        this.pYj = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.pOh = new com.opensource.svgaplayer.a.b(this.pOi, this.pOj);
+        this.pYl = new com.opensource.svgaplayer.a.b(this.pYm, this.pYn);
     }
 
-    public final f eAf() {
-        return this.pOi;
+    public final f eCw() {
+        return this.pYm;
     }
 
-    public final void Bn(boolean z) {
-        if (this.pOf != z) {
-            this.pOf = z;
+    public final void BG(boolean z) {
+        if (this.pYj != z) {
+            this.pYj = z;
             invalidateSelf();
         }
     }
 
-    public final int eAe() {
-        return this.pOg;
+    public final int eCv() {
+        return this.pYk;
     }
 
-    public final void Qh(int i) {
-        if (this.pOg != i) {
-            this.pOg = i;
+    public final void QC(int i) {
+        if (this.pYk != i) {
+            this.pYk = i;
             invalidateSelf();
         }
     }
@@ -54,8 +54,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.pOf && canvas != null) {
-            this.pOh.a(canvas, this.pOg, this.scaleType);
+        if (!this.pYj && canvas != null) {
+            this.pYl.a(canvas, this.pYk, this.scaleType);
         }
     }
 

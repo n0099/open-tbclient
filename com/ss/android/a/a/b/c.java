@@ -4,7 +4,7 @@ import com.ss.android.socialbase.downloader.d.ah;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface c {
     int A();
 
@@ -24,15 +24,15 @@ public interface c {
 
     String e();
 
-    com.ss.android.a.a.d.b eBE();
+    com.ss.android.a.a.d.b eDV();
 
-    List<String> eBF();
+    List<String> eDW();
 
-    JSONObject eBG();
+    JSONObject eDX();
 
-    com.ss.android.a.a.d.f eBH();
+    com.ss.android.a.a.d.f eDY();
 
-    ah eBI();
+    ah eDZ();
 
     long f();
 

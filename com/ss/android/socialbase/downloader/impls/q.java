@@ -2,29 +2,29 @@ package com.ss.android.socialbase.downloader.impls;
 
 import android.text.TextUtils;
 import com.ss.android.socialbase.downloader.downloader.s;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class q implements s {
 
     /* renamed from: a  reason: collision with root package name */
-    private final long[] f13195a;
+    private final long[] f13197a;
 
     public q(String str) {
-        this.f13195a = a(str);
+        this.f13197a = a(str);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.s
     public long a(int i, int i2) {
-        if (this.f13195a == null || this.f13195a.length <= 0) {
+        if (this.f13197a == null || this.f13197a.length <= 0) {
             return 0L;
         }
         int i3 = i - 1;
         if (i3 < 0) {
             i3 = 0;
         }
-        if (i3 > this.f13195a.length - 1) {
-            i3 = this.f13195a.length - 1;
+        if (i3 > this.f13197a.length - 1) {
+            i3 = this.f13197a.length - 1;
         }
-        return this.f13195a[i3];
+        return this.f13197a[i3];
     }
 
     private long[] a(String str) {

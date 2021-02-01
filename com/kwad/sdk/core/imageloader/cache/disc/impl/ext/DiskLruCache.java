@@ -24,7 +24,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class DiskLruCache implements Closeable {
     static final long ANY_SEQUENCE_NUMBER = -1;
     private static final String CLEAN = "CLEAN";
@@ -75,7 +75,7 @@ public final class DiskLruCache implements Closeable {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public final class Editor {
         private boolean committed;
         private final Entry entry;
@@ -83,7 +83,7 @@ public final class DiskLruCache implements Closeable {
         private final boolean[] written;
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class FaultHidingOutputStream extends FilterOutputStream {
             private FaultHidingOutputStream(OutputStream outputStream) {
                 super(outputStream);
@@ -225,7 +225,7 @@ public final class DiskLruCache implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public final class Entry {
         private Editor currentEditor;
         private final String key;
@@ -273,7 +273,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public final class Snapshot implements Closeable {
         private File[] files;
         private final InputStream[] ins;

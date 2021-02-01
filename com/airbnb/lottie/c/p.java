@@ -10,7 +10,7 @@ import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class p {
     /* JADX INFO: Access modifiers changed from: package-private */
     @ColorInt
@@ -41,7 +41,7 @@ class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.airbnb.lottie.c.p$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] Hu = new int[JsonToken.values().length];
 

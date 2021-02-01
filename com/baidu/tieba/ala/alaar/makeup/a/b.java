@@ -7,10 +7,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
-    public String gpB;
-    private int gpC;
+    public String gsk;
+    private int gsl;
     private List<d> mData;
     private File mFolder;
     private int mPosition;
@@ -45,25 +45,25 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         return this.mSign;
     }
 
-    public void Y(File file) {
+    public void V(File file) {
         this.mFolder = file;
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean dD(JSONObject jSONObject) {
+    public boolean dE(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        this.gpC = jSONObject.optInt("ar_version");
-        this.gpB = jSONObject.optString("version");
+        this.gsl = jSONObject.optInt("ar_version");
+        this.gsk = jSONObject.optString("version");
         this.mPosition = jSONObject.optInt("position");
         JSONArray optJSONArray = jSONObject.optJSONArray("makeup_category");
         this.mData = new ArrayList();
         for (int i = 0; i < optJSONArray.length(); i++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             d dVar = new d();
-            dVar.Y(this.mFolder);
-            if (dVar.dD(optJSONObject)) {
+            dVar.V(this.mFolder);
+            if (dVar.dE(optJSONObject)) {
                 this.mData.add(dVar);
             }
         }
@@ -74,8 +74,8 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         JSONObject json;
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("ar_version", this.gpC);
-            jSONObject.put("version", this.gpB);
+            jSONObject.put("ar_version", this.gsl);
+            jSONObject.put("version", this.gsk);
             jSONObject.put("position", this.mPosition);
             JSONArray jSONArray = new JSONArray();
             if (this.mData != null && this.mData.size() > 0) {

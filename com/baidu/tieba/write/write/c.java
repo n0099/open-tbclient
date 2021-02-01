@@ -7,19 +7,19 @@ import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.widget.EditText;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.spanGroup.TbLinkForegroundColorSpan;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private String erX;
-    private ArrayList<String> nSq;
-    private final String nYZ = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String eue;
+    private ArrayList<String> ocw;
+    private final String oiU = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class c {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !x.isEmpty(this.nSq)) {
+        if (spannable != null && !y.isEmpty(this.ocw)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.nSq.iterator();
+                Iterator<String> it = this.ocw.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -56,8 +56,8 @@ public class c {
             int length = str2.length();
             while (indexOf >= 0) {
                 int i = indexOf + length;
-                int color = ao.getColor(R.color.CAM_X0101);
-                int color2 = ao.getColor(R.color.cp_cont_h_alpha85);
+                int color = ap.getColor(R.color.CAM_X0101);
+                int color2 = ap.getColor(R.color.cp_cont_h_alpha85);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
                 BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
                 spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
@@ -91,7 +91,7 @@ public class c {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (x.isEmpty(dTZ())) {
+        if (y.isEmpty(dWn())) {
             return false;
         }
         return j(editText) || j(editText2);
@@ -113,30 +113,26 @@ public class c {
         }
     }
 
-    public void bh(ArrayList<String> arrayList) {
-        this.nSq = arrayList;
+    public void bg(ArrayList<String> arrayList) {
+        this.ocw = arrayList;
     }
 
-    public ArrayList<String> dTZ() {
-        return this.nSq;
+    public ArrayList<String> dWn() {
+        return this.ocw;
     }
 
-    public void TX(String str) {
-        this.erX = str;
+    public void UV(String str) {
+        this.eue = str;
     }
 
-    public String dUd() {
-        return this.erX;
+    public String dWr() {
+        return this.eue;
     }
 
     private void c(Spannable spannable) {
         Matcher matcher = Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable);
         while (matcher.find()) {
-            spannable.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0304)), matcher.start(), matcher.end(), 33);
+            spannable.setSpan(new ForegroundColorSpan(ap.getColor(R.color.CAM_X0304)), matcher.start(), matcher.end(), 33);
         }
-    }
-
-    public boolean d(Spannable spannable) {
-        return Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable).find();
     }
 }

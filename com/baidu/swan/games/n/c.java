@@ -1,25 +1,24 @@
 package com.baidu.swan.games.n;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
-    public int egq;
-    public String egr;
-    public String egn = "";
-    public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean ego = false;
-    public boolean egp = false;
+    public int eix;
+    public String eiy;
+    public String eiu = "";
+    public int maxLength = Integer.MAX_VALUE;
+    public boolean eiv = false;
+    public boolean eiw = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.egn = cVar.optString("defaultValue");
+            this.eiu = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.ego = cVar.optBoolean("multiple");
-            this.egp = cVar.optBoolean("confirmHold");
+            this.eiv = cVar.optBoolean("multiple");
+            this.eiw = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -56,28 +55,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.egq = 6;
-                    this.egr = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.eix = 6;
+                    this.eiy = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.egq = 5;
-                    this.egr = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.eix = 5;
+                    this.eiy = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.egq = 3;
-                    this.egr = "search";
+                    this.eix = 3;
+                    this.eiy = "search";
                     return true;
                 case 3:
-                    this.egq = 2;
-                    this.egr = "go";
+                    this.eix = 2;
+                    this.eiy = "go";
                     return true;
                 case 4:
-                    this.egq = 4;
-                    this.egr = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
+                    this.eix = 4;
+                    this.eiy = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
                     return true;
                 default:
-                    this.egq = 6;
-                    this.egr = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.eix = 6;
+                    this.eiy = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

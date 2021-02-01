@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public enum AccountType {
     NORMAL(0),
     INCOMPLETE_USER(1),
@@ -7,10 +7,10 @@ public enum AccountType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private int f5110a;
+    private int f5112a;
 
     AccountType(int i) {
-        this.f5110a = i;
+        this.f5112a = i;
     }
 
     public static AccountType getAccountType(int i) {
@@ -24,6 +24,6 @@ public enum AccountType {
     }
 
     public int getType() {
-        return this.f5110a;
+        return this.f5112a;
     }
 }

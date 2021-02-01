@@ -6,15 +6,15 @@ import com.baidu.live.alablmsdk.module.c;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public long axT;
+    public long ayk;
     public String order;
 
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("imuk", this.axT);
+            jSONObject.put("imuk", this.ayk);
             jSONObject.put(IMConstants.SERVICE_TYPE_ORDER, this.order);
         } catch (JSONException e) {
         }
@@ -24,7 +24,7 @@ public class b {
     public JSONObject toJSON() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("imuk", this.axT);
+            jSONObject.put("imuk", this.ayk);
             jSONObject.put(IMConstants.SERVICE_TYPE_ORDER, this.order);
         } catch (JSONException e) {
         }
@@ -42,22 +42,22 @@ public class b {
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.axT = jSONObject.optLong("imuk");
+            this.ayk = jSONObject.optLong("imuk");
             this.order = jSONObject.optString(IMConstants.SERVICE_TYPE_ORDER);
         }
     }
 
-    public static String b(c cVar) {
-        if (cVar == null || cVar.axT == 0) {
+    public static String i(c cVar) {
+        if (cVar == null || cVar.ayk == 0) {
             return "";
         }
         b bVar = new b();
-        bVar.axT = cVar.axT;
+        bVar.ayk = cVar.ayk;
         bVar.order = cVar.order;
         return bVar.toJsonString();
     }
 
-    public static b eE(String str) {
+    public static b eQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -72,9 +72,9 @@ public class b {
     }
 
     public static void a(c cVar, a aVar) {
-        b aB;
-        if (cVar != null && cVar.axT != 0 && cVar.axT != 0 && aVar != null && aVar != null && (aB = aVar.aB(cVar.axT)) != null) {
-            cVar.order = aB.order;
+        b aF;
+        if (cVar != null && cVar.ayk != 0 && cVar.ayk != 0 && aVar != null && aVar != null && (aF = aVar.aF(cVar.ayk)) != null) {
+            cVar.order = aF.order;
             com.baidu.live.alablmsdk.a.b.a.d(" addUserExtInfo add order , user=" + cVar.toString());
         }
     }

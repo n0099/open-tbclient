@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static String a(Context context, String str) {
         return a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PushConstants.KEY_PUSH_ID);

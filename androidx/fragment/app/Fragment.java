@@ -43,7 +43,7 @@ import androidx.loader.app.LoaderManager;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener, LifecycleOwner, ViewModelStoreOwner {
     static final int ACTIVITY_CREATED = 2;
     static final int CREATED = 1;
@@ -103,7 +103,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     MutableLiveData<LifecycleOwner> mViewLifecycleOwnerLiveData = new MutableLiveData<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface OnStartEnterTransitionListener {
         void onStartEnterTransition();
 
@@ -141,7 +141,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return this.mViewModelStore;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.fragment.app.Fragment.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -188,7 +188,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class InstantiationException extends RuntimeException {
         public InstantiationException(String str, Exception exc) {
             super(str, exc);
@@ -1570,7 +1570,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class AnimationInfo {
         Boolean mAllowEnterTransitionOverlap;
         Boolean mAllowReturnTransitionOverlap;

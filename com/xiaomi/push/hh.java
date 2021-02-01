@@ -8,7 +8,7 @@ import java.io.File;
 public class hh implements XMPushService.l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f14086a = false;
+    private static boolean f14088a = false;
 
     /* renamed from: a  reason: collision with other field name */
     private int f512a;
@@ -17,7 +17,7 @@ public class hh implements XMPushService.l {
     private Context f513a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f14087b;
+    private boolean f14089b;
 
     public hh(Context context) {
         this.f513a = context;
@@ -28,13 +28,13 @@ public class hh implements XMPushService.l {
     }
 
     private void a(Context context) {
-        this.f14087b = com.xiaomi.push.service.ak.a(context).a(hr.TinyDataUploadSwitch.a(), true);
+        this.f14089b = com.xiaomi.push.service.ak.a(context).a(hr.TinyDataUploadSwitch.a(), true);
         this.f512a = com.xiaomi.push.service.ak.a(context).a(hr.TinyDataUploadFrequency.a(), 7200);
         this.f512a = Math.max(60, this.f512a);
     }
 
     public static void a(boolean z) {
-        f14086a = z;
+        f14088a = z;
     }
 
     private boolean a() {
@@ -42,7 +42,7 @@ public class hh implements XMPushService.l {
     }
 
     private boolean a(hl hlVar) {
-        if (!az.b(this.f513a) || hlVar == null || TextUtils.isEmpty(a(this.f513a.getPackageName())) || !new File(this.f513a.getFilesDir(), "tiny_data.data").exists() || f14086a) {
+        if (!az.b(this.f513a) || hlVar == null || TextUtils.isEmpty(a(this.f513a.getPackageName())) || !new File(this.f513a.getFilesDir(), "tiny_data.data").exists() || f14088a) {
             return false;
         }
         return !com.xiaomi.push.service.ak.a(this.f513a).a(hr.ScreenOnOrChargingTinyDataUploadSwitch.a(), false) || i.m416a(this.f513a) || i.m419b(this.f513a);
@@ -52,14 +52,14 @@ public class hh implements XMPushService.l {
     /* renamed from: a  reason: collision with other method in class */
     public void mo367a() {
         a(this.f513a);
-        if (this.f14087b && a()) {
+        if (this.f14089b && a()) {
             com.xiaomi.channel.commonutils.logger.b.m80a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
             hl a2 = hk.a(this.f513a).a();
             if (!a(a2)) {
                 com.xiaomi.channel.commonutils.logger.b.m80a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());
                 return;
             }
-            f14086a = true;
+            f14088a = true;
             hi.a(this.f513a, a2);
         }
     }

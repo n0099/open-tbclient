@@ -1,37 +1,36 @@
 package com.baidu.mobads.production.e;
 
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
-public class d implements Runnable {
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.mobads.interfaces.IXAdConstants4PDK;
+import java.util.HashMap;
+/* loaded from: classes5.dex */
+public class d extends com.baidu.mobads.vo.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f3440a;
+    private Boolean f3451a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(b bVar) {
-        this.f3440a = bVar;
+    public d(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, Boolean bool) {
+        super(context, activity, slotType);
+        this.f3451a = bool;
+        if (c().booleanValue()) {
+            this.f3529b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm");
+        }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        RelativeLayout relativeLayout;
-        RelativeLayout relativeLayout2;
-        RelativeLayout relativeLayout3;
-        RelativeLayout relativeLayout4;
-        this.f3440a.x.d("remote Interstitial.removeAd");
-        try {
-            relativeLayout = this.f3440a.e;
-            if (relativeLayout.getParent() != null) {
-                relativeLayout3 = this.f3440a.e;
-                relativeLayout4 = this.f3440a.e;
-                ((ViewGroup) relativeLayout3.getParent()).removeView(relativeLayout4);
-            }
-            relativeLayout2 = this.f3440a.e;
-            relativeLayout2.removeAllViews();
-        } catch (Exception e) {
-            this.f3440a.x.d("Interstitial.removeAd", e);
-        }
+    public Boolean c() {
+        return this.f3451a;
+    }
+
+    @Override // com.baidu.mobads.vo.d
+    protected HashMap<String, String> a() {
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("xyz", "hihihi");
+        return hashMap;
+    }
+
+    @Override // com.baidu.mobads.vo.d
+    public String b() {
+        return c().booleanValue() ? super.b() : "http://211.151.146.65:8080/wlantest/shanghai_sun/mock_ad_server_intersitial_video.json";
     }
 }

@@ -17,7 +17,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/getLaunchAppInfo");
@@ -43,7 +43,7 @@ public class a extends aa {
         com.baidu.swan.apps.network.c.b.a.s(new b<Map<String, com.baidu.swan.apps.setting.oauth.e>>() { // from class: com.baidu.swan.apps.h.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
-            /* renamed from: y */
+            /* renamed from: A */
             public void L(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
                 if (map != null) {
                     a.this.a(str, callbackHandler, map);
@@ -62,21 +62,21 @@ public class a extends aa {
             return;
         }
         boolean z = eVar.forbidden;
-        int aNN = aj.aNN();
-        long aNO = aj.aNO();
-        List<String> list = eVar.dHb;
+        int aOg = aj.aOg();
+        long aOh = aj.aOh();
+        List<String> list = eVar.dJf;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {
             for (String str2 : list) {
                 jSONArray.put(str2);
             }
-            jSONObject.put("launchCount", aNN);
-            jSONObject.put("visitDuration", aNO);
+            jSONObject.put("launchCount", aOg);
+            jSONObject.put("visitDuration", aOh);
             jSONObject.put("forbidden", z);
             jSONObject.put("ext", jSONArray);
             if (DEBUG) {
-                Log.i("GetBehaviorInfoAction", "launchCount:" + aNN + " visitDuration:" + aNO + " forbidden:" + z + " ext:" + jSONArray.toString());
+                Log.i("GetBehaviorInfoAction", "launchCount:" + aOg + " visitDuration:" + aOh + " forbidden:" + z + " ext:" + jSONArray.toString());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {

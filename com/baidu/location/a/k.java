@@ -16,15 +16,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class k {
     private static long j = 12000;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f2562a;
+    public e f2560a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f2563b;
+    private Context f2561b;
     private WebView c;
     private LocationClient d;
     private a e;
@@ -36,7 +36,7 @@ public class k {
     private boolean l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends Handler {
         a(Looper looper) {
             super(looper);
@@ -149,14 +149,14 @@ public class k {
                     } else {
                         k.this.f.clear();
                     }
-                    k.this.d.registerLocationListener(k.this.f2562a);
+                    k.this.d.registerLocationListener(k.this.f2560a);
                     return;
                 case 4:
                     if (k.this.f != null) {
                         k.this.f.clear();
                         k.this.f = null;
                     }
-                    k.this.d.unRegisterLocationListener(k.this.f2562a);
+                    k.this.d.unRegisterLocationListener(k.this.f2560a);
                     k.this.h = 0L;
                     k.this.i = null;
                     if (k.this.k != null && k.this.l) {
@@ -196,22 +196,22 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b {
 
         /* renamed from: b  reason: collision with root package name */
-        private String f2566b;
+        private String f2564b;
         private String c;
         private long d;
 
         b(String str) {
-            this.f2566b = null;
+            this.f2564b = null;
             this.c = null;
             this.d = 0L;
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject != null && jSONObject.has("action")) {
-                    this.f2566b = jSONObject.getString("action");
+                    this.f2564b = jSONObject.getString("action");
                 }
                 if (jSONObject != null && jSONObject.has(BuyTBeanActivityConfig.CALLBACK)) {
                     this.c = jSONObject.getString(BuyTBeanActivityConfig.CALLBACK);
@@ -224,13 +224,13 @@ public class k {
                 }
                 this.d = System.currentTimeMillis();
             } catch (Exception e) {
-                this.f2566b = null;
+                this.f2564b = null;
                 this.c = null;
             }
         }
 
         public String a() {
-            return this.f2566b;
+            return this.f2564b;
         }
 
         public String b() {
@@ -239,15 +239,15 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final k f2567a = new k();
+        private static final k f2565a = new k();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class d {
         private d() {
         }
@@ -271,7 +271,7 @@ public class k {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class e extends BDAbstractLocationListener {
         public e() {
         }
@@ -306,7 +306,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class f implements Runnable {
         private f() {
         }
@@ -319,9 +319,9 @@ public class k {
     }
 
     private k() {
-        this.f2563b = null;
+        this.f2561b = null;
         this.d = null;
-        this.f2562a = new e();
+        this.f2560a = new e();
         this.e = null;
         this.f = null;
         this.g = false;
@@ -332,7 +332,7 @@ public class k {
     }
 
     public static k a() {
-        return c.f2567a;
+        return c.f2565a;
     }
 
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
@@ -342,7 +342,7 @@ public class k {
 
     public void a(Context context, WebView webView, LocationClient locationClient) {
         if (!this.g && Integer.valueOf(Build.VERSION.SDK_INT).intValue() >= 17) {
-            this.f2563b = context;
+            this.f2561b = context;
             this.c = webView;
             this.d = locationClient;
             this.e = new a(Looper.getMainLooper());

@@ -8,7 +8,7 @@ import java.util.Map;
 public class FTOSPushHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f13787a = 0;
+    private static long f13789a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     private static volatile boolean f104a = false;
@@ -24,8 +24,8 @@ public class FTOSPushHelper {
     public static void doInNetworkChange(Context context) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (getNeedRegister()) {
-            if (f13787a <= 0 || f13787a + 300000 <= elapsedRealtime) {
-                f13787a = elapsedRealtime;
+            if (f13789a <= 0 || f13789a + 300000 <= elapsedRealtime) {
+                f13789a = elapsedRealtime;
                 a(context);
             }
         }

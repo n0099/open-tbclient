@@ -1,6 +1,5 @@
 package com.opensource.svgaplayer;
 
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.opensource.svgaplayer.d;
 import java.io.InputStream;
 import java.net.URL;
@@ -9,7 +8,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.jvm.a.b<InputStream, h> {
     final /* synthetic */ d.c $callback;
     final /* synthetic */ URL $url;
@@ -29,12 +28,12 @@ public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.j
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ h invoke(InputStream inputStream) {
         invoke2(inputStream);
-        return h.qiK;
+        return h.qsO;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(InputStream inputStream) {
-        p.o(inputStream, AdvanceSetting.NETWORK_TYPE);
+        p.o(inputStream, "it");
         d.a(this.this$0, inputStream, this.this$0.f(this.$url), this.$callback, false, 8, null);
     }
 }

@@ -11,7 +11,7 @@ import java.nio.charset.Charset;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class a implements e {
     private int c;
     private int d;
@@ -20,10 +20,10 @@ public abstract class a implements e {
     private byte[] k;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f12526a = true;
+    private boolean f12528a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f12527b = true;
+    private boolean f12529b = true;
     private Map<String, String> f = new HashMap();
     private Map<String, String> g = new HashMap();
     private Map<String, String> h = Collections.unmodifiableMap(this.f);
@@ -75,7 +75,7 @@ public abstract class a implements e {
 
     @Override // com.qq.e.comm.plugin.t.b.e
     public void a(boolean z) {
-        this.f12527b = z;
+        this.f12529b = z;
     }
 
     @Override // com.qq.e.comm.plugin.t.b.e
@@ -95,7 +95,7 @@ public abstract class a implements e {
 
     @Override // com.qq.e.comm.plugin.t.b.e
     public void b(boolean z) {
-        this.f12526a = z;
+        this.f12528a = z;
     }
 
     public String c() {
@@ -136,12 +136,12 @@ public abstract class a implements e {
 
     @Override // com.qq.e.comm.plugin.t.b.e
     public boolean i() {
-        return this.f12527b;
+        return this.f12529b;
     }
 
     @Override // com.qq.e.comm.plugin.t.b.e
     public boolean j() {
-        return this.f12526a;
+        return this.f12528a;
     }
 
     public String toString() {

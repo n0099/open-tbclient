@@ -10,7 +10,7 @@ import com.baidu.tbadk.switchs.IsFullScreenSwitch;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class g {
-    public static boolean brG() {
+    public static boolean brZ() {
         boolean z = true;
         if (IsFullScreenSwitch.isOn()) {
             String trim = Build.MODEL.trim();
@@ -32,27 +32,31 @@ public class g {
         return false;
     }
 
-    public static boolean brH() {
-        return at.equals(Build.MODEL.trim(), "ANE-AL00");
+    public static boolean bsa() {
+        return au.equals(Build.MODEL.trim(), "ANE-AL00");
     }
 
-    public static boolean brI() {
-        return at.equals(Build.MODEL.trim(), "vivo X20A");
+    public static boolean bsb() {
+        return au.equals(Build.MODEL.trim(), "vivo X20A");
     }
 
-    public static boolean brJ() {
-        return at.equals(Build.MODEL.trim(), "PCLM50");
+    public static boolean bsc() {
+        return au.equals(Build.MODEL.trim(), "HMA-AL00");
     }
 
-    public static boolean brK() {
-        return at.equals(Build.MODEL.trim(), "MI 5X");
+    public static boolean bsd() {
+        return au.equals(Build.MODEL.trim(), "PCLM50");
+    }
+
+    public static boolean bse() {
+        return au.equals(Build.MODEL.trim(), "MI 5X");
     }
 
     public static boolean isXiaoMi() {
         return RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER);
     }
 
-    public static String ali() {
+    public static String alG() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -65,7 +69,7 @@ public class g {
         return (!TextUtils.isEmpty(str) && str.contains(RomUtils.MANUFACTURER_HUAWEI)) || RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER);
     }
 
-    public static boolean eX(Context context) {
+    public static boolean eW(Context context) {
         SensorManager sensorManager;
         if (context == null || (sensorManager = (SensorManager) context.getSystemService("sensor")) == null) {
             return false;

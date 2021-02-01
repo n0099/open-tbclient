@@ -20,36 +20,36 @@ import java.lang.reflect.Field;
 /* loaded from: classes2.dex */
 public class NewUserGuideActivity extends BaseFragmentActivity {
     private boolean mIsNewUser;
-    private NewUserGuideModel nuA;
-    private RightSlideViewPager nuC;
-    private boolean nuB = false;
+    private NewUserGuideModel nEk;
+    private RightSlideViewPager nEm;
+    private boolean nEl = false;
     private boolean isChanged = false;
-    private NewUserGuideModel.b nuD = new NewUserGuideModel.b() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivity.1
+    private NewUserGuideModel.b nEn = new NewUserGuideModel.b() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivity.1
         @Override // com.baidu.tieba.tblauncherInterestGuide.model.NewUserGuideModel.b
         public void a(InterestFrsData interestFrsData) {
-            NewUserGuideActivity.this.nuA.yx(false);
-            NewUserGuideActivity.this.nuA.e(interestFrsData);
-            ((NewUserGuideMainFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.nuC.getAdapter()).getItem(1)).c(interestFrsData);
+            NewUserGuideActivity.this.nEk.yQ(false);
+            NewUserGuideActivity.this.nEk.e(interestFrsData);
+            ((NewUserGuideMainFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.nEm.getAdapter()).getItem(1)).c(interestFrsData);
         }
 
         @Override // com.baidu.tieba.tblauncherInterestGuide.model.NewUserGuideModel.b
         public void b(InterestFrsData interestFrsData) {
-            NewUserGuideActivity.this.nuA.yx(true);
-            NewUserGuideActivity.this.nuA.e(null);
+            NewUserGuideActivity.this.nEk.yQ(true);
+            NewUserGuideActivity.this.nEk.e(null);
             NewUserGuideActivity.this.showToast(R.string.neterror);
         }
     };
 
-    public boolean dOl() {
+    public boolean dQw() {
         return this.isChanged;
     }
 
-    public void yv(boolean z) {
+    public void yO(boolean z) {
         this.isChanged = z;
     }
 
-    public RightSlideViewPager dOm() {
-        return this.nuC;
+    public RightSlideViewPager dQx() {
+        return this.nEm;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -57,50 +57,50 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        dOo();
+        dQz();
         setContentView(R.layout.guide_activity_interestfrs);
         initUI();
         initData();
     }
 
-    public void yw(boolean z) {
-        this.nuB = z;
+    public void yP(boolean z) {
+        this.nEl = z;
     }
 
     private void initData() {
         this.mIsNewUser = getIntent().getBooleanExtra("is_new_user", false);
-        this.nuB = getIntent().getBooleanExtra(NewUserGuideActivityConfig.HAS_LIEK_BAR, false);
+        this.nEl = getIntent().getBooleanExtra(NewUserGuideActivityConfig.HAS_LIEK_BAR, false);
         int i = this.mIsNewUser ? 1 : 2;
-        this.nuA = new NewUserGuideModel(this);
-        this.nuA.a(i, 0, 100, this.nuD);
+        this.nEk = new NewUserGuideModel(this);
+        this.nEk.a(i, 0, 100, this.nEn);
     }
 
     private void initUI() {
-        this.nuC = (RightSlideViewPager) findViewById(R.id.guide_viewPager);
-        this.nuC.setAdapter(new NewUserGuidePagerAdapter(getSupportFragmentManager()));
-        this.nuC.setTag("canScroll");
-        this.nuC.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivity.2
+        this.nEm = (RightSlideViewPager) findViewById(R.id.guide_viewPager);
+        this.nEm.setAdapter(new NewUserGuidePagerAdapter(getSupportFragmentManager()));
+        this.nEm.setTag("canScroll");
+        this.nEm.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivity.2
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
                 if (i == 1) {
-                    NewUserGuideActivity.this.nuC.setTag(null);
+                    NewUserGuideActivity.this.nEm.setTag(null);
                 }
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
-                if (NewUserGuideActivity.this.nuA.dOt() && i == 0 && f > 0.0f) {
-                    NewUserGuideActivity.this.dOp();
+                if (NewUserGuideActivity.this.nEk.dQE() && i == 0 && f > 0.0f) {
+                    NewUserGuideActivity.this.dQA();
                 }
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
-                NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.nuC.getAdapter()).getItem(0);
+                NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.nEm.getAdapter()).getItem(0);
                 if (i == 0) {
-                    newUserGuideIntroduceFragment.dOq();
+                    newUserGuideIntroduceFragment.dQB();
                 } else {
-                    newUserGuideIntroduceFragment.dOr();
+                    newUserGuideIntroduceFragment.dQC();
                 }
             }
         });
@@ -110,13 +110,13 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.nuA != null) {
-            this.nuA.dOv();
+        if (this.nEk != null) {
+            this.nEk.dQG();
         }
     }
 
-    public NewUserGuideModel dOn() {
-        return this.nuA;
+    public NewUserGuideModel dQy() {
+        return this.nEk;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -126,13 +126,13 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            dOp();
+            dQA();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void dOo() {
+    private void dQz() {
         if (Build.VERSION.SDK_INT >= 11) {
             try {
                 Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
@@ -145,7 +145,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public void dOp() {
+    public void dQA() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNewUserCfg(1, this.mIsNewUser)));
         finish();
     }

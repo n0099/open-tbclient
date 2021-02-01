@@ -11,11 +11,11 @@ import com.fun.ad.sdk.AdRipper;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdView;
 import com.fun.ad.sdk.FunRippedAd;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class e extends bd {
-    public TTInteractionAd pEv;
+    public TTInteractionAd pOA;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class a implements TTAdNative.InteractionAdListener {
         public a() {
         }
@@ -24,10 +24,10 @@ public class e extends bd {
         public void onError(int i, String str) {
             m.a("CSJInteractionAd onError code: " + i + ", message: " + str);
             e eVar = e.this;
-            eVar.f7765b = false;
-            ba baVar = eVar.pFv;
+            eVar.f7767b = false;
+            ba baVar = eVar.pPA;
             if (baVar != null) {
-                ((aj) baVar).a(eVar.f7764a.f7760a, i, str);
+                ((aj) baVar).a(eVar.f7766a.f7762a, i, str);
             }
         }
 
@@ -35,17 +35,17 @@ public class e extends bd {
         public void onInteractionAdLoad(TTInteractionAd tTInteractionAd) {
             m.a("CSJInteractionAd onInteractionAdLoad");
             e eVar = e.this;
-            eVar.f7765b = false;
-            eVar.pEv = tTInteractionAd;
-            ba baVar = eVar.pFv;
+            eVar.f7767b = false;
+            eVar.pOA = tTInteractionAd;
+            ba baVar = eVar.pPA;
             if (baVar != null) {
-                ((aj) baVar).b(eVar.f7764a.f7760a);
+                ((aj) baVar).b(eVar.f7766a.f7762a);
             }
             AdRipper.ripCSJ(tTInteractionAd);
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class b implements TTInteractionAd.AdInteractionListener {
         public b() {
         }
@@ -54,9 +54,9 @@ public class e extends bd {
         public void onAdClicked() {
             m.a("CSJInteractionAd onAdClicked");
             e eVar = e.this;
-            ax axVar = eVar.pFw;
+            ax axVar = eVar.pPB;
             if (axVar != null) {
-                ((am) axVar).a(eVar.f7764a.f7760a, null, eVar.pEv.getInteractionType());
+                ((am) axVar).a(eVar.f7766a.f7762a, null, eVar.pOA.getInteractionType());
             }
         }
 
@@ -64,9 +64,9 @@ public class e extends bd {
         public void onAdDismiss() {
             m.a("CSJInteractionAd onAdDismiss");
             e eVar = e.this;
-            ax axVar = eVar.pFw;
+            ax axVar = eVar.pPB;
             if (axVar != null) {
-                ((am) axVar).b(eVar.f7764a.f7760a);
+                ((am) axVar).b(eVar.f7766a.f7762a);
             }
         }
 
@@ -74,9 +74,9 @@ public class e extends bd {
         public void onAdShow() {
             m.a("CSJInteractionAd onAdShow");
             e eVar = e.this;
-            ax axVar = eVar.pFw;
+            ax axVar = eVar.pPB;
             if (axVar != null) {
-                ((am) axVar).b(eVar.f7764a.f7760a, null, eVar.pEv.getInteractionType());
+                ((am) axVar).b(eVar.f7766a.f7762a, null, eVar.pOA.getInteractionType());
             }
         }
     }
@@ -88,25 +88,25 @@ public class e extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        this.pEv = null;
+        this.pOA = null;
     }
 
     @Override // com.fun.ad.bd
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         super.a(activity, funAdView, axVar);
-        TTInteractionAd tTInteractionAd = this.pEv;
+        TTInteractionAd tTInteractionAd = this.pOA;
         if (tTInteractionAd == null) {
             return;
         }
         tTInteractionAd.setAdInteractionListener(new b());
-        this.pEv.setDownloadListener(new bj(null));
-        this.pEv.showInteractionAd(activity);
+        this.pOA.setDownloadListener(new bj(null));
+        this.pOA.showInteractionAd(activity);
     }
 
     @Override // com.fun.ad.bd
-    public FunRippedAd exX() {
+    public FunRippedAd eAp() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTInteractionAd tTInteractionAd = this.pEv;
+        TTInteractionAd tTInteractionAd = this.pOA;
         if (tTInteractionAd == null || (rippedCSJAd = AdRipper.getRippedCSJAd(tTInteractionAd, false)) == null) {
             return null;
         }
@@ -125,14 +125,14 @@ public class e extends bd {
     @Override // com.fun.ad.bd
     public void a(Context context, FunAdSlot funAdSlot, ba baVar) {
         super.a(context.getApplicationContext(), funAdSlot, baVar);
-        if (!this.f7765b) {
-            this.f7765b = true;
-            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f7764a.f7760a).setSupportDeepLink(true);
-            au.a aVar = this.f7764a;
-            this.pFx.loadInteractionAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).build(), new a());
-            ba baVar2 = this.pFv;
+        if (!this.f7767b) {
+            this.f7767b = true;
+            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f7766a.f7762a).setSupportDeepLink(true);
+            au.a aVar = this.f7766a;
+            this.pPC.loadInteractionAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).build(), new a());
+            ba baVar2 = this.pPA;
             if (baVar2 != null) {
-                ((aj) baVar2).a(this.f7764a.f7760a);
+                ((aj) baVar2).a(this.f7766a.f7762a);
             }
         }
     }

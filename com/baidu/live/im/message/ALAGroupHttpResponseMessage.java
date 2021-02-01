@@ -3,9 +3,9 @@ package com.baidu.live.im.message;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ALAGroupHttpResponseMessage extends JsonHttpResponsedMessage {
-    private boolean bmc;
+    private boolean bpD;
     private List<com.baidu.live.im.data.b> chatMsgs;
     private long mGroupId;
 
@@ -13,19 +13,19 @@ public class ALAGroupHttpResponseMessage extends JsonHttpResponsedMessage {
         super(1021012);
     }
 
-    public boolean JW() {
-        return this.bmc;
+    public boolean Lv() {
+        return this.bpD;
     }
 
-    public void ch(boolean z) {
-        this.bmc = z;
+    public void cp(boolean z) {
+        this.bpD = z;
     }
 
-    public List<com.baidu.live.im.data.b> JX() {
+    public List<com.baidu.live.im.data.b> Lw() {
         return this.chatMsgs;
     }
 
-    public void X(List<com.baidu.live.im.data.b> list) {
+    public void Y(List<com.baidu.live.im.data.b> list) {
         this.chatMsgs = list;
     }
 

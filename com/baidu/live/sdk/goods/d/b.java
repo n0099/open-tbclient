@@ -3,20 +3,20 @@ package com.baidu.live.sdk.goods.d;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.live.data.bq;
+import com.baidu.live.data.bv;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static void N(Context context, String str) {
         Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 scheme=" + str);
-        bq bqVar = com.baidu.live.af.a.OJ().bxp;
-        if (bqVar != null && bqVar.aMS != null) {
-            int i = bqVar.aMS.aPG;
+        bv bvVar = com.baidu.live.ae.a.Qj().bAS;
+        if (bvVar != null && bvVar.aPQ != null) {
+            int i = bvVar.aPQ.aSI;
             Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 preDownload=" + i);
             if (isDebug()) {
                 Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 debug");
@@ -34,9 +34,9 @@ public class b {
 
     public static void e(Context context, ArrayList<String> arrayList) {
         Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 appkeys=" + arrayList);
-        bq bqVar = com.baidu.live.af.a.OJ().bxp;
-        if (bqVar != null && bqVar.aMS != null) {
-            int i = bqVar.aMS.aPG;
+        bv bvVar = com.baidu.live.ae.a.Qj().bAS;
+        if (bvVar != null && bvVar.aPQ != null) {
+            int i = bvVar.aPQ.aSI;
             Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 preDownload=" + i);
             if (isDebug()) {
                 Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 debug");

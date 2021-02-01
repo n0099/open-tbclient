@@ -3,18 +3,18 @@ package com.tencent.turingfd.sdk.ams.au;
 import android.content.Context;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class at {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f13491a = ab.a("mpdc_").append(af.f13467a).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(1).toString();
+    public static final String f13493a = ab.a("mpdc_").append(af.f13469a).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(1).toString();
 
     public static File a(Context context) {
         File dir = context.getDir("turingfd", 0);
         if (dir == null) {
             return null;
         }
-        return new File(dir, f13491a);
+        return new File(dir, f13493a);
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor

@@ -5,9 +5,9 @@ import android.net.Uri;
 import android.view.View;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface d {
-    View Lu();
+    View MS();
 
     void b(int i, Map<String, String> map);
 
@@ -15,7 +15,7 @@ public interface d {
 
     void d(Context context, Uri uri);
 
-    void dB(int i);
+    void dH(int i);
 
     void e(Uri uri);
 

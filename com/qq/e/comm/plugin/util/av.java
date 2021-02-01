@@ -6,22 +6,23 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.GlobalSetting;
 import com.qq.e.comm.managers.status.SDKStatus;
+import com.thunder.livesdk.video.serviceConfig.VideoLiveConfig;
 import org.json.JSONObject;
 import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class av {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile String f12564a = e();
+    private static volatile String f12566a = e();
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile String f12565b = f();
+    private static volatile String f12567b = f();
 
     /* renamed from: com.qq.e.comm.plugin.util.av$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     static final class AnonymousClass1 implements com.tencent.turingfd.sdk.ams.au.s {
         AnonymousClass1() {
         }
@@ -34,7 +35,7 @@ public class av {
     }
 
     /* renamed from: com.qq.e.comm.plugin.util.av$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     static final class AnonymousClass2 implements Runnable {
         AnonymousClass2() {
         }
@@ -59,11 +60,11 @@ public class av {
     }
 
     private static void a(com.tencent.turingfd.sdk.ams.au.r rVar) {
-        gdtadv.getVresult(220, 1, rVar);
+        gdtadv.getVresult(VideoLiveConfig.EncodeType.PHONE_CODEC_HW_H265, 1, rVar);
     }
 
     private static void a(String str) {
-        gdtadv.getVresult(221, 1, str);
+        gdtadv.getVresult(VideoLiveConfig.EncodeType.PHONE_CODEC_X265, 1, str);
     }
 
     public static void a(JSONObject jSONObject, String str) {

@@ -11,7 +11,7 @@ import com.baidu.swan.apps.core.d.i;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/openAdWebPage");
@@ -28,17 +28,17 @@ public class a extends aa {
             com.baidu.swan.apps.console.c.e("AdLanding", "adLanding: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (f.azN().afz() == null) {
+        } else if (f.aAl().afX() == null) {
             com.baidu.swan.apps.console.c.i("AdLandingAction", "open page failed");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         } else {
-            com.baidu.swan.apps.model.b cf = com.baidu.swan.apps.model.b.cf(a2, a2);
-            cf.mParams = a3;
-            if (com.baidu.swan.apps.api.module.k.j.ajU().isFullScreen()) {
-                a(unitedSchemeEntity, cf);
+            com.baidu.swan.apps.model.b bZ = com.baidu.swan.apps.model.b.bZ(a2, a2);
+            bZ.mParams = a3;
+            if (com.baidu.swan.apps.api.module.k.j.aks().isFullScreen()) {
+                a(unitedSchemeEntity, bZ);
             } else {
-                b(unitedSchemeEntity, cf);
+                b(unitedSchemeEntity, bZ);
             }
             com.baidu.swan.apps.console.c.i("AdLanding", "open adLanding page finish");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -47,7 +47,7 @@ public class a extends aa {
     }
 
     private void a(final UnitedSchemeEntity unitedSchemeEntity, final com.baidu.swan.apps.model.b bVar) {
-        com.baidu.swan.apps.api.module.k.j.ajU().ajW();
+        com.baidu.swan.apps.api.module.k.j.aks().aku();
         ak.c(new Runnable() { // from class: com.baidu.swan.apps.adlanding.a.1
             @Override // java.lang.Runnable
             public void run() {

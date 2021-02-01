@@ -1,7 +1,7 @@
 package com.google.zxing.common;
 
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class BitMatrix implements Cloneable {
     private final int[] bits;
     private final int height;

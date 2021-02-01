@@ -2,10 +2,10 @@ package com.qq.e.comm.plugin.t.b;
 
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public enum a {
         GET,
         POST

@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class af extends ac {
     @NonNull
     private String h;
@@ -27,8 +27,8 @@ public class af extends ac {
     @Override // com.bytedance.embedapplog.ac
     @NonNull
     public ac B(@NonNull Cursor cursor) {
-        this.f5774a = cursor.getLong(0);
-        this.f5775b = cursor.getLong(1);
+        this.f5776a = cursor.getLong(0);
+        this.f5777b = cursor.getLong(1);
         this.c = cursor.getString(2);
         this.d = cursor.getString(3);
         this.h = cursor.getString(4);
@@ -38,8 +38,8 @@ public class af extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     protected void d(@NonNull ContentValues contentValues) {
-        contentValues.put("local_time_ms", Long.valueOf(this.f5774a));
-        contentValues.put("tea_event_index", Long.valueOf(this.f5775b));
+        contentValues.put("local_time_ms", Long.valueOf(this.f5776a));
+        contentValues.put("tea_event_index", Long.valueOf(this.f5777b));
         contentValues.put("session_id", this.c);
         contentValues.put("user_unique_id", this.d);
         contentValues.put("params", this.h);
@@ -48,8 +48,8 @@ public class af extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     protected void a(@NonNull JSONObject jSONObject) {
-        jSONObject.put("local_time_ms", this.f5774a);
-        jSONObject.put("tea_event_index", this.f5775b);
+        jSONObject.put("local_time_ms", this.f5776a);
+        jSONObject.put("tea_event_index", this.f5777b);
         jSONObject.put("session_id", this.c);
         jSONObject.put("user_unique_id", this.d);
         jSONObject.put("params", this.h);
@@ -59,8 +59,8 @@ public class af extends ac {
     @Override // com.bytedance.embedapplog.ac
     protected JSONObject b() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("local_time_ms", this.f5774a);
-        jSONObject.put("tea_event_index", this.f5775b);
+        jSONObject.put("local_time_ms", this.f5776a);
+        jSONObject.put("tea_event_index", this.f5777b);
         jSONObject.put("session_id", this.c);
         if (!TextUtils.isEmpty(this.d)) {
             jSONObject.put("user_unique_id", this.d);
@@ -84,9 +84,9 @@ public class af extends ac {
     }
 
     @Override // com.bytedance.embedapplog.ac
-    protected ac eQ(@NonNull JSONObject jSONObject) {
-        this.f5774a = jSONObject.optLong("local_time_ms", 0L);
-        this.f5775b = jSONObject.optLong("tea_event_index", 0L);
+    protected ac eR(@NonNull JSONObject jSONObject) {
+        this.f5776a = jSONObject.optLong("local_time_ms", 0L);
+        this.f5777b = jSONObject.optLong("tea_event_index", 0L);
         this.c = jSONObject.optString("session_id", null);
         this.d = jSONObject.optString("user_unique_id", null);
         this.h = jSONObject.optString("params", null);

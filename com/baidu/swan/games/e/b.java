@@ -2,28 +2,28 @@ package com.baidu.swan.games.e;
 
 import com.baidu.swan.c.d;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public static File aue() {
-        return com.baidu.swan.games.l.a.ww("aigames_debug_dashboard");
+    public static File auC() {
+        return com.baidu.swan.games.l.a.wP("aigames_debug_dashboard");
     }
 
-    public static void auf() {
-        File aue = aue();
-        if (aue.exists()) {
-            d.deleteFile(aue);
+    public static void auD() {
+        File auC = auC();
+        if (auC.exists()) {
+            d.deleteFile(auC);
         }
     }
 
-    public static File aug() {
-        File aue = aue();
-        if (!aue.exists()) {
-            aue.mkdirs();
+    public static File auE() {
+        File auC = auC();
+        if (!auC.exists()) {
+            auC.mkdirs();
         }
-        return new File(aue, "debugDashboard.zip");
+        return new File(auC, "debugDashboard.zip");
     }
 
-    public static String aVF() {
+    public static String aVR() {
         return "meter.js";
     }
 }

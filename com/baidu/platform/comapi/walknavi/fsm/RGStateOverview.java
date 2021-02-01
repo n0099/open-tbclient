@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.model.inner.MapBound;
 import com.baidu.platform.comapi.walknavi.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RGStateOverview extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {

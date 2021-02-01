@@ -5,7 +5,7 @@ import com.xiaomi.push.je;
 public class jb {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ji f14165a;
+    private final ji f14167a;
 
     /* renamed from: a  reason: collision with other field name */
     private final jr f847a;
@@ -16,15 +16,15 @@ public class jb {
 
     public jb(jk jkVar) {
         this.f847a = new jr();
-        this.f14165a = jkVar.a(this.f847a);
+        this.f14167a = jkVar.a(this.f847a);
     }
 
     public void a(ix ixVar, byte[] bArr) {
         try {
             this.f847a.a(bArr);
-            ixVar.a(this.f14165a);
+            ixVar.a(this.f14167a);
         } finally {
-            this.f14165a.k();
+            this.f14167a.k();
         }
     }
 }

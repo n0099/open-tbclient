@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.database.a;
 
 import android.database.sqlite.SQLiteDatabase;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static void z(SQLiteDatabase sQLiteDatabase) {
         try {
-            sQLiteDatabase.execSQL(asG());
+            sQLiteDatabase.execSQL(ate());
         } catch (Exception e) {
             e.getStackTrace();
         }
     }
 
-    private static String asG() {
+    private static String ate() {
         return "CREATE TABLE IF NOT EXISTS ai_apps_history (_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL UNIQUE,app_from TEXT,visit_time INTEGER DEFAULT 0);";
     }
 

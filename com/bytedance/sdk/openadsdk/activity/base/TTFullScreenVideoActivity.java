@@ -28,7 +28,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
     private static int aR = 5;
     private static TTFullScreenVideoAd.FullScreenVideoAdInteractionListener aT;

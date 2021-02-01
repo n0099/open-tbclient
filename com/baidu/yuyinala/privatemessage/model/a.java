@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.chatmessage.IMediaDeleteChatSessionListener;
 import com.baidu.yuyinala.privatemessage.session.b.j;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a {
     public abstract void a(Context context, j jVar, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener);
 

@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.imageloader.core.assist.deque;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -12,7 +11,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements BlockingDeque<E>, Serializable {
     private static final long serialVersionUID = -387911632671998426L;
     private final int capacity;
@@ -23,7 +22,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     private final Condition notEmpty;
     private final Condition notFull;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private abstract class AbstractItr implements Iterator<E> {
         private Node<E> lastRet;
         Node<E> next;
@@ -106,7 +105,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class DescendingItr extends LinkedBlockingDeque<E>.AbstractItr {
         private DescendingItr() {
             super();
@@ -123,7 +122,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class Itr extends LinkedBlockingDeque<E>.AbstractItr {
         private Itr() {
             super();
@@ -141,7 +140,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class Node<E> {
         E item;
         Node<E> next;
@@ -153,7 +152,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     public LinkedBlockingDeque() {
-        this((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this(Integer.MAX_VALUE);
     }
 
     public LinkedBlockingDeque(int i) {
@@ -167,7 +166,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     public LinkedBlockingDeque(Collection<? extends E> collection) {
-        this((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this(Integer.MAX_VALUE);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
@@ -356,7 +355,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 
     @Override // java.util.concurrent.BlockingQueue
     public int drainTo(Collection<? super E> collection) {
-        return drainTo(collection, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return drainTo(collection, Integer.MAX_VALUE);
     }
 
     /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: E, ? super E */

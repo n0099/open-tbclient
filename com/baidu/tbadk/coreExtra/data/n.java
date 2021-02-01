@@ -1,20 +1,21 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
+import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private String amM;
-    private String foo;
-    private String fop;
+    private String amC;
+    private String eTL;
+    private String fqH;
     private String mIcon;
     private int mVersion;
 
     public void parserData(JSONObject jSONObject) {
         this.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-        this.foo = jSONObject.optString("tab_code");
-        this.fop = jSONObject.optString("pop_text");
-        this.amM = jSONObject.optString("thread_id");
+        this.eTL = jSONObject.optString(LowFlowsActivityConfig.TAB_CODE);
+        this.fqH = jSONObject.optString("pop_text");
+        this.amC = jSONObject.optString("thread_id");
         this.mVersion = jSONObject.optInt("version");
     }
 
@@ -22,16 +23,16 @@ public class n {
         return this.mIcon;
     }
 
-    public String bvV() {
-        return this.foo;
+    public String getTabCode() {
+        return this.eTL;
     }
 
     public String getPopText() {
-        return this.fop;
+        return this.fqH;
     }
 
     public String getTid() {
-        return this.amM;
+        return this.amC;
     }
 
     public int getVersion() {

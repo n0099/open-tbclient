@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class UnitedSchemeUtility {
     private static final boolean DEBUG = false;
     private static final String PARAMS_KEY = "params";

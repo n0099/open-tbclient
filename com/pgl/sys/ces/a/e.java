@@ -2,6 +2,7 @@ package com.pgl.sys.ces.a;
 
 import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -10,7 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 0, expect 1 */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0070, code lost:
@@ -49,7 +50,7 @@ public class e {
                 a("chmod 777 " + str2);
                 str = a(str2);
                 if (str == null || str.length() == 0) {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(str2, "rw");
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(str2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                     randomAccessFile.seek(16L);
                     randomAccessFile.write(new byte[]{2});
                     randomAccessFile.close();
@@ -70,7 +71,7 @@ public class e {
         String str2 = null;
         try {
             try {
-                process = Runtime.getRuntime().exec(IXAdRequestInfo.SCREEN_HEIGHT);
+                process = Runtime.getRuntime().exec("sh");
                 try {
                     bufferedOutputStream = new BufferedOutputStream(process.getOutputStream());
                 } catch (Exception e) {

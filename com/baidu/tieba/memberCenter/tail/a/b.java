@@ -10,7 +10,7 @@ import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.coreExtra.data.u;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public void a(BdBaseActivity<?> bdBaseActivity, final EditText editText, u uVar) {
         if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
@@ -18,18 +18,18 @@ public class b {
             return;
         }
         String name = uVar.getName();
-        final EmotionGroupType bwd = uVar.bwd();
+        final EmotionGroupType bwv = uVar.bwv();
         if (name != null) {
             final int selectionStart = editText.getSelectionStart();
             final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
-            com.baidu.adp.lib.e.d.mx().a(name, 20, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.memberCenter.tail.a.b.1
+            com.baidu.adp.lib.e.d.mw().a(name, 20, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.memberCenter.tail.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.e.c
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str, i);
                     if (aVar != null) {
-                        b.this.a(editText, spannableStringBuilder, selectionStart, aVar, bwd);
+                        b.this.a(editText, spannableStringBuilder, selectionStart, aVar, bwv);
                     }
                 }
             }, 0, 0, bdBaseActivity.getUniqueId(), null, name, false, null);

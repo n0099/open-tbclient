@@ -5,10 +5,10 @@ import java.util.Map;
 public class ft implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f14030a = "wcc-ml-test10.bj";
+    public static String f14032a = "wcc-ml-test10.bj";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f14031b = ae.f13849a;
+    public static final String f14033b = ae.f13851a;
     public static String c = null;
 
     /* renamed from: a  reason: collision with other field name */
@@ -31,7 +31,7 @@ public class ft implements Cloneable {
     }
 
     public static final String a() {
-        return c != null ? c : ab.m151a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f14031b : "app.chat.xiaomi.net";
+        return c != null ? c : ab.m151a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f14033b : "app.chat.xiaomi.net";
     }
 
     public static final void a(String str) {

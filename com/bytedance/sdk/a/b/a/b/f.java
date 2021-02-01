@@ -14,40 +14,40 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class f {
     private int f;
-    private final com.bytedance.sdk.a.b.a peq;
-    private final d per;
-    private final h pes;
-    private final t pet;
+    private final com.bytedance.sdk.a.b.a poG;
+    private final d poH;
+    private final h poI;
+    private final t poJ;
     private List<Proxy> e = Collections.emptyList();
     private List<InetSocketAddress> g = Collections.emptyList();
     private final List<com.bytedance.sdk.a.b.d> h = new ArrayList();
 
     public f(com.bytedance.sdk.a.b.a aVar, d dVar, h hVar, t tVar) {
-        this.peq = aVar;
-        this.per = dVar;
-        this.pes = hVar;
-        this.pet = tVar;
-        a(aVar.emp(), aVar.emu());
+        this.poG = aVar;
+        this.poH = dVar;
+        this.poI = hVar;
+        this.poJ = tVar;
+        a(aVar.eoJ(), aVar.eoO());
     }
 
     public boolean a() {
         return c() || !this.h.isEmpty();
     }
 
-    public a emF() throws IOException {
+    public a eoZ() throws IOException {
         if (!a()) {
             throw new NoSuchElementException();
         }
         ArrayList arrayList = new ArrayList();
         while (c()) {
-            Proxy emG = emG();
+            Proxy epa = epa();
             int size = this.g.size();
             for (int i = 0; i < size; i++) {
-                com.bytedance.sdk.a.b.d dVar = new com.bytedance.sdk.a.b.d(this.peq, emG, this.g.get(i));
-                if (this.per.c(dVar)) {
+                com.bytedance.sdk.a.b.d dVar = new com.bytedance.sdk.a.b.d(this.poG, epa, this.g.get(i));
+                if (this.poH.c(dVar)) {
                     this.h.add(dVar);
                 } else {
                     arrayList.add(dVar);
@@ -65,10 +65,10 @@ public final class f {
     }
 
     public void a(com.bytedance.sdk.a.b.d dVar, IOException iOException) {
-        if (dVar.ent().type() != Proxy.Type.DIRECT && this.peq.emt() != null) {
-            this.peq.emt().connectFailed(this.peq.emp().enD(), dVar.ent().address(), iOException);
+        if (dVar.epM().type() != Proxy.Type.DIRECT && this.poG.eoN() != null) {
+            this.poG.eoN().connectFailed(this.poG.eoJ().epW(), dVar.epM().address(), iOException);
         }
-        this.per.a(dVar);
+        this.poH.a(dVar);
     }
 
     private void a(s sVar, Proxy proxy) {
@@ -76,7 +76,7 @@ public final class f {
         if (proxy != null) {
             this.e = Collections.singletonList(proxy);
         } else {
-            List<Proxy> select = this.peq.emt().select(sVar.enD());
+            List<Proxy> select = this.poG.eoN().select(sVar.epW());
             if (select != null && !select.isEmpty()) {
                 P = com.bytedance.sdk.a.b.a.c.a(select);
             } else {
@@ -91,9 +91,9 @@ public final class f {
         return this.f < this.e.size();
     }
 
-    private Proxy emG() throws IOException {
+    private Proxy epa() throws IOException {
         if (!c()) {
-            throw new SocketException("No route to " + this.peq.emp().f() + "; exhausted proxy configurations: " + this.e);
+            throw new SocketException("No route to " + this.poG.eoJ().f() + "; exhausted proxy configurations: " + this.e);
         }
         List<Proxy> list = this.e;
         int i = this.f;
@@ -108,8 +108,8 @@ public final class f {
         int g;
         this.g = new ArrayList();
         if (proxy.type() == Proxy.Type.DIRECT || proxy.type() == Proxy.Type.SOCKS) {
-            f = this.peq.emp().f();
-            g = this.peq.emp().g();
+            f = this.poG.eoJ().f();
+            g = this.poG.eoJ().g();
         } else {
             SocketAddress address = proxy.address();
             if (!(address instanceof InetSocketAddress)) {
@@ -126,12 +126,12 @@ public final class f {
             this.g.add(InetSocketAddress.createUnresolved(f, g));
             return;
         }
-        this.pet.a(this.pes, f);
-        List<InetAddress> a2 = this.peq.emq().a(f);
+        this.poJ.a(this.poI, f);
+        List<InetAddress> a2 = this.poG.eoK().a(f);
         if (a2.isEmpty()) {
-            throw new UnknownHostException(this.peq.emq() + " returned no addresses for " + f);
+            throw new UnknownHostException(this.poG.eoK() + " returned no addresses for " + f);
         }
-        this.pet.a(this.pes, f, a2);
+        this.poJ.a(this.poI, f, a2);
         int size = a2.size();
         for (int i = 0; i < size; i++) {
             this.g.add(new InetSocketAddress(a2.get(i), g));
@@ -143,35 +143,35 @@ public final class f {
         return address == null ? inetSocketAddress.getHostName() : address.getHostAddress();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<com.bytedance.sdk.a.b.d> f5867a;
+        private final List<com.bytedance.sdk.a.b.d> f5869a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f5868b = 0;
+        private int f5870b = 0;
 
         a(List<com.bytedance.sdk.a.b.d> list) {
-            this.f5867a = list;
+            this.f5869a = list;
         }
 
         public boolean a() {
-            return this.f5868b < this.f5867a.size();
+            return this.f5870b < this.f5869a.size();
         }
 
-        public com.bytedance.sdk.a.b.d emH() {
+        public com.bytedance.sdk.a.b.d epb() {
             if (!a()) {
                 throw new NoSuchElementException();
             }
-            List<com.bytedance.sdk.a.b.d> list = this.f5867a;
-            int i = this.f5868b;
-            this.f5868b = i + 1;
+            List<com.bytedance.sdk.a.b.d> list = this.f5869a;
+            int i = this.f5870b;
+            this.f5870b = i + 1;
             return list.get(i);
         }
 
         public List<com.bytedance.sdk.a.b.d> c() {
-            return new ArrayList(this.f5867a);
+            return new ArrayList(this.f5869a);
         }
     }
 }

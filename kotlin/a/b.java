@@ -3,7 +3,7 @@ package kotlin.a;
 import kotlin.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 @e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static final <T extends Comparable<?>> int c(T t, T t2) {
         if (t == t2) {

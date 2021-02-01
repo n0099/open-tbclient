@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */

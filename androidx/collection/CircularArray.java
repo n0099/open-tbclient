@@ -1,5 +1,5 @@
 package androidx.collection;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class CircularArray<E> {
     private int mCapacityBitmask;
     private E[] mElements;

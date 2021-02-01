@@ -5,14 +5,14 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.lego.card.view.e;
 /* loaded from: classes.dex */
 public class AdCardViewHolder<T extends e> extends TypeAdapter.ViewHolder {
-    protected T aaG;
+    protected T aaC;
 
     public AdCardViewHolder(T t) {
         super((View) t);
-        this.aaG = t;
+        this.aaC = t;
     }
 
-    public T qY() {
-        return this.aaG;
+    public T qW() {
+        return this.aaC;
     }
 }

@@ -5,7 +5,7 @@ import android.util.JsonToken;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class r {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <T> List<com.airbnb.lottie.e.a<T>> a(JsonReader jsonReader, com.airbnb.lottie.d dVar, float f, aj<T> ajVar) throws IOException {
@@ -61,7 +61,7 @@ class r {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).HO = Float.valueOf(list.get(i2 + 1).BS);
+            list.get(i2).HO = Float.valueOf(list.get(i2 + 1).BT);
             i = i2 + 1;
         }
         com.airbnb.lottie.e.a<?> aVar = list.get(size - 1);

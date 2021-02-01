@@ -2,19 +2,19 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.util.Log;
 import com.baidu.platform.comapi.walknavi.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4274a;
+    private String f4277a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f4275b;
+    private String f4278b;
     private String c;
 
     public WGuideFSM() {
         setInitialState("Entry");
-        this.c = this.f4274a;
+        this.c = this.f4277a;
         FSMTable.initTransition();
     }
 
@@ -29,46 +29,46 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void setInitialState(String str) {
-        this.f4274a = str;
+        this.f4277a = str;
     }
 
     public synchronized void runCurrentState() {
-        if (!this.f4274a.equalsIgnoreCase("Entry")) {
-            stateReflection(this.f4274a, RGState.METHOD_NAME_EXCUTE);
+        if (!this.f4277a.equalsIgnoreCase("Entry")) {
+            stateReflection(this.f4277a, RGState.METHOD_NAME_EXCUTE);
         }
     }
 
     public synchronized void runEntryState() {
         if (b.a().J() == 4) {
-            this.f4274a = "SegEntry";
+            this.f4277a = "SegEntry";
         } else {
-            this.f4274a = "Entry";
+            this.f4277a = "Entry";
         }
-        stateReflection(this.f4274a, RGState.METHOD_NAME_EXCUTE);
+        stateReflection(this.f4277a, RGState.METHOD_NAME_EXCUTE);
     }
 
     public synchronized void run(String str) {
-        String str2 = this.f4274a;
+        String str2 = this.f4277a;
         String queryDestState = FSMTable.queryDestState(str2, str);
         if (queryDestState != null) {
-            this.f4275b = str;
+            this.f4278b = str;
             if ("BACK".equals(queryDestState)) {
                 queryDestState = getBackState(str2);
             }
             stateReflection(str2, RGState.METHOD_NAME_EXIT);
             stateReflection(queryDestState, "enter");
             stateReflection(queryDestState, RGState.METHOD_NAME_EXCUTE);
-            this.f4274a = queryDestState;
+            this.f4277a = queryDestState;
             cacheBackState(queryDestState);
         }
     }
 
     public String getCurrentState() {
-        return this.f4274a;
+        return this.f4277a;
     }
 
     public String getCurrentEvent() {
-        return this.f4275b;
+        return this.f4278b;
     }
 
     public static void saveZoomLevel() {

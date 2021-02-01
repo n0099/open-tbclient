@@ -5,7 +5,7 @@ import android.os.Bundle;
 public class gl extends gj {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14052a;
+    private int f14054a;
 
     /* renamed from: a  reason: collision with other field name */
     private a f477a;
@@ -14,7 +14,7 @@ public class gl extends gj {
     private b f478a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14053b;
+    private String f14055b;
 
     /* loaded from: classes6.dex */
     public enum a {
@@ -40,17 +40,17 @@ public class gl extends gj {
     public gl(Bundle bundle) {
         super(bundle);
         this.f478a = b.available;
-        this.f14053b = null;
-        this.f14052a = Integer.MIN_VALUE;
+        this.f14055b = null;
+        this.f14054a = Integer.MIN_VALUE;
         this.f477a = null;
         if (bundle.containsKey("ext_pres_type")) {
             this.f478a = b.valueOf(bundle.getString("ext_pres_type"));
         }
         if (bundle.containsKey("ext_pres_status")) {
-            this.f14053b = bundle.getString("ext_pres_status");
+            this.f14055b = bundle.getString("ext_pres_status");
         }
         if (bundle.containsKey("ext_pres_prio")) {
-            this.f14052a = bundle.getInt("ext_pres_prio");
+            this.f14054a = bundle.getInt("ext_pres_prio");
         }
         if (bundle.containsKey("ext_pres_mode")) {
             this.f477a = a.valueOf(bundle.getString("ext_pres_mode"));
@@ -59,8 +59,8 @@ public class gl extends gj {
 
     public gl(b bVar) {
         this.f478a = b.available;
-        this.f14053b = null;
-        this.f14052a = Integer.MIN_VALUE;
+        this.f14055b = null;
+        this.f14054a = Integer.MIN_VALUE;
         this.f477a = null;
         a(bVar);
     }
@@ -71,11 +71,11 @@ public class gl extends gj {
         if (this.f478a != null) {
             a2.putString("ext_pres_type", this.f478a.toString());
         }
-        if (this.f14053b != null) {
-            a2.putString("ext_pres_status", this.f14053b);
+        if (this.f14055b != null) {
+            a2.putString("ext_pres_status", this.f14055b);
         }
-        if (this.f14052a != Integer.MIN_VALUE) {
-            a2.putInt("ext_pres_prio", this.f14052a);
+        if (this.f14054a != Integer.MIN_VALUE) {
+            a2.putInt("ext_pres_prio", this.f14054a);
         }
         if (this.f477a != null && this.f477a != a.available) {
             a2.putString("ext_pres_mode", this.f477a.toString());
@@ -106,11 +106,11 @@ public class gl extends gj {
             sb.append(" type=\"").append(this.f478a).append("\"");
         }
         sb.append(">");
-        if (this.f14053b != null) {
-            sb.append("<status>").append(gu.a(this.f14053b)).append("</status>");
+        if (this.f14055b != null) {
+            sb.append("<status>").append(gu.a(this.f14055b)).append("</status>");
         }
-        if (this.f14052a != Integer.MIN_VALUE) {
-            sb.append("<priority>").append(this.f14052a).append("</priority>");
+        if (this.f14054a != Integer.MIN_VALUE) {
+            sb.append("<priority>").append(this.f14054a).append("</priority>");
         }
         if (this.f477a != null && this.f477a != a.available) {
             sb.append("<show>").append(this.f477a).append("</show>");
@@ -128,7 +128,7 @@ public class gl extends gj {
         if (i < -128 || i > 128) {
             throw new IllegalArgumentException("Priority value " + i + " is not valid. Valid range is -128 through 128.");
         }
-        this.f14052a = i;
+        this.f14054a = i;
     }
 
     public void a(a aVar) {
@@ -144,6 +144,6 @@ public class gl extends gj {
 
     @Override // com.xiaomi.push.gj
     public void a(String str) {
-        this.f14053b = str;
+        this.f14055b = str;
     }
 }

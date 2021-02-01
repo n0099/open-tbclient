@@ -10,7 +10,7 @@ public final class FlowableReduce<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qdS.a((j) new ReduceSubscriber(cVar, this.reducer));
+        this.qnW.a((j) new ReduceSubscriber(cVar, this.reducer));
     }
 
     /* loaded from: classes5.dex */
@@ -44,7 +44,7 @@ public final class FlowableReduce<T> extends a<T, T> {
                 try {
                     this.value = (T) io.reactivex.internal.functions.a.m(this.reducer.apply(t2, t), "The reducer returned a null value");
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.O(th);
+                    io.reactivex.exceptions.a.N(th);
                     this.s.cancel();
                     onError(th);
                 }

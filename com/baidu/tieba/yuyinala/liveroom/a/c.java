@@ -1,5 +1,5 @@
 package com.baidu.tieba.yuyinala.liveroom.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface c {
     void cc(String str, int i);
 

@@ -19,7 +19,7 @@ public final class BiConsumerSingleObserver<T> extends AtomicReference<io.reacti
             lazySet(DisposableHelper.DISPOSED);
             this.onCallback.i(null, th);
         } catch (Throwable th2) {
-            io.reactivex.exceptions.a.O(th2);
+            io.reactivex.exceptions.a.N(th2);
             io.reactivex.d.a.onError(new CompositeException(th, th2));
         }
     }
@@ -35,7 +35,7 @@ public final class BiConsumerSingleObserver<T> extends AtomicReference<io.reacti
             lazySet(DisposableHelper.DISPOSED);
             this.onCallback.i(t, null);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.O(th);
+            io.reactivex.exceptions.a.N(th);
             io.reactivex.d.a.onError(th);
         }
     }

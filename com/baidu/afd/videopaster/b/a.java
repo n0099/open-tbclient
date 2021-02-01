@@ -1,18 +1,18 @@
 package com.baidu.afd.videopaster.b;
 /* loaded from: classes.dex */
 public class a {
-    public int abA;
-    public int abB;
-    public int abC;
-    public int abD;
-    public int abE = 3;
-    public int abk;
-    public int abl;
+    public int abg;
+    public int abh;
+    public int abr;
+    public String abt;
+    public int abu;
+    public int abv;
     public int abw;
-    public String abx;
+    public int abx;
     public int aby;
-    public int abz;
+    public int abz = 3;
     public String extraParam;
     public int startPosition;
+    public int totalDuration;
     public String tplName;
 }

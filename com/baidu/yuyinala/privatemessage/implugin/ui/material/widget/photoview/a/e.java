@@ -1,5 +1,5 @@
 package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface e {
     void i(float f, float f2, float f3, float f4);
 

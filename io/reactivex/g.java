@@ -7,7 +7,7 @@ public abstract class g<T> implements org.a.b<T> {
 
     protected abstract void a(org.a.c<? super T> cVar);
 
-    public static int eHO() {
+    public static int eKe() {
         return BUFFER_SIZE;
     }
 
@@ -35,7 +35,7 @@ public abstract class g<T> implements org.a.b<T> {
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.O(th);
+            io.reactivex.exceptions.a.N(th);
             io.reactivex.d.a.onError(th);
             NullPointerException nullPointerException = new NullPointerException("Actually not, but can't throw other exceptions due to RS");
             nullPointerException.initCause(th);

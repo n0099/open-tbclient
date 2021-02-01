@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.m;
 
 import android.content.Context;
 import android.content.pm.ServiceInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i {
     public static boolean a(Context context, String str, String str2) {
         ServiceInfo[] serviceInfoArr;

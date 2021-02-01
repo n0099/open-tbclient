@@ -6,7 +6,7 @@ import com.kwai.video.hodor.BaseTaskInfo;
 import com.kwai.video.hodor.IHodorTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AcCallBackInfo {
     public static final int STOP_REASON_BYTE_RANGE_INVALID = 7;
     public static final int STOP_REASON_CANCELLED = 2;
@@ -45,7 +45,7 @@ public class AcCallBackInfo {
     public int transferConsumeMs;
     public String xKsCache;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface DownloadStopReason {
     }
 

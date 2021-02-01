@@ -39,10 +39,10 @@ public final class aw {
                         if ((info != null ? info.getPs() : 0) == 0) {
                             if (!a(context, Uri.parse(open2), info)) {
                                 if (info.getOpent() == 1) {
-                                    if (bu.eHa().pYM) {
+                                    if (bu.eJq().qiQ) {
                                         Toast.makeText(context, context.getString(d.e.wdownload_loading), 1).show();
                                         if (info != null) {
-                                            w.iK(context).a(new x(info), 5).eGz();
+                                            w.iN(context).a(new x(info), 5).eIP();
                                             return;
                                         }
                                         return;
@@ -50,7 +50,7 @@ public final class aw {
                                     if (info != null && !TextUtils.isEmpty(info.getDl_name())) {
                                         Toast.makeText(context, context.getString(d.e.wdownload_start_load) + info.getDl_name(), 0).show();
                                     }
-                                    w.iK(context).d(new x(info), info.getOpen()).eGz();
+                                    w.iN(context).d(new x(info), info.getOpen()).eIP();
                                     if (bjVar != null) {
                                         bjVar.a(info);
                                         return;
@@ -79,9 +79,9 @@ public final class aw {
                             }
                             return;
                         }
-                        final bf eGW = bf.eGW();
-                        eGW.pYJ = context;
-                        eGW.pZe = info;
+                        final bf eJm = bf.eJm();
+                        eJm.qiN = context;
+                        eJm.qji = info;
                         WebView webView = new WebView(context);
                         WebSettings settings = webView.getSettings();
                         settings.setAllowContentAccess(true);
@@ -92,7 +92,7 @@ public final class aw {
                             webView.removeJavascriptInterface("accessibilityTraversal");
                         }
                         webView.setWebViewClient(new WebViewClient() { // from class: com.win.opensdk.bf.2
-                            private boolean pYM;
+                            private boolean qiQ;
 
                             @Override // android.webkit.WebViewClient
                             public final void onPageStarted(WebView webView2, String str2, Bitmap bitmap) {
@@ -101,18 +101,18 @@ public final class aw {
 
                             @Override // android.webkit.WebViewClient
                             public final boolean shouldOverrideUrlLoading(WebView webView2, String str2) {
-                                return Build.VERSION.SDK_INT < 24 ? aaD(str2) : super.shouldOverrideUrlLoading(webView2, str2);
+                                return Build.VERSION.SDK_INT < 24 ? abE(str2) : super.shouldOverrideUrlLoading(webView2, str2);
                             }
 
                             @Override // android.webkit.WebViewClient
                             public final boolean shouldOverrideUrlLoading(WebView webView2, WebResourceRequest webResourceRequest) {
-                                return Build.VERSION.SDK_INT >= 24 ? aaD(webResourceRequest.getUrl().toString()) : super.shouldOverrideUrlLoading(webView2, webResourceRequest);
+                                return Build.VERSION.SDK_INT >= 24 ? abE(webResourceRequest.getUrl().toString()) : super.shouldOverrideUrlLoading(webView2, webResourceRequest);
                             }
 
-                            private boolean aaD(String str2) {
+                            private boolean abE(String str2) {
                                 Uri parse = Uri.parse(str2);
                                 if (bf.ai(parse) || bf.aj(parse)) {
-                                    this.pYM = true;
+                                    this.qiQ = true;
                                     if (aw.a(context, parse, null)) {
                                         return true;
                                     }
@@ -125,13 +125,13 @@ public final class aw {
                             @Override // android.webkit.WebViewClient
                             public final void onPageFinished(WebView webView2, String str2) {
                                 super.onPageFinished(webView2, str2);
-                                bf.this.pZR.removeMessages(11);
-                                if (!this.pYM) {
-                                    w.iK(context).b(new x(info), 2004, str2).eGz();
+                                bf.this.qjV.removeMessages(11);
+                                if (!this.qiQ) {
+                                    w.iN(context).b(new x(info), 2004, str2).eIP();
                                     Message obtain = Message.obtain();
                                     obtain.what = 12;
                                     obtain.obj = open2;
-                                    bf.this.pZR.sendMessage(obtain);
+                                    bf.this.qjV.sendMessage(obtain);
                                 }
                             }
                         });
@@ -141,7 +141,7 @@ public final class aw {
                         Message obtain = Message.obtain();
                         obtain.what = 11;
                         obtain.obj = open2;
-                        eGW.pZR.sendMessageDelayed(obtain, 5000L);
+                        eJm.qjV.sendMessageDelayed(obtain, 5000L);
                         return;
                     }
                     return;
@@ -157,7 +157,7 @@ public final class aw {
         }
     }
 
-    public static void bJ(Context context, String str) {
+    public static void bI(Context context, String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 Uri parse = Uri.parse(str);
@@ -182,8 +182,8 @@ public final class aw {
                     }
                 } catch (Exception e) {
                     if (info != null) {
-                        w.iK(context).a(new x(info), e.getMessage(), 2).eGz();
-                        a.pYU = false;
+                        w.iN(context).a(new x(info), e.getMessage(), 2).eIP();
+                        a.qiY = false;
                         return false;
                     }
                     return false;
@@ -191,8 +191,8 @@ public final class aw {
             }
             be.j(context, uri);
             if (info != null) {
-                w.iK(context).a(new x(info), uri.toString(), 0).eGz();
-                a.pYU = true;
+                w.iN(context).a(new x(info), uri.toString(), 0).eIP();
+                a.qiY = true;
             }
             return true;
         }

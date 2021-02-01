@@ -3,7 +3,7 @@ package com.alibaba.fastjson.parser.deserializer;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import java.lang.reflect.Type;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PropertyProcessableDeserializer implements ObjectDeserializer {
     public final Class<PropertyProcessable> type;
 

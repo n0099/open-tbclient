@@ -7,44 +7,44 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static String cdF = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
-    private Set<String> cdG;
+    private static String chN = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
+    private Set<String> chO;
     private SharedPreferences mPreference;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static b cdH = new b();
+        public static b chP = new b();
     }
 
-    public static b ZC() {
-        return a.cdH;
+    public static b abr() {
+        return a.chP;
     }
 
     private b() {
         this.mPreference = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public void ir(String str) {
+    public void iX(String str) {
         if (!StringUtils.isNull(str)) {
-            this.cdG = this.mPreference.getStringSet(cdF, null);
-            if (this.cdG == null) {
-                this.cdG = new HashSet();
+            this.chO = this.mPreference.getStringSet(chN, null);
+            if (this.chO == null) {
+                this.chO = new HashSet();
             }
-            this.cdG.add(str);
-            this.mPreference.edit().putStringSet(cdF, this.cdG).commit();
+            this.chO.add(str);
+            this.mPreference.edit().putStringSet(chN, this.chO).commit();
         }
     }
 
-    public boolean is(String str) {
+    public boolean iY(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (this.cdG == null) {
-            this.cdG = this.mPreference.getStringSet(cdF, null);
+        if (this.chO == null) {
+            this.chO = this.mPreference.getStringSet(chN, null);
         }
-        if (this.cdG != null) {
-            return this.cdG.contains(str);
+        if (this.chO != null) {
+            return this.chO.contains(str);
         }
         return false;
     }

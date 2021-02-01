@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PublicMsg implements Parcelable {
     public static final Parcelable.Creator<PublicMsg> CREATOR = new Parcelable.Creator<PublicMsg>() { // from class: com.baidu.android.pushservice.message.PublicMsg.2
         /* JADX DEBUG: Method merged with bridge method */

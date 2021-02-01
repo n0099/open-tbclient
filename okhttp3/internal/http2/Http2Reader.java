@@ -1,6 +1,5 @@
 package okhttp3.internal.http2;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +13,7 @@ import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class Http2Reader implements Closeable {
     static final Logger logger = Logger.getLogger(Http2.class.getName());
     private final boolean client;
@@ -23,7 +22,7 @@ public final class Http2Reader implements Closeable {
     private final BufferedSource source;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface Handler {
         void ackSettings();
 
@@ -84,7 +83,7 @@ public final class Http2Reader implements Closeable {
                 throw Http2.ioException("Expected a SETTINGS frame but was %s", Byte.valueOf(readByte));
             }
             byte readByte2 = (byte) (this.source.readByte() & 255);
-            int readInt = this.source.readInt() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int readInt = this.source.readInt() & Integer.MAX_VALUE;
             if (logger.isLoggable(Level.FINE)) {
                 logger.fine(Http2.frameLog(true, readInt, readMedium, readByte, readByte2));
             }
@@ -174,7 +173,7 @@ public final class Http2Reader implements Closeable {
 
     private void readPriority(Handler handler, int i) throws IOException {
         int readInt = this.source.readInt();
-        handler.priority(i, readInt & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, (this.source.readByte() & 255) + 1, (Integer.MIN_VALUE & readInt) != 0);
+        handler.priority(i, readInt & Integer.MAX_VALUE, (this.source.readByte() & 255) + 1, (Integer.MIN_VALUE & readInt) != 0);
     }
 
     private void readRstStream(Handler handler, int i, byte b2, int i2) throws IOException {
@@ -240,7 +239,7 @@ public final class Http2Reader implements Closeable {
             throw Http2.ioException("PROTOCOL_ERROR: TYPE_PUSH_PROMISE streamId == 0", new Object[0]);
         }
         short readByte = (b2 & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
-        handler.pushPromise(i2, this.source.readInt() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, readHeaderBlock(lengthWithoutPadding(i - 4, b2, readByte), readByte, b2, i2));
+        handler.pushPromise(i2, this.source.readInt() & Integer.MAX_VALUE, readHeaderBlock(lengthWithoutPadding(i - 4, b2, readByte), readByte, b2, i2));
     }
 
     private void readPing(Handler handler, int i, byte b2, int i2) throws IOException {
@@ -291,7 +290,7 @@ public final class Http2Reader implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static final class ContinuationSource implements Source {
         byte flags;
         int left;
@@ -341,7 +340,7 @@ public final class Http2Reader implements Closeable {
             if (Http2Reader.logger.isLoggable(Level.FINE)) {
                 Http2Reader.logger.fine(Http2.frameLog(true, this.streamId, this.length, readByte, this.flags));
             }
-            this.streamId = this.source.readInt() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            this.streamId = this.source.readInt() & Integer.MAX_VALUE;
             if (readByte != 9) {
                 throw Http2.ioException("%s != TYPE_CONTINUATION", Byte.valueOf(readByte));
             }

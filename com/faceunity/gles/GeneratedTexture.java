@@ -5,22 +5,22 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GeneratedTexture {
-    private static final int[] pEl = {-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, MotionEventCompat.ACTION_POINTER_INDEX_MASK, -2147483393, ViewCompat.MEASURED_STATE_MASK, InputDeviceCompat.SOURCE_ANY, -65281, InputDeviceCompat.SOURCE_ANY, SupportMenu.CATEGORY_MASK};
-    private static final ByteBuffer pEm = exV();
-    private static final ByteBuffer pEn = exW();
+    private static final int[] pOq = {-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, MotionEventCompat.ACTION_POINTER_INDEX_MASK, -2147483393, ViewCompat.MEASURED_STATE_MASK, InputDeviceCompat.SOURCE_ANY, -65281, InputDeviceCompat.SOURCE_ANY, SupportMenu.CATEGORY_MASK};
+    private static final ByteBuffer pOr = eAn();
+    private static final ByteBuffer pOs = eAo();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum Image {
         COARSE,
         FINE
     }
 
-    private static ByteBuffer exV() {
+    private static ByteBuffer eAn() {
         byte[] bArr = new byte[16384];
         for (int i = 0; i < bArr.length; i += 4) {
-            int i2 = pEl[((((i / 4) / 64) / 16) * 4) + (((i / 4) % 64) / 16)];
+            int i2 = pOq[((((i / 4) / 64) / 16) * 4) + (((i / 4) % 64) / 16)];
             if (i == 0) {
                 i2 = -1;
             } else if (i == bArr.length - 4) {
@@ -40,7 +40,7 @@ public class GeneratedTexture {
         return allocateDirect;
     }
 
-    private static ByteBuffer exW() {
+    private static ByteBuffer eAo() {
         byte[] bArr = new byte[16384];
         a(bArr, 0, 0, 32, 32, -16776961, SupportMenu.CATEGORY_MASK, 1);
         a(bArr, 32, 32, 64, 64, -16776961, -16711936, 2);

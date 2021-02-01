@@ -5,11 +5,11 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.DarkImageView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class c {
-    public TextView oNJ;
-    public TextView oNK;
-    public DarkImageView oNL;
+    public TextView oXT;
+    public TextView oXU;
+    public DarkImageView oXV;
 
     public abstract View getContentView();
 

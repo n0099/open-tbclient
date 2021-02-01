@@ -6,10 +6,10 @@ import com.baidu.fsg.face.base.dto.SapiBiometricDto;
 public class c extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2082a = "1.3.7";
+    public static final String f2080a = "1.3.7";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f2083b = 32;
+    public static final int f2081b = 32;
     private static c c;
 
     private c() {

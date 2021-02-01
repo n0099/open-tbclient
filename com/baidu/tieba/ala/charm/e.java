@@ -5,152 +5,152 @@ import android.view.View;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.r;
+import com.baidu.live.data.v;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.charm.model.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e implements com.baidu.live.liveroom.d.d {
-    private String aBO;
-    private String bab;
-    private boolean bkm;
-    private ALaCharmCardActivity gKK;
-    private d gLi;
-    private com.baidu.tieba.ala.charm.model.b gLj;
-    private String gLk;
-    private long gLl;
-    b.a gLm = new b.a() { // from class: com.baidu.tieba.ala.charm.e.1
+    private String aDB;
+    private String bdi;
+    private boolean bnF;
+    private d gNO;
+    private com.baidu.tieba.ala.charm.model.b gNP;
+    private String gNQ;
+    private long gNR;
+    b.a gNS = new b.a() { // from class: com.baidu.tieba.ala.charm.e.1
         @Override // com.baidu.tieba.ala.charm.model.b.a
-        public void a(long j, r rVar, AlaLiveUserInfoData alaLiveUserInfoData, long j2) {
-            if (e.this.gLi != null) {
-                e.this.gLi.eZ(j);
-                if (rVar == null) {
-                    e.this.gLi.dI(true);
+        public void a(long j, v vVar, AlaLiveUserInfoData alaLiveUserInfoData, long j2) {
+            if (e.this.gNO != null) {
+                e.this.gNO.ff(j);
+                if (vVar == null) {
+                    e.this.gNO.dQ(true);
                     return;
                 }
-                e.this.gLi.Vq();
-                e.this.gLi.a(rVar.getList(), alaLiveUserInfoData, j2);
-                int size = rVar.getList().size();
+                e.this.gNO.WZ();
+                e.this.gNO.a(vVar.getList(), alaLiveUserInfoData, j2);
+                int size = vVar.getList().size();
                 if (size <= 0) {
-                    e.this.gLi.dI(true);
+                    e.this.gNO.dQ(true);
                 } else if (size < 100) {
-                    e.this.gLi.aC(e.this.gKK.getPageContext().getResources().getString(a.h.online_no_more), true);
+                    e.this.gNO.aB(e.this.gNq.getPageContext().getResources().getString(a.h.online_no_more), true);
                 } else {
-                    e.this.gLi.aC(e.this.gKK.getPageContext().getResources().getString(a.h.online_show_100), false);
+                    e.this.gNO.aB(e.this.gNq.getPageContext().getResources().getString(a.h.online_show_100), false);
                 }
             }
         }
 
         @Override // com.baidu.tieba.ala.charm.model.b.a
-        public void w(int i, String str) {
-            if (e.this.gLi != null) {
-                e.this.gLi.dI(false);
-                e.this.gLi.n(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.e.1.1
+        public void A(int i, String str) {
+            if (e.this.gNO != null) {
+                e.this.gNO.dQ(false);
+                e.this.gNO.n(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.e.1.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
-                            if (e.this.gLj != null) {
-                                e.this.gLj.w(e.this.mLiveId, 0, 0);
+                            if (e.this.gNP != null) {
+                                e.this.gNP.w(e.this.mLiveId, 0, 0);
                                 return;
                             }
                             return;
                         }
-                        e.this.gKK.getPageContext().showToast(e.this.gKK.getResources().getString(a.h.sdk_no_network_guide));
+                        e.this.gNq.getPageContext().showToast(e.this.gNq.getResources().getString(a.h.sdk_no_network_guide));
                     }
                 });
             }
         }
     };
-    b.InterfaceC0625b gLn = new b.InterfaceC0625b() { // from class: com.baidu.tieba.ala.charm.e.2
-        @Override // com.baidu.tieba.ala.charm.model.b.InterfaceC0625b
+    b.InterfaceC0624b gNT = new b.InterfaceC0624b() { // from class: com.baidu.tieba.ala.charm.e.2
+        @Override // com.baidu.tieba.ala.charm.model.b.InterfaceC0624b
         public void u(long j, int i) {
-            e.this.gLi.t(j, i);
+            e.this.gNO.t(j, i);
         }
 
-        @Override // com.baidu.tieba.ala.charm.model.b.InterfaceC0625b
-        public void w(int i, String str) {
+        @Override // com.baidu.tieba.ala.charm.model.b.InterfaceC0624b
+        public void A(int i, String str) {
             if (TextUtils.isEmpty(str)) {
-                BdUtilHelper.showToast(e.this.gKK, e.this.gKK.getString(a.h.sdk_poke_poke_once_fail));
+                BdUtilHelper.showToast(e.this.gNq, e.this.gNq.getString(a.h.sdk_poke_poke_once_fail));
             } else {
-                BdUtilHelper.showToast(e.this.gKK, str);
+                BdUtilHelper.showToast(e.this.gNq, str);
             }
         }
     };
+    private ALaCharmCardActivity gNq;
     private String mGroupId;
     private String mLiveId;
 
     public e(ALaCharmCardActivity aLaCharmCardActivity) {
-        this.gKK = aLaCharmCardActivity;
+        this.gNq = aLaCharmCardActivity;
     }
 
     public void createView() {
-        this.gLi = new d(this.gKK, this.mGroupId, this.mLiveId, this.bkm, this.aBO, this.gLk, this.bab);
+        this.gNO = new d(this.gNq, this.mGroupId, this.mLiveId, this.bnF, this.aDB, this.gNQ, this.bdi);
         loadData();
     }
 
     private void loadData() {
-        if (this.gLj == null) {
-            this.gLj = new com.baidu.tieba.ala.charm.model.b(this.gKK.getPageContext(), this.gLm, this.gLn);
+        if (this.gNP == null) {
+            this.gNP = new com.baidu.tieba.ala.charm.model.b(this.gNq.getPageContext(), this.gNS, this.gNT);
         }
-        this.gLj.v(this.mLiveId, 0, 100);
+        this.gNP.v(this.mLiveId, 0, 100);
     }
 
-    public void eZ(long j) {
-        this.gLl = j;
-        if (this.gLi != null) {
-            this.gLi.eZ(j);
+    public void ff(long j) {
+        this.gNR = j;
+        if (this.gNO != null) {
+            this.gNO.ff(j);
         }
     }
 
-    public e FP(String str) {
+    public e Go(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public e FQ(String str) {
+    public e Gp(String str) {
         this.mLiveId = str;
         return this;
     }
 
-    public e mP(boolean z) {
-        this.bkm = z;
+    public e mT(boolean z) {
+        this.bnF = z;
         return this;
     }
 
-    public e FR(String str) {
-        this.aBO = str;
+    public e Gq(String str) {
+        this.aDB = str;
         return this;
     }
 
-    public e FS(String str) {
-        this.gLk = str;
+    public e Gr(String str) {
+        this.gNQ = str;
         return this;
     }
 
-    public e FT(String str) {
-        this.bab = str;
+    public e Gs(String str) {
+        this.bdi = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.gLi == null) {
+        if (this.gNO == null) {
             return null;
         }
-        return this.gLi.getRootView();
+        return this.gNO.getRootView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.gKK.getResources().getString(a.h.audience_list_title);
+        return this.gNq.getResources().getString(a.h.audience_list_title);
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Im() {
+    public String JK() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short In() {
+    public short JL() {
         return (short) 0;
     }
 
@@ -164,8 +164,8 @@ public class e implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.gLj != null) {
-            this.gLj.onDestroy();
+        if (this.gNP != null) {
+            this.gNP.onDestroy();
         }
     }
 

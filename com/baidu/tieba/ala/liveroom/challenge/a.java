@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.liveroom.challenge;
 import com.baidu.live.challenge.h;
 import com.baidu.live.challenge.i;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements com.baidu.live.challenge.e {
     @Override // com.baidu.live.challenge.e
     public i a(TbPageContext tbPageContext) {

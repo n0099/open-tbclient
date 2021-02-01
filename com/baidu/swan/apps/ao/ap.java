@@ -1,34 +1,34 @@
 package com.baidu.swan.apps.ao;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ap {
-    private int dNt;
+    private int dPz;
 
     private ap() {
-        this.dNt = 0;
+        this.dPz = 0;
     }
 
-    public void kk(int i) {
-        this.dNt = i;
+    public void kn(int i) {
+        this.dPz = i;
     }
 
     public void reset() {
-        this.dNt = 0;
+        this.dPz = 0;
     }
 
-    public boolean aOf() {
-        return this.dNt != 0;
+    public boolean aOy() {
+        return this.dPz != 0;
     }
 
-    public int aOg() {
-        return aOf() ? 1 : 0;
+    public int aOz() {
+        return aOy() ? 1 : 0;
     }
 
-    public static ap aOh() {
-        return a.dNu;
+    public static ap aOA() {
+        return a.dPA;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     private static class a {
-        private static final ap dNu = new ap();
+        private static final ap dPA = new ap();
     }
 }

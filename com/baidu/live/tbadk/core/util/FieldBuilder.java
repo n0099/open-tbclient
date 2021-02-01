@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.util;
 
 import com.baidu.live.adp.lib.util.BdLog;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FieldBuilder {
     private static final String EQ = "=";
     private static final String SE = "|";

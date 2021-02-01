@@ -1,15 +1,15 @@
 package com.baidu.live.videochat.e;
 
 import com.baidu.live.data.AlaLiveInfoData;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface g extends c {
-    void Q(int i, String str);
+    void U(int i, String str);
 
-    void R(int i, String str);
+    void V(int i, String str);
 
-    void UB();
+    void Wk();
 
-    void UC();
+    void Wl();
 
     void a(AlaLiveInfoData alaLiveInfoData, com.baidu.live.videochat.b.a aVar, com.baidu.live.videochat.b.c cVar);
 }

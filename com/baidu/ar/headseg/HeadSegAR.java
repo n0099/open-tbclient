@@ -18,13 +18,13 @@ public class HeadSegAR extends c {
     private e qz = new e() { // from class: com.baidu.ar.headseg.HeadSegAR.1
         @Override // com.baidu.ar.d.e
         public void a(b bVar) {
-            long de2 = bVar.de();
+            long de = bVar.de();
             l r = HeadSegAR.this.r();
-            if (r == null || de2 <= 0 || HeadSegAR.this.cb == null) {
+            if (r == null || de <= 0 || HeadSegAR.this.cb == null) {
                 return;
             }
-            HeadSegAR.this.cb.sendHandleToRenderer(de2, r, "ability_head_segmentation");
-            HeadSegAR.this.a(de2);
+            HeadSegAR.this.cb.sendHandleToRenderer(de, r, "ability_head_segmentation");
+            HeadSegAR.this.a(de);
         }
 
         @Override // com.baidu.ar.d.e
@@ -43,13 +43,13 @@ public class HeadSegAR extends c {
     private e lE = new e() { // from class: com.baidu.ar.headseg.HeadSegAR.2
         @Override // com.baidu.ar.d.e
         public void a(b bVar) {
-            long de2 = bVar.de();
+            long de = bVar.de();
             if (HeadSegAR.this.cb == null) {
                 ARMdlInterfaceJNI.updateLastFaceInfo(0L);
-            } else if (HeadSegAR.this.cb.getHandleType(de2) == 10) {
-                ARMdlInterfaceJNI.updateLastFaceInfo(de2);
+            } else if (HeadSegAR.this.cb.getHandleType(de) == 10) {
+                ARMdlInterfaceJNI.updateLastFaceInfo(de);
             }
-            AlgoHandleAdapter.destroyHandle(de2);
+            AlgoHandleAdapter.destroyHandle(de);
         }
 
         @Override // com.baidu.ar.d.e

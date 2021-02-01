@@ -2,7 +2,7 @@ package org.webrtc;
 
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RTCStatsReport {
     private final Map<String, RTCStats> stats;
     private final long timestampUs;

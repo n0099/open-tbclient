@@ -1,21 +1,21 @@
 package com.baidu.n.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface c {
-    void Al(boolean z);
+    void AE(boolean z);
 
-    void Am(boolean z);
+    void AF(boolean z);
 
-    void MX(int i);
+    void Nt(int i);
 
-    void WO(String str);
+    void XN(String str);
 
-    void WP(String str);
+    void XO(String str);
 
-    void WQ(String str);
+    void XP(String str);
 
-    c egk();
+    c eiC();
 
-    boolean egl();
+    boolean eiD();
 
     String getAAID();
 

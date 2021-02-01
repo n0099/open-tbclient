@@ -18,13 +18,13 @@ public final class ej {
         private boolean e;
 
         /* renamed from: a  reason: collision with root package name */
-        private int f13969a = 0;
+        private int f13971a = 0;
 
         /* renamed from: c  reason: collision with other field name */
         private boolean f316c = false;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f13970b = 0;
+        private int f13972b = 0;
         private boolean f = false;
 
         /* renamed from: a  reason: collision with other field name */
@@ -49,7 +49,7 @@ public final class ej {
 
         public a a(int i) {
             this.f314a = true;
-            this.f13969a = i;
+            this.f13971a = i;
             return this;
         }
 
@@ -154,7 +154,7 @@ public final class ej {
 
         public a b(int i) {
             this.d = true;
-            this.f13970b = i;
+            this.f13972b = i;
             return this;
         }
 
@@ -170,7 +170,7 @@ public final class ej {
         }
 
         public int c() {
-            return this.f13969a;
+            return this.f13971a;
         }
 
         /* renamed from: c  reason: collision with other method in class */
@@ -179,7 +179,7 @@ public final class ej {
         }
 
         public int d() {
-            return this.f13970b;
+            return this.f13972b;
         }
 
         /* renamed from: d  reason: collision with other method in class */

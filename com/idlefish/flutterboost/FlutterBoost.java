@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class FlutterBoost {
     private static boolean sInit;
     static FlutterBoost sInstance = null;
@@ -44,7 +44,7 @@ public class FlutterBoost {
     private boolean mEnterActivityCreate = false;
     private long FlutterPostFrameCallTime = 0;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface BoostLifecycleListener {
         void beforeCreateEngine();
 
@@ -175,7 +175,7 @@ public class FlutterBoost {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class ConfigBuilder {
         private BoostLifecycleListener lifecycleListener;
         private Application mApp;
@@ -284,7 +284,7 @@ public class FlutterBoost {
         }
         if (this.mEngine == null) {
             synchronized (com.baidu.adp.plugin.util.a.mLock) {
-                PluginSetting findPluginSetting = c.pZ().findPluginSetting("com.baidu.tieba.pluginFlutter");
+                PluginSetting findPluginSetting = c.pX().findPluginSetting("com.baidu.tieba.pluginFlutter");
                 try {
                     if (FlutterCrashRepairEnableSwitch.isOn() && findPluginSetting != null && findPluginSetting.apkPath != null) {
                         Object pathList = com.baidu.adp.plugin.util.a.getPathList((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());

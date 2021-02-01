@@ -10,19 +10,19 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.a.c;
 import com.baidu.tieba.ala.alasquare.widget.b;
 import com.baidu.tieba.ala.alasquare.widget.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
-    private int gvt;
-    d gvu;
+    private int gyd;
+    d gye;
     private TbPageContext<?> mPageContext;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: P */
+    /* renamed from: N */
     public SquareActiveAllViewHolder e(ViewGroup viewGroup) {
         b bVar = new b(this.mPageContext);
-        bVar.a(this.gvu);
+        bVar.a(this.gye);
         return new SquareActiveAllViewHolder(bVar);
     }
 
@@ -31,23 +31,23 @@ public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, SquareActiveAllViewHolder squareActiveAllViewHolder) {
         b bVar;
-        if (squareActiveAllViewHolder == null || (bVar = squareActiveAllViewHolder.gvx) == null || bVar.getView() == null) {
+        if (squareActiveAllViewHolder == null || (bVar = squareActiveAllViewHolder.gyh) == null || bVar.getView() == null) {
             return null;
         }
         bVar.a(cVar);
-        if (i == this.gvt) {
+        if (i == this.gyd) {
             bVar.getView().setAnimation(AnimationUtils.loadAnimation(this.mContext, R.anim.list_anim));
         }
         return squareActiveAllViewHolder.getView();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class SquareActiveAllViewHolder extends TypeAdapter.ViewHolder {
-        public b gvx;
+        public b gyh;
 
         public SquareActiveAllViewHolder(b bVar) {
             super(bVar.getView());
-            this.gvx = bVar;
+            this.gyh = bVar;
         }
     }
 }

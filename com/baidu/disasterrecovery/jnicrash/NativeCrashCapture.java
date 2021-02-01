@@ -8,7 +8,7 @@ import com.baidu.android.util.soloader.SoLoader;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.logsystem.util.LLog;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NativeCrashCapture implements NoProGuard {
     private static final String SO_INIT_FLAG_FILE = "jnicrash_so_init_fail_flag";
     private static final String SO_LOAD_FLAG_FILE = "jnicrash_so_load_fail_flag";
@@ -41,7 +41,7 @@ public class NativeCrashCapture implements NoProGuard {
                 }
                 nativeInit(Build.VERSION.SDK_INT);
                 if (z) {
-                    com.baidu.disasterrecovery.jnicrash.a.uz();
+                    com.baidu.disasterrecovery.jnicrash.a.uw();
                 }
                 file.delete();
                 if (DEBUG) {
@@ -98,7 +98,7 @@ public class NativeCrashCapture implements NoProGuard {
     public static void beginNativeCrash() {
         if (Build.VERSION.SDK_INT > 19) {
             if (sNativeCrashHandler != null) {
-                sNativeCrashHandler.uC();
+                sNativeCrashHandler.uz();
                 return;
             }
             return;
@@ -107,7 +107,7 @@ public class NativeCrashCapture implements NoProGuard {
             Log.d(TAG, "beginNativeCrash");
         }
         if (sNativeCrashHandler != null) {
-            sNativeCrashHandler.uC();
+            sNativeCrashHandler.uz();
         }
     }
 
@@ -126,20 +126,20 @@ public class NativeCrashCapture implements NoProGuard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class a extends Thread {
         public static void init() {
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            NativeCrashCapture.sNativeCrashHandler.uC();
+            NativeCrashCapture.sNativeCrashHandler.uz();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class b extends Thread {
-        String arf;
+        String aqV;
         int pid;
         int tid;
 
@@ -149,7 +149,7 @@ public class NativeCrashCapture implements NoProGuard {
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             if (NativeCrashCapture.sNativeCrashHandler != null) {
-                NativeCrashCapture.sNativeCrashHandler.uncaughtNativeCrash(this.arf, this.pid, this.tid);
+                NativeCrashCapture.sNativeCrashHandler.uncaughtNativeCrash(this.aqV, this.pid, this.tid);
             }
         }
     }

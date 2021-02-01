@@ -1,23 +1,23 @@
 package com.baidu.cesium.c.d;
 
 import java.math.BigInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e implements d {
-    private BigInteger any;
-    private BigInteger anz;
+    private BigInteger ano;
+    private BigInteger anp;
 
     public e(byte[] bArr, byte[] bArr2) {
-        this.any = new BigInteger(bArr);
-        this.anz = new BigInteger(bArr2);
+        this.ano = new BigInteger(bArr);
+        this.anp = new BigInteger(bArr2);
     }
 
     @Override // com.baidu.cesium.c.d.d
-    public BigInteger tO() {
-        return this.any;
+    public BigInteger tL() {
+        return this.ano;
     }
 
     @Override // com.baidu.cesium.c.d.d
-    public BigInteger tP() {
-        return this.anz;
+    public BigInteger tM() {
+        return this.anp;
     }
 }

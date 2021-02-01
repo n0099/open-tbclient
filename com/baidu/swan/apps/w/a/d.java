@@ -4,9 +4,9 @@ import android.graphics.Color;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.ao.ah;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
-    public static int V(String str, int i) {
+    public static int X(String str, int i) {
         int i2;
         if (TextUtils.isEmpty(str)) {
             com.baidu.swan.apps.console.c.w("map", "color string is empty, use default " + Integer.toHexString(i));

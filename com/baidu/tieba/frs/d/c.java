@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.d;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.frs.q;
@@ -16,16 +16,16 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class c {
     public static void A(q qVar) {
-        HashMap<Integer, bz> cFf;
-        if (qVar != null && qVar.cCI() != null && (cFf = qVar.cCI().cFf()) != null) {
+        HashMap<Integer, cb> cGs;
+        if (qVar != null && qVar.cDU() != null && (cGs = qVar.cDU().cGs()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bz> entry : cFf.entrySet()) {
-                bz value = entry.getValue();
+            for (Map.Entry<Integer, cb> entry : cGs.entrySet()) {
+                cb value = entry.getValue();
                 if (value != null && (value instanceof AdvertAppInfo)) {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.download.e.dBk().G(arrayList);
+            com.baidu.tieba.recapp.download.e.dDt().G(arrayList);
         }
     }
 
@@ -44,10 +44,10 @@ public class c {
                 }
             }
             if (z) {
-                com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.d.c.1
+                com.baidu.adp.lib.f.e.mA().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.d.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        q.this.cCv();
+                        q.this.cDH();
                     }
                 }, TimeUnit.SECONDS.toMillis(2L));
             }

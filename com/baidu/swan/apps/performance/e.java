@@ -4,16 +4,16 @@ import android.util.Log;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static JSONObject doC;
+    private static JSONObject dqN;
 
-    public static void aDD() {
+    public static void aDY() {
         try {
-            doC = i.aDG().aDB();
-            if (doC != null) {
-                doC.put("_ts", com.baidu.swan.apps.ao.j.a(new Date(), "yyyy-MM-dd HH:mm:ss"));
+            dqN = i.aEb().aDX();
+            if (dqN != null) {
+                dqN.put("_ts", com.baidu.swan.apps.ao.j.a(new Date(), "yyyy-MM-dd HH:mm:ss"));
             }
         } catch (JSONException e) {
             if (DEBUG) {
@@ -22,20 +22,20 @@ public class e {
         }
     }
 
-    public static JSONObject aDE() {
+    public static JSONObject aDZ() {
         JSONObject jSONObject = new JSONObject();
         try {
-            JSONObject aDB = i.aDG().aDB();
-            if (aDB == null || !aDB.has("events")) {
-                aDB = doC != null ? doC : jSONObject;
+            JSONObject aDX = i.aEb().aDX();
+            if (aDX == null || !aDX.has("events")) {
+                aDX = dqN != null ? dqN : jSONObject;
             }
-            jSONObject = aDB;
+            jSONObject = aDX;
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("PerformanceUbcSnapshot", "JSONException:", e);
             }
         }
-        doC = null;
+        dqN = null;
         return jSONObject;
     }
 }

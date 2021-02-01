@@ -4,38 +4,38 @@ import android.graphics.PointF;
 import android.view.animation.Interpolator;
 /* loaded from: classes5.dex */
 public class d implements Interpolator {
-    private int epO = 0;
-    private final PointF epP = new PointF();
-    private final PointF epQ = new PointF();
+    private int erV = 0;
+    private final PointF erW = new PointF();
+    private final PointF erX = new PointF();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(float f, float f2, float f3, float f4) {
-        this.epP.x = f;
-        this.epP.y = f2;
-        this.epQ.x = f3;
-        this.epQ.y = f4;
+        this.erW.x = f;
+        this.erW.y = f2;
+        this.erX.x = f3;
+        this.erX.y = f4;
     }
 
     @Override // android.animation.TimeInterpolator
     public float getInterpolation(float f) {
         double d = 1.0d;
-        int i = this.epO;
+        int i = this.erV;
         float f2 = f;
         while (true) {
             if (i >= 4096) {
                 break;
             }
             f2 = (1.0f * i) / 4096.0f;
-            if (a(f2, 0.0d, this.epP.x, this.epQ.x, 1.0d) < f) {
+            if (a(f2, 0.0d, this.erW.x, this.erX.x, 1.0d) < f) {
                 i++;
             } else {
-                this.epO = i;
+                this.erV = i;
                 break;
             }
         }
-        double a2 = a(f2, 0.0d, this.epP.y, this.epQ.y, 1.0d);
+        double a2 = a(f2, 0.0d, this.erW.y, this.erX.y, 1.0d);
         if (a2 > 0.999d) {
-            this.epO = 0;
+            this.erV = 0;
         } else {
             d = a2;
         }

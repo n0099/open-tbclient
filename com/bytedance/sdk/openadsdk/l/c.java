@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.l;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c implements a {
     @Override // com.bytedance.sdk.openadsdk.l.a
     public void a(String str, List<String> list, boolean z) {

@@ -24,16 +24,16 @@ import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.impl.cookie.DateUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a implements com.baidu.pano.platform.a.i {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final boolean f3847a = w.f3895b;
+    protected static final boolean f3850a = w.f3898b;
     private static int d = 3000;
     private static int e = 4096;
 
     /* renamed from: b  reason: collision with root package name */
-    protected final i f3848b;
+    protected final i f3851b;
     protected final b c;
 
     public a(i iVar) {
@@ -41,7 +41,7 @@ public class a implements com.baidu.pano.platform.a.i {
     }
 
     public a(i iVar, b bVar) {
-        this.f3848b = iVar;
+        this.f3851b = iVar;
         this.c = bVar;
     }
 
@@ -57,7 +57,7 @@ public class a implements com.baidu.pano.platform.a.i {
                 try {
                     HashMap hashMap = new HashMap();
                     a(hashMap, nVar.f());
-                    HttpResponse a2 = this.f3848b.a(nVar, hashMap);
+                    HttpResponse a2 = this.f3851b.a(nVar, hashMap);
                     try {
                         StatusLine statusLine = a2.getStatusLine();
                         int statusCode = statusLine.getStatusCode();
@@ -68,7 +68,7 @@ public class a implements com.baidu.pano.platform.a.i {
                                 return new com.baidu.pano.platform.a.l(304, null, emptyMap, true, SystemClock.elapsedRealtime() - elapsedRealtime);
                             }
                             f.g.putAll(emptyMap);
-                            return new com.baidu.pano.platform.a.l(304, f.f3864a, f.g, true, SystemClock.elapsedRealtime() - elapsedRealtime);
+                            return new com.baidu.pano.platform.a.l(304, f.f3867a, f.g, true, SystemClock.elapsedRealtime() - elapsedRealtime);
                         }
                         if (statusCode == 301 || statusCode == 302) {
                             nVar.c(emptyMap.get(Headers.LOCATION));
@@ -131,7 +131,7 @@ public class a implements com.baidu.pano.platform.a.i {
     }
 
     private void a(long j, com.baidu.pano.platform.a.n<?> nVar, byte[] bArr, StatusLine statusLine) {
-        if (f3847a || j > d) {
+        if (f3850a || j > d) {
             Object[] objArr = new Object[5];
             objArr[0] = nVar;
             objArr[1] = Long.valueOf(j);
@@ -156,8 +156,8 @@ public class a implements com.baidu.pano.platform.a.i {
 
     private void a(Map<String, String> map, b.a aVar) {
         if (aVar != null) {
-            if (aVar.f3865b != null) {
-                map.put("If-None-Match", aVar.f3865b);
+            if (aVar.f3868b != null) {
+                map.put("If-None-Match", aVar.f3868b);
             }
             if (aVar.d > 0) {
                 map.put("If-Modified-Since", DateUtils.formatDate(new Date(aVar.d)));

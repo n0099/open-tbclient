@@ -3,7 +3,7 @@ package com.sina.weibo.sdk.web;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WebPicUploadResult {
     public static final String RESP_UPLOAD_PIC_PARAM_CODE = "code";
     public static final String RESP_UPLOAD_PIC_PARAM_DATA = "data";

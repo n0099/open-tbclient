@@ -5,15 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
     private List<c> dataList;
-    public final ArrayList<ItemViewHolder> fQe = new ArrayList<>();
-    private ItemViewHolder kjX;
+    public final ArrayList<ItemViewHolder> fSr = new ArrayList<>();
+    private ItemViewHolder kse;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
     private int mResourceId;
@@ -21,7 +21,7 @@ public class b extends BaseAdapter {
     public b(Context context, int i, ItemViewHolder itemViewHolder) {
         this.mInflater = LayoutInflater.from(context);
         this.mResourceId = i;
-        this.kjX = itemViewHolder;
+        this.kse = itemViewHolder;
     }
 
     public void setData(List<c> list) {
@@ -39,33 +39,33 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return x.getCount(this.dataList);
+        return y.getCount(this.dataList);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return x.getItem(this.dataList, i);
+        return y.getItem(this.dataList, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (x.getItem(this.dataList, i) == null) {
+        if (y.getItem(this.dataList, i) == null) {
             return -1L;
         }
-        return ((c) x.getItem(this.dataList, i)).hashCode();
+        return ((c) y.getItem(this.dataList, i)).hashCode();
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.mResourceId, viewGroup, false);
-            ItemViewHolder cK = this.kjX.cK(view);
-            cK.setOnClickListener(this.mOnClickListener);
-            view.setTag(cK);
-            this.fQe.add(cK);
+            ItemViewHolder cI = this.kse.cI(view);
+            cI.setOnClickListener(this.mOnClickListener);
+            view.setTag(cI);
+            this.fSr.add(cI);
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
-        if (x.getItem(this.dataList, i) != null) {
+        if (y.getItem(this.dataList, i) != null) {
             a(itemViewHolder, this.dataList.get(i));
         }
         return itemViewHolder.getView();
@@ -78,8 +78,8 @@ public class b extends BaseAdapter {
     }
 
     public void onSkinTypeChanged(int i) {
-        if (x.getCount(this.fQe) > 0) {
-            Iterator<ItemViewHolder> it = this.fQe.iterator();
+        if (y.getCount(this.fSr) > 0) {
+            Iterator<ItemViewHolder> it = this.fSr.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

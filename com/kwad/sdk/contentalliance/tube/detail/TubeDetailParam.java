@@ -3,7 +3,7 @@ package com.kwad.sdk.contentalliance.tube.detail;
 import com.kwad.sdk.contentalliance.tube.model.TubeInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TubeDetailParam implements Serializable {
     private static final long serialVersionUID = -5238032101385027454L;
     public AdTemplate mAdTemplate;

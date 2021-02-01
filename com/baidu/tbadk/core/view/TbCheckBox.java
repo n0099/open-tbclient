@@ -5,14 +5,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private int fhb;
-    private int fhc;
-    private boolean fhd;
-    private a fhe;
+    private int fju;
+    private int fjv;
+    private boolean fjw;
+    private a fjx;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -28,70 +28,70 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        btV();
+        bup();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        this.fhb = R.drawable.icon_set_list_ok_s;
-        this.fhc = R.drawable.icon_set_list_ok_n;
+        this.fju = R.drawable.icon_set_list_ok_s;
+        this.fjv = R.drawable.icon_set_list_ok_n;
         initialize();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fhb = R.drawable.icon_set_list_ok_s;
-        this.fhc = R.drawable.icon_set_list_ok_n;
+        this.fju = R.drawable.icon_set_list_ok_s;
+        this.fjv = R.drawable.icon_set_list_ok_n;
         initialize();
     }
 
     public void setBackgroundDrawableId(int i, int i2) {
-        this.fhb = i;
-        this.fhc = i2;
+        this.fju = i;
+        this.fjv = i2;
     }
 
     public void setBackgroundDrawableIdIsWebP(boolean z) {
-        this.fhd = z;
+        this.fjw = z;
     }
 
     private void initialize() {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.TbCheckBox.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TbCheckBox.this.setChecked(!TbCheckBox.this.btW());
+                TbCheckBox.this.setChecked(!TbCheckBox.this.buq());
             }
         });
-        btV();
+        bup();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.fhe = aVar;
+        this.fjx = aVar;
     }
 
-    public void btV() {
-        if (btW()) {
-            if (this.fhd) {
-                setImageDrawable(WebPManager.a(this.fhb, ao.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+    public void bup() {
+        if (buq()) {
+            if (this.fjw) {
+                setImageDrawable(WebPManager.a(this.fju, ap.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
             } else {
-                ao.setImageResource(this, this.fhb);
+                ap.setImageResource(this, this.fju);
             }
             setContentDescription(getResources().getString(R.string.check_box_checked));
             return;
         }
-        if (this.fhd) {
-            setImageDrawable(WebPManager.a(this.fhc, ao.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        if (this.fjw) {
+            setImageDrawable(WebPManager.a(this.fjv, ap.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
         } else {
-            ao.setImageResource(this, this.fhc);
+            ap.setImageResource(this, this.fjv);
         }
         setContentDescription(getResources().getString(R.string.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return btW();
+        return buq();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean btW() {
+    public boolean buq() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -104,9 +104,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        btV();
-        if (this.fhe != null) {
-            this.fhe.a(this, z, getTag());
+        bup();
+        if (this.fjx != null) {
+            this.fjx.a(this, z, getTag());
         }
     }
 }

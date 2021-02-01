@@ -3,13 +3,13 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int akf;
-    protected int nlI;
-    protected int nlJ;
+    private int ajU;
+    protected int nvr;
+    protected int nvs;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -21,10 +21,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.akf = 3;
-        this.nlI = (int) context.getResources().getDimension(R.dimen.ds18);
-        this.nlJ = (int) context.getResources().getDimension(R.dimen.ds6);
-        setPadding(this.nlI, this.nlJ, this.nlI, this.nlJ);
+        this.ajU = 3;
+        this.nvr = (int) context.getResources().getDimension(R.dimen.ds18);
+        this.nvs = (int) context.getResources().getDimension(R.dimen.ds6);
+        setPadding(this.nvr, this.nvs, this.nvr, this.nvs);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(R.dimen.ds24));
@@ -37,9 +37,9 @@ public class EditorInfoView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        if (i != this.akf) {
-            ao.setViewTextColor(this, R.color.CAM_X0106);
-            this.akf = i;
+        if (i != this.ajU) {
+            ap.setViewTextColor(this, R.color.CAM_X0106);
+            this.ajU = i;
         }
     }
 }

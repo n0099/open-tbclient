@@ -1,9 +1,9 @@
 package com.baidu.minivideo.arface.utils;
 
 import com.baidu.minivideo.arface.utils.g;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class d implements g {
-    private g.a chA;
+    private g.a clP;
     private int mState = 0;
 
     protected abstract void run();
@@ -28,8 +28,8 @@ public abstract class d implements g {
     public void setState(int i) {
         if (this.mState != i) {
             this.mState = i;
-            if (this.chA != null) {
-                this.chA.a(this.mState, this);
+            if (this.clP != null) {
+                this.clP.a(this.mState, this);
             }
         }
     }
@@ -39,9 +39,9 @@ public abstract class d implements g {
     }
 
     public void b(g.a aVar) {
-        this.chA = aVar;
-        if (this.chA != null) {
-            this.chA.a(getState(), this);
+        this.clP = aVar;
+        if (this.clP != null) {
+            this.clP.a(getState(), this);
         }
     }
 }

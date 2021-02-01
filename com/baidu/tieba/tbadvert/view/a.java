@@ -12,57 +12,57 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadvert.view.CountDownTextView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private FrameLayout ajf;
+    private FrameLayout aiT;
     private Context mContext;
-    private ImageView nrO;
-    private InterfaceC0873a nrP;
+    private ImageView nBx;
+    private InterfaceC0876a nBy;
 
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0873a {
-        void dNj();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0876a {
+        void dPu();
 
-        void dNk();
+        void dPv();
     }
 
-    public a(Context context, InterfaceC0873a interfaceC0873a) {
-        this.nrP = interfaceC0873a;
+    public a(Context context, InterfaceC0876a interfaceC0876a) {
+        this.nBy = interfaceC0876a;
         this.mContext = context;
-        this.ajf = new FrameLayout(context);
+        this.aiT = new FrameLayout(context);
     }
 
     public View getView() {
-        return this.ajf;
+        return this.aiT;
     }
 
     public void e(Object obj, int i) {
         if (obj instanceof com.baidu.adp.widget.ImageView.a) {
             i((com.baidu.adp.widget.ImageView.a) obj);
         }
-        dNq();
-        JC(i);
+        dPB();
+        JW(i);
     }
 
     private void i(com.baidu.adp.widget.ImageView.a aVar) {
-        this.nrO = new ImageView(this.mContext);
-        this.nrO.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.nBx = new ImageView(this.mContext);
+        this.nBx.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.nrO.setImageBitmap(aVar.getRawBitmap());
+            this.nBx.setImageBitmap(aVar.getRawBitmap());
         }
-        this.nrO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
+        this.nBx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.nrP != null) {
-                    a.this.nrP.dNj();
+                if (a.this.nBy != null) {
+                    a.this.nBy.dPu();
                 }
             }
         });
-        this.ajf.addView(this.nrO);
+        this.aiT.addView(this.nBx);
     }
 
-    private void dNq() {
+    private void dPB() {
         TextView textView = new TextView(this.mContext);
         textView.setText(R.string.tb_ad_label);
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds28);
@@ -78,10 +78,10 @@ public class a {
         textView.setBackgroundDrawable(gradientDrawable);
         layoutParams.gravity = 83;
         layoutParams.setMargins(dimension, 0, 0, (int) this.mContext.getResources().getDimension(R.dimen.ds28));
-        this.ajf.addView(textView, layoutParams);
+        this.aiT.addView(textView, layoutParams);
     }
 
-    private void JC(int i) {
+    private void JW(int i) {
         CountDownTextView countDownTextView = new CountDownTextView(this.mContext);
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds22);
         int dimension2 = (int) this.mContext.getResources().getDimension(R.dimen.ds36);
@@ -97,23 +97,23 @@ public class a {
         gradientDrawable.setCornerRadius(this.mContext.getResources().getDimension(R.dimen.ds4));
         gradientDrawable.setStroke(1, ViewCompat.MEASURED_STATE_MASK);
         countDownTextView.setBackgroundDrawable(gradientDrawable);
-        countDownTextView.aC(string, i);
+        countDownTextView.aE(string, i);
         layoutParams.gravity = 53;
         layoutParams.setMargins(0, statusBarHeight, (int) this.mContext.getResources().getDimension(R.dimen.ds32), 0);
-        this.ajf.addView(countDownTextView, layoutParams);
+        this.aiT.addView(countDownTextView, layoutParams);
         countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.nrP != null) {
-                    a.this.nrP.dNk();
+                if (a.this.nBy != null) {
+                    a.this.nBy.dPv();
                 }
             }
         });
         countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.tbadvert.view.a.3
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
-            public void cj(View view) {
-                if (a.this.nrP != null) {
-                    a.this.nrP.dNk();
+            public void cf(View view) {
+                if (a.this.nBy != null) {
+                    a.this.nBy.dPv();
                 }
             }
         });

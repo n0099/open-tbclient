@@ -5,15 +5,15 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.holder.CardViewHolder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.f, CardViewHolder<com.baidu.tieba.ala.personcenter.e.b>> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.f.hVl);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.f.hZG);
         this.mPageContext = tbPageContext;
     }
 
@@ -29,31 +29,31 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.f fVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.b> cardViewHolder) {
-        if (cardViewHolder.crP() == null) {
+        if (cardViewHolder.ctb() == null) {
             return null;
         }
-        cardViewHolder.crP().a(fVar);
-        cardViewHolder.crP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        cardViewHolder.crP().c(new aa<com.baidu.tieba.ala.personcenter.c.f>() { // from class: com.baidu.tieba.ala.personcenter.a.c.1
+        cardViewHolder.ctb().a(fVar);
+        cardViewHolder.ctb().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.ctb().c(new ab<com.baidu.tieba.ala.personcenter.c.f>() { // from class: com.baidu.tieba.ala.personcenter.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             public void a(View view2, com.baidu.tieba.ala.personcenter.c.f fVar2) {
                 c.this.a(fVar2);
             }
         });
-        return cardViewHolder.crP().getView();
+        return cardViewHolder.ctb().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.personcenter.c.f fVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData;
-        if (fVar != null && (personCenterData = fVar.getPersonCenterData()) != null && personCenterData.clR() != null) {
+        if (fVar != null && (personCenterData = fVar.getPersonCenterData()) != null && personCenterData.cmP() != null) {
             if (!personCenterData.isHost()) {
                 TiebaStatic.log("c11864");
             } else {
                 TiebaStatic.log("c11857");
             }
-            String string = com.baidu.tbadk.core.sharedPref.b.brx().getString("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
+            String string = com.baidu.tbadk.core.sharedPref.b.brQ().getString("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
             if (string != null) {
                 if (string.endsWith("/")) {
                     string = string.substring(0, string.length() - 1);

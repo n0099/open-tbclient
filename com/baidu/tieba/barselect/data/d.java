@@ -2,14 +2,14 @@ package com.baidu.tieba.barselect.data;
 
 import tbclient.ElectionList;
 import tbclient.Myrecord;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     private int agree_num;
     private String apply_declaration;
-    private int ikH;
-    private int ikI;
-    private boolean ikJ = false;
-    private int ikK;
+    private int iqp;
+    private int iqq;
+    private boolean iqr = false;
+    private int iqs;
     private String nickname;
     private String portrait;
     private int post_num;
@@ -19,16 +19,16 @@ public class d {
     private long uid;
     private int vote_num;
 
-    public int cpP() {
+    public int cqZ() {
         return this.agree_num;
     }
 
-    public int cpQ() {
-        return this.ikH;
+    public int cra() {
+        return this.iqp;
     }
 
-    public int cpR() {
-        return this.ikI;
+    public int crb() {
+        return this.iqq;
     }
 
     public int getPost_num() {
@@ -47,11 +47,11 @@ public class d {
         return this.uid;
     }
 
-    public int cpS() {
+    public int crc() {
         return this.vote_num;
     }
 
-    public String cpT() {
+    public String crd() {
         return this.apply_declaration;
     }
 
@@ -67,16 +67,16 @@ public class d {
         return this.tid;
     }
 
-    public boolean cpU() {
-        return this.ikJ;
+    public boolean cre() {
+        return this.iqr;
     }
 
-    public int cpV() {
-        return this.ikK;
+    public int crf() {
+        return this.iqs;
     }
 
-    public void wA(int i) {
-        this.ikK = i;
+    public void wL(int i) {
+        this.iqs = i;
     }
 
     public static d a(ElectionList electionList) {
@@ -84,20 +84,20 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.wD(electionList.vote_num.intValue());
+        dVar.wO(electionList.vote_num.intValue());
         dVar.setNickname(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
-        dVar.wC(electionList.forum_level.intValue());
-        dVar.HX(electionList.apply_declaration);
+        dVar.wN(electionList.forum_level.intValue());
+        dVar.IH(electionList.apply_declaration);
         dVar.setRank(electionList.rank.intValue());
-        dVar.wB(electionList.apply_id.intValue());
+        dVar.wM(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
         dVar.setThread_num(electionList.thread_num.intValue());
         dVar.setAgree_num(electionList.agree_num.intValue());
         dVar.setUid(electionList.uid.longValue());
         dVar.setTid(electionList.tid.longValue());
-        dVar.pf(electionList.is_cheat.intValue() == 1);
-        dVar.wA(electionList.is_pass_audit.intValue());
+        dVar.pp(electionList.is_cheat.intValue() == 1);
+        dVar.wL(electionList.is_pass_audit.intValue());
         return dVar;
     }
 
@@ -106,13 +106,13 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.wD(myrecord.vote_num.intValue());
+        dVar.wO(myrecord.vote_num.intValue());
         dVar.setNickname(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
-        dVar.wC(myrecord.forum_level.intValue());
-        dVar.HX(myrecord.apply_declaration);
+        dVar.wN(myrecord.forum_level.intValue());
+        dVar.IH(myrecord.apply_declaration);
         dVar.setRank(myrecord.rank.intValue());
-        dVar.wB(myrecord.apply_id.intValue());
+        dVar.wM(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
         dVar.setThread_num(myrecord.thread_num.intValue());
         dVar.setAgree_num(myrecord.agree_num.intValue());
@@ -125,16 +125,16 @@ public class d {
         this.agree_num = i;
     }
 
-    public void wB(int i) {
-        this.ikH = i;
+    public void wM(int i) {
+        this.iqp = i;
     }
 
-    public void HX(String str) {
+    public void IH(String str) {
         this.apply_declaration = str;
     }
 
-    public void wC(int i) {
-        this.ikI = i;
+    public void wN(int i) {
+        this.iqq = i;
     }
 
     public void setNickname(String str) {
@@ -161,12 +161,12 @@ public class d {
         this.uid = j;
     }
 
-    public void wD(int i) {
+    public void wO(int i) {
         this.vote_num = i;
     }
 
-    public void pf(boolean z) {
-        this.ikJ = z;
+    public void pp(boolean z) {
+        this.iqr = z;
     }
 
     public void setTid(long j) {

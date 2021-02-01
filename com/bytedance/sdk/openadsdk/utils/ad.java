@@ -9,17 +9,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ad {
     private static final CharSequence c = "sony";
     private static final CharSequence d = "amigo";
     private static final CharSequence e = "funtouch";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7540a = false;
+    public static boolean f7542a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f7541b = false;
+    public static boolean f7543b = false;
 
     public static String a() {
         if (o()) {
@@ -69,18 +69,18 @@ public class ad {
     }
 
     public static boolean e() {
-        if (!f7541b) {
+        if (!f7543b) {
             try {
                 if (Class.forName("miui.os.Build") != null) {
-                    f7540a = true;
-                    f7541b = true;
-                    return f7540a;
+                    f7542a = true;
+                    f7543b = true;
+                    return f7542a;
                 }
             } catch (Exception e2) {
             }
-            f7541b = true;
+            f7543b = true;
         }
-        return f7540a;
+        return f7542a;
     }
 
     public static String f() {
@@ -291,14 +291,14 @@ public class ad {
         return str2;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Callable<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f7543a;
+        private String f7545a;
 
         public a(String str) {
-            this.f7543a = str;
+            this.f7545a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -306,7 +306,7 @@ public class ad {
         /* renamed from: a */
         public String call() throws Exception {
             long currentTimeMillis = System.currentTimeMillis();
-            String c = ad.c(this.f7543a);
+            String c = ad.c(this.f7545a);
             u.b("RomUtils", "property:" + c + ",getSystemProperty use time :" + (System.currentTimeMillis() - currentTimeMillis));
             if (!TextUtils.isEmpty(c)) {
                 try {

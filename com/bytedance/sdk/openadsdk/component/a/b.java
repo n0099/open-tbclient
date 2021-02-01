@@ -12,19 +12,19 @@ import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeDrawVideoTsView;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.x;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends c implements TTDrawFeedAd {
     private boolean m;
     private Bitmap n;
     private int o;
     private TTDrawFeedAd.DrawVideoListener p;
 
-    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC1022a
+    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC1026a
     public /* bridge */ /* synthetic */ com.bytedance.sdk.openadsdk.multipro.b.a a() {
         return super.a();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1007c
+    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1011c
     public /* bridge */ /* synthetic */ void a(int i, int i2) {
         super.a(i, i2);
     }
@@ -54,7 +54,7 @@ public class b extends c implements TTDrawFeedAd {
         super.e();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1007c
+    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1011c
     public /* bridge */ /* synthetic */ void f() {
         super.f();
     }
@@ -85,11 +85,11 @@ public class b extends c implements TTDrawFeedAd {
                 nativeDrawVideoTsView.setControllerStatusCallBack(new NativeVideoTsView.a() { // from class: com.bytedance.sdk.openadsdk.component.a.b.1
                     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
                     public void a(boolean z, long j, long j2, long j3, boolean z2) {
-                        b.this.f6255a.f7400a = z;
-                        b.this.f6255a.e = j;
-                        b.this.f6255a.f = j2;
-                        b.this.f6255a.g = j3;
-                        b.this.f6255a.d = z2;
+                        b.this.f6257a.f7402a = z;
+                        b.this.f6257a.e = j;
+                        b.this.f6257a.f = j2;
+                        b.this.f6257a.g = j3;
+                        b.this.f6257a.d = z2;
                     }
                 });
                 nativeDrawVideoTsView.setVideoAdLoadListener(this);

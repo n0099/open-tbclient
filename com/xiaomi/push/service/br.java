@@ -8,13 +8,13 @@ import java.util.Map;
 class br extends ft {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f14283a;
+    final /* synthetic */ XMPushService f14285a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public br(XMPushService xMPushService, Map map, int i, String str, fw fwVar) {
         super(map, i, str, fwVar);
-        this.f14283a = xMPushService;
+        this.f14285a = xMPushService;
     }
 
     @Override // com.xiaomi.push.ft

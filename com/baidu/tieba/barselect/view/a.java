@@ -8,11 +8,11 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends AlertDialog {
-    private View inS;
+    private View itw;
     private String mTitle;
     private TextView mTitleView;
 
@@ -27,16 +27,16 @@ public class a extends AlertDialog {
         if (window != null) {
             window.setDimAmount(0.0f);
             window.setContentView(R.layout.id_card_dialog);
-            this.inS = window.findViewById(R.id.toast_container);
+            this.itw = window.findViewById(R.id.toast_container);
             this.mTitleView = (TextView) window.findViewById(R.id.toast_tv);
             if (!StringUtils.isNull(this.mTitle)) {
                 this.mTitleView.setText(this.mTitle);
             }
-            uo(TbadkCoreApplication.getInst().getSkinType());
+            uu(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void uo(int i) {
-        ao.e(this.inS, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
+    public void uu(int i) {
+        ap.e(this.itw, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
     }
 }

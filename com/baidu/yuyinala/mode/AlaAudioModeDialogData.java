@@ -3,7 +3,7 @@ package com.baidu.yuyinala.mode;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaAudioModeDialogData implements IBaseDialogData {
     private List<com.baidu.yuyinala.mode.b.a> mModeList;
 
@@ -30,7 +30,7 @@ public class AlaAudioModeDialogData implements IBaseDialogData {
             return null;
         }
         for (com.baidu.yuyinala.mode.b.a aVar : this.mModeList) {
-            if (aVar != null && aVar.egB()) {
+            if (aVar != null && aVar.eiT()) {
                 return aVar;
             }
         }

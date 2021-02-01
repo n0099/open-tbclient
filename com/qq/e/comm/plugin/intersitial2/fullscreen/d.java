@@ -16,7 +16,7 @@ import com.qq.e.comm.plugin.util.w;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class d extends g {
     private String g;
     private JSONObject h;
@@ -81,7 +81,7 @@ public class d extends g {
                             @Override // java.lang.Runnable
                             public void run() {
                                 if (d.this.d != null) {
-                                    com.qq.e.comm.plugin.intersitial2.c.a(d.this.f12016a, d.this.f);
+                                    com.qq.e.comm.plugin.intersitial2.c.a(d.this.f12018a, d.this.f);
                                     d.this.d.onADEvent(new ADEvent(2, new Object[]{d.this.c(d.this.h)}));
                                 }
                             }

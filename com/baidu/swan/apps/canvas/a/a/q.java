@@ -1,25 +1,24 @@
 package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
-import androidx.appcompat.widget.ActivityChooserView;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class q extends a {
-    private int cHF = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private int cHG = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private int mX = Integer.MAX_VALUE;
+    private int mY = Integer.MAX_VALUE;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 1) {
-            this.cHF = com.baidu.swan.apps.ao.ah.O((float) jSONArray.optDouble(0));
-            this.cHG = com.baidu.swan.apps.ao.ah.O((float) jSONArray.optDouble(1));
+            this.mX = com.baidu.swan.apps.ao.ah.P((float) jSONArray.optDouble(0));
+            this.mY = com.baidu.swan.apps.ao.ah.P((float) jSONArray.optDouble(1));
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.cHF != Integer.MAX_VALUE && this.cHG != Integer.MAX_VALUE) {
-            bVar.mPath.moveTo(this.cHF, this.cHG);
+        if (this.mX != Integer.MAX_VALUE && this.mY != Integer.MAX_VALUE) {
+            bVar.mPath.moveTo(this.mX, this.mY);
         }
     }
 }

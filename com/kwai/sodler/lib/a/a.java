@@ -4,14 +4,14 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwai.sodler.lib.j;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected File f10996a;
+    protected File f10998a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected String f10997b;
+    protected String f10999b;
     protected String d;
     protected String e;
     protected com.kwai.sodler.lib.b.b f;
@@ -22,7 +22,7 @@ public abstract class a {
 
     public a(String str) {
         this.i = str;
-        this.f10997b = str;
+        this.f10999b = str;
     }
 
     public a a(@NonNull com.kwai.sodler.lib.b.b bVar) {
@@ -60,7 +60,7 @@ public abstract class a {
     }
 
     public void c(String str) {
-        this.f10997b = str;
+        this.f10999b = str;
     }
 
     public final void d() {

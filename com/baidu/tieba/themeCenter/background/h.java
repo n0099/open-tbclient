@@ -7,32 +7,32 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class h {
-    private TbPageContext<?> eSJ;
-    private TextView fej;
-    private TbImageView ldO;
+    private TbPageContext<?> eUY;
+    private TextView fgy;
+    private TbImageView llR;
     private View mRootView;
-    private TextView nxv;
+    private TextView nHf;
 
     public h(TbPageContext<?> tbPageContext) {
-        this.eSJ = tbPageContext;
+        this.eUY = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.background_preview_bottom, (ViewGroup) null);
-        this.nxv = (TextView) this.mRootView.findViewById(R.id.text_bg_name);
-        this.ldO = (TbImageView) this.mRootView.findViewById(R.id.bg_permission_icon);
-        this.fej = (TextView) this.mRootView.findViewById(R.id.text_bg_description);
+        this.mRootView = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.background_preview_bottom, (ViewGroup) null);
+        this.nHf = (TextView) this.mRootView.findViewById(R.id.text_bg_name);
+        this.llR = (TbImageView) this.mRootView.findViewById(R.id.bg_permission_icon);
+        this.fgy = (TextView) this.mRootView.findViewById(R.id.text_bg_description);
         onChangeSkinType();
     }
 
     public void f(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.nxv.setText(dressItemData.getTitle());
-            this.ldO.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-            this.fej.setText(dressItemData.getDescription());
+            this.nHf.setText(dressItemData.getTitle());
+            this.llR.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
+            this.fgy.setText(dressItemData.getDescription());
         }
     }
 
@@ -41,6 +41,6 @@ public class h {
     }
 
     public void onChangeSkinType() {
-        com.baidu.tbadk.r.a.a(this.eSJ, this.mRootView);
+        com.baidu.tbadk.r.a.a(this.eUY, this.mRootView);
     }
 }

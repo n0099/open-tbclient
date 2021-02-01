@@ -1,7 +1,7 @@
 package aegon.chrome.net;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class UploadDataProviders$ByteBufferUploadProvider extends UploadDataProvider {
     public final ByteBuffer mUploadBuffer;
 

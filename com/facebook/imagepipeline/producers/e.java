@@ -1,19 +1,19 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class e implements al {
     @Override // com.facebook.imagepipeline.producers.al
-    public void ewW() {
+    public void ezo() {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void ewX() {
+    public void ezp() {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void ewY() {
+    public void ezq() {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void ewZ() {
+    public void ezr() {
     }
 }

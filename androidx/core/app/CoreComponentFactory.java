@@ -10,12 +10,12 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 @RequiresApi(api = 28)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class CoreComponentFactory extends android.app.AppComponentFactory {
     private static final String TAG = "CoreComponentFactory";
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public interface CompatWrapped {
         Object getWrapper();
     }

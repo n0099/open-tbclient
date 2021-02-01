@@ -4,17 +4,17 @@ import android.util.Log;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.internal.http.RealResponseBody;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class OkHttpInterceptor implements Interceptor {
-    private static Field oGx;
+    private static Field oQF;
 
     static {
         try {
-            oGx = RealResponseBody.class.getDeclaredField("source");
-            oGx.setAccessible(true);
+            oQF = RealResponseBody.class.getDeclaredField("source");
+            oQF.setAccessible(true);
         } catch (NoSuchFieldException e) {
             Log.e("tn_OkHttpIntercept", "Can not find source field from RealResponseBody.", e);
-            oGx = null;
+            oQF = null;
         }
     }
 }

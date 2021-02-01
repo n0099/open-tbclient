@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivityView> {
     public MsgActivityViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -17,13 +17,13 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgActivityView cSH = msgViewHolder.cSH();
-        cSH.setPosition(i);
-        cSH.setData(chatMessage);
-        cSH.a(this.krY);
-        cSH.setOnItemViewLongClickListener(this.krZ);
-        cSH.gH(this.goc);
-        cSH.gG(chatMessage.getCacheData().getLastMsgTime());
+        MsgActivityView cUF = msgViewHolder.cUF();
+        cUF.setPosition(i);
+        cUF.setData(chatMessage);
+        cUF.a(this.kAf);
+        cUF.setOnItemViewLongClickListener(this.kAg);
+        cUF.gM(this.mCurrentTime);
+        cUF.gL(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -39,7 +39,7 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> {
         public a(View view, MsgActivityView msgActivityView) {
             super(view, msgActivityView);

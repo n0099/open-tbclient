@@ -14,15 +14,16 @@ import com.baidu.mobstat.Config;
 import com.bytedance.sdk.openadsdk.TTCustomController;
 import com.bytedance.sdk.openadsdk.utils.ad;
 import com.xiaomi.mipush.sdk.Constants;
+import com.yy.videoplayer.stat.VideoPlayerStatistic;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f6605a;
+    private static String f6607a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f6606b;
+    private static String f6608b;
     private static String c;
     private static String d;
     private static String e;
@@ -38,7 +39,7 @@ public class k {
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f6605a) && !k) {
+        if (TextUtils.isEmpty(f6607a) && !k) {
             synchronized (k.class) {
                 if (!k) {
                     l(context);
@@ -46,12 +47,12 @@ public class k {
             }
         }
         try {
-            if (TextUtils.isEmpty(f6605a) && com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                f6605a = d.a(k(context)).b("did", (String) null);
+            if (TextUtils.isEmpty(f6607a) && com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                f6607a = d.a(k(context)).b(VideoPlayerStatistic.AudienceHiidoCoreStatisticKey.DecodeId, (String) null);
             }
         } catch (Exception e2) {
         }
-        return f6605a;
+        return f6607a;
     }
 
     public static String b(Context context) {
@@ -66,14 +67,14 @@ public class k {
     }
 
     public static String c(Context context) {
-        if (TextUtils.isEmpty(f6606b) && !k) {
+        if (TextUtils.isEmpty(f6608b) && !k) {
             synchronized (k.class) {
                 if (!k) {
                     l(context);
                 }
             }
         }
-        return f6606b;
+        return f6608b;
     }
 
     public static String d(Context context) {
@@ -163,12 +164,12 @@ public class k {
     }
 
     public static void a(Context context, String str) {
-        if (!TextUtils.isEmpty(str) && !str.equals(f6605a)) {
-            d.a(context).a("did", str);
-            f6605a = str;
+        if (!TextUtils.isEmpty(str) && !str.equals(f6607a)) {
+            d.a(context).a(VideoPlayerStatistic.AudienceHiidoCoreStatisticKey.DecodeId, str);
+            f6607a = str;
         }
-        if (!TextUtils.isEmpty(f6605a)) {
-            s.b(f6605a).a(f6605a);
+        if (!TextUtils.isEmpty(f6607a)) {
+            s.b(f6607a).a(f6607a);
         }
     }
 
@@ -201,8 +202,8 @@ public class k {
                 }
             } catch (Exception e3) {
             }
-            f6606b = a(k2, true);
-            f6605a = d.a(k2).b("did", (String) null);
+            f6608b = a(k2, true);
+            f6607a = d.a(k2).b(VideoPlayerStatistic.AudienceHiidoCoreStatisticKey.DecodeId, (String) null);
             g = a();
             h = String.valueOf(Build.TIME);
             i = d.a(k2).b("uuid", (String) null);

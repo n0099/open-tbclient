@@ -8,14 +8,14 @@ import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c implements com.kwai.sodler.lib.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final File f11005a;
+    private final File f11007a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final File f11006b;
+    private final File f11008b;
     private final Context c;
     private final com.kwai.sodler.lib.ext.c d;
 
@@ -23,8 +23,8 @@ public class c implements com.kwai.sodler.lib.a.c {
     public c(Context context, com.kwai.sodler.lib.ext.c cVar) {
         this.c = context.getApplicationContext();
         this.d = cVar;
-        this.f11005a = this.c.getDir(this.d.b(), 0);
-        this.f11006b = this.c.getCacheDir();
+        this.f11007a = this.c.getDir(this.d.b(), 0);
+        this.f11008b = this.c.getCacheDir();
     }
 
     @Nullable
@@ -34,7 +34,7 @@ public class c implements com.kwai.sodler.lib.a.c {
 
     @Override // com.kwai.sodler.lib.a.c
     public void a() {
-        if (this.f11005a.getFreeSpace() < 10000000) {
+        if (this.f11007a.getFreeSpace() < 10000000) {
             throw new IOException("No enough capacity.");
         }
     }
@@ -74,7 +74,7 @@ public class c implements com.kwai.sodler.lib.a.c {
     }
 
     public String b() {
-        return this.f11005a.getAbsolutePath();
+        return this.f11007a.getAbsolutePath();
     }
 
     @Override // com.kwai.sodler.lib.a.c
@@ -154,7 +154,7 @@ public class c implements com.kwai.sodler.lib.a.c {
 
     @Override // com.kwai.sodler.lib.a.c
     public File d(String str) {
-        return File.createTempFile(str + System.currentTimeMillis(), this.d.e(), this.f11006b);
+        return File.createTempFile(str + System.currentTimeMillis(), this.d.e(), this.f11008b);
     }
 
     @Override // com.kwai.sodler.lib.a.c

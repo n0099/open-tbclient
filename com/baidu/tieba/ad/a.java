@@ -18,23 +18,23 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class a implements i {
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a get = new a();
+    private static a ggH = new a();
     private final List<i.a> mListeners = new LinkedList();
     private final ConcurrentHashMap<String, i.b> mHandlers = new ConcurrentHashMap<>();
-    private i.c geu = null;
+    private i.c ggI = null;
 
     private a() {
     }
 
-    public static a bKO() {
-        return get;
+    public static a bLi() {
+        return ggH;
     }
 
     public void a(final i.a aVar) {
         if (l.isMainThread()) {
             b(aVar);
         } else {
-            e.mB().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
+            e.mA().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.b(aVar);
@@ -51,21 +51,21 @@ public final class a implements i {
     }
 
     public void a(i.c cVar) {
-        this.geu = cVar;
+        this.ggI = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, i.d dVar, boolean z2, Bundle bundle) {
         return a(context, "", strArr, z, dVar, z2, bundle);
     }
 
-    public int c(Context context, String[] strArr) {
-        int d;
+    public int b(Context context, String[] strArr) {
+        int c;
         if (strArr == null || strArr.length == 0) {
             return 3;
         }
         for (i.a aVar : this.mListeners) {
-            if (aVar != null && (d = aVar.d(context, strArr)) != 3) {
-                return d;
+            if (aVar != null && (c = aVar.c(context, strArr)) != 3) {
+                return c;
             }
         }
         return 3;
@@ -79,7 +79,7 @@ public final class a implements i {
         String str2 = strArr[0];
         i.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.l(context, getInnerParamPair(Ed(str2)));
+            bVar.l(context, getInnerParamPair(EB(str2)));
             return true;
         }
         Iterator<i.a> it = this.mListeners.iterator();
@@ -88,12 +88,12 @@ public final class a implements i {
                 break;
             }
             i.a next = it.next();
-            if (next != null && next.d(context, strArr) != 3) {
+            if (next != null && next.c(context, strArr) != 3) {
                 z3 = true;
                 break;
             }
         }
-        if (!z3 && this.geu != null) {
+        if (!z3 && this.ggI != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 return true;
             }
@@ -102,7 +102,7 @@ public final class a implements i {
         return z3;
     }
 
-    private String Ed(String str) {
+    private String EB(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -151,12 +151,12 @@ public final class a implements i {
 
     private void a(Context context, String str, String str2, boolean z, i.d dVar, boolean z2, Bundle bundle) {
         if (pattern.matcher(str2).find()) {
-            this.geu.b(context, str, str2, z, dVar, z2, bundle);
+            this.ggI.b(context, str, str2, z, dVar, z2, bundle);
         }
     }
 
     @Override // com.baidu.tieba.recapp.i
-    public boolean Ee(String str) {
+    public boolean EC(String str) {
         return pattern.matcher(str).find();
     }
 }

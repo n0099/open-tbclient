@@ -14,15 +14,15 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.utils.m;
 import com.baidu.live.view.ALALevelView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CharmItemView extends LinearLayout {
-    public TextView aBZ;
-    public TextView gML;
-    public ImageView gMM;
-    public HeadImageView gMN;
-    public TbImageView gMO;
-    public ALALevelView gMP;
-    public TextView gMQ;
+    public TextView aDM;
+    public TextView gPr;
+    public ImageView gPs;
+    public HeadImageView gPt;
+    public TbImageView gPu;
+    public ALALevelView gPv;
+    public TextView gPw;
 
     public CharmItemView(Context context) {
         this(context, null);
@@ -36,54 +36,54 @@ public class CharmItemView extends LinearLayout {
     public void setData(int i, int i2, String str, String str2, long j, long j2) {
         float dimensionPixelSize;
         if (i == 2 && i2 >= 1 && i2 <= 3 && j > 0) {
-            this.gML.setTextColor(-838860801);
-            this.gMO.setVisibility(0);
+            this.gPr.setTextColor(-838860801);
+            this.gPu.setVisibility(0);
         } else {
-            this.gML.setTextColor(1728053247);
-            this.gMO.setVisibility(8);
+            this.gPr.setTextColor(1728053247);
+            this.gPu.setVisibility(8);
         }
         if (i == 1 || (i == 2 && i2 >= 1 && j > 0)) {
-            this.gML.setText(i2 <= 100 ? String.valueOf(i2) : "100+");
-            this.gML.setVisibility(0);
-            this.gMM.setVisibility(8);
+            this.gPr.setText(i2 <= 100 ? String.valueOf(i2) : "100+");
+            this.gPr.setVisibility(0);
+            this.gPs.setVisibility(8);
         } else {
-            this.gML.setVisibility(8);
-            this.gMM.setVisibility(0);
+            this.gPr.setVisibility(8);
+            this.gPs.setVisibility(0);
         }
-        if (this.gML.getText() != null) {
-            TextView textView = this.gML;
-            if (this.gML.getText().length() > 3) {
+        if (this.gPr.getText() != null) {
+            TextView textView = this.gPr;
+            if (this.gPr.getText().length() > 3) {
                 dimensionPixelSize = getResources().getDimensionPixelSize(a.d.sdk_fontsize24);
             } else {
                 dimensionPixelSize = getResources().getDimensionPixelSize(a.d.sdk_fontsize36);
             }
             textView.setTextSize(0, dimensionPixelSize);
         }
-        m.a(this.gMN, str2, true, false);
+        m.a(this.gPt, str2, true, false);
         if (i == 2 && j > 0) {
             switch (i2) {
                 case 1:
-                    this.gMO.setImageResource(a.e.pic_live_list_top1);
+                    this.gPu.setImageResource(a.e.pic_live_list_top1);
                     break;
                 case 2:
-                    this.gMO.setImageResource(a.e.pic_live_list_top2);
+                    this.gPu.setImageResource(a.e.pic_live_list_top2);
                     break;
                 case 3:
-                    this.gMO.setImageResource(a.e.pic_live_list_top3);
+                    this.gPu.setImageResource(a.e.pic_live_list_top3);
                     break;
             }
         }
-        this.aBZ.setText(str);
+        this.aDM.setText(str);
         switch (i) {
             case 1:
-                this.gMQ.setText(String.format(getResources().getString(a.h.sdk_charm_rank_forward_diff), StringHelper.formatValue(j2)));
+                this.gPw.setText(String.format(getResources().getString(a.h.sdk_charm_rank_forward_diff), StringHelper.formatValue(j2)));
                 return;
             case 2:
                 if (j > 0) {
-                    this.gMQ.setText(String.format("%s 魅力", StringHelper.formatValue(j)));
+                    this.gPw.setText(String.format("%s 魅力", StringHelper.formatValue(j)));
                     return;
                 } else {
-                    this.gMQ.setText("");
+                    this.gPw.setText("");
                     return;
                 }
             default:
@@ -91,30 +91,30 @@ public class CharmItemView extends LinearLayout {
         }
     }
 
-    protected void init() {
+    protected final void init() {
         LayoutInflater.from(getContext()).inflate(a.g.sdk_charm_item, (ViewGroup) this, true);
         setOrientation(0);
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds8);
         setPadding(getResources().getDimensionPixelOffset(a.d.sdk_ds18), dimensionPixelOffset, getResources().getDimensionPixelOffset(a.d.sdk_ds36), dimensionPixelOffset);
-        EO();
+        Ge();
         initView();
     }
 
-    protected void EO() {
-        this.gML = (TextView) findViewById(a.f.tv_rank);
-        this.gMM = (ImageView) findViewById(a.f.iv_rank);
-        this.gMN = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.gMO = (TbImageView) findViewById(a.f.iv_pendant);
-        this.gMP = (ALALevelView) findViewById(a.f.level);
-        this.aBZ = (TextView) findViewById(a.f.tv_name);
-        this.gMQ = (TextView) findViewById(a.f.tv_value);
+    protected void Ge() {
+        this.gPr = (TextView) findViewById(a.f.tv_rank);
+        this.gPs = (ImageView) findViewById(a.f.iv_rank);
+        this.gPt = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.gPu = (TbImageView) findViewById(a.f.iv_pendant);
+        this.gPv = (ALALevelView) findViewById(a.f.level);
+        this.aDM = (TextView) findViewById(a.f.tv_name);
+        this.gPw = (TextView) findViewById(a.f.tv_value);
     }
 
     protected void initView() {
-        this.gMN.setAutoChangeStyle(false);
-        this.gMN.setDrawBorder(false);
-        this.gMN.setIsRound(true);
-        this.gMO.setDefaultBgResource(a.c.sdk_transparent);
-        this.gMO.setDefaultErrorResource(a.e.sdk_shape_transparent);
+        this.gPt.setAutoChangeStyle(false);
+        this.gPt.setDrawBorder(false);
+        this.gPt.setIsRound(true);
+        this.gPu.setDefaultBgResource(a.c.sdk_transparent);
+        this.gPu.setDefaultErrorResource(a.e.sdk_shape_transparent);
     }
 }

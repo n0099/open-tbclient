@@ -19,55 +19,55 @@ import io.reactivex.y;
 import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
 public final class a {
-    static volatile g<? super Throwable> qhH;
-    static volatile h<? super Runnable, ? extends Runnable> qhI;
-    static volatile h<? super Callable<v>, ? extends v> qhJ;
-    static volatile h<? super Callable<v>, ? extends v> qhK;
-    static volatile h<? super Callable<v>, ? extends v> qhL;
-    static volatile h<? super Callable<v>, ? extends v> qhM;
-    static volatile h<? super v, ? extends v> qhN;
-    static volatile h<? super io.reactivex.g, ? extends io.reactivex.g> qhO;
-    static volatile c<? super io.reactivex.g, ? super org.a.c, ? extends org.a.c> qhP;
-    static volatile c<? super k, ? super m, ? extends m> qhQ;
-    static volatile c<? super q, ? super u, ? extends u> qhR;
-    static volatile c<? super w, ? super y, ? extends y> qhS;
-    static volatile c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> qhT;
-    static volatile e qhU;
-    static volatile boolean qhV;
+    static volatile g<? super Throwable> qrL;
+    static volatile h<? super Runnable, ? extends Runnable> qrM;
+    static volatile h<? super Callable<v>, ? extends v> qrN;
+    static volatile h<? super Callable<v>, ? extends v> qrO;
+    static volatile h<? super Callable<v>, ? extends v> qrP;
+    static volatile h<? super Callable<v>, ? extends v> qrQ;
+    static volatile h<? super v, ? extends v> qrR;
+    static volatile h<? super io.reactivex.g, ? extends io.reactivex.g> qrS;
+    static volatile c<? super io.reactivex.g, ? super org.a.c, ? extends org.a.c> qrT;
+    static volatile c<? super k, ? super m, ? extends m> qrU;
+    static volatile c<? super q, ? super u, ? extends u> qrV;
+    static volatile c<? super w, ? super y, ? extends y> qrW;
+    static volatile c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> qrX;
+    static volatile e qrY;
+    static volatile boolean qrZ;
 
-    public static boolean eIq() {
-        return qhV;
+    public static boolean eKG() {
+        return qrZ;
     }
 
     public static v d(Callable<v> callable) {
         io.reactivex.internal.functions.a.m(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = qhJ;
+        h<? super Callable<v>, ? extends v> hVar = qrN;
         return hVar == null ? h(callable) : a(hVar, callable);
     }
 
     public static v e(Callable<v> callable) {
         io.reactivex.internal.functions.a.m(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = qhL;
+        h<? super Callable<v>, ? extends v> hVar = qrP;
         return hVar == null ? h(callable) : a(hVar, callable);
     }
 
     public static v f(Callable<v> callable) {
         io.reactivex.internal.functions.a.m(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = qhM;
+        h<? super Callable<v>, ? extends v> hVar = qrQ;
         return hVar == null ? h(callable) : a(hVar, callable);
     }
 
     public static v g(Callable<v> callable) {
         io.reactivex.internal.functions.a.m(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = qhK;
+        h<? super Callable<v>, ? extends v> hVar = qrO;
         return hVar == null ? h(callable) : a(hVar, callable);
     }
 
     public static void onError(Throwable th) {
-        g<? super Throwable> gVar = qhH;
+        g<? super Throwable> gVar = qrL;
         if (th == null) {
             th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        } else if (!R(th)) {
+        } else if (!Q(th)) {
             th = new UndeliverableException(th);
         }
         if (gVar != null) {
@@ -76,70 +76,70 @@ public final class a {
                 return;
             } catch (Throwable th2) {
                 th2.printStackTrace();
-                S(th2);
+                R(th2);
             }
         }
         th.printStackTrace();
-        S(th);
+        R(th);
     }
 
-    static boolean R(Throwable th) {
+    static boolean Q(Throwable th) {
         return (th instanceof OnErrorNotImplementedException) || (th instanceof MissingBackpressureException) || (th instanceof IllegalStateException) || (th instanceof NullPointerException) || (th instanceof IllegalArgumentException) || (th instanceof CompositeException);
     }
 
-    static void S(Throwable th) {
+    static void R(Throwable th) {
         Thread currentThread = Thread.currentThread();
         currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
     }
 
-    public static Runnable H(Runnable runnable) {
+    public static Runnable G(Runnable runnable) {
         io.reactivex.internal.functions.a.m(runnable, "run is null");
-        h<? super Runnable, ? extends Runnable> hVar = qhI;
+        h<? super Runnable, ? extends Runnable> hVar = qrM;
         return hVar == null ? runnable : (Runnable) a((h<Runnable, Object>) hVar, runnable);
     }
 
     public static v a(v vVar) {
-        h<? super v, ? extends v> hVar = qhN;
+        h<? super v, ? extends v> hVar = qrR;
         return hVar == null ? vVar : (v) a((h<v, Object>) hVar, vVar);
     }
 
     public static <T> org.a.c<? super T> a(io.reactivex.g<T> gVar, org.a.c<? super T> cVar) {
-        c<? super io.reactivex.g, ? super org.a.c, ? extends org.a.c> cVar2 = qhP;
+        c<? super io.reactivex.g, ? super org.a.c, ? extends org.a.c> cVar2 = qrT;
         return cVar2 != null ? (org.a.c) a(cVar2, gVar, cVar) : cVar;
     }
 
     public static <T> u<? super T> a(q<T> qVar, u<? super T> uVar) {
-        c<? super q, ? super u, ? extends u> cVar = qhR;
+        c<? super q, ? super u, ? extends u> cVar = qrV;
         return cVar != null ? (u) a(cVar, qVar, uVar) : uVar;
     }
 
     public static <T> y<? super T> a(w<T> wVar, y<? super T> yVar) {
-        c<? super w, ? super y, ? extends y> cVar = qhS;
+        c<? super w, ? super y, ? extends y> cVar = qrW;
         return cVar != null ? (y) a(cVar, wVar, yVar) : yVar;
     }
 
     public static io.reactivex.c a(io.reactivex.a aVar, io.reactivex.c cVar) {
-        c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> cVar2 = qhT;
+        c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> cVar2 = qrX;
         return cVar2 != null ? (io.reactivex.c) a(cVar2, aVar, cVar) : cVar;
     }
 
     public static <T> m<? super T> a(k<T> kVar, m<? super T> mVar) {
-        c<? super k, ? super m, ? extends m> cVar = qhQ;
+        c<? super k, ? super m, ? extends m> cVar = qrU;
         return cVar != null ? (m) a(cVar, kVar, mVar) : mVar;
     }
 
     public static <T> io.reactivex.g<T> a(io.reactivex.g<T> gVar) {
-        h<? super io.reactivex.g, ? extends io.reactivex.g> hVar = qhO;
+        h<? super io.reactivex.g, ? extends io.reactivex.g> hVar = qrS;
         return hVar != null ? (io.reactivex.g) a((h<io.reactivex.g<T>, Object>) hVar, gVar) : gVar;
     }
 
-    public static boolean eIr() {
-        e eVar = qhU;
+    public static boolean eKH() {
+        e eVar = qrY;
         if (eVar != null) {
             try {
                 return eVar.getAsBoolean();
             } catch (Throwable th) {
-                throw ExceptionHelper.Q(th);
+                throw ExceptionHelper.P(th);
             }
         }
         return false;
@@ -149,7 +149,7 @@ public final class a {
         try {
             return hVar.apply(t);
         } catch (Throwable th) {
-            throw ExceptionHelper.Q(th);
+            throw ExceptionHelper.P(th);
         }
     }
 
@@ -157,7 +157,7 @@ public final class a {
         try {
             return cVar.apply(t, u);
         } catch (Throwable th) {
-            throw ExceptionHelper.Q(th);
+            throw ExceptionHelper.P(th);
         }
     }
 
@@ -165,7 +165,7 @@ public final class a {
         try {
             return (v) io.reactivex.internal.functions.a.m(callable.call(), "Scheduler Callable result can't be null");
         } catch (Throwable th) {
-            throw ExceptionHelper.Q(th);
+            throw ExceptionHelper.P(th);
         }
     }
 

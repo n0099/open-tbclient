@@ -9,15 +9,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes2.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
-    private RelationBarAdapter jjf;
+    private RelationBarAdapter joM;
     private RecyclerView mRecyclerView;
     private int mSkinType;
 
@@ -43,8 +43,8 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
         setOrientation(1);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
-        this.jjf = new RelationBarAdapter(context);
-        this.mRecyclerView.setAdapter(this.jjf);
+        this.joM = new RelationBarAdapter(context);
+        this.mRecyclerView.setAdapter(this.joM);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         int dimens = l.getDimens(context, R.dimen.tbds44);
@@ -53,21 +53,21 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     }
 
     public void setData(List<OriForumInfo> list) {
-        if (x.isEmpty(list)) {
+        if (y.isEmpty(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.jjf.setData(list);
-        this.jjf.notifyDataSetChanged();
+        this.joM.setData(list);
+        this.joM.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            ao.setBackgroundColor(this, R.color.CAM_X0205);
-            this.jjf.notifyDataSetChanged();
+            ap.setBackgroundColor(this, R.color.CAM_X0205);
+            this.joM.notifyDataSetChanged();
         }
     }
 }

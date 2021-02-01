@@ -13,7 +13,7 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
     private static final jn f688a = new jn("XmPushActionNormalConfig");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14138a = new jf("", (byte) 15, 1);
+    private static final jf f14140a = new jf("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -49,14 +49,14 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
         jiVar.m515a();
         while (true) {
             jf m511a = jiVar.m511a();
-            if (m511a.f14171a == 0) {
+            if (m511a.f14173a == 0) {
                 jiVar.f();
                 m456a();
                 return;
             }
             switch (m511a.f857a) {
                 case 1:
-                    if (m511a.f14171a == 15) {
+                    if (m511a.f14173a == 15) {
                         jg m512a = jiVar.m512a();
                         this.f689a = new ArrayList(m512a.f858a);
                         for (int i = 0; i < m512a.f858a; i++) {
@@ -67,11 +67,11 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m511a.f14171a);
+                    jl.a(jiVar, m511a.f14173a);
                     break;
             }
             jiVar.g();
@@ -98,7 +98,7 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
         m456a();
         jiVar.a(f688a);
         if (this.f689a != null) {
-            jiVar.a(f14138a);
+            jiVar.a(f14140a);
             jiVar.a(new jg((byte) 12, this.f689a.size()));
             for (hv hvVar : this.f689a) {
                 hvVar.b(jiVar);

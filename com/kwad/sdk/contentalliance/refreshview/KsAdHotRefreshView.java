@@ -11,34 +11,34 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.refreshview.RefreshLayout;
 import com.kwad.sdk.utils.ao;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KsAdHotRefreshView extends e {
     private static final float g = ao.a(KsAdSDKImpl.get().getContext(), 37.5f);
     private RefreshLayout.b h;
     private LottieAnimationView i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<KsAdHotRefreshView> f8814a;
+        private WeakReference<KsAdHotRefreshView> f8816a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final boolean f8815b;
+        private final boolean f8817b;
 
         a(KsAdHotRefreshView ksAdHotRefreshView, boolean z) {
-            this.f8814a = new WeakReference<>(ksAdHotRefreshView);
-            this.f8815b = z;
+            this.f8816a = new WeakReference<>(ksAdHotRefreshView);
+            this.f8817b = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            KsAdHotRefreshView ksAdHotRefreshView = this.f8814a.get();
+            KsAdHotRefreshView ksAdHotRefreshView = this.f8816a.get();
             if (ksAdHotRefreshView != null) {
                 if (!ksAdHotRefreshView.e() && ksAdHotRefreshView.e != null) {
                     ksAdHotRefreshView.e.c();
                 }
-                ksAdHotRefreshView.a(this.f8815b);
+                ksAdHotRefreshView.a(this.f8817b);
             }
         }
     }

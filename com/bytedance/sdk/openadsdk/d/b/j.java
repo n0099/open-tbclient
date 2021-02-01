@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.d.b;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j {
     public static DateFormat a(int i, int i2) {
         return new SimpleDateFormat(a(i) + " " + b(i2), Locale.US);

@@ -4,20 +4,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f4456a = 0.0f;
+    private static float f4459a = 0.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f4457b = 0;
+    private static int f4460b = 0;
 
     public static float a(Context context) {
-        if (f4456a == 0.0f) {
-            f4456a = context.getResources().getDisplayMetrics().density;
+        if (f4459a == 0.0f) {
+            f4459a = context.getResources().getDisplayMetrics().density;
         }
-        return f4456a;
+        return f4459a;
     }
 
     public static int b(Context context) {
@@ -44,8 +44,8 @@ public class g {
         if (context == null) {
             return 0;
         }
-        if (f4457b > 0) {
-            return f4457b;
+        if (f4460b > 0) {
+            return f4460b;
         }
         if (context instanceof Activity) {
             View findViewById = ((Activity) context).getWindow().getDecorView().findViewById(16908290);

@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static String a(Context context) {
         String str = "";
@@ -67,7 +67,7 @@ public class a {
     }
 
     @SuppressLint({"PrivateApi"})
-    public static Activity eBk() {
+    public static Activity eDB() {
         Map map;
         try {
             Class<?> cls = Class.forName("android.app.ActivityThread");
@@ -97,7 +97,7 @@ public class a {
     }
 
     @SuppressLint({"PrivateApi"})
-    public static Application eBl() {
+    public static Application eDC() {
         try {
             return (Application) Class.forName("android.app.ActivityThread").getMethod("currentApplication", new Class[0]).invoke(null, null);
         } catch (Throwable th) {

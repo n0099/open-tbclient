@@ -1,5 +1,5 @@
 package com.bumptech.glide.request;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public interface RequestCoordinator {
     boolean canNotifyCleared(Request request);
 

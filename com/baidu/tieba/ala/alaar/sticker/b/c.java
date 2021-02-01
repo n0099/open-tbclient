@@ -12,7 +12,7 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     private static String TAG = "FileUtils";
 
@@ -70,7 +70,7 @@ public class c {
         }
     }
 
-    public static void d(File file, File file2) throws ZipException, IOException {
+    public static void c(File file, File file2) throws ZipException, IOException {
         if (!file2.exists()) {
             file2.mkdirs();
         }

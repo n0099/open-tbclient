@@ -15,7 +15,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
@@ -32,175 +32,177 @@ import com.baidu.tieba.yuyinala.liveroom.recommend.data.AlaRecommendLiveData;
 import com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.recommend.data.a, C0929a> {
-    private x buq;
+/* loaded from: classes11.dex */
+public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.recommend.data.a, C0933a> {
+    private ab bxN;
     private int cardWidth;
-    private int ood;
-    private TbPageContext ooe;
+    private int oxT;
+    private TbPageContext oxU;
 
     public a(Context context, BdUniqueId bdUniqueId, int i, TbPageContext tbPageContext) {
         super(context, bdUniqueId);
         this.cardWidth = i;
-        this.ooe = tbPageContext;
+        this.oxU = tbPageContext;
     }
 
-    public void LM(int i) {
-        this.ood = i;
+    public void Mh(int i) {
+        this.oxT = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: df */
-    public C0929a onCreateViewHolder(ViewGroup viewGroup) {
-        return new C0929a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_item_layout, viewGroup, false), this.mContext, this.cardWidth, this.ooe);
+    public C0933a onCreateViewHolder(ViewGroup viewGroup) {
+        return new C0933a(LayoutInflater.from(this.mContext).inflate(a.g.ala_yuyin_recommend_live_item_layout, viewGroup, false), this.mContext, this.cardWidth, this.oxU);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.yuyinala.liveroom.recommend.data.a aVar, C0929a c0929a) {
-        c0929a.a(aVar, i, this.ood, this.buq);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.yuyinala.liveroom.recommend.data.a aVar, C0933a c0933a) {
+        c0933a.a(aVar, i, this.oxT, this.bxN);
         return view;
     }
 
-    public void setAlaLiveShowData(x xVar) {
-        this.buq = xVar;
+    public void setAlaLiveShowData(ab abVar) {
+        this.bxN = abVar;
     }
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0929a extends TypeAdapter.ViewHolder {
-        private x buq;
-        private LinearLayout[] ibA;
-        private TextView[] ibB;
-        private String ibG;
-        private RelativeLayout[] ibw;
-        private TbImageView[] ibx;
-        private TextView[] iby;
-        private TextView[] ibz;
+    /* loaded from: classes11.dex */
+    public static class C0933a extends TypeAdapter.ViewHolder {
+        private ab bxN;
+        private RelativeLayout[] ifU;
+        private TbImageView[] ifV;
+        private TextView[] ifW;
+        private TextView[] ifX;
+        private LinearLayout[] ifY;
+        private TextView[] ifZ;
+        private String ige;
         private Context mContext;
         private TbPageContext mPageContext;
         private int mPosition;
-        private int ood;
-        private TextView[] oof;
-        private com.baidu.tieba.yuyinala.liveroom.recommend.data.a oog;
+        private int oxT;
+        private TextView[] oxV;
+        private com.baidu.tieba.yuyinala.liveroom.recommend.data.a oxW;
 
-        private C0929a(View view, Context context, int i, TbPageContext tbPageContext) {
+        private C0933a(View view, Context context, int i, TbPageContext tbPageContext) {
             super(view);
-            this.ibG = "";
+            this.ige = "";
             this.mContext = context;
             this.mPageContext = tbPageContext;
-            this.ibw = new RelativeLayout[2];
-            this.ibx = new TbImageView[2];
-            this.iby = new TextView[2];
-            this.ibz = new TextView[2];
-            this.ibA = new LinearLayout[2];
-            this.ibB = new TextView[2];
-            this.oof = new TextView[2];
-            this.ibw[0] = (RelativeLayout) view.findViewById(a.f.left_content_layout);
-            this.ibw[1] = (RelativeLayout) view.findViewById(a.f.right_content_layout);
-            this.ibx[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
-            this.ibx[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
-            this.iby[0] = (TextView) view.findViewById(a.f.left_count_textView);
-            this.iby[1] = (TextView) view.findViewById(a.f.right_count_textView);
-            this.ibz[0] = (TextView) view.findViewById(a.f.left_name_textView);
-            this.ibz[1] = (TextView) view.findViewById(a.f.right_name_textView);
-            this.ibA[0] = (LinearLayout) view.findViewById(a.f.left_location_layout);
-            this.ibA[1] = (LinearLayout) view.findViewById(a.f.right_location_layout);
-            this.ibB[0] = (TextView) view.findViewById(a.f.left_location_textView);
-            this.ibB[1] = (TextView) view.findViewById(a.f.right_location_textView);
-            this.oof[0] = (TextView) view.findViewById(a.f.left_live_label);
-            this.oof[1] = (TextView) view.findViewById(a.f.right_live_label);
-            this.ibx[0].getLayoutParams().width = i;
-            this.ibx[0].getLayoutParams().height = i;
-            this.ibx[1].getLayoutParams().width = i;
-            this.ibx[1].getLayoutParams().height = i;
-            this.ibx[0].setDefaultBgResource(a.e.sdk_shape_transparent);
-            this.ibx[1].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.ifU = new RelativeLayout[2];
+            this.ifV = new TbImageView[2];
+            this.ifW = new TextView[2];
+            this.ifX = new TextView[2];
+            this.ifY = new LinearLayout[2];
+            this.ifZ = new TextView[2];
+            this.oxV = new TextView[2];
+            this.ifU[0] = (RelativeLayout) view.findViewById(a.f.left_content_layout);
+            this.ifU[1] = (RelativeLayout) view.findViewById(a.f.right_content_layout);
+            this.ifV[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
+            this.ifV[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
+            this.ifW[0] = (TextView) view.findViewById(a.f.left_count_textView);
+            this.ifW[1] = (TextView) view.findViewById(a.f.right_count_textView);
+            this.ifX[0] = (TextView) view.findViewById(a.f.left_name_textView);
+            this.ifX[1] = (TextView) view.findViewById(a.f.right_name_textView);
+            this.ifY[0] = (LinearLayout) view.findViewById(a.f.left_location_layout);
+            this.ifY[1] = (LinearLayout) view.findViewById(a.f.right_location_layout);
+            this.ifZ[0] = (TextView) view.findViewById(a.f.left_location_textView);
+            this.ifZ[1] = (TextView) view.findViewById(a.f.right_location_textView);
+            this.oxV[0] = (TextView) view.findViewById(a.f.left_live_label);
+            this.oxV[1] = (TextView) view.findViewById(a.f.right_live_label);
+            this.ifV[0].getLayoutParams().width = i;
+            this.ifV[0].getLayoutParams().height = i;
+            this.ifV[1].getLayoutParams().width = i;
+            this.ifV[1].getLayoutParams().height = i;
+            this.ifV[0].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.ifV[1].setDefaultBgResource(a.e.sdk_shape_transparent);
             if (!TbadkCoreApplication.getInst().isMobileBaidu() && i > 0) {
-                this.ibG = "@resize{w:" + i + ",h:" + i + "}";
+                this.ige = "@resize{w:" + i + ",h:" + i + "}";
             }
-            this.ibw[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.1
+            this.ifU[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0929a.this.oog != null) {
-                        if (C0929a.this.oog.ook != null) {
-                            C0929a.this.b(C0929a.this.oog.ook, 0, C0929a.this.oog.type);
-                        } else if (C0929a.this.oog.ool != null) {
-                            C0929a.this.b(C0929a.this.oog.ool, 0, C0929a.this.oog.type);
+                    if (C0933a.this.oxW != null) {
+                        if (C0933a.this.oxW.oya != null) {
+                            C0933a.this.b(C0933a.this.oxW.oya, 0, C0933a.this.oxW.type);
+                        } else if (C0933a.this.oxW.oyb != null) {
+                            C0933a.this.b(C0933a.this.oxW.oyb, 0, C0933a.this.oxW.type);
                         }
                     }
                 }
             });
-            this.ibw[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.2
+            this.ifU[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0929a.this.oog != null && C0929a.this.oog.ool != null) {
-                        C0929a.this.b(C0929a.this.oog.ool, 1, C0929a.this.oog.type);
+                    if (C0933a.this.oxW != null && C0933a.this.oxW.oyb != null) {
+                        C0933a.this.b(C0933a.this.oxW.oyb, 1, C0933a.this.oxW.type);
                     }
                 }
             });
         }
 
-        public void a(com.baidu.tieba.yuyinala.liveroom.recommend.data.a aVar, int i, int i2, x xVar) {
+        public void a(com.baidu.tieba.yuyinala.liveroom.recommend.data.a aVar, int i, int i2, ab abVar) {
             boolean z;
             int i3;
             if (aVar != null) {
-                this.oog = aVar;
+                this.oxW = aVar;
                 this.mPosition = i;
-                this.ood = i2;
-                this.buq = xVar;
-                if (aVar.ook != null) {
-                    a(aVar.ook, 0, this.oog.type);
+                this.oxT = i2;
+                this.bxN = abVar;
+                if (aVar.oya != null) {
+                    a(aVar.oya, 0, this.oxW.type);
                 }
-                if (aVar.ool != null) {
-                    if (aVar.ook == null) {
+                if (aVar.oyb != null) {
+                    if (aVar.oya == null) {
                         i3 = 0;
                         z = false;
                     } else {
                         i3 = 1;
                         z = true;
                     }
-                    a(aVar.ool, i3, this.oog.type);
+                    a(aVar.oyb, i3, this.oxW.type);
                 } else {
                     z = false;
                 }
                 if (z) {
-                    this.ibw[1].setVisibility(0);
+                    this.ifU[1].setVisibility(0);
                 } else {
-                    this.ibw[1].setVisibility(8);
+                    this.ifU[1].setVisibility(8);
                 }
             }
         }
 
         private void a(AlaRecommendLiveData alaRecommendLiveData, int i, int i2) {
-            this.ibx[i].startLoad(alaRecommendLiveData.cover + this.ibG, 10, false);
-            this.ibz[i].setText(alaRecommendLiveData.room_name);
-            this.iby[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_audience_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
+            this.ifV[i].startLoad(alaRecommendLiveData.cover + this.ige, 10, false);
+            this.ifX[i].setText(alaRecommendLiveData.room_name);
+            if (alaRecommendLiveData.audience_count > 0) {
+                this.ifW[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_audience_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
+            }
             if (!TextUtils.isEmpty(alaRecommendLiveData.distance) && !TextUtils.equals(alaRecommendLiveData.distance, "0")) {
-                this.ibB[i].setText(alaRecommendLiveData.distance);
-                this.ibA[i].setVisibility(0);
+                this.ifZ[i].setText(alaRecommendLiveData.distance);
+                this.ifY[i].setVisibility(0);
             } else {
-                this.ibA[i].setVisibility(8);
+                this.ifY[i].setVisibility(8);
             }
             if (alaRecommendLiveData.corner_tag == 2) {
-                this.oof[i].setVisibility(0);
-                this.oof[i].setText(this.oof[i].getContext().getResources().getString(a.h.yuyin_dating));
-                this.oof[i].setBackgroundResource(a.e.shape_yuyin_dating_bg);
+                this.oxV[i].setVisibility(0);
+                this.oxV[i].setText(this.oxV[i].getContext().getResources().getString(a.h.yuyin_dating));
+                this.oxV[i].setBackgroundResource(a.e.shape_yuyin_dating_bg);
             } else {
-                this.oof[i].setVisibility(8);
+                this.oxV[i].setVisibility(8);
             }
             a(UbcStatisticLiveKey.KEY_ID_1392, "show", alaRecommendLiveData, i2, i);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b(final AlaRecommendLiveData alaRecommendLiveData, final int i, final int i2) {
-            boolean ib = com.baidu.live.aq.a.Wu().ib(ExtraParamsManager.getEncryptionUserId(String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
-            boolean isApplying = com.baidu.live.aq.a.Wu().isApplying();
-            if (ib) {
+            boolean iH = com.baidu.live.ao.a.Yj().iH(ExtraParamsManager.getEncryptionUserId(String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
+            boolean isApplying = com.baidu.live.ao.a.Yj().isApplying();
+            if (iH) {
                 g gVar = new g(this.mPageContext);
                 gVar.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.3
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
@@ -209,7 +211,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
 
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                     public void onConfirm() {
-                        C0929a.this.c(alaRecommendLiveData, i, i2);
+                        C0933a.this.c(alaRecommendLiveData, i, i2);
                     }
                 });
                 gVar.show();
@@ -223,7 +225,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
 
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                     public void onConfirm() {
-                        C0929a.this.c(alaRecommendLiveData, i, i2);
+                        C0933a.this.c(alaRecommendLiveData, i, i2);
                     }
                 });
                 gVar2.show();
@@ -254,15 +256,15 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
                     e.printStackTrace();
                 }
                 yuyinAlaLiveRoomActivityConfig.addExtraByParams(str);
-                if (this.buq != null) {
+                if (this.bxN != null) {
                     AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
-                    if (this.buq.aGy != null) {
-                        alaLastLiveroomInfo.setLastAnchorPortrait(this.buq.aGy.cover);
-                        alaLastLiveroomInfo.setLastAnchorUname(this.buq.aGy.room_name);
+                    if (this.bxN.aIU != null) {
+                        alaLastLiveroomInfo.setLastAnchorPortrait(this.bxN.aIU.cover);
+                        alaLastLiveroomInfo.setLastAnchorUname(this.bxN.aIU.room_name);
                     }
-                    if (this.buq.mLiveInfo != null) {
-                        alaLastLiveroomInfo.setLastLiveId(this.buq.mLiveInfo.live_id);
-                        alaLastLiveroomInfo.setLastRoomId(this.buq.mLiveInfo.room_id);
+                    if (this.bxN.mLiveInfo != null) {
+                        alaLastLiveroomInfo.setLastLiveId(this.bxN.mLiveInfo.live_id);
+                        alaLastLiveroomInfo.setLastRoomId(this.bxN.mLiveInfo.room_id);
                     }
                     alaLastLiveroomInfo.setIsAudio(1);
                     alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_RECOMMEND);
@@ -281,14 +283,14 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
                     try {
                         if (i == 0) {
                             i3 = ((this.mPosition - 1) * 2) + i2 + 1;
-                        } else if (this.ood > 0) {
-                            i3 = ((((this.mPosition - 1) - 1) - ((int) ((this.ood / 2) + 0.9f))) * 2) + i2 + 1;
+                        } else if (this.oxT > 0) {
+                            i3 = ((((this.mPosition - 1) - 1) - ((int) ((this.oxT / 2) + 0.9f))) * 2) + i2 + 1;
                         } else {
                             i3 = ((this.mPosition - 1) * 2) + i2 + 1;
                         }
                         jSONObject.put("live_id", alaRecommendLiveData.live_id).put("vid", alaRecommendLiveData.feed_id).put("model", i == 0 ? "yourfollower" : "hotlive").put("pos", i3).put("nearby", (i != 1 || TextUtils.isEmpty(alaRecommendLiveData.distance)) ? "0" : "1");
                         jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.buq.aGy.croom_id);
+                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.bxN.aIU.croom_id);
                     } catch (Exception e) {
                         BdLog.e(e);
                     }

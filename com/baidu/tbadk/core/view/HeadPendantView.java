@@ -12,203 +12,203 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.q;
+import com.baidu.tbadk.core.util.r;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class HeadPendantView extends RelativeLayout {
-    private TbImageView fdD;
-    private ImageView fdE;
-    private HeadImageView fdF;
-    private boolean fdG;
-    private boolean fdH;
-    private boolean fdI;
-    private boolean fdJ;
-    private int fdK;
-    private int fdL;
-    private int fdM;
-    private boolean fdN;
-    private boolean fdO;
+    private TbImageView ffS;
+    private ImageView ffT;
+    private HeadImageView ffU;
+    private boolean ffV;
+    private boolean ffW;
+    private boolean ffX;
+    private boolean ffY;
+    private int ffZ;
+    private int fga;
+    private int fgb;
+    private boolean fgc;
+    private boolean fgd;
     private Context mContext;
     private BdUniqueId mPageId;
 
     public HeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fdG = false;
-        this.fdH = false;
-        this.fdI = false;
-        this.fdJ = false;
-        this.fdK = R.drawable.ic_icon_mask_shen20_n;
-        this.fdL = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.fdM = 0;
-        this.fdO = true;
+        this.ffV = false;
+        this.ffW = false;
+        this.ffX = false;
+        this.ffY = false;
+        this.ffZ = R.drawable.ic_icon_mask_shen20_n;
+        this.fga = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.fgb = 0;
+        this.fgd = true;
         this.mContext = context;
         init();
     }
 
     public HeadPendantView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fdG = false;
-        this.fdH = false;
-        this.fdI = false;
-        this.fdJ = false;
-        this.fdK = R.drawable.ic_icon_mask_shen20_n;
-        this.fdL = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.fdM = 0;
-        this.fdO = true;
+        this.ffV = false;
+        this.ffW = false;
+        this.ffX = false;
+        this.ffY = false;
+        this.ffZ = R.drawable.ic_icon_mask_shen20_n;
+        this.fga = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.fgb = 0;
+        this.fgd = true;
         this.mContext = context;
         init();
     }
 
     public HeadPendantView(Context context) {
         super(context);
-        this.fdG = false;
-        this.fdH = false;
-        this.fdI = false;
-        this.fdJ = false;
-        this.fdK = R.drawable.ic_icon_mask_shen20_n;
-        this.fdL = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.fdM = 0;
-        this.fdO = true;
+        this.ffV = false;
+        this.ffW = false;
+        this.ffX = false;
+        this.ffY = false;
+        this.ffZ = R.drawable.ic_icon_mask_shen20_n;
+        this.fga = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.fgb = 0;
+        this.fgd = true;
         this.mContext = context;
         init();
     }
 
     public void setHasPendantStyle() {
-        this.fdG = true;
+        this.ffV = true;
     }
 
     public void setHasPendantStyle(boolean z) {
-        if (this.fdG && !z && this.fdF != null) {
-            ((RelativeLayout.LayoutParams) this.fdF.getLayoutParams()).setMargins(0, 0, 0, 0);
-            if (this.fdE != null) {
-                ((RelativeLayout.LayoutParams) this.fdE.getLayoutParams()).setMargins(0, 0, 0, 0);
+        if (this.ffV && !z && this.ffU != null) {
+            ((RelativeLayout.LayoutParams) this.ffU.getLayoutParams()).setMargins(0, 0, 0, 0);
+            if (this.ffT != null) {
+                ((RelativeLayout.LayoutParams) this.ffT.getLayoutParams()).setMargins(0, 0, 0, 0);
             }
-            if (this.fdD != null) {
-                this.fdD.setVisibility(8);
+            if (this.ffS != null) {
+                this.ffS.setVisibility(8);
             }
-            this.fdH = false;
+            this.ffW = false;
             invalidate();
-        } else if (!this.fdG && z && this.fdF != null) {
-            int width = (int) (this.fdF.getWidth() * 0.13f);
-            int height = (int) (this.fdF.getHeight() * 0.13f);
-            ((RelativeLayout.LayoutParams) this.fdF.getLayoutParams()).setMargins(width, height, width, height);
-            if (this.fdE != null) {
-                ((RelativeLayout.LayoutParams) this.fdE.getLayoutParams()).setMargins(width, height, width, height);
+        } else if (!this.ffV && z && this.ffU != null) {
+            int width = (int) (this.ffU.getWidth() * 0.13f);
+            int height = (int) (this.ffU.getHeight() * 0.13f);
+            ((RelativeLayout.LayoutParams) this.ffU.getLayoutParams()).setMargins(width, height, width, height);
+            if (this.ffT != null) {
+                ((RelativeLayout.LayoutParams) this.ffT.getLayoutParams()).setMargins(width, height, width, height);
             }
             invalidate();
         }
-        this.fdG = z;
+        this.ffV = z;
     }
 
     public void setBjhPbFirstFloor(boolean z) {
-        this.fdI = z;
+        this.ffX = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.fdG) {
+        if (this.ffV) {
             int size = View.MeasureSpec.getSize(i);
             int i3 = (int) (size * 0.13f);
             int size2 = (int) (View.MeasureSpec.getSize(i2) * 0.13f);
-            ((RelativeLayout.LayoutParams) this.fdF.getLayoutParams()).setMargins(i3, size2, i3, size2);
-            if (this.fdE != null) {
-                ((RelativeLayout.LayoutParams) this.fdE.getLayoutParams()).setMargins(i3, size2, i3, size2);
+            ((RelativeLayout.LayoutParams) this.ffU.getLayoutParams()).setMargins(i3, size2, i3, size2);
+            if (this.ffT != null) {
+                ((RelativeLayout.LayoutParams) this.ffT.getLayoutParams()).setMargins(i3, size2, i3, size2);
             }
         }
-        if (this.fdI) {
-            ((RelativeLayout.LayoutParams) this.fdF.getLayoutParams()).setMargins(0, 0, 0, 0);
-            if (this.fdE != null) {
-                ((RelativeLayout.LayoutParams) this.fdE.getLayoutParams()).setMargins(0, 0, 0, 0);
+        if (this.ffX) {
+            ((RelativeLayout.LayoutParams) this.ffU.getLayoutParams()).setMargins(0, 0, 0, 0);
+            if (this.ffT != null) {
+                ((RelativeLayout.LayoutParams) this.ffT.getLayoutParams()).setMargins(0, 0, 0, 0);
             }
         }
         super.onMeasure(i, i2);
     }
 
-    public void Bi(String str) {
-        if (this.fdD != null) {
-            if (this.fdG && !StringUtils.isNull(str)) {
-                this.fdH = true;
-                this.fdD.setVisibility(0);
-                this.fdD.setImageDrawable(null);
-                this.fdD.startLoad(str, 10, false);
+    public void Bz(String str) {
+        if (this.ffS != null) {
+            if (this.ffV && !StringUtils.isNull(str)) {
+                this.ffW = true;
+                this.ffS.setVisibility(0);
+                this.ffS.setImageDrawable(null);
+                this.ffS.startLoad(str, 10, false);
                 return;
             }
-            this.fdD.setVisibility(8);
-            this.fdH = false;
+            this.ffS.setVisibility(8);
+            this.ffW = false;
         }
     }
 
     public void setAutoChangeStyle(boolean z) {
-        this.fdD.setAutoChangeStyle(z);
-        this.fdF.setAutoChangeStyle(z);
+        this.ffS.setAutoChangeStyle(z);
+        this.ffU.setAutoChangeStyle(z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
-        this.fdL = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
-        btv();
-        btw();
-        btx();
+        this.fga = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
+        btP();
+        btQ();
+        btR();
     }
 
-    private void btv() {
-        this.fdF = new HeadImageView(this.mContext);
-        this.fdF.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fdF.setPlaceHolder(1);
-        this.fdF.setDefaultResource(R.color.CAM_X0205);
+    private void btP() {
+        this.ffU = new HeadImageView(this.mContext);
+        this.ffU.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.ffU.setPlaceHolder(1);
+        this.ffU.setDefaultResource(R.color.CAM_X0205);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(14, -1);
         layoutParams.addRule(15, -1);
-        this.fdF.setLayoutParams(layoutParams);
-        addView(this.fdF);
+        this.ffU.setLayoutParams(layoutParams);
+        addView(this.ffU);
     }
 
-    private void btw() {
-        this.fdD = new TbImageView(this.mContext);
-        this.fdD.setPageId(this.mPageId);
-        this.fdD.setDefaultBgResource(0);
-        this.fdD.setDefaultResource(0);
-        this.fdD.setImageDrawable(null);
-        this.fdD.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.fdD.setVisibility(8);
-        addView(this.fdD);
+    private void btQ() {
+        this.ffS = new TbImageView(this.mContext);
+        this.ffS.setPageId(this.mPageId);
+        this.ffS.setDefaultBgResource(0);
+        this.ffS.setDefaultResource(0);
+        this.ffS.setImageDrawable(null);
+        this.ffS.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.ffS.setVisibility(8);
+        addView(this.ffS);
     }
 
-    private void btx() {
-        this.fdE = new ImageView(this.mContext);
-        this.fdE.setImageDrawable(null);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.fdL, this.fdL);
+    private void btR() {
+        this.ffT = new ImageView(this.mContext);
+        this.ffT.setImageDrawable(null);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.fga, this.fga);
         layoutParams.addRule(12, -1);
         layoutParams.addRule(11, -1);
-        this.fdE.setLayoutParams(layoutParams);
-        this.fdE.setVisibility(8);
-        addView(this.fdE);
+        this.ffT.setLayoutParams(layoutParams);
+        this.ffT.setVisibility(8);
+        addView(this.ffT);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
-        if (this.fdF != null) {
-            this.fdF.setPageId(bdUniqueId);
+        if (this.ffU != null) {
+            this.ffU.setPageId(bdUniqueId);
         }
-        if (this.fdD != null) {
-            this.fdD.setPageId(bdUniqueId);
+        if (this.ffS != null) {
+            this.ffS.setPageId(bdUniqueId);
         }
     }
 
     public TbImageView getPendantView() {
-        return this.fdD;
+        return this.ffS;
     }
 
     public HeadImageView getHeadView() {
-        return this.fdF;
+        return this.ffU;
     }
 
     public ImageView getBigVIconView() {
-        return this.fdE;
+        return this.ffT;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -218,61 +218,61 @@ public class HeadPendantView extends RelativeLayout {
 
     public void setBigVDimenSize(int i) {
         if (i > 0) {
-            this.fdL = com.baidu.adp.lib.util.l.getDimens(getContext(), i);
+            this.fga = com.baidu.adp.lib.util.l.getDimens(getContext(), i);
         }
-        bty();
+        btS();
     }
 
-    private void bty() {
-        if (this.fdL > 0 && this.fdE != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fdE.getLayoutParams();
-            layoutParams.width = this.fdL;
-            layoutParams.height = this.fdL;
-            this.fdE.setLayoutParams(layoutParams);
+    private void btS() {
+        if (this.fga > 0 && this.ffT != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ffT.getLayoutParams();
+            layoutParams.width = this.fga;
+            layoutParams.height = this.fga;
+            this.ffT.setLayoutParams(layoutParams);
         }
     }
 
     public void setBigVIconResId(int i) {
-        this.fdK = i;
+        this.ffZ = i;
     }
 
     public void setAuthIconType(int i) {
-        this.fdM = i;
+        this.fgb = i;
     }
 
     public void setUrl(String str) {
-        this.fdF.setUrl(str);
+        this.ffU.setUrl(str);
     }
 
     public void setDefalutResid(int i) {
-        this.fdF.setDefaultResource(i);
+        this.ffU.setDefaultResource(i);
     }
 
-    public void Bj(String str) {
+    public void BA(String str) {
         if (!StringUtils.isNull(str)) {
-            String AE = q.AE(str);
-            this.fdF.setImageBitmap(null);
-            this.fdF.setUrl(AE);
-            if (AE.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(AE, 10, false);
+            String AV = r.AV(str);
+            this.ffU.setImageBitmap(null);
+            this.ffU.setUrl(AV);
+            if (AV.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                startLoad(AV, 10, false);
             } else {
-                startLoad(AE, 25, false);
+                startLoad(AV, 25, false);
             }
         }
     }
 
     public void startLoad(String str, int i, boolean z) {
-        this.fdF.a(str, i, 0, 0, z);
+        this.ffU.a(str, i, 0, 0, z);
     }
 
     public void a(MetaData metaData) {
         if (metaData != null && !TextUtils.isEmpty(metaData.getPortrait())) {
-            String AE = q.AE(metaData.getAvater());
-            setUrl(AE);
-            if (AE.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(AE, 10, false);
+            String AV = r.AV(metaData.getAvater());
+            setUrl(AV);
+            if (AV.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                startLoad(AV, 10, false);
             } else {
-                startLoad(AE, 25, false);
+                startLoad(AV, 25, false);
             }
             b(metaData);
         }
@@ -281,9 +281,9 @@ public class HeadPendantView extends RelativeLayout {
     public void b(MetaData metaData) {
         if (metaData != null) {
             if (metaData.getPendantData() != null) {
-                Bi(metaData.getPendantData().getImgUrl());
+                Bz(metaData.getPendantData().getImgUrl());
             } else {
-                Bi(null);
+                Bz(null);
             }
             c(metaData);
         }
@@ -291,47 +291,47 @@ public class HeadPendantView extends RelativeLayout {
 
     public void a(MetaData metaData, int i) {
         if (metaData != null) {
-            this.fdM = i;
+            this.fgb = i;
             b(metaData);
         }
     }
 
     private void c(MetaData metaData) {
         if (metaData != null) {
-            if (this.fdN) {
-                this.fdE.setVisibility(8);
+            if (this.fgc) {
+                this.ffT.setVisibility(8);
                 return;
             }
-            this.fdF.setShowV(false);
-            if (!UtilHelper.showOfficialIcon(this.fdE, metaData)) {
+            this.ffU.setShowV(false);
+            if (!UtilHelper.showOfficialIcon(this.ffT, metaData)) {
                 if (metaData.isNewGod()) {
-                    SvgManager.bsx().a(this.fdE, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
-                    jV(true);
+                    SvgManager.bsR().a(this.ffT, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+                    jY(true);
                     return;
                 }
-                jV(false);
-                if (this.fdJ || !UtilHelper.showHeadBazhuIcon(this.fdE, metaData, this.fdO)) {
-                    UtilHelper.showHeadBjhBigVIcon(this.fdE, metaData, this.fdM);
+                jY(false);
+                if (this.ffY || !UtilHelper.showHeadBazhuIcon(this.ffT, metaData, this.fgd)) {
+                    UtilHelper.showHeadBjhBigVIcon(this.ffT, metaData, this.fgb);
                 }
             }
         }
     }
 
-    public void jV(boolean z) {
-        if (this.fdE != null) {
-            this.fdE.setVisibility(z ? 0 : 8);
+    public void jY(boolean z) {
+        if (this.ffT != null) {
+            this.ffT.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setIsclearmode(boolean z) {
-        this.fdN = z;
+        this.fgc = z;
     }
 
     public void setIsHomePage(boolean z) {
-        this.fdJ = z;
+        this.ffY = z;
     }
 
     public void setShowSimpleIcon(boolean z) {
-        this.fdO = z;
+        this.fgd = z;
     }
 }

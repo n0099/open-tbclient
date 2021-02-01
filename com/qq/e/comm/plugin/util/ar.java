@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.util;
 
 import com.qq.e.comm.managers.GDTADManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class ar {
     public static String a() {
         String aDActivityClazz = GDTADManager.getInstance().getADActivityClazz();

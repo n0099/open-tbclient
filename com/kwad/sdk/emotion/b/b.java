@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import java.io.File;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile b f9745a;
+    private static volatile b f9747a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, String> f9746b = new ConcurrentHashMap();
+    private Map<String, String> f9748b = new ConcurrentHashMap();
     private Map<String, String> c = new ConcurrentHashMap();
     private String d;
 
@@ -19,18 +19,18 @@ public final class b {
     }
 
     public static b a() {
-        if (f9745a == null) {
+        if (f9747a == null) {
             synchronized (b.class) {
-                if (f9745a == null) {
-                    f9745a = new b();
+                if (f9747a == null) {
+                    f9747a = new b();
                 }
             }
         }
-        return f9745a;
+        return f9747a;
     }
 
     public String a(String str, boolean z) {
-        return z ? this.c.get(str) : this.f9746b.get(str);
+        return z ? this.c.get(str) : this.f9748b.get(str);
     }
 
     public void a(String str) {
@@ -46,7 +46,7 @@ public final class b {
             for (File file3 : listFiles2) {
                 int lastIndexOf = file3.getName().lastIndexOf(46);
                 if (lastIndexOf > 0) {
-                    this.f9746b.put(file3.getName().substring(0, lastIndexOf), file3.getAbsolutePath());
+                    this.f9748b.put(file3.getName().substring(0, lastIndexOf), file3.getAbsolutePath());
                 }
             }
         }
@@ -66,7 +66,7 @@ public final class b {
         if (z) {
             this.c.put(str, c() + File.separator + str2);
         } else {
-            this.f9746b.put(str, b() + File.separator + str2);
+            this.f9748b.put(str, b() + File.separator + str2);
         }
     }
 
@@ -76,7 +76,7 @@ public final class b {
     }
 
     public boolean b(String str, boolean z) {
-        return z ? this.c.containsKey(str) : this.f9746b.containsKey(str);
+        return z ? this.c.containsKey(str) : this.f9748b.containsKey(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

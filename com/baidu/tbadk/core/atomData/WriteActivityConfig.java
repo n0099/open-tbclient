@@ -80,7 +80,7 @@ public class WriteActivityConfig extends IntentConfig {
 
     public static boolean isAsyncWriting(boolean z) {
         Activity currentActivity;
-        boolean isAsyncWriting = com.baidu.tieba.tbadkCore.writeModel.a.dMJ().isAsyncWriting();
+        boolean isAsyncWriting = com.baidu.tieba.tbadkCore.writeModel.a.dOU().isAsyncWriting();
         b.d("发帖阻拦状态 = " + isAsyncWriting);
         if (isAsyncWriting && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
             l.showToast(currentActivity, "正在发布，请稍后");
@@ -354,7 +354,7 @@ public class WriteActivityConfig extends IntentConfig {
     }
 
     public void send() {
-        c.nrd = new Intent(getIntent());
+        c.nAM = new Intent(getIntent());
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, this));
     }
 }

@@ -8,14 +8,14 @@ import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.WalkingRouteLine;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RouteLine<T extends RouteStep> implements Parcelable {
 
     /* renamed from: a  reason: collision with root package name */
-    TYPE f2846a;
+    TYPE f2844a;
 
     /* renamed from: b  reason: collision with root package name */
-    private RouteNode f2847b;
+    private RouteNode f2845b;
     private RouteNode c;
     private String d;
     private List<T> e;
@@ -23,7 +23,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
     private int g;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public enum TYPE {
         DRIVESTEP(0),
         TRANSITSTEP(1),
@@ -32,15 +32,15 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2849a;
+        private int f2847a;
 
         TYPE(int i) {
-            this.f2849a = i;
+            this.f2847a = i;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.f2849a;
+            return this.f2847a;
         }
     }
 
@@ -51,7 +51,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
     /* JADX INFO: Access modifiers changed from: protected */
     public RouteLine(Parcel parcel) {
         int readInt = parcel.readInt();
-        this.f2847b = (RouteNode) parcel.readValue(RouteNode.class.getClassLoader());
+        this.f2845b = (RouteNode) parcel.readValue(RouteNode.class.getClassLoader());
         this.c = (RouteNode) parcel.readValue(RouteNode.class.getClassLoader());
         this.d = parcel.readString();
         switch (readInt) {
@@ -90,7 +90,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
     }
 
     public RouteNode getStarting() {
-        return this.f2847b;
+        return this.f2845b;
     }
 
     public RouteNode getTerminal() {
@@ -102,7 +102,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
     }
 
     protected TYPE getType() {
-        return this.f2846a;
+        return this.f2844a;
     }
 
     public void setDistance(int i) {
@@ -114,7 +114,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
     }
 
     public void setStarting(RouteNode routeNode) {
-        this.f2847b = routeNode;
+        this.f2845b = routeNode;
     }
 
     public void setSteps(List<T> list) {
@@ -131,20 +131,20 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setType(TYPE type) {
-        this.f2846a = type;
+        this.f2844a = type;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        if (this.f2846a != null) {
-            parcel.writeInt(this.f2846a.a());
+        if (this.f2844a != null) {
+            parcel.writeInt(this.f2844a.a());
         } else {
             parcel.writeInt(10);
         }
-        parcel.writeValue(this.f2847b);
+        parcel.writeValue(this.f2845b);
         parcel.writeValue(this.c);
         parcel.writeString(this.d);
-        if (this.f2846a != null) {
+        if (this.f2844a != null) {
             parcel.writeTypedList(this.e);
         }
         parcel.writeInt(this.f);

@@ -2,13 +2,13 @@ package com.baidu.tieba.memberCenter.index.a;
 
 import tbclient.GetMemberTaskList.PointTaskInfo;
 import tbclient.GetVipInfo.VipTaskItem;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class r {
     private String desc;
     private long id;
     private String imgUrl;
-    private int lfr;
     private String linkUrl;
+    private int lnu;
     private int status;
     private String title;
     private int type;
@@ -31,12 +31,12 @@ public class r {
             this.title = pointTaskInfo.task_name;
             this.desc = pointTaskInfo.task_intro;
             this.status = pointTaskInfo.is_finish.intValue();
-            this.lfr = pointTaskInfo.points_add.intValue();
+            this.lnu = pointTaskInfo.points_add.intValue();
             this.type = pointTaskInfo.type.intValue();
         }
     }
 
-    public void Eb(int i) {
+    public void Et(int i) {
         this.status = i;
     }
 
@@ -64,8 +64,8 @@ public class r {
         return this.status == 1;
     }
 
-    public int ddg() {
-        return this.lfr;
+    public int dfg() {
+        return this.lnu;
     }
 
     public int getType() {

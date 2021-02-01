@@ -3,14 +3,14 @@ package com.ss.android.socialbase.downloader.b;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.img.ImageUploadStrategy;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f13072a = "";
+    public static volatile String f13074a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f13073b = "";
+    public static volatile String f13075b = "";
     public static volatile String c = "";
     public static long d = ImageUploadStrategy.FILE_SIZE_5M;
     public static long e = 31457280;
@@ -19,7 +19,7 @@ public class e {
 
     public static void a(String str) {
         if (!TextUtils.isEmpty(str)) {
-            f13072a = str;
+            f13074a = str;
         }
     }
 }

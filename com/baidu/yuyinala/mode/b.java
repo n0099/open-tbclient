@@ -1,48 +1,48 @@
 package com.baidu.yuyinala.mode;
 
 import android.content.DialogInterface;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.yuyinala.mode.c;
 import com.baidu.yuyinala.mode.c.a;
-/* loaded from: classes10.dex */
-public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAudioModeDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c, c.a, a.InterfaceC0957a {
-    private com.baidu.yuyinala.mode.c.a oMk;
+/* loaded from: classes11.dex */
+public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAudioModeDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c, c.a, a.InterfaceC0961a {
+    private com.baidu.yuyinala.mode.c.a oWq;
 
-    public b(TbPageContext tbPageContext, x xVar, AlaAudioModeDialogData alaAudioModeDialogData) {
+    public b(TbPageContext tbPageContext, ab abVar, AlaAudioModeDialogData alaAudioModeDialogData) {
         super(tbPageContext, new c(tbPageContext), alaAudioModeDialogData);
-        ((c) this.bFO).a((com.baidu.live.tieba.pb.interactionpopupwindow.c) this);
-        ((c) this.bFO).a((c.a) this);
-        eI(80);
-        cW(true);
-        cX(true);
-        a((DialogInterface.OnDismissListener) this.bFO);
-        this.oMk = new com.baidu.yuyinala.mode.c.a(xVar, this);
+        ((c) this.bJy).a((com.baidu.live.tieba.pb.interactionpopupwindow.c) this);
+        ((c) this.bJy).a((c.a) this);
+        eM(80);
+        de(true);
+        df(true);
+        a((DialogInterface.OnDismissListener) this.bJy);
+        this.oWq = new com.baidu.yuyinala.mode.c.a(abVar, this);
     }
 
-    public void a(x xVar, AlaAudioModeDialogData alaAudioModeDialogData) {
-        this.oMk.aO(xVar);
+    public void a(ab abVar, AlaAudioModeDialogData alaAudioModeDialogData) {
+        this.oWq.aR(abVar);
         a((b) alaAudioModeDialogData);
     }
 
-    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0957a
-    public void egL() {
+    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0961a
+    public void ejd() {
         this.mPageContext.showToast(a.h.change_mode_fail);
     }
 
-    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0957a
-    public void egM() {
+    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0961a
+    public void eje() {
         this.mPageContext.showToast(a.h.change_mode_succ);
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean QI() {
+    public boolean Ss() {
         return true;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean QJ() {
+    public boolean St() {
         return true;
     }
 
@@ -52,7 +52,7 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
     }
 
     @Override // com.baidu.yuyinala.mode.c.a
-    public void Nb(int i) {
-        this.oMk.Nb(i);
+    public void Nx(int i) {
+        this.oWq.Nx(i);
     }
 }

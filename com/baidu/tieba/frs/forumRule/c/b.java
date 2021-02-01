@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class b {
-    private View jpQ;
-    private EMTextView jpl;
+    private EMTextView juR;
+    private View jvw;
     private Context mContext;
 
     public b(Context context) {
@@ -21,32 +21,32 @@ public class b {
     }
 
     private void initView(Context context) {
-        if (this.jpQ == null) {
-            this.jpQ = LayoutInflater.from(context).inflate(R.layout.forum_rules_title_area, (ViewGroup) null);
-            this.jpl = (EMTextView) this.jpQ.findViewById(R.id.forum_rules_title);
+        if (this.jvw == null) {
+            this.jvw = LayoutInflater.from(context).inflate(R.layout.forum_rules_title_area, (ViewGroup) null);
+            this.juR = (EMTextView) this.jvw.findViewById(R.id.forum_rules_title);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void d(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && this.jpQ != null) {
-            this.jpQ.setVisibility(0);
-            bdTypeRecyclerView.addHeaderView(this.jpQ);
+        if (bdTypeRecyclerView != null && this.jvw != null) {
+            this.jvw.setVisibility(0);
+            bdTypeRecyclerView.addHeaderView(this.jvw);
         }
     }
 
     public void e(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && this.jpQ != null) {
-            this.jpQ.setVisibility(8);
-            bdTypeRecyclerView.removeHeaderView(this.jpQ);
+        if (bdTypeRecyclerView != null && this.jvw != null) {
+            this.jvw.setVisibility(8);
+            bdTypeRecyclerView.removeHeaderView(this.jvw);
         }
     }
 
     public void setTitle(String str) {
-        this.jpl.setText(str);
+        this.juR.setText(str);
     }
 
     public void onChangeSkinType(int i) {
-        c.bv(this.jpl).nX(R.string.F_X02).nV(R.color.CAM_X0105);
+        c.br(this.juR).oa(R.string.F_X02).nY(R.color.CAM_X0105);
     }
 }

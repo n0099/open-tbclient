@@ -7,7 +7,7 @@ import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h {
     private String mUa;
     private String mVersionName;
@@ -44,7 +44,7 @@ public class h {
     }
 
     public String getVersionName(Context context) {
-        String appVersion = a.ui().getAppVersion();
+        String appVersion = a.uf().getAppVersion();
         if (TextUtils.isEmpty(appVersion)) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;

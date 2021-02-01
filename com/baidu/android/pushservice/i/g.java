@@ -12,7 +12,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */

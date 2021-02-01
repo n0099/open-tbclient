@@ -3,12 +3,12 @@ package org.webrtc;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.camera2.CameraManager;
-import androidx.annotation.Nullable;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
+import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
 @TargetApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Camera2Capturer extends CameraCapturer {
     @Nullable
     private final CameraManager cameraManager;

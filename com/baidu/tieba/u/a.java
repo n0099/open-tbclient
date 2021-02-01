@@ -1,13 +1,13 @@
 package com.baidu.tieba.u;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public final JSONObject hQe;
+    public final JSONObject hUz;
     public final String uuid;
 
     public a(String str, JSONObject jSONObject) {
         this.uuid = str;
-        this.hQe = jSONObject;
+        this.hUz = jSONObject;
     }
 }

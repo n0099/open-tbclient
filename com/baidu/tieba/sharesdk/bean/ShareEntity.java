@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ShareEntity implements Parcelable {
     public static final Parcelable.Creator<ShareEntity> CREATOR = new Parcelable.Creator<ShareEntity>() { // from class: com.baidu.tieba.sharesdk.bean.ShareEntity.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -19,29 +19,29 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.Rs(parcel.readString());
-            shareEntity.It(parcel.readInt());
+            shareEntity.Sp(parcel.readString());
+            shareEntity.IN(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.setImageUri((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
             shareEntity.ae(parcel.readBundle());
-            shareEntity.Iv(parcel.readInt());
+            shareEntity.IP(parcel.readInt());
             shareEntity.setTid(parcel.readString());
-            shareEntity.Iu(parcel.readInt());
-            shareEntity.Ru(parcel.readString());
+            shareEntity.IO(parcel.readInt());
+            shareEntity.Sr(parcel.readString());
             shareEntity.topic = parcel.readString();
             shareEntity.taskCompleteId = parcel.readString();
             shareEntity.diskPicOperate = parcel.readBundle();
             shareEntity.canShareBySmartApp = parcel.readByte() == 1;
-            shareEntity.hA(parcel.readLong());
-            shareEntity.xE(parcel.readByte() == 1);
+            shareEntity.hF(parcel.readLong());
+            shareEntity.xX(parcel.readByte() == 1);
             shareEntity.extLiveInfo = parcel.readString();
             return shareEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Iw */
+        /* renamed from: IQ */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
@@ -71,7 +71,7 @@ public class ShareEntity implements Parcelable {
         this.stats = bundle;
     }
 
-    public Bundle byK() {
+    public Bundle bzc() {
         return this.stats;
     }
 
@@ -99,19 +99,19 @@ public class ShareEntity implements Parcelable {
         this.content = str;
     }
 
-    public void hA(long j) {
+    public void hF(long j) {
         this.readCount = j;
     }
 
-    public long dGN() {
+    public long dIY() {
         return this.readCount;
     }
 
-    public void xE(boolean z) {
+    public void xX(boolean z) {
         this.isVideoThread = z;
     }
 
-    public boolean dGO() {
+    public boolean dIZ() {
         return this.isVideoThread;
     }
 
@@ -123,11 +123,11 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public void Rs(String str) {
+    public void Sp(String str) {
         this.localFile = str;
     }
 
-    public String dGP() {
+    public String dJa() {
         return this.localFile;
     }
 
@@ -147,15 +147,15 @@ public class ShareEntity implements Parcelable {
         this.location = location;
     }
 
-    public int dGQ() {
+    public int dJb() {
         return this.shareTo;
     }
 
-    public void It(int i) {
+    public void IN(int i) {
         this.shareTo = i;
     }
 
-    public int dGR() {
+    public int dJc() {
         return this.shareType;
     }
 
@@ -167,35 +167,35 @@ public class ShareEntity implements Parcelable {
         return this.tid;
     }
 
-    public String dGS() {
+    public String dJd() {
         return this.extLiveInfo;
     }
 
-    public void Rt(String str) {
+    public void Sq(String str) {
         this.extLiveInfo = str;
     }
 
-    public void Ru(String str) {
+    public void Sr(String str) {
         this.fName = str;
     }
 
-    public String dGT() {
+    public String dJe() {
         return this.fName;
     }
 
-    public void Iu(int i) {
+    public void IO(int i) {
         this.typeShareToSmallApp = i;
     }
 
-    public int dGU() {
+    public int dJf() {
         return this.typeShareToSmallApp;
     }
 
-    public void Iv(int i) {
+    public void IP(int i) {
         this.shareType = i;
     }
 
-    public boolean dGV() {
+    public boolean dJg() {
         return this.shareType != 0 && (this.shareTo == 8 || this.shareTo == 4 || this.shareTo == 3 || this.shareTo == 2);
     }
 

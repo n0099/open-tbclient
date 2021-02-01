@@ -7,21 +7,21 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class i implements e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final i f11740a = new i();
+        static final i f11742a = new i();
     }
 
     private i() {
     }
 
     public static i a() {
-        return a.f11740a;
+        return a.f11742a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.c.e

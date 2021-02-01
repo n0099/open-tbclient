@@ -10,19 +10,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes2.dex */
 public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickListener {
-    private RelativeLayout jJK;
-    private EMTextView jJL;
-    private EMTextView jJM;
-    private FrsMoveAreaChooseAdapter jJN;
-    private EMTextView jJO;
-    private View.OnClickListener jJP;
+    private RelativeLayout jQH;
+    private EMTextView jQI;
+    private EMTextView jQJ;
+    private FrsMoveAreaChooseAdapter jQK;
+    private EMTextView jQL;
+    private View.OnClickListener jQM;
     private TbPageContext mPageContext;
     private RecyclerView mRecyclerView;
 
@@ -36,70 +36,70 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         setOrientation(1);
         setGravity(80);
         LayoutInflater.from(getContext()).inflate(R.layout.frs_move_area_choose_layout, this);
-        this.jJK = (RelativeLayout) findViewById(R.id.frs_move_area_choose_bar);
-        this.jJL = (EMTextView) findViewById(R.id.frs_move_area_choose_title);
-        this.jJM = (EMTextView) findViewById(R.id.frs_move_area_choose_done);
-        this.jJO = (EMTextView) findViewById(R.id.frs_move_area_choose_cancel);
+        this.jQH = (RelativeLayout) findViewById(R.id.frs_move_area_choose_bar);
+        this.jQI = (EMTextView) findViewById(R.id.frs_move_area_choose_title);
+        this.jQJ = (EMTextView) findViewById(R.id.frs_move_area_choose_done);
+        this.jQL = (EMTextView) findViewById(R.id.frs_move_area_choose_cancel);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.frs_move_area_choose_list);
         this.mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(3, l.getDimens(getContext(), R.dimen.M_W_X004), l.getDimens(getContext(), R.dimen.M_H_X003), false));
-        this.jJN = new FrsMoveAreaChooseAdapter(this);
-        this.mRecyclerView.setAdapter(this.jJN);
-        this.jJK.setOnClickListener(this);
-        this.jJM.setOnClickListener(this);
-        this.jJO.setOnClickListener(this);
+        this.jQK = new FrsMoveAreaChooseAdapter(this);
+        this.mRecyclerView.setAdapter(this.jQK);
+        this.jQH.setOnClickListener(this);
+        this.jQJ.setOnClickListener(this);
+        this.jQL.setOnClickListener(this);
         onChangeSkinType();
     }
 
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
-        this.jJP = onClickListener;
+        this.jQM = onClickListener;
         super.setOnClickListener(onClickListener);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof Integer) {
-            cLr();
-        } else if (view == this.jJM) {
-            if (this.mPageContext != null && getParent() != null && this.jJN.cLq() >= 0) {
-                boolean z = com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("key_frs_move_area_tip", true);
-                List<FrsTabInfo> cAc = com.baidu.tieba.frs.a.czZ().cAc();
-                FrsTabInfo frsTabInfo = (FrsTabInfo) x.getItem(cAc, this.jJN.cLp());
-                FrsTabInfo frsTabInfo2 = (FrsTabInfo) x.getItem(cAc, this.jJN.cLq());
+            cNf();
+        } else if (view == this.jQJ) {
+            if (this.mPageContext != null && getParent() != null && this.jQK.cNe() >= 0) {
+                boolean z = com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("key_frs_move_area_tip", true);
+                List<FrsTabInfo> cBn = com.baidu.tieba.frs.a.cBk().cBn();
+                FrsTabInfo frsTabInfo = (FrsTabInfo) y.getItem(cBn, this.jQK.cMy());
+                FrsTabInfo frsTabInfo2 = (FrsTabInfo) y.getItem(cBn, this.jQK.cNe());
                 if (frsTabInfo != null && frsTabInfo2 != null) {
                     if (z) {
                         new c().a(this.mPageContext, frsTabInfo, frsTabInfo2);
                     } else {
-                        com.baidu.tieba.frs.a.czZ().cn(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                        com.baidu.tieba.frs.a.cBk().ck(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                     }
-                    if (this.jJP != null) {
+                    if (this.jQM != null) {
                         view.setTag("choose_done");
-                        this.jJP.onClick(view);
+                        this.jQM.onClick(view);
                     }
                 }
             }
-        } else if (view == this.jJO && this.jJP != null) {
+        } else if (view == this.jQL && this.jQM != null) {
             view.setTag("cancel_view");
-            this.jJP.onClick(view);
+            this.jQM.onClick(view);
         }
     }
 
     public void onChangeSkinType() {
-        ao.setBackgroundColor(this, R.color.CAM_X0605);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.jJK).od(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
-        ao.setViewTextColor(this.jJL, R.color.CAM_X0108);
-        ao.setViewTextColor(this.jJM, R.color.CAM_X0304);
-        cLr();
-        ao.setBackgroundColor(this.mRecyclerView, R.color.CAM_X0204);
-        ao.n(this.jJO, R.color.CAM_X0107);
+        ap.setBackgroundColor(this, R.color.CAM_X0605);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.jQH).og(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
+        ap.setViewTextColor(this.jQI, R.color.CAM_X0108);
+        ap.setViewTextColor(this.jQJ, R.color.CAM_X0304);
+        cNf();
+        ap.setBackgroundColor(this.mRecyclerView, R.color.CAM_X0204);
+        ap.n(this.jQL, R.color.CAM_X0107);
     }
 
-    private void cLr() {
-        if (this.jJN.cLq() >= 0) {
-            this.jJM.setAlpha(1.0f);
+    private void cNf() {
+        if (this.jQK.cNe() >= 0) {
+            this.jQJ.setAlpha(1.0f);
         } else {
-            this.jJM.setAlpha(0.5f);
+            this.jQJ.setAlpha(0.5f);
         }
     }
 }

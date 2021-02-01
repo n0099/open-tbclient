@@ -1,13 +1,13 @@
 package com.baidu.live.gift;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class al {
-    private static ai aUY;
+    private static ai aYg;
 
-    public static ai El() {
-        return aUY;
+    public static ai FB() {
+        return aYg;
     }
 
     public static void a(ai aiVar) {
-        aUY = aiVar;
+        aYg = aiVar;
     }
 }

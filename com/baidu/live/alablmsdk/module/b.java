@@ -5,54 +5,54 @@ import com.baidu.live.alablmsdk.module.state.BLMRtcState;
 import com.baidu.live.alablmsdk.module.state.BLMSignalState;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private static b axW;
-    public List<a> axX = new ArrayList();
+    private static b ayn;
+    public List<a> ayo = new ArrayList();
 
     private b() {
     }
 
-    public static b yl() {
-        if (axW == null) {
+    public static b yz() {
+        if (ayn == null) {
             synchronized (b.class) {
-                if (axW == null) {
-                    axW = new b();
+                if (ayn == null) {
+                    ayn = new b();
                 }
             }
         }
-        return axW;
+        return ayn;
     }
 
-    public void c(a aVar) {
+    public void b(a aVar) {
         if (aVar != null && !TextUtils.isEmpty(aVar.roomId)) {
-            synchronized (this.axX) {
-                com.baidu.live.alablmsdk.a.b.a.d(" chat info list size =  " + this.axX.size());
-                com.baidu.live.alablmsdk.a.b.a.ew("hat info list size " + this.axX.size());
+            synchronized (this.ayo) {
+                com.baidu.live.alablmsdk.a.b.a.d(" chat info list size =  " + this.ayo.size());
+                com.baidu.live.alablmsdk.a.b.a.eA("hat info list size " + this.ayo.size());
                 if (!contains(aVar.roomId)) {
-                    this.axX.add(aVar);
-                    com.baidu.live.alablmsdk.a.b.a.d(" chat info list add 之后， size =  " + this.axX.size());
-                    com.baidu.live.alablmsdk.a.b.a.ew(" chat info list added size " + this.axX.size());
+                    this.ayo.add(aVar);
+                    com.baidu.live.alablmsdk.a.b.a.d(" chat info list add 之后， size =  " + this.ayo.size());
+                    com.baidu.live.alablmsdk.a.b.a.eA(" chat info list added size " + this.ayo.size());
                 }
             }
         }
     }
 
-    public a eC(String str) {
+    public a eO(String str) {
         a aVar;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.axX) {
-            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.axX)) {
+        synchronized (this.ayo) {
+            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.ayo)) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= this.axX.size()) {
+                    if (i2 >= this.ayo.size()) {
                         aVar = null;
                         break;
                     }
-                    aVar = this.axX.get(i2);
+                    aVar = this.ayo.get(i2);
                     if (aVar != null && !TextUtils.isEmpty(aVar.roomId) && str.equals(aVar.roomId)) {
                         break;
                     }
@@ -70,15 +70,15 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        synchronized (this.axX) {
-            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.axX)) {
+        synchronized (this.ayo) {
+            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.ayo)) {
                 int i = 0;
                 while (true) {
-                    if (i >= this.axX.size()) {
+                    if (i >= this.ayo.size()) {
                         z = false;
                         break;
                     }
-                    a aVar = this.axX.get(i);
+                    a aVar = this.ayo.get(i);
                     if (aVar == null || TextUtils.isEmpty(aVar.roomId) || !str.equals(aVar.roomId)) {
                         i++;
                     } else {
@@ -94,45 +94,45 @@ public class b {
     }
 
     public void a(String str, BLMSignalState bLMSignalState) {
-        synchronized (this.axX) {
-            a eC = eC(str);
-            if (eC != null) {
-                eC.a(bLMSignalState);
+        synchronized (this.ayo) {
+            a eO = eO(str);
+            if (eO != null) {
+                eO.a(bLMSignalState);
             }
         }
     }
 
     public void a(String str, BLMRtcState bLMRtcState) {
-        synchronized (this.axX) {
-            a eC = eC(str);
-            if (eC != null) {
-                eC.a(bLMRtcState);
+        synchronized (this.ayo) {
+            a eO = eO(str);
+            if (eO != null) {
+                eO.a(bLMRtcState);
             }
         }
     }
 
     public void a(String str, long j, BLMSignalState bLMSignalState) {
-        synchronized (this.axX) {
-            a eC = eC(str);
-            if (eC != null) {
-                eC.a(j, bLMSignalState);
+        synchronized (this.ayo) {
+            a eO = eO(str);
+            if (eO != null) {
+                eO.a(j, bLMSignalState);
             }
         }
     }
 
     public void clearAll() {
-        com.baidu.live.alablmsdk.a.b.a.ai(" BLMChatInfoManager clearAll method", "");
-        if (this.axX != null) {
-            synchronized (this.axX) {
-                for (int i = 0; i < this.axX.size(); i++) {
-                    a aVar = this.axX.get(i);
+        com.baidu.live.alablmsdk.a.b.a.ag(" BLMChatInfoManager clearAll", "");
+        if (this.ayo != null) {
+            synchronized (this.ayo) {
+                for (int i = 0; i < this.ayo.size(); i++) {
+                    a aVar = this.ayo.get(i);
                     if (aVar != null) {
-                        aVar.yj();
-                        aVar.yk();
+                        aVar.yx();
+                        aVar.yy();
                     }
                 }
-                this.axX.clear();
-                com.baidu.live.alablmsdk.a.b.a.ai(" mChatInfoList clear ", "");
+                this.ayo.clear();
+                com.baidu.live.alablmsdk.a.b.a.ag(" mChatInfoList clear ", "");
             }
         }
     }

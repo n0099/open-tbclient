@@ -14,7 +14,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.data.j;
 import com.baidu.tbadk.l.g;
 import com.baidu.tbadk.l.h;
@@ -25,20 +25,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class AttentionView extends FrameLayout implements d<String> {
-    private LinearLayoutManager Yb;
-    private int bZk;
-    private g gGD;
-    private SelectForumItemAdapter ijq;
-    private List<j> ijr;
-    private HttpMessageListener ijs;
+    private LinearLayoutManager XX;
+    private int cdp;
+    private g gJn;
+    private SelectForumItemAdapter ioY;
+    private List<j> ioZ;
+    private HttpMessageListener ipa;
     private boolean mHasMore;
     private RecyclerView mRecyclerView;
     private h mRefreshView;
     private int mSkinType;
 
     static /* synthetic */ int b(AttentionView attentionView) {
-        int i = attentionView.bZk;
-        attentionView.bZk = i + 1;
+        int i = attentionView.cdp;
+        attentionView.cdp = i + 1;
         return i;
     }
 
@@ -53,25 +53,25 @@ public class AttentionView extends FrameLayout implements d<String> {
     public AttentionView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.ijr = new ArrayList();
-        this.bZk = 1;
-        this.ijs = new HttpMessageListener(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION) { // from class: com.baidu.tieba.attention.AttentionView.1
+        this.ioZ = new ArrayList();
+        this.cdp = 1;
+        this.ipa = new HttpMessageListener(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION) { // from class: com.baidu.tieba.attention.AttentionView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 AttentionView.this.hideLoadingView();
                 if (httpResponsedMessage.getError() != 0) {
-                    if (x.isEmpty(AttentionView.this.ijr)) {
+                    if (y.isEmpty(AttentionView.this.ioZ)) {
                         AttentionView.this.W(false, true);
                     }
                 } else if (!(httpResponsedMessage instanceof AttentionResMsg)) {
-                    if (x.isEmpty(AttentionView.this.ijr)) {
+                    if (y.isEmpty(AttentionView.this.ioZ)) {
                         AttentionView.this.W(false, true);
                     }
                 } else {
                     List<j> selectForumDataList = ((AttentionResMsg) httpResponsedMessage).getSelectForumDataList();
-                    if (x.isEmpty(selectForumDataList)) {
-                        if (x.isEmpty(AttentionView.this.ijr)) {
+                    if (y.isEmpty(selectForumDataList)) {
+                        if (y.isEmpty(AttentionView.this.ioZ)) {
                             AttentionView.this.W(false, false);
                             return;
                         }
@@ -79,9 +79,9 @@ public class AttentionView extends FrameLayout implements d<String> {
                     }
                     AttentionView.this.mHasMore = ((AttentionResMsg) httpResponsedMessage).getHasMore();
                     AttentionView.b(AttentionView.this);
-                    AttentionView.this.ijr.addAll(selectForumDataList);
-                    AttentionView.this.ijq.bs(AttentionView.this.ijr);
-                    AttentionView.this.ijq.notifyDataSetChanged();
+                    AttentionView.this.ioZ.addAll(selectForumDataList);
+                    AttentionView.this.ioY.bn(AttentionView.this.ioZ);
+                    AttentionView.this.ioY.notifyDataSetChanged();
                 }
             }
         };
@@ -91,20 +91,20 @@ public class AttentionView extends FrameLayout implements d<String> {
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.select_forum_lately_layout, (ViewGroup) this, true);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.select_forum_list);
-        this.ijq = new SelectForumItemAdapter(this);
-        this.ijq.setType(2);
-        this.Yb = new LinearLayoutManager(getContext());
-        this.mRecyclerView.setLayoutManager(this.Yb);
-        this.mRecyclerView.setAdapter(this.ijq);
+        this.ioY = new SelectForumItemAdapter(this);
+        this.ioY.setType(2);
+        this.XX = new LinearLayoutManager(getContext());
+        this.mRecyclerView.setLayoutManager(this.XX);
+        this.mRecyclerView.setAdapter(this.ioY);
         this.mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.attention.AttentionView.2
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (i == 0 && AttentionView.this.mHasMore && AttentionView.this.Yb.findLastVisibleItemPosition() == AttentionView.this.ijq.getItemCount() - 1) {
+                if (i == 0 && AttentionView.this.mHasMore && AttentionView.this.XX.findLastVisibleItemPosition() == AttentionView.this.ioY.getItemCount() - 1) {
                     AttentionView.this.aB(null);
                 }
             }
         });
-        MessageManager.getInstance().registerListener(this.ijs);
+        MessageManager.getInstance().registerListener(this.ipa);
     }
 
     @Override // com.baidu.tieba.d
@@ -116,53 +116,53 @@ public class AttentionView extends FrameLayout implements d<String> {
     @Override // com.baidu.tieba.d
     /* renamed from: request */
     public void aB(String str) {
-        if (x.isEmpty(this.ijr)) {
+        if (y.isEmpty(this.ioZ)) {
             if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
                 W(false, true);
                 return;
             } else {
-                Vq();
-                ip(false);
+                WZ();
+                ir(false);
             }
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("from_index", 1);
         httpMessage.addParam("page_size", 50);
-        httpMessage.addParam("page_no", this.bZk);
+        httpMessage.addParam("page_no", this.cdp);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     @Override // com.baidu.tieba.d
-    public void DR(String str) {
+    public void Eo(String str) {
     }
 
-    public void ip(boolean z) {
-        if (!cpB()) {
-            if (this.gGD == null) {
-                this.gGD = new g(getContext());
-                this.gGD.onChangeSkinType();
+    public void ir(boolean z) {
+        if (!cqL()) {
+            if (this.gJn == null) {
+                this.gJn = new g(getContext());
+                this.gJn.onChangeSkinType();
             }
-            this.gGD.attachView(this, z);
+            this.gJn.attachView(this, z);
         }
     }
 
     public void hideLoadingView() {
-        if (this.gGD != null) {
-            this.gGD.dettachView(this);
-            this.gGD = null;
+        if (this.gJn != null) {
+            this.gJn.dettachView(this);
+            this.gJn = null;
         }
     }
 
-    public boolean cpB() {
-        if (this.gGD != null) {
-            return this.gGD.isViewAttached();
+    public boolean cqL() {
+        if (this.gJn != null) {
+            return this.gJn.isViewAttached();
         }
         return false;
     }
 
     public void W(boolean z, boolean z2) {
-        if (!cpC()) {
+        if (!cqM()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.attention.AttentionView.3
                     @Override // android.view.View.OnClickListener
@@ -178,15 +178,15 @@ public class AttentionView extends FrameLayout implements d<String> {
             if (z2) {
                 this.mRefreshView.showRefreshButton();
             } else {
-                this.mRefreshView.rj(R.drawable.new_pic_emotion_01);
+                this.mRefreshView.ro(R.drawable.new_pic_emotion_01);
                 this.mRefreshView.hideRefreshButton();
             }
-            this.mRefreshView.CV(getContext().getString(R.string.activity_select_forum_empty));
+            this.mRefreshView.Dm(getContext().getString(R.string.activity_select_forum_empty));
             this.mRecyclerView.setVisibility(8);
         }
     }
 
-    public void Vq() {
+    public void WZ() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
@@ -194,7 +194,7 @@ public class AttentionView extends FrameLayout implements d<String> {
         this.mRecyclerView.setVisibility(0);
     }
 
-    public boolean cpC() {
+    public boolean cqM() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -206,18 +206,18 @@ public class AttentionView extends FrameLayout implements d<String> {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            if (this.gGD != null) {
-                this.gGD.onChangeSkinType();
+            if (this.gJn != null) {
+                this.gJn.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
             }
-            this.ijq.notifyDataSetChanged();
+            this.ioY.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.ijs);
+        MessageManager.getInstance().unRegisterListener(this.ipa);
     }
 }

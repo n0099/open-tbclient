@@ -14,7 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 @VisibleForTesting
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class FastScroller extends RecyclerView.ItemDecoration implements RecyclerView.OnItemTouchListener {
     private static final int ANIMATION_STATE_FADING_IN = 1;
     private static final int ANIMATION_STATE_FADING_OUT = 3;
@@ -433,7 +433,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return this.mHorizontalRange;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     private class AnimatorListener extends AnimatorListenerAdapter {
         private boolean mCanceled = false;
 
@@ -459,7 +459,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     private class AnimatorUpdater implements ValueAnimator.AnimatorUpdateListener {
         AnimatorUpdater() {
         }

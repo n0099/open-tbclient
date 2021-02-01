@@ -3,12 +3,12 @@ package com.baidu.tieba.pb.pb.sub;
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.pb.data.p;
+import com.baidu.tieba.pb.data.q;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
 /* loaded from: classes2.dex */
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
-    public p pbFloorData;
+    public q pbFloorData;
     private boolean treatDelPage;
 
     public boolean isTreatDelPage() {
@@ -25,7 +25,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Context context;
-        p pVar = null;
+        q qVar = null;
         super.decodeInBackGround(i, bArr);
         Object extra = getOrginalMessage().getExtra();
         if (extra == null || !(extra instanceof SubPbRequestMessage)) {
@@ -38,9 +38,9 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
         try {
             PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                pVar = p.a(pbFloorResIdl.data, context);
-                if (pVar != null) {
-                    pVar.lCR = pbFloorResIdl.error;
+                qVar = q.a(pbFloorResIdl.data, context);
+                if (qVar != null) {
+                    qVar.lLG = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());
@@ -51,6 +51,6 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        this.pbFloorData = pVar;
+        this.pbFloorData = qVar;
     }
 }

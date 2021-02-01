@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f extends a {
     private final RectF e;
     private final Paint f;
@@ -35,7 +35,7 @@ public class f extends a {
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
         this.e.set(0.0f, 0.0f, this.i.r(), this.i.q());
-        this.f8093a.mapRect(this.e);
+        this.f8095a.mapRect(this.e);
         rectF.set(this.e);
     }
 

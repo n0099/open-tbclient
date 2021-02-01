@@ -5,11 +5,11 @@ import android.app.Activity;
 public class e {
     private static final boolean DEBUG = b.isDebug();
 
-    public static boolean A(Activity activity) {
+    public static boolean u(Activity activity) {
         return (activity.getWindow().getAttributes().flags & 67108864) != 0;
     }
 
-    public static boolean B(Activity activity) {
+    public static boolean v(Activity activity) {
         return (activity.getWindow().getDecorView().getSystemUiVisibility() & 1024) != 0;
     }
 }

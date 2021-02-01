@@ -7,21 +7,23 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.k;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.util.MaskView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g implements j {
-    public static final int eTc = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds251);
-    public static final int eTd = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds231);
+    public static final int eVs = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds251);
+    public static final int eVt = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds231);
     private Drawable drawable;
-    private k eSV;
-    public EMTextView eSW;
-    private View eSX;
-    private int eSY;
-    private int eSZ;
-    private k.b eTa;
-    private boolean eTb;
-    private boolean eTe;
+    private k eVk;
+    public EMTextView eVl;
+    private View eVm;
+    private int eVn;
+    private int eVo;
+    private k.b eVp;
+    private boolean eVq;
+    private boolean eVr;
+    private boolean eVu;
     private int mId;
     private ImageView mImageView;
     private final View.OnClickListener mOnClickListener;
@@ -43,23 +45,24 @@ public class g implements j {
 
     public g(String str, k kVar) {
         this.mTextColor = R.color.CAM_X0105;
-        this.eSY = R.color.CAM_X0204;
-        this.eSZ = 17;
-        this.eTb = false;
-        this.eTe = false;
+        this.eVn = R.color.CAM_X0204;
+        this.eVo = 17;
+        this.eVq = false;
+        this.eVr = false;
+        this.eVu = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.eTa != null) {
-                    g.this.eTa.onClick();
+                if (g.this.eVp != null) {
+                    g.this.eVp.onClick();
                 }
-                if (g.this.eSV != null && g.this.eSV.bqx() != null) {
-                    g.this.eSV.bqx().a(g.this.eSV, g.this.mId, g.this.eSW);
+                if (g.this.eVk != null && g.this.eVk.bqQ() != null) {
+                    g.this.eVk.bqQ().a(g.this.eVk, g.this.mId, g.this.eVl);
                 }
             }
         };
         this.mText = str;
-        this.eSV = kVar;
+        this.eVk = kVar;
         this.mId = hashCode();
         initView();
         initListener();
@@ -67,29 +70,30 @@ public class g implements j {
 
     public g(int i, String str, k kVar) {
         this.mTextColor = R.color.CAM_X0105;
-        this.eSY = R.color.CAM_X0204;
-        this.eSZ = 17;
-        this.eTb = false;
-        this.eTe = false;
+        this.eVn = R.color.CAM_X0204;
+        this.eVo = 17;
+        this.eVq = false;
+        this.eVr = false;
+        this.eVu = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.eTa != null) {
-                    g.this.eTa.onClick();
+                if (g.this.eVp != null) {
+                    g.this.eVp.onClick();
                 }
-                if (g.this.eSV != null && g.this.eSV.bqx() != null) {
-                    g.this.eSV.bqx().a(g.this.eSV, g.this.mId, g.this.eSW);
+                if (g.this.eVk != null && g.this.eVk.bqQ() != null) {
+                    g.this.eVk.bqQ().a(g.this.eVk, g.this.mId, g.this.eVl);
                 }
             }
         };
         this.mId = i;
         this.mText = str;
-        this.eSV = kVar;
+        this.eVk = kVar;
         initView();
         initListener();
     }
 
-    public String bqp() {
+    public String bqI() {
         return this.mText;
     }
 
@@ -100,53 +104,54 @@ public class g implements j {
 
     public void setText(String str) {
         this.mText = str;
-        this.eSW.setText(this.mText);
+        this.eVl.setText(this.mText);
     }
 
     public void a(k.b bVar) {
-        this.eTa = bVar;
+        this.eVp = bVar;
         initListener();
     }
 
     public void setTextColor(int i) {
         this.mTextColor = i;
-        ao.setViewTextColor(this.eSW, i);
+        ap.setViewTextColor(this.eVl, i);
     }
 
     @Override // com.baidu.tbadk.core.dialog.j
     public void onChangeSkinType() {
-        ao.setBackgroundResource(this.eSW, this.eSY);
-        ao.n(this.eSW, this.mTextColor);
-        ao.setBackgroundColor(this.eSX, R.color.CAM_X0204);
+        ap.setBackgroundResource(this.eVl, this.eVn);
+        ap.n(this.eVl, this.mTextColor);
+        ap.setBackgroundColor(this.eVm, R.color.CAM_X0204);
+        MaskView.b(this.eVl, this.eVr);
     }
 
     private void initView() {
-        if (this.eSV != null && this.eSV.getContext() != null) {
-            this.mView = LayoutInflater.from(this.eSV.getContext()).inflate(R.layout.popup_dialog_view_item, this.eSV.getView(), false);
-            this.eSW = (EMTextView) this.mView.findViewById(R.id.item_view);
-            this.eSW.setText(this.mText);
-            this.eSW.setGravity(this.eSZ);
-            this.eSX = this.mView.findViewById(R.id.divider_line);
-            if (this.eTb) {
-                this.eSX.setVisibility(0);
+        if (this.eVk != null && this.eVk.getContext() != null) {
+            this.mView = LayoutInflater.from(this.eVk.getContext()).inflate(R.layout.popup_dialog_view_item, this.eVk.getView(), false);
+            this.eVl = (EMTextView) this.mView.findViewById(R.id.item_view);
+            this.eVl.setText(this.mText);
+            this.eVl.setGravity(this.eVo);
+            this.eVm = this.mView.findViewById(R.id.divider_line);
+            if (this.eVq) {
+                this.eVm.setVisibility(0);
             } else {
-                this.eSX.setVisibility(8);
+                this.eVm.setVisibility(8);
             }
             onChangeSkinType();
         }
     }
 
-    private void bqq() {
-        if (this.eSV != null && this.eSV.getContext() != null) {
-            this.mView = LayoutInflater.from(this.eSV.getContext()).inflate(R.layout.popup_dialog_view_horizal_item, this.eSV.getView(), false);
-            this.mView.getLayoutParams().width = this.eTe ? eTd : eTc;
-            Object tag = this.eSW.getTag();
-            this.eSW = (EMTextView) this.mView.findViewById(R.id.item_view);
-            this.eSW.setText(this.mText);
-            this.eSW.setGravity(this.eSZ);
-            this.eSW.setTag(tag);
-            this.eSX = this.mView.findViewById(R.id.divider_line);
-            this.eSX.setVisibility(8);
+    private void bqJ() {
+        if (this.eVk != null && this.eVk.getContext() != null) {
+            this.mView = LayoutInflater.from(this.eVk.getContext()).inflate(R.layout.popup_dialog_view_horizal_item, this.eVk.getView(), false);
+            this.mView.getLayoutParams().width = this.eVu ? eVt : eVs;
+            Object tag = this.eVl.getTag();
+            this.eVl = (EMTextView) this.mView.findViewById(R.id.item_view);
+            this.eVl.setText(this.mText);
+            this.eVl.setGravity(this.eVo);
+            this.eVl.setTag(tag);
+            this.eVm = this.mView.findViewById(R.id.divider_line);
+            this.eVm.setVisibility(8);
             this.mImageView = (ImageView) this.mView.findViewById(R.id.item_image);
             this.mImageView.setImageDrawable(this.drawable);
             onChangeSkinType();
@@ -155,16 +160,21 @@ public class g implements j {
     }
 
     public void setCanScroll(boolean z) {
-        this.eTe = z;
+        this.eVu = z;
     }
 
-    public void bqr() {
-        bqq();
+    public void bqK() {
+        bqJ();
     }
 
     private void initListener() {
-        if (this.eSW != null) {
-            this.eSW.setOnClickListener(this.mOnClickListener);
+        if (this.eVl != null) {
+            this.eVl.setOnClickListener(this.mOnClickListener);
         }
+    }
+
+    public void jJ(boolean z) {
+        this.eVr = z;
+        MaskView.b(this.eVl, z);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.poke.startanim;
 
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
-import com.baidu.live.data.by;
+import com.baidu.live.data.cf;
 import com.baidu.live.tbadk.download.DownloadData;
 import com.baidu.live.tbadk.download.FileDownloadCallBack;
 import com.baidu.live.tbadk.download.FileSerialDownLoader;
@@ -12,20 +12,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private DownloadData aQX;
+    private DownloadData aUc;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void y(String str, String str2, final String str3, final String str4) {
-        this.aQX = new DownloadData();
-        this.aQX.setId("poke_start");
-        this.aQX.setName("poke_start");
-        this.aQX.setUrl(str);
-        this.aQX.setCheck(str2);
-        this.aQX.setType(22);
-        this.aQX.setPath(str3);
-        this.aQX.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.ala.poke.startanim.d.1
+        this.aUc = new DownloadData();
+        this.aUc.setId("poke_start");
+        this.aUc.setName("poke_start");
+        this.aUc.setUrl(str);
+        this.aUc.setCheck(str2);
+        this.aUc.setType(22);
+        this.aUc.setPath(str3);
+        this.aUc.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.ala.poke.startanim.d.1
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public void onFileUpdateProgress(DownloadData downloadData) {
             }
@@ -49,29 +49,29 @@ public class d {
             public void onFileDownloadFailed(DownloadData downloadData, int i, String str5) {
             }
         });
-        FileSerialDownLoader.getInstance().startDownLoadWithoutMax(this.aQX);
+        FileSerialDownLoader.getInstance().startDownLoadWithoutMax(this.aUc);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void release() {
-        if (this.aQX != null) {
-            this.aQX.setCallback(null);
+        if (this.aUc != null) {
+            this.aUc.setCallback(null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void z(final String str, final String str2, final String str3, final String str4) {
         if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-            new BdAsyncTask<Void, Void, List<by>>() { // from class: com.baidu.tieba.ala.poke.startanim.d.2
+            new BdAsyncTask<Void, Void, List<cf>>() { // from class: com.baidu.tieba.ala.poke.startanim.d.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
-                public List<by> doInBackground(Void... voidArr) {
-                    List<by> A = d.this.A(str, str2, str3, str4);
+                public List<cf> doInBackground(Void... voidArr) {
+                    List<cf> A = d.this.A(str, str2, str3, str4);
                     if (A == null || A.isEmpty()) {
-                        d.this.fm(str3);
-                        d.this.fm(str4);
+                        d.this.fH(str3);
+                        d.this.fH(str4);
                     }
                     return A;
                 }
@@ -80,10 +80,10 @@ public class d {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: B */
-                public void onPostExecute(List<by> list) {
+                public void onPostExecute(List<cf> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.cny().cQ(list);
+                        c.cow().cL(list);
                     }
                 }
             }.execute(new Void[0]);
@@ -99,7 +99,7 @@ public class d {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX INFO: Access modifiers changed from: private */
-    public java.util.List<com.baidu.live.data.by> A(java.lang.String r8, java.lang.String r9, java.lang.String r10, java.lang.String r11) {
+    public java.util.List<com.baidu.live.data.cf> A(java.lang.String r8, java.lang.String r9, java.lang.String r10, java.lang.String r11) {
         /*
             r7 = this;
             r1 = 0
@@ -125,13 +125,13 @@ public class d {
             java.util.ArrayList r0 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L51
             r0.<init>()     // Catch: java.lang.Throwable -> L51
         L38:
-            com.baidu.live.data.by r5 = new com.baidu.live.data.by     // Catch: java.lang.Throwable -> L51
+            com.baidu.live.data.cf r5 = new com.baidu.live.data.cf     // Catch: java.lang.Throwable -> L51
             r5.<init>()     // Catch: java.lang.Throwable -> L51
             r5.downloadUrl = r8     // Catch: java.lang.Throwable -> L51
-            r5.aNI = r9     // Catch: java.lang.Throwable -> L51
+            r5.aQJ = r9     // Catch: java.lang.Throwable -> L51
             java.lang.String r6 = r4.getAbsolutePath()     // Catch: java.lang.Throwable -> L51
             r5.videoPath = r6     // Catch: java.lang.Throwable -> L51
-            java.lang.String r4 = com.baidu.live.i.a.getFileMd5(r4)     // Catch: java.lang.Throwable -> L51
+            java.lang.String r4 = com.baidu.live.h.a.getFileMd5(r4)     // Catch: java.lang.Throwable -> L51
             r5.videoMd5 = r4     // Catch: java.lang.Throwable -> L51
             r0.add(r5)     // Catch: java.lang.Throwable -> L51
             goto L11
@@ -321,9 +321,9 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fm(String str) {
+    public void fH(String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.live.i.a.cleanDir(new File(str));
+            com.baidu.live.h.a.cleanDir(new File(str));
         }
     }
 }

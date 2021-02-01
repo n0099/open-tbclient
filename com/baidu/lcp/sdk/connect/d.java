@@ -12,7 +12,7 @@ import java.util.concurrent.TimeoutException;
 import javax.net.ssl.SSLHandshakeException;
 /* loaded from: classes3.dex */
 public abstract class d {
-    protected e avc = null;
+    protected e auR = null;
     protected Context context;
 
     public abstract void a(b bVar) throws IOException;
@@ -21,7 +21,7 @@ public abstract class d {
 
     public abstract boolean socketClose() throws IOException;
 
-    public abstract InputStream vK() throws Exception;
+    public abstract InputStream vH() throws Exception;
 
     public abstract e y(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
 
@@ -29,7 +29,7 @@ public abstract class d {
         this.context = context;
     }
 
-    public e vL() {
-        return this.avc;
+    public e vI() {
+        return this.auR;
     }
 }

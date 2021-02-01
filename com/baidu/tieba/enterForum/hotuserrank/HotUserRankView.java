@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
@@ -33,50 +33,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class HotUserRankView {
-    private CustomViewPager eWN;
-    private TbTabLayout gcC;
-    private String iEC;
-    private BaseFragmentActivity iEK;
-    private View iEL;
-    private View iEM;
-    private FragmentAdapter iEN;
-    private b iEO;
-    private View iEP;
-    private TextView iEQ;
-    private View iER;
-    private TextView iES;
-    private View iET;
+    private CustomViewPager eZd;
+    private TbTabLayout geR;
+    private View iKA;
+    private TextView iKB;
+    private View iKC;
+    private String iKl;
+    private BaseFragmentActivity iKt;
+    private View iKu;
+    private View iKv;
+    private FragmentAdapter iKw;
+    private b iKx;
+    private View iKy;
+    private TextView iKz;
     private boolean isGod;
     private NavigationBar mNavigationBar;
     private View mRootView;
-    private List<a> gvo = new ArrayList();
-    private Runnable iEU = new Runnable() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankView.1
+    private List<a> gxY = new ArrayList();
+    private Runnable iKD = new Runnable() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankView.1
         @Override // java.lang.Runnable
         public void run() {
-            HotUserRankView.this.eWN.setViewPagerScroll();
+            HotUserRankView.this.eZd.setViewPagerScroll();
         }
     };
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankView.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == HotUserRankView.this.iEP) {
-                HotUserRankView.this.iEK.finish();
-            } else if (view == HotUserRankView.this.iEQ) {
-                if (TextUtils.isEmpty(HotUserRankView.this.iEC)) {
-                    HotUserRankView.this.iEK.showToast(R.string.load_error_retry);
+            if (view == HotUserRankView.this.iKy) {
+                HotUserRankView.this.iKt.finish();
+            } else if (view == HotUserRankView.this.iKz) {
+                if (TextUtils.isEmpty(HotUserRankView.this.iKl)) {
+                    HotUserRankView.this.iKt.showToast(R.string.load_error_retry);
                     return;
                 }
-                be.bsB().b(HotUserRankView.this.iEK.getPageContext(), new String[]{HotUserRankView.this.iEC});
-                if (HotUserRankView.this.gcC.getVisibility() == 0) {
-                    aq aqVar = new aq("c13658");
-                    aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
-                    aqVar.an("obj_locate", 1);
-                    TiebaStatic.log(aqVar);
+                bf.bsV().b(HotUserRankView.this.iKt.getPageContext(), new String[]{HotUserRankView.this.iKl});
+                if (HotUserRankView.this.geR.getVisibility() == 0) {
+                    ar arVar = new ar("c13658");
+                    arVar.v("uid", TbadkCoreApplication.getCurrentAccountId());
+                    arVar.ap("obj_locate", 1);
+                    TiebaStatic.log(arVar);
                     return;
                 }
-                aq aqVar2 = new aq("c13669");
-                aqVar2.an("obj_locate", 1);
-                TiebaStatic.log(aqVar2);
+                ar arVar2 = new ar("c13669");
+                arVar2.ap("obj_locate", 1);
+                TiebaStatic.log(arVar2);
             }
         }
     };
@@ -87,12 +87,12 @@ public class HotUserRankView {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            if (HotUserRankView.this.gvo.get(i) != null && ((a) HotUserRankView.this.gvo.get(i)).iEX != null && ((a) HotUserRankView.this.gvo.get(i)).iEX.cvj() != null) {
-                HotUserRankView.this.iEO.b(((a) HotUserRankView.this.gvo.get(i)).iEX.cvj().getPageData());
-                aq aqVar = new aq("c13657");
-                aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
-                aqVar.dW("resource_id", ((a) HotUserRankView.this.gvo.get(i)).title);
-                TiebaStatic.log(aqVar);
+            if (HotUserRankView.this.gxY.get(i) != null && ((a) HotUserRankView.this.gxY.get(i)).iKG != null && ((a) HotUserRankView.this.gxY.get(i)).iKG.cwv() != null) {
+                HotUserRankView.this.iKx.b(((a) HotUserRankView.this.gxY.get(i)).iKG.cwv().getPageData());
+                ar arVar = new ar("c13657");
+                arVar.v("uid", TbadkCoreApplication.getCurrentAccountId());
+                arVar.dR("resource_id", ((a) HotUserRankView.this.gxY.get(i)).title);
+                TiebaStatic.log(arVar);
             }
         }
 
@@ -100,42 +100,42 @@ public class HotUserRankView {
         public void onPageScrollStateChanged(int i) {
         }
     };
-    private CustomMessageListener iEV = new CustomMessageListener(2921447) { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankView.4
+    private CustomMessageListener iKE = new CustomMessageListener(2921447) { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankView.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof c) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() != null && customResponsedMessage.getOrginalMessage().getTag().equals(HotUserRankView.this.iEK.getUniqueId())) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof c) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() != null && customResponsedMessage.getOrginalMessage().getTag().equals(HotUserRankView.this.iKt.getUniqueId())) {
                 c cVar = (c) customResponsedMessage.getData();
-                if (cVar.iFC != null) {
-                    HotUserRankView.this.iEO.b(cVar);
+                if (cVar.iLl != null) {
+                    HotUserRankView.this.iKx.b(cVar);
                 }
             }
         }
     };
 
     public HotUserRankView(BaseFragmentActivity baseFragmentActivity) {
-        this.iEK = baseFragmentActivity;
-        this.mRootView = LayoutInflater.from(this.iEK).inflate(R.layout.activity_hot_user_rank, (ViewGroup) null);
+        this.iKt = baseFragmentActivity;
+        this.mRootView = LayoutInflater.from(this.iKt).inflate(R.layout.activity_hot_user_rank, (ViewGroup) null);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.navigation_bar);
-        this.iEP = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.iEP.setOnClickListener(this.mOnClickListener);
-        this.iEQ = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.iEK.getString(R.string.hot_user_rank_rule));
-        this.iEQ.setOnClickListener(this.mOnClickListener);
-        this.gcC = (TbTabLayout) this.mRootView.findViewById(R.id.tablayout);
-        this.gcC.setTabTextSize(l.getDimens(baseFragmentActivity, R.dimen.tbds46));
-        this.iEL = this.mRootView.findViewById(R.id.tab_cover_left);
-        this.iEM = this.mRootView.findViewById(R.id.tab_cover_right);
-        this.eWN = (CustomViewPager) this.mRootView.findViewById(R.id.viewpager);
-        this.eWN.addOnPageChangeListener(this.mOnPageChangeListener);
-        this.eWN.setViewPagerScroll(0);
-        this.iEN = new FragmentAdapter(this.iEK.getSupportFragmentManager());
-        this.eWN.setAdapter(this.iEN);
-        this.gcC.setupWithViewPager(this.eWN);
-        this.iEO = new b(this.iEK.getPageContext(), this.mRootView.findViewById(R.id.bottom_view));
-        this.iEK.registerListener(this.iEV);
-        this.iER = this.mRootView.findViewById(R.id.update_tip);
-        this.iES = (TextView) this.mRootView.findViewById(R.id.update_tip_text);
-        this.iET = this.mRootView.findViewById(R.id.bottom_view_top_line);
+        this.iKy = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.iKy.setOnClickListener(this.mOnClickListener);
+        this.iKz = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.iKt.getString(R.string.hot_user_rank_rule));
+        this.iKz.setOnClickListener(this.mOnClickListener);
+        this.geR = (TbTabLayout) this.mRootView.findViewById(R.id.tablayout);
+        this.geR.setTabTextSize(l.getDimens(baseFragmentActivity, R.dimen.tbds46));
+        this.iKu = this.mRootView.findViewById(R.id.tab_cover_left);
+        this.iKv = this.mRootView.findViewById(R.id.tab_cover_right);
+        this.eZd = (CustomViewPager) this.mRootView.findViewById(R.id.viewpager);
+        this.eZd.addOnPageChangeListener(this.mOnPageChangeListener);
+        this.eZd.setViewPagerScroll(0);
+        this.iKw = new FragmentAdapter(this.iKt.getSupportFragmentManager());
+        this.eZd.setAdapter(this.iKw);
+        this.geR.setupWithViewPager(this.eZd);
+        this.iKx = new b(this.iKt.getPageContext(), this.mRootView.findViewById(R.id.bottom_view));
+        this.iKt.registerListener(this.iKE);
+        this.iKA = this.mRootView.findViewById(R.id.update_tip);
+        this.iKB = (TextView) this.mRootView.findViewById(R.id.update_tip_text);
+        this.iKC = this.mRootView.findViewById(R.id.bottom_view_top_line);
     }
 
     public View getView() {
@@ -143,39 +143,39 @@ public class HotUserRankView {
     }
 
     public void a(List<d> list, long j, int i, String str) {
-        this.iEC = str;
-        if (!x.isEmpty(list) || j > 0) {
-            this.gvo.clear();
-            if (x.isEmpty(list)) {
-                this.gcC.setVisibility(8);
+        this.iKl = str;
+        if (!y.isEmpty(list) || j > 0) {
+            this.gxY.clear();
+            if (y.isEmpty(list)) {
+                this.geR.setVisibility(8);
                 a aVar = new a();
-                aVar.iEX = new HotUserRankFragment();
-                aVar.iEX.setForumId(j);
-                this.gvo.add(aVar);
-                this.iEN.setData(this.gvo);
-                this.iEO.xy(1);
+                aVar.iKG = new HotUserRankFragment();
+                aVar.iKG.setForumId(j);
+                this.gxY.add(aVar);
+                this.iKw.setData(this.gxY);
+                this.iKx.xI(1);
                 return;
             }
             for (d dVar : list) {
-                this.gcC.a(this.gcC.qN());
+                this.geR.a(this.geR.qL());
                 a aVar2 = new a();
-                aVar2.iEX = new HotUserRankFragment();
-                aVar2.iEX.setCategory(dVar.category);
-                aVar2.iEX.setIsGod(this.isGod);
+                aVar2.iKG = new HotUserRankFragment();
+                aVar2.iKG.setCategory(dVar.category);
+                aVar2.iKG.setIsGod(this.isGod);
                 aVar2.title = dVar.name;
-                this.gvo.add(aVar2);
+                this.gxY.add(aVar2);
             }
             if (this.isGod) {
-                this.mNavigationBar.setCenterTextTitle(this.iEK.getString(R.string.all_god_user_rank));
+                this.mNavigationBar.setCenterTextTitle(this.iKt.getString(R.string.all_god_user_rank));
             } else {
-                this.mNavigationBar.setCenterTextTitle(this.iEK.getString(R.string.all_hot_user_rank));
+                this.mNavigationBar.setCenterTextTitle(this.iKt.getString(R.string.all_hot_user_rank));
             }
-            this.iEN.setData(this.gvo);
-            this.iEO.xy(2);
+            this.iKw.setData(this.gxY);
+            this.iKx.xI(2);
             if (i != 0) {
-                this.eWN.setCurrentItem(i);
+                this.eZd.setCurrentItem(i);
             }
-            e.mB().postDelayed(this.iEU, 100L);
+            e.mA().postDelayed(this.iKD, 100L);
         }
     }
 
@@ -185,46 +185,46 @@ public class HotUserRankView {
 
     /* loaded from: classes2.dex */
     public static class FragmentAdapter extends FragmentStatePagerAdapter {
-        private List<a> gvo;
+        private List<a> gxY;
 
         public FragmentAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
-            this.gvo = new ArrayList();
+            this.gxY = new ArrayList();
         }
 
         public void setData(List<a> list) {
-            this.gvo.clear();
-            if (!x.isEmpty(list)) {
-                this.gvo.addAll(list);
+            this.gxY.clear();
+            if (!y.isEmpty(list)) {
+                this.gxY.addAll(list);
             }
             notifyDataSetChanged();
         }
 
         @Override // androidx.fragment.app.FragmentStatePagerAdapter
         public Fragment getItem(int i) {
-            a aVar = this.gvo.get(i);
+            a aVar = this.gxY.get(i);
             if (aVar != null) {
-                return aVar.iEX;
+                return aVar.iKG;
             }
             return null;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return this.gvo.size();
+            return this.gxY.size();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         @Nullable
         public CharSequence getPageTitle(int i) {
-            a aVar = this.gvo.get(i);
+            a aVar = this.gxY.get(i);
             return aVar != null ? aVar.title : "";
         }
     }
 
     /* loaded from: classes2.dex */
     public class a {
-        public HotUserRankFragment iEX;
+        public HotUserRankFragment iKG;
         public String title;
 
         public a() {
@@ -232,29 +232,29 @@ public class HotUserRankView {
     }
 
     public void onChangeSkinType(int i) {
-        ao.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        this.mNavigationBar.onChangeSkinType(this.iEK.getPageContext(), i);
-        this.gcC.setTabTextColors(ao.getColor(R.color.CAM_X0108), ao.getColor(R.color.CAM_X0105));
-        this.gcC.setSelectedTabIndicatorColor(ao.getColor(R.color.CAM_X0302));
-        ao.setBackgroundColor(this.gcC, R.color.CAM_X0207);
-        ao.k(this.iEQ, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
-        this.iEO.onChangeSkinType(i);
-        Drawable a2 = SvgManager.bsx().a(R.drawable.svg_icon_pure_toast_complete24, R.color.CAM_X0302, (SvgManager.SvgResourceStateType) null);
-        int dimens = l.getDimens(this.iEK, R.dimen.tbds63);
-        int dimens2 = l.getDimens(this.iEK, R.dimen.tbds2);
+        ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+        this.mNavigationBar.onChangeSkinType(this.iKt.getPageContext(), i);
+        this.geR.setTabTextColors(ap.getColor(R.color.CAM_X0108), ap.getColor(R.color.CAM_X0105));
+        this.geR.setSelectedTabIndicatorColor(ap.getColor(R.color.CAM_X0302));
+        ap.setBackgroundColor(this.geR, R.color.CAM_X0207);
+        ap.k(this.iKz, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
+        this.iKx.onChangeSkinType(i);
+        Drawable a2 = SvgManager.bsR().a(R.drawable.svg_icon_pure_toast_complete24, R.color.CAM_X0302, (SvgManager.SvgResourceStateType) null);
+        int dimens = l.getDimens(this.iKt, R.dimen.tbds63);
+        int dimens2 = l.getDimens(this.iKt, R.dimen.tbds2);
         if (a2 != null) {
             a2.setBounds(0, dimens2, dimens, dimens + dimens2);
-            this.iES.setCompoundDrawables(a2, null, null, null);
+            this.iKB.setCompoundDrawables(a2, null, null, null);
         }
-        this.iES.setCompoundDrawablePadding(l.getDimens(this.iEK, R.dimen.tbds9));
-        com.baidu.tbadk.core.util.f.a.bta().pb(R.color.CAM_X0901).oX(R.color.CAM_X0804).oV(4369).oY(l.getDimens(this.iEK, R.dimen.tbds21)).oZ(0).pa(0).bz(this.iER);
-        ao.setBackgroundResource(this.iEL, R.drawable.hot_user_rank_tab_cover_left);
-        ao.setBackgroundResource(this.iEM, R.drawable.hot_user_rank_tab_cover_right);
-        this.iET.setVisibility(i != 0 ? 8 : 0);
+        this.iKB.setCompoundDrawablePadding(l.getDimens(this.iKt, R.dimen.tbds9));
+        com.baidu.tbadk.core.util.f.a.btu().pg(R.color.CAM_X0901).pc(R.color.CAM_X0804).pa(4369).pd(l.getDimens(this.iKt, R.dimen.tbds21)).pe(0).pf(0).bv(this.iKA);
+        ap.setBackgroundResource(this.iKu, R.drawable.hot_user_rank_tab_cover_left);
+        ap.setBackgroundResource(this.iKv, R.drawable.hot_user_rank_tab_cover_right);
+        this.iKC.setVisibility(i != 0 ? 8 : 0);
     }
 
-    public void xx(int i) {
-        this.iER.setVisibility(i);
+    public void xH(int i) {
+        this.iKA.setVisibility(i);
     }
 
     public void setIsGod(boolean z) {
@@ -262,6 +262,6 @@ public class HotUserRankView {
     }
 
     public void onDestroy() {
-        e.mB().removeCallbacks(this.iEU);
+        e.mA().removeCallbacks(this.iKD);
     }
 }

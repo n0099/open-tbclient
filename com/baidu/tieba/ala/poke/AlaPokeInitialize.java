@@ -7,25 +7,25 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.d.r;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.w.b;
-import com.baidu.live.w.c;
-/* loaded from: classes10.dex */
+import com.baidu.live.v.b;
+import com.baidu.live.v.c;
+/* loaded from: classes11.dex */
 public class AlaPokeInitialize {
     static {
-        cnt();
-        cns();
-        bNK();
-        bNL();
+        cor();
+        coq();
+        bOl();
+        bOp();
     }
 
-    private static void cns() {
+    private static void coq() {
         TbadkCoreApplication.getInst().RegisterIntent(r.class, AlaPokeDialogActivity.class);
     }
 
-    private static void cnt() {
+    private static void cor() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913262, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.poke.AlaPokeInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.w.a> run(CustomMessage<Context> customMessage) {
+            public CustomResponsedMessage<com.baidu.live.v.a> run(CustomMessage<Context> customMessage) {
                 return new CustomResponsedMessage<>(2913262, new a(customMessage.getData()));
             }
         });
@@ -33,18 +33,18 @@ public class AlaPokeInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bNK() {
+    private static void bOl() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913265, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.poke.AlaPokeInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<c> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2913265, com.baidu.tieba.ala.poke.startanim.c.cny());
+                return new CustomResponsedMessage<>(2913265, com.baidu.tieba.ala.poke.startanim.c.cow());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bNL() {
+    private static void bOp() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913266, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.poke.AlaPokeInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<b> run(CustomMessage<Context> customMessage) {

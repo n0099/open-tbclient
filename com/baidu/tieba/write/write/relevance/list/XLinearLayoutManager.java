@@ -3,7 +3,7 @@ package com.baidu.tieba.write.write.relevance.list;
 import android.content.Context;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class XLinearLayoutManager extends LinearLayoutManager {
     public XLinearLayoutManager(Context context) {
         super(context);

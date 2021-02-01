@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.platform.comapi.wnplatform.o.f;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.OnClickListener {
     private static int F = 135;
     private static int G = 90;
@@ -26,7 +26,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     private int E;
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f4165a;
+    private Activity f4168a;
     private int e;
     private com.baidu.platform.comapi.bikenavi.c.b g;
     private ImageButton h;
@@ -50,14 +50,14 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     private TextView z;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f4166b = 1;
+    private final int f4169b = 1;
     private final int c = 2;
     private final int d = 3;
     private boolean f = false;
     private int H = 0;
 
     public a(Context context, com.baidu.platform.comapi.bikenavi.c.b bVar, View view) {
-        this.f4165a = (Activity) context;
+        this.f4168a = (Activity) context;
         this.g = bVar;
         a(view);
     }
@@ -113,7 +113,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     private void b(View view) {
         this.n = (CustomScrollView) view.findViewById(R.dimen.M_W_X014);
         view.post(new b(this));
-        this.s = com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f4165a, R.array.Mask_X003, null);
+        this.s = com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f4168a, R.array.Mask_X003, null);
         this.n.addContentView(this.s);
         this.n.updateStatus(com.baidu.platform.comapi.wnplatform.n.b.BOTTOM, false);
         this.t = (ImageView) this.s.findViewById(R.dimen.M_H_X013);
@@ -135,9 +135,9 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         if (z) {
-            new AsyncTaskC0276a(this.n, true).execute(new Integer[0]);
+            new AsyncTaskC0280a(this.n, true).execute(new Integer[0]);
         } else if (this.H != 0) {
-            new AsyncTaskC0276a(this.n, false).execute(new Integer[0]);
+            new AsyncTaskC0280a(this.n, false).execute(new Integer[0]);
         }
     }
 
@@ -172,13 +172,13 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
 
     public void a(int i) {
         if (i == 2130837750) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f4165a, 2130837750));
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f4168a, 2130837750));
             this.e = 1;
         } else if (i == 2130837753) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f4165a, 2130837753));
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f4168a, 2130837753));
             this.e = 2;
         } else if (i == 2130837751) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f4165a, 2130837751));
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f4168a, 2130837751));
             this.e = 3;
         }
     }
@@ -187,7 +187,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     @Override // com.baidu.platform.comapi.walknavi.g.b.b
     public void a() {
         super.a();
-        Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f4165a, R.attr.actionBarItemBackground);
+        Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f4168a, R.attr.actionBarItemBackground);
         if (!this.l.isShown()) {
             this.l.setAnimation(c);
         }
@@ -204,7 +204,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     @Override // com.baidu.platform.comapi.walknavi.g.b.b
     public void b() {
         super.b();
-        Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f4165a, R.attr.actionBarPopupTheme);
+        Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f4168a, R.attr.actionBarPopupTheme);
         if (this.l.isShown()) {
             this.l.setAnimation(c);
         }
@@ -257,7 +257,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
             this.k.setVisibility(0);
             this.g.k();
             h();
-            this.g.a(this.f4165a, com.baidu.platform.comapi.walknavi.b.a().G().a(), 10, 0, 0, F + 10);
+            this.g.a(this.f4168a, com.baidu.platform.comapi.walknavi.b.a().G().a(), 10, 0, 0, F + 10);
             if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
                 com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
             }
@@ -270,7 +270,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
             com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE);
             com.baidu.platform.comapi.walknavi.b.a().D().j();
             g();
-            this.g.a(this.f4165a, com.baidu.platform.comapi.walknavi.b.a().G().a(), 70, 0, 0, 60);
+            this.g.a(this.f4168a, com.baidu.platform.comapi.walknavi.b.a().G().a(), 70, 0, 0, 60);
             if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
                 com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
             }
@@ -281,16 +281,16 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.bikenavi.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class AsyncTaskC0276a extends AsyncTask<Integer, Integer, String> {
+    /* loaded from: classes4.dex */
+    public class AsyncTaskC0280a extends AsyncTask<Integer, Integer, String> {
 
         /* renamed from: b  reason: collision with root package name */
-        private ScrollView f4168b;
+        private ScrollView f4171b;
         private boolean c;
         private int d = 15;
 
-        public AsyncTaskC0276a(ScrollView scrollView, boolean z) {
-            this.f4168b = scrollView;
+        public AsyncTaskC0280a(ScrollView scrollView, boolean z) {
+            this.f4171b = scrollView;
             this.c = z;
         }
 
@@ -337,7 +337,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
                 }
                 String str = "#" + hexString + "000000";
                 com.baidu.platform.comapi.wnplatform.d.a.a("yang12", "onProgressUpdate:" + str + "alpha:" + intValue);
-                this.f4168b.setBackgroundColor(Color.parseColor(str));
+                this.f4171b.setBackgroundColor(Color.parseColor(str));
                 a.this.H = intValue;
             } catch (Exception e) {
                 e.printStackTrace();

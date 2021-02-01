@@ -5,14 +5,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f6040a;
+    public final int f6042a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f6041b;
+    public final byte[] f6043b;
     public final Map<String, String> c;
     public final List<a> d;
     public final boolean e;
@@ -33,8 +33,8 @@ public class l {
     }
 
     private l(int i, byte[] bArr, Map<String, String> map, List<a> list, boolean z, long j) {
-        this.f6040a = i;
-        this.f6041b = bArr;
+        this.f6042a = i;
+        this.f6043b = bArr;
         this.c = map;
         if (list == null) {
             this.d = null;

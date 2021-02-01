@@ -1,50 +1,18 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
 import org.json.JSONObject;
-import tbclient.FrsPage.YuleActivity;
+import tbclient.VideoDesc;
 /* loaded from: classes.dex */
 public class cj {
-    private int aSC;
-    private String activity_all_icon;
-    private String activity_half_icon;
-    private String activity_url;
-    private long eJW;
-
-    public String getActivityUrl() {
-        return this.activity_url;
-    }
-
-    public String bpT() {
-        return this.activity_all_icon;
-    }
-
-    public String bpU() {
-        return this.activity_half_icon;
-    }
-
-    public void a(YuleActivity yuleActivity) {
-        if (yuleActivity != null) {
-            this.eJW = yuleActivity.activity_id.longValue();
-            this.aSC = yuleActivity.activity_type.intValue();
-            this.activity_url = yuleActivity.activity_url;
-            this.activity_all_icon = yuleActivity.activity_all_icon;
-            this.activity_half_icon = yuleActivity.activity_half_icon;
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
+    public static VideoDesc dq(JSONObject jSONObject) {
+        VideoDesc.Builder builder = new VideoDesc.Builder();
         if (jSONObject != null) {
-            try {
-                this.eJW = jSONObject.optLong("activity_id");
-                this.aSC = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
-                this.activity_url = jSONObject.optString("activity_url");
-                this.activity_all_icon = jSONObject.optString("activity_all_icon");
-                this.activity_half_icon = jSONObject.optString("activity_half_icon");
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
+            builder.video_id = Integer.valueOf(jSONObject.optInt("video_id"));
+            builder.video_md5 = jSONObject.optString("video_md5");
+            builder.video_url = jSONObject.optString("video_url");
+            builder.video_width = jSONObject.optString("video_width");
+            builder.video_height = jSONObject.optString("video_height");
         }
+        return builder.build(true);
     }
 }

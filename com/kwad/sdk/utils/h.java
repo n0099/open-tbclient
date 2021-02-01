@@ -4,14 +4,14 @@ import android.content.Context;
 import android.content.IntentFilter;
 import androidx.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicBoolean f10821a = new AtomicBoolean(false);
+    private static final AtomicBoolean f10823a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile h f10822b;
+    private static volatile h f10824b;
     private Context c;
     private a d;
 
@@ -20,26 +20,26 @@ public class h {
     }
 
     public static h a(@NonNull Context context) {
-        if (f10822b == null) {
+        if (f10824b == null) {
             synchronized (h.class) {
-                if (f10822b == null) {
-                    f10822b = new h(context);
+                if (f10824b == null) {
+                    f10824b = new h(context);
                 }
             }
         }
-        return f10822b;
+        return f10824b;
     }
 
     private void c() {
-        if (!f10821a.get() || this.c == null) {
+        if (!f10823a.get() || this.c == null) {
             return;
         }
         this.c.unregisterReceiver(this.d);
-        f10821a.set(false);
+        f10823a.set(false);
     }
 
     public void a() {
-        if (this.c == null || f10821a.get()) {
+        if (this.c == null || f10823a.get()) {
             return;
         }
         if (this.d == null) {
@@ -50,7 +50,7 @@ public class h {
         intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
         intentFilter.addDataScheme("package");
         this.c.registerReceiver(this.d, intentFilter);
-        f10821a.set(true);
+        f10823a.set(true);
     }
 
     public void b() {

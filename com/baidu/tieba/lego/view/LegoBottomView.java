@@ -10,44 +10,44 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.BaseCardView;
 import com.baidu.tieba.lego.card.view.ButtonCardView;
 import com.baidu.tieba.lego.k;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LegoBottomView extends RelativeLayout implements k {
-    private boolean dpG;
-    private ObjectAnimator kYA;
-    private Runnable kYB;
-    private boolean kYC;
+    private boolean drR;
+    private ObjectAnimator lgE;
+    private Runnable lgF;
+    private boolean lgG;
 
     public LegoBottomView(Context context) {
         super(context);
-        this.kYA = null;
-        this.kYB = null;
-        this.dpG = false;
-        this.kYC = false;
+        this.lgE = null;
+        this.lgF = null;
+        this.drR = false;
+        this.lgG = false;
         init();
     }
 
     public LegoBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kYA = null;
-        this.kYB = null;
-        this.dpG = false;
-        this.kYC = false;
+        this.lgE = null;
+        this.lgF = null;
+        this.drR = false;
+        this.lgG = false;
         init();
     }
 
     public LegoBottomView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kYA = null;
-        this.kYB = null;
-        this.dpG = false;
-        this.kYC = false;
+        this.lgE = null;
+        this.lgF = null;
+        this.drR = false;
+        this.lgG = false;
         init();
     }
 
     private void init() {
-        this.kYA = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 0.5f, 1.0f);
-        this.kYA.setDuration(1000L);
-        this.kYA.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.lego.view.LegoBottomView.1
+        this.lgE = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 0.5f, 1.0f);
+        this.lgE.setDuration(1000L);
+        this.lgE.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.lego.view.LegoBottomView.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 LegoBottomView.this.setVisibility(0);
@@ -65,10 +65,10 @@ public class LegoBottomView extends RelativeLayout implements k {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.kYB = new Runnable() { // from class: com.baidu.tieba.lego.view.LegoBottomView.2
+        this.lgF = new Runnable() { // from class: com.baidu.tieba.lego.view.LegoBottomView.2
             @Override // java.lang.Runnable
             public void run() {
-                LegoBottomView.this.kYA.start();
+                LegoBottomView.this.lgE.start();
             }
         };
     }
@@ -82,18 +82,18 @@ public class LegoBottomView extends RelativeLayout implements k {
     }
 
     public void destory() {
-        this.dpG = false;
-        this.kYC = false;
-        removeCallbacks(this.kYB);
+        this.drR = false;
+        this.lgG = false;
+        removeCallbacks(this.lgF);
     }
 
     @Override // com.baidu.tieba.lego.k
     public void onScrollStateChanged(AbsListView absListView, int i) {
         switch (i) {
             case 0:
-                if (getVisibility() != 0 && !this.kYC) {
-                    removeCallbacks(this.kYB);
-                    postDelayed(this.kYB, 1000L);
+                if (getVisibility() != 0 && !this.lgG) {
+                    removeCallbacks(this.lgF);
+                    postDelayed(this.lgF, 1000L);
                     return;
                 }
                 return;
@@ -107,15 +107,15 @@ public class LegoBottomView extends RelativeLayout implements k {
     }
 
     public boolean isShow() {
-        return this.dpG;
+        return this.drR;
     }
 
     public void setIsShow(boolean z) {
-        this.dpG = z;
+        this.drR = z;
     }
 
     public void setIsVideoLandscape(boolean z) {
-        removeCallbacks(this.kYB);
-        this.kYC = z;
+        removeCallbacks(this.lgF);
+        this.lgG = z;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.featureSwitch.a;
 import com.baidu.tbadk.core.sharedPref.b;
 /* loaded from: classes.dex */
 public class FunAdSdkSwitch extends a {
-    public static final String KEY_SWITCH = "android_index_bear_sdk";
+    public static final String KEY_SWITCH = "bear_wxb_download";
     public static final int TYPE_OFF = 0;
     public static final int TYPE_OPEN = 1;
 
@@ -43,6 +43,6 @@ public class FunAdSdkSwitch extends a {
     }
 
     public static boolean isOpen() {
-        return b.brx().getInt("pref_key_fun_ad_sdk_enable", 1) == 1;
+        return b.brQ().getInt("pref_key_fun_ad_sdk_enable", 1) == 1;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view.commonLike.forum;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.commonLike.CommonLikeButton;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
@@ -22,14 +22,14 @@ public class ForumLikeBotton extends CommonLikeButton {
 
     @Override // com.baidu.tbadk.core.view.commonLike.CommonLikeButton
     public void onChangeSkinType(int i) {
-        if (this.flb) {
+        if (this.fnt) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            ao.setViewTextColor(this, R.color.btn_forum_focus_gray_color);
-            ao.setBackgroundResource(this, R.drawable.btn_transparent_gray_border);
+            ap.setViewTextColor(this, R.color.btn_forum_focus_gray_color);
+            ap.setBackgroundResource(this, R.drawable.btn_transparent_gray_border);
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-        ao.setViewTextColor(this, R.color.btn_forum_focus_color);
-        ao.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
+        setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+        ap.setViewTextColor(this, R.color.btn_forum_focus_color);
+        ap.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
     }
 }

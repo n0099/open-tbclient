@@ -6,18 +6,18 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import java.text.DecimalFormat;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class PbVideoWifiTipLayout extends LinearLayout {
-    private TextView myd;
-    private TextView mye;
-    private TextView myf;
-    private TextView myg;
-    private TextView myh;
-    private View.OnClickListener myi;
+    private TextView mHj;
+    private TextView mHk;
+    private TextView mHl;
+    private TextView mHm;
+    private TextView mHn;
+    private View.OnClickListener mHo;
 
     public PbVideoWifiTipLayout(Context context) {
         super(context);
@@ -36,32 +36,32 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     private void initView() {
         inflate(getContext(), R.layout.layout_video_wifi_tip, this);
-        this.myd = (TextView) findViewById(R.id.tv_video_duration);
-        this.mye = (TextView) findViewById(R.id.tv_video_data);
-        this.myf = (TextView) findViewById(R.id.tv_play);
-        this.myg = (TextView) findViewById(R.id.tv_divider);
-        this.myh = (TextView) findViewById(R.id.tv_open_free_data);
-        this.myh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.play.PbVideoWifiTipLayout.1
+        this.mHj = (TextView) findViewById(R.id.tv_video_duration);
+        this.mHk = (TextView) findViewById(R.id.tv_video_data);
+        this.mHl = (TextView) findViewById(R.id.tv_play);
+        this.mHm = (TextView) findViewById(R.id.tv_divider);
+        this.mHn = (TextView) findViewById(R.id.tv_open_free_data);
+        this.mHn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.play.PbVideoWifiTipLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.browser.a.startWebActivity(true, PbVideoWifiTipLayout.this.getContext(), PbVideoWifiTipLayout.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
-                if (PbVideoWifiTipLayout.this.myi != null) {
-                    PbVideoWifiTipLayout.this.myi.onClick(view);
+                if (PbVideoWifiTipLayout.this.mHo != null) {
+                    PbVideoWifiTipLayout.this.mHo.onClick(view);
                 }
             }
         });
     }
 
     public TextView getTvPlay() {
-        return this.myf;
+        return this.mHl;
     }
 
     public TextView getTvOpenFreeData() {
-        return this.myh;
+        return this.mHn;
     }
 
     public void setFreeClickListener(View.OnClickListener onClickListener) {
-        this.myi = onClickListener;
+        this.mHo = onClickListener;
     }
 
     public void setData(VideoInfo videoInfo) {
@@ -72,21 +72,21 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     public void setData(int i, int i2) {
         if (i > 0) {
-            this.myd.setText(String.format(getResources().getString(R.string.pb_video_duration), at.stringForVideoTime(i * 1000)));
+            this.mHj.setText(String.format(getResources().getString(R.string.pb_video_duration), au.stringForVideoTime(i * 1000)));
         } else {
-            this.myd.setVisibility(8);
-            this.myg.setVisibility(8);
+            this.mHj.setVisibility(8);
+            this.mHm.setVisibility(8);
         }
         if (i2 > 0) {
-            this.mye.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
+            this.mHk.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
         } else {
-            this.mye.setVisibility(8);
-            this.myg.setVisibility(8);
+            this.mHk.setVisibility(8);
+            this.mHm.setVisibility(8);
         }
-        this.myh.setVisibility(0);
+        this.mHn.setVisibility(0);
     }
 
     public void setOnPlayClickListener(View.OnClickListener onClickListener) {
-        this.myf.setOnClickListener(onClickListener);
+        this.mHl.setOnClickListener(onClickListener);
     }
 }

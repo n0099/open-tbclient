@@ -24,7 +24,7 @@ import okhttp3.internal.http.HttpCodec;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import okhttp3.internal.http2.ErrorCode;
 import okhttp3.internal.http2.StreamResetException;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class StreamAllocation {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final String TAG = "StreamAllocation";
@@ -478,7 +478,7 @@ public final class StreamAllocation {
         return connection != null ? connection.toString() : this.address.toString();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static final class StreamAllocationReference extends WeakReference<StreamAllocation> {
         public final Object callStackTrace;
 
@@ -518,7 +518,7 @@ public final class StreamAllocation {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public class FallbackConnectTask extends TimerTask {
         private boolean canceled;
         private int connectTimeout;

@@ -13,15 +13,15 @@ import android.view.WindowManager;
 import com.baidu.mobstat.Config;
 import com.baidu.webkit.internal.ETAG;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class c {
     private static String d;
 
     /* renamed from: a  reason: collision with root package name */
-    static String f13390a = null;
+    static String f13392a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    static String f13391b = null;
+    static String f13393b = null;
     static String c = null;
     private static String e = null;
 
@@ -61,30 +61,30 @@ public class c {
     }
 
     public static String b(Context context) {
-        if (f13390a != null && f13390a.length() > 0) {
-            return f13390a;
+        if (f13392a != null && f13392a.length() > 0) {
+            return f13392a;
         }
         if (context == null) {
             return "";
         }
         try {
-            f13390a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-            return f13390a;
+            f13392a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            return f13392a;
         } catch (Exception e2) {
             return "";
         }
     }
 
     public static String c(Context context) {
-        if (f13391b != null && f13391b.length() > 0) {
-            return f13391b;
+        if (f13393b != null && f13393b.length() > 0) {
+            return f13393b;
         }
         if (context == null) {
             return "";
         }
         try {
-            f13391b = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
-            return f13391b;
+            f13393b = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
+            return f13393b;
         } catch (Exception e2) {
             return "";
         }

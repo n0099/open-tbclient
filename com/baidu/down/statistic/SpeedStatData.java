@@ -9,10 +9,11 @@ import com.baidu.down.utils.Constants;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.IdentityManager;
 import com.baidu.down.utils.Utils;
+import com.yy.videoplayer.stat.VideoPlayerStatistic;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SpeedStatData {
     private static final String TAG = "SpeedStatData";
 
@@ -115,7 +116,7 @@ public class SpeedStatData {
             }
             jSONObject.put("type", "0");
             jSONObject.put("docid", taskSpeedStat.docid);
-            jSONObject.put("did", taskSpeedStat.did + "");
+            jSONObject.put(VideoPlayerStatistic.AudienceHiidoCoreStatisticKey.DecodeId, taskSpeedStat.did + "");
             jSONObject.put("status", taskSpeedStat.status + "");
             jSONObject.put("startwritetime", taskSpeedStat.startWriteTimeMillis + "");
             jSONObject.put("endwritetime", taskSpeedStat.endWriteTimeMillis + "");

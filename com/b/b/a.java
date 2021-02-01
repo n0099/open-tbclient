@@ -9,49 +9,49 @@ public class a {
         return C0011a.isSupported();
     }
 
-    public static String cf(Context context) {
-        return C0011a.cf(context.getApplicationContext());
+    public static String ce(Context context) {
+        return C0011a.ce(context.getApplicationContext());
     }
 
     /* renamed from: com.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     static class C0011a {
-        private static Object pOa;
-        private static Method pOb;
-        private static Method pOc;
-        private static Method pOd;
-        private static Method pOe;
+        private static Object pYe;
+        private static Method pYf;
+        private static Method pYg;
+        private static Method pYh;
+        private static Method pYi;
         private static Class<?> sClass;
 
         static {
-            pOb = null;
-            pOc = null;
-            pOd = null;
-            pOe = null;
+            pYf = null;
+            pYg = null;
+            pYh = null;
+            pYi = null;
             try {
                 sClass = Class.forName("com.android.id.impl.IdProviderImpl");
-                pOa = sClass.newInstance();
-                pOb = sClass.getMethod("getUDID", Context.class);
-                pOc = sClass.getMethod("getOAID", Context.class);
-                pOd = sClass.getMethod("getVAID", Context.class);
-                pOe = sClass.getMethod("getAAID", Context.class);
+                pYe = sClass.newInstance();
+                pYf = sClass.getMethod("getUDID", Context.class);
+                pYg = sClass.getMethod("getOAID", Context.class);
+                pYh = sClass.getMethod("getVAID", Context.class);
+                pYi = sClass.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static boolean isSupported() {
-            return (sClass == null || pOa == null) ? false : true;
+            return (sClass == null || pYe == null) ? false : true;
         }
 
-        public static String cf(Context context) {
-            return b(context, pOc);
+        public static String ce(Context context) {
+            return b(context, pYg);
         }
 
         private static String b(Context context, Method method) {
-            if (pOa != null && method != null) {
+            if (pYe != null && method != null) {
                 try {
-                    Object invoke = method.invoke(pOa, context);
+                    Object invoke = method.invoke(pYe, context);
                     if (invoke != null) {
                         return (String) invoke;
                     }

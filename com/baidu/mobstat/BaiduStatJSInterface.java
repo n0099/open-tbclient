@@ -35,30 +35,30 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class BaiduStatJSInterface {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface IWebviewPageLoadCallback {
         void onPageFinished(WebView webView, String str, bl blVar);
 
         void onPageStarted(WebView webView, String str, bl blVar);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class CustomWebViewClient extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<Context> f3584a;
+        private WeakReference<Context> f3587a;
 
         /* renamed from: b  reason: collision with root package name */
-        private WebViewClient f3585b;
+        private WebViewClient f3588b;
         private IWebviewPageLoadCallback c;
         private bl d;
 
         public CustomWebViewClient(Context context, WebViewClient webViewClient, IWebviewPageLoadCallback iWebviewPageLoadCallback, bl blVar) {
-            this.f3584a = new WeakReference<>(context);
-            this.f3585b = webViewClient;
+            this.f3587a = new WeakReference<>(context);
+            this.f3588b = webViewClient;
             this.c = iWebviewPageLoadCallback;
             this.d = blVar;
         }
@@ -81,8 +81,8 @@ public class BaiduStatJSInterface {
             } catch (JSONException e4) {
                 str2 = str;
             }
-            if (this.f3585b != null) {
-                return this.f3585b.shouldOverrideUrlLoading(webView, str2);
+            if (this.f3588b != null) {
+                return this.f3588b.shouldOverrideUrlLoading(webView, str2);
             }
             return super.shouldOverrideUrlLoading(webView, str2);
         }
@@ -90,7 +90,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
-            return this.f3585b != null ? this.f3585b.shouldOverrideUrlLoading(webView, webResourceRequest) : super.shouldOverrideUrlLoading(webView, webResourceRequest);
+            return this.f3588b != null ? this.f3588b.shouldOverrideUrlLoading(webView, webResourceRequest) : super.shouldOverrideUrlLoading(webView, webResourceRequest);
         }
 
         private void a(String str) throws JSONException {
@@ -100,7 +100,7 @@ public class BaiduStatJSInterface {
             JSONObject jSONObject4 = new JSONObject(str);
             String string = jSONObject4.getString("action");
             JSONObject jSONObject5 = jSONObject4.getJSONObject("obj");
-            Context context = this.f3584a.get();
+            Context context = this.f3587a.get();
             if (context != null) {
                 if ("onPageStart".equals(string)) {
                     String string2 = jSONObject5.getString("page");
@@ -183,161 +183,161 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            if (this.f3585b != null) {
-                this.f3585b.onPageStarted(webView, str, bitmap);
+            if (this.f3588b != null) {
+                this.f3588b.onPageStarted(webView, str, bitmap);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            if (this.f3585b != null) {
-                this.f3585b.onPageFinished(webView, str);
+            if (this.f3588b != null) {
+                this.f3588b.onPageFinished(webView, str);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onLoadResource(WebView webView, String str) {
-            if (this.f3585b != null) {
-                this.f3585b.onLoadResource(webView, str);
+            if (this.f3588b != null) {
+                this.f3588b.onLoadResource(webView, str);
             }
         }
 
         @Override // android.webkit.WebViewClient
         @Deprecated
         public void onTooManyRedirects(WebView webView, Message message, Message message2) {
-            if (this.f3585b != null) {
-                this.f3585b.onTooManyRedirects(webView, message, message2);
+            if (this.f3588b != null) {
+                this.f3588b.onTooManyRedirects(webView, message, message2);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onFormResubmission(WebView webView, Message message, Message message2) {
-            if (this.f3585b != null) {
-                this.f3585b.onFormResubmission(webView, message, message2);
+            if (this.f3588b != null) {
+                this.f3588b.onFormResubmission(webView, message, message2);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
-            if (this.f3585b != null) {
-                this.f3585b.doUpdateVisitedHistory(webView, str, z);
+            if (this.f3588b != null) {
+                this.f3588b.doUpdateVisitedHistory(webView, str, z);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-            if (this.f3585b != null) {
-                this.f3585b.onReceivedSslError(webView, sslErrorHandler, sslError);
+            if (this.f3588b != null) {
+                this.f3588b.onReceivedSslError(webView, sslErrorHandler, sslError);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
-            if (this.f3585b != null) {
-                this.f3585b.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
+            if (this.f3588b != null) {
+                this.f3588b.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideKeyEvent(WebView webView, KeyEvent keyEvent) {
-            return this.f3585b != null ? this.f3585b.shouldOverrideKeyEvent(webView, keyEvent) : super.shouldOverrideKeyEvent(webView, keyEvent);
+            return this.f3588b != null ? this.f3588b.shouldOverrideKeyEvent(webView, keyEvent) : super.shouldOverrideKeyEvent(webView, keyEvent);
         }
 
         @Override // android.webkit.WebViewClient
         public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
-            if (this.f3585b != null) {
-                this.f3585b.onUnhandledKeyEvent(webView, keyEvent);
+            if (this.f3588b != null) {
+                this.f3588b.onUnhandledKeyEvent(webView, keyEvent);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onScaleChanged(WebView webView, float f, float f2) {
-            if (this.f3585b != null) {
-                this.f3585b.onScaleChanged(webView, f, f2);
+            if (this.f3588b != null) {
+                this.f3588b.onScaleChanged(webView, f, f2);
             }
         }
 
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
-            if (this.f3585b != null) {
-                this.f3585b.onReceivedLoginRequest(webView, str, str2, str3);
+            if (this.f3588b != null) {
+                this.f3588b.onReceivedLoginRequest(webView, str, str2, str3);
             }
         }
 
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest) {
-            if (this.f3585b != null) {
-                this.f3585b.onReceivedClientCertRequest(webView, clientCertRequest);
+            if (this.f3588b != null) {
+                this.f3588b.onReceivedClientCertRequest(webView, clientCertRequest);
             }
         }
 
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
-            return this.f3585b != null ? this.f3585b.shouldInterceptRequest(webView, str) : super.shouldInterceptRequest(webView, str);
+            return this.f3588b != null ? this.f3588b.shouldInterceptRequest(webView, str) : super.shouldInterceptRequest(webView, str);
         }
 
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
-            return this.f3585b != null ? this.f3585b.shouldInterceptRequest(webView, webResourceRequest) : super.shouldInterceptRequest(webView, webResourceRequest);
+            return this.f3588b != null ? this.f3588b.shouldInterceptRequest(webView, webResourceRequest) : super.shouldInterceptRequest(webView, webResourceRequest);
         }
 
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public void onPageCommitVisible(WebView webView, String str) {
-            if (this.f3585b != null) {
-                this.f3585b.onPageCommitVisible(webView, str);
+            if (this.f3588b != null) {
+                this.f3588b.onPageCommitVisible(webView, str);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i, String str, String str2) {
-            if (this.f3585b != null) {
-                this.f3585b.onReceivedError(webView, i, str, str2);
+            if (this.f3588b != null) {
+                this.f3588b.onReceivedError(webView, i, str, str2);
             }
         }
 
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
-            if (this.f3585b != null) {
-                this.f3585b.onReceivedError(webView, webResourceRequest, webResourceError);
+            if (this.f3588b != null) {
+                this.f3588b.onReceivedError(webView, webResourceRequest, webResourceError);
             }
         }
 
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
-            if (this.f3585b != null) {
-                this.f3585b.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
+            if (this.f3588b != null) {
+                this.f3588b.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
             }
         }
 
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
-            return this.f3585b != null ? this.f3585b.onRenderProcessGone(webView, renderProcessGoneDetail) : super.onRenderProcessGone(webView, renderProcessGoneDetail);
+            return this.f3588b != null ? this.f3588b.onRenderProcessGone(webView, renderProcessGoneDetail) : super.onRenderProcessGone(webView, renderProcessGoneDetail);
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class CustomWebChromeViewClient extends WebChromeClient {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<Context> f3582a;
+        private WeakReference<Context> f3585a;
 
         /* renamed from: b  reason: collision with root package name */
-        private WebChromeClient f3583b;
+        private WebChromeClient f3586b;
         private ArrayList<IWebviewPageLoadCallback> c;
         private bl d;
         private int e = 0;
 
         public CustomWebChromeViewClient(Context context, WebChromeClient webChromeClient, ArrayList<IWebviewPageLoadCallback> arrayList, bl blVar) {
-            this.f3582a = new WeakReference<>(context);
-            this.f3583b = webChromeClient;
+            this.f3585a = new WeakReference<>(context);
+            this.f3586b = webChromeClient;
             this.c = arrayList;
             this.d = blVar;
         }
@@ -365,147 +365,147 @@ public class BaiduStatJSInterface {
                     }
                 }
             }
-            if (this.f3583b != null) {
-                this.f3583b.onProgressChanged(webView, i);
+            if (this.f3586b != null) {
+                this.f3586b.onProgressChanged(webView, i);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public boolean onCreateWindow(WebView webView, boolean z, boolean z2, Message message) {
-            return this.f3583b != null ? this.f3583b.onCreateWindow(webView, z, z2, message) : super.onCreateWindow(webView, z, z2, message);
+            return this.f3586b != null ? this.f3586b.onCreateWindow(webView, z, z2, message) : super.onCreateWindow(webView, z, z2, message);
         }
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-            return this.f3583b != null ? this.f3583b.onJsAlert(webView, str, str2, jsResult) : super.onJsAlert(webView, str, str2, jsResult);
+            return this.f3586b != null ? this.f3586b.onJsAlert(webView, str, str2, jsResult) : super.onJsAlert(webView, str, str2, jsResult);
         }
 
         @Override // android.webkit.WebChromeClient
         public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-            return this.f3583b != null ? this.f3583b.onConsoleMessage(consoleMessage) : super.onConsoleMessage(consoleMessage);
+            return this.f3586b != null ? this.f3586b.onConsoleMessage(consoleMessage) : super.onConsoleMessage(consoleMessage);
         }
 
         @Override // android.webkit.WebChromeClient
         @Deprecated
         public void onConsoleMessage(String str, int i, String str2) {
-            if (this.f3583b != null) {
-                this.f3583b.onConsoleMessage(str, i, str2);
+            if (this.f3586b != null) {
+                this.f3586b.onConsoleMessage(str, i, str2);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public void onCloseWindow(WebView webView) {
-            if (this.f3583b != null) {
-                this.f3583b.onCloseWindow(webView);
+            if (this.f3586b != null) {
+                this.f3586b.onCloseWindow(webView);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         @Deprecated
         public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-            if (this.f3583b != null) {
-                this.f3583b.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            if (this.f3586b != null) {
+                this.f3586b.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public void onGeolocationPermissionsHidePrompt() {
-            if (this.f3583b != null) {
-                this.f3583b.onGeolocationPermissionsHidePrompt();
+            if (this.f3586b != null) {
+                this.f3586b.onGeolocationPermissionsHidePrompt();
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissions.Callback callback) {
-            if (this.f3583b != null) {
-                this.f3583b.onGeolocationPermissionsShowPrompt(str, callback);
+            if (this.f3586b != null) {
+                this.f3586b.onGeolocationPermissionsShowPrompt(str, callback);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public void onHideCustomView() {
-            if (this.f3583b != null) {
-                this.f3583b.onHideCustomView();
+            if (this.f3586b != null) {
+                this.f3586b.onHideCustomView();
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-            return this.f3583b != null ? this.f3583b.onJsBeforeUnload(webView, str, str2, jsResult) : super.onJsBeforeUnload(webView, str, str2, jsResult);
+            return this.f3586b != null ? this.f3586b.onJsBeforeUnload(webView, str, str2, jsResult) : super.onJsBeforeUnload(webView, str, str2, jsResult);
         }
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-            return this.f3583b != null ? this.f3583b.onJsConfirm(webView, str, str2, jsResult) : super.onJsConfirm(webView, str, str2, jsResult);
+            return this.f3586b != null ? this.f3586b.onJsConfirm(webView, str, str2, jsResult) : super.onJsConfirm(webView, str, str2, jsResult);
         }
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-            return this.f3583b != null ? this.f3583b.onJsPrompt(webView, str, str2, str3, jsPromptResult) : super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+            return this.f3586b != null ? this.f3586b.onJsPrompt(webView, str, str2, str3, jsPromptResult) : super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
 
         @Override // android.webkit.WebChromeClient
         @Deprecated
         public boolean onJsTimeout() {
-            return this.f3583b != null ? this.f3583b.onJsTimeout() : super.onJsTimeout();
+            return this.f3586b != null ? this.f3586b.onJsTimeout() : super.onJsTimeout();
         }
 
         @Override // android.webkit.WebChromeClient
         @SuppressLint({"NewApi"})
         public void onPermissionRequest(PermissionRequest permissionRequest) {
-            if (this.f3583b != null) {
-                this.f3583b.onPermissionRequest(permissionRequest);
+            if (this.f3586b != null) {
+                this.f3586b.onPermissionRequest(permissionRequest);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         @SuppressLint({"NewApi"})
         public void onPermissionRequestCanceled(PermissionRequest permissionRequest) {
-            if (this.f3583b != null) {
-                this.f3583b.onPermissionRequestCanceled(permissionRequest);
+            if (this.f3586b != null) {
+                this.f3586b.onPermissionRequestCanceled(permissionRequest);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         @Deprecated
         public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
-            if (this.f3583b != null) {
-                this.f3583b.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
+            if (this.f3586b != null) {
+                this.f3586b.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public void onReceivedIcon(WebView webView, Bitmap bitmap) {
-            if (this.f3583b != null) {
-                this.f3583b.onReceivedIcon(webView, bitmap);
+            if (this.f3586b != null) {
+                this.f3586b.onReceivedIcon(webView, bitmap);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
-            if (this.f3583b != null) {
-                this.f3583b.onReceivedTitle(webView, str);
+            if (this.f3586b != null) {
+                this.f3586b.onReceivedTitle(webView, str);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public void onReceivedTouchIconUrl(WebView webView, String str, boolean z) {
-            if (this.f3583b != null) {
-                this.f3583b.onReceivedTouchIconUrl(webView, str, z);
+            if (this.f3586b != null) {
+                this.f3586b.onReceivedTouchIconUrl(webView, str, z);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public void onRequestFocus(WebView webView) {
-            if (this.f3583b != null) {
-                this.f3583b.onRequestFocus(webView);
+            if (this.f3586b != null) {
+                this.f3586b.onRequestFocus(webView);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
-            if (this.f3583b != null) {
-                this.f3583b.onShowCustomView(view, customViewCallback);
+            if (this.f3586b != null) {
+                this.f3586b.onShowCustomView(view, customViewCallback);
             }
         }
 
@@ -513,15 +513,15 @@ public class BaiduStatJSInterface {
         @SuppressLint({"NewApi"})
         @Deprecated
         public void onShowCustomView(View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
-            if (this.f3583b != null) {
-                this.f3583b.onShowCustomView(view, i, customViewCallback);
+            if (this.f3586b != null) {
+                this.f3586b.onShowCustomView(view, i, customViewCallback);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         @SuppressLint({"NewApi"})
         public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-            return this.f3583b != null ? this.f3583b.onShowFileChooser(webView, valueCallback, fileChooserParams) : super.onShowFileChooser(webView, valueCallback, fileChooserParams);
+            return this.f3586b != null ? this.f3586b.onShowFileChooser(webView, valueCallback, fileChooserParams) : super.onShowFileChooser(webView, valueCallback, fileChooserParams);
         }
     }
 }

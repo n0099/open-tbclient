@@ -1,5 +1,5 @@
 package com.qq.e.comm.plugin.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class d {
     public static final boolean a(int i) {
         return (i & 1) != 0;

@@ -13,23 +13,23 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class MaybeUsing<T, D> extends k<T> {
     final boolean eager;
-    final Callable<? extends D> qdQ;
-    final h<? super D, ? extends o<? extends T>> qeM;
-    final g<? super D> qfg;
+    final Callable<? extends D> qnU;
+    final h<? super D, ? extends o<? extends T>> qoQ;
+    final g<? super D> qpk;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         try {
-            D call = this.qdQ.call();
+            D call = this.qnU.call();
             try {
-                ((o) io.reactivex.internal.functions.a.m(this.qeM.apply(call), "The sourceSupplier returned a null MaybeSource")).a(new UsingObserver(mVar, call, this.qfg, this.eager));
+                ((o) io.reactivex.internal.functions.a.m(this.qoQ.apply(call), "The sourceSupplier returned a null MaybeSource")).a(new UsingObserver(mVar, call, this.qpk, this.eager));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 if (this.eager) {
                     try {
-                        this.qfg.accept(call);
+                        this.qpk.accept(call);
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.O(th2);
+                        io.reactivex.exceptions.a.N(th2);
                         EmptyDisposable.error(new CompositeException(th, th2), mVar);
                         return;
                     }
@@ -37,15 +37,15 @@ public final class MaybeUsing<T, D> extends k<T> {
                 EmptyDisposable.error(th, mVar);
                 if (!this.eager) {
                     try {
-                        this.qfg.accept(call);
+                        this.qpk.accept(call);
                     } catch (Throwable th3) {
-                        io.reactivex.exceptions.a.O(th3);
+                        io.reactivex.exceptions.a.N(th3);
                         io.reactivex.d.a.onError(th3);
                     }
                 }
             }
         } catch (Throwable th4) {
-            io.reactivex.exceptions.a.O(th4);
+            io.reactivex.exceptions.a.N(th4);
             EmptyDisposable.error(th4, mVar);
         }
     }
@@ -78,7 +78,7 @@ public final class MaybeUsing<T, D> extends k<T> {
                 try {
                     this.disposer.accept(andSet);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.O(th);
+                    io.reactivex.exceptions.a.N(th);
                     io.reactivex.d.a.onError(th);
                 }
             }
@@ -106,7 +106,7 @@ public final class MaybeUsing<T, D> extends k<T> {
                     try {
                         this.disposer.accept(andSet);
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.O(th);
+                        io.reactivex.exceptions.a.N(th);
                         this.actual.onError(th);
                         return;
                     }
@@ -129,7 +129,7 @@ public final class MaybeUsing<T, D> extends k<T> {
                     try {
                         this.disposer.accept(andSet);
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.O(th2);
+                        io.reactivex.exceptions.a.N(th2);
                         th = new CompositeException(th, th2);
                     }
                 } else {
@@ -151,7 +151,7 @@ public final class MaybeUsing<T, D> extends k<T> {
                     try {
                         this.disposer.accept(andSet);
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.O(th);
+                        io.reactivex.exceptions.a.N(th);
                         this.actual.onError(th);
                         return;
                     }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetUserFreeChance.GetUserFreeChanceResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FreeGiftChanceSocketResponseMessage extends SocketResponsedMessage {
     private int freeChance;
     private long sceneId;

@@ -18,14 +18,14 @@ import com.fun.ad.sdk.R;
 import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class KSNativeAdSingleImgAppDownloadView extends o1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f7829a;
+    public TextView f7831a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f7830b;
+    public ImageView f7832b;
     public ImageView c;
     public TextView d;
     public Button e;
@@ -57,15 +57,15 @@ public class KSNativeAdSingleImgAppDownloadView extends o1 {
             if (ksImage != null && ksImage.isValid()) {
                 this.f = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
                 m.a("KSNativeAd Single img width: " + ksImage.getWidth() + ", height: " + ksImage.getHeight());
-                ap.a.pFl.a(this, ksImage.getImageUrl(), this.f7830b);
+                ap.a.pPq.a(this, ksImage.getImageUrl(), this.f7832b);
             }
         }
-        this.f7829a.setText(ksNativeAd.getAdDescription());
+        this.f7831a.setText(ksNativeAd.getAdDescription());
         if (TextUtils.isEmpty(ksNativeAd.getAppIconUrl())) {
             this.c.setVisibility(8);
         } else {
             this.c.setVisibility(0);
-            ap.a.pFl.a(getContext(), ksNativeAd.getAppIconUrl(), this.c);
+            ap.a.pPq.a(getContext(), ksNativeAd.getAppIconUrl(), this.c);
         }
         this.d.setText(ksNativeAd.getAppName());
         this.e.setText(ksNativeAd.getActionDescription());
@@ -75,8 +75,8 @@ public class KSNativeAdSingleImgAppDownloadView extends o1 {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f7829a = (TextView) findViewById(R.id.ad_description);
-        this.f7830b = (ImageView) findViewById(R.id.ad_img);
+        this.f7831a = (TextView) findViewById(R.id.ad_description);
+        this.f7832b = (ImageView) findViewById(R.id.ad_img);
         ImageView imageView = (ImageView) findViewById(R.id.ad_logo);
         this.c = (ImageView) findViewById(R.id.ad_app_icon);
         this.d = (TextView) findViewById(R.id.ad_app_title);
@@ -87,11 +87,11 @@ public class KSNativeAdSingleImgAppDownloadView extends o1 {
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         m.a("KSNativeAd onSizeChanged w: " + i + ", h: " + i2 + ", oldw: " + i3 + ", oldh: " + i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f7830b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f7832b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i5;
         layoutParams.height = (int) (i5 / this.f);
         m.a("KSNativeAd onSizeChanged width: " + layoutParams.width + ", height: " + layoutParams.height);
-        this.f7830b.setLayoutParams(layoutParams);
+        this.f7832b.setLayoutParams(layoutParams);
     }
 }

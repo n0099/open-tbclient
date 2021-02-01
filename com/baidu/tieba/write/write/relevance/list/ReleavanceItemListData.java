@@ -2,7 +2,7 @@ package com.baidu.tieba.write.write.relevance.list;
 
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ReleavanceItemListData implements Serializable {
     private int ctime;
     private String error_code;
@@ -68,7 +68,7 @@ public class ReleavanceItemListData implements Serializable {
         this.item_list = list;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ItemListBean implements Serializable {
         private String icon_size;
         private String icon_url;

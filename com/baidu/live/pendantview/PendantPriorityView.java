@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PendantPriorityView extends LinearLayout {
-    protected int btw;
+    protected int bxb;
 
     public PendantPriorityView(Context context) {
         this(context, null);
@@ -19,7 +19,7 @@ public class PendantPriorityView extends LinearLayout {
 
     public PendantPriorityView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.btw = 0;
+        this.bxb = 0;
         setOrientation(1);
     }
 
@@ -30,14 +30,14 @@ public class PendantPriorityView extends LinearLayout {
             super.addView(view, V, layoutParams);
             if (view instanceof PendantChildView) {
                 PendantChildView pendantChildView = (PendantChildView) view;
-                if (this.btw >= 0) {
+                if (this.bxb >= 0) {
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pendantChildView.getLayoutParams();
                     if (layoutParams2 != null) {
                         int priority = pendantChildView.getPriority();
                         if (priority == 105 || priority == 0 || priority == 100 || priority == 20 || priority == 90) {
                             layoutParams2.bottomMargin = 0;
                         } else {
-                            layoutParams2.bottomMargin = this.btw;
+                            layoutParams2.bottomMargin = this.bxb;
                         }
                     }
                     view.setLayoutParams(layoutParams2);
@@ -47,7 +47,7 @@ public class PendantPriorityView extends LinearLayout {
     }
 
     public void setDefaultItemMargin(int i) {
-        this.btw = i;
+        this.bxb = i;
     }
 
     protected int V(View view) {

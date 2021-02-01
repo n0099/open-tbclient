@@ -1,12 +1,12 @@
 package com.baidu.live.message;
 
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ShowRoomCard implements Serializable {
-    public x alaLiveShowData;
+    public ab alaLiveShowData;
 
-    public ShowRoomCard(x xVar) {
-        this.alaLiveShowData = xVar;
+    public ShowRoomCard(ab abVar) {
+        this.alaLiveShowData = abVar;
     }
 }

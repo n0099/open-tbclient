@@ -3,7 +3,7 @@ package com.kwai.video.cache.util;
 import com.kwai.video.cache.CacheSessionListener;
 import com.kwai.video.hodor.anotations.CalledByNative;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CacheSessionListenerBridge {
     private static CacheSessionListener getListener(Object obj) {
         if (obj == null) {

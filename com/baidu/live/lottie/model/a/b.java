@@ -1,7 +1,7 @@
 package com.baidu.live.lottie.model.a;
 
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends n<Float, Float> {
     @Override // com.baidu.live.lottie.model.a.n
     public /* bridge */ /* synthetic */ String toString() {
@@ -18,7 +18,7 @@ public class b extends n<Float, Float> {
     }
 
     @Override // com.baidu.live.lottie.model.a.m
-    public com.baidu.live.lottie.a.b.a<Float, Float> LU() {
+    public com.baidu.live.lottie.a.b.a<Float, Float> Ns() {
         return new com.baidu.live.lottie.a.b.c(this.Es);
     }
 }

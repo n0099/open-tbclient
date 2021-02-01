@@ -1,16 +1,16 @@
 package com.baidu.helios.common.b.a;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private String asY;
-    private boolean asZ;
-    private boolean ata;
+    private String asO;
+    private boolean asP;
+    private boolean asQ;
 
     public b(String str, boolean z, boolean z2) {
-        this.asY = str;
-        this.asZ = z;
-        this.ata = z2;
+        this.asO = str;
+        this.asP = z;
+        this.asQ = z2;
     }
 
     private static int bM(int i) {
@@ -54,13 +54,13 @@ public class b {
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
             for (int i4 = 0; i4 < iArr.length - bM; i4++) {
-                char charAt = this.asY.charAt(iArr[i4]);
-                if (this.ata) {
+                char charAt = this.asO.charAt(iArr[i4]);
+                if (this.asQ) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
             }
-            if (this.asZ) {
+            if (this.asP) {
                 for (int length = iArr.length - bM; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }

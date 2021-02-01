@@ -1,5 +1,5 @@
 package com.baidu.h.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public String appVersion;
     public String cuid;

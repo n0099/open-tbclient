@@ -1,14 +1,14 @@
 package org.webrtc;
 
 import android.content.Context;
-import androidx.annotation.Nullable;
 import java.util.List;
+import javax.annotation.Nullable;
 import org.webrtc.Logging;
 import org.webrtc.NativeLibrary;
 import org.webrtc.PeerConnection;
 import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.LegacyAudioDeviceModule;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PeerConnectionFactory {
     private static final String TAG = "PeerConnectionFactory";
     public static final String TRIAL_ENABLED = "Enabled";
@@ -24,7 +24,7 @@ public class PeerConnectionFactory {
     private static Thread workerThread;
     private long nativeFactory;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Builder {
         private AudioDecoderFactoryFactory audioDecoderFactoryFactory;
         @Nullable
@@ -108,7 +108,7 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class InitializationOptions {
         final Context applicationContext;
         final boolean enableInternalTracer;
@@ -120,7 +120,7 @@ public class PeerConnectionFactory {
         final NativeLibraryLoader nativeLibraryLoader;
         final String nativeLibraryName;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class Builder {
             private final Context applicationContext;
             private boolean enableInternalTracer;
@@ -182,7 +182,7 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Options {
         static final int ADAPTER_TYPE_ANY = 32;
         static final int ADAPTER_TYPE_CELLULAR = 4;
@@ -340,9 +340,9 @@ public class PeerConnectionFactory {
         if (thread != null) {
             StackTraceElement[] stackTrace = thread.getStackTrace();
             if (stackTrace.length > 0) {
-                Logging.w(TAG, str + " stacks trace:");
+                Logging.d(TAG, str + " stacks trace:");
                 for (StackTraceElement stackTraceElement : stackTrace) {
-                    Logging.w(TAG, stackTraceElement.toString());
+                    Logging.d(TAG, stackTraceElement.toString());
                 }
             }
         }

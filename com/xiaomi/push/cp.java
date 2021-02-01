@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 class cp extends AsyncTask<String, Integer, Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    cm f13919a;
+    cm f13921a;
 
     /* renamed from: a  reason: collision with other field name */
     ct f256a;
@@ -14,13 +14,13 @@ class cp extends AsyncTask<String, Integer, Integer> {
     String f257a;
 
     /* renamed from: b  reason: collision with root package name */
-    String f13920b;
+    String f13922b;
 
     public cp(ct ctVar, String str, String str2, cm cmVar) {
         this.f257a = str;
-        this.f13920b = str2;
+        this.f13922b = str2;
         this.f256a = ctVar;
-        this.f13919a = cmVar;
+        this.f13921a = cmVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ class cp extends AsyncTask<String, Integer, Integer> {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public Integer doInBackground(String... strArr) {
-        return Integer.valueOf(cq.a(this.f257a, this.f13920b, this.f13919a));
+        return Integer.valueOf(cq.a(this.f257a, this.f13922b, this.f13921a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,7 +38,7 @@ class cp extends AsyncTask<String, Integer, Integer> {
     public void onPostExecute(Integer num) {
         super.onPostExecute(num);
         if (this.f256a != null) {
-            this.f256a.a(num, this.f13919a);
+            this.f256a.a(num, this.f13921a);
         }
     }
 
@@ -46,7 +46,7 @@ class cp extends AsyncTask<String, Integer, Integer> {
     protected void onCancelled() {
         super.onCancelled();
         if (this.f256a != null) {
-            this.f256a.a(1, this.f13919a);
+            this.f256a.a(1, this.f13921a);
         }
     }
 }

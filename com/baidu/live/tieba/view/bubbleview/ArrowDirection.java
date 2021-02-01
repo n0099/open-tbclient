@@ -1,5 +1,5 @@
 package com.baidu.live.tieba.view.bubbleview;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public enum ArrowDirection {
     LEFT(0),
     RIGHT(1),

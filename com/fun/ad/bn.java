@@ -20,14 +20,14 @@ import java.util.Iterator;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class bn implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f7772a;
+    public Context f7774a;
 
     public bn(Context context) {
-        this.f7772a = context.getApplicationContext();
+        this.f7774a = context.getApplicationContext();
     }
 
     public static String a(Context context, Uri.Builder builder) {
@@ -64,7 +64,7 @@ public class bn implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a(this.f7772a, Uri.parse("https://pp.xdplt.com/report").buildUpon())).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a(this.f7774a, Uri.parse("https://pp.xdplt.com/report").buildUpon())).openConnection();
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
             httpURLConnection.setUseCaches(false);
@@ -80,14 +80,14 @@ public class bn implements Runnable {
             OutputStream outputStream = httpURLConnection.getOutputStream();
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, "UTF-8");
             JSONArray jSONArray = new JSONArray();
-            bk il = bk.il(this.f7772a);
-            ArrayList arrayList = (ArrayList) il.a();
+            bk io2 = bk.io(this.f7774a);
+            ArrayList arrayList = (ArrayList) io2.a();
             if (!arrayList.isEmpty()) {
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     bf bfVar = (bf) it.next();
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("e", bfVar.f7767b);
+                    jSONObject.put("e", bfVar.f7769b);
                     jSONObject.put("pid", bfVar.c);
                     jSONObject.put(IXAdRequestInfo.CELL_ID, bfVar.e);
                     jSONObject.put("type", bfVar.d);
@@ -100,7 +100,7 @@ public class bn implements Runnable {
                 if (httpURLConnection.getResponseCode() == 200) {
                     Iterator it2 = arrayList.iterator();
                     while (it2.hasNext()) {
-                        il.getWritableDatabase().delete("ad_todo_list", "_id=?", new String[]{String.valueOf(((bf) it2.next()).f7766a)});
+                        io2.getWritableDatabase().delete("ad_todo_list", "_id=?", new String[]{String.valueOf(((bf) it2.next()).f7768a)});
                     }
                 }
             }

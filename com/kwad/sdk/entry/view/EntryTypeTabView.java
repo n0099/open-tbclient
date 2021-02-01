@@ -21,7 +21,7 @@ import com.kwad.sdk.widget.RadiusPvFrameLayout;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EntryTypeTabView extends a {
     private TextView c;
     private ImageView d;
@@ -157,13 +157,13 @@ public class EntryTypeTabView extends a {
     @Override // com.kwad.sdk.entry.view.a, com.kwad.sdk.widget.b
     public void a() {
         super.a();
-        com.kwad.sdk.core.report.e.b(this.f, this.f9801a.e);
+        com.kwad.sdk.core.report.e.b(this.f, this.f9803a.e);
     }
 
     @Override // com.kwad.sdk.entry.view.a
     protected boolean b() {
         this.h.clear();
-        Iterator<AdTemplate> it = this.f9801a.k.iterator();
+        Iterator<AdTemplate> it = this.f9803a.k.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;

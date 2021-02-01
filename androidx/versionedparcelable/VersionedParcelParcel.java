@@ -8,7 +8,7 @@ import android.os.Parcelable;
 import android.util.SparseIntArray;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class VersionedParcelParcel extends VersionedParcel {
     private static final boolean DEBUG = false;
     private static final String TAG = "VersionedParcelParcel";

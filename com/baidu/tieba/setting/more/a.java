@@ -11,78 +11,78 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.adp.base.d<AboutActivity> {
-    private long[] cOM;
+    private long[] cRa;
     private NavigationBar mNavigationBar;
-    private TextView mVA;
-    private SettingTextTestNewView mVB;
-    private ImageView mVC;
-    private TbSettingTextTipView mVD;
-    private TbSettingTextTipView mVE;
-    private TbSettingTextTipView mVF;
-    private TbSettingTextTipView mVG;
-    protected TextView mVH;
-    private ProgressBar mVI;
-    private AboutActivity mVy;
-    private RelativeLayout mVz;
+    private AboutActivity nfh;
+    private RelativeLayout nfi;
+    private TextView nfj;
+    private SettingTextTestNewView nfk;
+    private ImageView nfl;
+    private TbSettingTextTipView nfm;
+    private TbSettingTextTipView nfn;
+    private TbSettingTextTipView nfo;
+    private TbSettingTextTipView nfp;
+    protected TextView nfq;
+    private ProgressBar nfr;
 
     public a(AboutActivity aboutActivity, d dVar) {
         super(aboutActivity.getPageContext());
-        this.cOM = new long[5];
-        this.mVy = aboutActivity;
-        bzm();
+        this.cRa = new long[5];
+        this.nfh = aboutActivity;
+        bzE();
         a(dVar);
     }
 
-    public void dEm() {
-        if (this.mVI != null) {
-            this.mVI.setVisibility(0);
+    public void dGx() {
+        if (this.nfr != null) {
+            this.nfr.setVisibility(0);
         }
     }
 
-    public void cIV() {
-        if (this.mVI != null) {
-            this.mVI.setVisibility(8);
+    public void cKi() {
+        if (this.nfr != null) {
+            this.nfr.setVisibility(8);
         }
     }
 
-    private void bzm() {
-        this.mVy.setContentView(R.layout.about_activity);
-        this.mVz = (RelativeLayout) this.mVy.findViewById(R.id.parent);
-        this.mVC = (ImageView) this.mVy.findViewById(R.id.image_logo);
-        this.mNavigationBar = (NavigationBar) this.mVy.findViewById(R.id.view_navigation_bar);
+    private void bzE() {
+        this.nfh.setContentView(R.layout.about_activity);
+        this.nfi = (RelativeLayout) this.nfh.findViewById(R.id.parent);
+        this.nfl = (ImageView) this.nfh.findViewById(R.id.image_logo);
+        this.mNavigationBar = (NavigationBar) this.nfh.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.mVy.getPageContext().getString(R.string.version_info));
-        this.mVA = (TextView) this.mVy.findViewById(R.id.text_versioninfo);
-        this.mVB = (SettingTextTestNewView) this.mVy.findViewById(R.id.about_version_update);
-        this.mVD = (TbSettingTextTipView) this.mVy.findViewById(R.id.about_guide);
-        this.mVD.hideArrow();
-        this.mVE = (TbSettingTextTipView) this.mVy.findViewById(R.id.tieba_protocol_text);
-        this.mVE.hideArrow();
-        this.mVF = (TbSettingTextTipView) this.mVy.findViewById(R.id.tieba_privacy_text);
-        this.mVF.hideArrow();
-        this.mVG = (TbSettingTextTipView) this.mVy.findViewById(R.id.tieba_tdou_use_introduce);
-        this.mVG.hideArrow();
-        this.mVI = (ProgressBar) this.mVy.findViewById(R.id.about_progress);
+        this.mNavigationBar.setTitleText(this.nfh.getPageContext().getString(R.string.version_info));
+        this.nfj = (TextView) this.nfh.findViewById(R.id.text_versioninfo);
+        this.nfk = (SettingTextTestNewView) this.nfh.findViewById(R.id.about_version_update);
+        this.nfm = (TbSettingTextTipView) this.nfh.findViewById(R.id.about_guide);
+        this.nfm.hideArrow();
+        this.nfn = (TbSettingTextTipView) this.nfh.findViewById(R.id.tieba_protocol_text);
+        this.nfn.hideArrow();
+        this.nfo = (TbSettingTextTipView) this.nfh.findViewById(R.id.tieba_privacy_text);
+        this.nfo.hideArrow();
+        this.nfp = (TbSettingTextTipView) this.nfh.findViewById(R.id.tieba_tdou_use_introduce);
+        this.nfp.hideArrow();
+        this.nfr = (ProgressBar) this.nfh.findViewById(R.id.about_progress);
         String version = TbConfig.getVersion();
-        if (TbConfig.getVersionType() == 1 && !at.isEmpty(TbConfig.getSubVersion())) {
+        if (TbConfig.getVersionType() == 1 && !au.isEmpty(TbConfig.getSubVersion())) {
             version = version + "." + TbConfig.getSubVersion();
         }
-        this.mVA.setText(this.mVy.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.mVy.getPageContext().getString(R.string.setting_version_text) + " " + version);
-        this.mVH = (TextView) this.mVy.findViewById(R.id.text_version_protoco);
-        qE(TbadkCoreApplication.getInst().getSkinType());
+        this.nfj.setText(this.nfh.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.nfh.getPageContext().getString(R.string.setting_version_text) + " " + version);
+        this.nfq = (TextView) this.nfh.findViewById(R.id.text_version_protoco);
+        qJ(TbadkCoreApplication.getInst().getSkinType());
         if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) == null) {
-            this.mVD.setVisibility(8);
+            this.nfm.setVisibility(8);
         }
-        if (com.baidu.tbadk.core.sharedPref.b.brx().getBoolean(SharedPrefConfig.PREFS_DEBUG_PLUGIN_SWITCHER, false)) {
-            Im(0);
+        if (com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean(SharedPrefConfig.PREFS_DEBUG_PLUGIN_SWITCHER, false)) {
+            IG(0);
         }
     }
 
@@ -94,67 +94,67 @@ public class a extends com.baidu.adp.base.d<AboutActivity> {
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == a.this.mVE) {
-                    be.bsB().b(a.this.mVy.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
-                } else if (view == a.this.mVF) {
-                    be.bsB().a(a.this.mVy.getPageContext(), new String[]{"http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html"}, true);
-                } else if (view == a.this.mVG) {
-                    be.bsB().b(a.this.mVy.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
-                } else if (view != a.this.mVB) {
-                    if (view != a.this.mVD) {
-                        if (view == a.this.mVC) {
-                            dVar.Il(4);
-                            System.arraycopy(a.this.cOM, 1, a.this.cOM, 0, a.this.cOM.length - 1);
-                            a.this.cOM[a.this.cOM.length - 1] = SystemClock.uptimeMillis();
-                            if (a.this.cOM[0] >= a.this.cOM[a.this.cOM.length - 1] - 2000) {
-                                a.this.cOM = new long[5];
-                                dVar.Il(6);
+                if (view == a.this.nfn) {
+                    bf.bsV().b(a.this.nfh.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
+                } else if (view == a.this.nfo) {
+                    bf.bsV().a(a.this.nfh.getPageContext(), new String[]{"http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html"}, true);
+                } else if (view == a.this.nfp) {
+                    bf.bsV().b(a.this.nfh.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
+                } else if (view != a.this.nfk) {
+                    if (view != a.this.nfm) {
+                        if (view == a.this.nfl) {
+                            dVar.IF(4);
+                            System.arraycopy(a.this.cRa, 1, a.this.cRa, 0, a.this.cRa.length - 1);
+                            a.this.cRa[a.this.cRa.length - 1] = SystemClock.uptimeMillis();
+                            if (a.this.cRa[0] >= a.this.cRa[a.this.cRa.length - 1] - 2000) {
+                                a.this.cRa = new long[5];
+                                dVar.IF(6);
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    dVar.Il(2);
+                    dVar.IF(2);
                 } else {
-                    dVar.Il(1);
+                    dVar.IF(1);
                 }
             }
         };
         View.OnLongClickListener onLongClickListener = new View.OnLongClickListener() { // from class: com.baidu.tieba.setting.more.a.2
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (view == a.this.mVC && TbConfig.ENABLE_VISIT_PREVIEW_SERVER_DIALOG) {
-                    dVar.Il(5);
+                if (view == a.this.nfl && TbConfig.ENABLE_VISIT_PREVIEW_SERVER_DIALOG) {
+                    dVar.IF(5);
                     return true;
                 }
                 return false;
             }
         };
-        this.mVB.setOnClickListener(onClickListener);
-        this.mVD.setOnClickListener(onClickListener);
-        this.mVE.setOnClickListener(onClickListener);
-        this.mVF.setOnClickListener(onClickListener);
-        this.mVG.setOnClickListener(onClickListener);
-        this.mVC.setOnClickListener(onClickListener);
-        this.mVC.setOnLongClickListener(onLongClickListener);
+        this.nfk.setOnClickListener(onClickListener);
+        this.nfm.setOnClickListener(onClickListener);
+        this.nfn.setOnClickListener(onClickListener);
+        this.nfo.setOnClickListener(onClickListener);
+        this.nfp.setOnClickListener(onClickListener);
+        this.nfl.setOnClickListener(onClickListener);
+        this.nfl.setOnLongClickListener(onLongClickListener);
     }
 
-    private void Im(int i) {
-        this.mVy.findViewById(R.id.line0).setVisibility(i);
+    private void IG(int i) {
+        this.nfh.findViewById(R.id.line0).setVisibility(i);
     }
 
-    public void dEn() {
-        if (this.mVB != null) {
-            this.mVB.refresh();
+    public void dGy() {
+        if (this.nfk != null) {
+            this.nfk.refresh();
         }
     }
 
-    public void qE(int i) {
-        ao.setBackgroundColor(this.mVz, R.color.CAM_X0201);
+    public void qJ(int i) {
+        ap.setBackgroundColor(this.nfi, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.mVy.getLayoutMode().setNightMode(i == 1);
-        this.mVy.getLayoutMode().onModeChanged(this.mVz);
-        dEn();
+        this.nfh.getLayoutMode().setNightMode(i == 1);
+        this.nfh.getLayoutMode().onModeChanged(this.nfi);
+        dGy();
     }
 }

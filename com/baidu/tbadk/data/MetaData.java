@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.coreExtra.data.BazhuGradeData;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.PrivSetsData;
@@ -742,6 +742,14 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.portrait;
     }
 
+    public void setBusinessAccountData(d dVar) {
+        this.businessAccountData = dVar;
+    }
+
+    public d getBusinessAccountData() {
+        return this.businessAccountData;
+    }
+
     public String getAvatarH() {
         return (this.baijiahaoInfo == null || TextUtils.isEmpty(this.baijiahaoInfo.avatar_h)) ? this.portraith : this.baijiahaoInfo.avatar_h;
     }
@@ -763,7 +771,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public boolean isOfficial() {
-        return this.businessAccountData != null && this.businessAccountData.fxB;
+        return this.businessAccountData != null && this.businessAccountData.fzR;
     }
 
     public boolean isForumBusinessAccount() {
@@ -787,7 +795,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public boolean showBazhuGrade() {
-        if ((this.baijiahaoInfo != null && this.baijiahaoInfo.auth_id.intValue() != 0 && !at.isEmpty(this.baijiahaoInfo.auth_desc)) || this.mBazhuGrade == null || at.isEmpty(this.mBazhuGrade.getDesc())) {
+        if ((this.baijiahaoInfo != null && this.baijiahaoInfo.auth_id.intValue() != 0 && !au.isEmpty(this.baijiahaoInfo.auth_desc)) || this.mBazhuGrade == null || au.isEmpty(this.mBazhuGrade.getDesc())) {
             return false;
         }
         if (this.is_bawu == 1 && Config.BAWU_TYPE_MANAGER.equals(this.bawu_type)) {

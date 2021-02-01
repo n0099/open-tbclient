@@ -7,20 +7,20 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.statistic.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b extends f {
     public String packageName;
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.dJt = com.baidu.swan.apps.swancore.b.jA(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.dJv = SwanAppNetworkUtils.aCJ().type;
-        if (this.dJr == null) {
-            this.dJr = new JSONObject();
+        this.dLx = com.baidu.swan.apps.swancore.b.jD(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.dLz = SwanAppNetworkUtils.aDf().type;
+        if (this.dLv == null) {
+            this.dLv = new JSONObject();
         }
         try {
-            this.dJr.put("host", com.baidu.swan.apps.t.a.axk().getHostName());
-            this.dJr.put("package", this.packageName);
+            this.dLv.put("host", com.baidu.swan.apps.t.a.axI().getHostName());
+            this.dLv.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -38,18 +38,18 @@ public class b extends f {
             this.mFrom = aVar.mFrom;
             this.mAppId = aVar.mAppId;
             this.mSource = aVar.mSource;
-            this.dJw = aVar.dJw;
-            this.dJy = aVar.dJy;
+            this.dLA = aVar.dLA;
+            this.dLC = aVar.dLC;
             this.mScheme = aVar.mScheme;
-            this.dJB = aVar.dJB;
-            this.dCy = aVar.dCy;
+            this.dLF = aVar.dLF;
+            this.dEC = aVar.dEC;
             this.mAppVersion = aVar.mAppVersion;
-            this.dJu = aVar.dJu;
+            this.dLy = aVar.dLy;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String vw(String str) {
+    public static String vP(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

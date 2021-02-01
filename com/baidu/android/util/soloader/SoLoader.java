@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.NoProGuard;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -23,7 +24,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class SoLoader implements NoProGuard {
     private static final String TAG = "SoLoader";
     private StringBuilder sb = new StringBuilder();
@@ -243,7 +244,7 @@ public final class SoLoader implements NoProGuard {
                 }
             }
             try {
-                fileChannel = new RandomAccessFile(file2, "rw").getChannel();
+                fileChannel = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth).getChannel();
             } catch (FileNotFoundException e2) {
                 e = e2;
                 fileChannel = null;

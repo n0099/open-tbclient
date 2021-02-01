@@ -1,24 +1,28 @@
 package com.baidu.live.data;
 
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaWheatInfoData implements Serializable, Cloneable {
     public String bg_img;
     public String bigPortrait;
     public String charmCount;
     public boolean clearSelectFlag;
+    public String clientVersion;
+    public String cuid;
     public String customRoomId;
     public int fansCount;
     public String hatLevelIcon;
     public String hatLowIcon;
     public String hat_level_icon;
     public String hat_low_icon;
+    public long imAppid;
     public long imUK;
     public boolean isHost;
     public boolean isSelect;
@@ -27,6 +31,7 @@ public class AlaWheatInfoData implements Serializable, Cloneable {
     public float locationCenterX;
     public float locationCenterY;
     public List<AlaLiveMarkInfoData> mLiveMarkInfo;
+    public List<AlaLivePhoneMarkData> mPhoneMarkInfo;
     public String mikeStatus;
     public int other_publish;
     public String phoneOrder;
@@ -67,6 +72,9 @@ public class AlaWheatInfoData implements Serializable, Cloneable {
         this.mikeStatus = jSONObject.optString("mike_status", "");
         this.hatLevelIcon = jSONObject.optString("hat_level_icon", "");
         this.hatLowIcon = jSONObject.optString("hat_low_icon", "");
+        this.cuid = jSONObject.optString("cuid", "");
+        this.clientVersion = jSONObject.optString("client_version", "");
+        this.imAppid = jSONObject.optLong("app_id", 0L);
         this.select = jSONObject.optInt("select", 0);
         this.publish = jSONObject.optInt("publish", 0);
         this.other_publish = jSONObject.optInt("other_publish", 0);
@@ -111,6 +119,19 @@ public class AlaWheatInfoData implements Serializable, Cloneable {
                 }
             }
         }
+        JSONArray optJSONArray4 = jSONObject.optJSONArray("phone_mark_info");
+        if (optJSONArray4 != null && optJSONArray4.length() > 0) {
+            this.mPhoneMarkInfo = new ArrayList();
+            for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                try {
+                    AlaLivePhoneMarkData alaLivePhoneMarkData = new AlaLivePhoneMarkData();
+                    alaLivePhoneMarkData.parseJson((JSONObject) optJSONArray4.opt(i4));
+                    this.mPhoneMarkInfo.add(alaLivePhoneMarkData);
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            }
+        }
     }
 
     public boolean isOpenMike() {
@@ -148,5 +169,20 @@ public class AlaWheatInfoData implements Serializable, Cloneable {
 
     public boolean isApplyRedTeam() {
         return this.phone_order < 5;
+    }
+
+    public AlaLivePhoneMarkData getAlaLivePhoneMarkData(int i) {
+        int i2 = 0;
+        while (true) {
+            int i3 = i2;
+            if (i3 >= ListUtils.getCount(this.mPhoneMarkInfo)) {
+                return null;
+            }
+            if (this.mPhoneMarkInfo.get(i3).type != i) {
+                i2 = i3 + 1;
+            } else {
+                return this.mPhoneMarkInfo.get(i3);
+            }
+        }
     }
 }

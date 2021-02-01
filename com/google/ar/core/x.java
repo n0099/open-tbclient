@@ -5,59 +5,59 @@ import android.os.RemoteException;
 import android.util.Log;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 final class x extends com.google.a.b.a.a.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ AtomicBoolean f7871a;
+    private final /* synthetic */ AtomicBoolean f7873a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final /* synthetic */ aj f7872b;
+    private final /* synthetic */ aj f7874b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(aj ajVar, AtomicBoolean atomicBoolean) {
-        this.f7872b = ajVar;
-        this.f7871a = atomicBoolean;
+        this.f7874b = ajVar;
+        this.f7873a = atomicBoolean;
     }
 
     @Override // com.google.a.b.a.a.a.d
     public final void a(Bundle bundle) throws RemoteException {
-        if (!this.f7871a.getAndSet(true)) {
+        if (!this.f7873a.getAndSet(true)) {
             int i = bundle.getInt("error.code", -100);
             int i2 = bundle.getInt("install.status", 0);
             if (i2 == 4) {
-                this.f7872b.pHz.a(p.COMPLETED);
+                this.f7874b.pRE.a(p.COMPLETED);
             } else if (i != 0) {
                 Log.w("ARCore-InstallService", new StringBuilder(51).append("requestInstall = ").append(i).append(", launching fullscreen.").toString());
-                w wVar = this.f7872b.pHL;
-                w.b(this.f7872b.f7855a, this.f7872b.pHz);
+                w wVar = this.f7874b.pRQ;
+                w.b(this.f7874b.f7857a, this.f7874b.pRE);
             } else if (bundle.containsKey("resolution.intent")) {
-                w wVar2 = this.f7872b.pHL;
-                w.a(this.f7872b.f7855a, bundle, this.f7872b.pHz);
+                w wVar2 = this.f7874b.pRQ;
+                w.a(this.f7874b.f7857a, bundle, this.f7874b.pRE);
             } else {
                 switch (i2) {
                     case 1:
                     case 2:
                     case 3:
-                        this.f7872b.pHz.a(p.ACCEPTED);
+                        this.f7874b.pRE.a(p.ACCEPTED);
                         return;
                     case 4:
-                        this.f7872b.pHz.a(p.COMPLETED);
+                        this.f7874b.pRE.a(p.COMPLETED);
                         return;
                     case 5:
-                        this.f7872b.pHz.a(new FatalException("Unexpected FAILED install status without error."));
+                        this.f7874b.pRE.a(new FatalException("Unexpected FAILED install status without error."));
                         return;
                     case 6:
-                        this.f7872b.pHz.a(p.CANCELLED);
+                        this.f7874b.pRE.a(p.CANCELLED);
                         return;
                     case 7:
                     case 8:
                     case 9:
                     default:
-                        this.f7872b.pHz.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
+                        this.f7874b.pRE.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
                         return;
                     case 10:
-                        this.f7872b.pHz.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+                        this.f7874b.pRE.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
                         return;
                 }
             }

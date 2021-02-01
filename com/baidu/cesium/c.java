@@ -18,9 +18,9 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
-    private com.baidu.cesium.c.d.d anC;
+    private com.baidu.cesium.c.d.d ans;
     private List<b> g;
 
     public c() {
@@ -42,7 +42,7 @@ public class c {
     }
 
     private void a() {
-        this.anC = new com.baidu.cesium.c.d.e(d.a(), d.b());
+        this.ans = new com.baidu.cesium.c.d.e(d.a(), d.b());
     }
 
     private boolean a(String[] strArr, String[] strArr2) {
@@ -61,9 +61,9 @@ public class c {
     }
 
     private static byte[] a(byte[] bArr, com.baidu.cesium.c.d.d dVar) {
-        com.baidu.cesium.c.d.a tN = com.baidu.cesium.c.d.a.tN();
-        tN.a(2, dVar);
-        return tN.a(bArr);
+        com.baidu.cesium.c.d.a tK = com.baidu.cesium.c.d.a.tK();
+        tK.a(2, dVar);
+        return tK.a(bArr);
     }
 
     private String[] a(Signature[] signatureArr) {
@@ -89,8 +89,8 @@ public class c {
                                 byte[] a2 = com.baidu.cesium.d.a.a(string.getBytes("utf-8"));
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 b bVar = new b();
-                                bVar.f1619b = jSONObject.getInt("priority");
-                                bVar.f1618a = resolveInfo.activityInfo.applicationInfo;
+                                bVar.f1617b = jSONObject.getInt("priority");
+                                bVar.f1616a = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     bVar.d = true;
                                 }
@@ -104,7 +104,7 @@ public class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.anC);
+                                            byte[] a3 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.ans);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.cesium.d.c.a(a2))) {
                                                 bVar.c = true;
                                             }
@@ -124,7 +124,7 @@ public class c {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(b bVar2, b bVar3) {
-                int i2 = bVar3.f1619b - bVar2.f1619b;
+                int i2 = bVar3.f1617b - bVar2.f1617b;
                 if (i2 == 0) {
                     if (bVar2.d && bVar3.d) {
                         return 0;

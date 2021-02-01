@@ -3,7 +3,7 @@ package com.baidu.live.lottie.c;
 import android.util.JsonReader;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static com.baidu.live.lottie.model.a.k c(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
         jsonReader.beginObject();

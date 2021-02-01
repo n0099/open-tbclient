@@ -9,8 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.j;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
@@ -20,45 +20,45 @@ import com.baidu.tieba.lego.indicator.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Lego.DataRes;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ScrollFragmentTabHost extends LinearLayout {
-    private CustomViewPager eWN;
-    private BdUniqueId fEN;
-    private NoNetworkView gSQ;
-    private a kXF;
-    private ScrollFragmentAdapter kXG;
-    private c kXH;
-    private View.OnClickListener kXI;
-    private c.a kXJ;
-    private FrameLayout kom;
+    private CustomViewPager eZd;
+    private BdUniqueId fGZ;
+    private NoNetworkView gVA;
+    private FrameLayout kwt;
+    private a lfJ;
+    private ScrollFragmentAdapter lfK;
+    private c lfL;
+    private View.OnClickListener lfM;
+    private c.a lfN;
     private Context mContext;
     private List<e> tagList;
 
-    public boolean cRv() {
-        return this.kXH != null && this.kXH.isShowing();
+    public boolean cTu() {
+        return this.lfL != null && this.lfL.isShowing();
     }
 
     public ScrollFragmentTabHost(Context context) {
         super(context);
-        this.kXI = new View.OnClickListener() { // from class: com.baidu.tieba.lego.indicator.ScrollFragmentTabHost.1
+        this.lfM = new View.OnClickListener() { // from class: com.baidu.tieba.lego.indicator.ScrollFragmentTabHost.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ScrollFragmentTabHost.this.cRv()) {
-                    ScrollFragmentTabHost.this.bJR();
+                if (ScrollFragmentTabHost.this.cTu()) {
+                    ScrollFragmentTabHost.this.bKl();
                 } else {
-                    ScrollFragmentTabHost.this.csv();
+                    ScrollFragmentTabHost.this.ctH();
                 }
             }
         };
-        this.kXJ = new c.a() { // from class: com.baidu.tieba.lego.indicator.ScrollFragmentTabHost.2
+        this.lfN = new c.a() { // from class: com.baidu.tieba.lego.indicator.ScrollFragmentTabHost.2
             @Override // com.baidu.tieba.lego.indicator.c.a
-            public void cRA() {
-                if (ScrollFragmentTabHost.this.kXF != null) {
-                    ScrollFragmentTabHost.this.kXF.cRS();
+            public void cTz() {
+                if (ScrollFragmentTabHost.this.lfJ != null) {
+                    ScrollFragmentTabHost.this.lfJ.cTR();
                 }
-                if (ScrollFragmentTabHost.this.kXH != null) {
-                    ScrollFragmentTabHost.this.kXH.a((c.a) null);
-                    ScrollFragmentTabHost.this.kXH = null;
+                if (ScrollFragmentTabHost.this.lfL != null) {
+                    ScrollFragmentTabHost.this.lfL.a((c.a) null);
+                    ScrollFragmentTabHost.this.lfL = null;
                 }
             }
         };
@@ -67,25 +67,25 @@ public class ScrollFragmentTabHost extends LinearLayout {
 
     public ScrollFragmentTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kXI = new View.OnClickListener() { // from class: com.baidu.tieba.lego.indicator.ScrollFragmentTabHost.1
+        this.lfM = new View.OnClickListener() { // from class: com.baidu.tieba.lego.indicator.ScrollFragmentTabHost.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ScrollFragmentTabHost.this.cRv()) {
-                    ScrollFragmentTabHost.this.bJR();
+                if (ScrollFragmentTabHost.this.cTu()) {
+                    ScrollFragmentTabHost.this.bKl();
                 } else {
-                    ScrollFragmentTabHost.this.csv();
+                    ScrollFragmentTabHost.this.ctH();
                 }
             }
         };
-        this.kXJ = new c.a() { // from class: com.baidu.tieba.lego.indicator.ScrollFragmentTabHost.2
+        this.lfN = new c.a() { // from class: com.baidu.tieba.lego.indicator.ScrollFragmentTabHost.2
             @Override // com.baidu.tieba.lego.indicator.c.a
-            public void cRA() {
-                if (ScrollFragmentTabHost.this.kXF != null) {
-                    ScrollFragmentTabHost.this.kXF.cRS();
+            public void cTz() {
+                if (ScrollFragmentTabHost.this.lfJ != null) {
+                    ScrollFragmentTabHost.this.lfJ.cTR();
                 }
-                if (ScrollFragmentTabHost.this.kXH != null) {
-                    ScrollFragmentTabHost.this.kXH.a((c.a) null);
-                    ScrollFragmentTabHost.this.kXH = null;
+                if (ScrollFragmentTabHost.this.lfL != null) {
+                    ScrollFragmentTabHost.this.lfL.a((c.a) null);
+                    ScrollFragmentTabHost.this.lfL = null;
                 }
             }
         };
@@ -95,33 +95,33 @@ public class ScrollFragmentTabHost extends LinearLayout {
     private void init(Context context) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(R.layout.lego_scroll_fragment_tabhost, (ViewGroup) this, true);
-        this.gSQ = (NoNetworkView) findViewById(R.id.view_no_network);
-        this.kXF = new a(context, findViewById(R.id.tab_container));
-        this.kXF.G(this.kXI);
-        this.kom = (FrameLayout) findViewById(R.id.tab_widget_content_container);
+        this.gVA = (NoNetworkView) findViewById(R.id.view_no_network);
+        this.lfJ = new a(context, findViewById(R.id.tab_container));
+        this.lfJ.G(this.lfM);
+        this.kwt = (FrameLayout) findViewById(R.id.tab_widget_content_container);
     }
 
-    public void csv() {
-        if (this.kXH == null) {
-            this.kXH = new c(this.kom);
-            this.kXH.a(this.kXJ);
+    public void ctH() {
+        if (this.lfL == null) {
+            this.lfL = new c(this.kwt);
+            this.lfL.a(this.lfN);
         }
-        if (!this.kXH.isShowing()) {
-            this.kXH.a(this.mContext, this.tagList, this.eWN.getCurrentItem());
-            if (this.kXF != null) {
-                this.kXF.bkm();
+        if (!this.lfL.isShowing()) {
+            this.lfL.a(this.mContext, this.tagList, this.eZd.getCurrentItem());
+            if (this.lfJ != null) {
+                this.lfJ.bkE();
             }
         }
     }
 
-    public void bJR() {
-        if (this.kXH != null) {
-            this.kXH.gm(this.mContext);
+    public void bKl() {
+        if (this.lfL != null) {
+            this.lfL.gn(this.mContext);
         }
     }
 
-    public boolean daU() {
-        return x.getCount(this.tagList) <= 0;
+    public boolean dcS() {
+        return y.getCount(this.tagList) <= 0;
     }
 
     public void o(List<e> list, int i) {
@@ -133,76 +133,76 @@ public class ScrollFragmentTabHost extends LinearLayout {
                 }
             }
             this.tagList = list;
-            if (this.kXG != null) {
-                this.kXG.ek(arrayList);
-                if (this.kXF != null) {
-                    this.kXF.setViewPager(this.eWN, i);
+            if (this.lfK != null) {
+                this.lfK.ei(arrayList);
+                if (this.lfJ != null) {
+                    this.lfJ.setViewPager(this.eZd, i);
                 }
             }
         }
     }
 
     public void a(long j, String str, DataRes dataRes, boolean z) {
-        if (this.kXG != null) {
-            this.kXG.a(j, str, dataRes, z);
+        if (this.lfK != null) {
+            this.lfK.a(j, str, dataRes, z);
         }
     }
 
-    public void p(long j, String str) {
-        if (this.kXG != null) {
-            this.kXG.p(j, str);
+    public void q(long j, String str) {
+        if (this.lfK != null) {
+            this.lfK.q(j, str);
         }
     }
 
     public void setFirstPosition(int i) {
-        this.kXG.setFirstPosition(i);
+        this.lfK.setFirstPosition(i);
     }
 
     public void b(boolean z, long j, String str, DataRes dataRes, boolean z2, int i) {
-        if (this.kXG != null) {
-            this.kXG.a(z, j, str, dataRes, z2, i);
+        if (this.lfK != null) {
+            this.lfK.a(z, j, str, dataRes, z2, i);
         }
     }
 
     public void c(long j, String str, String str2, int i) {
-        if (this.eWN != null) {
-            this.kXG.c(j, str, str2, i);
+        if (this.eZd != null) {
+            this.lfK.c(j, str, str2, i);
         }
     }
 
     public void a(d dVar, com.baidu.tieba.lego.c cVar) {
-        this.eWN = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
-        this.kXG = new ScrollFragmentAdapter(this.mContext, dVar, cVar, this.fEN);
-        this.eWN.setAdapter(this.kXG);
+        this.eZd = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
+        this.lfK = new ScrollFragmentAdapter(this.mContext, dVar, cVar, this.fGZ);
+        this.eZd.setAdapter(this.lfK);
     }
 
-    public boolean cNP() {
-        return this.kXG != null && this.kXG.getCount() > 0;
+    public boolean cPM() {
+        return this.lfK != null && this.lfK.getCount() > 0;
     }
 
     public void setCurrentTab(int i) {
-        if (i >= 0 && i < this.kXG.getCount()) {
-            this.eWN.setCurrentItem(i, false);
+        if (i >= 0 && i < this.lfK.getCount()) {
+            this.eZd.setCurrentItem(i, false);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kXF != null) {
-            this.kXF.onChangeSkinType(i);
+        if (this.lfJ != null) {
+            this.lfJ.onChangeSkinType(i);
         }
-        ao.setBackgroundColor(this, R.color.CAM_X0201, i);
-        if (this.kXG != null) {
-            this.kXG.onChangeSkin(i);
+        ap.setBackgroundColor(this, R.color.CAM_X0201, i);
+        if (this.lfK != null) {
+            this.lfK.onChangeSkin(i);
         }
-        if (this.gSQ != null) {
-            this.gSQ.onChangeSkinType(j.K(getContext()), i);
+        if (this.gVA != null) {
+            this.gVA.onChangeSkinType(j.K(getContext()), i);
         }
-        if (this.kXH != null) {
-            this.kXH.onChangeSkin(i);
+        if (this.lfL != null) {
+            this.lfL.onChangeSkin(i);
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fEN = bdUniqueId;
+        this.fGZ = bdUniqueId;
     }
 }

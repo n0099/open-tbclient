@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class IMEIRequestUtils {
     private IMEIRequestUtils() {
     }

@@ -6,12 +6,12 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private TbPageContext eSJ;
+    private TbPageContext eUY;
 
     public c(TbPageContext tbPageContext) {
-        this.eSJ = tbPageContext;
+        this.eUY = tbPageContext;
         SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
         socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
@@ -25,7 +25,7 @@ public class c {
         commitCardInfoReqMsg.resource_id = str;
         commitCardInfoReqMsg.card_type = i;
         commitCardInfoReqMsg.image_info = str2;
-        commitCardInfoReqMsg.setTag(this.eSJ.getUniqueId());
+        commitCardInfoReqMsg.setTag(this.eUY.getUniqueId());
         MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
     }
 }

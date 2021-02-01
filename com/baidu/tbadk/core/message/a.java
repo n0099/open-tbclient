@@ -8,11 +8,10 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.data.d;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.tbadk.mutiprocess.f;
 import com.baidu.tbadk.mutiprocess.g;
@@ -84,45 +83,45 @@ public class a {
         g.publishEvent(agreeEvent);
     }
 
-    public void a(Context context, d dVar, AgreeData agreeData, bz bzVar) {
-        if (dVar != null && agreeData != null) {
+    public void a(Context context, com.baidu.tbadk.core.data.e eVar, AgreeData agreeData, cb cbVar) {
+        if (eVar != null && agreeData != null) {
             int i = 0;
             if (agreeData.baijiahaoData != null) {
                 i = agreeData.baijiahaoData.oriUgcType;
             }
-            aq dW = new aq("c13271").an("obj_type", dVar.eJT).an("obj_locate", dVar.eJU).an("obj_id", dVar.eJV).an("obj_name", i).dW("post_id", agreeData.postId).dW(IntentConfig.NID, agreeData.nid);
-            if (bzVar != null) {
-                dW.dW("tid", bzVar.getId()).dW(IntentConfig.NID, bzVar.blV()).w("fid", bzVar.getFid()).dW("ab_tag", bzVar.mRecomAbTag).dW(IntentConfig.RECOM_SOURCE, bzVar.mRecomSource).dW("weight", bzVar.mRecomWeight).dW("extra", bzVar.mRecomExtra);
-                if (bzVar.getBaijiahaoData() != null) {
-                    dW.dW("obj_param4", bzVar.getBaijiahaoData().oriUgcNid);
-                    if (bzVar.bmf() || bzVar.bpw()) {
-                        dW.dW("obj_param6", bzVar.getBaijiahaoData().oriUgcVid);
+            ar dR = new ar("c13271").ap("obj_type", eVar.eMf).ap("obj_locate", eVar.eMg).ap("obj_id", eVar.eMh).ap("obj_name", i).dR("post_id", agreeData.postId).dR(IntentConfig.NID, agreeData.nid);
+            if (cbVar != null) {
+                dR.dR("tid", cbVar.getId()).dR(IntentConfig.NID, cbVar.bmo()).v("fid", cbVar.getFid()).dR("ab_tag", cbVar.mRecomAbTag).dR(IntentConfig.RECOM_SOURCE, cbVar.mRecomSource).dR("weight", cbVar.mRecomWeight).dR("extra", cbVar.mRecomExtra);
+                if (cbVar.getBaijiahaoData() != null) {
+                    dR.dR("obj_param4", cbVar.getBaijiahaoData().oriUgcNid);
+                    if (cbVar.bmy() || cbVar.bpO()) {
+                        dR.dR("obj_param6", cbVar.getBaijiahaoData().oriUgcVid);
                     }
                 }
-                if (bzVar.bpu()) {
-                    dW.an("obj_param5", 2);
-                } else if (bzVar.bme() || bzVar.bmf()) {
-                    dW.an("obj_param5", 3);
-                } else if (bzVar.threadType == 0 || bzVar.threadType == 40) {
-                    dW.an("obj_param5", 1);
+                if (cbVar.bpM()) {
+                    dR.ap("obj_param5", 2);
+                } else if (cbVar.bmx() || cbVar.bmy()) {
+                    dR.ap("obj_param5", 3);
+                } else if (cbVar.threadType == 0 || cbVar.threadType == 40) {
+                    dR.ap("obj_param5", 1);
                 }
             } else {
-                dW.dW("tid", agreeData.threadId);
-                dW.dW(IntentConfig.NID, agreeData.nid);
-                dW.dW("fid", agreeData.forumId);
-                dW.an(IntentConfig.CARD_TYPE, agreeData.cardType);
-                dW.dW("ab_tag", agreeData.recomAbTag);
-                dW.dW(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
-                dW.dW("weight", agreeData.recomWeight);
-                dW.dW("extra", agreeData.recomExtra);
+                dR.dR("tid", agreeData.threadId);
+                dR.dR(IntentConfig.NID, agreeData.nid);
+                dR.dR("fid", agreeData.forumId);
+                dR.ap(IntentConfig.CARD_TYPE, agreeData.cardType);
+                dR.dR("ab_tag", agreeData.recomAbTag);
+                dR.dR(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
+                dR.dR("weight", agreeData.recomWeight);
+                dR.dR("extra", agreeData.recomExtra);
                 if (agreeData.baijiahaoData != null) {
-                    dW.dW("obj_param6", agreeData.baijiahaoData.oriUgcVid);
+                    dR.dR("obj_param6", agreeData.baijiahaoData.oriUgcVid);
                 }
             }
             if (context != null) {
-                c.a(context, dW);
+                c.a(context, dR);
             }
-            TiebaStatic.log(dW);
+            TiebaStatic.log(dR);
         }
     }
 }

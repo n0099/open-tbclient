@@ -16,12 +16,12 @@ public class o extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bsT() {
+    public int btn() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bsU() {
+    public int bto() {
         return 0;
     }
 
@@ -32,7 +32,7 @@ public class o extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public com.baidu.adp.lib.Disk.ops.c AZ(String str) {
+    public com.baidu.adp.lib.Disk.ops.c Bq(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -57,7 +57,7 @@ public class o extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    protected boolean w(Bitmap bitmap) {
+    protected boolean v(Bitmap bitmap) {
         return bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk());
     }
 
@@ -74,7 +74,7 @@ public class o extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bsV() {
+    public int btp() {
         return this.procType;
     }
 }

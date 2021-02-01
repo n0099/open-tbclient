@@ -1,7 +1,7 @@
 package com.baidu.live.im.data;
 
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ImSendMsgData implements Serializable {
     public d barrageCardInfo;
     public String barrageId;
@@ -9,6 +9,7 @@ public class ImSendMsgData implements Serializable {
     public boolean isOut;
     public boolean isQuick;
     public boolean isQuickBarrage;
+    public boolean isUseCard;
     public short msgType;
     public long price;
     public String text;
@@ -21,6 +22,7 @@ public class ImSendMsgData implements Serializable {
         this.isQuick = false;
         this.isOut = false;
         this.isQuickBarrage = false;
+        this.isUseCard = false;
         this.text = str;
         this.msgType = s;
     }

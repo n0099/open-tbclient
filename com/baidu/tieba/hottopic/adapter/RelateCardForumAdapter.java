@@ -8,10 +8,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.n;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RelateCardForumAdapter extends com.baidu.adp.widget.ListView.a<n, CardGroupRelateForumHolder> {
-    public boolean kkD;
-    private HotTopicActivity kku;
+    private HotTopicActivity ksB;
+    public boolean ksK;
     public final TbPageContext<?> mPageContext;
     private BdUniqueId mTag;
 
@@ -22,9 +22,9 @@ public class RelateCardForumAdapter extends com.baidu.adp.widget.ListView.a<n, C
     /* JADX INFO: Access modifiers changed from: protected */
     public RelateCardForumAdapter(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
         super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.kkD = true;
+        this.ksK = true;
         this.mTag = null;
-        this.kku = hotTopicActivity;
+        this.ksB = hotTopicActivity;
         this.mPageContext = hotTopicActivity.getPageContext();
     }
 
@@ -33,10 +33,10 @@ public class RelateCardForumAdapter extends com.baidu.adp.widget.ListView.a<n, C
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: cg */
     public CardGroupRelateForumHolder e(ViewGroup viewGroup) {
-        com.baidu.tieba.hottopic.view.a aVar = new com.baidu.tieba.hottopic.view.a(this.kku.getPageContext());
+        com.baidu.tieba.hottopic.view.a aVar = new com.baidu.tieba.hottopic.view.a(this.ksB.getPageContext());
         aVar.setTag(getTag());
         aVar.setFrom("home");
-        this.kkD = true;
+        this.ksK = true;
         return new CardGroupRelateForumHolder(aVar);
     }
 
@@ -44,32 +44,32 @@ public class RelateCardForumAdapter extends com.baidu.adp.widget.ListView.a<n, C
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
-        if (cardGroupRelateForumHolder == null || cardGroupRelateForumHolder.kkE == null) {
+        if (cardGroupRelateForumHolder == null || cardGroupRelateForumHolder.ksL == null) {
             return null;
         }
-        if (this.kkD) {
-            cardGroupRelateForumHolder.kkE.a(nVar);
-            this.kkD = false;
+        if (this.ksK) {
+            cardGroupRelateForumHolder.ksL.a(nVar);
+            this.ksK = false;
         }
         cardGroupRelateForumHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return cardGroupRelateForumHolder.getView();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class CardGroupRelateForumHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tieba.hottopic.view.a kkE;
+        public com.baidu.tieba.hottopic.view.a ksL;
         private int mSkinType;
 
         public CardGroupRelateForumHolder(com.baidu.tieba.hottopic.view.a aVar) {
             super(aVar.getView());
             this.mSkinType = 3;
-            this.kkE = aVar;
+            this.ksL = aVar;
         }
 
         public void onChangeSkinType(int i) {
             if (this.mSkinType != i) {
-                if (this.kkE != null) {
-                    this.kkE.onChangeSkinType(this.kkE.getTbPageContext(), i);
+                if (this.ksL != null) {
+                    this.ksL.onChangeSkinType(this.ksL.getTbPageContext(), i);
                 }
                 this.mSkinType = i;
             }

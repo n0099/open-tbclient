@@ -1,33 +1,28 @@
 package com.baidu.mobads.utils;
 
-import android.annotation.TargetApi;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.util.Base64;
-import com.baidu.mobads.interfaces.utils.IXAdBitmapUtils;
-import java.io.ByteArrayOutputStream;
-/* loaded from: classes14.dex */
-class d implements IXAdBitmapUtils {
-    @Override // com.baidu.mobads.interfaces.utils.IXAdBitmapUtils
-    @TargetApi(8)
-    public String bitmap2tring(Bitmap bitmap) {
+import com.baidu.live.adp.lib.util.SecureHelper;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+/* loaded from: classes5.dex */
+public class d {
+    public static SecretKey a() {
+        return new SecretKeySpec("aaskdffdaaskdffd".getBytes(), com.baidu.sapi2.utils.e.q);
+    }
+
+    public static String a(String str) {
         try {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-            return Base64.encodeToString(byteArrayOutputStream.toByteArray(), 0);
+            return a(Base64.decode(str, 0), a());
         } catch (Exception e) {
+            e.printStackTrace();
             return "";
         }
     }
 
-    @Override // com.baidu.mobads.interfaces.utils.IXAdBitmapUtils
-    @TargetApi(8)
-    public Bitmap string2bitmap(String str) {
-        try {
-            byte[] decode = Base64.decode(str, 0);
-            return BitmapFactory.decodeByteArray(decode, 0, decode.length);
-        } catch (Exception e) {
-            return null;
-        }
+    public static String a(byte[] bArr, SecretKey secretKey) {
+        Cipher cipher = Cipher.getInstance(SecureHelper.CIPHER_TRIPLE_AES);
+        cipher.init(2, secretKey);
+        return new String(cipher.doFinal(bArr), "UTF-8");
     }
 }

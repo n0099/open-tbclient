@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class NetworkQuality {
     public static final int BAD_NETWORK_QUALITY = 2;
     public static final int DEFAULT_NETWORK_QUALITY = 1;
@@ -26,7 +26,7 @@ public class NetworkQuality {
     private static volatile int sNetworkQualityUpdateFrom = -1;
     private static WeakNetCheckConfig sWeakNetCheckConfig = new WeakNetCheckConfig();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static abstract class NetworkQualityListener {
         private final Executor mExecutor;
 
@@ -140,7 +140,7 @@ public class NetworkQuality {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class WeakNetCheckConfig {
         static final long DEFAULT_TTFB_EXPIRE_TIME = 1000;
         static final long DEFAULT_TTFB_GOOD_THRESHOLD = 590;

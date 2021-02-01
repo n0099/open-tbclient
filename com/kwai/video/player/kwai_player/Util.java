@@ -3,7 +3,7 @@ package com.kwai.video.player.kwai_player;
 import androidx.annotation.Keep;
 import com.kwai.video.player.NativeErrorCode;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Util {
     public static boolean isCriticalErrorInMediaPlayer(int i, int i2) {
         switch (i) {
@@ -22,7 +22,7 @@ public class Util {
             case NativeErrorCode.EKS_AVERROR_ETIMEDOUT /* -5004 */:
             case NativeErrorCode.EKS_AVERROR_EMFILE /* -5003 */:
             case NativeErrorCode.EKS_AVERROR_EIO /* -5002 */:
-            case NativeErrorCode.EKS_AVERROR_PROTOCOL_NOT_FOUND /* -5001 */:
+            case -5001:
             case -1010:
             case -1007:
             case -1004:

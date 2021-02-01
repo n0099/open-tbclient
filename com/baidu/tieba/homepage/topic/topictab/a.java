@@ -6,5 +6,5 @@ import java.util.List;
 public interface a {
     void loadData();
 
-    void o(int i, List<n> list);
+    void q(int i, List<n> list);
 }

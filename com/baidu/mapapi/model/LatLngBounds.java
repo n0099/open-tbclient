@@ -2,26 +2,26 @@ package com.baidu.mapapi.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class LatLngBounds implements Parcelable {
     public static final Parcelable.Creator<LatLngBounds> CREATOR = new b();
     public final LatLng northeast;
     public final LatLng southwest;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private double f2823a;
+        private double f2821a;
 
         /* renamed from: b  reason: collision with root package name */
-        private double f2824b;
+        private double f2822b;
         private double c;
         private double d;
         private boolean e = true;
 
         public LatLngBounds build() {
-            return new LatLngBounds(new LatLng(this.f2824b, this.d), new LatLng(this.f2823a, this.c));
+            return new LatLngBounds(new LatLng(this.f2822b, this.d), new LatLng(this.f2821a, this.c));
         }
 
         public Builder include(LatLng latLng) {
@@ -29,19 +29,19 @@ public final class LatLngBounds implements Parcelable {
                 if (this.e) {
                     this.e = false;
                     double d = latLng.latitude;
-                    this.f2823a = d;
-                    this.f2824b = d;
+                    this.f2821a = d;
+                    this.f2822b = d;
                     double d2 = latLng.longitude;
                     this.c = d2;
                     this.d = d2;
                 }
                 double d3 = latLng.latitude;
                 double d4 = latLng.longitude;
-                if (d3 < this.f2823a) {
-                    this.f2823a = d3;
+                if (d3 < this.f2821a) {
+                    this.f2821a = d3;
                 }
-                if (d3 > this.f2824b) {
-                    this.f2824b = d3;
+                if (d3 > this.f2822b) {
+                    this.f2822b = d3;
                 }
                 if (d4 < this.c) {
                     this.c = d4;

@@ -1,17 +1,17 @@
 package com.tencent.turingfd.sdk.ams.au;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class t extends aq {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f13546a;
+        public Context f13548a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.tencent.turingfd.sdk.a.a f13547b;
+        public com.tencent.turingfd.sdk.a.a f13549b;
         public String c = "";
         public int d = 5000;
         public int e = 3;
@@ -28,7 +28,7 @@ public class t extends aq {
         /* JADX DEBUG: Marked for inline */
         /* JADX DEBUG: Method not inlined, still used in: [com.tencent.turingfd.sdk.ams.au.t.a(android.content.Context):com.tencent.turingfd.sdk.ams.au.t$a] */
         public /* synthetic */ a(Context context, b bVar) {
-            this.f13546a = context.getApplicationContext();
+            this.f13548a = context.getApplicationContext();
         }
 
         public final a a(s sVar) {
@@ -57,8 +57,8 @@ public class t extends aq {
     }
 
     public /* synthetic */ t(a aVar, b bVar) {
-        this.f13487a = aVar.f13546a;
-        this.k = aVar.f13547b;
+        this.f13489a = aVar.f13548a;
+        this.k = aVar.f13549b;
         this.c = aVar.c;
         this.l = aVar.d;
         this.m = aVar.e;
@@ -66,7 +66,7 @@ public class t extends aq {
         this.g = aVar.f;
         this.i = aVar.h;
         this.j = aVar.i;
-        this.f13488b = aVar.j;
+        this.f13490b = aVar.j;
         this.d = aVar.k;
         this.n = aVar.l;
         this.o = aVar.m;

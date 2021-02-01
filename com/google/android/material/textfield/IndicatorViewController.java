@@ -26,7 +26,7 @@ import com.google.android.material.animation.AnimatorSetCompat;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class IndicatorViewController {
     private static final int CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167;
     private static final int CAPTION_STATE_ERROR = 1;

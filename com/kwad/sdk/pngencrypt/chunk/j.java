@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j extends s {
     private int h;
     private int i;

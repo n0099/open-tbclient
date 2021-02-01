@@ -21,20 +21,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h Ql = null;
+    private static h Qj = null;
 
-    public static h nJ() {
+    public static h nI() {
         h hVar;
-        if (Ql == null) {
+        if (Qj == null) {
             synchronized (h.class) {
-                if (Ql == null) {
-                    Ql = new h();
+                if (Qj == null) {
+                    Qj = new h();
                 }
-                hVar = Ql;
+                hVar = Qj;
             }
             return hVar;
         }
-        return Ql;
+        return Qj;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -412,7 +412,7 @@ public class h {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Object, Object> {
-        i Qm;
+        i Qk;
         String mLibName;
         boolean mLoadSuccess = false;
         StringBuilder mLogContent;
@@ -422,7 +422,7 @@ public class h {
             this.mLibName = str;
             this.mNewFileName = str2;
             this.mLogContent = sb;
-            this.Qm = iVar;
+            this.Qk = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -435,14 +435,15 @@ public class h {
             return null;
         }
 
+        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        protected void onPostExecute(Object obj) {
+        public void onPostExecute(Object obj) {
             super.onPostExecute(obj);
             if (this.mLogContent.length() > 0) {
                 BdStatisticsManager.getInstance().error("so", "load_" + this.mLibName + PluginInstallerService.APK_LIB_SUFFIX, "", BdErrorInfo.ERR_SO_LOAD, this.mLogContent.toString(), new Object[0]);
             }
-            if (this.Qm != null) {
-                this.Qm.callback(this.mLoadSuccess);
+            if (this.Qk != null) {
+                this.Qk.callback(this.mLoadSuccess);
             }
         }
     }

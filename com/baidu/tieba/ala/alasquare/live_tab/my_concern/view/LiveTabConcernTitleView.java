@@ -7,22 +7,22 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LiveTabConcernTitleView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.g> {
-    private ViewHolder gAR;
+    private ViewHolder gDB;
 
     public LiveTabConcernTitleView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gAR = new ViewHolder(this);
+        this.gDB = new ViewHolder(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setBackgroundColor(this.gAR.elg, R.color.CAM_X0201);
-        ao.setViewTextColor(this.gAR.mTitle, R.color.CAM_X0105);
+        ap.setBackgroundColor(this.gDB.eno, R.color.CAM_X0201);
+        ap.setViewTextColor(this.gDB.mTitle, R.color.CAM_X0105);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -33,8 +33,8 @@ public class LiveTabConcernTitleView extends com.baidu.tieba.card.b<com.baidu.ti
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.g gVar) {
-        if (gVar != null && !StringUtils.isNull(gVar.gEc) && this.gAR != null) {
-            this.gAR.mTitle.setText(gVar.gEc);
+        if (gVar != null && !StringUtils.isNull(gVar.gGM) && this.gDB != null) {
+            this.gDB.mTitle.setText(gVar.gGM);
         }
     }
 
@@ -42,17 +42,17 @@ public class LiveTabConcernTitleView extends com.baidu.tieba.card.b<com.baidu.ti
     public void onClick(View view) {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
-        public View elg;
-        public LiveTabConcernTitleView gAS;
+        public View eno;
+        public LiveTabConcernTitleView gDC;
         public TextView mTitle;
 
         public ViewHolder(LiveTabConcernTitleView liveTabConcernTitleView) {
             super(liveTabConcernTitleView.getView());
-            this.gAS = liveTabConcernTitleView;
-            this.elg = liveTabConcernTitleView.getView();
-            this.mTitle = (TextView) this.elg.findViewById(R.id.tab_sub_rec_title_tv);
+            this.gDC = liveTabConcernTitleView;
+            this.eno = liveTabConcernTitleView.getView();
+            this.mTitle = (TextView) this.eno.findViewById(R.id.tab_sub_rec_title_tv);
         }
     }
 }

@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Arrays;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     public DefaultNetworkCallback mDefaultNetworkCallback;
     public boolean mIgnoreNextBroadcast;
@@ -46,7 +46,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     public ConnectivityManagerDelegate mConnectivityManagerDelegate = new ConnectivityManagerDelegate(ContextUtils.sApplicationContext);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ConnectivityManagerDelegate {
         public static final /* synthetic */ boolean $assertionsDisabled = !NetworkChangeNotifierAutoDetect.class.desiredAssertionStatus();
         public final ConnectivityManager mConnectivityManager;
@@ -220,7 +220,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(21)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class DefaultNetworkCallback extends ConnectivityManager.NetworkCallback {
         public /* synthetic */ DefaultNetworkCallback(AnonymousClass1 anonymousClass1) {
         }
@@ -249,13 +249,13 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(21)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class MyNetworkCallback extends ConnectivityManager.NetworkCallback {
         public static final /* synthetic */ boolean $assertionsDisabled = !NetworkChangeNotifierAutoDetect.class.desiredAssertionStatus();
         public Network mVpnInPlace;
 
         /* renamed from: aegon.chrome.net.NetworkChangeNotifierAutoDetect$MyNetworkCallback$1  reason: invalid class name */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class AnonymousClass1 implements Runnable {
             public final /* synthetic */ int val$connectionType;
             public final /* synthetic */ boolean val$makeVpnDefault;
@@ -378,14 +378,14 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class NetworkConnectivityIntentFilter extends IntentFilter {
         public NetworkConnectivityIntentFilter() {
             addAction("android.net.conn.CONNECTIVITY_CHANGE");
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class NetworkState {
         public final boolean mConnected;
         public final boolean mIsPrivateDnsActive;
@@ -453,11 +453,11 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface Observer {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class RegistrationPolicy {
         public static final /* synthetic */ boolean $assertionsDisabled = !NetworkChangeNotifierAutoDetect.class.desiredAssertionStatus();
         public NetworkChangeNotifierAutoDetect mNotifier;
@@ -518,7 +518,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class WifiManagerDelegate {
         public static final /* synthetic */ boolean $assertionsDisabled = !NetworkChangeNotifierAutoDetect.class.desiredAssertionStatus();
         public final Context mContext;

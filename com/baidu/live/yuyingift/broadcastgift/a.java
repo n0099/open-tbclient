@@ -16,19 +16,19 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends Dialog implements DialogInterface.OnDismissListener, View.OnClickListener {
-    private View bUe;
-    private TextView bUf;
-    private TextView bUg;
-    private InterfaceC0233a bUh;
-    public CustomMessageListener bdo;
+    private View bYd;
+    private TextView bYe;
+    private TextView bYf;
+    private InterfaceC0234a bYg;
+    public CustomMessageListener bgy;
     private Context mContext;
     private TextView mTitle;
 
     /* renamed from: com.baidu.live.yuyingift.broadcastgift.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0233a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0234a {
         void onCancel();
 
         void onConfirm();
@@ -36,7 +36,7 @@ public class a extends Dialog implements DialogInterface.OnDismissListener, View
 
     public a(Context context) {
         super(context);
-        this.bdo = new CustomMessageListener(2913097) { // from class: com.baidu.live.yuyingift.broadcastgift.a.1
+        this.bgy = new CustomMessageListener(2913097) { // from class: com.baidu.live.yuyingift.broadcastgift.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -52,12 +52,12 @@ public class a extends Dialog implements DialogInterface.OnDismissListener, View
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.yuyin_layout_dialog_connnection_wheat_remind);
-        WL();
+        YB();
         initView();
         initListener();
     }
 
-    private void WL() {
+    private void YB() {
         Window window = getWindow();
         if (window != null) {
             window.setBackgroundDrawable(new ColorDrawable(getContext().getResources().getColor(a.c.sdk_black_alpha65)));
@@ -77,16 +77,16 @@ public class a extends Dialog implements DialogInterface.OnDismissListener, View
     }
 
     private void initView() {
-        this.bUe = findViewById(a.f.view);
+        this.bYd = findViewById(a.f.view);
         this.mTitle = (TextView) findViewById(a.f.tv_title);
-        this.bUf = (TextView) findViewById(a.f.tv_cancel);
-        this.bUg = (TextView) findViewById(a.f.tv_confirm);
+        this.bYe = (TextView) findViewById(a.f.tv_cancel);
+        this.bYf = (TextView) findViewById(a.f.tv_confirm);
     }
 
     private void initListener() {
-        this.bUe.setOnClickListener(this);
-        this.bUf.setOnClickListener(this);
-        this.bUg.setOnClickListener(this);
+        this.bYd.setOnClickListener(this);
+        this.bYe.setOnClickListener(this);
+        this.bYf.setOnClickListener(this);
         setOnDismissListener(this);
     }
 
@@ -112,30 +112,30 @@ public class a extends Dialog implements DialogInterface.OnDismissListener, View
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        MessageManager.getInstance().registerListener(this.bdo);
+        MessageManager.getInstance().registerListener(this.bgy);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bUe || view == this.bUf) {
+        if (view == this.bYd || view == this.bYe) {
             dismiss();
-            if (this.bUh != null) {
-                this.bUh.onCancel();
+            if (this.bYg != null) {
+                this.bYg.onCancel();
             }
-        } else if (view == this.bUg) {
+        } else if (view == this.bYf) {
             dismiss();
-            if (this.bUh != null) {
-                this.bUh.onConfirm();
+            if (this.bYg != null) {
+                this.bYg.onConfirm();
             }
         }
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        MessageManager.getInstance().unRegisterListener(this.bdo);
+        MessageManager.getInstance().unRegisterListener(this.bgy);
     }
 
-    public void a(InterfaceC0233a interfaceC0233a) {
-        this.bUh = interfaceC0233a;
+    public void a(InterfaceC0234a interfaceC0234a) {
+        this.bYg = interfaceC0234a;
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -41,7 +41,7 @@ public class VersionData implements Serializable {
                 this.newVer = jSONObject.optString("new_version", null);
                 this.size = jSONObject.optString(TiebaInitialize.LogFields.SIZE, null);
                 String optString = jSONObject.optString("new_four_version", null);
-                if (!at.isEmpty(optString)) {
+                if (!au.isEmpty(optString)) {
                     this.newVer = optString;
                 }
                 this.url = jSONObject.optString("new_version_url");

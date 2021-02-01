@@ -4,50 +4,49 @@ import android.app.ActivityManager;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private static volatile b cgY = null;
-    private Long cgZ;
-    private Long cha;
-    private RandomAccessFile chb;
-    private RandomAccessFile chc;
+    private static volatile b clk = null;
+    private Long cll;
+    private Long clm;
+    private RandomAccessFile cln;
+    private RandomAccessFile clo;
     private String mPackageName;
 
     private b() {
     }
 
-    public static b aaE() {
-        if (cgY == null) {
+    public static b acs() {
+        if (clk == null) {
             synchronized (b.class) {
-                if (cgY == null) {
-                    cgY = new b();
+                if (clk == null) {
+                    clk = new b();
                 }
             }
         }
-        return cgY;
+        return clk;
     }
 
-    public ActivityManager.MemoryInfo aaF() {
+    public ActivityManager.MemoryInfo act() {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
         ((ActivityManager) com.baidu.minivideo.arface.b.getContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
         return memoryInfo;
     }
 
-    public double aaG() {
-        double aaI = aaI();
-        if (aaI <= 0.0d) {
-            aaI = aaH();
+    public double acu() {
+        double acw = acw();
+        if (acw <= 0.0d) {
+            acw = acv();
         }
-        if (aaI <= 0.0d) {
+        if (acw <= 0.0d) {
             return getCpuUsageStatistic();
         }
-        return aaI;
+        return acw;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
@@ -55,13 +54,13 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public double aaH() {
+    public double acv() {
         double doubleValue;
         if (Build.VERSION.SDK_INT >= 26) {
-            String iC = iC(this.mPackageName);
-            if (!TextUtils.isEmpty(iC)) {
+            String ji = ji(this.mPackageName);
+            if (!TextUtils.isEmpty(ji)) {
                 try {
-                    doubleValue = Double.valueOf(iC).doubleValue();
+                    doubleValue = Double.valueOf(ji).doubleValue();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -74,7 +73,7 @@ public class b {
             if (doubleValue <= 0.0d) {
             }
         } else {
-            return aaI();
+            return acw();
         }
     }
 
@@ -84,9 +83,9 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String iC(String str) {
+    private String ji(String str) {
         try {
-            Process exec = Runtime.getRuntime().exec(new String[]{IXAdRequestInfo.SCREEN_HEIGHT, "-c", "top -n 1"});
+            Process exec = Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1"});
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
             while (true) {
                 String readLine = bufferedReader.readLine();
@@ -109,31 +108,31 @@ public class b {
         return "";
     }
 
-    public double aaI() {
+    public double acw() {
         double d = 0.0d;
         try {
-            if (this.chb == null || this.chc == null) {
-                this.chb = new RandomAccessFile("/proc/stat", "r");
-                this.chc = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
+            if (this.cln == null || this.clo == null) {
+                this.cln = new RandomAccessFile("/proc/stat", "r");
+                this.clo = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
             } else {
-                this.chb.seek(0L);
-                this.chc.seek(0L);
+                this.cln.seek(0L);
+                this.clo.seek(0L);
             }
-            String readLine = this.chb.readLine();
-            String readLine2 = this.chc.readLine();
+            String readLine = this.cln.readLine();
+            String readLine2 = this.clo.readLine();
             String[] split = readLine.split(" ");
             String[] split2 = readLine2.split(" ");
             long parseLong = Long.parseLong(split[2]) + Long.parseLong(split[3]) + Long.parseLong(split[4]) + Long.parseLong(split[5]) + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
             long parseLong2 = Long.parseLong(split2[14]) + Long.parseLong(split2[13]);
-            if (this.cgZ == null && this.cha == null) {
-                this.cgZ = Long.valueOf(parseLong);
-                this.cha = Long.valueOf(parseLong2);
+            if (this.cll == null && this.clm == null) {
+                this.cll = Long.valueOf(parseLong);
+                this.clm = Long.valueOf(parseLong2);
             } else {
-                if (this.cgZ != null && this.cha != null) {
-                    d = ((parseLong2 - this.cha.longValue()) / (parseLong - this.cgZ.longValue())) * 100.0d;
+                if (this.cll != null && this.clm != null) {
+                    d = ((parseLong2 - this.clm.longValue()) / (parseLong - this.cll.longValue())) * 100.0d;
                 }
-                this.cgZ = Long.valueOf(parseLong);
-                this.cha = Long.valueOf(parseLong2);
+                this.cll = Long.valueOf(parseLong);
+                this.clm = Long.valueOf(parseLong2);
             }
         } catch (Exception e) {
             e.printStackTrace();

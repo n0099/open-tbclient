@@ -1,6 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -12,7 +13,7 @@ import java.util.Set;
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Set<String> f14328a = Collections.synchronizedSet(new HashSet());
+    private static final Set<String> f14330a = Collections.synchronizedSet(new HashSet());
 
     /* renamed from: a  reason: collision with other field name */
     private Context f1017a;
@@ -38,11 +39,11 @@ public final class u {
             file2.getParentFile().mkdirs();
             file2.createNewFile();
         }
-        if (f14328a.add(str)) {
+        if (f14330a.add(str)) {
             u uVar = new u(context);
             uVar.f1019a = str;
             try {
-                uVar.f1018a = new RandomAccessFile(file2, "rw");
+                uVar.f1018a = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 uVar.f1020a = uVar.f1018a.getChannel().lock();
                 com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + uVar.f1020a);
                 return uVar;
@@ -51,7 +52,7 @@ public final class u {
                     if (uVar.f1018a != null) {
                         y.a(uVar.f1018a);
                     }
-                    f14328a.remove(uVar.f1019a);
+                    f14330a.remove(uVar.f1019a);
                 }
             }
         }
@@ -70,6 +71,6 @@ public final class u {
         if (this.f1018a != null) {
             y.a(this.f1018a);
         }
-        f14328a.remove(this.f1019a);
+        f14330a.remove(this.f1019a);
     }
 }

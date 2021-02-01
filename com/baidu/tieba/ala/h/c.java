@@ -1,148 +1,329 @@
 package com.baidu.tieba.ala.h;
 
 import android.text.TextUtils;
-import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.HttpMessageListener;
-import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
-import com.baidu.live.data.an;
-import com.baidu.live.data.bw;
-import com.baidu.live.message.AlaSyncHttpResponseMessage;
+import com.baidu.live.data.cb;
+import com.baidu.live.tbadk.download.DownloadData;
+import com.baidu.live.tbadk.download.FileDownloadCallBack;
+import com.baidu.live.tbadk.download.FileSerialDownLoader;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes10.dex */
-public class c implements com.baidu.live.u.d {
-    private static final String ibe = com.baidu.live.ah.b.Pp();
-    private static final String ibf = com.baidu.live.ah.b.Pr();
-    private static final String ibg = com.baidu.live.ah.b.Pt();
-    private boolean ibh;
-    private HttpMessageListener ibi;
-    private String ibk;
-    private d icd;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes11.dex */
+public class c {
+    private DownloadData aUc;
 
-    public static c cnO() {
-        return a.icf;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void y(String str, String str2, final String str3, final String str4) {
+        this.aUc = new DownloadData();
+        this.aUc.setId("pk_rank_anti_kill");
+        this.aUc.setName("pk_rank_anti_kill");
+        this.aUc.setUrl(str);
+        this.aUc.setCheck(str2);
+        this.aUc.setType(27);
+        this.aUc.setPath(str3);
+        this.aUc.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.ala.h.c.1
+            @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+            public void onFileUpdateProgress(DownloadData downloadData) {
+            }
+
+            @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+            public boolean onPreDownload(DownloadData downloadData) {
+                return true;
+            }
+
+            @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+            public boolean onFileDownloaded(DownloadData downloadData) {
+                return true;
+            }
+
+            @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+            public void onFileDownloadSucceed(DownloadData downloadData) {
+                c.this.z(downloadData.getUrl(), downloadData.getCheck(), str3, str4);
+            }
+
+            @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+            public void onFileDownloadFailed(DownloadData downloadData, int i, String str5) {
+            }
+        });
+        FileSerialDownLoader.getInstance().startDownLoadWithoutMax(this.aUc);
     }
 
-    public String cnz() {
-        return this.ibk;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void release() {
+        if (this.aUc != null) {
+            this.aUc.setCallback(null);
+        }
     }
 
-    @Override // com.baidu.live.u.d
-    public void NH() {
-        final an anVar = com.baidu.live.af.a.OJ().bru;
-        if (anVar == null || anVar.aKA == null || TextUtils.isEmpty(anVar.aKA.downloadUrl)) {
-            bWb();
-        } else if (!this.ibh) {
-            this.ibk = "";
-            this.ibh = true;
-            new BdAsyncTask<bw, Void, bw>() { // from class: com.baidu.tieba.ala.h.c.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-                /* renamed from: a */
-                public bw doInBackground(bw... bwVarArr) {
-                    bw HR;
-                    if (bwVarArr == null || bwVarArr.length == 0) {
-                        return null;
-                    }
-                    bw bwVar = bwVarArr[0];
-                    String string = com.baidu.live.d.xf().getString("live_pk_rank_start_anim", "");
-                    if (TextUtils.isEmpty(string) || (HR = b.HR(string)) == null || !bwVar.downloadUrl.equals(HR.downloadUrl) || !bwVar.aNI.equals(HR.aNI) || TextUtils.isEmpty(HR.videoMd5) || !HR.videoMd5.equals(c.this.cnA())) {
-                        c.this.cnB();
-                        return null;
-                    }
-                    return HR;
-                }
-
+    /* JADX INFO: Access modifiers changed from: private */
+    public void z(final String str, final String str2, final String str3, final String str4) {
+        if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
+            new BdAsyncTask<Void, Void, List<cb>>() { // from class: com.baidu.tieba.ala.h.c.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
-                public void onPostExecute(bw bwVar) {
-                    super.onPostExecute(bwVar);
-                    if (bwVar == null) {
-                        c.this.b(anVar.aKA);
-                        return;
+                public List<cb> doInBackground(Void... voidArr) {
+                    List<cb> A = c.this.A(str, str2, str3, str4);
+                    if (A == null || A.isEmpty()) {
+                        c.this.fH(str3);
+                        c.this.fH(str4);
                     }
-                    c.this.ibk = bwVar.videoPath;
+                    return A;
                 }
-            }.execute(anVar.aKA);
-        }
-    }
 
-    @Override // com.baidu.live.u.d
-    public void release() {
-        this.ibh = false;
-        this.ibk = "";
-        MessageManager.getInstance().unRegisterListener(this.ibi);
-        this.ibi = null;
-        if (this.icd != null) {
-            this.icd.release();
-        }
-        com.baidu.live.i.b.cz(21);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void cQ(List<bw> list) {
-        if (list != null && !list.isEmpty()) {
-            bw bwVar = list.get(0);
-            this.ibk = bwVar.videoPath;
-            com.baidu.live.d.xf().putString("live_pk_rank_start_anim", b.a(bwVar));
-        }
-    }
-
-    private void bWb() {
-        if (this.ibi == null) {
-            this.ibi = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.h.c.2
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.live.adp.framework.listener.MessageListener
-                public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021011 && (httpResponsedMessage instanceof AlaSyncHttpResponseMessage)) {
-                        c.this.NH();
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
+                /* renamed from: B */
+                public void onPostExecute(List<cb> list) {
+                    super.onPostExecute(list);
+                    if (list != null && !list.isEmpty()) {
+                        b.coM().cL(list);
                     }
                 }
-            };
-            MessageManager.getInstance().registerListener(this.ibi);
+            }.execute(new Void[0]);
         }
     }
 
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
     /* JADX INFO: Access modifiers changed from: private */
-    public String cnA() {
-        File[] listFiles = new File(ibg).listFiles();
-        if (listFiles == null || listFiles.length == 0) {
+    public java.util.List<com.baidu.live.data.cb> A(java.lang.String r8, java.lang.String r9, java.lang.String r10, java.lang.String r11) {
+        /*
+            r7 = this;
+            r1 = 0
+            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> La6
+            r3.<init>(r10)     // Catch: java.lang.Throwable -> La6
+            java.util.zip.ZipInputStream r2 = new java.util.zip.ZipInputStream     // Catch: java.lang.Throwable -> Laa
+            java.io.BufferedInputStream r0 = new java.io.BufferedInputStream     // Catch: java.lang.Throwable -> Laa
+            r0.<init>(r3)     // Catch: java.lang.Throwable -> Laa
+            r2.<init>(r0)     // Catch: java.lang.Throwable -> Laa
+            r0 = r1
+        L11:
+            java.util.zip.ZipEntry r4 = r2.getNextEntry()     // Catch: java.lang.Throwable -> L51
+            if (r4 == 0) goto L61
+            boolean r5 = r4.isDirectory()     // Catch: java.lang.Throwable -> L51
+            if (r5 != 0) goto L11
+            java.lang.String r4 = r4.getName()     // Catch: java.lang.Throwable -> L51
+            java.io.File r4 = r7.b(r2, r11, r4)     // Catch: java.lang.Throwable -> L51
+            if (r4 == 0) goto L11
+            java.lang.String r5 = r4.getAbsolutePath()     // Catch: java.lang.Throwable -> L51
+            boolean r5 = android.text.TextUtils.isEmpty(r5)     // Catch: java.lang.Throwable -> L51
+            if (r5 != 0) goto L11
+            if (r0 != 0) goto L38
+            java.util.ArrayList r0 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L51
+            r0.<init>()     // Catch: java.lang.Throwable -> L51
+        L38:
+            com.baidu.live.data.cb r5 = new com.baidu.live.data.cb     // Catch: java.lang.Throwable -> L51
+            r5.<init>()     // Catch: java.lang.Throwable -> L51
+            r5.downloadUrl = r8     // Catch: java.lang.Throwable -> L51
+            r5.aQJ = r9     // Catch: java.lang.Throwable -> L51
+            java.lang.String r6 = r4.getAbsolutePath()     // Catch: java.lang.Throwable -> L51
+            r5.videoPath = r6     // Catch: java.lang.Throwable -> L51
+            java.lang.String r4 = com.baidu.live.h.a.getFileMd5(r4)     // Catch: java.lang.Throwable -> L51
+            r5.videoMd5 = r4     // Catch: java.lang.Throwable -> L51
+            r0.add(r5)     // Catch: java.lang.Throwable -> L51
+            goto L11
+        L51:
+            r0 = move-exception
+        L52:
+            r0.printStackTrace()     // Catch: java.lang.Throwable -> La4
+            if (r2 == 0) goto L5a
+            r2.close()     // Catch: java.io.IOException -> L89
+        L5a:
+            if (r3 == 0) goto L5f
+            r3.close()     // Catch: java.io.IOException -> L89
+        L5f:
+            r0 = r1
+        L60:
+            return r0
+        L61:
+            java.io.File r4 = new java.io.File     // Catch: java.lang.Throwable -> L51
+            r4.<init>(r10)     // Catch: java.lang.Throwable -> L51
+            com.baidu.live.tbadk.core.util.FileHelper.deleteFile(r4)     // Catch: java.lang.Throwable -> L51
+            if (r0 == 0) goto L79
+            boolean r4 = r0.isEmpty()     // Catch: java.lang.Throwable -> L51
+            if (r4 != 0) goto L79
+            com.baidu.tieba.ala.h.c$3 r4 = new com.baidu.tieba.ala.h.c$3     // Catch: java.lang.Throwable -> L51
+            r4.<init>()     // Catch: java.lang.Throwable -> L51
+            java.util.Collections.sort(r0, r4)     // Catch: java.lang.Throwable -> L51
+        L79:
+            if (r2 == 0) goto L7e
+            r2.close()     // Catch: java.io.IOException -> L84
+        L7e:
+            if (r3 == 0) goto L60
+            r3.close()     // Catch: java.io.IOException -> L84
+            goto L60
+        L84:
+            r1 = move-exception
+            r1.printStackTrace()
+            goto L60
+        L89:
+            r0 = move-exception
+            r0.printStackTrace()
+            goto L5f
+        L8e:
+            r0 = move-exception
+            r2 = r1
+            r3 = r1
+        L91:
+            if (r2 == 0) goto L96
+            r2.close()     // Catch: java.io.IOException -> L9c
+        L96:
+            if (r3 == 0) goto L9b
+            r3.close()     // Catch: java.io.IOException -> L9c
+        L9b:
+            throw r0
+        L9c:
+            r1 = move-exception
+            r1.printStackTrace()
+            goto L9b
+        La1:
+            r0 = move-exception
+            r2 = r1
+            goto L91
+        La4:
+            r0 = move-exception
+            goto L91
+        La6:
+            r0 = move-exception
+            r2 = r1
+            r3 = r1
+            goto L52
+        Laa:
+            r0 = move-exception
+            r2 = r1
+            goto L52
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.ala.h.c.A(java.lang.String, java.lang.String, java.lang.String, java.lang.String):java.util.List");
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [219=5, 220=5, 221=5, 223=5, 224=5] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x00d3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private File b(InputStream inputStream, String str, String str2) {
+        String[] split;
+        FileOutputStream fileOutputStream;
+        FileOutputStream fileOutputStream2 = null;
+        if (inputStream == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        for (File file : listFiles) {
-            if (!file.isDirectory()) {
-                return com.baidu.live.i.a.getFileMd5(file);
+        if (str2.contains("/.")) {
+            return null;
+        }
+        try {
+            File file = new File(str + "/" + (str2.split("/").length > 1 ? split[split.length - 1] : split[0]));
+            String parent = file.getParent();
+            if (!TextUtils.isEmpty(parent)) {
+                File file2 = new File(parent);
+                if (!file2.exists()) {
+                    file2.mkdirs();
+                }
             }
+            FileOutputStream fileOutputStream3 = null;
+            try {
+                try {
+                    if (file.exists() && !file.delete()) {
+                        if (0 != 0) {
+                            try {
+                                fileOutputStream3.flush();
+                                fileOutputStream3.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        return null;
+                    } else if (!file.createNewFile()) {
+                        if (0 != 0) {
+                            try {
+                                fileOutputStream3.flush();
+                                fileOutputStream3.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                        return null;
+                    } else {
+                        fileOutputStream = new FileOutputStream(file);
+                        try {
+                            byte[] bArr = new byte[4096];
+                            while (true) {
+                                int read = inputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                fileOutputStream.write(bArr, 0, read);
+                            }
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.flush();
+                                    fileOutputStream.close();
+                                    return file;
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
+                                    return file;
+                                }
+                            }
+                            return file;
+                        } catch (IOException e4) {
+                            e = e4;
+                            e.printStackTrace();
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.flush();
+                                    fileOutputStream.close();
+                                } catch (IOException e5) {
+                                    e5.printStackTrace();
+                                }
+                            }
+                            return null;
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream2 = null;
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.flush();
+                            fileOutputStream2.close();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            } catch (IOException e7) {
+                e = e7;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (fileOutputStream2 != null) {
+                }
+                throw th;
+            }
+        } catch (Exception e8) {
+            e8.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(bw bwVar) {
-        if (bwVar != null && !TextUtils.isEmpty(bwVar.downloadUrl)) {
-            this.icd = new d();
-            this.icd.y(bwVar.downloadUrl, bwVar.aNI, ibf, ibg);
+    public void fH(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            com.baidu.live.h.a.cleanDir(new File(str));
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cnB() {
-        this.ibk = "";
-        com.baidu.live.d.xf().putString("live_pk_rank_start_anim", "");
-        com.baidu.live.i.a.cleanDir(new File(ibe));
-    }
-
-    private c() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
-    public static class a {
-        private static c icf = new c();
     }
 }

@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class OpenBdussResult extends SapiResult implements NoProguard {
     public static final int ERROR_CODE_NOT_LOGIN = -901;
     public static final String ERROR_MSG_NOT_LOGIN = "未登录";

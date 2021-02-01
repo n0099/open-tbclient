@@ -3,15 +3,15 @@ package com.baidu.pass.http;
 import android.os.Looper;
 import com.baidu.down.manage.DownloadConstants;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BinaryHttpResponseHandler extends HttpResponseHandler implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String[] f4092a;
+    private String[] f4095a;
 
     public BinaryHttpResponseHandler(Looper looper) {
         super(looper);
-        this.f4092a = new String[]{"image/png", "image/jpeg", "image/jpg", DownloadConstants.MIMETYPE_GIF};
+        this.f4095a = new String[]{"image/png", "image/jpeg", "image/jpg", DownloadConstants.MIMETYPE_GIF};
     }
 
     @Override // com.baidu.pass.http.HttpResponseHandler
@@ -19,7 +19,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
         boolean z;
         if (hashMap != null && hashMap.get("Content-Type") != null) {
             String str = hashMap.get("Content-Type");
-            String[] strArr = this.f4092a;
+            String[] strArr = this.f4095a;
             int length = strArr.length;
             int i2 = 0;
             while (true) {
@@ -62,8 +62,8 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
 
     public BinaryHttpResponseHandler(Looper looper, String[] strArr, boolean z) {
         super(looper);
-        this.f4092a = new String[]{"image/png", "image/jpeg", "image/jpg", DownloadConstants.MIMETYPE_GIF};
-        this.f4092a = strArr;
+        this.f4095a = new String[]{"image/png", "image/jpeg", "image/jpg", DownloadConstants.MIMETYPE_GIF};
+        this.f4095a = strArr;
         this.executCallbackInChildThread = z;
     }
 }

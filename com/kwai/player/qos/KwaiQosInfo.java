@@ -1,7 +1,7 @@
 package com.kwai.player.qos;
 
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KwaiQosInfo {
     public static final String AENC_INIT = "aenc_init";
     public static final String AUDIO_BUFFER_BYTE = "audio_buffer_byte";

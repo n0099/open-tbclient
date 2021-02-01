@@ -4,23 +4,23 @@ import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes2.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
-    private a nfw;
+    private a npf;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.nfw = new a(this, getPageContext());
-        this.nfw.W(getIntent());
-        setContentView(this.nfw.nfy.getRootLayout());
-        this.nfw.startLoadData();
+        this.npf = new a(this, getPageContext());
+        this.npf.W(getIntent());
+        setContentView(this.npf.nph.getRootLayout());
+        this.npf.startLoadData();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nfw.nfy != null) {
-            this.nfw.nfy.changeSkinType(i);
+        if (this.npf.nph != null) {
+            this.npf.nph.changeSkinType(i);
         }
     }
 
@@ -30,8 +30,8 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         super.onResume();
     }
 
-    public a dJd() {
-        return this.nfw;
+    public a dLo() {
+        return this.npf;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a

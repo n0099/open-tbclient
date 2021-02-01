@@ -10,7 +10,7 @@ import com.xiaomi.push.service.XMPushService;
 public class hd implements fv {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14079a;
+    private int f14081a;
 
     /* renamed from: a  reason: collision with other field name */
     fs f503a;
@@ -27,7 +27,7 @@ public class hd implements fv {
     private long f502a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f14080b = 0;
+    private long f14082b = 0;
     private long c = 0;
     private long d = 0;
 
@@ -52,7 +52,7 @@ public class hd implements fv {
     }
 
     private void b() {
-        this.f14080b = 0L;
+        this.f14082b = 0L;
         this.d = 0L;
         this.f502a = 0L;
         this.c = 0L;
@@ -66,13 +66,13 @@ public class hd implements fv {
     }
 
     private synchronized void c() {
-        com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f506a + " netDuration = " + this.f14080b + " ChannelDuration = " + this.d + " channelConnectedTime = " + this.c);
+        com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f506a + " netDuration = " + this.f14082b + " ChannelDuration = " + this.d + " channelConnectedTime = " + this.c);
         fi fiVar = new fi();
         fiVar.f402a = (byte) 0;
         fiVar.a(fh.CHANNEL_ONLINE_RATE.a());
         fiVar.a(this.f506a);
         fiVar.d((int) (System.currentTimeMillis() / 1000));
-        fiVar.b((int) (this.f14080b / 1000));
+        fiVar.b((int) (this.f14082b / 1000));
         fiVar.c((int) (this.d / 1000));
         he.m360a().a(fiVar);
         b();
@@ -90,7 +90,7 @@ public class hd implements fv {
             boolean b2 = az.b(this.f504a);
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (this.f502a > 0) {
-                this.f14080b += elapsedRealtime - this.f502a;
+                this.f14082b += elapsedRealtime - this.f502a;
                 this.f502a = 0L;
             }
             if (this.c != 0) {
@@ -98,7 +98,7 @@ public class hd implements fv {
                 this.c = 0L;
             }
             if (b2) {
-                if ((!TextUtils.equals(this.f506a, m166a) && this.f14080b > 30000) || this.f14080b > 5400000) {
+                if ((!TextUtils.equals(this.f506a, m166a) && this.f14082b > 30000) || this.f14082b > 5400000) {
                     c();
                 }
                 this.f506a = m166a;
@@ -123,8 +123,8 @@ public class hd implements fv {
     public void a(fs fsVar, int i, Exception exc) {
         long j;
         long j2;
-        if (this.f14079a == 0 && this.f505a == null) {
-            this.f14079a = i;
+        if (this.f14081a == 0 && this.f505a == null) {
+            this.f14081a = i;
             this.f505a = exc;
             hg.b(fsVar.m320a(), exc);
         }
@@ -159,7 +159,7 @@ public class hd implements fv {
 
     @Override // com.xiaomi.push.fv
     public void b(fs fsVar) {
-        this.f14079a = 0;
+        this.f14081a = 0;
         this.f505a = null;
         this.f503a = fsVar;
         this.f506a = az.m166a((Context) this.f504a);

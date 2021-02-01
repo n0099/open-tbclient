@@ -1,5 +1,5 @@
 package com.qq.e.comm.plugin.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 interface k {
     boolean a(f fVar);
 

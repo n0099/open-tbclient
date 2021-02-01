@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @TargetApi(21)
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class AudioAttributesImplApi21 implements AudioAttributesImpl {
     private static final String TAG = "AudioAttributesCompat21";
     static Method sAudioAttributesToLegacyStreamType;

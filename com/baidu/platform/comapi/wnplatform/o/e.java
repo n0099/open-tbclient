@@ -6,7 +6,7 @@ import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static MapStatusUpdate a(MapStatus mapStatus) {
         return MapStatusUpdateFactory.newMapStatus(mapStatus);

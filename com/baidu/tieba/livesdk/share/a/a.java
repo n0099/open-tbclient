@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tieba.c.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private ArrayList<TransmitForumData> gnp = new ArrayList<>();
-    private final CustomMessageListener kZy = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.livesdk.share.a.a.1
+    private ArrayList<TransmitForumData> gpY = new ArrayList<>();
+    private final CustomMessageListener lhC = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.livesdk.share.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ArrayList)) {
-                a.this.gnp.clear();
-                a.this.gnp.addAll((ArrayList) customResponsedMessage.getData());
+                a.this.gpY.clear();
+                a.this.gpY.addAll((ArrayList) customResponsedMessage.getData());
             }
         }
     };
@@ -29,29 +29,29 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.kZy);
+        MessageManager.getInstance().registerListener(this.lhC);
     }
 
-    public void dbB() {
-        f.csn().csq();
+    public void ddz() {
+        f.ctz().ctC();
     }
 
-    public void hd(long j) {
+    public void hi(long j) {
         if (j > 0) {
             SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mTbPageContext.getPageActivity(), RequestResponseCode.REQUEST_SELECT_FORUM);
             CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, selectForumActivityConfig);
             selectForumActivityConfig.setFrom(1);
-            selectForumActivityConfig.setForumList(this.gnp);
+            selectForumActivityConfig.setForumList(this.gpY);
             selectForumActivityConfig.setLiveId(j);
             MessageManager.getInstance().sendMessage(customMessage);
         }
     }
 
-    public List<TransmitForumData> dbC() {
-        return this.gnp;
+    public List<TransmitForumData> ddA() {
+        return this.gpY;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.kZy);
+        MessageManager.getInstance().unRegisterListener(this.lhC);
     }
 }

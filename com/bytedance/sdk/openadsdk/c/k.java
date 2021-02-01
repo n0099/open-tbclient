@@ -9,26 +9,26 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile k f6234a;
+    private static volatile k f6236a;
 
     /* renamed from: b  reason: collision with root package name */
-    private c f6235b = c.a();
+    private c f6237b = c.a();
     private Map<String, Object> c;
     private b d;
 
     public static k a() {
-        if (f6234a == null) {
+        if (f6236a == null) {
             synchronized (k.class) {
-                if (f6234a == null) {
-                    f6234a = new k();
+                if (f6236a == null) {
+                    f6236a = new k();
                 }
             }
         }
-        return f6234a;
+        return f6236a;
     }
 
     private k() {
@@ -42,10 +42,10 @@ public class k {
     private void a(b bVar) {
         if (bVar != null) {
             bVar.b();
-            if (bVar.a() * this.f6235b.f6240a > this.f6235b.f6241b) {
+            if (bVar.a() * this.f6237b.f6242a > this.f6237b.f6243b) {
                 c(bVar.a(false));
             } else {
-                com.bytedance.sdk.openadsdk.k.a.a().a(new a(100), this.f6235b.f6240a);
+                com.bytedance.sdk.openadsdk.k.a.a().a(new a(100), this.f6237b.f6242a);
             }
         }
     }
@@ -63,19 +63,19 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private int f6237b;
+        private int f6239b;
 
         public a(int i) {
-            this.f6237b = i;
+            this.f6239b = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f6237b == 100 && k.this.d != null) {
+            if (this.f6239b == 100 && k.this.d != null) {
                 k.this.b(k.this.d);
             }
         }
@@ -88,14 +88,14 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Serializable, Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicInteger f6238a = new AtomicInteger(0);
+        public final AtomicInteger f6240a = new AtomicInteger(0);
 
         /* renamed from: b  reason: collision with root package name */
-        public final AtomicBoolean f6239b = new AtomicBoolean(false);
+        public final AtomicBoolean f6241b = new AtomicBoolean(false);
         public com.bytedance.sdk.openadsdk.core.d.l c;
         public String d;
         public Map<String, Object> e;
@@ -116,16 +116,16 @@ public class k {
         }
 
         public b a(boolean z) {
-            this.f6239b.set(z);
+            this.f6241b.set(z);
             return this;
         }
 
         public int a() {
-            return this.f6238a.get();
+            return this.f6240a.get();
         }
 
         public void b() {
-            this.f6238a.incrementAndGet();
+            this.f6240a.incrementAndGet();
         }
 
         @Override // java.lang.Runnable
@@ -133,11 +133,11 @@ public class k {
             if (this.c == null || TextUtils.isEmpty(this.d)) {
                 u.a("materialMeta or eventTag is null, pls check");
             } else if (this.f) {
-                u.b("DMLibManager", "落地页调起应用是否成功 sResult.get() " + this.f6239b.get());
-                d.b(com.bytedance.sdk.openadsdk.core.p.a(), this.c, this.d, this.f6239b.get() ? "lp_dpl_success" : "lp_dpl_failed");
+                u.b("DMLibManager", "落地页调起应用是否成功 sResult.get() " + this.f6241b.get());
+                d.b(com.bytedance.sdk.openadsdk.core.p.a(), this.c, this.d, this.f6241b.get() ? "lp_dpl_success" : "lp_dpl_failed");
             } else {
-                d.i(com.bytedance.sdk.openadsdk.core.p.a(), this.c, this.d, this.f6239b.get() ? "dpl_success" : "dpl_failed", this.e);
-                if (this.f6239b != null && this.f6239b.get() && this.c != null) {
+                d.i(com.bytedance.sdk.openadsdk.core.p.a(), this.c, this.d, this.f6241b.get() ? "dpl_success" : "dpl_failed", this.e);
+                if (this.f6241b != null && this.f6241b.get() && this.c != null) {
                     k.b(this.c, this.d);
                 }
             }
@@ -157,14 +157,14 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6240a = 500;
+        public int f6242a = 500;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f6241b = 5000;
+        public int f6243b = 5000;
 
         public static c a() {
             return new c();

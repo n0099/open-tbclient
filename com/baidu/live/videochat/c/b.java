@@ -10,37 +10,37 @@ import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.videochat.c.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private com.baidu.live.videochat.c.a bLC;
-    private a bLD;
-    private BdAlertDialog bze;
+    private BdAlertDialog bCK;
+    private com.baidu.live.videochat.c.a bPm;
+    private a bPn;
     private long countdown = 10;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void OB();
+        void Qa();
     }
 
     public void a(a aVar) {
-        this.bLD = aVar;
+        this.bPn = aVar;
     }
 
-    public void by(long j) {
+    public void bC(long j) {
         if (j > 0) {
             this.countdown = j;
         }
     }
 
-    public void a(final Activity activity, String str, String str2, final a.InterfaceC0220a interfaceC0220a) {
-        if (this.bLC == null) {
-            this.bLC = new com.baidu.live.videochat.c.a(activity);
+    public void a(final Activity activity, String str, String str2, final a.InterfaceC0222a interfaceC0222a) {
+        if (this.bPm == null) {
+            this.bPm = new com.baidu.live.videochat.c.a(activity);
         }
         final CountDownTimer countDownTimer = new CountDownTimer(this.countdown * 1000, 1000L) { // from class: com.baidu.live.videochat.c.b.1
             @Override // android.os.CountDownTimer
             public void onTick(long j) {
-                if (b.this.bLC != null && b.this.bLC.isShowing()) {
-                    b.this.bLC.hO(String.format(activity.getString(a.h.linkmic_close_refuse), (((int) (j / 1000)) + 1) + ""));
+                if (b.this.bPm != null && b.this.bPm.isShowing()) {
+                    b.this.bPm.ij(String.format(activity.getString(a.h.linkmic_close_refuse), (((int) (j / 1000)) + 1) + ""));
                 } else {
                     cancel();
                 }
@@ -48,61 +48,61 @@ public class b {
 
             @Override // android.os.CountDownTimer
             public void onFinish() {
-                if (b.this.bLC != null && b.this.bLC.isShowing()) {
-                    interfaceC0220a.Qc();
-                    b.this.bLC.dismiss();
+                if (b.this.bPm != null && b.this.bPm.isShowing()) {
+                    interfaceC0222a.RM();
+                    b.this.bPm.dismiss();
                 }
             }
         };
-        this.bLC.a(new a.InterfaceC0220a() { // from class: com.baidu.live.videochat.c.b.2
-            @Override // com.baidu.live.videochat.c.a.InterfaceC0220a
-            public void Ul() {
-                interfaceC0220a.Ul();
+        this.bPm.a(new a.InterfaceC0222a() { // from class: com.baidu.live.videochat.c.b.2
+            @Override // com.baidu.live.videochat.c.a.InterfaceC0222a
+            public void VU() {
+                interfaceC0222a.VU();
             }
 
-            @Override // com.baidu.live.videochat.c.a.InterfaceC0220a
-            public void Um() {
-                b.this.G(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Value.VALUE_CHAT_LINK_INVITE_ACC);
-                interfaceC0220a.Um();
-                b.this.bLC.dismiss();
+            @Override // com.baidu.live.videochat.c.a.InterfaceC0222a
+            public void VV() {
+                b.this.H(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Value.VALUE_CHAT_LINK_INVITE_ACC);
+                interfaceC0222a.VV();
+                b.this.bPm.dismiss();
                 countDownTimer.cancel();
             }
 
-            @Override // com.baidu.live.videochat.c.a.InterfaceC0220a
-            public void Un() {
-                b.this.G(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Value.VALUE_CHAT_LINK_INVITE_RFS);
-                interfaceC0220a.Un();
-                b.this.bLC.dismiss();
+            @Override // com.baidu.live.videochat.c.a.InterfaceC0222a
+            public void VW() {
+                b.this.H(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Value.VALUE_CHAT_LINK_INVITE_RFS);
+                interfaceC0222a.VW();
+                b.this.bPm.dismiss();
                 countDownTimer.cancel();
             }
 
-            @Override // com.baidu.live.videochat.c.a.InterfaceC0220a
-            public void Qc() {
+            @Override // com.baidu.live.videochat.c.a.InterfaceC0222a
+            public void RM() {
             }
         });
-        if (!this.bLC.isShowing()) {
-            G(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Value.VALUE_CHAT_LINK_INVITE_SHOW);
-            this.bLC.show();
+        if (!this.bPm.isShowing()) {
+            H(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Value.VALUE_CHAT_LINK_INVITE_SHOW);
+            this.bPm.show();
             if (str != null) {
-                this.bLC.hM(str);
+                this.bPm.ih(str);
             }
         }
-        this.bLC.fa(8);
-        this.bLC.hN(str2);
-        this.bLC.setTitle(activity.getString(a.h.linkmic_invite));
-        this.bLC.ho(activity.getString(a.h.linkmic_start));
-        this.bLC.hO(String.format(activity.getString(a.h.linkmic_close_refuse), this.countdown + ""));
-        this.bLC.dX(0);
-        this.bLC.eZ(0);
-        this.bLC.setCanceledOnTouchOutside(false);
+        this.bPm.fe(8);
+        this.bPm.ii(str2);
+        this.bPm.setTitle(activity.getString(a.h.linkmic_invite));
+        this.bPm.hK(activity.getString(a.h.linkmic_start));
+        this.bPm.ij(String.format(activity.getString(a.h.linkmic_close_refuse), this.countdown + ""));
+        this.bPm.eb(0);
+        this.bPm.fd(0);
+        this.bPm.setCanceledOnTouchOutside(false);
         countDownTimer.start();
     }
 
-    public void Qh() {
-        if (this.bLC != null && this.bLC.isShowing()) {
-            this.bLC.dismiss();
+    public void RR() {
+        if (this.bPm != null && this.bPm.isShowing()) {
+            this.bPm.dismiss();
         }
-        this.bLC = null;
+        this.bPm = null;
     }
 
     public void a(BdPageContext bdPageContext, boolean z) {
@@ -110,51 +110,51 @@ public class b {
         if (z) {
             i = a.h.linkmic_close_confirm;
         }
-        if (this.bze == null) {
-            this.bze = new BdAlertDialog(bdPageContext.getPageActivity());
+        if (this.bCK == null) {
+            this.bCK = new BdAlertDialog(bdPageContext.getPageActivity());
         }
-        this.bze.setAutoNight(false);
-        this.bze.setTitle((String) null);
-        this.bze.setMessageId(i);
-        this.bze.setPositiveButton(a.h.sdk_dialog_ok, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.videochat.c.b.3
+        this.bCK.setAutoNight(false);
+        this.bCK.setTitle((String) null);
+        this.bCK.setMessageId(i);
+        this.bCK.setPositiveButton(a.h.sdk_dialog_ok, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.videochat.c.b.3
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
                 bdAlertDialog.dismiss();
-                b.this.G(UbcStatisticLiveKey.KEY_ID_1396, "click", "linkclose_cfm");
-                if (b.this.bLD != null) {
-                    b.this.bLD.OB();
+                b.this.H(UbcStatisticLiveKey.KEY_ID_1396, "click", "linkclose_cfm");
+                if (b.this.bPn != null) {
+                    b.this.bPn.Qa();
                 }
             }
         });
-        this.bze.setNegativeButton(a.h.sdk_dialog_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.videochat.c.b.4
+        this.bCK.setNegativeButton(a.h.sdk_dialog_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.videochat.c.b.4
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
                 bdAlertDialog.dismiss();
-                b.this.G(UbcStatisticLiveKey.KEY_ID_1396, "click", "linkclose_can");
+                b.this.H(UbcStatisticLiveKey.KEY_ID_1396, "click", "linkclose_can");
             }
         });
-        this.bze.setCanceledOnTouchOutside(false);
-        this.bze.setPositiveButtonTextColor(-55461);
-        this.bze.setNagetiveButtonTextColor(-14737633);
-        this.bze.create(bdPageContext).show();
-        G(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Value.VALUE_CHAT_LINK_CLS_TAB_SHOW);
+        this.bCK.setCanceledOnTouchOutside(false);
+        this.bCK.setPositiveButtonTextColor(-55461);
+        this.bCK.setNagetiveButtonTextColor(-14737633);
+        this.bCK.create(bdPageContext).show();
+        H(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Value.VALUE_CHAT_LINK_CLS_TAB_SHOW);
     }
 
-    public void Qi() {
-        if (this.bze != null && this.bze.isShowing()) {
-            this.bze.dismiss();
+    public void RS() {
+        if (this.bCK != null && this.bCK.isShowing()) {
+            this.bCK.dismiss();
         }
-        this.bze = null;
+        this.bCK = null;
     }
 
     public void onDestroy() {
-        this.bLC = null;
-        this.bze = null;
-        this.bLD = null;
+        this.bPm = null;
+        this.bCK = null;
+        this.bPn = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void G(String str, String str2, String str3) {
+    public void H(String str, String str2, String str3) {
         UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(str, str2, "author_liveroom", str3);
         ubcStatisticItem.setContentExt(null, UbcStatConstant.SubPage.POPUP, null);
         UbcStatisticManager.getInstance().logSendRequest(ubcStatisticItem);

@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.ak.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    void jW(int i);
+    void jZ(int i);
 }

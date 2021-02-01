@@ -6,7 +6,7 @@ import androidx.annotation.RequiresApi;
 import java.util.Iterator;
 import java.util.List;
 @RequiresApi(21)
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class PlaybackStateCompatApi21 {
     public static int getState(Object obj) {
         return ((PlaybackState) obj).getState();
@@ -58,7 +58,7 @@ class PlaybackStateCompatApi21 {
         return builder.build();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class CustomAction {
         public static String getAction(Object obj) {
             return ((PlaybackState.CustomAction) obj).getAction();

@@ -7,23 +7,23 @@ import com.baidu.minivideo.arface.b;
 import com.baidu.minivideo.arface.b.j;
 import com.baidu.minivideo.arface.utils.g;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class h {
-    private static com.baidu.minivideo.arface.utils.b cgA;
-    private static h cgz;
-    private Boolean cgB;
+    private static h ckJ;
+    private static com.baidu.minivideo.arface.utils.b ckK;
+    private Boolean ckL;
 
-    public static h aax() {
-        if (cgz == null) {
+    public static h acl() {
+        if (ckJ == null) {
             createInst();
         }
-        return cgz;
+        return ckJ;
     }
 
     private static synchronized void createInst() {
         synchronized (h.class) {
-            if (cgz == null) {
-                cgz = new h();
+            if (ckJ == null) {
+                ckJ = new h();
             }
         }
     }
@@ -31,17 +31,17 @@ public class h {
     private h() {
     }
 
-    private boolean aay() {
+    private boolean acm() {
         String str;
         boolean z = false;
-        if (this.cgB == null) {
-            this.cgB = false;
+        if (this.ckL == null) {
+            this.ckL = false;
             try {
                 String[] list = com.baidu.minivideo.arface.b.getContext().getAssets().list("arsource");
                 if (list != null && list.length > 0) {
                     z = true;
                 }
-                this.cgB = Boolean.valueOf(z);
+                this.ckL = Boolean.valueOf(z);
                 if (com.baidu.minivideo.arface.b.isDebug()) {
                     if (list == null) {
                         str = "null";
@@ -54,40 +54,40 @@ public class h {
                 e.printStackTrace();
             }
         }
-        return this.cgB.booleanValue();
+        return this.ckL.booleanValue();
     }
 
-    private com.baidu.minivideo.arface.utils.b aaz() {
-        if (cgA == null) {
-            com.baidu.minivideo.arface.utils.b aaO = com.baidu.minivideo.arface.utils.b.aaO();
-            com.baidu.minivideo.arface.b.ZU();
-            aaO.b(com.baidu.minivideo.arface.b.getContext(), "arsource", new File(com.baidu.minivideo.arface.c.aac()));
-            cgA = aaO;
+    private com.baidu.minivideo.arface.utils.b acn() {
+        if (ckK == null) {
+            com.baidu.minivideo.arface.utils.b acC = com.baidu.minivideo.arface.utils.b.acC();
+            com.baidu.minivideo.arface.b.abI();
+            acC.b(com.baidu.minivideo.arface.b.getContext(), "arsource", new File(com.baidu.minivideo.arface.c.abQ()));
+            ckK = acC;
         }
-        return cgA;
+        return ckK;
     }
 
-    public File aaA() {
-        File aai;
-        boolean z = com.baidu.minivideo.arface.b.ZV() && aay();
+    public File aco() {
+        File abW;
+        boolean z = com.baidu.minivideo.arface.b.abJ() && acm();
         if (z) {
-            aai = e.aas().aat();
+            abW = e.acg().ach();
         } else {
-            aai = b.iw(com.baidu.minivideo.arface.b.ZW()).aai();
+            abW = b.jc(com.baidu.minivideo.arface.b.abK()).abW();
         }
         if (com.baidu.minivideo.arface.b.isDebug()) {
-            d("sdkPath useLocal " + z + ", SDKPath " + aai);
+            d("sdkPath useLocal " + z + ", SDKPath " + abW);
         }
-        return aai;
+        return abW;
     }
 
     public void a(final b.a aVar) {
-        if (com.baidu.minivideo.arface.b.ZV() && aay()) {
+        if (com.baidu.minivideo.arface.b.abJ() && acm()) {
             c(aVar);
-        } else if (com.baidu.minivideo.arface.b.ZT() == null) {
+        } else if (com.baidu.minivideo.arface.b.abH() == null) {
             d("loadSDK with Downlader==null");
         } else {
-            b.iw(com.baidu.minivideo.arface.b.ZW()).a(com.baidu.minivideo.arface.b.getContext(), new j.b<b>() { // from class: com.baidu.minivideo.arface.b.h.1
+            b.jc(com.baidu.minivideo.arface.b.abK()).a(com.baidu.minivideo.arface.b.getContext(), new j.b<b>() { // from class: com.baidu.minivideo.arface.b.h.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.minivideo.arface.b.j.b
                 public void a(b bVar, long j, long j2, int i) {
@@ -127,14 +127,14 @@ public class h {
 
     public void c(b.a aVar) {
         if (com.baidu.minivideo.arface.b.isDebug()) {
-            d("loadAssets hasAssetsResource=" + aay());
+            d("loadAssets hasAssetsResource=" + acm());
         }
-        if (com.baidu.minivideo.arface.b.ZU() == null) {
+        if (com.baidu.minivideo.arface.b.abI() == null) {
             d("DuArResConfig null when loadAssets");
-        } else if (TextUtils.isEmpty(com.baidu.minivideo.arface.c.aac())) {
+        } else if (TextUtils.isEmpty(com.baidu.minivideo.arface.c.abQ())) {
             d("DuArResConfig data empty when loadAssets");
         } else {
-            a(com.baidu.minivideo.arface.b.getContext(), "arsource", new File(com.baidu.minivideo.arface.c.aac()), aVar);
+            a(com.baidu.minivideo.arface.b.getContext(), "arsource", new File(com.baidu.minivideo.arface.c.abQ()), aVar);
         }
     }
 
@@ -146,7 +146,7 @@ public class h {
         if ((context == null || TextUtils.isEmpty(str) || file == null || TextUtils.isEmpty(file.getAbsolutePath())) && aVar != null) {
             aVar.onResult(false, str2);
         }
-        aaz().a(context, str, file, new g.a() { // from class: com.baidu.minivideo.arface.b.h.2
+        acn().a(context, str, file, new g.a() { // from class: com.baidu.minivideo.arface.b.h.2
             @Override // com.baidu.minivideo.arface.utils.g.a
             public void a(int i, com.baidu.minivideo.arface.utils.g gVar) {
                 boolean z = i == 2;
@@ -162,11 +162,11 @@ public class h {
                         com.baidu.minivideo.arface.b.a(new com.baidu.minivideo.arface.c(file.getAbsolutePath()));
                     }
                     if (z) {
-                        boolean ZK = com.baidu.minivideo.arface.a.ZK();
+                        boolean abz = com.baidu.minivideo.arface.a.abz();
                         if (com.baidu.minivideo.arface.b.isDebug()) {
-                            h.d("loadAssets ARControllerProxy.loadSoFile " + ZK);
+                            h.d("loadAssets ARControllerProxy.loadSoFile " + abz);
                         }
-                        if (!ZK) {
+                        if (!abz) {
                             z = false;
                         }
                     }

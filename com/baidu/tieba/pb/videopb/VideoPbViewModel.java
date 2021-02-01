@@ -5,33 +5,33 @@ import android.graphics.Rect;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes2.dex */
 public class VideoPbViewModel extends ViewModel {
-    private PbModel lEs;
-    private d mbX = new d();
-    private int mbY = 0;
+    private PbModel lNh;
+    private d mkZ = new d();
+    private int mla = 0;
 
     public void init(Intent intent) {
-        this.mbX.h((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.mbX.vZ(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.mkZ.h((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.mkZ.wq(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void i(PbModel pbModel) {
-        this.lEs = pbModel;
+        this.lNh = pbModel;
     }
 
     public void b(f fVar, int i) {
         boolean z = true;
-        if (i >= this.mbY) {
-            this.mbY = i;
-            this.mbX.O(fVar);
+        if (i >= this.mla) {
+            this.mla = i;
+            this.mkZ.O(fVar);
             if (fVar != null) {
-                d dVar = this.mbX;
-                if (fVar.getIsNewUrl() != 1 && !fVar.djq()) {
+                d dVar = this.mkZ;
+                if (fVar.getIsNewUrl() != 1 && !fVar.dlC()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -39,111 +39,115 @@ public class VideoPbViewModel extends ViewModel {
         }
     }
 
-    public f dsf() {
-        return this.mbX.dsf();
+    public f dur() {
+        return this.mkZ.dur();
     }
 
     public boolean isFromCDN() {
-        return this.mbX.isFromCDN();
+        return this.mkZ.isFromCDN();
     }
 
-    public f dsg() {
-        return this.mbX.dsg();
+    public f dus() {
+        return this.mkZ.dus();
     }
 
     public void c(f fVar, int i) {
         if (i == 3) {
-            this.mbX.setData(fVar);
+            this.mkZ.setData(fVar);
         }
     }
 
-    public MutableLiveData<bz> dsh() {
-        return this.mbX.dsh();
+    public MutableLiveData<cb> dut() {
+        return this.mkZ.dut();
     }
 
-    public Rect dsi() {
-        if (this.mbX.dsi() == null || this.mbX.dsi().isEmpty()) {
+    public Rect duu() {
+        if (this.mkZ.duu() == null || this.mkZ.duu().isEmpty()) {
             return null;
         }
-        return this.mbX.dsi();
+        return this.mkZ.duu();
     }
 
-    public void wc(boolean z) {
-        if (this.mbX.dsm().getValue() != null) {
-            f aL = this.lEs.aL(this.mbX.dsm().getValue());
-            if (aL != null) {
-                this.mbX.dsk().addLast(this.mbX.dsg());
-                this.mbX.setData(aL);
-                this.mbX.aT(!x.isEmpty(aL.djp()) ? aL.djp().get(0) : null);
-                this.mbX.aS(this.mbX.dsk().getLast() != null ? this.mbX.dsk().getLast().diN() : null);
-                this.lEs.FD(z ? 21 : 22);
-                this.lEs.j(aL);
-                this.mbX.setIsLoading(true);
+    public void wt(boolean z) {
+        if (this.mkZ.duy().getValue() != null) {
+            f aM = this.lNh.aM(this.mkZ.duy().getValue());
+            if (aM != null) {
+                this.mkZ.duw().addLast(this.mkZ.dus());
+                this.mkZ.setData(aM);
+                this.mkZ.aU(!y.isEmpty(aM.dlB()) ? aM.dlB().get(0) : null);
+                this.mkZ.aT(this.mkZ.duw().getLast() != null ? this.mkZ.duw().getLast().dkZ() : null);
+                this.lNh.FW(z ? 21 : 22);
+                this.lNh.j(aM);
+                this.mkZ.setIsLoading(true);
             }
         }
     }
 
-    public void aU(bz bzVar) {
-        f aL;
-        if (bzVar != null && (aL = this.lEs.aL(bzVar)) != null) {
-            this.mbX.dsk().addLast(this.mbX.dsg());
-            this.mbX.setData(aL);
-            this.mbX.aT(!x.isEmpty(aL.djp()) ? aL.djp().get(0) : null);
-            this.mbX.aS(this.mbX.dsk().getLast() != null ? this.mbX.dsk().getLast().diN() : null);
-            this.lEs.FD(20);
-            this.lEs.j(aL);
-            this.mbX.setIsLoading(true);
+    public void aV(cb cbVar) {
+        f aM;
+        if (cbVar != null && (aM = this.lNh.aM(cbVar)) != null) {
+            this.mkZ.duw().addLast(this.mkZ.dus());
+            this.mkZ.setData(aM);
+            this.mkZ.aU(!y.isEmpty(aM.dlB()) ? aM.dlB().get(0) : null);
+            this.mkZ.aT(this.mkZ.duw().getLast() != null ? this.mkZ.duw().getLast().dkZ() : null);
+            this.lNh.FW(20);
+            this.lNh.j(aM);
+            this.mkZ.setIsLoading(true);
         }
     }
 
-    public void dsr() {
-        f pollLast = this.mbX.dsk().pollLast();
+    public void duC() {
+        f pollLast = this.mkZ.duw().pollLast();
         if (pollLast != null) {
-            this.mbX.setData(pollLast);
-            this.mbX.aT(!x.isEmpty(pollLast.djp()) ? pollLast.djp().get(0) : null);
-            this.mbX.aS(this.mbX.dsk().peekLast() != null ? this.mbX.dsk().peekLast().diN() : null);
-            this.lEs.j(pollLast);
-            this.mbX.setIsLoading(true);
+            this.mkZ.setData(pollLast);
+            this.mkZ.aU(!y.isEmpty(pollLast.dlB()) ? pollLast.dlB().get(0) : null);
+            this.mkZ.aT(this.mkZ.duw().peekLast() != null ? this.mkZ.duw().peekLast().dkZ() : null);
+            this.lNh.j(pollLast);
+            this.mkZ.setIsLoading(true);
         }
     }
 
-    public MutableLiveData<bz> dsl() {
-        return this.mbX.dsl();
+    public MutableLiveData<cb> dux() {
+        return this.mkZ.dux();
     }
 
-    public MutableLiveData<bz> dsm() {
-        return this.mbX.dsm();
+    public MutableLiveData<cb> duy() {
+        return this.mkZ.duy();
     }
 
-    public MutableLiveData<Boolean> dsn() {
-        return this.mbX.dsn();
+    public MutableLiveData<Boolean> duz() {
+        return this.mkZ.duz();
     }
 
-    public void wa(boolean z) {
-        this.mbX.wa(z);
+    public void wr(boolean z) {
+        this.mkZ.wr(z);
     }
 
-    public MutableLiveData<Boolean> dso() {
-        return this.mbX.dso();
+    public MutableLiveData<Boolean> duA() {
+        return this.mkZ.duA();
     }
 
-    public void wb(boolean z) {
-        this.mbX.wb(z);
+    public void ws(boolean z) {
+        this.mkZ.ws(z);
     }
 
     public void setIsLoading(boolean z) {
-        this.mbX.setIsLoading(z);
+        this.mkZ.setIsLoading(z);
     }
 
-    public MutableLiveData<Boolean> dsp() {
-        return this.mbX.dsp();
+    public MutableLiveData<Boolean> cML() {
+        return this.mkZ.cML();
     }
 
-    public boolean dsj() {
-        return this.mbX.dsj();
+    public boolean duv() {
+        return this.mkZ.duv();
     }
 
-    public MutableLiveData<Integer> dsq() {
-        return this.mbX.dsq();
+    public void wq(boolean z) {
+        this.mkZ.wq(z);
+    }
+
+    public MutableLiveData<Integer> duB() {
+        return this.mkZ.duB();
     }
 }

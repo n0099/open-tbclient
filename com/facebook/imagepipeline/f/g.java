@@ -1,36 +1,34 @@
 package com.facebook.imagepipeline.f;
-
-import androidx.appcompat.widget.ActivityChooserView;
 /* loaded from: classes5.dex */
 public class g implements h {
-    public static final h pAb = k(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, true, true);
+    public static final h pKj = k(Integer.MAX_VALUE, true, true);
     int mQuality;
-    boolean pAc;
-    boolean pAd;
+    boolean pKk;
+    boolean pKl;
 
     private g(int i, boolean z, boolean z2) {
         this.mQuality = i;
-        this.pAc = z;
-        this.pAd = z2;
+        this.pKk = z;
+        this.pKl = z2;
     }
 
     @Override // com.facebook.imagepipeline.f.h
-    public int ewa() {
+    public int getQuality() {
         return this.mQuality;
     }
 
     @Override // com.facebook.imagepipeline.f.h
-    public boolean ewb() {
-        return this.pAc;
+    public boolean eyt() {
+        return this.pKk;
     }
 
     @Override // com.facebook.imagepipeline.f.h
-    public boolean ewc() {
-        return this.pAd;
+    public boolean eyu() {
+        return this.pKl;
     }
 
     public int hashCode() {
-        return ((this.pAc ? 4194304 : 0) ^ this.mQuality) ^ (this.pAd ? 8388608 : 0);
+        return ((this.pKk ? 4194304 : 0) ^ this.mQuality) ^ (this.pKl ? 8388608 : 0);
     }
 
     public boolean equals(Object obj) {
@@ -39,7 +37,7 @@ public class g implements h {
         }
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return this.mQuality == gVar.mQuality && this.pAc == gVar.pAc && this.pAd == gVar.pAd;
+            return this.mQuality == gVar.mQuality && this.pKk == gVar.pKk && this.pKl == gVar.pKl;
         }
         return false;
     }

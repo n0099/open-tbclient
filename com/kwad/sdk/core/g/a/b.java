@@ -5,21 +5,21 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.ah;
 import com.kwad.sdk.utils.o;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f9157a;
+    private String f9159a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f9158b;
+    private String f9160b;
     private String c;
     private String d;
 
     public static b a() {
         b bVar = new b();
-        bVar.f9157a = KsAdSDKImpl.get().getAppId();
-        bVar.f9158b = KsAdSDKImpl.get().getAppName();
+        bVar.f9159a = KsAdSDKImpl.get().getAppId();
+        bVar.f9160b = KsAdSDKImpl.get().getAppName();
         Context context = KsAdSDKImpl.get().getContext();
         if (context != null) {
             bVar.c = context.getPackageName();
@@ -31,8 +31,8 @@ public class b implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "appId", this.f9157a);
-        o.a(jSONObject, "name", this.f9158b);
+        o.a(jSONObject, "appId", this.f9159a);
+        o.a(jSONObject, "name", this.f9160b);
         o.a(jSONObject, "packageName", this.c);
         o.a(jSONObject, "version", this.d);
         return jSONObject;

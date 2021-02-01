@@ -1,17 +1,17 @@
 package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class f {
-    private static boolean OR;
+    private static boolean OP;
+    private static String OQ;
+    private static String OR;
     private static String OT;
-    private static String OU;
-    private static String OV;
 
-    public static boolean mO() {
-        return OR;
+    public static boolean mN() {
+        return OP;
     }
 
     public static void ao(boolean z) {
-        OR = z;
+        OP = z;
     }
 
     public static boolean a(com.baidu.adp.lib.stats.base.a aVar) {
@@ -19,26 +19,26 @@ public class f {
     }
 
     public static String getClientIp() {
-        return OT;
+        return OQ;
     }
 
     public static void bU(String str) {
-        OT = str;
+        OQ = str;
     }
 
     public static String getActivityId() {
-        return OU;
+        return OR;
     }
 
     public static void setActivityId(String str) {
-        OU = str;
+        OR = str;
     }
 
-    public static String mP() {
-        return OV;
+    public static String mO() {
+        return OT;
     }
 
     public static void bV(String str) {
-        OV = str;
+        OT = str;
     }
 }

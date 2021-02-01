@@ -7,7 +7,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.bdprivate.extensions.a.g;
 import com.baidu.swan.bdprivate.extensions.a.i;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c implements com.baidu.swan.facade.a.b {
     @Override // com.baidu.swan.facade.a.d
     public void a(j jVar) {

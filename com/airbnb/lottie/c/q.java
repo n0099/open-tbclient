@@ -10,7 +10,7 @@ import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class q {
     private static SparseArrayCompat<WeakReference<Interpolator>> Hv;
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
@@ -18,7 +18,7 @@ class q {
     q() {
     }
 
-    private static SparseArrayCompat<WeakReference<Interpolator>> kq() {
+    private static SparseArrayCompat<WeakReference<Interpolator>> kp() {
         if (Hv == null) {
             Hv = new SparseArrayCompat<>();
         }
@@ -29,7 +29,7 @@ class q {
     private static WeakReference<Interpolator> Y(int i) {
         WeakReference<Interpolator> weakReference;
         synchronized (q.class) {
-            weakReference = kq().get(i);
+            weakReference = kp().get(i);
         }
         return weakReference;
     }

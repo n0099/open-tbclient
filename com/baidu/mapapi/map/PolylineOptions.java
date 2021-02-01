@@ -6,11 +6,11 @@ import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class PolylineOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2758a;
+    int f2756a;
     Bundle d;
     private List<LatLng> f;
     private List<Integer> g;
@@ -23,7 +23,7 @@ public final class PolylineOptions extends OverlayOptions {
     private boolean m = false;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f2759b = true;
+    boolean f2757b = true;
     boolean c = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,15 +31,15 @@ public final class PolylineOptions extends OverlayOptions {
     public Overlay a() {
         int i = 0;
         Polyline polyline = new Polyline();
-        polyline.x = this.f2759b;
+        polyline.x = this.f2757b;
         polyline.f = this.c;
-        polyline.w = this.f2758a;
+        polyline.w = this.f2756a;
         polyline.y = this.d;
         if (this.f == null || this.f.size() < 2) {
             throw new IllegalStateException("when you add polyline, you must at least supply 2 points");
         }
-        polyline.f2757b = this.f;
-        polyline.f2756a = this.e;
+        polyline.f2755b = this.f;
+        polyline.f2754a = this.e;
         polyline.e = this.i;
         polyline.i = this.j;
         polyline.j = this.k;
@@ -152,7 +152,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2758a;
+        return this.f2756a;
     }
 
     public boolean isDottedLine() {
@@ -164,7 +164,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public boolean isVisible() {
-        return this.f2759b;
+        return this.f2757b;
     }
 
     public PolylineOptions keepScale(boolean z) {
@@ -198,7 +198,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public PolylineOptions visible(boolean z) {
-        this.f2759b = z;
+        this.f2757b = z;
         return this;
     }
 
@@ -210,7 +210,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public PolylineOptions zIndex(int i) {
-        this.f2758a = i;
+        this.f2756a = i;
         return this;
     }
 }

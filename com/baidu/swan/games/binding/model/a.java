@@ -1,61 +1,61 @@
 package com.baidu.swan.games.binding.model;
 
 import com.baidu.searchbox.v8engine.JsFunction;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
-    public JsFunction ecv;
-    public JsFunction ecw;
-    public JsFunction ecx;
+    public JsFunction eeC;
+    public JsFunction eeD;
+    public JsFunction eeE;
 
     public static a f(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.ecv = cVar.vU("success");
-        aVar.ecw = cVar.vU(com.baidu.pass.biometrics.face.liveness.c.a.p);
-        aVar.ecx = cVar.vU(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.eeC = cVar.wn("success");
+        aVar.eeD = cVar.wn(com.baidu.pass.biometrics.face.liveness.c.a.p);
+        aVar.eeE = cVar.wn("complete");
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.ecv != null) {
-            this.ecv.call(obj);
+        if (this.eeC != null) {
+            this.eeC.call(obj);
         }
-        if (this.ecx != null) {
-            this.ecx.call(obj);
+        if (this.eeE != null) {
+            this.eeE.call(obj);
         }
-        a(this.ecw);
+        a(this.eeD);
     }
 
     public void ad(Object obj) {
-        if (this.ecw != null) {
-            this.ecw.call(obj);
+        if (this.eeD != null) {
+            this.eeD.call(obj);
         }
-        if (this.ecx != null) {
-            this.ecx.call(obj);
+        if (this.eeE != null) {
+            this.eeE.call(obj);
         }
-        a(this.ecv);
+        a(this.eeC);
     }
 
     public void onSuccess() {
-        if (this.ecv != null) {
-            this.ecv.call();
+        if (this.eeC != null) {
+            this.eeC.call();
         }
-        if (this.ecx != null) {
-            this.ecx.call();
+        if (this.eeE != null) {
+            this.eeE.call();
         }
-        a(this.ecw);
+        a(this.eeD);
     }
 
     public void onFail() {
-        if (this.ecw != null) {
-            this.ecw.call();
+        if (this.eeD != null) {
+            this.eeD.call();
         }
-        if (this.ecx != null) {
-            this.ecx.call();
+        if (this.eeE != null) {
+            this.eeE.call();
         }
-        a(this.ecv);
+        a(this.eeC);
     }
 
     private void a(JsFunction jsFunction) {
